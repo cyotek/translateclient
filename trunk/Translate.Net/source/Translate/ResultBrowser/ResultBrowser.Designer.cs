@@ -84,7 +84,6 @@ namespace Translate
 			this.wBrowser.ScrollBarsEnabled = false;
 			this.wBrowser.Size = new System.Drawing.Size(391, 144);
 			this.wBrowser.TabIndex = 1;
-			this.wBrowser.WebBrowserShortcutsEnabled = false;
 			this.wBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.WBrowserNavigating);
 			// 
 			// wAdvertBrowser
