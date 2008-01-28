@@ -1,0 +1,179 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Translate</RootNamespace>
+    <AssemblyName>Translate.Net</AssemblyName>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ApplicationIcon>icons\translate.net.ico</ApplicationIcon>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Translate.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>../../bin</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE;SPEED_TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\InputLanguageManager.cs" />
+    <Compile Include="Common\LangPack.cs" />
+    <Compile Include="LanguageSelector.cs" />
+    <Compile Include="LanguageSelector.Designer.cs">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TranslatorSetting.cs" />
+    <Compile Include="Options\DefaultProfileOptionsControl.cs" />
+    <Compile Include="Options\DefaultProfileOptionsControl.Designer.cs">
+      <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\GeneralNetworkOptionsControl.cs" />
+    <Compile Include="Options\GeneralNetworkOptionsControl.Designer.cs">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\NetworkOptions.cs" />
+    <Compile Include="Options\ResultWindowOptionControl.cs" />
+    <Compile Include="Options\ResultWindowOptionControl.Designer.cs">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultWindowOptions.cs" />
+    <Compile Include="Options\StartupOptionsControl.cs" />
+    <Compile Include="Options\StartupOptionsControl.Designer.cs">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\TrayOptionsControl.cs" />
+    <Compile Include="Options\TrayOptionsControl.Designer.cs">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\DefaultTranslateProfile.cs" />
+    <Compile Include="Profile\TranslateProfile.cs" />
+    <Compile Include="ResultBrowser\HtmlHelper.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.Designer.cs">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ResultBrowser\IHTMLDOMNode.cs" />
+    <Compile Include="TranslateMainForm.cs" />
+    <Compile Include="TranslateMainForm.Designer.cs">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TranslateManager.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.Designer.cs">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdateOptions.cs" />
+    <Compile Include="Updates\UpdaterForm.cs" />
+    <Compile Include="Updates\UpdaterForm.Designer.cs">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdatesManager.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.Designer.cs">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Common\Icons.resx" />
+    <EmbeddedResource Include="LanguageSelector.resx">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\DefaultProfileOptionsControl.resx">
+      <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\GeneralNetworkOptionsControl.resx">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\StartupOptionsControl.resx">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\TrayOptionsControl.resx">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\HtmlSourceViewForm.resx">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslateMainForm.resx">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\ResultBrowser.resx">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="lang\Original.lng" />
+    <None Include="lang\Ukrainian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Updates\versions.txt" />
+    <EmbeddedResource Include="ResultBrowser\Template.html" />
+    <EmbeddedResource Include="Updates\UpdaterForm.resx">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updates\UpdatesOptionsControl.resx">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager" />
+    <Folder Include="Common" />
+    <Folder Include="lang" />
+    <Folder Include="Updates" />
+    <Folder Include="Options" />
+    <Folder Include="Profile" />
+    <Folder Include="ResultBrowser" />
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\forms\FreeCL.Forms.csproj">
+      <Project>{4839E07C-B1D6-4058-B32D-DAEDA05B762D}</Project>
+      <Name>FreeCL.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.csproj">
+      <Project>{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}</Project>
+      <Name>FreeCL.RTL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\ui\FreeCL.UI.csproj">
+      <Project>{9E7DB092-177B-43AD-9C2C-4D37BD387164}</Project>
+      <Name>FreeCL.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TranslateLib\TranslateLib.csproj">
+      <Project>{10546C49-8030-488E-A19F-8FC03E73E8A8}</Project>
+      <Name>TranslateLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,125 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4839E07C-B1D6-4058-B32D-DAEDA05B762D}</ProjectGuid>
+    <RootNamespace>FreeCL.Forms</RootNamespace>
+    <AssemblyName>FreeCL.Forms</AssemblyName>
+    <OutputType>Library</OutputType>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>False</NoStdLib>
+    <NoConfig>False</NoConfig>
+    <RunPostBuildEvent>OnSuccessfulBuild</RunPostBuildEvent>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>FreeCL.Forms.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>False</Optimize>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <OutputPath>..\..\bin\</OutputPath>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugType>Full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>False</DebugSymbols>
+    <Optimize>True</Optimize>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <OutputPath>..\..\bin\</OutputPath>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BaseOptionsControl.cs" />
+    <Compile Include="BaseOptionsControl.Designer.cs">
+      <DependentUpon>BaseOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockedGUIForm.cs" />
+    <Compile Include="BaseForm.cs" />
+    <Compile Include="BaseMainForm.cs" />
+    <Compile Include="BaseOptions.cs" />
+    <Compile Include="BaseOptionsForm.cs" />
+    <Compile Include="BaseSplashForm.cs" />
+    <Compile Include="ExceptionDialog.cs" />
+    <Compile Include="Application.cs" />
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseOptionsControl.resx">
+      <DependentUpon>BaseOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseOptionsForm.resx">
+      <DependentUpon>BaseOptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSplashForm.resx">
+      <DependentUpon>BaseSplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExceptionDialog.resx">
+      <DependentUpon>ExceptionDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LockedGUIForm.resx">
+      <DependentUpon>LockedGUIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="BaseAboutForm.cs" />
+    <EmbeddedResource Include="BaseAboutForm.resx">
+      <DependentUpon>BaseAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="IOptionsForm.cs" />
+    <Compile Include="MainForm.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseMainForm.resx">
+      <DependentUpon>BaseMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="BaseGUIForm.cs" />
+    <EmbeddedResource Include="BaseGUIForm.resx">
+      <DependentUpon>BaseGUIForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="CommonMenusEnum.cs" />
+    <Compile Include="CommonItemsEnum.cs" />
+    <Compile Include="CommonToolStripsEnum.cs" />
+    <Compile Include="OptionsControlsManager.cs" />
+    <Compile Include="UILanguageOptionsControl.cs" />
+    <Compile Include="UILanguageOptionsControl.Designer.cs">
+      <DependentUpon>UILanguageOptionsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UILanguageOptionsControl.resx">
+      <DependentUpon>UILanguageOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="FreeCL.Forms.cd" />
+    <Content Include="FreeCL.Forms.cd" />
+    <Content Include="FreeCL.Forms.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rtl\FreeCL.RTL.csproj">
+      <Project>{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}</Project>
+      <Name>FreeCL.RTL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ui\FreeCL.UI.csproj">
+      <Project>{9E7DB092-177B-43AD-9C2C-4D37BD387164}</Project>
+      <Name>FreeCL.UI</Name>
+    </ProjectReference>
+    <Content Include="FreeCL.Forms.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>

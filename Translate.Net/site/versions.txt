@@ -1,0 +1,2 @@
+Version=0.1.2935.8763
+UrlList="http://translateclient.googlepages.com/Translate.Net.0.1.2935.8763.exe" 

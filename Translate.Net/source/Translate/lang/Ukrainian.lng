@@ -1,0 +1,290 @@
+﻿[TranslationComment]
+
+[&File]
+&Файл
+[Exit from application]
+Вийти із програми
+[E&xit]
+Ви&йти
+[&Edit]
+&Правка
+[Copy selection to clipboard]
+Копіювання виділеного фрагмента до буфера обміну
+[&Copy]
+Ко&піювати
+[Cut selection to clipboard]
+Видалення виділеного фрагмента й копіювання його до буфера обміну
+[Cu&t]
+В&ирізати
+[Paste from clipboard]
+Вставка із буфера обміну
+[&Paste]
+Вс&тавити
+[Delete selection]
+Стерти виділення
+[&Delete]
+&Стерти
+[Undo last operation]
+Скасування попередньої операції
+[&Undo]
+&Скасувати
+[Redo last operation]
+Повторення попередньої операції
+[&Redo]
+По&вторити
+[Select all]
+Виділити все
+[&Select all]
+Виділити в&се
+[&Window]
+&Вікно
+[Close All]
+Закрити всі
+[&Help]
+&Довідка
+[&About ...]
+Про пр&ограму ...
+[About]
+Про програму
+[Options]
+Налаштування
+[Cancel]
+Скасувати
+[Apply]
+Застосувати
+[Minimize]
+Мінімізувати
+[{0} Updater]
+Оновлення {0}
+[Preparing]
+Підготовка до оновлення
+[Check version]
+Перевірка версії
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Завантажено {0}Kb з {1}Kb із швидкістю {2}Kb/s
+[Update downloaded]
+Оновлення завантажено
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Нова версія завантажена. Зупинити Translate.Net та запустити інсталятор нової версії ?
+[Please select where to save installer of new version which you can run later]
+Виберіть куди записати інсталятор нової версії який Ви можете запустити пізніше
+[Installer saved to \r\n{0}]
+Інсталятор записано \r\n{0}
+[Update will be run later]
+Перевірка оновлення буде запущена пізніше
+[Check Updates ...]
+Перевірити оновлення ...
+[Updates]
+Оновлення
+[Automatically check updates]
+Автоматично перевіряти оновлення
+[Close]
+Закрити
+[Error on downloading {0}]
+Помилка при завантаженні {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} не містить тег {1}:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} містить погано форматований тег {1}:\r\n{2}
+[Canceled]
+Прервано
+[Program is up to date]
+Оновлення не знайдене
+[File {0} already exists]
+Файл {0} вже існує
+[Version]
+Версія
+[&Tools]
+&Інструменти
+[O&ptions...]
+&Налаштування...
+[General]
+Головні
+[UI Language]
+Мова
+[Network]
+Мережа
+[HTTP-Proxy]
+HTTP-проксі
+[Proxy]
+Проксі
+[Port]
+Порт
+[Timeout]
+Таймаут
+[System]
+Сістемний
+[Custom]
+Ручний
+[None]
+Пряме з'єднання
+[Startup]
+Запуск програми
+[Autorun in startup]
+Автостарт при запуску системи
+[Minimize to tray]
+Мінімізувати у трей
+[Tray]
+Трей
+[Show query time and other information]
+Показувати час запиту та іншу інформацію
+[Mark by red color untranslated words]
+Відмічати червоним коліром слова, що не перекладені
+[Don't show "Nothing found" results]
+Не показувати результати сервісів, які нічого не знайшли
+[Nothing found]
+Нічого не знайдено
+[Result view]
+Вид результату
+[Include monolingual dictionaries in translation]
+Визивати тлумачні словники при перекладі
+[Profile]
+Профіль
+[Default]
+Основний
+[&Translate]
+&Переклад
+[Translate]
+Перекласти
+[Size or format of query don't supported by available translation services]
+Розмір або формат запиту не підтримується доступними сервісами перекладу
+[Reverse translation direction]
+Інвертувати напрямок перекладу
+[Show\\Hide]
+Показати\\Сховати
+[Show HTML source]
+Перегляд HTML-коду
+[From]
+з
+[To]
+на 
+[Any]
+Будь-яка
+[Arabic]
+Арабська
+[Belarusian]
+Білоруська
+[Bulgarian]
+Болгарська
+[Chinese]
+Китайська
+[Chinese_CN]
+Китайська спрощена
+[Chinese_TW]
+Китайська традиційна
+[Croatian]
+Хорватська
+[Czech]
+Чеська
+[Danish]
+Данська
+[Dutch]
+Голландська
+[English]
+Анлійська
+[English_GB]
+Анлійська-Англія
+[English_US]
+Анлійська-США
+[Esperanto]
+Есперанто
+[Estonian]
+Естонська
+[Icelandic]
+Ісландська
+[Finnish]
+Фінська
+[French]
+Французька
+[German]
+Германська
+[Greek]
+Грецька
+[Hungarian]
+Угорська
+[Italian]
+Італійська
+[Japanese]
+Японська
+[Korean]
+Корейська
+[Latin]
+Латина
+[Latvian]
+Латвійська 
+[Lithuanian]
+Литовська
+[Macedonian]
+Македонська
+[Norwegian]
+Норвезька
+[Polish]
+Польська
+[Portuguese]
+Португальска
+[Romanian]
+Румунська
+[Russian]
+Російська
+[Serbian]
+Сербська
+[Slovak]
+Словацька
+[Slovenian]
+Словенська
+[Spanish]
+Іспанська
+[Swedish]
+Шведська
+[Ukrainian]
+Українська
+[Languages]
+Мови
+[Subjects]
+Теми
+[Common]
+Загальна
+[Aviation]
+Авіація
+[Auto]
+Авто
+[Anatomy]
+Анатомія
+[Bank]
+Банк
+[Bible]
+Біблія 
+[Business]
+Бізнес
+[Military]
+Військова
+[Law]
+Закон
+[Informatics]
+Інформатіка
+[Art]
+Мистецтво
+[Space]
+Космос
+[Socio-political]
+Соціально-політична
+[Medicine]
+Медицина
+[Music]
+Музика
+[Sex]
+Секс
+[Sport]
+Спорт
+[Tech]
+Техніка
+[Philosophy]
+Філософія
+[Chemistry]
+Хімія
+[Economy]
+Економіка
+[Electronics]
+Електроніка
+
+
