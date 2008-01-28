@@ -37,6 +37,7 @@
 #endregion
 
 using System;
+using System.Collections.ObjectModel;
 
 namespace Translate
 {
@@ -47,8 +48,10 @@ namespace Translate
 	{
 		public const string AppName = "Translate.Net";
 		
-		static string[] versionsTxtUrls = {"http://translateclient.googlepages.com/versions.txt"};
-		public static string[] VersionsTxtUrls {
+		static ReadOnlyCollection<string> versionsTxtUrls = new ReadOnlyCollection<string>(
+			new string[] {"http://translateclient.googlepages.com/versions.txt"}
+			);
+		public static ReadOnlyCollection<string> VersionsTxtUrls {
 			get { return versionsTxtUrls; }
 		}
 	

@@ -63,7 +63,11 @@ namespace Translate
 		Danish,
 		Dutch,
 		English,
+		
+		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]
 		English_GB,
+
+		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]		
 		English_US,
 		Esperanto,
 		Estonian,
@@ -140,19 +144,21 @@ namespace Translate
 				Language.GetName(typeof(Language), To);
 		}
 		
-		public static bool operator ==(LanguagePair a, LanguagePair b)
+		
+		[SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods")]
+		public static bool operator ==(LanguagePair left, LanguagePair right)
 		{
 			bool anull, bnull;
-			anull = Object.ReferenceEquals(a,null); 
-			bnull = Object.ReferenceEquals(b,null);
+			anull = Object.ReferenceEquals(left,null); 
+			bnull = Object.ReferenceEquals(right,null);
 			if (anull && bnull) return true;
 			if (anull || bnull) return false;
-			return a.Equals(b); 
+			return left.Equals(right); 
 		}
 
-		public static bool operator !=(LanguagePair a, LanguagePair b)
+		public static bool operator !=(LanguagePair left, LanguagePair right)
 		{
-			return !(a == b);
+			return !(left == right);
 		}
 		
 	}
@@ -183,6 +189,10 @@ namespace Translate
 		{
 			// TODO: support of Chinese etc
 		
+			if(culture == null)
+				throw new ArgumentNullException("culture");
+				
+				
 			string name = Enum.GetName(typeof(Language), language);
 			if(culture.EnglishName.IndexOf(name) >= 0)
 				return true;

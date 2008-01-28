@@ -704,7 +704,6 @@ namespace Translate
 			// 
 			this.lSelectedLangsPair.Name = "lSelectedLangsPair";
 			this.lSelectedLangsPair.Size = new System.Drawing.Size(55, 17);
-			this.lSelectedLangsPair.Text = "Укр->Рос";
 			// 
 			// lInputLang
 			// 

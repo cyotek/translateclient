@@ -43,7 +43,7 @@ using System.Web;
 using System.IO.Compression;
 using System.Text; 
 using System.Diagnostics.CodeAnalysis;
-
+using System.Globalization;
 
 namespace Translate
 {
@@ -269,7 +269,7 @@ namespace Translate
 			if(response.ContentLength != -1)
 				result.BytesReceived += response.ContentLength;
 			else if(!string.IsNullOrEmpty(response.Headers[HttpResponseHeader.ContentLength]))
-				result.BytesReceived += int.Parse(response.Headers[HttpResponseHeader.ContentLength]);
+				result.BytesReceived += int.Parse(response.Headers[HttpResponseHeader.ContentLength], CultureInfo.InvariantCulture);
 			else
 				result.BytesReceived += resultStr.Length;
 				

@@ -51,6 +51,8 @@ namespace Translate
 	/// <summary>
 	/// Description of SlovnykNetService.
 	/// </summary>
+	
+	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Slovnyk")]
 	public class SlovnykNetService : Service
 	{
 		public SlovnykNetService()

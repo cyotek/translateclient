@@ -44,12 +44,16 @@ using System.Web;
 using System.IO.Compression;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Translate
 {
 	/// <summary>
 	/// Description of SlovnykOrgDictionary.
 	/// </summary>
+	
+	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Slovnyk")]
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
 	public class SlovnykOrgDictionary : BilingualDictionary
 	{
 		public SlovnykOrgDictionary()
@@ -122,10 +126,12 @@ namespace Translate
 				return result;
 		}
 		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			string query = "http://slovnyk.org/fcgi-bin/dic.fcgi?iw={0}&hn=sel&il={1}&ol={2}&ul=en-us";
-			query = string.Format(query, HttpUtility.UrlEncode(phrase), ConvertLanguage(languagesPair.From), ConvertLanguage(languagesPair.To));
+			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase), ConvertLanguage(languagesPair.From), ConvertLanguage(languagesPair.To));
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
@@ -147,7 +153,7 @@ namespace Translate
 					subphrase = subphrase.Substring(4);
 					string[] translations = parser.ReadItemsList("<DD lang=\"", "</DD>", "<DT lang=\"");
 					
-					if(firstRun && subphrase.ToLowerInvariant() == phrase.ToLowerInvariant())
+					if(firstRun && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
 					{
 						//single answer
 						foreach(string str in translations)

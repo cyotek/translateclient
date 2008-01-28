@@ -49,14 +49,17 @@ namespace Translate
 	/// <summary>
 	/// Description of MonolingualDictionary.
 	/// </summary>
+	
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
 	public abstract class MonolingualDictionary : BilingualDictionary
 	{
-		public MonolingualDictionary()
+	
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentOutOfRangeException.#ctor(System.String,System.String)")]
+		protected new void AddSupportedTranslation(LanguagePair languagePair)
 		{
-		}
+			if(languagePair == null)
+				throw new ArgumentNullException("languagePair");
 		
-		protected override void AddSupportedTranslation(LanguagePair languagePair)
-		{
 			if(languagePair.From != languagePair.To)
 				throw new ArgumentOutOfRangeException("languagePair", "MonolingualDictionary support only monolingual pairs");
 			base.AddSupportedTranslation(languagePair);

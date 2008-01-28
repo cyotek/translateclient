@@ -52,6 +52,9 @@ namespace Translate
 	/// <summary>
 	/// Description of R2uOrgUaDictionary.
 	/// </summary>
+	
+	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
 	public class R2uOrgUaDictionary : BilingualDictionary
 	{
 		public R2uOrgUaDictionary()
@@ -68,6 +71,8 @@ namespace Translate
 			WordsCount = 95000;
 		}
 		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			
@@ -85,9 +90,9 @@ namespace Translate
 			//"ukr" - ukr words without quotations
 			//"ukrq" - all ukr words
 			if(languagesPair.From == Language.Russian)
-				query = string.Format(query, HttpUtility.UrlEncode(phrase), "rus");
+				query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase), "rus");
 			else
-				query = string.Format(query, HttpUtility.UrlEncode(phrase), "ukrq");
+				query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase), "ukrq");
 			helper.AddPostData(query);
 		
 			string responseFromServer = helper.GetResponse();
@@ -99,12 +104,12 @@ namespace Translate
 			else if(responseFromServer.IndexOf("Запит сприймає лише кирилицю") >= 0)
 			{
 				result.ResultNotFound = true;
-				throw new TranslationException("Запит сприймає лише кирилицю");
+				throw new TranslationException("Only cyrillic characters supported");
 			}
 			else if(responseFromServer.IndexOf("українські літери в запиті по російських позиціях") >= 0)
 			{
 				result.ResultNotFound = true;
-				throw new TranslationException("Українські літери в запиті по російських позиціях");
+				throw new TranslationException("Ukrainian characters in russian query");
 			}
 			else
 			{
@@ -151,7 +156,7 @@ namespace Translate
 						subpart = "";	
 					}
 					
-					if(idx == 0 && subphrase.ToLowerInvariant() == phrase.ToLowerInvariant() && translations.Length == 1)
+					if(idx == 0 && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0 && translations.Length == 1)
 					{
 						//single answer
 						result.Translations.Add(subpart);

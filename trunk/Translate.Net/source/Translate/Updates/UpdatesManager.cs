@@ -51,6 +51,7 @@ using System.Net.Cache;
 using Microsoft.Win32;
 using System.Security.Principal;
 using System.Threading;
+using System.Globalization;
 
 namespace Translate
 {
@@ -69,10 +70,6 @@ namespace Translate
 	/// </summary>
 	public static class UpdatesManager
 	{
-		static UpdatesManager()
-		{
-		}
-		
 		static System.Threading.Mutex mutex;
 		static bool mutexLocked;
 		public static void Init()
@@ -162,7 +159,7 @@ namespace Translate
 		static bool TryToRerunVersionsCheck(WebClient client)
 		{
 			versionUrlToCheck++;
-			if(versionUrlToCheck < Constants.VersionsTxtUrls.Length)
+			if(versionUrlToCheck < Constants.VersionsTxtUrls.Count)
 			{
 				client.DownloadStringAsync(new Uri(Constants.VersionsTxtUrls[versionUrlToCheck]));
 				return true;
@@ -210,6 +207,7 @@ namespace Translate
 		
 		static void DownloadVersionsCompleted (Object sender, DownloadStringCompletedEventArgs e)
 		{
+			WebClient client = sender as WebClient;
 			if(state == UpdateState.Cancel)
 			{
 				Cancelled();
@@ -219,11 +217,11 @@ namespace Translate
 			if(e.Cancelled || e.Error != null)
 			{
 				string url = Constants.VersionsTxtUrls[versionUrlToCheck];
-				if(TryToRerunVersionsCheck(sender as WebClient))
+				if(TryToRerunVersionsCheck(client))
 					return;
 					
 				if(e.Error != null)
-					SetErrorState(string.Format(LangPack.TranslateString("Error on downloading {0}"), url) + "\r\n" + e.Error.Message);
+					SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("Error on downloading {0}"), url) + "\r\n" + e.Error.Message);
 				else 
 					SetErrorState(LangPack.TranslateString("Canceled"));
 				return;
@@ -231,7 +229,7 @@ namespace Translate
 			
 			
 			//versions.txt received, next step
-			ParseVersions(sender as WebClient, e.Result);
+			ParseVersions(client, e.Result);
 		}
 		
 		static void ParseVersions(WebClient client, string versions)
@@ -240,7 +238,7 @@ namespace Translate
 			string versionOnSite = strReader.ReadLine();
 			if(!versionOnSite.StartsWith("Version="))
 			{
-				SetErrorState(string.Format(LangPack.TranslateString("{0} don't contained {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
+				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} don't contained {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
 				return;
 			}
 			versionOnSite = versionOnSite.Substring("Version=".Length);
@@ -257,7 +255,7 @@ namespace Translate
 			
 			if(versionOnSiteArray.Length != versionCurrentArray.Length)
 			{
-				SetErrorState(string.Format(LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
+				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
 				return;
 			}
 			
@@ -268,14 +266,14 @@ namespace Translate
 				int onSitePart;
 				if(!int.TryParse(versionOnSiteArray[i], out onSitePart))
 				{
-					SetErrorState(string.Format(LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
+					SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
 					return;
 				}
 				
 				int onCurrentPart;
 				if(!int.TryParse(versionCurrentArray[i], out onCurrentPart))
 				{
-					SetErrorState(string.Format(LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
+					SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
 					return;
 				}
 				
@@ -300,7 +298,7 @@ namespace Translate
 			string urls = strReader.ReadLine();
 			if(!urls.StartsWith("UrlList=\""))
 			{
-				SetErrorState(string.Format(LangPack.TranslateString("{0} don't contained {1} tag:\r\n{2}"), "versions.txt", "UrlList", versions));
+				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} don't contained {1} tag:\r\n{2}"), "versions.txt", "UrlList", versions));
 				return;
 			}
 				
@@ -321,7 +319,7 @@ namespace Translate
 			
 			if(urlsList.Count == 0)
 			{
-				SetErrorState(string.Format(LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "UrlList", versions));
+				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} has wrong formatted {1} tag:\r\n{2}"), "versions.txt", "UrlList", versions));
 				return;
 			}
 			
@@ -351,12 +349,12 @@ namespace Translate
 		static string urlToDownload;
 		static DateTime startDownload;
 		static long bytesReceived;
-		public static long KbReceived {
+		public static long KBReceived {
 			get { return bytesReceived/1024; }
 		}
 		
 		static long totalBytesToReceive;
-		public static long TotalKbToReceive {
+		public static long TotalKBToReceive {
 			get { return totalBytesToReceive/1024; }
 		}
 		
@@ -365,7 +363,8 @@ namespace Translate
 			get { return progressPercentage; }
 		}
 		
-		public static int DownloadSpeedKbs
+		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+		public static int DownloadSpeedKBPerSecond
 		{
 			get
 			{
@@ -397,6 +396,8 @@ namespace Translate
 		}
 		
 		static string updateFileName;
+		
+		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		static void DownloadDataCompleted(object sender, DownloadDataCompletedEventArgs e)
 		{
 			if(state == UpdateState.Cancel)
@@ -408,7 +409,7 @@ namespace Translate
 			if(e.Cancelled || e.Error != null)
 			{
 				if(e.Error != null)
-					SetErrorState(string.Format(LangPack.TranslateString("Error on downloading {0}"), urlToDownload) + "\r\n" + e.Error.Message);
+					SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("Error on downloading {0}"), urlToDownload) + "\r\n" + e.Error.Message);
 				else 
 					SetErrorState(LangPack.TranslateString("Canceled"));
 				return;
@@ -426,7 +427,7 @@ namespace Translate
 				}
 				catch
 				{
-					SetErrorState(string.Format(LangPack.TranslateString("File {0} already exists"), updateFileName));				
+					SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("File {0} already exists"), updateFileName));				
 					return;
 				}
 			}
@@ -434,18 +435,24 @@ namespace Translate
 			FileStream fs = new FileStream(updateFileName, FileMode.Create, FileAccess.Write, FileShare.None);
 			fs.Write(e.Result, 0, e.Result.Length);
 			fs.Dispose();
-			MarkFileToDeleteOnReboot(updateFileName);
+			NativeMethods.MarkFileToDeleteOnReboot(updateFileName);
 			state = UpdateState.UpdateDownloaded;
 		}
 		
-		[System.Runtime.InteropServices.DllImport("kernel32.dll", CharSet=CharSet.Unicode)]
-		private static extern bool MoveFileEx(string lpExistingFileName, string lpNewFileName, int dwFlags);
-		const int MOVEFILE_DELAY_UNTIL_REBOOT = 0x00000004;
-		
-		static void MarkFileToDeleteOnReboot(string fileName)
+		static class NativeMethods
 		{
-			MoveFileEx(fileName, null, MOVEFILE_DELAY_UNTIL_REBOOT);
-		}	
+			[System.Runtime.InteropServices.DllImport("kernel32.dll", CharSet=CharSet.Unicode)]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			static extern bool MoveFileEx(string lpExistingFileName, string lpNewFileName, int dwFlags);
+			const int MOVEFILE_DELAY_UNTIL_REBOOT = 0x00000004;
+			
+			public static void MarkFileToDeleteOnReboot(string fileName)
+			{
+				NativeMethods.MoveFileEx(fileName, null, MOVEFILE_DELAY_UNTIL_REBOOT);
+			}	
+			
+		}
+		
 		
 		
 		static bool canRunUpdate = InitCanRunUpdate();
@@ -453,6 +460,8 @@ namespace Translate
 			get { return canRunUpdate; }
 		}
 		
+		
+		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		static bool InitCanRunUpdate()
 		{
 			AppDomain domain = System.Threading.Thread.GetDomain();
@@ -494,7 +503,7 @@ namespace Translate
 			return result;
 		}
 		
-		public static void RunUpdate(IntPtr parentHandle)
+		public static void RunUpdate()
 		{
 			Process myProcess = new Process();
 			
@@ -502,7 +511,6 @@ namespace Translate
 			myProcess.StartInfo.FileName = updateFileName; 
 			myProcess.StartInfo.Arguments = "/SILENT";
 			myProcess.StartInfo.ErrorDialog = true;
-			//myProcess.StartInfo.ErrorDialogParentHandle = parentHandle;
 			myProcess.Start();
 			System.Windows.Forms.Application.Exit(); 
 		}
@@ -510,7 +518,7 @@ namespace Translate
 		public static void SaveUpdate(string newPath)
 		{
 			File.Move(updateFileName, newPath);
-			SetEndingState(string.Format(LangPack.TranslateString("Installer saved to \r\n{0}"), newPath));
+			SetEndingState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("Installer saved to \r\n{0}"), newPath));
 		}
 		
 		public static void DeleteUpdate()

@@ -70,11 +70,6 @@ namespace Translate
 			}
 		}
 		
-		public string Url {
-			set { Text = value; }
-		}
-		
-		
 		void BOkClick(object sender, EventArgs e)
 		{
 			Close();

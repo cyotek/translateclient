@@ -54,6 +54,7 @@ namespace FreeCL.UI
 		{
 		}
 
+		[SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]		
 		static GlobalEvents()
 		{
 			System.Windows.Forms.Application.Idle += GlobalEventsIdle;
@@ -67,6 +68,7 @@ namespace FreeCL.UI
 			container.Add(this);
 		}
 		
+
 		static bool allowIdleProcessing = true;
 		public static bool AllowIdleProcessing {
 			get { return allowIdleProcessing; }

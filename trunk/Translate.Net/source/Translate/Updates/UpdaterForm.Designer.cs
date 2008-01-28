@@ -67,6 +67,7 @@ namespace Translate
 		/// not be able to load this method if it was changed manually.
 		/// </summary>
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters")]
+		[SuppressMessage("Microsoft.Mobility", "CA1601:DoNotUseTimersThatPreventPowerStateChanges")]
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();

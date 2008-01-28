@@ -36,6 +36,7 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
@@ -65,6 +66,8 @@ namespace Translate
 		/// Do not change the method contents inside the source code editor. The Forms designer might
 		/// not be able to load this method if it was changed manually.
 		/// </summary>
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
 		private void InitializeComponent()
 		{
 			this.cbAutomaticUpdates = new System.Windows.Forms.CheckBox();

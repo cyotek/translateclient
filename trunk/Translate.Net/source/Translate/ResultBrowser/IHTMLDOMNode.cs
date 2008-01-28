@@ -41,6 +41,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Collections;
 using System.Security;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
@@ -48,7 +49,9 @@ namespace Translate
 	/// Description of IHTMLDOMNode.
 	/// </summary>
 	[Guid("3050f5da-98b5-11cf-bb82-00aa00bdce0b"), ComVisible(true), InterfaceType(ComInterfaceType.InterfaceIsDual), SuppressUnmanagedCodeSecurity]
-	public interface IHTMLDOMNode
+	[SuppressMessage("Microsoft.Naming", "CA1705:LongAcronymsShouldBePascalCased")]
+	[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
+	internal interface IHTMLDOMNode
 	{
 	    long GetNodeType();
 	    IHTMLDOMNode GetParentNode();

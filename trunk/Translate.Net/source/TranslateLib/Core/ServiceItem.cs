@@ -46,10 +46,6 @@ namespace Translate
 	/// </summary>
 	public abstract class ServiceItem
 	{
-		public ServiceItem()
-		{
-		}
-		
 		int chars_limit = -1;
 		public int CharsLimit {
 			get { return chars_limit; }
@@ -82,7 +78,7 @@ namespace Translate
 			get{return new ReadOnlyLanguagePairCollection(supportedTranslations);}
 		}
 		
-		protected virtual void AddSupportedTranslation(LanguagePair languagePair)
+		protected void AddSupportedTranslation(LanguagePair languagePair)
 		{
 			supportedTranslations.Add(languagePair);
 		}
@@ -128,9 +124,12 @@ namespace Translate
 		
 		protected abstract void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting);
 	
-		public virtual bool IsSupportedPhrase(string Phrase)
+		public virtual bool IsSupportedPhrase(string phrase)
 		{
-			if(chars_limit != -1 && Phrase.Length > chars_limit)
+			if(string.IsNullOrEmpty(phrase))
+				return false;
+				
+			if(chars_limit != -1 && phrase.Length > chars_limit)
 				return false;
 			return true;
 		}

@@ -99,7 +99,7 @@ namespace Translate
 			this.cbMarkErrors.Name = "cbMarkErrors";
 			this.cbMarkErrors.Size = new System.Drawing.Size(373, 24);
 			this.cbMarkErrors.TabIndex = 2;
-			this.cbMarkErrors.Text = "Mark by red color untranslated words";
+			this.cbMarkErrors.Text = "Mark by red color words";
 			this.cbMarkErrors.UseVisualStyleBackColor = true;
 			// 
 			// cbHideWithoutResult
