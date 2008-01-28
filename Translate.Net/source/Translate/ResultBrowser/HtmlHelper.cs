@@ -53,12 +53,8 @@ namespace Translate
 	/// <summary>
 	/// Description of HtmlHelper.
 	/// </summary>
-	public class HtmlHelper
+	public static class HtmlHelper
 	{
-		public HtmlHelper()
-		{
-		}
-		
 		public const string BodyStyle = "margin: 0px;";
 		public const string DataCellStyle = "width: 100%;";
 		public const string TableStyle = "text-align: left;font-size: 8.25pt; font-family: Tahoma; " + DataCellStyle;
@@ -72,6 +68,9 @@ namespace Translate
 
 		public static void InitDocument(HtmlDocument doc)
 		{
+			if(doc == null)
+				throw new ArgumentNullException("doc");
+				
 			doc.Body.Style = HtmlHelper.BodyStyle;
 			
 			//result table
@@ -92,11 +91,17 @@ namespace Translate
 		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{1}\" src=\"{2}\"></a>";
 		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, Service service)
 		{
+			if(doc == null)
+				throw new ArgumentNullException("doc");
+
+			if(service == null)
+				throw new ArgumentNullException("service");
+		
 			HtmlElement tableCell = doc.CreateElement("TD");
 
 			tableCell.Style = IconCellStyle;
 			tableCell.SetAttribute("valign", "top");
-			tableCell.InnerHtml = string.Format(IconFormat, service.Url, service.Copyright, service.IconUrl);
+			tableCell.InnerHtml = string.Format(CultureInfo.InvariantCulture, IconFormat, service.Url, service.Copyright, service.IconUrl);
 			return tableCell;
 		}
 		

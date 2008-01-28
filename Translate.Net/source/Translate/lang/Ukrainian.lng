@@ -134,6 +134,12 @@ HTTP-проксі
 Не показувати результати сервісів, які нічого не знайшли
 [Nothing found]
 Нічого не знайдено
+[Only cyrillic characters supported]
+Дозволені лише кириличні символи 
+[Ukrainian characters in russian query]
+Українські літери в запиті по російських позиціях
+[Parse error, start tags not found]
+Помилка парсінгу, стартовий тег не знайдено
 [Result view]
 Вид результату
 [Include monolingual dictionaries in translation]

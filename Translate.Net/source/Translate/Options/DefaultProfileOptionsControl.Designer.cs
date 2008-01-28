@@ -66,6 +66,7 @@ namespace Translate
 		/// Do not change the method contents inside the source code editor. The Forms designer might
 		/// not be able to load this method if it was changed manually.
 		/// </summary>
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters")]
 		private void InitializeComponent()
 		{
 			this.cbIncludeMonolingualDictionaryInTranslation = new System.Windows.Forms.CheckBox();

@@ -51,6 +51,9 @@ namespace Translate
 	/// <summary>
 	/// Description of SlovnykNetThesaurus.
 	/// </summary>
+	
+	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Slovnyk")]
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
 	public class SlovnykNetDictionary : MonolingualDictionary
 	{
 		public SlovnykNetDictionary()
@@ -64,10 +67,12 @@ namespace Translate
 			WordsCount = 207000;
 		}
 		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			string query = "http://www.slovnyk.net/?swrd={0}";
-			query = string.Format(query, HttpUtility.UrlEncode(phrase, Encoding.GetEncoding(1251)));
+			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, Encoding.GetEncoding(1251)));
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
@@ -168,7 +173,7 @@ namespace Translate
 					
 					for(int i = 2; i < 100; i++)
 					{
-						int numIdx = translation.IndexOf(i.ToString() + ".");
+						int numIdx = translation.IndexOf(i.ToString(CultureInfo.InvariantCulture) + ".");
 						if(numIdx < 0)
 						{  //last def
 						   Result defResult = CreateNewResult("", languagesPair, subject);

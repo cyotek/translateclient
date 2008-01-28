@@ -45,7 +45,8 @@ namespace Translate
 	/// Description of PereOrgUaService.
 	/// </summary>
 	
-	//[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Pere")]
+	
+	[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Slovnyk")]
 	public class SlovnykOrgService : Service
 	{
 		public SlovnykOrgService()

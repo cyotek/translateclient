@@ -129,7 +129,7 @@ namespace Translate
 			miHelp.DropDownItems.Remove(miHelpSeparator1);
 			miHelp.DropDownItems.Insert(1, miHelpSeparator1);
 
-			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper();
+			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);
 			
 			aScrollResultPageDown.Shortcut = Keys.Control | Keys.PageDown;
 			aScrollResultPageUp.Shortcut = Keys.Control | Keys.PageUp;
@@ -294,6 +294,8 @@ namespace Translate
 		}
 		
 		long startTranslateTicks;
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions")]
 		void ATranslateExecute(object sender, EventArgs e)
 		{
 			StopCurrentTranslation(); 
@@ -399,7 +401,7 @@ namespace Translate
 			if(!InputLanguageManager.IsInputLanguageChanged)
 				return;
 				
-			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper();
+			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);
 			
 			if(!InputLanguageManager.IsLanguageSupported(languageSelector.Selection.From))
 			{

@@ -53,6 +53,7 @@ namespace Translate
 	/// </summary>
 	public partial class UpdaterForm : BaseForm
 	{
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
 		public UpdaterForm()
 		{
 			InitializeComponent();
@@ -70,7 +71,7 @@ namespace Translate
 		{
 			bCancel.Text = TranslateString("Cancel");
 			bMinimize.Text = TranslateString("Minimize");
-			Text = string.Format(TranslateString("{0} Updater"), Constants.AppName);
+			Text = string.Format(CultureInfo.InvariantCulture, TranslateString("{0} Updater"), Constants.AppName);
 		}
 
 		void UpdaterFormVisibleChanged(object sender, EventArgs e)
@@ -78,6 +79,9 @@ namespace Translate
 			UpdatesManager.DoProcess();						
 		}
 		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.MessageBox.Show(System.Windows.Forms.IWin32Window,System.String,System.String,System.Windows.Forms.MessageBoxButtons)")]
+		[SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions")]
 		void TimerUpdateTick(object sender, EventArgs e)
 		{
 			switch(UpdatesManager.State)
@@ -89,7 +93,7 @@ namespace Translate
 					lStatus.Text = TranslateString("Check version");
 					break;
 				case UpdateState.UpdateDownloading:
-					lStatus.Text = string.Format(TranslateString("Downloaded {0}Kb from {1}Kb with speed {2}Kb/s"), UpdatesManager.KbReceived, UpdatesManager.TotalKbToReceive, UpdatesManager.DownloadSpeedKbs) +
+					lStatus.Text = string.Format(CultureInfo.InvariantCulture, TranslateString("Downloaded {0}Kb from {1}Kb with speed {2}Kb/s"), UpdatesManager.KBReceived, UpdatesManager.TotalKBToReceive, UpdatesManager.DownloadSpeedKBPerSecond) +
 						"\r\n" +
 						UpdatesManager.FileName;
 					pbMain.Style = ProgressBarStyle.Blocks;
@@ -105,7 +109,7 @@ namespace Translate
 					
 					if(UpdatesManager.CanRunUpdate && MessageBox.Show(this, TranslateString("New version is downloaded. Do you want to stop " + Constants.AppName + " and run installer of new version ?"), Constants.AppName, MessageBoxButtons.YesNo) == DialogResult.Yes)
 					{
-						UpdatesManager.RunUpdate(this.Handle);
+						UpdatesManager.RunUpdate();
 					}
 					else 
 					{
@@ -169,7 +173,7 @@ namespace Translate
 			}
 			else
 			{
-				bCancel.Text = TranslateString("Close") + " [" + closeCount.ToString() + "]";
+				bCancel.Text = TranslateString("Close") + " [" + closeCount.ToString(CultureInfo.InvariantCulture) + "]";
 			}
 		}
 	}

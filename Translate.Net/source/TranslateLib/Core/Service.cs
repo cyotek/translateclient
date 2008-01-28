@@ -116,7 +116,7 @@ namespace Translate
 		protected void AddMonolingualDictionary(MonolingualDictionary monolingualDictionary)
 		{
 			if(monolingualDictionary == null)
-				throw new ArgumentNullException("bilingualDictionary");
+				throw new ArgumentNullException("monolingualDictionary");
 			
 			monolingualDictionary.Service = this;
 			monolingualDictionaries.Add(monolingualDictionary);

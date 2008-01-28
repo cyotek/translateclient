@@ -41,6 +41,7 @@ using System.Windows.Forms;
 using FreeCL.Forms;
 using Application = FreeCL.Forms.Application;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 
 namespace Translate
 {
@@ -67,7 +68,7 @@ namespace Translate
 					if(arg.StartsWith("/") || arg.StartsWith("-"))
 					{
 						string argVal = arg.Substring(1);
-						if(argVal.ToLowerInvariant() == "skipsplash")
+						if(string.Compare(argVal, "skipsplash", true, CultureInfo.InvariantCulture) ==0 )
 							Application.SkipSplashForm = true;
 					}
 				}

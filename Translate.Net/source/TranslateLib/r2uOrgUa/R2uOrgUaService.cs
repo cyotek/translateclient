@@ -39,9 +39,15 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
+
+[module: SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Scope="namespace", Target="Translate.r2uOrgUa")]
+[module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope="namespace", Target="Translate.r2uOrgUa")]
+[module: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Scope="namespace", Target="Translate.r2uOrgUa")]
+
 namespace Translate.r2uOrgUa
 {
-	//[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="Pere")]
+	
+	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
 	public class R2uOrgUaService : Service
 	{
 		public R2uOrgUaService()

@@ -414,6 +414,8 @@ namespace Translate
 			history.Insert(0, lp);
 		}
 		
+		
+		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		void LbHistorySelectedIndexChanged(object sender, EventArgs e)
 		{
 			if(lbHistory.SelectedIndex == -1)

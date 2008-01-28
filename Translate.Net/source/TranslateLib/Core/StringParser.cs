@@ -76,6 +76,8 @@ namespace Translate
 				return false;
 		}
 		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		public string ReadItem(string startTag, string endTag, string stopTag)
 		{
 			if(startTag == null)
@@ -120,13 +122,13 @@ namespace Translate
 			return ReadItem(startTag, endTag, endTag);
 		}
 		
-		public string[] ReadItemsList(string startTag, string endTag, string StopTag)
+		public string[] ReadItemsList(string startTag, string endTag, string stopTag)
 		{
 			List<string> res = new List<string>();
 			string item;
 			while(internalData.IndexOf(startTag, pos) >= 0 )
 			{
-				item = ReadItem(startTag, endTag, StopTag);
+				item = ReadItem(startTag, endTag, stopTag);
 				if(string.IsNullOrEmpty(item))
 					break;
 				res.Add(item);

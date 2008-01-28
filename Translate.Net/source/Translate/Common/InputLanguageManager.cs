@@ -87,6 +87,9 @@ namespace Translate
 		
 		public static bool IsLanguageSupported(InputLanguage inputLanguage, Language language)
 		{
+			if(inputLanguage == null)
+				throw new ArgumentNullException("inputLanguage");
+				
 			// TODO: support of other languages
 			if(inputLanguage.LayoutName == "Strange Ukrainian")
 			{

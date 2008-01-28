@@ -146,6 +146,9 @@ namespace Translate
 		
 		public HtmlElement CreateDataRow(HtmlDocument doc)
 		{
+			if(doc == null)
+				throw new ArgumentNullException("doc");
+		
 			HtmlElement tableBody = doc.GetElementById("result_table_body");
 			HtmlElement tableRow = doc.CreateElement("TR");
 			tableBody.AppendChild(tableRow);
@@ -354,7 +357,7 @@ namespace Translate
 			RecalcSizes();
 		}
 		
-		public void SetStatistics(long TranslateTicks)
+		public void SetStatistics(long translateTicks)
 		{
 			if(!TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 			  return;
@@ -374,7 +377,7 @@ namespace Translate
 			tableRow.AppendChild(tableCell);
 			tableCell.Style = HtmlHelper.DataCellStyle;
 
-			string htmlString = string.Format(CultureInfo.InvariantCulture, "Full time : {0} s", new DateTime(TranslateTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );;
+			string htmlString = string.Format(CultureInfo.InvariantCulture, "Full time : {0} s", new DateTime(translateTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );;
 			tableCell.InnerHtml = "<span style=\""+ HtmlHelper.InfoTextStyle+"\">" + htmlString + "</span>";
 			
 
@@ -403,7 +406,7 @@ namespace Translate
 		}
 
 		
-		int ExtractAdWords(List<string> data, int count)
+		static int ExtractAdWords(List<string> data, int count)
 		{
 			List<string> copy = new List<string> (data);
 			data.Clear();			
@@ -506,7 +509,7 @@ namespace Translate
 				int idx = 0;				
 				foreach(string sub in subjects)
 				{
-					result += "&sub" + idx.ToString() + "=" + HttpUtility.UrlEncode(sub);
+					result += "&sub" + idx.ToString(CultureInfo.InvariantCulture) + "=" + HttpUtility.UrlEncode(sub);
 					idx++;
 				}
 				return result;
@@ -534,7 +537,7 @@ namespace Translate
 				return;
 				
 			currentQuery = query;
-			wAdvertBrowser.Navigate(Constants.StatsPageUrl + "?" + currentQuery);
+			wAdvertBrowser.Navigate(new Uri(Constants.StatsPageUrl + "?" + currentQuery));
 		}
 		
 		void WBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e)
@@ -557,7 +560,7 @@ namespace Translate
 			clean = clean.Substring(0, bodyidx);
 			HtmlSourceViewForm form = new HtmlSourceViewForm();
 			form.Source = clean + wBrowser.Document.Body.OuterHtml + "\r\n</html>";
-			form.Url = wBrowser.Url.ToString();
+			form.Text = wBrowser.Url.ToString();
 			form.Show();
 		}
 		
@@ -569,7 +572,7 @@ namespace Translate
 		bool advertLoaded;
 		bool inResize;
 		
-		bool needRecalcSize = false;
+		bool needRecalcSize;
 		void RecalcSizes()
 		{
 			needRecalcSize = true;
