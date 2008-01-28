@@ -1,0 +1,288 @@
+﻿[TranslationComment]
+
+[&File]
+
+[Exit from application]
+
+[E&xit]
+
+[&Edit]
+
+[Copy selection to clipboard]
+
+[&Copy]
+
+[Cut selection to clipboard]
+
+[Cu&t]
+
+[Paste from clipboard]
+
+[&Paste]
+
+[Delete selection]
+
+[&Delete]
+
+[Undo last operation]
+
+[&Undo]
+
+[Redo last operation]
+
+[&Redo]
+
+[Select all]
+
+[&Select all]
+
+[&Window]
+
+[Close All]
+
+[&Help]
+
+[&About ...]
+
+[About]
+
+[Options]
+
+[Cancel]
+
+[Apply]
+
+[Minimize]
+
+[{0} Updater]
+
+[Preparing]
+
+[Check version]
+
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+
+[Update downloaded]
+
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+
+[Please select where to save installer of new version which you can run later]
+
+[Installer saved to \r\n{0}]
+
+[Update will be run later]
+
+[Check Updates ...]
+
+[Updates]
+
+[Automatically check updates]
+
+[Close]
+
+[Error on downloading {0}]
+
+[{0} don't contained {1} tag:\r\n{2}]
+
+[{0} has wrong formatted {1} tag:\r\n{2}]
+
+[Canceled]
+
+[Program is up to date]
+
+[File {0} already exists]
+
+[Version]
+
+[&Tools]
+
+[O&ptions...]
+
+[General]
+
+[UI Language]
+
+[Network]
+
+[HTTP-Proxy]
+
+[Proxy]
+
+[Port]
+
+[Timeout]
+
+[System]
+
+[Custom]
+
+[None]
+
+[Startup]
+
+[Autorun in startup]
+
+[Minimize to tray]
+
+[Tray]
+
+[Show query time and other information]
+
+[Mark by red color untranslated words]
+
+[Don't show "Nothing found" results]
+
+[Nothing found]
+
+[Result view]
+
+[Include monolingual dictionaries in translation]
+
+[Profile]
+
+[Default]
+
+[&Translate]
+
+[Translate]
+
+[Size or format of query don't supported by available translation services]
+
+[Reverse translation direction]
+
+[Show\\Hide]
+
+[Show HTML source]
+
+[From]
+
+[To]
+
+[Any]
+
+[Arabic]
+
+[Belarusian]
+
+[Bulgarian]
+
+[Chinese]
+
+[Chinese_CN]
+
+[Chinese_TW]
+
+[Croatian]
+
+[Czech]
+
+[Danish]
+
+[Dutch]
+
+[English]
+
+[English_GB]
+
+[English_US]
+
+[Esperanto]
+
+[Estonian]
+
+[Icelandic]
+
+[Finnish]
+
+[French]
+
+[German]
+
+[Greek]
+
+[Hungarian]
+
+[Italian]
+
+[Japanese]
+
+[Korean]
+
+[Latin]
+
+[Latvian]
+
+[Lithuanian]
+
+[Macedonian]
+
+[Norwegian]
+
+[Polish]
+
+[Portuguese]
+
+[Romanian]
+
+[Russian]
+
+[Serbian]
+
+[Slovak]
+
+[Slovenian]
+
+[Spanish]
+
+[Swedish]
+
+[Ukrainian]
+
+[Languages]
+
+[Subjects]
+
+[Common]
+
+[Aviation]
+
+[Auto]
+
+[Anatomy]
+
+[Bank]
+
+[Bible]
+
+[Business]
+
+[Military]
+
+[Law]
+
+[Informatics]
+
+[Art]
+
+[Space]
+
+[Socio-political]
+
+[Medicine]
+
+[Music]
+
+[Sex]
+
+[Sport]
+
+[Tech]
+
+[Philosophy]
+
+[Chemistry]
+
+[Economy]
+
+[Electronics]
+
