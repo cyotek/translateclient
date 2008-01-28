@@ -740,14 +740,17 @@ namespace Translate
 		[EditorBrowsableAttribute()]
 		protected override void OnMouseWheel(MouseEventArgs e)
 		{
-			int numberOfTextLinesToMove = e.Delta * SystemInformation.MouseWheelScrollLines / 120;
-			int numberOfPixelsToMove = -numberOfTextLinesToMove * 8;
-			int newvalue = vScrollBar.Value + numberOfPixelsToMove;
-			if(newvalue > vScrollBar.Maximum - vScrollBar.LargeChange + 1)
-				newvalue = vScrollBar.Maximum - vScrollBar.LargeChange + 1;
-			if(newvalue < vScrollBar.Minimum)
-				newvalue = vScrollBar.Minimum;
-			vScrollBar.Value = newvalue;
+			if(vScrollBar.Visible)
+			{
+				int numberOfTextLinesToMove = e.Delta * SystemInformation.MouseWheelScrollLines / 120;
+				int numberOfPixelsToMove = -numberOfTextLinesToMove * 8;
+				int newvalue = vScrollBar.Value + numberOfPixelsToMove;
+				if(newvalue > vScrollBar.Maximum - vScrollBar.LargeChange + 1)
+					newvalue = vScrollBar.Maximum - vScrollBar.LargeChange + 1;
+				if(newvalue < vScrollBar.Minimum)
+					newvalue = vScrollBar.Minimum;
+				vScrollBar.Value = newvalue;
+			}
 		
 			base.OnMouseWheel(e);
 		}
@@ -762,6 +765,9 @@ namespace Translate
 		
 		public void DoScroll(Keys key)
 		{
+			if(!vScrollBar.Visible)
+				return;
+
 			int newvalue = vScrollBar.Value;
 			if(key == Keys.Down)
 			 	newvalue += vScrollBar.SmallChange;
