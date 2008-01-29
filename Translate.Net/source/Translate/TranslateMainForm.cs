@@ -46,6 +46,7 @@ using System.Resources;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 
+
 namespace Translate
 {
 	/// <summary>
@@ -137,6 +138,7 @@ namespace Translate
 		
 		void TranslateMainFormLoad(object sender, EventArgs e)
 		{
+			KeyboardHook.Hotkey += OnSystemHotkey;		
 			resBrowser.Clear();	
 		}
 		
@@ -156,6 +158,9 @@ namespace Translate
 			aExit.Text = TranslateString("E&xit");
 			aCheckUpdates.Text = TranslateString("Check Updates ...");
 			aShowHtmlSource.Text  = TranslateString("Show HTML source");
+			
+			aControlCC.Text  = TranslateString("Activate on Ctrl+C+C hotkey"); 
+			aControlInsIns.Text  = TranslateString("Activate on Ctrl+Ins+Ins hotkey"); 
 
 			UpdateCaption();
 		}
@@ -242,7 +247,7 @@ namespace Translate
 		void AShowMainFormExecute(object sender, EventArgs e)
 		{
 			if(Visible && TranslateOptions.Instance.MinimizeToTray)
-				Visible = false;
+				WindowState = FormWindowState.Minimized;
 			else
 			{
 				Visible = true;
@@ -259,6 +264,7 @@ namespace Translate
 				
 				if(Form.ActiveForm != this)
 					Activate();				
+				BringToForeground();
 			}
 		}
 		
@@ -484,6 +490,62 @@ namespace Translate
 		void AScrollResultPageUpExecute(object sender, EventArgs e)
 		{
 			resBrowser.DoScroll(Keys.PageUp);
+		}
+		
+		
+		void ProcessSystemHotkey()
+		{
+			if(this != FreeCL.Forms.Application.ActiveForm)
+			{
+				if(!Visible)
+					Visible = true;
+				
+				
+				if(TranslateOptions.Instance.MainFormMaximized)
+				{
+					if(WindowState != FormWindowState.Maximized)
+						WindowState = FormWindowState.Maximized;
+				}
+				else
+				{
+					if(WindowState != FormWindowState.Normal)
+						WindowState = FormWindowState.Normal;
+				}
+				
+				BringToForeground();
+				
+				tbFrom.SelectAll();
+				tbFrom.Focus();
+				if(FreeCL.UI.Clipboard.CanPaste)
+					FreeCL.UI.Clipboard.Paste();
+				if(KeyboardHook.TranslateOnHotkey)
+					aTranslate.DoExecute();
+			}
+		}
+		
+		void OnSystemHotkey(object sender, EventArgs e)
+		{
+			BeginInvoke(new MethodInvoker(ProcessSystemHotkey));
+		}
+		
+		
+		
+		void AControlCCExecute(object sender, EventArgs e)
+		{
+			KeyboardHook.ControlCC = !KeyboardHook.ControlCC;
+			KeyboardHook.Init();
+		}
+		
+		void AControlInsInsExecute(object sender, EventArgs e)
+		{
+			KeyboardHook.ControlInsIns = !KeyboardHook.ControlInsIns;
+			KeyboardHook.Init();
+		}
+		
+		void AControlInsInsUpdate(object sender, EventArgs e)
+		{
+			aControlCC.Checked = KeyboardHook.ControlCC;
+			aControlInsIns.Checked = KeyboardHook.ControlInsIns;
 		}
 	}
 }

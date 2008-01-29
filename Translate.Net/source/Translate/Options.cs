@@ -178,6 +178,12 @@ namespace Translate
 		}
 		
 		
+		HookOptions hookOptions = new HookOptions();
+		public HookOptions HookOptions {
+			get { return hookOptions; }
+			set { hookOptions = value; }
+		}
+		
 		
 	}
 }

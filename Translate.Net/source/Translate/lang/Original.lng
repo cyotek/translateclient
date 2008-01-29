@@ -126,6 +126,14 @@
 
 [Tray]
 
+[Hotkeys]
+
+[Activate on Ctrl+C+C hotkey]
+
+[Activate on Ctrl+Ins+Ins hotkey]
+
+[Translate when activated by hotkey]
+
 [Show query time and other information]
 
 [Mark by red color untranslated words]
