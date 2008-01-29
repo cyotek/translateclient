@@ -43,6 +43,7 @@ using System.Diagnostics;
 using FreeCL.UI;
 using FreeCL.RTL;
 using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 
 namespace FreeCL.Forms
 {
@@ -155,5 +156,42 @@ namespace FreeCL.Forms
 		{
 			get{return locked;}
 		}
+		
+		static class NativeMethods
+		{
+			[DllImport("user32.dll")]
+			[return: MarshalAs(UnmanagedType.Bool)]
+			static extern bool SetForegroundWindow(IntPtr hWnd);		
+			
+			[DllImport("user32.dll")]
+			static extern IntPtr GetForegroundWindow();			
+			
+			[DllImport("kernel32.dll")]
+			static extern uint GetCurrentThreadId();
+
+			[DllImport("user32.dll", SetLastError=true)]
+			static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
+			
+			[DllImport("user32.dll")]
+			static extern bool AttachThreadInput(uint idAttach, uint idAttachTo, bool fAttach);
+   
+			public static void SetForeground(IntPtr handle)
+			{
+				IntPtr oldForegroundWnd = GetForegroundWindow();
+				uint oldProcessId;
+				uint oldThreadId = GetWindowThreadProcessId(oldForegroundWnd, out oldProcessId);
+				uint currentThreadId = GetCurrentThreadId();
+				
+				AttachThreadInput(currentThreadId, oldThreadId, true);
+				SetForegroundWindow(handle);
+				AttachThreadInput(currentThreadId, oldThreadId, false);
+			}
+		}
+		
+		public void BringToForeground()
+		{
+			NativeMethods.SetForeground(Handle);
+		}
+		
 	}
 }
