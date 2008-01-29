@@ -52,7 +52,7 @@ namespace FreeCL.RTL
 	/// </summary>
 	public static class TaskConveyer
 	{
-		[Conditional("TRACE")]
+		[Conditional("TRACE1")]
 		public static void Trace(string message)
 		{
 			System.Diagnostics.Trace.WriteLine(Environment.TickCount.ToString(CultureInfo.InvariantCulture) + ":" +
