@@ -126,6 +126,14 @@ HTTP-проксі
 Мінімізувати у трей
 [Tray]
 Трей
+[Hotkeys]
+Глобальні гарячі клавіши
+[Activate on Ctrl+C+C hotkey]
+Активізувати по Ctrl+C+C 
+[Activate on Ctrl+Ins+Ins hotkey]
+Активізувати по Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Запускати переклад після активації 
 [Show query time and other information]
 Показувати час запиту та іншу інформацію
 [Mark by red color untranslated words]

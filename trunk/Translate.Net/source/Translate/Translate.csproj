@@ -54,6 +54,12 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\InputLanguageManager.cs" />
     <Compile Include="Common\LangPack.cs" />
+    <Compile Include="Hooks\HookOptions.cs" />
+    <Compile Include="Hooks\HotkeysOptionsControl.cs" />
+    <Compile Include="Hooks\HotkeysOptionsControl.Designer.cs">
+      <DependentUpon>HotkeysOptrionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks\KeyboardHook.cs" />
     <Compile Include="LanguageSelector.cs" />
     <Compile Include="LanguageSelector.Designer.cs">
       <DependentUpon>LanguageSelector.cs</DependentUpon>
@@ -111,6 +117,9 @@
       <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Common\Icons.resx" />
+    <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
+      <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LanguageSelector.resx">
       <DependentUpon>LanguageSelector.cs</DependentUpon>
     </EmbeddedResource>
@@ -155,6 +164,7 @@
     <Folder Include="Manager" />
     <Folder Include="Common" />
     <Folder Include="lang" />
+    <Folder Include="Hooks" />
     <Folder Include="Updates" />
     <Folder Include="Options" />
     <Folder Include="Profile" />

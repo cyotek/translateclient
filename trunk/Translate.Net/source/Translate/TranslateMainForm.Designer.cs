@@ -74,7 +74,7 @@ namespace Translate
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TranslateMainForm));
 			this.msIcon = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.miShowHide = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.tsIconSep2 = new System.Windows.Forms.ToolStripSeparator();
 			this.miAbout2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsIconSep1 = new System.Windows.Forms.ToolStripSeparator();
 			this.miIconExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,6 +114,11 @@ namespace Translate
 			this.aScrollResultUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aScrollResultPageDown = new FreeCL.UI.Actions.Action(this.components);
 			this.aScrollResultPageUp = new FreeCL.UI.Actions.Action(this.components);
+			this.aControlCC = new FreeCL.UI.Actions.Action(this.components);
+			this.aControlInsIns = new FreeCL.UI.Actions.Action(this.components);
+			this.tsIconSep3 = new System.Windows.Forms.ToolStripSeparator();
+			this.miControlCC = new System.Windows.Forms.ToolStripMenuItem();
+			this.miControlInsIns = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -159,6 +164,7 @@ namespace Translate
 			// miEditDel
 			// 
 			this.al.SetAction(this.miEditDel, this.aEditDelete);
+			this.miEditDel.Enabled = false;
 			this.miEditDel.ToolTipText = "Delete selection (Del)";
 			this.miEditDel.Visible = true;
 			// 
@@ -202,6 +208,7 @@ namespace Translate
 			// sbDelete
 			// 
 			this.al.SetAction(this.sbDelete, this.aEditDelete);
+			this.sbDelete.Enabled = false;
 			this.sbDelete.ToolTipText = "Delete selection (Del)";
 			this.sbDelete.Visible = true;
 			// 
@@ -226,6 +233,10 @@ namespace Translate
 			this.al.SetAction(this.miEditCut, this.aEditCut);
 			this.miEditCut.ToolTipText = "Cut selection to clipboard (Ctrl+X)";
 			this.miEditCut.Visible = true;
+			// 
+			// aEditDelete
+			// 
+			this.aEditDelete.Enabled = false;
 			// 
 			// aAbout
 			// 
@@ -361,6 +372,8 @@ namespace Translate
 			this.al.Actions.Add(this.aScrollResultUp);
 			this.al.Actions.Add(this.aScrollResultPageDown);
 			this.al.Actions.Add(this.aScrollResultPageUp);
+			this.al.Actions.Add(this.aControlCC);
+			this.al.Actions.Add(this.aControlInsIns);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -371,25 +384,28 @@ namespace Translate
 			// 
 			this.msIcon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miShowHide,
-									this.toolStripSeparator1,
+									this.tsIconSep2,
 									this.miAbout2,
+									this.tsIconSep3,
+									this.miControlCC,
+									this.miControlInsIns,
 									this.tsIconSep1,
 									this.miIconExit});
 			this.msIcon.Name = "msIcon";
-			this.msIcon.Size = new System.Drawing.Size(144, 82);
+			this.msIcon.Size = new System.Drawing.Size(157, 132);
 			// 
 			// miShowHide
 			// 
 			this.al.SetAction(this.miShowHide, this.aShowMainForm);
 			this.miShowHide.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miShowHide.Name = "miShowHide";
-			this.miShowHide.Size = new System.Drawing.Size(143, 22);
+			this.miShowHide.Size = new System.Drawing.Size(156, 22);
 			this.miShowHide.Text = "Show/Hide";
 			// 
-			// toolStripSeparator1
+			// tsIconSep2
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(140, 6);
+			this.tsIconSep2.Name = "tsIconSep2";
+			this.tsIconSep2.Size = new System.Drawing.Size(149, 6);
 			// 
 			// miAbout2
 			// 
@@ -397,13 +413,13 @@ namespace Translate
 			this.miAbout2.Image = ((System.Drawing.Image)(resources.GetObject("miAbout2.Image")));
 			this.miAbout2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAbout2.Name = "miAbout2";
-			this.miAbout2.Size = new System.Drawing.Size(143, 22);
+			this.miAbout2.Size = new System.Drawing.Size(156, 22);
 			this.miAbout2.Text = "&About ...";
 			// 
 			// tsIconSep1
 			// 
 			this.tsIconSep1.Name = "tsIconSep1";
-			this.tsIconSep1.Size = new System.Drawing.Size(140, 6);
+			this.tsIconSep1.Size = new System.Drawing.Size(149, 6);
 			// 
 			// miIconExit
 			// 
@@ -413,7 +429,7 @@ namespace Translate
 			this.miIconExit.Name = "miIconExit";
 			this.miIconExit.ShortcutKeyDisplayString = "Alt+F4";
 			this.miIconExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.miIconExit.Size = new System.Drawing.Size(143, 22);
+			this.miIconExit.Size = new System.Drawing.Size(156, 22);
 			this.miIconExit.Text = "E&xit";
 			this.miIconExit.ToolTipText = "Exit from application";
 			// 
@@ -703,7 +719,7 @@ namespace Translate
 			// lSelectedLangsPair
 			// 
 			this.lSelectedLangsPair.Name = "lSelectedLangsPair";
-			this.lSelectedLangsPair.Size = new System.Drawing.Size(55, 17);
+			this.lSelectedLangsPair.Size = new System.Drawing.Size(0, 17);
 			// 
 			// lInputLang
 			// 
@@ -752,6 +768,48 @@ namespace Translate
 			this.aScrollResultPageUp.Text = "ScrollResultPageUp";
 			this.aScrollResultPageUp.Visible = true;
 			this.aScrollResultPageUp.Execute += new System.EventHandler(this.AScrollResultPageUpExecute);
+			// 
+			// aControlCC
+			// 
+			this.aControlCC.Checked = false;
+			this.aControlCC.Enabled = true;
+			this.aControlCC.Hint = null;
+			this.aControlCC.Tag = null;
+			this.aControlCC.Text = "aControlCC";
+			this.aControlCC.Visible = true;
+			this.aControlCC.Execute += new System.EventHandler(this.AControlCCExecute);
+			// 
+			// aControlInsIns
+			// 
+			this.aControlInsIns.Checked = false;
+			this.aControlInsIns.Enabled = true;
+			this.aControlInsIns.Hint = null;
+			this.aControlInsIns.Tag = null;
+			this.aControlInsIns.Text = "aControlInsIns";
+			this.aControlInsIns.Visible = true;
+			this.aControlInsIns.Execute += new System.EventHandler(this.AControlInsInsExecute);
+			this.aControlInsIns.Update += new System.EventHandler(this.AControlInsInsUpdate);
+			// 
+			// tsIconSep3
+			// 
+			this.tsIconSep3.Name = "tsIconSep3";
+			this.tsIconSep3.Size = new System.Drawing.Size(149, 6);
+			// 
+			// miControlCC
+			// 
+			this.al.SetAction(this.miControlCC, this.aControlCC);
+			this.miControlCC.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlCC.Name = "miControlCC";
+			this.miControlCC.Size = new System.Drawing.Size(156, 22);
+			this.miControlCC.Text = "aControlCC";
+			// 
+			// miControlInsIns
+			// 
+			this.al.SetAction(this.miControlInsIns, this.aControlInsIns);
+			this.miControlInsIns.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlInsIns.Name = "miControlInsIns";
+			this.miControlInsIns.Size = new System.Drawing.Size(156, 22);
+			this.miControlInsIns.Text = "aControlInsIns";
 			// 
 			// TranslateMainForm
 			// 
@@ -807,6 +865,12 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miControlInsIns;
+		private System.Windows.Forms.ToolStripMenuItem miControlCC;
+		private System.Windows.Forms.ToolStripSeparator tsIconSep3;
+		private System.Windows.Forms.ToolStripSeparator tsIconSep2;
+		private FreeCL.UI.Actions.Action aControlInsIns;
+		private FreeCL.UI.Actions.Action aControlCC;
 		private FreeCL.UI.Actions.Action aScrollResultPageUp;
 		private FreeCL.UI.Actions.Action aScrollResultPageDown;
 		private FreeCL.UI.Actions.Action aScrollResultUp;
@@ -841,7 +905,6 @@ namespace Translate
 		private FreeCL.UI.Panel pTop;
 		private FreeCL.UI.Panel pRight;
 		private FreeCL.UI.Panel pLeft;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem miAbout2;
 		private System.Windows.Forms.ToolStripMenuItem miShowHide;
 		private FreeCL.UI.Actions.Action aShowMainForm;
