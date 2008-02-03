@@ -55,6 +55,8 @@ namespace Translate
 			get { return versionsTxtUrls; }
 		}
 	
-		public const string StatsPageUrl = "http://translateclient.googlepages.com/q.htm";
+		public const string HomeUrl = "http://translateclient.googlepages.com";
+		public const string StatsPageUrl = HomeUrl + "/q.htm";
+		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.";
 	}
 }

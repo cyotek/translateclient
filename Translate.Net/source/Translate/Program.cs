@@ -93,6 +93,7 @@ namespace Translate
 				Application.Initialize();
 				
 				KeyboardHook.Init();
+				UpdatesManager.CheckNewVersion();
 				
 				Application.Run(new TranslateMainForm());
 			}

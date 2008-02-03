@@ -71,11 +71,13 @@ namespace Translate
 		private void InitializeComponent()
 		{
 			this.cbAutomaticUpdates = new System.Windows.Forms.CheckBox();
+			this.lStat = new System.Windows.Forms.Label();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.lStat);
 			this.pBody.Controls.Add(this.cbAutomaticUpdates);
 			// 
 			// cbAutomaticUpdates
@@ -87,6 +89,13 @@ namespace Translate
 			this.cbAutomaticUpdates.Text = "Automatically check updates";
 			this.cbAutomaticUpdates.UseVisualStyleBackColor = true;
 			// 
+			// lStat
+			// 
+			this.lStat.Location = new System.Drawing.Point(13, 57);
+			this.lStat.Name = "lStat";
+			this.lStat.Size = new System.Drawing.Size(373, 72);
+			this.lStat.TabIndex = 3;
+			// 
 			// UpdatesOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +104,7 @@ namespace Translate
 			this.pBody.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label lStat;
 		private System.Windows.Forms.CheckBox cbAutomaticUpdates;
 	}
 }

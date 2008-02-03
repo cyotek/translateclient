@@ -88,6 +88,63 @@ namespace Translate
 			}
 		}
 		
+		static bool isNewVersion;
+		public static bool IsNewVersion {
+			get { return isNewVersion; }
+			set { isNewVersion = value; }
+		}
+		
+		
+		public static void CheckNewVersion()
+		{
+			System.Diagnostics.FileVersionInfo vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
+			string previousVersion = TranslateOptions.Instance.UpdateOptions.PreviousVersion;
+			TranslateOptions.Instance.UpdateOptions.PreviousVersion = vi.ProductVersion;
+			if(previousVersion == vi.ProductVersion)
+			{
+				isNewVersion = false;
+				return;
+			}
+				
+			string[] versionPreviousArray = previousVersion.Split('.');
+			string[] versionCurrentArray = vi.ProductVersion.Split('.');
+			
+			if(versionPreviousArray.Length != versionCurrentArray.Length)
+			{
+				isNewVersion = true;
+				return;
+			}
+			
+			bool isNewVersionTmp = false;
+			
+			for(int i = 0; i < versionPreviousArray.Length; i++)
+			{
+				int onPreviousPart;
+				if(!int.TryParse(versionPreviousArray[i], out onPreviousPart))
+				{
+					isNewVersion = true;
+					return;
+				}
+				
+				int onCurrentPart;
+				if(!int.TryParse(versionCurrentArray[i], out onCurrentPart))
+				{
+					isNewVersion = true;
+					return;
+				}
+				
+				if(onPreviousPart < onCurrentPart)
+				{
+					isNewVersionTmp = true;
+					break;
+				}
+				else if(onPreviousPart > onCurrentPart)
+				{
+					break;
+				}
+			}
+			isNewVersion = isNewVersionTmp;
+		}
 
 		public static bool NeedCheck
 		{
@@ -187,6 +244,8 @@ namespace Translate
 			state = UpdateState.Error;
 			versionUrlToCheck = 0;
 			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Hours(2).Ticks); //next 2 hours
+			TranslateOptions.Instance.UpdateOptions.LastCheckResult = Error;
+			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
 		}
 
 		static void SetEndingState(string Message)
@@ -195,6 +254,8 @@ namespace Translate
 			state = UpdateState.Ending;
 			versionUrlToCheck = 0;
 			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Days(1).Ticks); //next day
+			TranslateOptions.Instance.UpdateOptions.LastCheckResult = Message;
+			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
 		}
 
 		static void Cancelled()
@@ -203,6 +264,8 @@ namespace Translate
 			state = UpdateState.None;
 			versionUrlToCheck = 0;
 			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Hours(2).Ticks); //next 2 hours
+			TranslateOptions.Instance.UpdateOptions.LastCheckResult = message;
+			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
 		}
 		
 		static void DownloadVersionsCompleted (Object sender, DownloadStringCompletedEventArgs e)
@@ -505,6 +568,9 @@ namespace Translate
 		
 		public static void RunUpdate()
 		{
+			TranslateOptions.Instance.UpdateOptions.LastCheckResult = "Reboot";
+			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
+		
 			Process myProcess = new Process();
 			
 			// Get the path that stores user documents.
@@ -512,6 +578,7 @@ namespace Translate
 			myProcess.StartInfo.Arguments = "/SILENT";
 			myProcess.StartInfo.ErrorDialog = true;
 			myProcess.Start();
+			
 			System.Windows.Forms.Application.Exit(); 
 		}
 		

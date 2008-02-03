@@ -78,6 +78,8 @@
 Оновлення
 [Automatically check updates]
 Автоматично перевіряти оновлення
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Останнє оновлення відбулося - {0}\r\nОстання перевірка наявності оновлення - {1} із статусом - {2}\r\nНаступна перевірка оновлення - {3}
 [Close]
 Закрити
 [Error on downloading {0}]
@@ -254,6 +256,14 @@ HTTP-проксі
 Українська
 [Languages]
 Мови
+[Services]
+Сервіси
+[Enabled]
+Увімкнені
+[Disabled]
+Вимкнені
+[Disabled by user]
+Вимкнені користувачем
 [Subjects]
 Теми
 [Common]

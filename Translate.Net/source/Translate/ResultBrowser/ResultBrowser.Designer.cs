@@ -85,6 +85,7 @@ namespace Translate
 			this.wBrowser.Size = new System.Drawing.Size(391, 144);
 			this.wBrowser.TabIndex = 1;
 			this.wBrowser.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.WBrowserNavigating);
+			this.wBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.WBrowserDocumentCompleted);
 			// 
 			// wAdvertBrowser
 			// 
@@ -126,7 +127,6 @@ namespace Translate
 			this.Controls.Add(this.wAdvertBrowser);
 			this.Name = "ResultBrowser";
 			this.Size = new System.Drawing.Size(374, 184);
-			this.Load += new System.EventHandler(this.ResultBrowserLoad);
 			this.Resize += new System.EventHandler(this.ResultBrowserResize);
 			this.SizeChanged += new System.EventHandler(this.ResultBrowserSizeChanged);
 			this.ClientSizeChanged += new System.EventHandler(this.ResultBrowserClientSizeChanged);

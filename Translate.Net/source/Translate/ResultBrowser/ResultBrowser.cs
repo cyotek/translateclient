@@ -66,11 +66,6 @@ namespace Translate
 			RecalcSizes();
 		}
 
-		void ResultBrowserLoad(object sender, EventArgs e)
-		{
-			Clear();
-		}
-		
 		string statusText;
 		public string StatusText {
 			get { return statusText; }
@@ -88,13 +83,30 @@ namespace Translate
 		
 		
 		bool isClean;
+		bool forceCleaning;
 		public void Clear()
 		{
 			if(isClean)
 				return;
 				
+			if(UpdatesManager.IsNewVersion)
+			{
+				UpdatesManager.IsNewVersion = false;
+				string url = Constants.ChangeLogPageUrlBase;
+				if(FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian")
+				{
+					url += "uk.html";
+				}
+				else
+				{
+					url += "en.html";				
+				}
+				forceCleaning = true;
+				wBrowser.Navigate(url);
+				return;
+			}
 			
-			if (wBrowser.Document != null)
+			if (wBrowser.Document != null && !forceCleaning)
 			{ 
 				Wait();	
 				
@@ -110,10 +122,9 @@ namespace Translate
 			}
 			else
 			{
+				forceCleaning = false;
 				string clean = GetCleanHtml();
 				wBrowser.DocumentText = clean;
-				Wait();
-				HtmlHelper.InitDocument(wBrowser.Document);
 			}
 			RecalcSizes();
 			isClean = true;	
@@ -546,8 +557,11 @@ namespace Translate
 		{
 			if(e.Url.AbsoluteUri == "about:blank")
 				return;
-			if(Constants.StatsPageUrl == "http://" + e.Url.Host + e.Url.AbsolutePath)
+			if(e.Url.AbsoluteUri.Contains(Constants.StatsPageUrl))
 				return;
+			if(e.Url.AbsoluteUri.Contains(Constants.ChangeLogPageUrlBase))
+				return;
+				
 			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
 				return;
 			System.Diagnostics.Process.Start(e.Url.AbsoluteUri);
@@ -832,6 +846,15 @@ namespace Translate
 					}
 				}
 			}
+		}
+		
+		void WBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+		{
+			if(e.Url.AbsoluteUri == "about:blank")
+			{
+				HtmlHelper.InitDocument(wBrowser.Document);
+			}
+			RecalcSizes();			
 		}
 	}
 }
