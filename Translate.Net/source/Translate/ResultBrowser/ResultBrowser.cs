@@ -47,6 +47,7 @@ using System.Resources;
 using System.IO;
 using System.Reflection;
 using System.Collections.Generic;
+using Microsoft.Win32;
 
 namespace Translate
 {
@@ -537,6 +538,7 @@ namespace Translate
 				return;
 				
 			currentQuery = query;
+			SetExplorerSound(false);
 			wAdvertBrowser.Navigate(new Uri(Constants.StatsPageUrl + "?" + currentQuery));
 		}
 		
@@ -721,6 +723,7 @@ namespace Translate
 		void WAdvertBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			advertLoaded = true;
+			SetExplorerSound(true);
 			RecalcSizes();
 		}
 
@@ -783,6 +786,52 @@ namespace Translate
 			if(newvalue < vScrollBar.Minimum)
 				newvalue = vScrollBar.Minimum;
 			vScrollBar.Value = newvalue;
+		}
+		
+
+		string keyName = "HKEY_CURRENT_USER\\AppEvents\\Schemes\\Apps\\Explorer\\Navigating\\.Current";
+		
+		void SetExplorerSound(bool restore)
+		{
+			string current = null;
+				
+			try
+			{
+				current = (string)Registry.GetValue(keyName, "", "Not set");
+			}
+			catch
+			{
+			
+			}
+		
+			if(!restore)
+			{
+				if(!string.IsNullOrEmpty(current) && current != "Not set" && !current.EndsWith("1"))
+				{
+					try
+					{
+						Registry.SetValue(keyName, "", current + "1");
+					}
+					catch
+					{
+					
+					}
+				}
+			}
+			else
+			{
+				if(!string.IsNullOrEmpty(current) && current.EndsWith("1"))
+				{
+					try
+					{
+						Registry.SetValue(keyName, "", current.Substring(0, current.Length-1));
+					}
+					catch
+					{
+					
+					}
+				}
+			}
 		}
 	}
 }
