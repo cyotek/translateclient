@@ -201,7 +201,7 @@ namespace FreeCL.UI
 			bool res = Execute(OnCopy);
 			if(!res)
 			{
-				Clipboard.Cut();
+				Clipboard.Copy();
 			}
 			return res;
 		}		
