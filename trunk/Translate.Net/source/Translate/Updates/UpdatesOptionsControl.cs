@@ -62,13 +62,35 @@ namespace Translate
 		void OnLanguageChanged()
 		{
 			cbAutomaticUpdates.Text = TranslateString("Automatically check updates");
+			statFormat = TranslateString("Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}");
+			if(current != null)
+			{
+				lStat.Text = 
+				  string.Format(statFormat, 
+				  	current.LastUpdate,
+				  	current.LastCheck,
+				  	current.LastCheckResult,
+				  	current.NextCheck
+				  	);
+			}
+			
 		}
 		
+		string statFormat;
 		UpdateOptions current;
 		public override void Init()
 		{
 			current = TranslateOptions.Instance.UpdateOptions;
 			cbAutomaticUpdates.Checked = current.EnableAutomaticUpdates;
+			
+				lStat.Text = 
+				  string.Format(statFormat, 
+				  	current.LastUpdate,
+				  	current.LastCheck,
+				  	current.LastCheckResult,
+				  	current.NextCheck
+				  	);
+			
 		}
 		
 		public override void Apply()

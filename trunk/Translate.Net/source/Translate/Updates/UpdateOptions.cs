@@ -55,6 +55,26 @@ namespace Translate
 			set { nextCheck = value; }
 		}
 		
+		DateTime lastCheck;
+		public DateTime LastCheck {
+			get { return lastCheck; }
+			set { lastCheck = value; }
+		}
+		
+		string lastCheckResult;
+		public string LastCheckResult {
+			get { return lastCheckResult; }
+			set { lastCheckResult = value; }
+		}
+				
+		
+		DateTime lastUpdate = DateTime.Now;
+		public DateTime LastUpdate {
+			get { return lastUpdate; }
+			set { lastUpdate = value; }
+		}
+		
+		
 		string previousVersion;
 		public string PreviousVersion {
 			get { return previousVersion; }
