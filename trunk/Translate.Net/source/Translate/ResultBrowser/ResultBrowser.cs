@@ -854,6 +854,16 @@ namespace Translate
 			{
 				HtmlHelper.InitDocument(wBrowser.Document);
 			}
+			else
+			{
+				wBrowser.Document.Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
+				HtmlElement header = wBrowser.Document.GetElementById("big_header");
+				if(header != null)
+				{
+					IHTMLDOMNode parent = header.Parent.DomElement as IHTMLDOMNode;
+					parent.RemoveChild(header.DomElement as IHTMLDOMNode);
+				}
+			}
 			RecalcSizes();			
 		}
 	}
