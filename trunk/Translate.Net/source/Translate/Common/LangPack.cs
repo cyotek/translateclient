@@ -49,5 +49,12 @@ namespace Translate
 		{
 		  return FreeCL.RTL.LangPack.TranslateString(data);
 		}		
+		
+		public static string TranslateLanguage(Language language)
+		{
+			string val = Enum.GetName(typeof(Language), language);
+			val = TranslateString(val);
+			return val;
+		}
 	}
 }

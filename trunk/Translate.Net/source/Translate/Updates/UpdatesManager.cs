@@ -106,6 +106,12 @@ namespace Translate
 				return;
 			}
 				
+			if(string.IsNullOrEmpty(previousVersion))
+			{
+				isNewVersion = true;
+				return;
+			}
+			
 			string[] versionPreviousArray = previousVersion.Split('.');
 			string[] versionCurrentArray = vi.ProductVersion.Split('.');
 			

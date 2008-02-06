@@ -116,9 +116,7 @@ namespace Translate
 			splitterBottom.Enabled = false;
 			splitterBottom.Visible = false;
 			
-			languageSelector.SetSubjects(currentProfile.GetSupportedSubjects(), currentProfile.Subjects);
-			languageSelector.Languages = currentProfile.GetLanguagePairs();
-			languageSelector.History = currentProfile.History;
+			languageSelector.Profile = currentProfile;
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			miFile.DropDownItems.Remove(miTranslate);
@@ -180,8 +178,9 @@ namespace Translate
 			
 		
 			if(!string.IsNullOrEmpty(selectionName))
-				lSelectedLangsPair.Text = selectionName.Substring(0, 3) + "->" + selectionName.Substring(selectionName.IndexOf("->") + 3, 3);
-		
+				lSelectedLangsPair.Text = languageSelector.Selection.From.ToString().Substring(0, 3) +
+					"->" + 
+					languageSelector.Selection.To.ToString().Substring(0, 3);
 		}
 		
 		TranslateProfile currentProfile = TranslateOptions.Instance.CurrentProfile;
@@ -312,7 +311,7 @@ namespace Translate
 			ResourceManager resources = new ResourceManager("Translate.Common.Icons", Assembly.GetExecutingAssembly());
 			miAnimatedIcon.Image = ((System.Drawing.Image)(resources.GetObject("AnimatedIcon")));
 			tsbTranslate.Image = ((System.Drawing.Image)(resources.GetObject("AnimatedIcon")));
-			ReadOnlyServiceSettingCollection settings = currentProfile.GetTranslatorSettings(tbFrom.Text, languageSelector.Selection);
+			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
 			if(settings.Count > 0)
 			{
@@ -367,25 +366,6 @@ namespace Translate
 			tbFrom.Focus();
 		}
 		
-		
-		void LanguageSelectorSubjectsChanged(object sender, EventArgs e)
-		{
-			languageSelector.Languages = currentProfile.GetLanguagePairs();
-			LanguagePairCollection to_delete = new LanguagePairCollection();
-			foreach(LanguagePair lp in languageSelector.History)
-			{
-				if(!languageSelector.Languages.Contains(lp))
-				{
-					to_delete.Add(lp);
-				}
-			}
-			
-			foreach(LanguagePair lp in to_delete)
-			{
-				languageSelector.History.Remove(lp);
-			}
-			languageSelector.LoadHistory();
-		}
 		
 		void ResBrowserStatusTextChanged(object sender, EventArgs e)
 		{
@@ -546,6 +526,11 @@ namespace Translate
 		{
 			aControlCC.Checked = KeyboardHook.ControlCC;
 			aControlInsIns.Checked = KeyboardHook.ControlInsIns;
+		}
+		
+		void TbFromTextChanged(object sender, EventArgs e)
+		{
+			languageSelector.Phrase = tbFrom.Text.Trim();
 		}
 	}
 }

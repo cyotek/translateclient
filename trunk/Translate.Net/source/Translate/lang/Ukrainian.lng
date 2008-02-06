@@ -150,6 +150,10 @@ HTTP-проксі
 Українські літери в запиті по російських позиціях
 [Parse error, start tags not found]
 Помилка парсінгу, стартовий тег не знайдено
+[Nothing to translate]
+Немає чого перекладати  
+[Length too big]
+Дуже велика довжина
 [Result view]
 Вид результату
 [Include monolingual dictionaries in translation]
@@ -260,12 +264,24 @@ HTTP-проксі
 Сервіси
 [Enabled]
 Увімкнені
+[Error]
+Помилка
 [Disabled]
 Вимкнені
-[Disabled by user]
-Вимкнені користувачем
+[<b>Status</b> : Enabled]
+<b>Статус</b> : Увімкнуто
+[<b>Status</b> : Error]
+<b>Статус</b> : Помилка
+[<b>Status</b> : Disabled]
+<b>Статус</b> : Вимкнено
+[Enable]
+Увімкнутни
+[Disable]
+Вимкнути
 [Subjects]
 Теми
+[Subject]
+Тема
 [Common]
 Загальна
 [Aviation]
@@ -310,5 +326,23 @@ HTTP-проксі
 Економіка
 [Electronics]
 Електроніка
-
-
+[Type]
+Тип
+[Translator]
+Перекладачка
+[Monolingual dictionary]
+Тлумачний словник
+[Bilingual dictionary]
+Двомовний словник
+[T]
+П
+[MD]
+ТС
+[BD]
+ДС
+[Limit]
+Межа 
+[characters]
+Символів
+[Masks]
+Маски

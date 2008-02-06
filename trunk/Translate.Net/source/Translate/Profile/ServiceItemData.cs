@@ -1,4 +1,4 @@
-﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -36,7 +36,10 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Diagnostics.CodeAnalysis;
@@ -44,65 +47,78 @@ using System.Diagnostics.CodeAnalysis;
 namespace Translate
 {
 	/// <summary>
-	/// Description of TranslateProfile.
+	/// Description of ServiceItemData.
 	/// </summary>
+	[Serializable()]
+	public class ServiceItemData
+	{
+		public ServiceItemData()
+		{
+		}
+		
+		public ServiceItemData(string name, LanguagePair languagePair, string subject)
+		{
+			this.name = name;
+			this.languagePair = languagePair;
+			this.subject = subject;
+		}
+		
+		
+		string name;
+		public string Name {
+			get { return name; }
+			set { name = value; }
+		}
+
+		LanguagePair languagePair;
+		public LanguagePair LanguagePair {
+			get { return languagePair; }
+			set { languagePair = value; }
+		}
+		
+		string subject;
+		public string Subject {
+			get { return subject; }
+			set { subject = value; }
+		}
+		
+		public override bool Equals(Object obj)
+		{
+			ServiceItemData arg = obj as ServiceItemData;
+			if(arg == null) return false;
+			return name.Equals(arg.Name) && subject.Equals(arg.Subject) && languagePair.Equals(arg.languagePair);
+		}
+			
+		public override int GetHashCode() 
+		{
+      		return unchecked(name.GetHashCode() * 1000 + languagePair.GetHashCode() + subject.GetHashCode()*10000);
+   		}	
+			
+		public static bool operator ==(ServiceItemData a, ServiceItemData b)
+		{
+			bool anull, bnull;
+			anull = Object.ReferenceEquals(a,null); 
+			bnull = Object.ReferenceEquals(b,null);
+			if (anull && bnull) return true;
+			if (anull || bnull) return false;
+			return a.Equals(b);
+		}
+	
+		public static bool operator !=(ServiceItemData a, ServiceItemData b)
+		{
+			return !(a == b);
+		}
+		
+		
+	}
 	
 	[Serializable()]
-	public class TranslateProfile
+	public class ServiceItemsDataCollection: Collection<ServiceItemData>
 	{
-		public TranslateProfile()
-		{
-		}
-		
-		
-		[NonSerialized]
-		SubjectCollection subjects = new SubjectCollection();
-		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
-		public SubjectCollection Subjects {
-			get { return subjects; }
-		}
-		
-		[NonSerialized]
-		LanguagePairCollection history = new LanguagePairCollection();
-		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
-		public LanguagePairCollection History {
-			get { return history; }
-		}
-		
-		
-		
-		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
-		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
-		public virtual SubjectCollection GetSupportedSubjects()
-		{
-			return null;
-		}
-		
-		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
-		public virtual ReadOnlyLanguagePairCollection GetLanguagePairs()
-		{
-			return null;
-		}
-		
-		public virtual ReadOnlyServiceSettingCollection GetServiceSettings(string phrase, LanguagePair languagePair)
-		{
-			return null;		
-		}
-		
-		bool includeMonolingualDictionaryInTranslation = true;
-		public bool IncludeMonolingualDictionaryInTranslation {
-			get { return includeMonolingualDictionaryInTranslation; }
-			set { includeMonolingualDictionaryInTranslation = value; }
-		}
-		
-		public virtual void EnableService(string name, LanguagePair languagePair, string subject, bool enable)
+		public ServiceItemsDataCollection()
 		{
 		
-		}
-		
-		public virtual bool IsServiceEnabled(string name, LanguagePair languagePair, string subject)
-		{
-			return true;
 		}
 	}
+	
 }

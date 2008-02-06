@@ -60,10 +60,6 @@
       <DependentUpon>HotkeysOptrionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Hooks\KeyboardHook.cs" />
-    <Compile Include="LanguageSelector.cs" />
-    <Compile Include="LanguageSelector.Designer.cs">
-      <DependentUpon>LanguageSelector.cs</DependentUpon>
-    </Compile>
     <Compile Include="Manager\TranslatorSetting.cs" />
     <Compile Include="Options\DefaultProfileOptionsControl.cs" />
     <Compile Include="Options\DefaultProfileOptionsControl.Designer.cs">
@@ -88,6 +84,7 @@
       <DependentUpon>TrayOptionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\DefaultTranslateProfile.cs" />
+    <Compile Include="Profile\ServiceItemData.cs" />
     <Compile Include="Profile\TranslateProfile.cs" />
     <Compile Include="ResultBrowser\HtmlHelper.cs" />
     <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />
@@ -95,6 +92,15 @@
       <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultBrowser\IHTMLDOMNode.cs" />
+    <Compile Include="Selector\LanguageSelector.cs" />
+    <Compile Include="Selector\LanguageSelector.Designer.cs">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\ServiceSettingsContainer.cs" />
+    <Compile Include="Selector\ServiceStatusControl.cs" />
+    <Compile Include="Selector\ServiceStatusControl.Designer.cs">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TranslateMainForm.cs" />
     <Compile Include="TranslateMainForm.Designer.cs">
       <DependentUpon>TranslateMainForm.cs</DependentUpon>
@@ -120,9 +126,6 @@
     <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
       <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LanguageSelector.resx">
-      <DependentUpon>LanguageSelector.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Options\DefaultProfileOptionsControl.resx">
       <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +144,12 @@
     <EmbeddedResource Include="ResultBrowser\HtmlSourceViewForm.resx">
       <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Selector\LanguageSelector.resx">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selector\ServiceStatusControl.resx">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TranslateMainForm.resx">
       <DependentUpon>TranslateMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +160,7 @@
     <None Include="lang\Ukrainian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <EmbeddedResource Include="Selector\StatusTemplate.html" />
     <None Include="Updates\versions.txt" />
     <EmbeddedResource Include="ResultBrowser\Template.html" />
     <EmbeddedResource Include="Updates\UpdaterForm.resx">
@@ -165,6 +175,7 @@
     <Folder Include="Common" />
     <Folder Include="lang" />
     <Folder Include="Hooks" />
+    <Folder Include="Selector" />
     <Folder Include="Updates" />
     <Folder Include="Options" />
     <Folder Include="Profile" />

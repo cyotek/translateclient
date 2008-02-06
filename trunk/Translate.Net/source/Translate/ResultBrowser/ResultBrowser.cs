@@ -156,37 +156,6 @@ namespace Translate
 			}
 		}
 		
-		public HtmlElement CreateDataRow(HtmlDocument doc)
-		{
-			if(doc == null)
-				throw new ArgumentNullException("doc");
-		
-			HtmlElement tableBody = doc.GetElementById("result_table_body");
-			HtmlElement tableRow = doc.CreateElement("TR");
-			tableBody.AppendChild(tableRow);
-			
-			HtmlElement rowCell = doc.CreateElement("TD");
-			tableRow.AppendChild(rowCell);
-			if(isClean)
-				rowCell.Style = HtmlHelper.FirstRowCellStyle;
-			else
-				rowCell.Style = HtmlHelper.RowCellStyle;
-			
-			HtmlElement rowTable = doc.CreateElement("table");
-			rowCell.AppendChild(rowTable);
-			rowTable.Style = HtmlHelper.TableStyle;
-			rowTable.SetAttribute("border", "0");
-			rowTable.SetAttribute("cellpadding", "1");
-			rowTable.SetAttribute("cellspacing", "3");
-			
-			
-			tableBody = doc.CreateElement("TBODY");
-			rowTable.AppendChild(tableBody);
-			HtmlElement dataRow = doc.CreateElement("TR");
-			tableBody.AppendChild(dataRow);
-			return dataRow;
-			
-		}
 
 		char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|' };
 		
@@ -341,7 +310,7 @@ namespace Translate
 			Wait();	
 			
 			HtmlDocument doc = wBrowser.Document;
-			HtmlElement tableRow = CreateDataRow(doc);
+			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, isClean);
 			
 			//icon
 			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, result.ServiceItem.Service));
@@ -377,7 +346,7 @@ namespace Translate
 			Wait();	
 			
 			HtmlDocument doc = wBrowser.Document;
-			HtmlElement tableRow = CreateDataRow(doc);
+			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, isClean);
 			
 			
 			//icon
