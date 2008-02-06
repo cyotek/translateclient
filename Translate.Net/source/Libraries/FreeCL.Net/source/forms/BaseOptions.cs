@@ -107,7 +107,12 @@ namespace FreeCL.Forms
 		{
 			base.OnLoaded();
 			LoadFileName();
-			LangPack.Load(language);
+			if(string.IsNullOrEmpty(language))
+			{
+				language = LangPack.CurrentLanguage;
+			}
+			else
+				LangPack.Load(language);
 		}
 
 		
