@@ -44,21 +44,22 @@ using System.Diagnostics.CodeAnalysis;
 [module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope="namespace", Target="Translate.r2uOrgUa")]
 [module: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Scope="namespace", Target="Translate.r2uOrgUa")]
 
-namespace Translate.r2uOrgUa
+namespace Translate
 {
 	
 	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
-	public class R2uOrgUaService : Service
+	public class R2uOrgUAService : Service
 	{
-		public R2uOrgUaService()
+		public R2uOrgUAService()
 		{
 			Url = new Uri("http://r2u.org.ua");
 			Name = "r2u_org_ua_dic";
 			CompanyName = "Andriy Rysin";
 			Copyright = "Andriy Rysin, KIS, http://r2u.org.ua/krym/sources.php";
 			IconUrl = new Uri("http://r2u.org.ua/img/r2u.png");
+			IconResourceName = "Translate.r2uOrgUa.Service.ico";
 			
-			BilingualDictionary tr = new R2uOrgUaDictionary();
+			BilingualDictionary tr = new R2uOrgUADictionary();
 			tr.Service = this;
 			AddBilingualDictionary(tr);
 			

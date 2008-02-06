@@ -55,9 +55,9 @@ namespace Translate
 	
 	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
 	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-	public class R2uOrgUaDictionary : BilingualDictionary
+	public class R2uOrgUADictionary : BilingualDictionary
 	{
-		public R2uOrgUaDictionary()
+		public R2uOrgUADictionary()
 		{
 			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.Ukrainian));
 			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.Russian));

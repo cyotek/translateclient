@@ -77,6 +77,12 @@
     <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
+    <EmbeddedResource Include="Google\Service.ico" />
+    <EmbeddedResource Include="MetaUa\Service.ico" />
+    <EmbeddedResource Include="PereOrgUa\Service.ico" />
+    <EmbeddedResource Include="r2uOrgUa\Service.ico" />
+    <EmbeddedResource Include="SlovnykNet\Service.ico" />
+    <EmbeddedResource Include="SlovnykOrg\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />

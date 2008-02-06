@@ -50,7 +50,7 @@ namespace Translate
 			Url = new Uri("http://translate.google.com/");
 			Name = "google";
 			CompanyName = "Google Inc.";
-			Copyright = "Copyright © 2007, Google";
+			Copyright = "Copyright © 2008, Google";
 			IconUrl = new Uri("http://www.google.com/favicon.ico");
 			
 			AddTranslator(new GoogleTranslator());

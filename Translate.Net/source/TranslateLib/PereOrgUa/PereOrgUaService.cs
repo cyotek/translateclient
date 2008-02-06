@@ -55,6 +55,7 @@ namespace Translate
 			CompanyName = "Valentyn Solomko";
 			Copyright = "Copyleft (L) 2003-2007, Kyiv, Valentyn Solomko";
 			IconUrl = new Uri("http://pere.org.ua/favicon.ico");
+			IconResourceName = "Translate.PereOrgUa.Service.ico";
 			
 			Translator tr = new PereOrgUATranslator();
 			tr.Service = this;
