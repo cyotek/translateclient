@@ -150,6 +150,10 @@
 
 [Parse error, start tags not found]
 
+[Nothing to translate]
+
+[Length too big]
+
 [Result view]
 
 [Include monolingual dictionaries in translation]
@@ -260,11 +264,23 @@
 
 [Enabled]
 
+[Error]
+
 [Disabled]
 
-[Disabled by user]
+[<b>Status</b> : Enabled]
+
+[<b>Status</b> : Error]
+
+[<b>Status</b> : Disabled]
+
+[Enable]
+
+[Disable]
 
 [Subjects]
+
+[Subject]
 
 [Common]
 
@@ -310,3 +326,22 @@
 
 [Electronics]
 
+[Type]
+
+[Translator]
+
+[Monolingual dictionary]
+
+[Bilingual dictionary]
+
+[T]
+
+[MD]
+
+[BD]
+
+[Limit]
+
+[characters]
+
+[Masks]

@@ -76,6 +76,9 @@ namespace Translate
 			this.miShowHide = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsIconSep2 = new System.Windows.Forms.ToolStripSeparator();
 			this.miAbout2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsIconSep3 = new System.Windows.Forms.ToolStripSeparator();
+			this.miControlCC = new System.Windows.Forms.ToolStripMenuItem();
+			this.miControlInsIns = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsIconSep1 = new System.Windows.Forms.ToolStripSeparator();
 			this.miIconExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.niMain = new System.Windows.Forms.NotifyIcon(this.components);
@@ -116,9 +119,6 @@ namespace Translate
 			this.aScrollResultPageUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aControlCC = new FreeCL.UI.Actions.Action(this.components);
 			this.aControlInsIns = new FreeCL.UI.Actions.Action(this.components);
-			this.tsIconSep3 = new System.Windows.Forms.ToolStripSeparator();
-			this.miControlCC = new System.Windows.Forms.ToolStripMenuItem();
-			this.miControlInsIns = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -405,7 +405,7 @@ namespace Translate
 			// tsIconSep2
 			// 
 			this.tsIconSep2.Name = "tsIconSep2";
-			this.tsIconSep2.Size = new System.Drawing.Size(149, 6);
+			this.tsIconSep2.Size = new System.Drawing.Size(153, 6);
 			// 
 			// miAbout2
 			// 
@@ -416,10 +416,31 @@ namespace Translate
 			this.miAbout2.Size = new System.Drawing.Size(156, 22);
 			this.miAbout2.Text = "&About ...";
 			// 
+			// tsIconSep3
+			// 
+			this.tsIconSep3.Name = "tsIconSep3";
+			this.tsIconSep3.Size = new System.Drawing.Size(153, 6);
+			// 
+			// miControlCC
+			// 
+			this.al.SetAction(this.miControlCC, this.aControlCC);
+			this.miControlCC.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlCC.Name = "miControlCC";
+			this.miControlCC.Size = new System.Drawing.Size(156, 22);
+			this.miControlCC.Text = "aControlCC";
+			// 
+			// miControlInsIns
+			// 
+			this.al.SetAction(this.miControlInsIns, this.aControlInsIns);
+			this.miControlInsIns.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlInsIns.Name = "miControlInsIns";
+			this.miControlInsIns.Size = new System.Drawing.Size(156, 22);
+			this.miControlInsIns.Text = "aControlInsIns";
+			// 
 			// tsIconSep1
 			// 
 			this.tsIconSep1.Name = "tsIconSep1";
-			this.tsIconSep1.Size = new System.Drawing.Size(149, 6);
+			this.tsIconSep1.Size = new System.Drawing.Size(153, 6);
 			// 
 			// miIconExit
 			// 
@@ -476,10 +497,10 @@ namespace Translate
 			this.languageSelector.MinimumSize = new System.Drawing.Size(150, 0);
 			this.languageSelector.Name = "languageSelector";
 			this.languageSelector.Padding = new System.Windows.Forms.Padding(2);
+			this.languageSelector.Profile = null;
 			this.languageSelector.Size = new System.Drawing.Size(200, 344);
 			this.languageSelector.TabIndex = 0;
 			this.languageSelector.SelectionChanged += new System.EventHandler(this.LanguageSelectorSelectionChanged);
-			this.languageSelector.SubjectsChanged += new System.EventHandler(this.LanguageSelectorSubjectsChanged);
 			// 
 			// pTop
 			// 
@@ -556,6 +577,7 @@ namespace Translate
 			this.tbFrom.ScrollBars = System.Windows.Forms.ScrollBars.Both;
 			this.tbFrom.Size = new System.Drawing.Size(386, 127);
 			this.tbFrom.TabIndex = 1;
+			this.tbFrom.TextChanged += new System.EventHandler(this.TbFromTextChanged);
 			// 
 			// tsTranslate
 			// 
@@ -790,27 +812,6 @@ namespace Translate
 			this.aControlInsIns.Execute += new System.EventHandler(this.AControlInsInsExecute);
 			this.aControlInsIns.Update += new System.EventHandler(this.AControlInsInsUpdate);
 			// 
-			// tsIconSep3
-			// 
-			this.tsIconSep3.Name = "tsIconSep3";
-			this.tsIconSep3.Size = new System.Drawing.Size(149, 6);
-			// 
-			// miControlCC
-			// 
-			this.al.SetAction(this.miControlCC, this.aControlCC);
-			this.miControlCC.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miControlCC.Name = "miControlCC";
-			this.miControlCC.Size = new System.Drawing.Size(156, 22);
-			this.miControlCC.Text = "aControlCC";
-			// 
-			// miControlInsIns
-			// 
-			this.al.SetAction(this.miControlInsIns, this.aControlInsIns);
-			this.miControlInsIns.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miControlInsIns.Name = "miControlInsIns";
-			this.miControlInsIns.Size = new System.Drawing.Size(156, 22);
-			this.miControlInsIns.Text = "aControlInsIns";
-			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -826,7 +827,7 @@ namespace Translate
 			this.Controls.Add(this.pTop);
 			this.Controls.Add(this.pLeft);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-			this.MinimumSize = new System.Drawing.Size(400, 34);
+			this.MinimumSize = new System.Drawing.Size(400, 400);
 			this.Name = "TranslateMainForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 			this.Text = "";

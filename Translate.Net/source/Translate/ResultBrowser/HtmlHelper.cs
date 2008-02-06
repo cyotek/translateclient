@@ -55,9 +55,10 @@ namespace Translate
 	/// </summary>
 	public static class HtmlHelper
 	{
-		public const string BodyStyle = "margin: 0px;";
+		public const string BodyStyle = "margin: -7px; border-width: 0px;";
 		public const string DataCellStyle = "width: 100%;";
-		public const string TableStyle = "text-align: left;font-size: 8.25pt; font-family: Tahoma; " + DataCellStyle;
+		public const string DefaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
+		public const string TableStyle = "text-align: left;" + DefaultTextFormat + DataCellStyle;
 		public const string FirstRowCellStyle = DataCellStyle;
 		public const string RowCellStyle = "border-top: 1px solid gray;" +  FirstRowCellStyle;
 		public const string IconCellStyle = "width: 16px;";
@@ -65,6 +66,7 @@ namespace Translate
 		public const string InfoTextStyle = "color: gray; font-size: 8pt;";
 		public const string ErrorTextStyle = "color: #AA0000; " + DefaultTextStyle;
 		public const string BoldTextStyle = "font-weight: bold; " + DefaultTextStyle;
+		public const string ButtonTextStyle = "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat;
 
 		public static void InitDocument(HtmlDocument doc)
 		{
@@ -88,7 +90,39 @@ namespace Translate
 			tableBody.Id = "result_table_body";
 		}
 		
-		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{1}\" src=\"{2}\"></a>";
+		public static HtmlElement CreateDataRow(HtmlDocument doc, bool isClean)
+		{
+			if(doc == null)
+				throw new ArgumentNullException("doc");
+		
+			HtmlElement tableBody = doc.GetElementById("result_table_body");
+			HtmlElement tableRow = doc.CreateElement("TR");
+			tableBody.AppendChild(tableRow);
+			
+			HtmlElement rowCell = doc.CreateElement("TD");
+			tableRow.AppendChild(rowCell);
+			if(isClean)
+				rowCell.Style = HtmlHelper.FirstRowCellStyle;
+			else
+				rowCell.Style = HtmlHelper.RowCellStyle;
+			
+			HtmlElement rowTable = doc.CreateElement("table");
+			rowCell.AppendChild(rowTable);
+			rowTable.Style = HtmlHelper.TableStyle;
+			rowTable.SetAttribute("border", "0");
+			rowTable.SetAttribute("cellpadding", "1");
+			rowTable.SetAttribute("cellspacing", "3");
+			
+			
+			tableBody = doc.CreateElement("TBODY");
+			rowTable.AppendChild(tableBody);
+			HtmlElement dataRow = doc.CreateElement("TR");
+			tableBody.AppendChild(dataRow);
+			return dataRow;
+		}
+		
+		
+		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}\" src=\"{2}\" align=\"top\"></a>";
 		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, Service service)
 		{
 			if(doc == null)
@@ -104,6 +138,7 @@ namespace Translate
 			tableCell.InnerHtml = string.Format(CultureInfo.InvariantCulture, IconFormat, service.Url, service.Copyright, service.IconUrl);
 			return tableCell;
 		}
+		
 		
 	}
 }

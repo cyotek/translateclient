@@ -56,7 +56,33 @@ namespace Translate
 			
 		}
 
+		[NonSerialized]
+		ServiceItemsDataCollection disabledServiceItems = new ServiceItemsDataCollection();
+		
+		public ServiceItemsDataCollection DisabledServiceItems {
+			get { return disabledServiceItems; }
+		}
 
+		public override void EnableService(string name, LanguagePair languagePair, string subject, bool enable)
+		{
+			ServiceItemData sid = new ServiceItemData(name, languagePair, subject);
+			if(enable)
+			{
+				disabledServiceItems.Remove(sid);
+			}
+			else
+			{
+				if(!disabledServiceItems.Contains(sid))
+					disabledServiceItems.Add(sid);
+			}
+		}
+		
+		public override bool IsServiceEnabled(string name, LanguagePair languagePair, string subject)
+		{
+			ServiceItemData sid = new ServiceItemData(name, languagePair, subject);
+			return !disabledServiceItems.Contains(sid);
+		}
+				
 		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
 		public override SubjectCollection GetSupportedSubjects()
 		{
@@ -142,9 +168,7 @@ namespace Translate
 			return new ReadOnlyLanguagePairCollection(result);
 		}
 		
-		
-		
-		public override ReadOnlyServiceSettingCollection GetTranslatorSettings(string phrase, LanguagePair languagePair)
+		public override ReadOnlyServiceSettingCollection GetServiceSettings(string phrase, LanguagePair languagePair)
 		{
 			ServiceSettingCollection result = new ServiceSettingCollection();
 			
@@ -157,8 +181,6 @@ namespace Translate
 				{
 					foreach(Translator ts in kvp.Value)
 					{
-						if(!ts.IsSupportedPhrase(phrase))
-							continue;
 						foreach(string subject in ts.SupportedSubjects)
 						{
 							if(Subjects.Contains(subject))
@@ -180,9 +202,6 @@ namespace Translate
 				{
 					foreach(BilingualDictionary ts in kvp.Value)
 					{
-						if(!ts.IsSupportedPhrase(phrase))
-							continue;
-					
 						foreach(string subject in ts.SupportedSubjects)
 						{
 							if(Subjects.Contains(subject))
@@ -204,9 +223,6 @@ namespace Translate
 				{
 					foreach(MonolingualDictionary ts in kvp.Value)
 					{
-						if(!ts.IsSupportedPhrase(phrase))
-							continue;
-					
 						foreach(string subject in ts.SupportedSubjects)
 						{
 							if(Subjects.Contains(subject))
@@ -221,6 +237,5 @@ namespace Translate
 			
 			return new ReadOnlyServiceSettingCollection(result);
 		}
-		
 	}
 }
