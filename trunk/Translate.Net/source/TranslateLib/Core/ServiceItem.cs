@@ -38,6 +38,9 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+
 
 namespace Translate
 {
@@ -112,6 +115,7 @@ namespace Translate
 			
 			try
 			{
+				CheckPhrase(phrase);
 				DoTranslate(phrase, languagesPair, subject, result, networkSetting);
 			}
 			catch(System.Exception e)
@@ -124,14 +128,30 @@ namespace Translate
 		
 		protected abstract void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting);
 	
-		public virtual bool IsSupportedPhrase(string phrase)
+		public virtual void CheckPhrase(string phrase)
 		{
 			if(string.IsNullOrEmpty(phrase))
-				return false;
-				
+				throw new TranslationException("Nothing to translate");
+
 			if(chars_limit != -1 && phrase.Length > chars_limit)
-				return false;
-			return true;
+				throw new TranslationException("Length too big");
+		
 		}
 	}
+	
+	public class ServiceItemsCollection : Collection<ServiceItem>
+	{
+		public ServiceItemsCollection()
+		{
+		}
+	}
+
+	public class ReadOnlyServiceItemsCollection: ReadOnlyCollection<ServiceItem>
+	{
+		public ReadOnlyServiceItemsCollection(ServiceItemsCollection list):base(list)
+		{
+		
+		}
+	}
+	
 }

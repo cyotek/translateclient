@@ -50,9 +50,10 @@ namespace Translate
 			Url = new Uri("http://translate.meta.ua/");
 			Name = "meta_ua";
 			CompanyName = "<META>";
-			Copyright = "Copyright © 1998-2007, <META>";
+			Copyright = "Copyright © 1998-2008, <META>";
 
 			IconUrl = new Uri("http://translate.meta.ua/favicon.ico");
+			IconResourceName = "Translate.MetaUa.Service.ico";
 			
 			AddTranslator(new MetaUATranslator());
 		}

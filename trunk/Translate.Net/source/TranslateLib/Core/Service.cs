@@ -41,6 +41,9 @@ using System.Collections.Generic;
 using System.Runtime.Serialization; 
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Resources;
+using System.Reflection;
 
 namespace Translate
 {
@@ -79,6 +82,51 @@ namespace Translate
 			get { return iconUrl; }
 			set { iconUrl = value; }
 		}
+		
+		string iconResourceName;
+		public string IconResourceName {
+			get { 
+					if(!string.IsNullOrEmpty(iconResourceName))
+						return iconResourceName; 
+
+					iconResourceName = this.GetType().FullName;
+					if(!iconResourceName.EndsWith("Service"))
+					{
+						iconResourceName = null;
+						return null;
+					}
+						
+					iconResourceName = iconResourceName.Substring(0, iconResourceName.IndexOf("Service"));
+					iconResourceName += ".Service.ico";
+					return iconResourceName;
+				}
+			set { iconResourceName = value; }
+		}
+		
+		
+		System.Drawing.Icon icon;
+		public System.Drawing.Icon Icon {
+			get 
+			{ 
+				if(icon != null)
+					return icon; 
+					
+				
+				try
+				{
+					Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream(IconResourceName);
+					icon = new System.Drawing.Icon(resourceStream);
+					resourceStream.Close();
+					resourceStream.Dispose();
+				}
+				catch
+				{
+					icon = null;
+				}
+				return icon;
+			}
+		}
+		
 		
 		TranslatorsCollection translators = new TranslatorsCollection();
 		public ReadOnlyTranslatorsCollection Translators {
