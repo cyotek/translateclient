@@ -97,9 +97,9 @@ Filename: "{app}\Translate.Net.exe"; WorkingDir: "{app}"; Description: "Run Tran
 
 
 [Icons]
-Name: {commondesktop}\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app};
-Name: {group}\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app}; Flags: createonlyiffileexists
+Name: {commondesktop}\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app};Parameters: "-nohide"
+Name: {group}\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app}; Flags: createonlyiffileexists; Parameters: "-nohide"
 ;Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app}; Flags: createonlyiffileexists
 Name: {group}\{cm:UninstallProgram,Translate.Net}; Filename: {uninstallexe} 
 
-
+nohide
