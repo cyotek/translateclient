@@ -115,7 +115,7 @@ namespace Translate
 			set { minimizeToTray = value; }
 		}
 		
-		bool minimizeToTrayOnStartup;
+		bool minimizeToTrayOnStartup = true;
 		public bool MinimizeToTrayOnStartup {
 			get { return minimizeToTrayOnStartup; }
 			set { minimizeToTrayOnStartup = value; }
