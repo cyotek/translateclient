@@ -45,6 +45,7 @@ using System.Reflection;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using FreeCL.UI;
+using FreeCL.RTL;
 
 namespace FreeCL.Forms
 {
@@ -184,8 +185,7 @@ namespace FreeCL.Forms
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
 		void InitInfo()
 		{
-			System.Diagnostics.FileVersionInfo vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
-			this.Text = "Unhandled exception in " + vi.ProductName;			
+			this.Text = "Unhandled exception in " + ApplicationInfo.ProductName;			
 			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
 			lClass.Text = Current_.GetType().FullName;
 			lMessage.Text = Current_.Message;
@@ -216,21 +216,19 @@ namespace FreeCL.Forms
 			// 
 			this.picApp.Location = new System.Drawing.Point(8, 6);
 			this.picApp.Name = "picApp";
-			this.picApp.Size = new System.Drawing.Size(48, 36);
+			this.picApp.Size = new System.Drawing.Size(48, 33);
 			this.picApp.TabIndex = 1;
 			this.picApp.TabStop = false;
 			// 
 			// bSend
 			// 
 			this.bSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.bSend.Enabled = false;
-			this.bSend.Location = new System.Drawing.Point(76, 368);
+			this.bSend.Location = new System.Drawing.Point(76, 371);
 			this.bSend.Name = "bSend";
-			this.bSend.Size = new System.Drawing.Size(88, 21);
+			this.bSend.Size = new System.Drawing.Size(88, 19);
 			this.bSend.TabIndex = 9;
 			this.bSend.Text = "Send by mail";
 			this.bSend.UseCompatibleTextRendering = true;
-			this.bSend.Visible = false;
 			this.bSend.Click += new System.EventHandler(this.BSendClick);
 			// 
 			// lInfo
@@ -239,12 +237,12 @@ namespace FreeCL.Forms
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.lInfo.BackColor = System.Drawing.SystemColors.Control;
-			this.lInfo.Location = new System.Drawing.Point(80, 90);
+			this.lInfo.Location = new System.Drawing.Point(80, 84);
 			this.lInfo.Multiline = true;
 			this.lInfo.Name = "lInfo";
 			this.lInfo.ReadOnly = true;
 			this.lInfo.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.lInfo.Size = new System.Drawing.Size(468, 265);
+			this.lInfo.Size = new System.Drawing.Size(468, 275);
 			this.lInfo.TabIndex = 5;
 			this.lInfo.Text = "Info";
 			this.lInfo.WordWrap = false;
@@ -255,7 +253,7 @@ namespace FreeCL.Forms
 									| System.Windows.Forms.AnchorStyles.Right)));
 			this.lMessage.Location = new System.Drawing.Point(80, 6);
 			this.lMessage.Name = "lMessage";
-			this.lMessage.Size = new System.Drawing.Size(468, 53);
+			this.lMessage.Size = new System.Drawing.Size(468, 49);
 			this.lMessage.TabIndex = 2;
 			this.lMessage.Text = "Message";
 			this.lMessage.UseCompatibleTextRendering = true;
@@ -264,9 +262,9 @@ namespace FreeCL.Forms
 			// 
 			this.bTerminate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bTerminate.DialogResult = System.Windows.Forms.DialogResult.Abort;
-			this.bTerminate.Location = new System.Drawing.Point(458, 368);
+			this.bTerminate.Location = new System.Drawing.Point(458, 371);
 			this.bTerminate.Name = "bTerminate";
-			this.bTerminate.Size = new System.Drawing.Size(88, 21);
+			this.bTerminate.Size = new System.Drawing.Size(88, 19);
 			this.bTerminate.TabIndex = 7;
 			this.bTerminate.Text = "Terminate";
 			this.bTerminate.UseCompatibleTextRendering = true;
@@ -274,9 +272,9 @@ namespace FreeCL.Forms
 			// bCopy
 			// 
 			this.bCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.bCopy.Location = new System.Drawing.Point(262, 368);
+			this.bCopy.Location = new System.Drawing.Point(262, 371);
 			this.bCopy.Name = "bCopy";
-			this.bCopy.Size = new System.Drawing.Size(88, 21);
+			this.bCopy.Size = new System.Drawing.Size(88, 19);
 			this.bCopy.TabIndex = 8;
 			this.bCopy.Text = "Copy";
 			this.bCopy.UseCompatibleTextRendering = true;
@@ -286,9 +284,9 @@ namespace FreeCL.Forms
 			// 
 			this.bContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.bContinue.Location = new System.Drawing.Point(172, 368);
+			this.bContinue.Location = new System.Drawing.Point(172, 371);
 			this.bContinue.Name = "bContinue";
-			this.bContinue.Size = new System.Drawing.Size(80, 21);
+			this.bContinue.Size = new System.Drawing.Size(80, 19);
 			this.bContinue.TabIndex = 6;
 			this.bContinue.Text = "Continue";
 			this.bContinue.UseCompatibleTextRendering = true;
@@ -297,9 +295,9 @@ namespace FreeCL.Forms
 			// 
 			this.lClass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.lClass.Location = new System.Drawing.Point(80, 59);
+			this.lClass.Location = new System.Drawing.Point(80, 55);
 			this.lClass.Name = "lClass";
-			this.lClass.Size = new System.Drawing.Size(468, 28);
+			this.lClass.Size = new System.Drawing.Size(468, 26);
 			this.lClass.TabIndex = 4;
 			this.lClass.Text = "Class";
 			this.lClass.UseCompatibleTextRendering = true;
@@ -307,7 +305,7 @@ namespace FreeCL.Forms
 			// ExceptionDialog
 			// 
 			this.AcceptButton = this.bContinue;
-			this.AutoScaleBaseSize = new System.Drawing.Size(5, 14);
+			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(564, 400);
 			this.Controls.Add(this.bSend);
 			this.Controls.Add(this.bCopy);
@@ -349,20 +347,9 @@ namespace FreeCL.Forms
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.MessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)")]
 		void BSendClick(object sender, System.EventArgs e)
 		{
-			string mess = "";
-			try
-			{
-				mess = "mailto:support@support?body=" + lInfo.Text;
-				mess = mess.Replace("\r\n", "%0d%0a");
-				mess = mess.Replace(" ", "%20");
-				
-				ExecCommand(mess);
-			}
-			catch
-			{
-				MessageBox.Show("Send Error.\n"+ mess, "Failed to execute mailto protocol.", MessageBoxButtons.OK, MessageBoxIcon.Stop);				
-			}
-			
+			MailTo.Send(ApplicationInfo.SupportEmail, 
+				"Exception error for: " + ApplicationInfo.ProductName + " " + ApplicationInfo.ProductVersion,
+				lInfo.Text);
 		}
 		
 		void ExceptionDialogVisibleChanged(object sender, System.EventArgs e)

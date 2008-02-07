@@ -229,14 +229,13 @@ namespace FreeCL.UI
 		static Application()
 		{
 			dataFolder = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-			System.Diagnostics.FileVersionInfo vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
 			dataFolder += @"\";
-			string companyName = vi.CompanyName;
+			string companyName = ApplicationInfo.CompanyName;
 			if(companyName.IndexOf(",") != -1)
 				companyName = companyName.Substring(0, companyName.IndexOf(","));
 			dataFolder += companyName;
 			dataFolder += @"\";			
-			dataFolder += vi.ProductName;
+			dataFolder += ApplicationInfo.ProductName;
 			System.IO.Directory.CreateDirectory(dataFolder);
 			dataFolder += @"\";			
 		}
