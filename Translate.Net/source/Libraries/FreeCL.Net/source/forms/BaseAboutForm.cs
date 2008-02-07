@@ -62,19 +62,17 @@ namespace FreeCL.Forms
 			OnLanguageChanged();
 		}
 		
-		System.Diagnostics.FileVersionInfo vi;
 		void InitInfo()
 		{
-			vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
-			lAppTitle.Text = vi.ProductName;			
-			lAppCompany.Text = vi.CompanyName;
-			lCopyright.Text = vi.LegalCopyright;
+			lAppTitle.Text = ApplicationInfo.ProductName;			
+			lAppCompany.Text = ApplicationInfo.CompanyName;
+			lCopyright.Text = ApplicationInfo.Copyright;
 			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
 		}
 		
 		void OnLanguageChanged()
 		{
-			lVersion.Text = LangPack.TranslateString("Version")+ " " + vi.ProductVersion;
+			lVersion.Text = LangPack.TranslateString("Version")+ " " + ApplicationInfo.ProductVersion;
 			Text = LangPack.TranslateString("About")+ " " + lAppTitle.Text;
 		}
 		
