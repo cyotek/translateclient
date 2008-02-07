@@ -62,17 +62,6 @@ namespace Translate
 			try
 			{
 				UpdatesManager.Init();
-				Application.SkipSplashForm = false;
-				foreach(string arg in args)
-				{
-					if(arg.StartsWith("/") || arg.StartsWith("-"))
-					{
-						string argVal = arg.Substring(1);
-						if(string.Compare(argVal, "skipsplash", true, CultureInfo.InvariantCulture) ==0 )
-							Application.SkipSplashForm = true;
-					}
-				}
-				
 				Application.ShowSplashForm(null);
 				
 				

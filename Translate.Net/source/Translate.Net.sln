@@ -1,18 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
-# SharpDevelop 3.0.0.2811
+# SharpDevelop 3.0.0.2937
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translate", "Translate\Translate.csproj", "{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FreeCL", "FreeCL", "{0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}"
 	ProjectSection(SolutionItems) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.RTL", "Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.csproj", "{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.Forms", "Libraries\FreeCL.Net\source\forms\FreeCL.Forms.csproj", "{4839E07C-B1D6-4058-B32D-DAEDA05B762D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.UI", "Libraries\FreeCL.Net\source\ui\FreeCL.UI.csproj", "{9E7DB092-177B-43AD-9C2C-4D37BD387164}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.Forms", "Libraries\FreeCL.Net\source\forms\FreeCL.Forms.csproj", "{4839E07C-B1D6-4058-B32D-DAEDA05B762D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.RTL", "Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.csproj", "{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateLib", "TranslateLib\TranslateLib.csproj", "{10546C49-8030-488E-A19F-8FC03E73E8A8}"
 EndProject
@@ -52,8 +52,8 @@ Global
 		{DC91E0E7-AD7A-48F0-BD2D-02CB682A886F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{4839E07C-B1D6-4058-B32D-DAEDA05B762D} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
-		{9E7DB092-177B-43AD-9C2C-4D37BD387164} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
 		{FC175ADE-749E-4CC0-B8EA-65AE993FACCB} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
+		{9E7DB092-177B-43AD-9C2C-4D37BD387164} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
+		{4839E07C-B1D6-4058-B32D-DAEDA05B762D} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
 	EndGlobalSection
 EndGlobal

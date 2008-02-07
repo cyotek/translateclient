@@ -98,6 +98,7 @@ namespace Translate
 		
 		public override bool IsChanged()
 		{
+			cbMinimizeToTray.Enabled = cbAutorun.Checked;
 			return cbAutorun.Checked != initialAutorun || options.MinimizeToTrayOnStartup != cbMinimizeToTray.Checked;
 		}
 		
