@@ -1,0 +1,2 @@
+Version=0.1.2935.8763
+UrlList="http://ctype.homedns.org/translate.net/Translate.Net.0.1.2935.8763.exe","http://ctype.homedns.org/translate.net/Translate.Net.0.1.2935.8763.exe" 

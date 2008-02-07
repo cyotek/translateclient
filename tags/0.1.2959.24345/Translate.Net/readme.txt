@@ -1,0 +1,1 @@
+Translate.Net - Rich client for web translators\dictionaries\thesauruses 
