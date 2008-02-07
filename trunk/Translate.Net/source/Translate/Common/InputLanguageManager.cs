@@ -91,7 +91,7 @@ namespace Translate
 				throw new ArgumentNullException("inputLanguage");
 				
 			// TODO: support of other languages
-			if(inputLanguage.LayoutName == "Strange Ukrainian")
+			if(inputLanguage.LayoutName == "Strange Ukrainian" || inputLanguage.LayoutName == "Srange Ukrainian 1.6")
 			{
 				return language == Language.Russian || language == Language.Ukrainian;
 			}
