@@ -102,4 +102,4 @@ Name: {group}\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app
 ;Name: {userappdata}\Microsoft\Internet Explorer\Quick Launch\Translate.Net; Filename: {app}\Translate.Net.exe; WorkingDir: {app}; Flags: createonlyiffileexists
 Name: {group}\{cm:UninstallProgram,Translate.Net}; Filename: {uninstallexe} 
 
-nohide
+
