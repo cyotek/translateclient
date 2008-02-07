@@ -44,6 +44,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
+using FreeCL.RTL;
 
 #endregion
 
@@ -61,7 +62,7 @@ using System.Security.Permissions;
 [assembly: AssemblyCulture("")]
 [assembly: System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.RequestMinimum)]
 [assembly: RegistryPermissionAttribute(SecurityAction.RequestMinimum, ViewAndModify = "HKEY_CURRENT_USER")]
-
+[assembly: AssemblySupportEmail("translate.net@gmail.com")]
 
 
 // This sets the default COM visibility of types in the assembly to invisible.

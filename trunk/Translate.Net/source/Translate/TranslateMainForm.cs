@@ -45,7 +45,7 @@ using System.Reflection;
 using System.Resources;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-
+using FreeCL.RTL;
 
 namespace Translate
 {
@@ -128,6 +128,16 @@ namespace Translate
 			miHelp.DropDownItems.Remove(miHelpSeparator1);
 			miHelp.DropDownItems.Insert(1, miHelpSeparator1);
 
+			miHelp.DropDownItems.Remove(miHelpSeparator2);
+			miHelp.DropDownItems.Insert(0, miHelpSeparator2);
+
+			miHelp.DropDownItems.Remove(miFeedback);
+			miHelp.DropDownItems.Insert(0, miFeedback);
+			
+			miHelp.DropDownItems.Remove(miWebsite);
+			miHelp.DropDownItems.Insert(0, miWebsite);
+			
+
 			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);
 			
 			aScrollResultPageDown.Shortcut = Keys.Control | Keys.PageDown;
@@ -159,6 +169,8 @@ namespace Translate
 			
 			aControlCC.Text  = TranslateString("Activate on Ctrl+C+C hotkey"); 
 			aControlInsIns.Text  = TranslateString("Activate on Ctrl+Ins+Ins hotkey"); 
+			
+			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
 
 			UpdateCaption();
 		}
@@ -531,6 +543,19 @@ namespace Translate
 		void TbFromTextChanged(object sender, EventArgs e)
 		{
 			languageSelector.Phrase = tbFrom.Text.Trim();
+		}
+		
+		void AWebsiteExecute(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(Constants.HomeUrl);
+		}
+		
+		void AFeedbackExecute(object sender, EventArgs e)
+		{
+			MailTo.Send(ApplicationInfo.SupportEmail, 
+				TranslateString("Feedback for :") + " " + ApplicationInfo.ProductName + " " + ApplicationInfo.ProductVersion,
+				TranslateString("<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>"));
+			
 		}
 	}
 }

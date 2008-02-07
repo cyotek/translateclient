@@ -97,10 +97,9 @@ namespace Translate
 		
 		public static void CheckNewVersion()
 		{
-			System.Diagnostics.FileVersionInfo vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
 			string previousVersion = TranslateOptions.Instance.UpdateOptions.PreviousVersion;
-			TranslateOptions.Instance.UpdateOptions.PreviousVersion = vi.ProductVersion;
-			if(previousVersion == vi.ProductVersion)
+			TranslateOptions.Instance.UpdateOptions.PreviousVersion = ApplicationInfo.ProductVersion;
+			if(previousVersion == ApplicationInfo.ProductVersion)
 			{
 				isNewVersion = false;
 				return;
@@ -113,7 +112,7 @@ namespace Translate
 			}
 			
 			string[] versionPreviousArray = previousVersion.Split('.');
-			string[] versionCurrentArray = vi.ProductVersion.Split('.');
+			string[] versionCurrentArray = ApplicationInfo.ProductVersion.Split('.');
 			
 			if(versionPreviousArray.Length != versionCurrentArray.Length)
 			{
@@ -311,16 +310,15 @@ namespace Translate
 				return;
 			}
 			versionOnSite = versionOnSite.Substring("Version=".Length);
-			System.Diagnostics.FileVersionInfo vi = System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Windows.Forms.Application.ExecutablePath);
-			TranslateOptions.Instance.UpdateOptions.PreviousVersion = vi.ProductVersion;
-			if(versionOnSite == vi.ProductVersion)
+			TranslateOptions.Instance.UpdateOptions.PreviousVersion = ApplicationInfo.ProductVersion;
+			if(versionOnSite == ApplicationInfo.ProductVersion)
 			{
 				SetEndingState(LangPack.TranslateString("Program is up to date"));
 				return;
 			}
 				
 			string[] versionOnSiteArray = versionOnSite.Split('.');
-			string[] versionCurrentArray = vi.ProductVersion.Split('.');
+			string[] versionCurrentArray = ApplicationInfo.ProductVersion.Split('.');
 			
 			if(versionOnSiteArray.Length != versionCurrentArray.Length)
 			{

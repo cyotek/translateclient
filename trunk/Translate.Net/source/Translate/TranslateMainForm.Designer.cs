@@ -119,6 +119,11 @@ namespace Translate
 			this.aScrollResultPageUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aControlCC = new FreeCL.UI.Actions.Action(this.components);
 			this.aControlInsIns = new FreeCL.UI.Actions.Action(this.components);
+			this.miHelpSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.miWebsite = new System.Windows.Forms.ToolStripMenuItem();
+			this.aWebsite = new FreeCL.UI.Actions.Action(this.components);
+			this.aFeedback = new FreeCL.UI.Actions.Action(this.components);
+			this.miFeedback = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -296,14 +301,17 @@ namespace Translate
 			// 
 			this.al.SetAction(this.miAbout, this.aAbout);
 			this.miAbout.Image = ((System.Drawing.Image)(resources.GetObject("miAbout.Image")));
-			this.miAbout.Size = new System.Drawing.Size(172, 22);
+			this.miAbout.Size = new System.Drawing.Size(235, 22);
 			this.miAbout.Visible = true;
 			// 
 			// miHelp
 			// 
 			this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miCheckUpdates,
-									this.miHelpSeparator1});
+									this.miHelpSeparator1,
+									this.miHelpSeparator2,
+									this.miWebsite,
+									this.miFeedback});
 			this.miHelp.Visible = true;
 			// 
 			// miEditSep2
@@ -374,6 +382,8 @@ namespace Translate
 			this.al.Actions.Add(this.aScrollResultPageUp);
 			this.al.Actions.Add(this.aControlCC);
 			this.al.Actions.Add(this.aControlInsIns);
+			this.al.Actions.Add(this.aWebsite);
+			this.al.Actions.Add(this.aFeedback);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -497,6 +507,7 @@ namespace Translate
 			this.languageSelector.MinimumSize = new System.Drawing.Size(150, 0);
 			this.languageSelector.Name = "languageSelector";
 			this.languageSelector.Padding = new System.Windows.Forms.Padding(2);
+			this.languageSelector.Phrase = null;
 			this.languageSelector.Profile = null;
 			this.languageSelector.Size = new System.Drawing.Size(200, 344);
 			this.languageSelector.TabIndex = 0;
@@ -705,13 +716,13 @@ namespace Translate
 			this.al.SetAction(this.miCheckUpdates, this.aCheckUpdates);
 			this.miCheckUpdates.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miCheckUpdates.Name = "miCheckUpdates";
-			this.miCheckUpdates.Size = new System.Drawing.Size(172, 22);
+			this.miCheckUpdates.Size = new System.Drawing.Size(235, 22);
 			this.miCheckUpdates.Text = "Check Updates ...";
 			// 
 			// miHelpSeparator1
 			// 
 			this.miHelpSeparator1.Name = "miHelpSeparator1";
-			this.miHelpSeparator1.Size = new System.Drawing.Size(169, 6);
+			this.miHelpSeparator1.Size = new System.Drawing.Size(232, 6);
 			// 
 			// timerUpdater
 			// 
@@ -812,6 +823,48 @@ namespace Translate
 			this.aControlInsIns.Execute += new System.EventHandler(this.AControlInsInsExecute);
 			this.aControlInsIns.Update += new System.EventHandler(this.AControlInsInsUpdate);
 			// 
+			// miHelpSeparator2
+			// 
+			this.miHelpSeparator2.Name = "miHelpSeparator2";
+			this.miHelpSeparator2.Size = new System.Drawing.Size(232, 6);
+			// 
+			// miWebsite
+			// 
+			this.al.SetAction(this.miWebsite, this.aWebsite);
+			this.miWebsite.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miWebsite.Name = "miWebsite";
+			this.miWebsite.Size = new System.Drawing.Size(235, 22);
+			this.miWebsite.Text = "Translate.Net Website";
+			// 
+			// aWebsite
+			// 
+			this.aWebsite.Checked = false;
+			this.aWebsite.Enabled = true;
+			this.aWebsite.Hint = null;
+			this.aWebsite.ImageIndex = 12;
+			this.aWebsite.Tag = null;
+			this.aWebsite.Text = "Translate.Net Website";
+			this.aWebsite.Visible = true;
+			this.aWebsite.Execute += new System.EventHandler(this.AWebsiteExecute);
+			// 
+			// aFeedback
+			// 
+			this.aFeedback.Checked = false;
+			this.aFeedback.Enabled = true;
+			this.aFeedback.Hint = null;
+			this.aFeedback.Tag = null;
+			this.aFeedback.Text = "Send feedback or bugreport ...";
+			this.aFeedback.Visible = true;
+			this.aFeedback.Execute += new System.EventHandler(this.AFeedbackExecute);
+			// 
+			// miFeedback
+			// 
+			this.al.SetAction(this.miFeedback, this.aFeedback);
+			this.miFeedback.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miFeedback.Name = "miFeedback";
+			this.miFeedback.Size = new System.Drawing.Size(235, 22);
+			this.miFeedback.Text = "Send feedback or bugreport ...";
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -866,6 +919,11 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miFeedback;
+		private FreeCL.UI.Actions.Action aFeedback;
+		private FreeCL.UI.Actions.Action aWebsite;
+		private System.Windows.Forms.ToolStripMenuItem miWebsite;
+		private System.Windows.Forms.ToolStripSeparator miHelpSeparator2;
 		private System.Windows.Forms.ToolStripMenuItem miControlInsIns;
 		private System.Windows.Forms.ToolStripMenuItem miControlCC;
 		private System.Windows.Forms.ToolStripSeparator tsIconSep3;
