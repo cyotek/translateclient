@@ -288,7 +288,7 @@ namespace Translate
 		
 		internal void TranslateProgressChanged(object sender, TranslateProgressChangedEventArgs e)
 		{
-			resBrowser.SetResult(e.TranslateResult);
+			resBrowser.SetResult(e.TranslateResult, e.TranslateState.LanguagePair);
 			pbMain.Value = e.ProgressPercentage;
 		}
 		
@@ -328,7 +328,7 @@ namespace Translate
 			if(settings.Count > 0)
 			{
 				resBrowser.Clear();
-				activeTranslateState = TranslateManager.TranslateAsync(tbFrom.Text, settings, TranslateProgressChanged, TranslateCompletedEventHandler);
+				activeTranslateState = TranslateManager.TranslateAsync(languageSelector.Selection, tbFrom.Text, settings, TranslateProgressChanged, TranslateCompletedEventHandler);
 				pbMain.Value = 7;
 				pbMain.Visible = true;
 				languageSelector.AddSelectionToHistory();

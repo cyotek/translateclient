@@ -148,6 +148,12 @@ HTTP-проксі
 Відмічати червоним коліром слова, що не перекладені
 [Don't show "Nothing found" results]
 Не показувати результати сервісів, які нічого не знайшли
+[Show direction of translation]
+Показувати напрямок перекладу
+[Show accents]
+Показувати наголоси
+[Show names of services]
+Показувати назви сервісів
 [Nothing found]
 Нічого не знайдено
 [Only cyrillic characters supported]

@@ -56,6 +56,23 @@ namespace Translate
 		{
 		}
 		
+		bool showServiceName;
+		public bool ShowServiceName {
+			get { return showServiceName; }
+			set { showServiceName = value; }
+		}
+		
+		bool showTranslationDirection;
+		public bool ShowTranslationDirection {
+			get { return showTranslationDirection; }
+			set { showTranslationDirection = value; }
+		}
+		
+		bool showAccents = true;
+		public bool ShowAccents {
+			get { return showAccents; }
+			set { showAccents = value; }
+		}
 		
 		bool showQueryStatistics;
 		public bool ShowQueryStatistics {

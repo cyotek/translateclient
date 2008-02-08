@@ -109,6 +109,24 @@ namespace Translate
 				set { isAsteriskMaskSupported = value; }
 			}
 			
+			public static string GetServiceItemType(ServiceItem serviceItem)
+			{
+				string result;
+				if(serviceItem is Translator)
+				{
+					result = LangPack.TranslateString("Translator");
+				}
+				else if(serviceItem is MonolingualDictionary)
+				{
+					result = LangPack.TranslateString("Monolingual dictionary");
+				}
+				else
+				{
+					result = LangPack.TranslateString("Bilingual dictionary");
+				}
+				return result;
+			}
+			
 			public void GenerateName()
 			{
 				name = setting.ServiceItem.Service.Url.Host;
@@ -117,18 +135,16 @@ namespace Translate
 				if(setting.ServiceItem is Translator)
 				{
 					name += LangPack.TranslateString("T");
-					type = LangPack.TranslateString("Translator");
 				}
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{
 					name += LangPack.TranslateString("MD");
-					type = LangPack.TranslateString("Monolingual dictionary");
 				}
 				else
 				{
 					name += LangPack.TranslateString("BD");
-					type = LangPack.TranslateString("Bilingual dictionary");
 				}
+				type = GetServiceItemType(setting.ServiceItem);
 				
 				BilingualDictionary dictionary = setting.ServiceItem as BilingualDictionary;
 				if(dictionary != null)
