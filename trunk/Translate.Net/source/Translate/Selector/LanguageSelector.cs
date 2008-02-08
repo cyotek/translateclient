@@ -306,6 +306,10 @@ namespace Translate
 				return;
 				
 			Language fromLanguage = ((LanguageContainer)lbFrom.SelectedItem).Language;	
+			LanguageContainer toLanguage = null;
+			if(lbTo.SelectedItem != null)
+				toLanguage = ((LanguageContainer)lbTo.SelectedItem);
+			
 			lbTo.Items.Clear();
 			
 			LanguageCollection toLangs = new LanguageCollection();
@@ -335,7 +339,13 @@ namespace Translate
 			string caption = LangPack.TranslateLanguage(fromLanguage);
 			lFrom.Text = caption;
 			
-			lbTo.SelectedIndex = 0;
+			int idx = -1;
+			if(toLanguage != null)
+				idx = lbTo.Items.IndexOf(toLanguage);
+
+			if(idx == -1)
+				idx = 0;
+			lbTo.SelectedIndex = idx;
 			ResumeLayout(true);
 		}
 		
