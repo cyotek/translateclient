@@ -63,6 +63,9 @@ namespace Translate
 			cbShowStatistics.Text = TranslateString("Show query time and other information");
 			cbMarkErrors.Text = TranslateString("Mark by red color untranslated words");
 			cbHideWithoutResult.Text = TranslateString("Don't show \"Nothing found\" results");
+			cbShowTranslationDirection.Text = TranslateString("Show direction of translation");
+			cbShowServiceName.Text = TranslateString("Show names of services");
+			cbShowAccents.Text = TranslateString("Show accents");
 		}
 
 		ResultWindowOptions current;
@@ -72,6 +75,9 @@ namespace Translate
 			cbShowStatistics.Checked = current.ShowQueryStatistics;
 			cbMarkErrors.Checked = current.MarkErrorsWithRed;
 			cbHideWithoutResult.Checked = current.HideWithoutResult;
+			cbShowTranslationDirection.Checked = current.ShowTranslationDirection;
+			cbShowServiceName.Checked = current.ShowServiceName;
+			cbShowAccents.Checked = current.ShowAccents;
 		}
 		
 		public override void Apply()
@@ -79,13 +85,19 @@ namespace Translate
 			current.ShowQueryStatistics = cbShowStatistics.Checked;
 			current.MarkErrorsWithRed = cbMarkErrors.Checked;
 			current.HideWithoutResult = cbHideWithoutResult.Checked; 
+			current.ShowTranslationDirection = cbShowTranslationDirection.Checked;
+			current.ShowServiceName = cbShowServiceName.Checked;
+			current.ShowAccents = cbShowAccents.Checked;
 		}
 		
 		public override bool IsChanged()
 		{
 			return cbShowStatistics.Checked != current.ShowQueryStatistics ||
 				current.MarkErrorsWithRed != cbMarkErrors.Checked ||
-				current.HideWithoutResult != cbHideWithoutResult.Checked;
+				current.HideWithoutResult != cbHideWithoutResult.Checked ||
+				current.ShowTranslationDirection != cbShowTranslationDirection.Checked ||
+				current.ShowServiceName != cbShowServiceName.Checked ||
+				current.ShowAccents != cbShowAccents.Checked;
 		}
 
 	}

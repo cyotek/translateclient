@@ -139,6 +139,8 @@ namespace Translate
 			return tableCell;
 		}
 		
+		public const string ServiceNameFormat = "<a href=\"{0}\">{1}</a>";
+		
 		
 	}
 }

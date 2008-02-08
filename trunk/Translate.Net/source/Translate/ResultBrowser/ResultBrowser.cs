@@ -299,7 +299,7 @@ namespace Translate
 			return htmlString.ToString();
 		}
 		
-		public void SetResult(Result result)
+		public void SetResult(Result result, LanguagePair languagePair)
 		{
 			if(result == null)
 				throw new ArgumentNullException("result");
@@ -319,18 +319,57 @@ namespace Translate
 			HtmlElement tableCell = doc.CreateElement("TD");
 			tableRow.AppendChild(tableCell);
 			tableCell.Style = HtmlHelper.DataCellStyle;
-			string htmlString = GetResultHtml(result);
+			string htmlString = "";
+			if(TranslateOptions.Instance.ResultWindowOptions.ShowServiceName)
+			{
+				htmlString+= string.Format(CultureInfo.InvariantCulture, 
+					HtmlHelper.ServiceNameFormat, 
+					result.ServiceItem.Service.Url, 
+					result.ServiceItem.Service.Url.Host);
+					
+				htmlString+= ", ";			
+				htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
+				
+			}
+
+			if(result.Subject != SubjectConstants.Common)
+			{
+				if(htmlString.Length > 0)
+					htmlString+= ", ";			
+				htmlString+= LangPack.TranslateString("Subject") + " : " + LangPack.TranslateString(result.Subject);
+			}
+			
+			if(languagePair.From == Language.Any || languagePair.To == Language.Any ||  TranslateOptions.Instance.ResultWindowOptions.ShowTranslationDirection)
+			{
+				if(htmlString.Length > 0)
+					htmlString+= ", ";			
+					
+				htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From) +
+						"->" + 
+						LangPack.TranslateLanguage(result.LanguagesPair.To);
+			}
+			
+			if(htmlString.Length > 0)
+				htmlString+= "<hr style=\"width: 100%; height: 1px;\">";
+			
+			
+			htmlString += GetResultHtml(result);
 			
 			if(result.QueryTicks != 0 && TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 			{
+				htmlString+= "<hr style=\"width: 100%; height: 1px;\">";
 				htmlString += "<span style=\"" + HtmlHelper.InfoTextStyle+ "\">";
-				htmlString += "<br>" + string.Format(CultureInfo.InvariantCulture, "Query time : {0} s", new DateTime(result.QueryTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );
+				htmlString += string.Format(CultureInfo.InvariantCulture, "Query time : {0} s", new DateTime(result.QueryTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );
 				htmlString += ", Retry count : " + result.RetryCount; 
 				htmlString += ", Bytes sent : " + result.BytesSent; 
 				htmlString += ", Bytes received : " + result.BytesReceived; 
 				htmlString += "</span>";
 			}
 						
+			if(!TranslateOptions.Instance.ResultWindowOptions.ShowAccents)
+			{
+				htmlString = htmlString.Replace("́","");
+			}
 			tableCell.InnerHtml = htmlString;
 			
 
@@ -451,7 +490,7 @@ namespace Translate
 					return null;
 					
 				//selecting words from query and result
-				List<string> phrasewords = SplitResultToParts(phrase);
+				List<string> phrasewords = SplitResultToParts(phrase.Replace("́",""));
 				int count = ExtractAdWords(phrasewords, 25);
 				
 				string resultstr = "";
@@ -460,7 +499,7 @@ namespace Translate
 					resultstr += GetResultString(r);
 				}
 				
-				List<string> resultwords = SplitResultToParts(resultstr);
+				List<string> resultwords = SplitResultToParts(resultstr.Replace("́",""));
 				count = ExtractAdWords(resultwords, 60 - count);
 				
 				if(phrasewords.Count + resultwords.Count == 0 )

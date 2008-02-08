@@ -75,18 +75,24 @@ namespace Translate
 			this.cbShowStatistics = new System.Windows.Forms.CheckBox();
 			this.cbMarkErrors = new System.Windows.Forms.CheckBox();
 			this.cbHideWithoutResult = new System.Windows.Forms.CheckBox();
+			this.cbShowTranslationDirection = new System.Windows.Forms.CheckBox();
+			this.cbShowAccents = new System.Windows.Forms.CheckBox();
+			this.cbShowServiceName = new System.Windows.Forms.CheckBox();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.cbShowServiceName);
+			this.pBody.Controls.Add(this.cbShowAccents);
+			this.pBody.Controls.Add(this.cbShowTranslationDirection);
 			this.pBody.Controls.Add(this.cbHideWithoutResult);
 			this.pBody.Controls.Add(this.cbMarkErrors);
 			this.pBody.Controls.Add(this.cbShowStatistics);
 			// 
 			// cbShowStatistics
 			// 
-			this.cbShowStatistics.Location = new System.Drawing.Point(13, 13);
+			this.cbShowStatistics.Location = new System.Drawing.Point(13, 103);
 			this.cbShowStatistics.Name = "cbShowStatistics";
 			this.cbShowStatistics.Size = new System.Drawing.Size(373, 24);
 			this.cbShowStatistics.TabIndex = 1;
@@ -95,7 +101,7 @@ namespace Translate
 			// 
 			// cbMarkErrors
 			// 
-			this.cbMarkErrors.Location = new System.Drawing.Point(13, 43);
+			this.cbMarkErrors.Location = new System.Drawing.Point(13, 133);
 			this.cbMarkErrors.Name = "cbMarkErrors";
 			this.cbMarkErrors.Size = new System.Drawing.Size(373, 24);
 			this.cbMarkErrors.TabIndex = 2;
@@ -104,12 +110,39 @@ namespace Translate
 			// 
 			// cbHideWithoutResult
 			// 
-			this.cbHideWithoutResult.Location = new System.Drawing.Point(13, 73);
+			this.cbHideWithoutResult.Location = new System.Drawing.Point(13, 163);
 			this.cbHideWithoutResult.Name = "cbHideWithoutResult";
 			this.cbHideWithoutResult.Size = new System.Drawing.Size(373, 24);
 			this.cbHideWithoutResult.TabIndex = 3;
 			this.cbHideWithoutResult.Text = "Don\'t show \"Nothing found\" results";
 			this.cbHideWithoutResult.UseVisualStyleBackColor = true;
+			// 
+			// cbShowTranslationDirection
+			// 
+			this.cbShowTranslationDirection.Location = new System.Drawing.Point(13, 13);
+			this.cbShowTranslationDirection.Name = "cbShowTranslationDirection";
+			this.cbShowTranslationDirection.Size = new System.Drawing.Size(373, 24);
+			this.cbShowTranslationDirection.TabIndex = 4;
+			this.cbShowTranslationDirection.Text = "Show direction of translation";
+			this.cbShowTranslationDirection.UseVisualStyleBackColor = true;
+			// 
+			// cbShowAccents
+			// 
+			this.cbShowAccents.Location = new System.Drawing.Point(13, 43);
+			this.cbShowAccents.Name = "cbShowAccents";
+			this.cbShowAccents.Size = new System.Drawing.Size(373, 24);
+			this.cbShowAccents.TabIndex = 5;
+			this.cbShowAccents.Text = "Show accents";
+			this.cbShowAccents.UseVisualStyleBackColor = true;
+			// 
+			// cbShowServiceName
+			// 
+			this.cbShowServiceName.Location = new System.Drawing.Point(13, 73);
+			this.cbShowServiceName.Name = "cbShowServiceName";
+			this.cbShowServiceName.Size = new System.Drawing.Size(373, 24);
+			this.cbShowServiceName.TabIndex = 6;
+			this.cbShowServiceName.Text = "Show names of services";
+			this.cbShowServiceName.UseVisualStyleBackColor = true;
 			// 
 			// ResultWindowOptionControl
 			// 
@@ -119,6 +152,9 @@ namespace Translate
 			this.pBody.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.CheckBox cbShowAccents;
+		private System.Windows.Forms.CheckBox cbShowTranslationDirection;
+		private System.Windows.Forms.CheckBox cbShowServiceName;
 		private System.Windows.Forms.CheckBox cbHideWithoutResult;
 		private System.Windows.Forms.CheckBox cbMarkErrors;
 		private System.Windows.Forms.CheckBox cbShowStatistics;

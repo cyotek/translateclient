@@ -83,11 +83,11 @@ namespace Translate
 		    e.translateState.RaiseProgressChanged(e.translateResult);
 		}
 
-		public static AsyncTranslateState TranslateAsync(string phrase, ReadOnlyServiceSettingCollection translatorsSettings, EventHandler<TranslateProgressChangedEventArgs> progressChangedHandler, EventHandler<TranslateCompletedEventArgs> translateCompletedHandler)
+		public static AsyncTranslateState TranslateAsync(LanguagePair languagePair, string phrase, ReadOnlyServiceSettingCollection translatorsSettings, EventHandler<TranslateProgressChangedEventArgs> progressChangedHandler, EventHandler<TranslateCompletedEventArgs> translateCompletedHandler)
 		{
 			AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(DateTime.Now.Ticks);
 
-			AsyncTranslateState state = new AsyncTranslateState(translatorsSettings, phrase, asyncOp, progressChangedHandler, translateCompletedHandler);
+			AsyncTranslateState state = new AsyncTranslateState(languagePair, translatorsSettings, phrase, asyncOp, progressChangedHandler, translateCompletedHandler);
 
 			WorkerEventHandler workerDelegate = new WorkerEventHandler(TranslateWorker);
 			
@@ -187,6 +187,7 @@ namespace Translate
 	
 		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
 		internal AsyncTranslateState(
+			LanguagePair languagePair,
 			ReadOnlyServiceSettingCollection translatorsSettings,
 			string phrase, 
 			AsyncOperation asyncOp,
@@ -199,6 +200,7 @@ namespace Translate
 			this.phrase = phrase;
 			this.asyncOperation = asyncOp;
 			this.translatorsSettings = translatorsSettings;
+			this.languagePair = languagePair;
 			count = translatorsSettings.Count;
 			
 			ProgressChanged += progressChangedHandler;
@@ -209,6 +211,13 @@ namespace Translate
 		public AsyncOperation AsyncOperation {
 			get { return asyncOperation; }
 		}
+		
+		LanguagePair languagePair;
+		public LanguagePair LanguagePair {
+			get { return languagePair; }
+			set { languagePair = value; }
+		}
+		
 		
 		string phrase;
 		public string Phrase {
