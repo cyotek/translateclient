@@ -212,7 +212,7 @@ namespace Translate
 			NetworkSetting networkSetting =  TranslateOptions.Instance.NetworkOptions.GetNetworkSetting(null);
 			client.Proxy = networkSetting.Proxy;
 			client.UseDefaultCredentials = true;
-			//client.CachePolicy = new  RequestCachePolicy( RequestCacheLevel.Reload); //for test
+			client.CachePolicy = new  RequestCachePolicy( RequestCacheLevel.Reload); 
 			client.DownloadProgressChanged += DownloadProgressChanged;
 			client.DownloadStringCompleted += DownloadVersionsCompleted;
 			client.DownloadStringAsync(new Uri(Constants.VersionsTxtUrls[versionUrlToCheck]));
