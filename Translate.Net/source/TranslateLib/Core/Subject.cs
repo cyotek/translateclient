@@ -47,6 +47,26 @@ namespace Translate
 	public static class SubjectConstants
 	{
 		public const string Common = "Common";
+		public const string Aviation = "Aviation";
+		public const string Auto = "Auto";
+		public const string Anatomy = "Anatomy";
+		public const string Bank = "Bank";
+		public const string Bible = "Bible";
+		public const string Business = "Business";
+		public const string Military = "Military";
+		public const string Law = "Law";
+		public const string Informatics = "Informatics";
+		public const string Art = "Art";
+		public const string Space = "Space";
+		public const string Medicine = "Medicine";
+		public const string Music = "Music";
+		public const string Sex = "Sex";
+		public const string Sport = "Sport";
+		public const string Tech = "Tech";
+		public const string Philosophy = "Philosophy";
+		public const string Chemistry = "Chemistry";
+		public const string Economy = "Economy";
+		public const string Electronics = "Electronics";
 	}
 	
 	public class SubjectCollection : List<String>
