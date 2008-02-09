@@ -214,7 +214,7 @@ namespace Translate
 			webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 			
 			//headers
-			webRequest.UserAgent = "Mozilla/5.0";
+			webRequest.UserAgent = "Mozilla/5.0, Translate.Net";
 			webRequest.Referer = url.ToString();
 			
 			
