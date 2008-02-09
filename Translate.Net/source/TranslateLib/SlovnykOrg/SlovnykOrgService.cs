@@ -56,7 +56,7 @@ namespace Translate
 			CompanyName = "Valentyn Solomko";
 			Copyright = "Copyleft (L) 2000-2008, Kyiv, Valentyn Solomko";
 			IconUrl = new Uri("http://slovnyk.org/favicon.ico");
-			
+			FullName = "Slovnyk - the multilanguage dictionary";
 			BilingualDictionary tr = new SlovnykOrgDictionary();
 			tr.Service = this;
 			AddBilingualDictionary(tr);

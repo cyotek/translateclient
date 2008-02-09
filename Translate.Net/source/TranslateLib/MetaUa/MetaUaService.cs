@@ -54,6 +54,7 @@ namespace Translate
 
 			IconUrl = new Uri("http://translate.meta.ua/favicon.ico");
 			IconResourceName = "Translate.MetaUa.Service.ico";
+			FullName = "<META> Translator";
 			
 			AddTranslator(new MetaUATranslator());
 		}
