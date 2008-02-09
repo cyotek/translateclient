@@ -325,11 +325,10 @@ namespace Translate
 				htmlString+= string.Format(CultureInfo.InvariantCulture, 
 					HtmlHelper.ServiceNameFormat, 
 					result.ServiceItem.Service.Url, 
-					result.ServiceItem.Service.Url.Host);
+					HttpUtility.HtmlEncode(LangPack.TranslateString(result.ServiceItem.Service.FullName)));
 					
-				htmlString+= ", ";			
-				htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
-				
+				//htmlString+= ", ";			
+				//htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
 			}
 
 			if(result.Subject != SubjectConstants.Common)
