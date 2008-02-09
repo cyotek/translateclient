@@ -64,6 +64,13 @@ namespace Translate
 			set { name = value; }
 		}
 		
+		string fullName;
+		public string FullName {
+			get { return fullName; }
+			set { fullName = value; }
+		}
+		
+		
 		string companyName;
 		public string CompanyName {
 			get { return companyName; }
