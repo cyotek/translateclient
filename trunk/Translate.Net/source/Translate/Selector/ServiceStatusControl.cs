@@ -113,7 +113,12 @@ namespace Translate
 			tableRow.AppendChild(tableCell);
 			tableCell.Style = HtmlHelper.DataCellStyle;
 			
-			string htmlString = "<b>" + LangPack.TranslateString("Type") + "</b> : " + status.Type;
+			string htmlString = string.Format(CultureInfo.InvariantCulture, 
+					HtmlHelper.ServiceNameFormat, 
+					status.Setting.ServiceItem.Service.Url, 
+					HttpUtility.HtmlEncode(LangPack.TranslateString(status.Setting.ServiceItem.Service.FullName)));
+			
+			htmlString += "<br><b>" + LangPack.TranslateString("Type") + "</b> : " + status.Type;
 			if(status.Setting.Subject != SubjectConstants.Common)
 				htmlString+= "<br>" + "<b>" + LangPack.TranslateString("Subject") + "</b> : " + LangPack.TranslateString(status.Setting.Subject);
 			if(showLanguage)
