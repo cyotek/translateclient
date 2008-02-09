@@ -63,6 +63,8 @@
     <Compile Include="Core\TranslationException.cs" />
     <Compile Include="Core\Translator.cs" />
     <Compile Include="Core\WebRequestHelper.cs" />
+    <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
+    <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
     <Compile Include="Google\GoogleDictionary.cs" />
     <Compile Include="Google\GoogleService.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
@@ -83,11 +85,13 @@
     <EmbeddedResource Include="r2uOrgUa\Service.ico" />
     <EmbeddedResource Include="SlovnykNet\Service.ico" />
     <EmbeddedResource Include="SlovnykOrg\Service.ico" />
+    <EmbeddedResource Include="DictLinuxOrgUa\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
     <Folder Include="Google" />
     <Folder Include="MetaUa" />
+    <Folder Include="DictLinuxOrgUa" />
     <Folder Include="r2uOrgUa" />
     <Folder Include="SlovnykNet" />
     <Folder Include="SlovnykOrg" />
