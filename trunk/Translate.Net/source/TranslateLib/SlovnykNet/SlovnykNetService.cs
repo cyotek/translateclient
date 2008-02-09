@@ -62,7 +62,7 @@ namespace Translate
 			CompanyName = "ÂÒÔ \"Ïåðóí\" - VTF \"Perun\"";
 			Copyright = "© 2005, VTF Perun, © 2006-2008, Oleg Dmitriev";
 			IconUrl = new Uri("http://www.slovnyk.net/favicon.ico");
-			
+			FullName = "Large explanatory dictionary of modern Ukrainian";
 			MonolingualDictionary tr = new SlovnykNetDictionary();
 			tr.Service = this;
 			AddMonolingualDictionary(tr);

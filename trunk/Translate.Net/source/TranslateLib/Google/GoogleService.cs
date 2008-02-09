@@ -52,6 +52,7 @@ namespace Translate
 			CompanyName = "Google Inc.";
 			Copyright = "Copyright © 2008, Google";
 			IconUrl = new Uri("http://www.google.com/favicon.ico");
+			FullName = "Google Translator";
 			
 			AddTranslator(new GoogleTranslator());
 		}

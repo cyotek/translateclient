@@ -58,6 +58,7 @@ namespace Translate
 			Copyright = "Andriy Rysin, KIS, http://r2u.org.ua/krym/sources.php";
 			IconUrl = new Uri("http://r2u.org.ua/img/r2u.png");
 			IconResourceName = "Translate.r2uOrgUa.Service.ico";
+			FullName = "Russian-Ukrainian academic dictionary (1924–1933)";
 			
 			BilingualDictionary tr = new R2uOrgUADictionary();
 			tr.Service = this;
