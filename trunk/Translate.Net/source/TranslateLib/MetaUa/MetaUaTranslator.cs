@@ -84,27 +84,26 @@ namespace Translate
 			AddSupportedTranslation(new LanguagePair(Language.Latvian, Language.German));
 			
 			AddSupportedSubject(SubjectConstants.Common, "**");
-			AddSupportedSubject("Aviation", "AV");
-			AddSupportedSubject("Auto", "AU");
-			AddSupportedSubject("Anatomy", "AN");
-			AddSupportedSubject("Bank", "BN");
-			AddSupportedSubject("Bible", "BB");
-			AddSupportedSubject("Business","BZ" );
-			AddSupportedSubject("Military", "ML");
-			AddSupportedSubject("Law", "LW");
-			AddSupportedSubject("Informatics", "IN");
-			AddSupportedSubject("Art", "AR");
-			AddSupportedSubject("Space", "SP");
-			AddSupportedSubject("Medicine","MD" );
-			AddSupportedSubject("Music","MU" );
-			AddSupportedSubject("Sex", "SX");
-			AddSupportedSubject("Sport", "SO");
-			AddSupportedSubject("Tech", "EG");
-			AddSupportedSubject("Philosophy","PI" );
-			AddSupportedSubject("Chemistry","CH" );
-			AddSupportedSubject("Economy", "EC");
-			AddSupportedSubject("Electronics", "EN");
-			
+			AddSupportedSubject(SubjectConstants.Aviation, "AV");
+			AddSupportedSubject(SubjectConstants.Auto, "AU");
+			AddSupportedSubject(SubjectConstants.Anatomy, "AN");
+			AddSupportedSubject(SubjectConstants.Bank, "BN");
+			AddSupportedSubject(SubjectConstants.Bible, "BB");
+			AddSupportedSubject(SubjectConstants.Business,"BZ" );
+			AddSupportedSubject(SubjectConstants.Military, "ML");
+			AddSupportedSubject(SubjectConstants.Law, "LW");
+			AddSupportedSubject(SubjectConstants.Informatics, "IN");
+			AddSupportedSubject(SubjectConstants.Art, "AR");
+			AddSupportedSubject(SubjectConstants.Space, "SP");
+			AddSupportedSubject(SubjectConstants.Medicine,"MD" );
+			AddSupportedSubject(SubjectConstants.Music,"MU" );
+			AddSupportedSubject(SubjectConstants.Sex, "SX");
+			AddSupportedSubject(SubjectConstants.Sport, "SO");
+			AddSupportedSubject(SubjectConstants.Tech, "EG");
+			AddSupportedSubject(SubjectConstants.Philosophy,"PI" );
+			AddSupportedSubject(SubjectConstants.Chemistry,"CH" );
+			AddSupportedSubject(SubjectConstants.Economy, "EC");
+			AddSupportedSubject(SubjectConstants.Electronics, "EN");
 		}
 		
 		StringsDictionary subjects = new StringsDictionary(30);
