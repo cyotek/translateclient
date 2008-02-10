@@ -50,24 +50,20 @@ using System.Globalization;
 namespace Translate
 {
 	/// <summary>
-	/// Description of R2uOrgUaDictionary.
+	/// Description of RusUkrIatpOrgUaDictionary.
 	/// </summary>
 	
 	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
 	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-	public class DictLinuxOrgUaDictionary : BilingualDictionary
+	public class RusUkrIatpOrgUaDictionary : BilingualDictionary
 	{
-		public DictLinuxOrgUaDictionary()
+		public RusUkrIatpOrgUaDictionary()
 		{
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Ukrainian));
-			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.Ukrainian));
 			AddSupportedSubject(SubjectConstants.Common);
-			AddSupportedSubject(SubjectConstants.Informatics);
-			AddSupportedSubject(SubjectConstants.Electronics);
 			
 			CharsLimit = 50;
-			
-			WordsCount = 45000;
+			WordsCount = 6208;
 		}
 		
 		
@@ -75,61 +71,61 @@ namespace Translate
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			
-			//http://dict.linux.org.ua/dict/db/table_adv.php?word_str=help&expr=any&A=on&P=on&O=on
+			//http://rosukrdic.iatp.org.ua/search.php?fullname=%E0%E2%EE%F1%FC
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://dict.linux.org.ua/dict/db/table_adv.php"), 
+				new WebRequestHelper(result, new Uri("http://rosukrdic.iatp.org.ua/search.php"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
-			helper.Encoding = Encoding.GetEncoding(21866); //koi8-u
-			string query = "word_str={0}&expr=any&A=on&P=on&O=on";
+			helper.Encoding = Encoding.GetEncoding(1251); //koi8-u
+			string query = "fullname={0}";
 			
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, helper.Encoding));
 			helper.AddPostData(query);
 		
 			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("не знайдено<br>") >= 0)
+			if(responseFromServer.IndexOf("</b>відсутнє в словнику.") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
 			else
 			{
-				string translation = StringParser.Parse("<table BORDER COLS=4 WIDTH=", "</table>", responseFromServer);
+				string translation = StringParser.Parse("<body>", "</body>", responseFromServer);
+				translation = translation.Replace("</u>", "");
+				translation = translation.Replace("</span>", "");
+				translation = translation.Replace("<span class=\"examples_class\">", "");
+				translation = translation.Replace("<em>", "");
+				translation = translation.Replace("</em>", "");
+				translation = translation.Replace("<p>\n", "<p>");
+				translation = translation.Replace("<p>\r\n", "<p>");
+				translation = translation.Replace("<h2>", "\n<h2>");
+				translation = translation.Replace("</p>", "\n</p>");
+				translation = translation.Replace("<span class='examples_class'>", "");
 				
-				StringParser parser = new StringParser(translation);
-				string[] translations = parser.ReadItemsList("<tr>", "</td></tr>", "787654323");
 				
-				string subpart;
+				
+				StringParser phrasesParser = new StringParser(translation);
+				string[] phrases = phrasesParser.ReadItemsList("<h2>", "</h2>", "787654323");
+
+				StringParser translationsParser = new StringParser(translation);
+				string[] translations = translationsParser.ReadItemsList("<p", "\n", "787654323");
+				
 				string subphrase;
 				string subtranslation;
 				Result subres = null;
-				foreach(string part in translations)
+				for(int i = 0; i < phrases.Length; i++)
 				{
-					subpart = part;
-					subpart = subpart.Replace("<td width=\"2%\"></td><td width=\"40%\">", "");
-					subpart = subpart.Replace("<td></td><td>", "");
+					subphrase = phrases[i].Trim();
+					if(subphrase.EndsWith("."))
+						subphrase = subphrase.Substring(0, subphrase.Length-1);
+					subtranslation = translations[i].Substring(1).Trim();
+					subtranslation = subtranslation.Replace("<span class=\"style1\">", "");
+					subtranslation = subtranslation.Replace("lass=\"style1\">", "");
+					subtranslation = subtranslation.Replace("</p>", "");
 					
-					if(!subpart.StartsWith(" "))
-					{
-						subphrase = StringParser.Parse("\">", "</A>", subpart);
-						subtranslation = StringParser.Parse("\"40%\">", "</td>", subpart);
-						
-						if(translations.Length == 1 && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
-						{
-							result.Translations.Add(subtranslation);
-							return;
-						}
-						
-						subres = CreateNewResult(subphrase, languagesPair, subject);
-						subres.Translations.Add(subtranslation);
-						result.Childs.Add(subres);
-					}
-					else
-					{
-						subtranslation = StringParser.Parse("\"40%\">", "</td>", subpart);
-						if(subres != null)
-							subres.Translations.Add(subtranslation);						
-					}
+					subres = CreateNewResult(subphrase, languagesPair, subject);
+					subres.Translations.Add(subtranslation);
+					result.Childs.Add(subres);
 					
 				}
 				
