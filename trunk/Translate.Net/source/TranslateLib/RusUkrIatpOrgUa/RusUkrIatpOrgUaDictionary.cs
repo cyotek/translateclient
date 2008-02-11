@@ -79,11 +79,12 @@ namespace Translate
 			helper.Encoding = Encoding.GetEncoding(1251); //koi8-u
 			string query = "fullname={0}";
 			
-			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, helper.Encoding));
+			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase.ToLowerInvariant(), helper.Encoding));
 			helper.AddPostData(query);
 		
 			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("</b>відсутнє в словнику.") >= 0)
+			if(responseFromServer.IndexOf("</b>відсутнє в словнику.") >= 0 ||
+				responseFromServer.IndexOf("</b> відсутнє в словнику.") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
