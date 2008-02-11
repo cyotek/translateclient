@@ -125,7 +125,7 @@ namespace Translate
 			//query
 			//?Adr=62.149.17.70&DlgLang=Rus&TranTo=Rus&Subject=**&SrcTxt=%D0%B1%D0
 			string lang_to = ConvertLanguage(languagesPair.To);
-			string query = "Adr=62.149.17.70&DlgLang=Rus&TranTo={0}&Subject={1}&SrcTxt={2}";
+			string query = "Adr=62.149.17.70&DlgLang=Eng&TranTo={0}&Subject={1}&SrcTxt={2}";
 			query = string.Format(CultureInfo.InvariantCulture, 
 				query, 
 				lang_to,
@@ -141,7 +141,10 @@ namespace Translate
 				throw new TranslationException(responseFromServer.Substring(10));
 			}
 			else
+			{	if(responseFromServer.Substring(17) == "Translation direction is not correct")
+					throw new TranslationException("Translation direction is not correct");
 				result.Translations.Add(responseFromServer.Substring(17));
+			}
 		}
 	}
 }
