@@ -81,6 +81,8 @@
     <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
+    <Compile Include="TridentComUa\TridentComUaService.cs" />
+    <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />
@@ -89,12 +91,14 @@
     <EmbeddedResource Include="SlovnykOrg\Service.ico" />
     <EmbeddedResource Include="DictLinuxOrgUa\Service.ico" />
     <EmbeddedResource Include="RusUkrIatpOrgUa\Service.ico" />
+    <EmbeddedResource Include="TridentComUa\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
     <Folder Include="Google" />
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
+    <Folder Include="TridentComUa" />
     <Folder Include="RusUkrIatpOrgUa" />
     <Folder Include="r2uOrgUa" />
     <Folder Include="SlovnykNet" />
