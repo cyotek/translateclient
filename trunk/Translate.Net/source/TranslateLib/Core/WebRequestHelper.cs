@@ -215,7 +215,7 @@ namespace Translate
 			
 			//headers
 			webRequest.UserAgent = "Mozilla/5.0, Translate.Net";
-			webRequest.Referer = url.ToString();
+			webRequest.Referer = url.AbsoluteUri;
 			
 			
 			request.Headers.Add(HttpRequestHeader.KeepAlive , "300");
