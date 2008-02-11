@@ -106,7 +106,7 @@ namespace Translate
 				foreach(string part in translations)
 				{
 					subpart = part;
-					subpart = subpart.Replace("<td width=\"2%\"></td><td width=\"40%\">", "");
+					subpart = StringParser.RemoveAll("<td width=\"2%\">", "</td><td width=\"40%\">", subpart);
 					subpart = subpart.Replace("<td></td><td>", "");
 					
 					if(!subpart.StartsWith(" "))
