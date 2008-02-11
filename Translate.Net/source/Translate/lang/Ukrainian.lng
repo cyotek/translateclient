@@ -156,6 +156,8 @@ HTTP-проксі
 Показувати назви сервісів
 [Nothing found]
 Нічого не знайдено
+[Translation direction is not correct]
+Невірний напрямок перекладу
 [Only cyrillic characters supported]
 Дозволені лише кириличні символи 
 [Ukrainian characters in russian query]
@@ -376,3 +378,5 @@ cимволів
 Російсько-український словник сталих виразів
 [Pragma 5.x on-line translation]
 Pragma 5.x он-лайн переклад
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Англійсько-український та Українсько-англійський словники для перекладу в он-лайн - LingResUa
