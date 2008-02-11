@@ -222,16 +222,25 @@ namespace Translate
 					
 					foreach(Result r in result.Childs)
 					{
-						if(r.Phrase != result.Phrase && !string.IsNullOrEmpty(r.Phrase))
+						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(r.Phrase))
+						{
+							if(indent != 0)
+								htmlString.AppendFormat("<p style=\"margin-top: 0pt; margin-bottom: 0em; margin-left: {0}em;\">", 
+									indent.ToString("0.##", CultureInfo.InvariantCulture));
+							
 							htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>", 
 								HttpUtility.HtmlEncode(r.Phrase));
 								
+							if(indent != 0)
+								htmlString.Append("</p>");
+						}
+								
 						if(!string.IsNullOrEmpty(r.Abbreviation))
 						{
-							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\">{0}</span>", HttpUtility.HtmlEncode(r.Abbreviation));
+							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(r.Abbreviation));
 						}
 						
-						if(r.Phrase != result.Phrase && !string.IsNullOrEmpty(r.Phrase) || !string.IsNullOrEmpty(r.Abbreviation))
+						if(/*r.Phrase != result.Phrase && */indent > 0.5 && (!string.IsNullOrEmpty(r.Phrase) || !string.IsNullOrEmpty(r.Abbreviation)))
 							htmlString.Append("<br>");
 
 						htmlString.AppendFormat("{0}", 
