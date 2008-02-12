@@ -171,7 +171,7 @@ HTTP-проксі
 [Result view]
 Вид результату
 [Include monolingual dictionaries in translation]
-Визивати тлумачні словники при перекладі
+Викликати тлумачні словники при перекладі
 [Profile]
 Профіль
 [Default]
@@ -215,11 +215,11 @@ HTTP-проксі
 [Dutch]
 Голландська
 [English]
-Анлійська
+Англійська
 [English_GB]
-Анлійська-Англія
+Англійська-Англія
 [English_US]
-Анлійська-США
+Англійська-США
 [Esperanto]
 Есперанто
 [Estonian]
@@ -289,7 +289,7 @@ HTTP-проксі
 [<b>Status</b> : Disabled]
 <b>Статус</b> : Вимкнено
 [Enable]
-Увімкнутни
+Увімкнути
 [Disable]
 Вимкнути
 [Subjects]
