@@ -780,6 +780,8 @@ namespace Translate
 				int newvalue = vScrollBar.Value + numberOfPixelsToMove;
 				if(newvalue > vScrollBar.Maximum - vScrollBar.LargeChange + 1)
 					newvalue = vScrollBar.Maximum - vScrollBar.LargeChange + 1;
+				if(newvalue > vScrollBar.Maximum)
+					newvalue = vScrollBar.Maximum;
 				if(newvalue < vScrollBar.Minimum)
 					newvalue = vScrollBar.Minimum;
 				vScrollBar.Value = newvalue;
