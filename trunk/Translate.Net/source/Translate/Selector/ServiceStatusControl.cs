@@ -339,7 +339,7 @@ namespace Translate
 			if(e.Url.AbsoluteUri == "about:blank")
 				return;
 		
-			System.Diagnostics.Process.Start(e.Url.AbsoluteUri);
+			HtmlHelper.OpenUrl(e.Url);
 			e.Cancel = true;
 		}
 	}

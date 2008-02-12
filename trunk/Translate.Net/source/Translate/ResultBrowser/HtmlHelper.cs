@@ -141,6 +141,9 @@ namespace Translate
 		
 		public const string ServiceNameFormat = "<a href=\"{0}\">{1}</a>";
 		
-		
+		public static void OpenUrl(Uri url)
+		{
+			System.Diagnostics.Process.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
+		}
 	}
 }
