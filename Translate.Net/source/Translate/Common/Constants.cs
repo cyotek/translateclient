@@ -57,7 +57,7 @@ namespace Translate
 	
 		public const string HomeUrl = "http://translateclient.googlepages.com";
 		public const string StatsPageUrl = HomeUrl + "/q.htm";
-		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.";
+		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.data.";
 		public const string RedirectPageUrl = HomeUrl + "/r.htm";
 	}
 }
