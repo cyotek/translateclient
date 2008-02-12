@@ -1,4 +1,5 @@
 #include "detect_dotnet2.iss"
+#include "frm_DotNetCheck.iss"
 
 #define AppVersion GetFileVersion("..\bin\Translate.Net.exe")
 #define AppName "Translate.Net"
@@ -93,7 +94,7 @@ Source: texts\privacy\*.rtf; DestDir: {app}
 Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueType: string; ValueName: Translate.Net; ValueData: {app}\Translate.Net.exe -skipsplash
 
 [Run]
-Filename: "{app}\Translate.Net.exe"; WorkingDir: "{app}"; Description: "Run Translate.Net"; Flags: nowait postinstall;
+Filename: "{app}\Translate.Net.exe"; Parameters: "-nohide"; WorkingDir: "{app}"; Description: "Run Translate.Net"; Flags: nowait postinstall;
 
 
 [Icons]
