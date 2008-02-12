@@ -580,7 +580,7 @@ namespace Translate
 				
 			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
 				return;
-			System.Diagnostics.Process.Start(e.Url.AbsoluteUri);
+			HtmlHelper.OpenUrl(e.Url);
 			e.Cancel = true;
 		}
 		
