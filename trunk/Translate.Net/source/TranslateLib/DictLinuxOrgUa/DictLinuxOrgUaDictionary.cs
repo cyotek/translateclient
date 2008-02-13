@@ -109,10 +109,36 @@ namespace Translate
 					subpart = StringParser.RemoveAll("<td width=\"2%\">", "</td><td width=\"40%\">", subpart);
 					subpart = subpart.Replace("<td></td><td>", "");
 					
-					if(!subpart.StartsWith(" "))
+					if(subpart.StartsWith("<A HREF"))
 					{
 						subphrase = StringParser.Parse("\">", "</A>", subpart);
 						subtranslation = StringParser.Parse("\"40%\">", "</td>", subpart);
+						
+						if(translations.Length == 1 && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
+						{
+							result.Translations.Add(subtranslation);
+							return;
+						}
+						
+						subres = CreateNewResult(subphrase, languagesPair, subject);
+						subres.Translations.Add(subtranslation);
+						result.Childs.Add(subres);
+					}
+					else if(!subpart.StartsWith(" "))
+					{
+						int idx = subpart.IndexOf("</td>");
+						if(idx < 0)
+						{
+							subphrase = "Parse Error";
+							subtranslation = "Parse Error";
+						}
+						else
+						{
+							subphrase = subpart.Substring(0, idx);
+							subpart = subpart.Substring(idx + 5);
+							subpart = subpart.Replace("<td width=\"40%\">", "");
+							subtranslation = StringParser.Parse("\">", "</A>", subpart);
+						}
 						
 						if(translations.Length == 1 && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
 						{
