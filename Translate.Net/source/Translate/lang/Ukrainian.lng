@@ -168,6 +168,10 @@ HTTP-проксі
 Немає чого перекладати  
 [Length too big]
 Дуже велика довжина
+[Wrong data structure]
+Неправильна структура даних
+[Query contains extraneous symbols]
+Запит містить сторонні символи
 [Result view]
 Вид результату
 [Include monolingual dictionaries in translation]
@@ -380,3 +384,5 @@ HTTP-проксі
 Pragma 5.x он-лайн переклад
 [English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
 Англійсько-український та Українсько-англійський словники для перекладу в он-лайн - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Українсько-англійсько-український словник - Slovnenya
