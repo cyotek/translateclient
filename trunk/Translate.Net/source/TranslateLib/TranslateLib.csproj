@@ -79,6 +79,8 @@
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
+    <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
+    <Compile Include="SlovnenyaCom\SlovnenyaComService.cs" />
     <Compile Include="SlovnykNet\SlovnykNetService.cs" />
     <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
@@ -95,6 +97,7 @@
     <EmbeddedResource Include="RusUkrIatpOrgUa\Service.ico" />
     <EmbeddedResource Include="TridentComUa\Service.ico" />
     <EmbeddedResource Include="CybermovaCom\Service.ico" />
+    <EmbeddedResource Include="SlovnenyaCom\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -102,6 +105,7 @@
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
+    <Folder Include="SlovnenyaCom" />
     <Folder Include="TridentComUa" />
     <Folder Include="RusUkrIatpOrgUa" />
     <Folder Include="r2uOrgUa" />

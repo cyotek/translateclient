@@ -188,5 +188,129 @@ namespace Translate
 			return result.ToString();
 		}
 		
+		class TreeParseData
+		{
+			public bool IsStartTag;
+			public int Position;
+			
+			public TreeParseData(bool isStartTag, int position)
+			{
+				this.IsStartTag = isStartTag;
+				this.Position = position;
+			}
+		}
+		
+		public static StringsTree ParseTreeStructure(string startTag, string endTag, string data)
+		{
+			if(startTag == null)
+				throw new ArgumentNullException("startTag");
+
+			if(endTag == null)
+				throw new ArgumentNullException("endTag");
+
+			if(data == null)
+				throw new ArgumentNullException("data");
+				
+			int startTagLength = startTag.Length;	
+			int endTagLength = endTag.Length;
+			List<TreeParseData> parseList = new List<TreeParseData>();
+			int idx = 0;
+			
+			int ident = 0; 
+			while(idx < data.Length)
+			{
+				int resultIdxStart = data.IndexOf(startTag, idx);
+				if(resultIdxStart < 0)
+					resultIdxStart = int.MaxValue;
+					
+				int resultIdxEnd = data.IndexOf(endTag, idx);
+				if(resultIdxEnd < 0)
+					resultIdxEnd = int.MaxValue;
+					
+				if(resultIdxStart < resultIdxEnd)
+				{
+					ident++;
+					parseList.Add(new TreeParseData(true, resultIdxStart));
+					idx = resultIdxStart + startTagLength;
+				}
+				else if(resultIdxStart > resultIdxEnd)
+				{
+					ident--;
+					if(ident < 0)	
+						throw new ArgumentNullException("Wrong data structure", "data");
+				
+					parseList.Add(new TreeParseData(false, resultIdxEnd));
+					idx = resultIdxEnd + endTagLength;
+				}
+				else
+				{	//equal, end found
+					break;
+				}
+			}
+
+			StringsTree current = new StringsTree(null, 0);
+			
+			for(idx = 0; idx < parseList.Count; idx++)
+			{
+				if(parseList[idx].IsStartTag)
+				{
+					StringsTree child = new StringsTree(current, idx);
+					current.Childs.Add(child);
+					current = child;
+				}	
+				else
+				{   //this is child
+					int childStart = parseList[current.Offset].Position;
+					int childEnd = parseList[idx].Position;
+					if(parseList[current.Offset+1].IsStartTag)
+						childEnd = parseList[current.Offset+1].Position;
+						
+					current.Data = data.Substring(childStart + startTagLength, childEnd - childStart - startTagLength);
+					current = current.Parent;
+				}	
+			}
+			return current;
+		}
+		
+	}
+	
+	public class StringsTree
+	{
+		StringsTreeList childs = new StringsTreeList();
+		public StringsTreeList Childs {
+			get { return childs; }
+		}
+		
+		string data;
+		public string Data {
+			get { return data; }
+			set { data = value; }
+		}
+		
+		StringsTree parent;
+		public StringsTree Parent {
+			get { return parent; }
+			set { parent = value; }
+		}
+		
+		public StringsTree(StringsTree parent, int offset)
+		{
+			this.parent = parent;
+			this.offset = offset;
+		}
+		
+		
+		int offset;
+		public int Offset {
+			get { return offset; }
+			set { offset = value; }
+		}
+		
+		
+	}
+	
+	public class StringsTreeList : List<StringsTree>
+	{
+	
 	}
 }

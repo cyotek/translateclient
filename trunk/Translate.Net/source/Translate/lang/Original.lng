@@ -168,6 +168,10 @@
 
 [Length too big]
 
+[Wrong data structure]
+
+[Query contains extraneous symbols]
+
 [Result view]
 
 [Include monolingual dictionaries in translation]
@@ -379,3 +383,5 @@
 [Pragma 5.x on-line translation]
 
 [English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]

@@ -114,6 +114,12 @@ namespace Translate
 			set { encoding = value; }
 		}
 		
+		string acceptLanguage;
+		public string AcceptLanguage {
+			get { return acceptLanguage; }
+			set { acceptLanguage = value; }
+		}
+		
 		
 		string multiPartBoundary = "-----------------------------325433208117628";
 		
@@ -213,6 +219,10 @@ namespace Translate
 			HttpWebRequest webRequest = request as  HttpWebRequest;
 			webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 			
+			if(!string.IsNullOrEmpty(acceptLanguage))
+			{
+				webRequest.Headers[HttpRequestHeader.AcceptLanguage] = acceptLanguage;
+			}
 			//headers
 			webRequest.UserAgent = "Mozilla/5.0, Translate.Net";
 			webRequest.Referer = url.AbsoluteUri;
