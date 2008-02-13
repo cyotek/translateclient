@@ -269,7 +269,14 @@ namespace Translate
 			        false,
 			        this);
 			
-			    asyncOperation.PostOperationCompleted(RaiseTranslateCompleted, args);
+				try
+				{
+			    	asyncOperation.PostOperationCompleted(RaiseTranslateCompleted, args);
+			    }
+			    catch(System.InvalidOperationException)
+			    {
+			    	//ignore exception raised sometime from here
+			    }
 		    }
 		}
 	
