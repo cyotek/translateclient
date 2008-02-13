@@ -95,7 +95,7 @@
 [{0} has wrong formatted {1} tag:\r\n{2}]
 {0} містить погано форматований тег {1}:\r\n{2}
 [Canceled]
-Прервано
+Перервано
 [Program is up to date]
 Оновлення не знайдене
 [File {0} already exists]
@@ -145,7 +145,7 @@ HTTP-проксі
 [Show query time and other information]
 Показувати час запиту та іншу інформацію
 [Mark by red color untranslated words]
-Відмічати червоним коліром слова, що не перекладені
+Відмічати червоним кольором слова, що не перекладені
 [Don't show "Nothing found" results]
 Не показувати результати сервісів, які нічого не знайшли
 [Show direction of translation]
@@ -163,7 +163,7 @@ HTTP-проксі
 [Ukrainian characters in russian query]
 Українські літери в запиті по російських позиціях
 [Parse error, start tags not found]
-Помилка парсінгу, стартовий тег не знайдено
+Помилка аналізу отриманих даних, стартовий тег не знайдено
 [Nothing to translate]
 Немає чого перекладати  
 [Length too big]
@@ -255,7 +255,7 @@ HTTP-проксі
 [Polish]
 Польська
 [Portuguese]
-Португальска
+Португальська
 [Romanian]
 Румунська
 [Russian]
@@ -315,7 +315,7 @@ HTTP-проксі
 [Law]
 Закон
 [Informatics]
-Інформатіка
+Інформатика
 [Art]
 Мистецтво
 [Space]
@@ -357,7 +357,7 @@ HTTP-проксі
 [Limit]
 Межа 
 [characters]
-cимволів
+символів
 [Masks]
 Маски
 [English-Ukrainian technical dictionary]
