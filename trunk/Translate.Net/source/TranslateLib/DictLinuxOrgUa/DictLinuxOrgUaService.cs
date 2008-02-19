@@ -56,7 +56,7 @@ namespace Translate
 			Url = new Uri("http://dict.linux.org.ua/");
 			Name = "dict_linux_org_ua_dic";
 			CompanyName = "Andriy Rysin";
-			Copyright = "Andriy Rysin, http://dict.linux.org.ua/dict/db/dict_list.php, www.linux.org.ua";
+			Copyright = "Copyright © 2008, Andriy Rysin, http://dict.linux.org.ua/dict/db/dict_list.php, www.linux.org.ua";
 			IconUrl = new Uri("http://dict.linux.org.ua/dictlin.ico");
 			FullName = "English-Ukrainian technical dictionary";
 						

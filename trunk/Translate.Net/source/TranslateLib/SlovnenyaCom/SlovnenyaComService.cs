@@ -51,7 +51,7 @@ namespace Translate
 			Url = new Uri("http://www.slovnenya.com");
 			Name = "slovnenya_com";
 			CompanyName = "Slovnenya";
-			Copyright = "©2008 Slovnenya";
+			Copyright = "Copyright © 2008, Slovnenya";
 
 			IconUrl = new Uri("http://www.slovnenya.com/images/slovnenya_en_jpg");
 			FullName = "Ukrainian-English-Ukrainian dictionary - Slovnenya";

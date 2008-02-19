@@ -56,7 +56,7 @@ namespace Translate
 			Url = new Uri("http://rosukrdic.iatp.org.ua/");
 			Name = "rosukrdic_iatp_org_ua_dic";
 			CompanyName = "Anatolyi Evpak";
-			Copyright = "Anatolyi Evpak";
+			Copyright = "Copyright © 2008, Anatolyi Evpak, I.O.Vyrgan, M.M.Pylynska";
 			IconUrl = new Uri("http://ua.iatp.net/_img/country/logo.gif");
 			FullName = "Russian-Ukrainian dictionary of constant expressions";
 						
