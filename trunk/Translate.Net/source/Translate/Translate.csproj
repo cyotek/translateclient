@@ -16,6 +16,7 @@
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <RunCodeAnalysis>False</RunCodeAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>../../bin</OutputPath>
@@ -101,6 +102,7 @@
     <Compile Include="Selector\ServiceStatusControl.Designer.cs">
       <DependentUpon>ServiceStatusControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServicesList\ServicesListHtmlGenerator.cs" />
     <Compile Include="TranslateMainForm.cs" />
     <Compile Include="TranslateMainForm.Designer.cs">
       <DependentUpon>TranslateMainForm.cs</DependentUpon>
@@ -156,6 +158,63 @@
     <EmbeddedResource Include="ResultBrowser\ResultBrowser.resx">
       <DependentUpon>ResultBrowser.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\..\site\changelog.data.en.html">
+      <Link>site\changelog.data.en.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.data.uk.html">
+      <Link>site\changelog.data.uk.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.en.html">
+      <Link>site\changelog.en.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.uk.html">
+      <Link>site\changelog.uk.html</Link>
+    </None>
+    <None Include="..\..\site\download.en.html">
+      <Link>site\download.en.html</Link>
+    </None>
+    <None Include="..\..\site\download.uk.html">
+      <Link>site\download.uk.html</Link>
+    </None>
+    <None Include="..\..\site\features.en.html">
+      <Link>site\features.en.html</Link>
+    </None>
+    <None Include="..\..\site\features.uk.html">
+      <Link>site\features.uk.html</Link>
+    </None>
+    <None Include="..\..\site\index.en.html">
+      <Link>site\index.en.html</Link>
+    </None>
+    <None Include="..\..\site\index.uk.html">
+      <Link>site\index.uk.html</Link>
+    </None>
+    <None Include="..\..\site\links.en.html">
+      <Link>site\links.en.html</Link>
+    </None>
+    <None Include="..\..\site\links.uk.html">
+      <Link>site\links.uk.html</Link>
+    </None>
+    <None Include="..\..\site\q.htm">
+      <Link>site\q.htm</Link>
+    </None>
+    <None Include="..\..\site\r.htm">
+      <Link>site\r.htm</Link>
+    </None>
+    <None Include="..\..\site\screenshots.en.html">
+      <Link>site\screenshots.en.html</Link>
+    </None>
+    <None Include="..\..\site\screenshots.uk.html">
+      <Link>site\screenshots.uk.html</Link>
+    </None>
+    <None Include="..\..\site\support.en.html">
+      <Link>site\support.en.html</Link>
+    </None>
+    <None Include="..\..\site\support.uk.html">
+      <Link>site\support.uk.html</Link>
+    </None>
+    <None Include="..\..\site\versions.txt">
+      <Link>site\versions.txt</Link>
+    </None>
     <None Include="lang\Original.lng" />
     <None Include="lang\Ukrainian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -175,6 +234,8 @@
     <Folder Include="Common" />
     <Folder Include="lang" />
     <Folder Include="Hooks" />
+    <Folder Include="ServicesList" />
+    <Folder Include="site" />
     <Folder Include="Selector" />
     <Folder Include="Updates" />
     <Folder Include="Options" />
@@ -197,4 +258,7 @@
       <Name>TranslateLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>Translate.Net.exe -gen_list</PostBuildEvent>
+  </PropertyGroup>
 </Project>

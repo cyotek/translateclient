@@ -59,11 +59,23 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="FreeCL.Forms.OptionsControlsManager.RegisterOptionControl(System.Type,System.String,System.Int32,System.String,System.Int32)")]
 		private static void Main(string[] args)
 		{
+			if(Application.IsCommandSwitchSet("gen_list"))
+			{
+				try
+				{
+					ServicesListHtmlGenerator.Generate();
+				}
+				catch(Exception e)
+				{
+					Application.OnThreadException(e);
+				}
+				return;
+			}
+		
 			try
 			{
 				UpdatesManager.Init();
 				Application.ShowSplashForm(null);
-				
 				
 				Application.OptionsForm = new BaseOptionsForm();
 				Application.BaseOptions = new TranslateOptions();
