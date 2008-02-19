@@ -76,26 +76,44 @@ namespace Translate
 			doc.Body.Style = HtmlHelper.BodyStyle;
 			
 			//result table
+			CreateTable(doc, doc.Body, "result_table");
+		}
+		
+		public static void CreateTable(HtmlDocument doc, HtmlElement parent, string name)
+		{
+			if(doc == null)
+				throw new ArgumentNullException("doc");
+
+			if(parent == null)
+				throw new ArgumentNullException("parent");
+
 			HtmlElement resultTable = doc.CreateElement("table");
 			resultTable.Style = TableStyle;
-			resultTable.Id = "result_table";
+			resultTable.Id = name;
 			resultTable.SetAttribute("border", "0");
 			resultTable.SetAttribute("cellpadding", "1");
 			resultTable.SetAttribute("cellspacing", "3");
-			doc.Body.AppendChild(resultTable);
+			parent.AppendChild(resultTable);
 			
 			
 			HtmlElement tableBody = doc.CreateElement("TBODY");
 			resultTable.AppendChild(tableBody);
-			tableBody.Id = "result_table_body";
+			tableBody.Id = name +"_body";
 		}
 		
 		public static HtmlElement CreateDataRow(HtmlDocument doc, bool isClean)
 		{
+			return CreateDataRow(doc, doc.GetElementById("result_table_body"), isClean);
+		}
+		
+		public static HtmlElement CreateDataRow(HtmlDocument doc, HtmlElement tableBody, bool isClean)
+		{
 			if(doc == null)
 				throw new ArgumentNullException("doc");
+
+			if(tableBody == null)
+				throw new ArgumentNullException("tableBody");
 		
-			HtmlElement tableBody = doc.GetElementById("result_table_body");
 			HtmlElement tableRow = doc.CreateElement("TR");
 			tableBody.AppendChild(tableRow);
 			

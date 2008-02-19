@@ -143,7 +143,7 @@ namespace Translate
 				
 		}
 		
-		static string GetCleanHtml()
+		public static string GetCleanHtml()
 		{
 			if(!string.IsNullOrEmpty(cleanHtml))
 				return cleanHtml;
