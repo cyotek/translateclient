@@ -23,3 +23,26 @@ h1
   font-size: 35pt; 
   font-family: serif;	
 }
+
+no_margins
+{
+  MARGIN-TOP: 0pt; 
+  MARGIN-BOTTOM: 0em;
+}
+
+w100
+{
+  WIDTH: 100%;
+}
+
+w100al
+{
+  WIDTH: 100%;  
+  TEXT-ALIGN: left;
+}
+
+icon_td
+{
+  BORDER-TOP: gray 1px solid; 
+  WIDTH: 100%;
+}
