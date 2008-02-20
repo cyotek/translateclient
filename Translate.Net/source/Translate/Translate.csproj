@@ -258,7 +258,4 @@
       <Name>TranslateLib</Name>
     </ProjectReference>
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>Translate.Net.exe -gen_list</PostBuildEvent>
-  </PropertyGroup>
 </Project>

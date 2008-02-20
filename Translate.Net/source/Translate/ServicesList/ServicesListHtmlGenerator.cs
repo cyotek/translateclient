@@ -60,12 +60,12 @@ namespace Translate
 		public static void Generate()
 		{
 			FreeCL.RTL.LangPack.Load("English");
-			BuildFile("..\\site\\services.data.en.html");
+			BuildFile("..\\site\\services.unpackeddata.en.html", "..\\site\\servicesdata_en.java");
 			FreeCL.RTL.LangPack.Load("Ukrainian");
-			BuildFile("..\\site\\services.data.uk.html");
+			BuildFile("..\\site\\services.unpackeddata.uk.html", "..\\site\\servicesdata_uk.java");
 		}
 		
-		static void BuildFile(string fileName)
+		static void BuildFile(string fileName, string classFileName)
 		{
 			WebBrowser wBrowser = new WebBrowser();
 			wBrowser.CreateControl();
@@ -125,6 +125,49 @@ namespace Translate
 			sw.Flush();
 			sw.Dispose();
 			wBrowser.Dispose();
+			
+			fs = new FileStream(classFileName, FileMode.Create);
+			string className = Path.GetFileNameWithoutExtension(classFileName);
+			sw = new StreamWriter(fs, Encoding.BigEndianUnicode);
+			sw.Write("import java.applet.*;\r\n\r\n");
+			sw.Write("public class ");
+			sw.Write(className);
+			sw.Write(" extends Applet{\r\npublic String d(){\r\n");
+			int i = 0;
+			int cnt;
+			string substr;
+			int var_num = 0;
+			while(i < result.Length)
+			{
+				cnt = 1024;
+				if(i + cnt > result.Length)
+					cnt = result.Length - i;
+				substr = result.Substring(i, cnt);
+				substr = substr.Replace("\"", "\\\"");
+				substr = substr.Replace("\r", "\\r");
+				substr = substr.Replace("\n", "\\n");
+				sw.Write("String s_");
+				sw.Write(var_num.ToString());
+					var_num++;
+				sw.Write(" = ");	
+				sw.Write("\"" + substr + "\";\r\n");
+				i += 1024;
+				//if(i < result.Length)
+				//	sw.Write("+ \r\n");
+			}
+			sw.Write("return ");	
+			for(i = 0; i < var_num; i++)
+			{
+				sw.Write("s_");
+				sw.Write(i.ToString());
+				if(i + 1 < var_num)
+					sw.Write("+");
+			}
+			sw.Write(";\r\n}\r\n}");
+			sw.Flush();
+			sw.Dispose();
+			wBrowser.Dispose();
+			
 		}
 		
 		static void GenerateDocument(HtmlDocument doc)
