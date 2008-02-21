@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Language" content="uk-ua">
@@ -18,6 +18,13 @@
 <tr>
 <td>
 <div style="text-align: justify;" align="center">
+
+<span style="font-weight: bold;">2008-02-21</span>
+<br>
+<li>Додано сторінку <a href="services.uk.html" >Перекладачки</a> із списком онлайн перекладачок та словників, що підтримуються 
+<br>
+<br>
+
 
 <span style="font-weight: bold;">2008-02-13</span>
 <br>
@@ -89,8 +96,14 @@ var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "htt
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-3495794-1");
-pageTracker._initData();
-pageTracker._trackPageview();
+if(_gat != undefined)
+{
+  var pageTracker = _gat._getTracker("UA-3495794-1");
+  if(pageTracker != undefined)
+  {
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  }
+}
 </script>
 </body></html>
