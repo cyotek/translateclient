@@ -92,6 +92,11 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
+			else if(responseFromServer.EndsWith("Рядок пошуку містить недозволені символи."))
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Query contains extraneous symbols");
+			}
 			else
 			{
 				string translation = StringParser.Parse("<table BORDER COLS=4 WIDTH=", "</table>", responseFromServer);
