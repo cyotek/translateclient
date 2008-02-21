@@ -226,7 +226,7 @@ namespace FreeCL.Forms
 									this.miHelp});
 			this.msMain.Size = new System.Drawing.Size(484, 24);
 			// 
-			// pToolbars
+			// pToolBars
 			// 
 			this.pToolBars.Controls.Add(this.ptEdit);
 			this.pToolBars.Size = new System.Drawing.Size(484, 25);
@@ -725,7 +725,7 @@ namespace FreeCL.Forms
 			this.al.SetAction(this.miOptionsToolStripMenuItem, this.aOptions);
 			this.miOptionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miOptionsToolStripMenuItem.Name = "miOptionsToolStripMenuItem";
-			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.miOptionsToolStripMenuItem.Text = "O&ptions ...";
 			// 
 			// aOptions
@@ -754,9 +754,9 @@ namespace FreeCL.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.ToolStripMenuItem miOptionsToolStripMenuItem;
+		public System.Windows.Forms.ToolStripMenuItem miOptionsToolStripMenuItem;
 		private FreeCL.UI.Actions.Action aOptions;
-		private System.Windows.Forms.ToolStripMenuItem miService;
+		public System.Windows.Forms.ToolStripMenuItem miService;
 		[SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]	
 		public FreeCL.UI.Actions.Action aAbout;
 		[SuppressMessage("Microsoft.Design", "CA1051:DoNotDeclareVisibleInstanceFields")]	
