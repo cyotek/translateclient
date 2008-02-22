@@ -59,6 +59,7 @@ namespace Translate
 	/// </summary>
 	public class WebRequestHelper : IDisposable
 	{
+	
 		public WebRequestHelper(Result result, Uri url, NetworkSetting networkSetting, WebRequestContentType contentType)
 		{
 			this.result = result;
@@ -67,6 +68,14 @@ namespace Translate
 			this.contentType = contentType;
 		}
 	
+		public WebRequestHelper(Result result, Uri url, NetworkSetting networkSetting, WebRequestContentType contentType, Encoding encoding)
+		{
+			this.result = result;
+			this.url = url;
+			this.networkSetting = networkSetting;
+			this.contentType = contentType;
+			this.encoding = encoding;
+		}
 	
 		[SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", MessageId="4#gzip")]
 		public WebRequestHelper(Result result, Uri url, NetworkSetting networkSetting, WebRequestContentType contentType, bool gzipRequest)
