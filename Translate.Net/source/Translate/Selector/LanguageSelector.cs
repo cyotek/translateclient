@@ -644,7 +644,7 @@ namespace Translate
 				foreach(ServiceSetting ss in serviceItemsSettings)
 				{
 					ServiceSettingsContainer sc = new ServiceSettingsContainer(ss, showLanguage);
-					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.Service.Name, ss.LanguagePair, ss.Subject);
+					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.Service.Name + ss.ServiceItem.Name, ss.LanguagePair, ss.Subject);
 					serviceItemsContainers.Add(sc);
 				}
 			}
@@ -820,7 +820,7 @@ namespace Translate
 							
 				
 				sc.DisabledByUser = !sc.DisabledByUser;
-				profile.EnableService(sc.Setting.ServiceItem.Service.Name, sc.Setting.LanguagePair, sc.Setting.Subject, !sc.DisabledByUser);
+				profile.EnableService(sc.Setting.ServiceItem.Service.Name + sc.Setting.ServiceItem.Name, sc.Setting.LanguagePair, sc.Setting.Subject, !sc.DisabledByUser);
 				
 				lvi = AddListViewItem(sc);
 				CalcServicesSizes();
