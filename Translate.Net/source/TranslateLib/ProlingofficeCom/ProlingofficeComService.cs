@@ -57,6 +57,7 @@ namespace Translate
 			
 			AddTranslator(new ProlingofficeTranslator());
 			AddBilingualDictionary(new ProlingofficeDictionary());
+			AddMonolingualDictionary(new ProlingofficeSynonymsDictionary());
 		}
 	}
 }
