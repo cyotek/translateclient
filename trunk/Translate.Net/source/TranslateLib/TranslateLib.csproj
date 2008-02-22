@@ -77,6 +77,7 @@
     <Compile Include="PereOrgUa\PereOrgUaTranslator.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeComService.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeDictionary.cs" />
+    <Compile Include="ProlingofficeCom\ProlingofficeSynonymsDictionary.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeTranslator.cs" />
     <Compile Include="r2uOrgUa\R2uOrgUaDictionary.cs" />
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
