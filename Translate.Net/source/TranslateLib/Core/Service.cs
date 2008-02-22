@@ -90,6 +90,13 @@ namespace Translate
 			set { iconUrl = value; }
 		}
 		
+		string restrictions;
+		public string Restrictions {
+			get { return restrictions; }
+			set { restrictions = value; }
+		}
+		
+		
 		string iconResourceName;
 		public string IconResourceName {
 			get { 
