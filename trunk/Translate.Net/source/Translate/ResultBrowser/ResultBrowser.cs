@@ -336,8 +336,8 @@ namespace Translate
 					result.ServiceItem.Service.Url, 
 					HttpUtility.HtmlEncode(LangPack.TranslateString(result.ServiceItem.Service.FullName)));
 					
-				//htmlString+= ", ";			
-				//htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
+				htmlString+= ", ";			
+				htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
 			}
 
 			if(result.Subject != SubjectConstants.Common)
@@ -351,10 +351,17 @@ namespace Translate
 			{
 				if(htmlString.Length > 0)
 					htmlString+= ", ";			
-					
-				htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From) +
-						"->" + 
-						LangPack.TranslateLanguage(result.LanguagesPair.To);
+				
+				if(result.ServiceItem is MonolingualDictionary)
+				{
+					htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From);
+				}
+				else
+				{
+					htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From) +
+							"->" + 
+							LangPack.TranslateLanguage(result.LanguagesPair.To);
+				}
 			}
 			
 			if(htmlString.Length > 0)
