@@ -93,7 +93,7 @@ namespace Translate
 			//&q={1}
 			//&_ctl1%3AButton1=%CF%E5%F0%E5%E2%E5%F1%F2%E8&_ctl1%3AtsLang=rbLang{2}&LanguageH=RUS
 			//&__EVENTVALIDATION={3}
-			string query = "__EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE={0}&q={1}&_ctl1%3AButton1=%CF%E5%F0%E5%E2%E5%F1%F2%E8&_ctl1%3AtsLang=rbLang{2}&LanguageH=RUS&__EVENTVALIDATION={3}";
+			string query = "__EVENTTARGET=_ctl1%24Menu1&__EVENTARGUMENT=0&__VIEWSTATE={0}&q={1}&_ctl1%3AtsLang=rbLang{2}&LanguageH=RUS&__EVENTVALIDATION={3}";
 			query = string.Format(query, 
 				HttpUtility.UrlEncode(viewState, helper.Encoding),
 				HttpUtility.UrlEncode(phrase, helper.Encoding),
@@ -104,12 +104,20 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 		
+			viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServer);
+			eventValidation = StringParser.Parse("id=\"__EVENTVALIDATION\" value=\"", "\"", responseFromServer);
+
 			if(responseFromServer.IndexOf("Перекладу цього слова не знайдено. Спробуйте записати слово інакше, або ознайомтеся з інформацією, яка міститься у <a") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
 			else if(responseFromServer.IndexOf("В слове содержатся ошибки. Возможно имелось в виду:</b>") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			else if(responseFromServer.IndexOf("Синонімів для цього слова не знайдено. Спробуйте записати слово інакше, або ознайомтеся з інформацією, яка міститься у <") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
@@ -148,8 +156,6 @@ namespace Translate
 					subres.Translations.Add(StringParser.Parse(">", "<", s));
 			}
 			
-			viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServer);
-			eventValidation = StringParser.Parse("id=\"__EVENTVALIDATION\" value=\"", "\"", responseFromServer);
 			
 		}
 	}

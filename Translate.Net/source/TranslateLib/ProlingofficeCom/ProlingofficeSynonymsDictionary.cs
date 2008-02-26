@@ -85,8 +85,8 @@ namespace Translate
 						Encoding.GetEncoding(1251));
 						
 			//__EVENTTARGET=_ctl1%24Menu1&__EVENTARGUMENT=1&
-			//__VIEWSTATE={0}&q=&_ctl1%3AtsLang=rbLangU&LanguageH=RUS&
-			//__EVENTVALIDATION={1}
+			//__VIEWSTATE={0}&q={1}&_ctl1%3AtsLang=rbLangU&LanguageH=RUS&
+			//__EVENTVALIDATION={2}
 			string query = "__EVENTTARGET=_ctl1%24Menu1&__EVENTARGUMENT=1&__VIEWSTATE={0}&q={1}&_ctl1%3AtsLang=rbLangU&LanguageH=RUS&__EVENTVALIDATION={2}";
 			
 			query = string.Format(query, 
@@ -97,6 +97,10 @@ namespace Translate
 			helper.AddPostData(query);
 			
 			string responseFromServer = helper.GetResponse();
+			
+			viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServer);
+			eventValidation = StringParser.Parse("id=\"__EVENTVALIDATION\" value=\"", "\"", responseFromServer);
+			
 		
 			if(responseFromServer.IndexOf("Перекладу цього слова не знайдено. Спробуйте записати слово інакше, або ознайомтеся з інформацією, яка міститься у <a") >= 0)
 			{
@@ -108,6 +112,12 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
+			else if(responseFromServer.IndexOf("Синонімів для цього слова не знайдено. Спробуйте записати слово інакше, або ознайомтеся з інформацією, яка міститься у <") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
 			
 		
 			
@@ -132,8 +142,6 @@ namespace Translate
 					subres.Translations.Add(StringParser.Parse(">", "<", s));
 			}
 			
-			viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServer);
-			eventValidation = StringParser.Parse("id=\"__EVENTVALIDATION\" value=\"", "\"", responseFromServer);
 			
 		}
 	}
