@@ -87,27 +87,10 @@ namespace Translate
 		public override SubjectCollection GetSupportedSubjects()
 		{
 			SubjectCollection result = new SubjectCollection();
-			foreach(Translator translator in Manager.Translators)
-			{
-				foreach(string subject in translator.SupportedSubjects)
-				{
-					if(!result.Contains(subject))
-						result.Add(subject);
-				}
-			}
 			
-			foreach(BilingualDictionary dictionary in Manager.BilingualDictionaries)
+			foreach(ServiceItem item in Manager.ServiceItems)
 			{
-				foreach(string subject in dictionary.SupportedSubjects)
-				{
-					if(!result.Contains(subject))
-						result.Add(subject);
-				}
-			}
-
-			foreach(MonolingualDictionary dictionary in Manager.MonolingualDictionaries)
-			{
-				foreach(string subject in dictionary.SupportedSubjects)
+				foreach(string subject in item.SupportedSubjects)
 				{
 					if(!result.Contains(subject))
 						result.Add(subject);
@@ -120,43 +103,14 @@ namespace Translate
 		public override ReadOnlyLanguagePairCollection GetLanguagePairs()
 		{
 			LanguagePairCollection result = new LanguagePairCollection();
-			foreach(Translator translator in Manager.Translators)
-			{
-				foreach(string subject in translator.SupportedSubjects)
-				{
-					if(Subjects.Contains(subject))
-					{
-						foreach(LanguagePair lp in translator.SupportedTranslations)
-						{
-							if(!result.Contains(lp))
-								result.Add(lp);
-						}
-					}
-				}
-			}
 			
-			foreach(BilingualDictionary dictionary in Manager.BilingualDictionaries)
+			foreach(ServiceItem item in Manager.ServiceItems)
 			{
-				foreach(string subject in dictionary.SupportedSubjects)
+				foreach(string subject in item.SupportedSubjects)
 				{
 					if(Subjects.Contains(subject))
 					{
-						foreach(LanguagePair lp in dictionary.SupportedTranslations)
-						{
-							if(!result.Contains(lp))
-								result.Add(lp);
-						}
-					}
-				}
-			}
-
-			foreach(MonolingualDictionary dictionary in Manager.MonolingualDictionaries)
-			{
-				foreach(string subject in dictionary.SupportedSubjects)
-				{
-					if(Subjects.Contains(subject))
-					{
-						foreach(LanguagePair lp in dictionary.SupportedTranslations)
+						foreach(LanguagePair lp in item.SupportedTranslations)
 						{
 							if(!result.Contains(lp))
 								result.Add(lp);
@@ -172,69 +126,29 @@ namespace Translate
 		{
 			ServiceSettingCollection result = new ServiceSettingCollection();
 			
-			foreach (KeyValuePair<LanguagePair, TranslatorsCollection> kvp in Manager.LanguagePairTranslators)
+			foreach (KeyValuePair<LanguagePair, ServiceItemsCollection> kvp in Manager.LanguagePairServiceItems)
 			{
-				if( 
-					(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
-					(kvp.Key.To == languagePair.To || languagePair.To == Language.Any)
-				  )
+				foreach(ServiceItem si in kvp.Value)
 				{
-					foreach(Translator ts in kvp.Value)
-					{
-						foreach(string subject in ts.SupportedSubjects)
+					if( 
+						(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
+						(kvp.Key.To == languagePair.To || languagePair.To == Language.Any ||
+						(IncludeMonolingualDictionaryInTranslation && si is MonolingualDictionary)
+						)
+					  )
+					{				
+						
+						foreach(string subject in si.SupportedSubjects)
 						{
 							if(Subjects.Contains(subject))
 							{
-								ServiceSetting tsetting = new ServiceSetting(kvp.Key, subject, ts, TranslateOptions.Instance.GetNetworkSetting(ts.Service));
+								ServiceSetting tsetting = new ServiceSetting(kvp.Key, subject, si, TranslateOptions.Instance.GetNetworkSetting(si.Service));
 								result.Add(tsetting);
 							}
 						}
 					}
 				}
 			}
-			
-			foreach (KeyValuePair<LanguagePair, BilingualDictionariesCollection> kvp in Manager.LanguagePairBilingualDictionaries)
-			{
-				if( 
-					(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
-					(kvp.Key.To == languagePair.To || languagePair.To == Language.Any)
-				  )
-				{
-					foreach(BilingualDictionary ts in kvp.Value)
-					{
-						foreach(string subject in ts.SupportedSubjects)
-						{
-							if(Subjects.Contains(subject))
-							{
-								ServiceSetting tsetting = new ServiceSetting(kvp.Key, subject, ts, TranslateOptions.Instance.GetNetworkSetting(ts.Service));
-								result.Add(tsetting);
-							}
-						}
-					}
-				}
-			}
-
-			foreach (KeyValuePair<LanguagePair, MonolingualDictionariesCollection> kvp in Manager.LanguagePairMonolingualDictionaries)
-			{
-				if( 
-					(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
-					(kvp.Key.To == languagePair.To || languagePair.To == Language.Any || IncludeMonolingualDictionaryInTranslation)
-				  )
-				{
-					foreach(MonolingualDictionary ts in kvp.Value)
-					{
-						foreach(string subject in ts.SupportedSubjects)
-						{
-							if(Subjects.Contains(subject))
-							{
-								ServiceSetting tsetting = new ServiceSetting(kvp.Key, subject, ts, TranslateOptions.Instance.GetNetworkSetting(ts.Service));
-								result.Add(tsetting);
-							}
-						}
-					}
-				}
-			}
-			
 			return new ReadOnlyServiceSettingCollection(result);
 		}
 	}

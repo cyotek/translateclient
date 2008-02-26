@@ -49,7 +49,7 @@ namespace Translate
 	/// <summary>
 	/// Description of ProlingofficeSynonymsDictionary.
 	/// </summary>
-	public class ProlingofficeSynonymsDictionary : MonolingualDictionary
+	public class ProlingofficeSynonymsDictionary : SynonymsDictionary
 	{
 		public ProlingofficeSynonymsDictionary()
 		{

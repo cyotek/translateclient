@@ -116,6 +116,10 @@ namespace Translate
 				{
 					result = LangPack.TranslateString("Translator");
 				}
+				else if(serviceItem is SynonymsDictionary)
+				{
+					result = LangPack.TranslateString("Dictionary of synonyms");
+				}
 				else if(serviceItem is MonolingualDictionary)
 				{
 					result = LangPack.TranslateString("Monolingual dictionary");
@@ -135,6 +139,10 @@ namespace Translate
 				if(setting.ServiceItem is Translator)
 				{
 					name += LangPack.TranslateString("T");
+				}
+				else if(setting.ServiceItem is SynonymsDictionary)
+				{
+					name += LangPack.TranslateString("SD");
 				}
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{
