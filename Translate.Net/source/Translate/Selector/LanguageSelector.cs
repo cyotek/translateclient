@@ -654,20 +654,51 @@ namespace Translate
 				AddListViewItem(sc);
 			}
 			CalcServicesSizes();
-			if(lvServicesEnabled.Items.Count > 0)
+			try 
+			{ //try to avoid unrepeatable bug
+				if(lvServicesEnabled.Items.Count > 0)
+				{
+					lvServicesEnabled.Items[0].Focused = true;
+					lvServicesEnabled.Items[0].Selected = true;
+				}
+				else if(lvServicesDisabled.Items.Count > 0)
+				{
+					lvServicesDisabled.Items[0].Focused = true;
+					lvServicesDisabled.Items[0].Selected = true;
+				}
+				else if(lvServicesDisabledByUser.Items.Count > 0)
+				{
+					lvServicesDisabledByUser.Items[0].Focused = true;
+					lvServicesDisabledByUser.Items[0].Selected = true;
+				}
+
+			} 
+			catch
 			{
-				lvServicesEnabled.Items[0].Focused = true;
-				lvServicesEnabled.Items[0].Selected = true;
-			}
-			else if(lvServicesDisabled.Items.Count > 0)
-			{
-				lvServicesDisabled.Items[0].Focused = true;
-				lvServicesDisabled.Items[0].Selected = true;
-			}
-			else if(lvServicesDisabledByUser.Items.Count > 0)
-			{
-				lvServicesDisabledByUser.Items[0].Focused = true;
-				lvServicesDisabledByUser.Items[0].Selected = true;
+				try 
+				{
+					if(lvServicesEnabled.Items.Count > 0)
+					{
+						lvServicesEnabled.Items[0].Focused = true;
+						lvServicesEnabled.Items[0].Selected = true;
+					}
+					else if(lvServicesDisabled.Items.Count > 0)
+					{
+						lvServicesDisabled.Items[0].Focused = true;
+						lvServicesDisabled.Items[0].Selected = true;
+					}
+					else if(lvServicesDisabledByUser.Items.Count > 0)
+					{
+						lvServicesDisabledByUser.Items[0].Focused = true;
+						lvServicesDisabledByUser.Items[0].Selected = true;
+					}
+	
+				} 
+				catch
+				{
+					
+				}
+				
 			}
 		}
 		
