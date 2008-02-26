@@ -37,9 +37,11 @@
 #endregion
 
 using System;
-using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net; 
+using System.Runtime.Serialization; 
+using System.Diagnostics.CodeAnalysis;
 
 
 namespace Translate
@@ -153,5 +155,19 @@ namespace Translate
 		
 		}
 	}
+	
+	[Serializable] 
+	public class LanguagePairServiceItemsDictionary	 : Dictionary<LanguagePair, ServiceItemsCollection>
+	{
+		public LanguagePairServiceItemsDictionary()
+		{
+		}
+		
+		protected LanguagePairServiceItemsDictionary(SerializationInfo info, StreamingContext context):base(info, context)
+		{
+		
+		}
+	}
+	
 	
 }
