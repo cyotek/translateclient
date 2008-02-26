@@ -111,6 +111,11 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Ukrainian characters in russian query");
 			}
+			else if(responseFromServer.IndexOf("нічого не знайдено!</h4>") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
 			else
 			{
 				string translation = StringParser.Parse("<table class=\"main_tbl\">", "</table>", responseFromServer);
