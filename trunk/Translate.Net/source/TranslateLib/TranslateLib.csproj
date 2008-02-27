@@ -73,6 +73,8 @@
     <Compile Include="Google\GoogleUtils.cs" />
     <Compile Include="MetaUa\MetaUaService.cs" />
     <Compile Include="MetaUa\MetaUaTranslator.cs" />
+    <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
+    <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaTranslator.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeComService.cs" />
@@ -103,6 +105,7 @@
     <EmbeddedResource Include="CybermovaCom\Service.ico" />
     <EmbeddedResource Include="SlovnenyaCom\Service.ico" />
     <EmbeddedResource Include="ProlingofficeCom\Service.ico" />
+    <EmbeddedResource Include="PcDigestNet\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -110,6 +113,7 @@
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
+    <Folder Include="PcDigestNet" />
     <Folder Include="ProlingofficeCom" />
     <Folder Include="SlovnenyaCom" />
     <Folder Include="TridentComUa" />
