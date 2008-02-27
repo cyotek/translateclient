@@ -759,9 +759,12 @@ namespace Translate
 		
 		void WAdvertBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			advertLoaded = true;
-			SetExplorerSound(true);
-			RecalcSizes();
+			if(!e.Url.AbsoluteUri.Contains("shdoclc.dll") && !wAdvertBrowser.DocumentText.Contains("shdocvw.dll"))
+			{
+				advertLoaded = true;
+				SetExplorerSound(true);
+				RecalcSizes();
+			}
 		}
 
 		void ResultBrowserSizeChanged(object sender, EventArgs e)
