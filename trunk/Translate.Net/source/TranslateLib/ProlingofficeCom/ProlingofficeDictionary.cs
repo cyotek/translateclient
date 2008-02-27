@@ -122,6 +122,13 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
+			else if(responseFromServer.IndexOf("В слове содержатся ошибки.</b>") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			
 			
 		
 			
