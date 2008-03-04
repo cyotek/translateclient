@@ -89,7 +89,7 @@ namespace Translate
 			if(isClean)
 				return;
 				
-			if(UpdatesManager.IsNewVersion)
+			if(UpdatesManager.IsNewVersion && !FreeCL.Forms.Application.IsCommandSwitchSet("skipchangelog"))
 			{
 				UpdatesManager.IsNewVersion = false;
 				string url = Constants.ChangeLogPageUrlBase;
