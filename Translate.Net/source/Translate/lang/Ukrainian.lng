@@ -172,6 +172,8 @@ HTTP-проксі
 Неправильна структура даних
 [Query contains extraneous symbols]
 Запит містить сторонні символи
+[Service version not supported]
+Версія сервісу не підтримується
 [Result view]
 Вид результату
 [Include monolingual dictionaries in translation]
@@ -392,6 +394,8 @@ Pragma 5.x он-лайн переклад
 Українсько-англійсько-український словник - Slovnenya
 [Dictionary of foreign words]
 Словник іншомовних слів
+[Dictionaries of Ukraine]
+Словники України
 [Grouped by Service's Url]
 Групування по адресі сервісів
 [Grouped by Language]
