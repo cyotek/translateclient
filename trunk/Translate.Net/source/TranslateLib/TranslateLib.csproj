@@ -15,6 +15,7 @@
     <DelaySign>False</DelaySign>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <RunCodeAnalysis>False</RunCodeAnalysis>
+    <NoWarn>3001,3003</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <OutputPath>..\..\bin</OutputPath>
@@ -45,6 +46,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -93,6 +95,10 @@
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
     <Compile Include="TridentComUa\TridentComUaService.cs" />
     <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
+    <Compile Include="Ulif\UlifHelper.cs" />
+    <Compile Include="Ulif\UlifService.cs" />
+    <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
+    <Compile Include="Ulif\UlifWebService.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />
@@ -106,6 +112,7 @@
     <EmbeddedResource Include="SlovnenyaCom\Service.ico" />
     <EmbeddedResource Include="ProlingofficeCom\Service.ico" />
     <EmbeddedResource Include="PcDigestNet\Service.ico" />
+    <EmbeddedResource Include="Ulif\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -113,6 +120,7 @@
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
+    <Folder Include="Ulif" />
     <Folder Include="PcDigestNet" />
     <Folder Include="ProlingofficeCom" />
     <Folder Include="SlovnenyaCom" />

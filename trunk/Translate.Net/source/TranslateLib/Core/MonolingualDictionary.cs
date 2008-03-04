@@ -72,7 +72,14 @@ namespace Translate
 	{
 	
 	}
+
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class PhraseologicalDictionary : MonolingualDictionary
+	{
 	
+	}
+	
+	 
 	public class MonolingualDictionariesCollection : Collection<MonolingualDictionary>
 	{
 		public MonolingualDictionariesCollection()
