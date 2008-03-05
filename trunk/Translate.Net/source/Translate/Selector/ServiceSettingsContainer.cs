@@ -124,6 +124,10 @@ namespace Translate
 				{
 					result = LangPack.TranslateString("Dictionary of synonyms");
 				}
+				else if(serviceItem is PhraseologicalDictionary)
+				{
+					result = LangPack.TranslateString("Phraseological dictionary");
+				}
 				else if(serviceItem is MonolingualDictionary)
 				{
 					result = LangPack.TranslateString("Monolingual dictionary");
@@ -151,6 +155,10 @@ namespace Translate
 				else if(setting.ServiceItem is SynonymsDictionary)
 				{
 					name += LangPack.TranslateString("SD");
+				}
+				else if(setting.ServiceItem is PhraseologicalDictionary)
+				{
+					name += LangPack.TranslateString("PD");
 				}
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{

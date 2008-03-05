@@ -42,6 +42,7 @@ using System.IO;
 using System.Text;
 using ulif;
 using System.Net; 
+using System.Collections.Generic;
 
 namespace Translate
 {
@@ -104,6 +105,39 @@ namespace Translate
 			int word_uid = service.ReestrGetID(word_idx, dic.ANT_DIC, true);
 			return service.DictPrepare2(word_uid, "", "style2_2.css", dic.ANT_DIC, true);
 		}
+
+		public static string[] GetPhrasesPages(string word, NetworkSetting networkSetting)
+		{
+			List<string> result = new List<string>();
+			ulif.dictlib service = GetService(networkSetting);
+			CheckVersion(service);
+			bool found;
+			int word_idx = service.SearchWord(word, dic.PHRAS_DIC, true, out found);
+			if(!found)
+				return result.ToArray();
+			int word_uid = service.ReestrGetID(word_idx, dic.PHRAS_DIC, true);
+			
+			
+			phraseology[] phraseologies;
+			byte[] first_res = service.phrasPrepare(word_uid, out phraseologies);
+			
+			List<KeyValuePair<int, sbyte> > used_aid = new List<KeyValuePair<int, sbyte> >();
+			
+			
+			for(int i = 1; i < phraseologies.Length; i++)
+			{
+				KeyValuePair<int, sbyte> kvp = new KeyValuePair<int, sbyte>(phraseologies[i].aid, phraseologies[i].l);
+				if (!used_aid.Contains(kvp)) 
+				{
+					result.Add(service.getpharticle2(phraseologies[i].aid, phraseologies[i].l, "style2_2.css", true));
+					used_aid.Add(kvp);
+				}
+			}
+			
+			return result.ToArray();
+		}
 		
 	}
+	
+	
 }

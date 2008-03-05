@@ -1,4 +1,4 @@
-#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+ï»¿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -37,29 +37,59 @@
 #endregion
 
 using System;
+using System.Net; 
+using System.Text; 
+using System.IO; 
+using System.Web; 
+using System.IO.Compression;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of PereOrgUaService.
+	/// Description of UlifPhraseologicalDictionary.
 	/// </summary>
-	
-	public class UlifService : Service
+	public class UlifPhraseologicalDictionary : PhraseologicalDictionary
 	{
-		public UlifService()
+		public UlifPhraseologicalDictionary()
 		{
-			Url = new Uri("http://lcorp.ulif.org.ua/dictua/");
-			Name = "ulif";
-			CompanyName = "ULIF";
-			Copyright = "Copyright © ULIF, 2003-2007";
-			IconUrl = new Uri("http://lcorp.ulif.org.ua/dictua/img/arrow/forward.gif");
-			FullName = "Dictionaries of Ukraine";
+			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.Ukrainian));
 			
-			AddMonolingualDictionary(new UlifSynonymsDictionary());
-			AddMonolingualDictionary(new UlifAntonymsDictionary());
-			AddMonolingualDictionary(new UlifPhraseologicalDictionary());
+			AddSupportedSubject(SubjectConstants.Common);
 			
+			CharsLimit = 255;
+			Name = "_phrase_book";
+		}
+
+		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string[] responses = UlifHelper.GetPhrasesPages(phrase, networkSetting);
+			if(responses.Length == 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+
+			foreach(string str in responses)
+			{
+				string responseFromServer = str;
+				responseFromServer = StringParser.Parse("<div class=\"p_cl\">", "</div>", responseFromServer);
+				responseFromServer = StringParser.RemoveAll("<A ondblclick", ">", responseFromServer);
+				responseFromServer = responseFromServer.Replace("</A>", "");
+				responseFromServer = responseFromServer.Replace("<B>", "");
+				responseFromServer = responseFromServer.Replace("</B>", "");
+				responseFromServer = responseFromServer.Replace("<I>", "");
+				responseFromServer = responseFromServer.Replace("</I>", "");
+				StringParser parser = new StringParser(responseFromServer);
+				string[] translations = parser.ReadItemsList("<P>", "</P>", "3495783-4572385");
+				
+				foreach(string subtranslation in translations)
+				{
+					Result subres = CreateNewResult("", languagesPair, subject);
+					result.Childs.Add(subres);
+					subres.Translations.Add(subtranslation);
+				}
+			}
 		}
 	}
 }
