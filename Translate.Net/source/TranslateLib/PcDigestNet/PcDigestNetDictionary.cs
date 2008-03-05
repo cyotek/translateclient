@@ -87,6 +87,10 @@ namespace Translate
 
 			responseFromServer = responseFromServer.Replace("<i>", "");
 			responseFromServer = responseFromServer.Replace("</i>", "");
+			
+			responseFromServer = responseFromServer.Replace("<u>", "");
+			responseFromServer = responseFromServer.Replace("</u>", "");
+			
 						
 			StringParser parser = new StringParser(responseFromServer);
 			string[] translations = parser.ReadItemsList("<P align=justify>", "</P>", "3495783-4572385");
