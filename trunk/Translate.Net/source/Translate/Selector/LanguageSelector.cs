@@ -739,6 +739,7 @@ namespace Translate
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
+					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);
 					lvServicesDisabledByUser.Items.Add(lvi);
 				}
 			}
@@ -757,6 +758,7 @@ namespace Translate
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
+					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);					
 					lvServicesEnabled.Items.Add(lvi);
 				}
 			}
@@ -775,6 +777,7 @@ namespace Translate
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
+					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);
 					lvServicesDisabled.Items.Add(lvi);
 				}
 			}

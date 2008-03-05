@@ -200,7 +200,6 @@ namespace Translate
 			this.lvServicesDisabledByUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader3});
 			this.lvServicesDisabledByUser.Dock = System.Windows.Forms.DockStyle.Top;
-			this.lvServicesDisabledByUser.FullRowSelect = true;
 			this.lvServicesDisabledByUser.GridLines = true;
 			this.lvServicesDisabledByUser.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
 			listViewItem1.StateImageIndex = 0;
@@ -218,6 +217,7 @@ namespace Translate
 			this.lvServicesDisabledByUser.Name = "lvServicesDisabledByUser";
 			this.lvServicesDisabledByUser.Scrollable = false;
 			this.lvServicesDisabledByUser.ShowGroups = false;
+			this.lvServicesDisabledByUser.ShowItemToolTips = true;
 			this.lvServicesDisabledByUser.Size = new System.Drawing.Size(216, 52);
 			this.lvServicesDisabledByUser.SmallImageList = this.ilServices;
 			this.lvServicesDisabledByUser.TabIndex = 5;
@@ -257,7 +257,6 @@ namespace Translate
 			this.lvServicesDisabled.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader1});
 			this.lvServicesDisabled.Dock = System.Windows.Forms.DockStyle.Top;
-			this.lvServicesDisabled.FullRowSelect = true;
 			this.lvServicesDisabled.GridLines = true;
 			this.lvServicesDisabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
 			listViewItem5.StateImageIndex = 0;
@@ -273,6 +272,7 @@ namespace Translate
 			this.lvServicesDisabled.Name = "lvServicesDisabled";
 			this.lvServicesDisabled.Scrollable = false;
 			this.lvServicesDisabled.ShowGroups = false;
+			this.lvServicesDisabled.ShowItemToolTips = true;
 			this.lvServicesDisabled.Size = new System.Drawing.Size(216, 52);
 			this.lvServicesDisabled.SmallImageList = this.ilServices;
 			this.lvServicesDisabled.TabIndex = 3;
@@ -306,7 +306,6 @@ namespace Translate
 			this.lvServicesEnabled.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader2});
 			this.lvServicesEnabled.Dock = System.Windows.Forms.DockStyle.Top;
-			this.lvServicesEnabled.FullRowSelect = true;
 			this.lvServicesEnabled.GridLines = true;
 			this.lvServicesEnabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
 			listViewItem8.StateImageIndex = 0;
@@ -322,6 +321,7 @@ namespace Translate
 			this.lvServicesEnabled.Name = "lvServicesEnabled";
 			this.lvServicesEnabled.Scrollable = false;
 			this.lvServicesEnabled.ShowGroups = false;
+			this.lvServicesEnabled.ShowItemToolTips = true;
 			this.lvServicesEnabled.Size = new System.Drawing.Size(216, 52);
 			this.lvServicesEnabled.SmallImageList = this.ilServices;
 			this.lvServicesEnabled.TabIndex = 1;
@@ -367,6 +367,7 @@ namespace Translate
 			this.serviceStatus.Dock = System.Windows.Forms.DockStyle.Top;
 			this.serviceStatus.Location = new System.Drawing.Point(4, 4);
 			this.serviceStatus.Name = "serviceStatus";
+			this.serviceStatus.ShowLanguage = false;
 			this.serviceStatus.Size = new System.Drawing.Size(227, 103);
 			this.serviceStatus.TabIndex = 0;
 			this.serviceStatus.ButtonClick += new System.EventHandler(this.ServiceStatusButtonClick);
