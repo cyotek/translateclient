@@ -59,6 +59,13 @@ namespace FreeCL.UI
 				{
 					return active.SelectionLength > 0;
 				}
+				
+				System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+				if(webbrowser != null && webbrowser.Document != null)
+				{  
+					return true;
+				}
+				
 				return false;
 			}
 		}
@@ -73,6 +80,12 @@ namespace FreeCL.UI
 			{
 				active.Copy();
 			}
+
+			System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+			if(webbrowser != null)
+			{  
+				webbrowser.Document.ExecCommand("Copy", false, null);
+			}
 		}
 
 		/// <summary>
@@ -85,6 +98,13 @@ namespace FreeCL.UI
 			{
 				active.Cut();
 			}
+			
+			System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+			if(webbrowser != null)
+			{  
+				webbrowser.Document.ExecCommand("Cut", false, null);
+			}
+			
 		}
 
 		/// <summary>
