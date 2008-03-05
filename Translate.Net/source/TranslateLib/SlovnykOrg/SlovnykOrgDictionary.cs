@@ -158,7 +158,7 @@ namespace Translate
 						//single answer
 						foreach(string str in translations)
 						{
-							result.Translations.Add(StringParser.Parse("name=\"iw\" size=\"64\" value=\"", "\">" , str));
+							result.Translations.Add(StringParser.Parse("name=\"iw\" size=\"64\" value=\"", "\" " , str));
 						}
 						return;
 					}
