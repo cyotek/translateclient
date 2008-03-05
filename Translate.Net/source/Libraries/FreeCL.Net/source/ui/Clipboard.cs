@@ -102,7 +102,7 @@ namespace FreeCL.UI
 			System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
 			if(webbrowser != null)
 			{  
-				webbrowser.Document.ExecCommand("Cut", false, null);
+				webbrowser.Document.ExecCommand("Copy", false, null);
 			}
 			
 		}
