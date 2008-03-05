@@ -143,6 +143,11 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
+			else if(responseFromServer.IndexOf("<P>Nothing found</P>") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
 			else
 			{
 				StringParser parser = new StringParser("<DL>", "</DL>", responseFromServer);
