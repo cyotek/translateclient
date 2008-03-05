@@ -220,7 +220,7 @@ namespace Translate
 						
 						if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
 							htmlString.Append("<br>");
-					
+							
 					foreach(Result r in result.Childs)
 					{
 						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(r.Phrase))
@@ -229,8 +229,15 @@ namespace Translate
 								htmlString.AppendFormat("<p style=\"margin-top: 0pt; margin-bottom: 0em; margin-left: {0}em;\">", 
 									indent.ToString("0.##", CultureInfo.InvariantCulture));
 							
-							htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>", 
-								HttpUtility.HtmlEncode(r.Phrase));
+							if(!r.Phrase.StartsWith("html!"))
+							{
+								htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>", 
+									HttpUtility.HtmlEncode(r.Phrase));
+							}
+							else
+							{  //append html directly
+								htmlString.Append(r.Phrase.Substring(5));
+							}
 								
 							if(indent != 0)
 								htmlString.Append("</p>");
