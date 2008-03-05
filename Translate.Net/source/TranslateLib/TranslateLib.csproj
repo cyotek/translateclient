@@ -97,6 +97,7 @@
     <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
     <Compile Include="Ulif\UlifAntonymsDictionary.cs" />
     <Compile Include="Ulif\UlifHelper.cs" />
+    <Compile Include="Ulif\UlifPhraseologicalDictionary.cs" />
     <Compile Include="Ulif\UlifService.cs" />
     <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
     <Compile Include="Ulif\UlifWebService.cs" />
