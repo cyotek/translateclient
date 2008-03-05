@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="1">
+  <ClassItem X="40" Y="40" Width="219.1667" Type="FreeCL.RTL.AbortException" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="170" Width="275.6115" Type="FreeCL.RTL.ArgumentCheck" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="350" Width="309.7663" Type="FreeCL.RTL.CryptoTools" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="570" Width="242.5793" Type="FreeCL.RTL.Memory" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="820" Width="515.8658" Type="FreeCL.RTL.TaskConveyer" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1110" Width="214.8268" Type="FreeCL.RTL.Trace" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1270" Width="312.5431" Type="FreeCL.RTL.Remoting.TCPInfoSinkProvider" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1510" Width="330.445" Type="FreeCL.RTL.Remoting.LogicalCallContextData" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1710" Width="824.3224" Type="FreeCL.RTL.Remoting.TCPInfoSink" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1960" Width="208.0378" Type="FreeCL.RTL.DateTimeUtils" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2240" Width="337.0622" Type="FreeCL.RTL.Drawing" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2390" Width="473.0099" Type="FreeCL.RTL.XMLSerializableObject" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2700" Width="265.1432" Type="FreeCL.RTL.Win32.ThreadsExecutionStates" Collapsed="False" />
+  <ClassItem X="40" Y="2860" Width="338.8991" Type="FreeCL.RTL.Win32.Common" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="3150" Width="334.2209" Type="FreeCL.RTL.Win32.ErrorModeFlags" Collapsed="False" />
+  <ClassItem X="40" Y="3330" Width="178.5504" Type="FreeCL.RTL.Win32.Rect" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="3560" Width="377.0822" Type="FreeCL.RTL.Win32.CopyProgressCallbackReason" Collapsed="False" />
+  <ClassItem X="40" Y="3700" Width="291.4186" Type="FreeCL.RTL.Win32.CopyProgressResult" Collapsed="False" />
+  <ClassItem X="40" Y="3860" Width="294.3473" Type="FreeCL.RTL.Win32.CopyProgressRoutine" Collapsed="False" />
+  <ClassItem X="40" Y="4090" Width="397.1916" Type="FreeCL.RTL.Win32.CopyFileFlags" Collapsed="False" />
+  <ClassItem X="40" Y="4270" Width="339.2858" Type="FreeCL.RTL.Win32.MoveFileFlags" Collapsed="False" />
+  <ClassItem X="40" Y="4460" Width="237.799" Type="FreeCL.RTL.Win32.DriveTypes" Collapsed="False" />
+  <ClassItem X="40" Y="4680" Width="500.6764" Type="FreeCL.RTL.Win32.IO" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="4870" Width="224.2477" Type="FreeCL.RTL.LangPack" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="5180" Width="312.382" Type="FreeCL.RTL.Thread" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="5560" Width="143.6056" Type="FreeCL.RTL.StringsHashtable" Collapsed="False" />
+</ClassDiagram>
