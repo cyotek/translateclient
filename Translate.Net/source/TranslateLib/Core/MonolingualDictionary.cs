@@ -74,6 +74,12 @@ namespace Translate
 	}
 
 	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class AntonymsDictionary : MonolingualDictionary
+	{
+	
+	}
+
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
 	public abstract class PhraseologicalDictionary : MonolingualDictionary
 	{
 	
