@@ -288,6 +288,15 @@ namespace FreeCL.UI
 					System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;	
 					res = active != null && active.SelectionLength != active.Text.Length ;
 				}
+				
+				if(!res)
+				{
+					System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+					if(webbrowser != null)
+					{  
+						res = true;
+					}
+				}
 				return res;
 			}
 		}
@@ -304,6 +313,16 @@ namespace FreeCL.UI
 				if(res)
 				{
 	 				active.SelectAll(); 
+				}
+
+				if(!res)				
+				{
+					System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+					if(webbrowser != null)
+					{  
+						webbrowser.Document.ExecCommand("SelectAll", false, null);
+						res = true;
+					}
 				}
 			}
 			return res;
