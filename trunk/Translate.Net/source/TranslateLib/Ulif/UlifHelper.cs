@@ -83,7 +83,6 @@ namespace Translate
 		
 		public static string GetSynonymsPage(string word, NetworkSetting networkSetting)
 		{
-			
 			ulif.dictlib service = GetService(networkSetting);
 			CheckVersion(service);
 			bool found;
@@ -91,9 +90,20 @@ namespace Translate
 			if(!found)
 				return "";
 			int word_uid = service.ReestrGetID(word_idx, dic.SYN_DIC, true);
-			//byte[] buffer = service.DictPrepare(word_uid, "", "style2_2.css", dic.SYN_DIC, true);
-			//return Encoding.Unicode.GetString(buffer);
 			return service.DictPrepare2(word_uid, "", "style2_2.css", dic.SYN_DIC, true);
 		}
+		
+		public static string GetAntonymsPage(string word, NetworkSetting networkSetting)
+		{
+			ulif.dictlib service = GetService(networkSetting);
+			CheckVersion(service);
+			bool found;
+			int word_idx = service.SearchWord(word, dic.ANT_DIC, true, out found);
+			if(!found)
+				return "";
+			int word_uid = service.ReestrGetID(word_idx, dic.ANT_DIC, true);
+			return service.DictPrepare2(word_uid, "", "style2_2.css", dic.ANT_DIC, true);
+		}
+		
 	}
 }

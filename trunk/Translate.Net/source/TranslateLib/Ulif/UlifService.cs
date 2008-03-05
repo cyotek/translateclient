@@ -57,6 +57,8 @@ namespace Translate
 			FullName = "Dictionaries of Ukraine";
 			
 			AddMonolingualDictionary(new UlifSynonymsDictionary());
+			AddMonolingualDictionary(new UlifAntonymsDictionary());
+			
 		}
 	}
 }
