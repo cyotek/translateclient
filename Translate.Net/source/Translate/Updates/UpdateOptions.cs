@@ -37,6 +37,7 @@
 #endregion
 
 using System;
+using FreeCL.RTL;
 
 namespace Translate
 {
@@ -49,7 +50,7 @@ namespace Translate
 		{
 		}
 		
-		DateTime nextCheck = new DateTime(DateTime.Now.Ticks + 18000000000); //half of hour
+		DateTime nextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Minutes(5).Ticks);
 		public DateTime NextCheck {
 			get { return nextCheck; }
 			set { nextCheck = value; }
