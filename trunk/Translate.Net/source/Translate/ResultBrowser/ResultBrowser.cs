@@ -101,6 +101,7 @@ namespace Translate
 				{
 					url += "en.html";				
 				}
+				url+= "?ver=" + FreeCL.RTL.ApplicationInfo.ProductVersion;
 				forceCleaning = true;
 				wBrowser.Navigate(url);
 				return;
