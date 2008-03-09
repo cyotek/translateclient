@@ -100,6 +100,8 @@ namespace Translate
 			else
 			{
 				string translation = StringParser.Parse("<table BORDER COLS=4 WIDTH=", "</table>", responseFromServer);
+				translation = translation.Replace("<B>", "");
+				translation = translation.Replace("</B>", "");
 				
 				StringParser parser = new StringParser(translation);
 				string[] translations = parser.ReadItemsList("<tr>", "</td></tr>", "787654323");
