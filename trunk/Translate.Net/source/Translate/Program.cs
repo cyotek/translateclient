@@ -80,13 +80,18 @@ namespace Translate
 				Application.OptionsForm = new BaseOptionsForm();
 				Application.BaseOptions = new TranslateOptions();
 				
-				OptionsControlsManager.RegisterOptionControl(typeof(GeneralNetworkOptionsControl), "Network", 1, "Common", 0);
 				OptionsControlsManager.RegisterOptionControl(typeof(StartupOptionsControl), "General", 0, "Startup", 1);
 				OptionsControlsManager.RegisterOptionControl(typeof(TrayOptionsControl), "General", 0, "Tray", 2);
 				OptionsControlsManager.RegisterOptionControl(typeof(ResultWindowOptionControl), "General", 0, "Result view", 3);
 				OptionsControlsManager.RegisterOptionControl(typeof(UpdatesOptionsControl), "General", 0, "Updates", 4);
 				OptionsControlsManager.RegisterOptionControl(typeof(HotkeysOptionsControl), "General", 0, "Hotkeys", 5);
-				OptionsControlsManager.RegisterOptionControl(typeof(DefaultProfileOptionsControl), "Profile", 2, "Default", 4);
+				
+				OptionsControlsManager.RegisterOptionControl(typeof(InputFontOptionsControl), "Fonts", 1, "Input text", 0);
+				OptionsControlsManager.RegisterOptionControl(typeof(ResultViewFontOptionsControl), "Fonts", 1, "Result view", 1);
+				
+				OptionsControlsManager.RegisterOptionControl(typeof(GeneralNetworkOptionsControl), "Network", 2, "Common", 0);
+				
+				OptionsControlsManager.RegisterOptionControl(typeof(DefaultProfileOptionsControl), "Profile", 3, "Default", 4);
 				
 				
 				

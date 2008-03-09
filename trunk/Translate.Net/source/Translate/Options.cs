@@ -161,11 +161,18 @@ namespace Translate
 			set { updateOptions = value; }
 		}
 		
+		FontsOptions fontsOptions = new FontsOptions();
+		public FontsOptions FontsOptions {
+			get { return fontsOptions; }
+			set { fontsOptions = value; }
+		}
+		
 		
 		public override void OnLoaded()
 		{
 			base.OnLoaded();
 			networkOptions.Apply();
+			fontsOptions.Apply();
 		}
 		
 		

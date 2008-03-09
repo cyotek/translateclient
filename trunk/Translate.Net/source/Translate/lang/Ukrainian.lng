@@ -182,6 +182,18 @@ HTTP-проксі
 Профіль
 [Default]
 Основний
+[Name :]
+Назва :
+[Size :]
+Розмір :
+[System font]
+Системний шрифт
+[Fonts]
+Шрифти
+[Input text]
+Текст для перекладу
+[To default]
+Початкове значення
 [&Translate]
 &Переклад
 [Translate]

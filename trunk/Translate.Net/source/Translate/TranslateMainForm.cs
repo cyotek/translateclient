@@ -101,6 +101,9 @@ namespace Translate
 				tbFrom.Height = TranslateOptions.Instance.SourceHeight;
 			}
 			
+			if(TranslateOptions.Instance.FontsOptions.TextControlFont != null)
+				tbFrom.Font = TranslateOptions.Instance.FontsOptions.TextControlFont.GetFont();
+			
 			pLeft.Enabled = false;
 			pLeft.Visible = false;
 			splitterLeft.Enabled = false;
