@@ -66,11 +66,24 @@
     <Compile Include="Options\DefaultProfileOptionsControl.Designer.cs">
       <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\FontSelectionControl.cs" />
+    <Compile Include="Options\FontSelectionControl.Designer.cs">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\FontsOptions.cs" />
+    <Compile Include="Options\InputFontOptionsControl.cs" />
+    <Compile Include="Options\InputFontOptionsControl.Designer.cs">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\GeneralNetworkOptionsControl.cs" />
     <Compile Include="Options\GeneralNetworkOptionsControl.Designer.cs">
       <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\NetworkOptions.cs" />
+    <Compile Include="Options\ResultViewFontOptionsControl.cs" />
+    <Compile Include="Options\ResultViewFontOptionsControl.Designer.cs">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\ResultWindowOptionControl.cs" />
     <Compile Include="Options\ResultWindowOptionControl.Designer.cs">
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
@@ -131,8 +144,17 @@
     <EmbeddedResource Include="Options\DefaultProfileOptionsControl.resx">
       <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Options\FontSelectionControl.resx">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Options\GeneralNetworkOptionsControl.resx">
       <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\InputFontOptionsControl.resx">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultViewFontOptionsControl.resx">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>

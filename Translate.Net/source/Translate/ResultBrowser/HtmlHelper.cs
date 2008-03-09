@@ -57,8 +57,16 @@ namespace Translate
 	{
 		public const string BodyStyle = "margin: -7px; border-width: 0px;";
 		public const string DataCellStyle = "width: 100%;";
-		public const string DefaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
-		public const string TableStyle = "text-align: left;" + DefaultTextFormat + DataCellStyle;
+		
+		static string defaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
+		public static string DefaultTextFormat {
+			get { return defaultTextFormat; }
+			set { defaultTextFormat = value; }
+		}
+		
+		public static string TableStyle {
+			get { return "text-align: left;" + DefaultTextFormat + DataCellStyle; }
+		}
 		public const string FirstRowCellStyle = DataCellStyle;
 		public const string RowCellStyle = "border-top: 1px solid gray;" +  FirstRowCellStyle;
 		public const string IconCellStyle = "width: 16px;";
@@ -66,7 +74,10 @@ namespace Translate
 		public const string InfoTextStyle = "color: gray; font-size: 8pt;";
 		public const string ErrorTextStyle = "color: #AA0000; " + DefaultTextStyle;
 		public const string BoldTextStyle = "font-weight: bold; " + DefaultTextStyle;
-		public const string ButtonTextStyle = "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat;
+		
+		public static string ButtonTextStyle {
+			get { return "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat; }
+		}
 
 		public static void InitDocument(HtmlDocument doc)
 		{

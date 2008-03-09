@@ -243,6 +243,14 @@ namespace Translate
 			// 
 			this.aEditDelete.Enabled = false;
 			// 
+			// miOptionsToolStripMenuItem
+			// 
+			this.miOptionsToolStripMenuItem.Visible = true;
+			// 
+			// miService
+			// 
+			this.miService.Visible = true;
+			// 
 			// aAbout
 			// 
 			this.aAbout.Image = ((System.Drawing.Image)(resources.GetObject("aAbout.Image")));
@@ -951,7 +959,7 @@ namespace Translate
 		private System.Windows.Forms.ToolStripButton tsbTranslate;
 		private FreeCL.UI.Actions.Action aTranslate;
 		private System.Windows.Forms.ToolStrip tsTranslate;
-		private System.Windows.Forms.TextBox tbFrom;
+		public System.Windows.Forms.TextBox tbFrom;
 		private System.Windows.Forms.Splitter splitterTranslate;
 		private Translate.ResultBrowser resBrowser;
 		private Translate.LanguageSelector languageSelector;
