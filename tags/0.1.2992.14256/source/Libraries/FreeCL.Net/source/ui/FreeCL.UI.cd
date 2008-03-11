@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="1">
+  <ClassItem X="40" Y="350" Width="250.5714" Type="FreeCL.UI.SpeedButton" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="700" Width="309.8737" Type="FreeCL.UI.Actions.ActionCollection" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="980" Width="387.1315" Type="FreeCL.UI.Actions.ActionList" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1740" Width="414.0138" Type="FreeCL.UI.Actions.ActionConverter" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="1990" Width="287.6911" Type="FreeCL.UI.Actions.ActionCollectionEditor" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2150" Width="291.6173" Type="FreeCL.UI.ToolStrip" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2540" Width="329.694" Type="FreeCL.UI.GlobalEvents" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Events Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="40" Width="331.3903" Type="FreeCL.UI.Design.ImageIndexEditorBase" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="220" Width="301.0651" Type="FreeCL.UI.Design.ImageIndexEditor" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="2740" Width="154.9445" Type="FreeCL.UI.BevelStyle" Collapsed="False" />
+  <ClassItem X="40" Y="2900" Width="212.8556" Type="FreeCL.UI.Panel" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="3280" Width="164.4298" Type="FreeCL.UI.Win32.SHFILEINFO" Collapsed="False">
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="3480" Width="354.067" Type="FreeCL.UI.Win32.SHFileInfo" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="3730" Width="309.7394" Type="FreeCL.UI.Actions.Action" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+    <Events Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="4540" Width="368.859" Type="FreeCL.UI.Actions.ActionData" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="5310" Width="228.9474" Type="FreeCL.UI.Application" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="5740" Width="162.609" Type="FreeCL.UI.Clipboard" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="5970" Width="185.984" Type="FreeCL.UI.TabControl" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="6160" Width="466.0812" Type="FreeCL.UI.MenuItem" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="6520" Width="252.4621" Type="FreeCL.UI.Actions.ShortcutKeys" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="6820" Width="414.0138" Type="FreeCL.UI.Actions.ShortcutKeysConverter" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="7060" Width="359.3415" Type="FreeCL.UI.Actions.ShortcutKeysCollectionEditor" Collapsed="False">
+    <Methods Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="7220" Width="417.3493" Type="FreeCL.UI.Actions.ShortcutKeysCollection" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="7670" Width="432.1842" Type="FreeCL.UI.ProcessCmdKeyEventArgs" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="7870" Width="185.7653" Type="FreeCL.UI.ProcessCmdKeyHandler" Collapsed="False" />
+  <ClassItem X="40" Y="8000" Width="157.3878" Type="FreeCL.UI.MergeMenuHandler" Collapsed="False" />
+  <ClassItem X="40" Y="8140" Width="313.1403" Type="FreeCL.UI.MainMenu" Collapsed="False">
+    <Methods Collapsed="False" />
+    <Events Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="8370" Width="208.3737" Type="FreeCL.UI.MenuStrip" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="8600" Width="190.4899" Type="FreeCL.UI.EditingManagerEventArgs" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="8770" Width="183.4162" Type="FreeCL.UI.EditingManagerDelegate" Collapsed="False" />
+  <ClassItem X="40" Y="8890" Width="210.0407" Type="FreeCL.UI.EditingManagerAskEventArgs" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Fields Collapsed="False" />
+  </ClassItem>
+  <ClassItem X="40" Y="9060" Width="202.9669" Type="FreeCL.UI.EditingManagerAskDelegate" Collapsed="False" />
+  <ClassItem X="40" Y="9180" Width="313.5109" Type="FreeCL.UI.EditingManager" Collapsed="False">
+    <Properties Collapsed="False" />
+    <Methods Collapsed="False" />
+    <Events Collapsed="False" />
+  </ClassItem>
+</ClassDiagram>
