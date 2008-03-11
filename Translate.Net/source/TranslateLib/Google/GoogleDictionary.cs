@@ -38,7 +38,9 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-
+using System.Web; 
+using System.Text; 
+using System.Globalization;
 
 
 namespace Translate
@@ -47,28 +49,113 @@ namespace Translate
 	/// Description of WordTranslator.
 	/// </summary>
 	
-	/*[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-	public class GoogleDictionary : Dictionary
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public class GoogleDictionary : BilingualDictionary
 	{
 		public GoogleDictionary()
 		{
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.French));
-			SupportedTranslations.Add(new LanguagePair(Language.French, Language.English));
+			CharsLimit = 255;
+			Name = "_dictionary";
+		
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.French));
+			AddSupportedTranslation(new LanguagePair(Language.French, Language.English));
 
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.German));
-			SupportedTranslations.Add(new LanguagePair(Language.German, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.German));
+			AddSupportedTranslation(new LanguagePair(Language.German, Language.English));
 
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.Italian));
-			SupportedTranslations.Add(new LanguagePair(Language.Italian, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Italian));
+			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.English));
 
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.Korean));
-			SupportedTranslations.Add(new LanguagePair(Language.Korean, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Korean));
+			AddSupportedTranslation(new LanguagePair(Language.Korean, Language.English));
 
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.Spanish));
-			SupportedTranslations.Add(new LanguagePair(Language.Spanish, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Spanish));
+			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.English));
 
-			SupportedTranslations.Add(new LanguagePair(Language.English, Language.Russian));
-			SupportedTranslations.Add(new LanguagePair(Language.Russian, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
+			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
+			
+			AddSupportedSubject(SubjectConstants.Common);
 		}
-	} */
+		
+		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string query = "http://translate.google.com/translate_dict?q={0}&hl=en&langpair={1}";
+			query = string.Format(query, HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ), GoogleUtils.ConvertLanguagesPair(languagesPair));
+			WebRequestHelper helper = 
+				new WebRequestHelper(result, new Uri(query), 
+					networkSetting, 
+					WebRequestContentType.UrlEncodedGet);
+			
+			string responseFromServer = helper.GetResponse();
+			
+			if(responseFromServer.IndexOf("<strong> No translation was found for") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			responseFromServer = StringParser.Parse("<h1>Translation</h1>", "</body>", responseFromServer);
+			
+			//translations
+			string translations = StringParser.Parse("</strong>", "</bdo>", responseFromServer);
+			translations = translations.Replace("<b>", "");
+			translations = translations.Replace("</b>", "");
+			translations = translations.Replace("<font color=#676767>", "");
+			translations = translations.Replace("</font>", "");
+			
+			int subdefinitionIdx = translations.IndexOf("1.");
+			if(subdefinitionIdx < 0)
+				throw new TranslationException("Can't found '1.' tag");
+				
+			Result subres_tr = CreateNewResult(phrase, languagesPair, subject);
+			result.Childs.Add(subres_tr);
+				
+			string subtranslation = translations.Substring(subdefinitionIdx + 2);
+			for(int i = 2; i < 100; i++)
+			{
+				int numIdx = subtranslation.IndexOf(i.ToString(CultureInfo.InvariantCulture) + ".");
+				if(numIdx < 0)
+				{  //last def
+					subres_tr.Translations.Add(subtranslation.Trim());
+					break;
+				}
+				else
+				{
+					string Definition = subtranslation.Substring(0, numIdx);
+					subtranslation = subtranslation.Substring(numIdx + 2);
+					subres_tr.Translations.Add(Definition.Trim());
+				}
+			}
+			
+			
+			//related words
+			string related = StringParser.Parse("<tr>", "</tr>", responseFromServer);
+			if(string.IsNullOrEmpty(related))
+				return;
+			
+			StringParser parser = new StringParser(related);
+			string[] related_list = parser.ReadItemsList("<li>", "<font color=#676767> </font>", "3485730457203");
+			
+			foreach(string related_s in related_list)
+			{
+				string related_str = related_s;
+				related_str = related_str.Replace("<b>", "");
+				related_str = related_str.Replace("</b>", "");
+				related_str = related_str.Replace("<font color=#676767>", "");
+				related_str = related_str.Replace("</font>", "");
+			
+				int translationIdx = related_str.IndexOf("\n");
+				if(translationIdx < 0)
+					throw new TranslationException("Can't found '\\n' tag");
+					
+				string subphrase = related_str.Substring(0, translationIdx); 
+				string subphrasetrans = related_str.Substring(translationIdx + 1); 
+				Result subres = CreateNewResult(subphrase, languagesPair, subject);
+				subres.Translations.Add(subphrasetrans);
+				result.Childs.Add(subres);
+			}
+		}
+		
+	} 
 }
