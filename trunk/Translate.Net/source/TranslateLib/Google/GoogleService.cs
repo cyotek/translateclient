@@ -55,6 +55,7 @@ namespace Translate
 			FullName = "Google Translator";
 			
 			AddTranslator(new GoogleTranslator());
+			AddBilingualDictionary(new GoogleDictionary());
 		}
 	}
 }
