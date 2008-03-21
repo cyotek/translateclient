@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="Profile\DefaultTranslateProfile.cs" />
     <Compile Include="Profile\ServiceItemData.cs" />
+    <Compile Include="Profile\ServiceItemSortData.cs" />
     <Compile Include="Profile\TranslateProfile.cs" />
     <Compile Include="ResultBrowser\HtmlHelper.cs" />
     <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />

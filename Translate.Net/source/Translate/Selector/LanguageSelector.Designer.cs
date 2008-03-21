@@ -100,6 +100,9 @@ namespace Translate
 			this.lEnabled = new System.Windows.Forms.Label();
 			this.pServiceData = new FreeCL.UI.Panel();
 			this.serviceStatus = new Translate.ServiceStatusControl();
+			this.pEnabled = new System.Windows.Forms.Panel();
+			this.sbServiceUp = new FreeCL.UI.SpeedButton();
+			this.sbServiceDown = new FreeCL.UI.SpeedButton();
 			this.tpLangs = new System.Windows.Forms.TabPage();
 			this.pMain = new FreeCL.UI.Panel();
 			this.pTo = new FreeCL.UI.Panel();
@@ -117,6 +120,7 @@ namespace Translate
 			this.tpServices.SuspendLayout();
 			this.pServices.SuspendLayout();
 			this.pServiceData.SuspendLayout();
+			this.pEnabled.SuspendLayout();
 			this.tpLangs.SuspendLayout();
 			this.pMain.SuspendLayout();
 			this.pTo.SuspendLayout();
@@ -171,6 +175,7 @@ namespace Translate
 			// 
 			this.tpServices.Controls.Add(this.pServices);
 			this.tpServices.Controls.Add(this.pServiceData);
+			this.tpServices.Controls.Add(this.pEnabled);
 			this.tpServices.Location = new System.Drawing.Point(4, 22);
 			this.tpServices.Name = "tpServices";
 			this.tpServices.Padding = new System.Windows.Forms.Padding(3);
@@ -190,9 +195,9 @@ namespace Translate
 			this.pServices.Controls.Add(this.lvServicesEnabled);
 			this.pServices.Controls.Add(this.lEnabled);
 			this.pServices.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pServices.Location = new System.Drawing.Point(3, 3);
+			this.pServices.Location = new System.Drawing.Point(3, 23);
 			this.pServices.Name = "pServices";
-			this.pServices.Size = new System.Drawing.Size(233, 128);
+			this.pServices.Size = new System.Drawing.Size(233, 108);
 			this.pServices.TabIndex = 7;
 			// 
 			// lvServicesDisabledByUser
@@ -340,13 +345,14 @@ namespace Translate
 			// 
 			// lEnabled
 			// 
+			this.lEnabled.BackColor = System.Drawing.Color.Transparent;
 			this.lEnabled.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.lEnabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lEnabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.lEnabled.Location = new System.Drawing.Point(0, 0);
 			this.lEnabled.Name = "lEnabled";
 			this.lEnabled.Size = new System.Drawing.Size(216, 16);
-			this.lEnabled.TabIndex = 0;
+			this.lEnabled.TabIndex = 7;
 			this.lEnabled.Text = "Enabled";
 			this.lEnabled.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -372,6 +378,40 @@ namespace Translate
 			this.serviceStatus.TabIndex = 0;
 			this.serviceStatus.ButtonClick += new System.EventHandler(this.ServiceStatusButtonClick);
 			this.serviceStatus.Resize += new System.EventHandler(this.ServiceStatusResize);
+			// 
+			// pEnabled
+			// 
+			this.pEnabled.Controls.Add(this.sbServiceUp);
+			this.pEnabled.Controls.Add(this.sbServiceDown);
+			this.pEnabled.Dock = System.Windows.Forms.DockStyle.Top;
+			this.pEnabled.Location = new System.Drawing.Point(3, 3);
+			this.pEnabled.Name = "pEnabled";
+			this.pEnabled.Size = new System.Drawing.Size(233, 20);
+			this.pEnabled.TabIndex = 8;
+			// 
+			// sbServiceUp
+			// 
+			this.sbServiceUp.Dock = System.Windows.Forms.DockStyle.Left;
+			this.sbServiceUp.Image = ((System.Drawing.Image)(resources.GetObject("sbServiceUp.Image")));
+			this.sbServiceUp.Location = new System.Drawing.Point(20, 0);
+			this.sbServiceUp.Name = "sbServiceUp";
+			this.sbServiceUp.Selectable = false;
+			this.sbServiceUp.Size = new System.Drawing.Size(20, 20);
+			this.sbServiceUp.TabIndex = 3;
+			this.sbServiceUp.UseVisualStyleBackColor = true;
+			this.sbServiceUp.Click += new System.EventHandler(this.SbServiceUpClick);
+			// 
+			// sbServiceDown
+			// 
+			this.sbServiceDown.Dock = System.Windows.Forms.DockStyle.Left;
+			this.sbServiceDown.Image = ((System.Drawing.Image)(resources.GetObject("sbServiceDown.Image")));
+			this.sbServiceDown.Location = new System.Drawing.Point(0, 0);
+			this.sbServiceDown.Name = "sbServiceDown";
+			this.sbServiceDown.Selectable = false;
+			this.sbServiceDown.Size = new System.Drawing.Size(20, 20);
+			this.sbServiceDown.TabIndex = 2;
+			this.sbServiceDown.UseVisualStyleBackColor = true;
+			this.sbServiceDown.Click += new System.EventHandler(this.SbServiceDownClick);
 			// 
 			// tpLangs
 			// 
@@ -532,6 +572,7 @@ namespace Translate
 			this.tpServices.ResumeLayout(false);
 			this.pServices.ResumeLayout(false);
 			this.pServiceData.ResumeLayout(false);
+			this.pEnabled.ResumeLayout(false);
 			this.tpLangs.ResumeLayout(false);
 			this.pMain.ResumeLayout(false);
 			this.pTo.ResumeLayout(false);
@@ -540,6 +581,9 @@ namespace Translate
 			this.tpSubject.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private FreeCL.UI.SpeedButton sbServiceDown;
+		private FreeCL.UI.SpeedButton sbServiceUp;
+		private System.Windows.Forms.Panel pEnabled;
 		private Translate.ServiceStatusControl serviceStatus;
 		private System.Windows.Forms.ListView lvServicesDisabledByUser;
 		private System.Windows.Forms.ListView lvServicesDisabled;
