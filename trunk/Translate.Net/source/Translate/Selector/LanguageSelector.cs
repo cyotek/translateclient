@@ -148,6 +148,8 @@ namespace Translate
 				profile = value;
 				if(profile != null)
 				{
+					lvServicesEnabled.ListViewItemSorter = null;
+					lvServicesDisabled.ListViewItemSorter = null;
 					SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
 					Languages = profile.GetLanguagePairs();
 					History = profile.History;
@@ -365,6 +367,8 @@ namespace Translate
 			Language fromLanguage = ((LanguageContainer)lbFrom.SelectedItem).Language;	
 			Language toLanguage = ((LanguageContainer)lbTo.SelectedItem).Language;				
 			selection = new LanguagePair(fromLanguage, toLanguage);
+			lvServicesEnabled.ListViewItemSorter = null;
+			lvServicesDisabled.ListViewItemSorter = null;
 			
 			
 			string caption = LangPack.TranslateLanguage(toLanguage);
@@ -385,6 +389,12 @@ namespace Translate
 				}
 			}
 			LoadServices(false);
+			profile.SelectedLanguagePair = selection;
+			if(selection.From != Language.Any && selection.To != Language.Any)
+			{
+				lvServicesEnabled.ListViewItemSorter = profile.ServiceSettingComparer;
+				lvServicesDisabled.ListViewItemSorter = profile.ServiceSettingComparer;
+			}	
 		}
 		
 		void PColumnsResize(object sender, EventArgs e)
@@ -629,6 +639,9 @@ namespace Translate
 		ReadOnlyServiceSettingCollection serviceItemsSettings;
 		List<ServiceSettingsContainer> serviceItemsContainers = new List<ServiceSettingsContainer>();
 		bool ignoreServicesLoading;
+		Dictionary<ServiceSettingsContainer, ListViewItem> enabledLVItems = new Dictionary<ServiceSettingsContainer, ListViewItem>();
+		Dictionary<ServiceSettingsContainer, ListViewItem> disabledLVItems = new Dictionary<ServiceSettingsContainer, ListViewItem>();
+		Dictionary<ServiceSettingsContainer, ListViewItem> disabledByUserLVItems = new Dictionary<ServiceSettingsContainer, ListViewItem>();
 		void LoadServices(bool phraseChanged)
 		{
 			if(selection == null || ignoreServicesLoading)
@@ -640,6 +653,9 @@ namespace Translate
 				lvServicesDisabled.Items.Clear();
 				lvServicesDisabledByUser.Items.Clear();
 				serviceItemsContainers.Clear();
+				enabledLVItems.Clear();
+				disabledLVItems.Clear();
+				disabledByUserLVItems.Clear();
 				bool showLanguage = selection.From == Language.Any || selection.To == Language.Any;
 				foreach(ServiceSetting ss in serviceItemsSettings)
 				{
@@ -706,13 +722,11 @@ namespace Translate
 		{
 			ServiceSettingCollection result = new ServiceSettingCollection();
 			
-			foreach(ServiceSettingsContainer sc in serviceItemsContainers)
+			foreach(ListViewItem lvi in lvServicesEnabled.Items)
 			{
-				if(sc.Enabled && !sc.DisabledByUser)
-				{
-					ServiceSetting tsetting = new ServiceSetting(sc.Setting.LanguagePair, sc.Setting.Subject, sc.Setting.ServiceItem , TranslateOptions.Instance.GetNetworkSetting(sc.Setting.ServiceItem.Service));
-					result.Add(tsetting);
-				}
+				ServiceSettingsContainer sc = lvi.Tag as ServiceSettingsContainer;
+				ServiceSetting tsetting = new ServiceSetting(sc.Setting.LanguagePair, sc.Setting.Subject, sc.Setting.ServiceItem , TranslateOptions.Instance.GetNetworkSetting(sc.Setting.ServiceItem.Service));
+				result.Add(tsetting);
 			}
 			return new ReadOnlyServiceSettingCollection(result);
 		}
@@ -726,72 +740,91 @@ namespace Translate
 			ListViewItem lvi;
 			if(sc.DisabledByUser)
 			{
-				lvi = FindItem(lvServicesEnabled, sc);
+				lvi = FindItem(enabledLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesEnabled.Items.Remove(lvi);
+					enabledLVItems.Remove(sc);
+				}	
 
-				lvi = FindItem(lvServicesDisabled, sc);
+				lvi = FindItem(disabledLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesDisabled.Items.Remove(lvi);
+					disabledLVItems.Remove(sc);
+				}	
 				
-				lvi = FindItem(lvServicesDisabledByUser, sc);
+				lvi = FindItem(disabledByUserLVItems, sc);
 				if(lvi == null)
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);
 					lvServicesDisabledByUser.Items.Add(lvi);
+					disabledByUserLVItems.Add(sc, lvi);
 				}
 			}
 			else if(sc.Enabled)
 			{
-				lvi = FindItem(lvServicesDisabled, sc);
+				lvi = FindItem(disabledLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesDisabled.Items.Remove(lvi);
+					disabledLVItems.Remove(sc);
+				}	
 					
-				lvi = FindItem(lvServicesDisabledByUser, sc);
+				lvi = FindItem(disabledByUserLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesDisabledByUser.Items.Remove(lvi);
+					disabledByUserLVItems.Remove(sc);
+				}	
 				
-				lvi = FindItem(lvServicesEnabled, sc);
+				lvi = FindItem(enabledLVItems, sc);
 				if(lvi == null)
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);					
 					lvServicesEnabled.Items.Add(lvi);
+					enabledLVItems.Add(sc, lvi);
 				}
 			}
 			else
 			{
-				lvi = FindItem(lvServicesEnabled, sc);
+				lvi = FindItem(enabledLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesEnabled.Items.Remove(lvi);
+					enabledLVItems.Remove(sc);
+				}	
 					
-				lvi = FindItem(lvServicesDisabledByUser, sc);
+				lvi = FindItem(disabledByUserLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesDisabledByUser.Items.Remove(lvi);
+					disabledByUserLVItems.Remove(sc);
+				}	
 				
-				lvi = FindItem(lvServicesDisabled, sc);
+				lvi = FindItem(disabledLVItems, sc);
 				if(lvi == null)
 				{
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = ServiceSettingsContainer.GetServiceItemType(sc.Setting.ServiceItem);
 					lvServicesDisabled.Items.Add(lvi);
+					disabledLVItems.Add(sc, lvi);
 				}
 			}
 			return lvi;
 		}
+
 		
-		ListViewItem FindItem(ListView view, ServiceSettingsContainer sc)
+		ListViewItem FindItem(Dictionary<ServiceSettingsContainer, ListViewItem> itemsDictionary, ServiceSettingsContainer sc)
 		{
-			foreach(ListViewItem lvi in view.Items)
-			{
-				if(lvi.Tag == sc)
-				  return lvi;
-			}
-			return null;
+			ListViewItem result;
+			itemsDictionary.TryGetValue(sc, out result);
+			return result;
 		}
 		
 		string phrase;		
@@ -812,17 +845,46 @@ namespace Translate
 		bool skipselectingservices;
 		void LvServicesEnabledSelectedIndexChanged(object sender, EventArgs e)
 		{
-			if(skipselectingservices)
-				return;
-			ListView lv = sender as ListView;
-			if(lv.SelectedItems.Count == 0)
+			SuspendLayout();
+			try 
 			{
-				return;
+				if(skipselectingservices)
+				{
+					pEnabled.Enabled = false;
+					pEnabled.Visible = false;
+					return;
+				}	
+				ListView lv = sender as ListView;
+				if(lv.SelectedItems.Count == 0)
+				{
+					return;
+				}	
+				
+				ListViewItem lvi = lv.SelectedItems[0];
+				ServiceSettingsContainer sc = lvi.Tag as ServiceSettingsContainer;
+				serviceStatus.ShowLanguage = selection.From == Language.Any || selection.To == Language.Any;
+				serviceStatus.Status = sc;
+				
+				if((lvServicesEnabled == lv || lv == lvServicesDisabled) && 
+					lv.Items.Count > 1 &&
+					(selection.From != Language.Any && selection.To != Language.Any))
+				{
+					pEnabled.Enabled = true;
+					pEnabled.Visible = true;
+				
+					sbServiceUp.Enabled = lv.SelectedIndices[0] != 0;
+					sbServiceDown.Enabled = lv.SelectedIndices[0] != lv.Items.Count - 1;
+				}
+				else
+				{
+					pEnabled.Enabled = false;
+					pEnabled.Visible = false;
+				}	
+			} 
+			finally
+			{
+				ResumeLayout();
 			}
-			ListViewItem lvi = lv.SelectedItems[0];
-			ServiceSettingsContainer sc = lvi.Tag as ServiceSettingsContainer;
-			serviceStatus.ShowLanguage = selection.From == Language.Any || selection.To == Language.Any;
-			serviceStatus.Status = sc;
 		}
 		
 		void ServiceStatusResize(object sender, EventArgs e)
@@ -836,19 +898,28 @@ namespace Translate
 			try
 			{
 				ServiceSettingsContainer sc = serviceStatus.Status;
-				ListViewItem lvi = FindItem(lvServicesDisabledByUser, sc);
+				ListViewItem lvi = FindItem(disabledByUserLVItems, sc);
 				if(lvi != null)
+				{
 					lvServicesDisabledByUser.Items.Remove(lvi);
+					disabledByUserLVItems.Remove(sc);
+				}	
 				else
 				{
-					lvi = FindItem(lvServicesDisabled, sc);
+					lvi = FindItem(disabledLVItems, sc);
 					if(lvi != null)
+					{
 						lvServicesDisabled.Items.Remove(lvi);
+						disabledLVItems.Remove(sc);
+					}	
 					else
 					{
-						lvi = FindItem(lvServicesEnabled, sc);
+						lvi = FindItem(enabledLVItems, sc);
 						if(lvi != null)
+						{
 							lvServicesEnabled.Items.Remove(lvi);
+							enabledLVItems.Remove(sc);
+						}	
 					}
 				}
 							
@@ -868,6 +939,56 @@ namespace Translate
 			{
 				skipselectingservices = false;
 			}
+		}
+		
+		void SbServiceUpClick(object sender, EventArgs e)
+		{
+			ServiceSettingsContainer sc = serviceStatus.Status;
+			ListViewItem lvi = FindItem(disabledLVItems, sc);
+			if(lvi != null && lvi.Index != 0)
+			{
+				ListViewItem lvi_prev = lvServicesDisabled.Items[lvi.Index - 1];
+				ServiceSettingsContainer sc_prev = lvi_prev.Tag as ServiceSettingsContainer;
+				profile.MoveBefore(sc_prev.Setting, sc.Setting);
+			}	
+			else
+			{
+				lvi = FindItem(enabledLVItems, sc);
+				if(lvi != null && lvi.Index != 0)
+				{
+					ListViewItem lvi_prev = lvServicesEnabled.Items[lvi.Index - 1];
+					ServiceSettingsContainer sc_prev = lvi_prev.Tag as ServiceSettingsContainer;
+					profile.MoveBefore(sc_prev.Setting, sc.Setting);
+				}	
+			}
+			lvServicesEnabled.Sort();
+			lvServicesDisabled.Sort();	
+			LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
+		}
+		
+		void SbServiceDownClick(object sender, EventArgs e)
+		{
+			ServiceSettingsContainer sc = serviceStatus.Status;
+			ListViewItem lvi = FindItem(disabledLVItems, sc);
+			if(lvi != null && lvi.Index != lvServicesDisabled.Items.Count - 1)
+			{
+				ListViewItem lvi_prev = lvServicesDisabled.Items[lvi.Index + 1];
+				ServiceSettingsContainer sc_prev = lvi_prev.Tag as ServiceSettingsContainer;
+				profile.MoveAfter(sc_prev.Setting, sc.Setting);
+			}	
+			else
+			{
+				lvi = FindItem(enabledLVItems, sc);
+				if(lvi != null && lvi.Index != lvServicesEnabled.Items.Count - 1)
+				{
+					ListViewItem lvi_prev = lvServicesEnabled.Items[lvi.Index + 1];
+					ServiceSettingsContainer sc_prev = lvi_prev.Tag as ServiceSettingsContainer;
+					profile.MoveAfter(sc_prev.Setting, sc.Setting);
+				}	
+			}
+			lvServicesEnabled.Sort();
+			lvServicesDisabled.Sort();	
+			LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
 		}
 	}
 	

@@ -175,6 +175,12 @@ namespace Translate
 			fontsOptions.Apply();
 		}
 		
+		public override void OnSave()
+		{
+			base.OnSave();
+			defaultProfile.BeforeSave();
+		}
+		
 		
 		public static TranslateOptions Instance
 		{

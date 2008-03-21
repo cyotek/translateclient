@@ -50,48 +50,34 @@ namespace Translate
 	/// Description of ServiceItemData.
 	/// </summary>
 	[Serializable()]
-	public class ServiceItemData
+	public class ServiceItemData : ServiceItemSortData
 	{
 		public ServiceItemData()
 		{
 		}
 		
-		public ServiceItemData(string name, LanguagePair languagePair, string subject)
+		public ServiceItemData(string name, LanguagePair languagePair, string subject):base(name, subject)
 		{
-			this.name = name;
 			this.languagePair = languagePair;
-			this.subject = subject;
 		}
 		
 		
-		string name;
-		public string Name {
-			get { return name; }
-			set { name = value; }
-		}
-
 		LanguagePair languagePair;
 		public LanguagePair LanguagePair {
 			get { return languagePair; }
 			set { languagePair = value; }
 		}
 		
-		string subject;
-		public string Subject {
-			get { return subject; }
-			set { subject = value; }
-		}
-		
 		public override bool Equals(Object obj)
 		{
 			ServiceItemData arg = obj as ServiceItemData;
 			if(arg == null) return false;
-			return name.Equals(arg.Name) && subject.Equals(arg.Subject) && languagePair.Equals(arg.languagePair);
+			return Name.Equals(arg.Name) && Subject.Equals(arg.Subject) && languagePair.Equals(arg.languagePair);
 		}
 			
 		public override int GetHashCode() 
 		{
-      		return unchecked(name.GetHashCode() * 1000 + languagePair.GetHashCode() + subject.GetHashCode()*10000);
+      		return unchecked(Name.GetHashCode() * 1000 + languagePair.GetHashCode() + Subject.GetHashCode()*10000);
    		}	
 			
 		public static bool operator ==(ServiceItemData a, ServiceItemData b)
