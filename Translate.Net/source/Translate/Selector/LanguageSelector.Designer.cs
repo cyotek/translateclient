@@ -115,6 +115,7 @@ namespace Translate
 			this.lFrom = new System.Windows.Forms.Label();
 			this.tpSubject = new System.Windows.Forms.TabPage();
 			this.lbSubjects = new System.Windows.Forms.CheckedListBox();
+			this.ttMain = new System.Windows.Forms.ToolTip(this.components);
 			this.pBottom.SuspendLayout();
 			this.tcMain.SuspendLayout();
 			this.tpServices.SuspendLayout();
@@ -581,6 +582,7 @@ namespace Translate
 			this.tpSubject.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ToolTip ttMain;
 		private FreeCL.UI.SpeedButton sbServiceDown;
 		private FreeCL.UI.SpeedButton sbServiceUp;
 		private System.Windows.Forms.Panel pEnabled;

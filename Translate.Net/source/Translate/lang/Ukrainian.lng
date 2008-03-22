@@ -300,6 +300,10 @@ HTTP-проксі
 Помилка
 [Disabled]
 Вимкнені
+[Move service up]
+Посунути сервіс вище
+[Move service down]
+Посунути сервіс нижче
 [<b>Status</b> : Enabled]
 <b>Статус</b> : Увімкнуто
 [<b>Status</b> : Error]
