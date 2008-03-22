@@ -85,6 +85,8 @@ namespace Translate
 				lEnabled.Text = LangPack.TranslateString("Enabled"); 
 				lDisabled.Text = LangPack.TranslateString("Error"); 
 				lDisabledByUser.Text = LangPack.TranslateString("Disabled"); 
+				ttMain.SetToolTip(sbServiceUp, LangPack.TranslateString("Move service up"));
+				ttMain.SetToolTip(sbServiceDown, LangPack.TranslateString("Move service down"));
 				LvServicesResize(this, new EventArgs());
 			}
 			finally
