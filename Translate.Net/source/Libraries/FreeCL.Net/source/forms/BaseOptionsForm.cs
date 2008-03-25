@@ -309,6 +309,7 @@ namespace FreeCL.Forms
 					prevControl.Visible = false;
 				OptionControlInfo inf = (OptionControlInfo)e.Node.Tag;
 				inf.Instance.Visible = true;
+				inf.Instance.Activate();
 				prevControl = inf.Instance;
 			}
 		}
