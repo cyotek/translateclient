@@ -95,6 +95,12 @@ namespace FreeCL.Forms
 		}
 		
 		
+		public virtual void Activate()
+		{
+		
+		}
+		
+		
 	}
 	
 	
