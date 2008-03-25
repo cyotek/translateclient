@@ -236,8 +236,18 @@ namespace FreeCL.Forms
 			
 			foreach(TreeNode rtn in tvItems.Nodes)
 			{
-				string groupName = (string)rtn.Tag;
-				rtn.Text = LangPack.TranslateString(groupName);
+				if(rtn.Tag.GetType() == typeof(string))
+				{
+					string groupName = (string)rtn.Tag;
+					rtn.Text = LangPack.TranslateString(groupName);
+				}
+				else
+				{
+					OptionControlInfo inf = (OptionControlInfo)rtn.Tag;
+					rtn.Text = LangPack.TranslateString(inf.Group);
+					inf.Instance.lCaption.Text = LangPack.TranslateString(inf.Group);
+				}
+				
 				foreach(TreeNode tn in rtn.Nodes)
 				{
 					OptionControlInfo inf = (OptionControlInfo)tn.Tag;
@@ -279,6 +289,18 @@ namespace FreeCL.Forms
 					TreeNode childNode = new TreeNode(LangPack.TranslateString(inf.Caption));
 					childNode.Tag = inf;
 					rootNode.Nodes.Insert(inf.Order, childNode);
+				}
+				
+				//when one item in group remove subitems
+				foreach(TreeNode tn in tvItems.Nodes)
+				{
+					if(tn.Nodes.Count == 1)
+					{
+						tn.Tag = tn.Nodes[0].Tag;
+						tn.Nodes.RemoveAt(0);
+						OptionControlInfo inf = (OptionControlInfo)tn.Tag;
+						inf.Instance.lCaption.Text = LangPack.TranslateString(inf.Group);
+					}
 				}
 				controlsAdded = true;
 				tvItems.ExpandAll();
