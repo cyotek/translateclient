@@ -180,7 +180,31 @@
 
 [Profile]
 
+[Profiles]
+
 [Default]
+
+[List]
+
+[Add new user profile]
+
+[Change profile name]
+
+[Profile name :]
+
+[Translation direction]
+
+[Name for new profile you enter already used. Please enter unique name.]
+
+[Remove user profile]
+
+[The profile {0} will be deleted.\r\nAre you sure ?]
+
+[Move profile up]
+
+[Move profile down]
+
+[Name]
 
 [Name :]
 

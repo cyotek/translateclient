@@ -180,8 +180,32 @@ HTTP-проксі
 Викликати тлумачні словники при перекладі
 [Profile]
 Профіль
+[Profiles]
+Профілі
 [Default]
 Основний
+[List]
+Список
+[Add new user profile]
+Додати профіль користувача
+[Change profile name]
+Зміна назви профіля
+[Profile name :]
+Назва профіля :
+[Translation direction]
+Напрямок перекладу
+[Name for new profile you enter already used. Please enter unique name.]
+Назва, введена для нового профіля, вже використовується. Будь ласка, введіть унікальне ім'я.
+[Remove user profile]
+Видалити профіль користувача
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Профіль {0} буде видалений. \r\nВи згодні ? 
+[Move profile up]
+Посунути профіль вище
+[Move profile down]
+Посунути профіль нижче
+[Name]
+Назва
 [Name :]
 Назва :
 [Size :]

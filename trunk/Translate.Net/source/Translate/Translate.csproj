@@ -62,9 +62,9 @@
     </Compile>
     <Compile Include="Hooks\KeyboardHook.cs" />
     <Compile Include="Manager\TranslatorSetting.cs" />
-    <Compile Include="Options\DefaultProfileOptionsControl.cs" />
-    <Compile Include="Options\DefaultProfileOptionsControl.Designer.cs">
-      <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
+    <Compile Include="Options\CustomProfilesControl.cs" />
+    <Compile Include="Options\CustomProfilesControl.Designer.cs">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\FontSelectionControl.cs" />
     <Compile Include="Options\FontSelectionControl.Designer.cs">
@@ -89,6 +89,10 @@
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\ResultWindowOptions.cs" />
+    <Compile Include="Options\SetProfileNameForm.cs" />
+    <Compile Include="Options\SetProfileNameForm.Designer.cs">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\StartupOptionsControl.cs" />
     <Compile Include="Options\StartupOptionsControl.Designer.cs">
       <DependentUpon>StartupOptionsControl.cs</DependentUpon>
@@ -101,12 +105,14 @@
     <Compile Include="Profile\ServiceItemData.cs" />
     <Compile Include="Profile\ServiceItemSortData.cs" />
     <Compile Include="Profile\TranslateProfile.cs" />
+    <Compile Include="Profile\UserTranslateProfile.cs" />
     <Compile Include="ResultBrowser\HtmlHelper.cs" />
     <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />
     <Compile Include="ResultBrowser\HtmlSourceViewForm.Designer.cs">
       <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResultBrowser\IHTMLDOMNode.cs" />
+    <Compile Include="Selector\LanguageDataContainer.cs" />
     <Compile Include="Selector\LanguageSelector.cs" />
     <Compile Include="Selector\LanguageSelector.Designer.cs">
       <DependentUpon>LanguageSelector.cs</DependentUpon>
@@ -142,8 +148,8 @@
     <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
       <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Options\DefaultProfileOptionsControl.resx">
-      <DependentUpon>DefaultProfileOptionsControl.cs</DependentUpon>
+    <EmbeddedResource Include="Options\CustomProfilesControl.resx">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\FontSelectionControl.resx">
       <DependentUpon>FontSelectionControl.cs</DependentUpon>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\SetProfileNameForm.resx">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\StartupOptionsControl.resx">
       <DependentUpon>StartupOptionsControl.cs</DependentUpon>

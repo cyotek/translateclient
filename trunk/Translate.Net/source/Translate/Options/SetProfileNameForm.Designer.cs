@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -35,12 +35,10 @@
  *
  * ***** END LICENSE BLOCK ***** */
 #endregion
- 
-using System.Diagnostics.CodeAnalysis;
- 
+
 namespace Translate
 {
-	partial class DefaultProfileOptionsControl
+	partial class SetProfileNameForm
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -48,7 +46,7 @@ namespace Translate
 		private System.ComponentModel.IContainer components = null;
 		
 		/// <summary>
-		/// Disposes resources used by the control.
+		/// Disposes resources used by the form.
 		/// </summary>
 		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
 		protected override void Dispose(bool disposing)
@@ -66,34 +64,74 @@ namespace Translate
 		/// Do not change the method contents inside the source code editor. The Forms designer might
 		/// not be able to load this method if it was changed manually.
 		/// </summary>
-		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters")]
 		private void InitializeComponent()
 		{
-			this.cbIncludeMonolingualDictionaryInTranslation = new System.Windows.Forms.CheckBox();
-			this.pBody.SuspendLayout();
+			this.bCancel = new System.Windows.Forms.Button();
+			this.bOk = new System.Windows.Forms.Button();
+			this.lName = new System.Windows.Forms.Label();
+			this.tbName = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
-			// pBody
+			// bCancel
 			// 
-			this.pBody.Controls.Add(this.cbIncludeMonolingualDictionaryInTranslation);
+			this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+			this.bCancel.Location = new System.Drawing.Point(279, 37);
+			this.bCancel.Name = "bCancel";
+			this.bCancel.Size = new System.Drawing.Size(88, 23);
+			this.bCancel.TabIndex = 3;
+			this.bCancel.Text = "Cancel";
+			this.bCancel.UseVisualStyleBackColor = true;
 			// 
-			// cbIncludeMonolingualDictionaryInTranslation
+			// bOk
 			// 
-			this.cbIncludeMonolingualDictionaryInTranslation.Location = new System.Drawing.Point(13, 13);
-			this.cbIncludeMonolingualDictionaryInTranslation.Name = "cbIncludeMonolingualDictionaryInTranslation";
-			this.cbIncludeMonolingualDictionaryInTranslation.Size = new System.Drawing.Size(373, 24);
-			this.cbIncludeMonolingualDictionaryInTranslation.TabIndex = 2;
-			this.cbIncludeMonolingualDictionaryInTranslation.Text = "Include monolingual dictionaries in translation";
-			this.cbIncludeMonolingualDictionaryInTranslation.UseVisualStyleBackColor = true;
+			this.bOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.bOk.Location = new System.Drawing.Point(185, 37);
+			this.bOk.Name = "bOk";
+			this.bOk.Size = new System.Drawing.Size(88, 23);
+			this.bOk.TabIndex = 2;
+			this.bOk.Text = "OK";
+			this.bOk.UseVisualStyleBackColor = true;
 			// 
-			// DefaultProfileOptionsControl
+			// lName
 			// 
+			this.lName.Location = new System.Drawing.Point(12, 9);
+			this.lName.Name = "lName";
+			this.lName.Size = new System.Drawing.Size(100, 23);
+			this.lName.TabIndex = 4;
+			this.lName.Text = "Profile name : ";
+			this.lName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// tbName
+			// 
+			this.tbName.Location = new System.Drawing.Point(105, 11);
+			this.tbName.Name = "tbName";
+			this.tbName.Size = new System.Drawing.Size(262, 20);
+			this.tbName.TabIndex = 5;
+			// 
+			// SetProfileNameForm
+			// 
+			this.AcceptButton = this.bOk;
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "DefaultProfileOptionsControl";
-			this.pBody.ResumeLayout(false);
+			this.CancelButton = this.bCancel;
+			this.ClientSize = new System.Drawing.Size(379, 69);
+			this.ControlBox = false;
+			this.Controls.Add(this.tbName);
+			this.Controls.Add(this.lName);
+			this.Controls.Add(this.bCancel);
+			this.Controls.Add(this.bOk);
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "SetProfileNameForm";
+			this.ShowInTaskbar = false;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+			this.Text = "Change profile name";
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
-		private System.Windows.Forms.CheckBox cbIncludeMonolingualDictionaryInTranslation;
+		public System.Windows.Forms.TextBox tbName;
+		private System.Windows.Forms.Label lName;
+		private System.Windows.Forms.Button bOk;
+		private System.Windows.Forms.Button bCancel;
 	}
 }

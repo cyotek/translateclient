@@ -91,10 +91,7 @@ namespace Translate
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(GeneralNetworkOptionsControl), "Network", 2, "Common", 0);
 				
-				OptionsControlsManager.RegisterOptionControl(typeof(DefaultProfileOptionsControl), "Profile", 3, "Default", 4);
-				
-				
-				
+				OptionsControlsManager.RegisterOptionControl(typeof(CustomProfilesControl), "Profiles", 3, "List", 4);
 				
 				Application.Initialize();
 				

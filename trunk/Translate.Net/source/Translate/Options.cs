@@ -57,12 +57,14 @@ namespace Translate
 		public TranslateOptions()
 		{
 			//UseSoapSerialization = true;
+			defaultProfile = new DefaultTranslateProfile();
+			currentProfile = defaultProfile;
 			defaultProfile.Subjects.Add("Common");
 		}
 		
 		protected TranslateOptions(SerializationInfo info, StreamingContext context):base(info, context)
 		{
-			//UseSoapSerialization = true;
+			currentProfile = defaultProfile;
 		}	
 		
 		[SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter=true)]		
@@ -129,7 +131,7 @@ namespace Translate
 		}
 		
 		
-		DefaultTranslateProfile defaultProfile = new DefaultTranslateProfile();
+		DefaultTranslateProfile defaultProfile;
 		
 		
 		public DefaultTranslateProfile DefaultProfile {
@@ -138,10 +140,34 @@ namespace Translate
 		}
 		
 		
+		TranslateProfile currentProfile;
 		[ XmlIgnore()]
 		public TranslateProfile CurrentProfile
 		{
-			get { return defaultProfile; }
+			get { return currentProfile; }
+			set {currentProfile = value;}
+		}
+		
+		string currentProfileName = "Default";
+		[System.ComponentModel.DefaultValueAttribute("Default")]
+		public string CurrentProfileName {
+			get { return currentProfileName; }
+			set { currentProfileName = value; }
+		}
+		
+		[ XmlIgnore()]
+		TranslateProfilesCollection profiles = new TranslateProfilesCollection();
+		
+		[ XmlIgnore()]
+		public TranslateProfilesCollection Profiles {
+			get { return profiles; }
+			set { profiles = value; }
+		}
+		
+		UserTranslateProfilesCollection userProfiles = new UserTranslateProfilesCollection();
+		public UserTranslateProfilesCollection UserProfiles {
+			get { return userProfiles; }
+			set { userProfiles = value; }
 		}
 		
 		public NetworkSetting GetNetworkSetting(Service service)
@@ -173,12 +199,40 @@ namespace Translate
 			base.OnLoaded();
 			networkOptions.Apply();
 			fontsOptions.Apply();
+			profiles.Add(defaultProfile);
+			foreach(UserTranslateProfile pf in userProfiles)
+			{
+				if(pf.Position < profiles.Count)
+					profiles.Insert(pf.Position, pf);	
+				else
+					profiles.Add(pf);
+			}
+			
+			foreach(TranslateProfile pf in profiles)
+			{
+				if(currentProfileName == pf.Name)
+				{
+					currentProfile = pf;
+					break;
+				}
+			}
 		}
 		
 		public override void OnSave()
 		{
 			base.OnSave();
 			defaultProfile.BeforeSave();
+			userProfiles.Clear();
+			for(int i = 0; i < profiles.Count; i++)
+			{
+				profiles[i].Position = i;
+				UserTranslateProfile pf = profiles[i] as UserTranslateProfile;
+				if(pf != null)
+				{
+					userProfiles.Add(pf);		
+				}
+			}
+			currentProfileName = currentProfile.Name; 
 		}
 		
 		

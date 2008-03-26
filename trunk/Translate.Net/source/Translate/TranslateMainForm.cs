@@ -119,7 +119,7 @@ namespace Translate
 			splitterBottom.Enabled = false;
 			splitterBottom.Visible = false;
 			
-			languageSelector.Profile = currentProfile;
+			UpdateProfiles();
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			miFile.DropDownItems.Remove(miTranslate);
@@ -198,8 +198,13 @@ namespace Translate
 					languageSelector.Selection.To.ToString().Substring(0, 3);
 		}
 		
-		TranslateProfile currentProfile = TranslateOptions.Instance.CurrentProfile;
+		TranslateProfile currentProfile;
 		
+		public void UpdateProfiles()
+		{
+			currentProfile = TranslateOptions.Instance.CurrentProfile;
+			languageSelector.Profile = currentProfile;
+		}
 		
 		void TranslateMainFormFormClosing(object sender, FormClosingEventArgs e)
 		{

@@ -51,11 +51,44 @@ namespace Translate
 	/// </summary>
 	
 	[Serializable()]
-	public class TranslateProfile
+	public class TranslateProfile: ICloneable
 	{
 		public TranslateProfile()
 		{
 			serviceSettingComparer = new ServiceSettingComparerClass(this);
+		}
+		
+		public virtual object Clone()
+		{
+			TranslateProfile result = new TranslateProfile();
+			result.Name = Name;
+			result.Position = Position;
+			result.Subjects.AddRange(Subjects);
+			result.History.AddRange(History);
+			result.SelectedLanguagePair = SelectedLanguagePair;
+			foreach(ServiceItemsSortDataCollection d in SortData)
+				result.SortData.Add(d);
+			result.TranslationDirection = TranslationDirection;	
+			return result;	
+		}
+		
+		
+		string name;
+		public string Name {
+			get { return name; }
+			set { name = value; }
+		}
+		
+		int position;
+		public int Position {
+			get { return position; }
+			set { position = value; }
+		}
+		
+		LanguagePair translationDirection = new LanguagePair();
+		public LanguagePair TranslationDirection {
+			get { return translationDirection; }
+			set { translationDirection = value; }
 		}
 		
 		
@@ -93,11 +126,6 @@ namespace Translate
 			return null;		
 		}
 		
-		bool includeMonolingualDictionaryInTranslation = true;
-		public bool IncludeMonolingualDictionaryInTranslation {
-			get { return includeMonolingualDictionaryInTranslation; }
-			set { includeMonolingualDictionaryInTranslation = value; }
-		}
 		
 		public virtual void EnableService(string name, LanguagePair languagePair, string subject, bool enable)
 		{
@@ -201,5 +229,10 @@ namespace Translate
 			}
 		}
 		
+	}
+	
+	public class TranslateProfilesCollection :  List<TranslateProfile>
+	{
+	
 	}
 }

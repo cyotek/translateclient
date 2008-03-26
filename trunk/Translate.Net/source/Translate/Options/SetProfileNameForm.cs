@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -36,53 +36,34 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using FreeCL.Forms;
-using System.Net;
-using System.Globalization;
-using System.Diagnostics.CodeAnalysis;
+using FreeCL.UI;
+using FreeCL.RTL;
+
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of DefaultProfileOptionsControl.
+	/// Description of SetProfileNameForm.
 	/// </summary>
-	public partial class DefaultProfileOptionsControl : FreeCL.Forms.BaseOptionsControl
+	public partial class SetProfileNameForm :  FreeCL.Forms.BaseForm
 	{
-		public DefaultProfileOptionsControl()
+		public SetProfileNameForm()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
-			
 			RegisterLanguageEvent(OnLanguageChanged);
 		}
 		
 		void OnLanguageChanged()
 		{
-			cbIncludeMonolingualDictionaryInTranslation.Text = TranslateString("Include monolingual dictionaries in translation");
-		}
-
-		DefaultTranslateProfile current;
-		public override void Init()
-		{
-			current = TranslateOptions.Instance.DefaultProfile;
-			cbIncludeMonolingualDictionaryInTranslation.Checked = current.IncludeMonolingualDictionaryInTranslation;
+			bCancel.Text = LangPack.TranslateString("Cancel");
+			lName.Text = LangPack.TranslateString("Profile name :");
+			Text = LangPack.TranslateString("Change profile name");
 		}
 		
-		public override void Apply()
-		{
-			current.IncludeMonolingualDictionaryInTranslation = cbIncludeMonolingualDictionaryInTranslation.Checked;
-		}
-		
-		public override bool IsChanged()
-		{
-			return current.IncludeMonolingualDictionaryInTranslation != cbIncludeMonolingualDictionaryInTranslation.Checked;
-		}
 		
 	}
 }
