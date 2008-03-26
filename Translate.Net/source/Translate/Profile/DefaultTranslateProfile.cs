@@ -49,12 +49,35 @@ namespace Translate
 	/// </summary>
 	/// 
 	[Serializable()]
-	public class DefaultTranslateProfile : TranslateProfile
+	public class DefaultTranslateProfile : TranslateProfile, ICloneable
 	{
 		public DefaultTranslateProfile()
 		{
-			
+			Name = "Default";
 		}
+		
+		public override object Clone()
+		{
+			DefaultTranslateProfile result = new DefaultTranslateProfile();
+			result.Name = Name;
+			result.Position = Position;
+			result.IncludeMonolingualDictionaryInTranslation = IncludeMonolingualDictionaryInTranslation;			
+			result.Subjects.AddRange(Subjects);
+			result.History.AddRange(History);
+			result.SelectedLanguagePair = SelectedLanguagePair;
+			foreach(ServiceItemsSortDataCollection d in SortData)
+				result.SortData.Add(d);
+			foreach(ServiceItemData d in DisabledServiceItems)
+				result.DisabledServiceItems.Add(d); 
+			return result;	
+		}
+		
+		bool includeMonolingualDictionaryInTranslation = true;
+		public bool IncludeMonolingualDictionaryInTranslation {
+			get { return includeMonolingualDictionaryInTranslation; }
+			set { includeMonolingualDictionaryInTranslation = value; }
+		}
+		
 
 		[NonSerialized]
 		ServiceItemsDataCollection disabledServiceItems = new ServiceItemsDataCollection();

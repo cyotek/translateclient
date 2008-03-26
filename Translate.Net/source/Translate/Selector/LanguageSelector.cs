@@ -113,8 +113,8 @@ namespace Translate
 						return;
 						
 					//selection = value; 
-					LanguageContainer from = new LanguageContainer(value.From, "");
-					LanguageContainer to = new LanguageContainer(value.To, "");
+					LanguageDataContainer from = new LanguageDataContainer(value.From, "");
+					LanguageDataContainer to = new LanguageDataContainer(value.To, "");
 					int idx = lbFrom.Items.IndexOf(from);
 					if(idx != -1)
 						lbFrom.SelectedIndex = idx;
@@ -137,7 +137,7 @@ namespace Translate
 				if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 					return "";
 				
-				LanguageContainerPair currSel = new LanguageContainerPair((LanguageContainer)lbFrom.SelectedItem, (LanguageContainer)lbTo.SelectedItem);	
+				LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);	
 				return currSel.ToString();
 			}
 		}
@@ -173,63 +173,17 @@ namespace Translate
 				}
 		}
 
-		class LanguageContainer
-		{
-			public LanguageContainer(Language language, string text)
-			{
-				Language = language;
-				Text = text;
-			}
-			
-			public Language Language;
-			public string Text;
-			
-			public override string ToString()
-			{
-				return Text;
-			}
-			
-			public override bool Equals(Object obj)
-			{
-				if(obj == null) return false;
-				LanguageContainer arg = obj as LanguageContainer;
-				if(arg == null) return false;
-				return Language ==  arg.Language;
-			}				
-			
-			public override int GetHashCode() 
-			{
-      			return Language.GetHashCode();
-   			}	
-   			
-			public static bool operator ==(LanguageContainer a, LanguageContainer b)
-			{
-				bool anull, bnull;
-				anull = Object.ReferenceEquals(a,null); 
-				bnull = Object.ReferenceEquals(b,null);
-				if (anull && bnull) return true;
-				if (anull || bnull) return false;
-				return a.Equals(b);
-			}
-	
-			public static bool operator !=(LanguageContainer a, LanguageContainer b)
-			{
-				return !(a == b);
-			}
-   			
-			
-		}
 		
 		class LanguageContainerPair
 		{
-			public LanguageContainerPair(LanguageContainer from, LanguageContainer to)
+			public LanguageContainerPair(LanguageDataContainer from, LanguageDataContainer to)
 			{
 				From = from;
 				To = to;
 			}
 			
-			public LanguageContainer From;
-			public LanguageContainer To;
+			public LanguageDataContainer From;
+			public LanguageDataContainer To;
 			
 			public override bool Equals(Object obj)
 			{
@@ -288,13 +242,13 @@ namespace Translate
 			if(fromLangs.Count > 1)
 			{
 				val = "+" + LangPack.TranslateLanguage(Language.Any);
-				lbFrom.Items.Add(new LanguageContainer(Language.Any, val));
+				lbFrom.Items.Add(new LanguageDataContainer(Language.Any, val));
 			}
 			
 			foreach(Language l in fromLangs)
 			{
 				val = LangPack.TranslateLanguage(l);
-				lbFrom.Items.Add(new LanguageContainer(l, val));
+				lbFrom.Items.Add(new LanguageDataContainer(l, val));
 			}
 
 			if(lbFrom.Items.Count > 0)
@@ -309,10 +263,10 @@ namespace Translate
 			if(lbFrom.SelectedIndex == -1)
 				return;
 				
-			Language fromLanguage = ((LanguageContainer)lbFrom.SelectedItem).Language;	
-			LanguageContainer toLanguage = null;
+			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItem).Language;	
+			LanguageDataContainer toLanguage = null;
 			if(lbTo.SelectedItem != null)
-				toLanguage = ((LanguageContainer)lbTo.SelectedItem);
+				toLanguage = ((LanguageDataContainer)lbTo.SelectedItem);
 			
 			lbTo.Items.Clear();
 			
@@ -331,13 +285,13 @@ namespace Translate
 			if(toLangs.Count > 1)
 			{
 				val = "+" + LangPack.TranslateLanguage(Language.Any);
-				lbTo.Items.Add(new LanguageContainer(Language.Any, val));
+				lbTo.Items.Add(new LanguageDataContainer(Language.Any, val));
 			}
 			
 			foreach(Language l in toLangs)
 			{
 				val = LangPack.TranslateLanguage(l);
-				lbTo.Items.Add(new LanguageContainer(l, val));
+				lbTo.Items.Add(new LanguageDataContainer(l, val));
 			}
 
 			string caption = LangPack.TranslateLanguage(fromLanguage);
@@ -366,8 +320,8 @@ namespace Translate
 			if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 				return;
 
-			Language fromLanguage = ((LanguageContainer)lbFrom.SelectedItem).Language;	
-			Language toLanguage = ((LanguageContainer)lbTo.SelectedItem).Language;				
+			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItem).Language;	
+			Language toLanguage = ((LanguageDataContainer)lbTo.SelectedItem).Language;				
 			selection = new LanguagePair(fromLanguage, toLanguage);
 			lvServicesEnabled.ListViewItemSorter = null;
 			lvServicesDisabled.ListViewItemSorter = null;
@@ -406,7 +360,7 @@ namespace Translate
 		
 		public void Invert()
 		{
-			LanguageContainer fromLanguage = (LanguageContainer)lbFrom.SelectedItem;
+			LanguageDataContainer fromLanguage = (LanguageDataContainer)lbFrom.SelectedItem;
 			
 			int idx = lbFrom.Items.IndexOf(lbTo.SelectedItem);
 			if(idx == -1) return;
@@ -437,8 +391,8 @@ namespace Translate
 			foreach(LanguagePair lp in history)
 			{
 				LanguageContainerPair lpc = new LanguageContainerPair(
-					new LanguageContainer(lp.From, LangPack.TranslateLanguage(lp.From)),
-					new LanguageContainer(lp.To, LangPack.TranslateLanguage(lp.To))
+					new LanguageDataContainer(lp.From, LangPack.TranslateLanguage(lp.From)),
+					new LanguageDataContainer(lp.To, LangPack.TranslateLanguage(lp.To))
 					);
 				lbHistory.Items.Add(lpc);
 			}
@@ -452,7 +406,7 @@ namespace Translate
 			if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 				return;
 				
-			LanguageContainerPair currSel = new LanguageContainerPair((LanguageContainer)lbFrom.SelectedItem, (LanguageContainer)lbTo.SelectedItem);	
+			LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);	
 			int idx = lbHistory.Items.IndexOf(currSel);
 			if(idx != -1)
 			{
@@ -477,7 +431,7 @@ namespace Translate
 			if(lbHistory.SelectedIndex == -1)
 				return;
 				
-			LanguageContainerPair currSel = new LanguageContainerPair((LanguageContainer)lbFrom.SelectedItem, (LanguageContainer)lbTo.SelectedItem);
+			LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);
 			LanguageContainerPair currHistorySel = (LanguageContainerPair)lbHistory.SelectedItem;
 			if(currSel != currHistorySel)
 			{
