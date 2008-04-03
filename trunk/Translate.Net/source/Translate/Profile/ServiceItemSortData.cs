@@ -120,7 +120,7 @@ namespace Translate
 		
 		public int IndexOf(ServiceSetting a)
 		{
-			ServiceItemSortData data = new ServiceItemSortData(a.ServiceItem.Service.Name + a.ServiceItem.Name, a.Subject);
+			ServiceItemSortData data = new ServiceItemSortData(a.ServiceItem.FullName, a.Subject);
 			int result = items.IndexOf(data);
 			if(result < 0)
 			{

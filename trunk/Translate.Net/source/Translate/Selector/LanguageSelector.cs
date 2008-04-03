@@ -448,23 +448,6 @@ namespace Translate
 			}
 		}
 		
-		class SubjectContainer
-		{
-			public SubjectContainer(string subject, string text)
-			{
-				this.Subject = subject;
-				this.Text = text;
-			}
-			
-			public string Subject;
-			public string Text;
-			
-			public override string ToString()
-			{
-				return Text;
-			}
-			
-		}
 		
 		SubjectCollection supportedSubjects;
 		SubjectCollection subjects;
@@ -616,7 +599,7 @@ namespace Translate
 				foreach(ServiceSetting ss in serviceItemsSettings)
 				{
 					ServiceSettingsContainer sc = new ServiceSettingsContainer(ss, showLanguage);
-					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.Service.Name + ss.ServiceItem.Name, ss.LanguagePair, ss.Subject);
+					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.FullName, ss.LanguagePair, ss.Subject);
 					serviceItemsContainers.Add(sc);
 				}
 			}
@@ -881,7 +864,7 @@ namespace Translate
 							
 				
 				sc.DisabledByUser = !sc.DisabledByUser;
-				profile.EnableService(sc.Setting.ServiceItem.Service.Name + sc.Setting.ServiceItem.Name, sc.Setting.LanguagePair, sc.Setting.Subject, !sc.DisabledByUser);
+				profile.EnableService(sc.Setting.ServiceItem.FullName, sc.Setting.LanguagePair, sc.Setting.Subject, !sc.DisabledByUser);
 				
 				lvi = AddListViewItem(sc);
 				CalcServicesSizes();

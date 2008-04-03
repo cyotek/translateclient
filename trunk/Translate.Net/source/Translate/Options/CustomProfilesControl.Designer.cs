@@ -90,6 +90,14 @@ namespace Translate
 			this.lProfileName = new System.Windows.Forms.Label();
 			this.lName = new System.Windows.Forms.Label();
 			this.tpServices = new System.Windows.Forms.TabPage();
+			this.lvServices = new System.Windows.Forms.ListView();
+			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+			this.pServiceControl = new System.Windows.Forms.Panel();
+			this.sbRemoveService = new FreeCL.UI.SpeedButton();
+			this.sbEditServices = new FreeCL.UI.SpeedButton();
+			this.sbMoveServiceUp = new FreeCL.UI.SpeedButton();
+			this.sbMoveServiceDown = new FreeCL.UI.SpeedButton();
 			this.tpDefaultOptions = new System.Windows.Forms.TabPage();
 			this.cbIncludeMonolingualDictionaryInTranslation = new System.Windows.Forms.CheckBox();
 			this.alMain = new FreeCL.UI.Actions.ActionList(this.components);
@@ -97,22 +105,18 @@ namespace Translate
 			this.aAddProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveProfileUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveProfileDown = new FreeCL.UI.Actions.Action(this.components);
-			this.pServiceControl = new System.Windows.Forms.Panel();
-			this.speedButton1 = new FreeCL.UI.SpeedButton();
-			this.speedButton3 = new FreeCL.UI.SpeedButton();
-			this.speedButton4 = new FreeCL.UI.SpeedButton();
-			this.speedButton5 = new FreeCL.UI.SpeedButton();
-			this.lvServices = new System.Windows.Forms.ListView();
-			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+			this.aRemoveService = new FreeCL.UI.Actions.Action(this.components);
+			this.aEditServices = new FreeCL.UI.Actions.Action(this.components);
+			this.aMoveServiceUp = new FreeCL.UI.Actions.Action(this.components);
+			this.aMoveServiceDown = new FreeCL.UI.Actions.Action(this.components);
 			this.pBody.SuspendLayout();
 			this.pProfiles.SuspendLayout();
 			this.pProfilesControl.SuspendLayout();
 			this.tcOptions.SuspendLayout();
 			this.tpOptions.SuspendLayout();
 			this.tpServices.SuspendLayout();
-			this.tpDefaultOptions.SuspendLayout();
 			this.pServiceControl.SuspendLayout();
+			this.tpDefaultOptions.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
@@ -255,7 +259,7 @@ namespace Translate
 			this.tpOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpOptions.Name = "tpOptions";
 			this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpOptions.Size = new System.Drawing.Size(391, 107);
+			this.tpOptions.Size = new System.Drawing.Size(391, 130);
 			this.tpOptions.TabIndex = 0;
 			this.tpOptions.Text = "Options";
 			this.tpOptions.UseVisualStyleBackColor = true;
@@ -332,13 +336,99 @@ namespace Translate
 			this.tpServices.Text = "Services";
 			this.tpServices.UseVisualStyleBackColor = true;
 			// 
+			// lvServices
+			// 
+			this.lvServices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+									this.columnHeader1,
+									this.columnHeader2});
+			this.lvServices.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvServices.FullRowSelect = true;
+			this.lvServices.GridLines = true;
+			this.lvServices.HideSelection = false;
+			this.lvServices.Location = new System.Drawing.Point(3, 3);
+			this.lvServices.MultiSelect = false;
+			this.lvServices.Name = "lvServices";
+			this.lvServices.Size = new System.Drawing.Size(359, 124);
+			this.lvServices.TabIndex = 8;
+			this.lvServices.UseCompatibleStateImageBehavior = false;
+			this.lvServices.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader1
+			// 
+			this.columnHeader1.Text = "Name";
+			this.columnHeader1.Width = 120;
+			// 
+			// columnHeader2
+			// 
+			this.columnHeader2.Text = "Translation direction";
+			// 
+			// pServiceControl
+			// 
+			this.pServiceControl.Controls.Add(this.sbRemoveService);
+			this.pServiceControl.Controls.Add(this.sbEditServices);
+			this.pServiceControl.Controls.Add(this.sbMoveServiceUp);
+			this.pServiceControl.Controls.Add(this.sbMoveServiceDown);
+			this.pServiceControl.Dock = System.Windows.Forms.DockStyle.Right;
+			this.pServiceControl.Location = new System.Drawing.Point(362, 3);
+			this.pServiceControl.Name = "pServiceControl";
+			this.pServiceControl.Size = new System.Drawing.Size(26, 124);
+			this.pServiceControl.TabIndex = 7;
+			// 
+			// sbRemoveService
+			// 
+			this.alMain.SetAction(this.sbRemoveService, this.aRemoveService);
+			this.sbRemoveService.ImageIndex = 1;
+			this.sbRemoveService.ImageList = this.ilMain;
+			this.sbRemoveService.Location = new System.Drawing.Point(3, 29);
+			this.sbRemoveService.Name = "sbRemoveService";
+			this.sbRemoveService.Selectable = false;
+			this.sbRemoveService.Size = new System.Drawing.Size(20, 20);
+			this.sbRemoveService.TabIndex = 9;
+			this.sbRemoveService.UseVisualStyleBackColor = true;
+			// 
+			// sbEditServices
+			// 
+			this.alMain.SetAction(this.sbEditServices, this.aEditServices);
+			this.sbEditServices.ImageIndex = 2;
+			this.sbEditServices.ImageList = this.ilMain;
+			this.sbEditServices.Location = new System.Drawing.Point(3, 3);
+			this.sbEditServices.Name = "sbEditServices";
+			this.sbEditServices.Selectable = false;
+			this.sbEditServices.Size = new System.Drawing.Size(20, 20);
+			this.sbEditServices.TabIndex = 8;
+			this.sbEditServices.UseVisualStyleBackColor = true;
+			// 
+			// sbMoveServiceUp
+			// 
+			this.alMain.SetAction(this.sbMoveServiceUp, this.aMoveServiceUp);
+			this.sbMoveServiceUp.ImageIndex = 3;
+			this.sbMoveServiceUp.ImageList = this.ilMain;
+			this.sbMoveServiceUp.Location = new System.Drawing.Point(3, 74);
+			this.sbMoveServiceUp.Name = "sbMoveServiceUp";
+			this.sbMoveServiceUp.Selectable = false;
+			this.sbMoveServiceUp.Size = new System.Drawing.Size(20, 20);
+			this.sbMoveServiceUp.TabIndex = 7;
+			this.sbMoveServiceUp.UseVisualStyleBackColor = true;
+			// 
+			// sbMoveServiceDown
+			// 
+			this.alMain.SetAction(this.sbMoveServiceDown, this.aMoveServiceDown);
+			this.sbMoveServiceDown.ImageIndex = 4;
+			this.sbMoveServiceDown.ImageList = this.ilMain;
+			this.sbMoveServiceDown.Location = new System.Drawing.Point(3, 100);
+			this.sbMoveServiceDown.Name = "sbMoveServiceDown";
+			this.sbMoveServiceDown.Selectable = false;
+			this.sbMoveServiceDown.Size = new System.Drawing.Size(20, 20);
+			this.sbMoveServiceDown.TabIndex = 6;
+			this.sbMoveServiceDown.UseVisualStyleBackColor = true;
+			// 
 			// tpDefaultOptions
 			// 
 			this.tpDefaultOptions.Controls.Add(this.cbIncludeMonolingualDictionaryInTranslation);
 			this.tpDefaultOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpDefaultOptions.Name = "tpDefaultOptions";
 			this.tpDefaultOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpDefaultOptions.Size = new System.Drawing.Size(371, 107);
+			this.tpDefaultOptions.Size = new System.Drawing.Size(391, 130);
 			this.tpDefaultOptions.TabIndex = 2;
 			this.tpDefaultOptions.Text = "Options";
 			this.tpDefaultOptions.UseVisualStyleBackColor = true;
@@ -359,6 +449,10 @@ namespace Translate
 			this.alMain.Actions.Add(this.aRemoveProfile);
 			this.alMain.Actions.Add(this.aMoveProfileUp);
 			this.alMain.Actions.Add(this.aMoveProfileDown);
+			this.alMain.Actions.Add(this.aEditServices);
+			this.alMain.Actions.Add(this.aRemoveService);
+			this.alMain.Actions.Add(this.aMoveServiceUp);
+			this.alMain.Actions.Add(this.aMoveServiceDown);
 			this.alMain.ImageList = this.ilMain;
 			this.alMain.LockAllExecute = false;
 			this.alMain.Tag = null;
@@ -410,91 +504,52 @@ namespace Translate
 			this.aMoveProfileDown.Execute += new System.EventHandler(this.AMoveProfileDownExecute);
 			this.aMoveProfileDown.Update += new System.EventHandler(this.AMoveProfileDownUpdate);
 			// 
-			// pServiceControl
+			// aRemoveService
 			// 
-			this.pServiceControl.Controls.Add(this.speedButton1);
-			this.pServiceControl.Controls.Add(this.speedButton3);
-			this.pServiceControl.Controls.Add(this.speedButton4);
-			this.pServiceControl.Controls.Add(this.speedButton5);
-			this.pServiceControl.Dock = System.Windows.Forms.DockStyle.Right;
-			this.pServiceControl.Location = new System.Drawing.Point(362, 3);
-			this.pServiceControl.Name = "pServiceControl";
-			this.pServiceControl.Size = new System.Drawing.Size(26, 124);
-			this.pServiceControl.TabIndex = 7;
+			this.aRemoveService.Checked = false;
+			this.aRemoveService.Enabled = true;
+			this.aRemoveService.Hint = "Remove service";
+			this.aRemoveService.ImageIndex = 1;
+			this.aRemoveService.Tag = null;
+			this.aRemoveService.Text = "Remove service";
+			this.aRemoveService.Visible = true;
+			this.aRemoveService.Execute += new System.EventHandler(this.ARemoveServiceExecute);
+			this.aRemoveService.Update += new System.EventHandler(this.ARemoveServiceUpdate);
 			// 
-			// speedButton1
+			// aEditServices
 			// 
-			this.alMain.SetAction(this.speedButton1, this.aRemoveProfile);
-			this.speedButton1.ImageIndex = 1;
-			this.speedButton1.ImageList = this.ilMain;
-			this.speedButton1.Location = new System.Drawing.Point(3, 29);
-			this.speedButton1.Name = "speedButton1";
-			this.speedButton1.Selectable = false;
-			this.speedButton1.Size = new System.Drawing.Size(20, 20);
-			this.speedButton1.TabIndex = 9;
-			this.speedButton1.UseVisualStyleBackColor = true;
+			this.aEditServices.Checked = false;
+			this.aEditServices.Enabled = true;
+			this.aEditServices.Hint = "Edit services";
+			this.aEditServices.ImageIndex = 2;
+			this.aEditServices.Tag = null;
+			this.aEditServices.Text = "Edit services";
+			this.aEditServices.Visible = true;
+			this.aEditServices.Execute += new System.EventHandler(this.AEditServicesExecute);
 			// 
-			// speedButton3
+			// aMoveServiceUp
 			// 
-			this.alMain.SetAction(this.speedButton3, this.aAddProfile);
-			this.speedButton3.ImageIndex = 0;
-			this.speedButton3.ImageList = this.ilMain;
-			this.speedButton3.Location = new System.Drawing.Point(3, 3);
-			this.speedButton3.Name = "speedButton3";
-			this.speedButton3.Selectable = false;
-			this.speedButton3.Size = new System.Drawing.Size(20, 20);
-			this.speedButton3.TabIndex = 8;
-			this.speedButton3.UseVisualStyleBackColor = true;
+			this.aMoveServiceUp.Checked = false;
+			this.aMoveServiceUp.Enabled = true;
+			this.aMoveServiceUp.Hint = "Move service up";
+			this.aMoveServiceUp.ImageIndex = 3;
+			this.aMoveServiceUp.Tag = null;
+			this.aMoveServiceUp.Text = "action1";
+			this.aMoveServiceUp.Visible = true;
+			this.aMoveServiceUp.Execute += new System.EventHandler(this.AMoveServiceUpExecute);
+			this.aMoveServiceUp.Update += new System.EventHandler(this.AMoveServiceUpUpdate);
 			// 
-			// speedButton4
+			// aMoveServiceDown
 			// 
-			this.alMain.SetAction(this.speedButton4, this.aMoveProfileUp);
-			this.speedButton4.ImageIndex = 3;
-			this.speedButton4.ImageList = this.ilMain;
-			this.speedButton4.Location = new System.Drawing.Point(3, 74);
-			this.speedButton4.Name = "speedButton4";
-			this.speedButton4.Selectable = false;
-			this.speedButton4.Size = new System.Drawing.Size(20, 20);
-			this.speedButton4.TabIndex = 7;
-			this.speedButton4.UseVisualStyleBackColor = true;
-			// 
-			// speedButton5
-			// 
-			this.alMain.SetAction(this.speedButton5, this.aMoveProfileDown);
-			this.speedButton5.ImageIndex = 4;
-			this.speedButton5.ImageList = this.ilMain;
-			this.speedButton5.Location = new System.Drawing.Point(3, 100);
-			this.speedButton5.Name = "speedButton5";
-			this.speedButton5.Selectable = false;
-			this.speedButton5.Size = new System.Drawing.Size(20, 20);
-			this.speedButton5.TabIndex = 6;
-			this.speedButton5.UseVisualStyleBackColor = true;
-			// 
-			// lvServices
-			// 
-			this.lvServices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-									this.columnHeader1,
-									this.columnHeader2});
-			this.lvServices.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvServices.FullRowSelect = true;
-			this.lvServices.GridLines = true;
-			this.lvServices.HideSelection = false;
-			this.lvServices.Location = new System.Drawing.Point(3, 3);
-			this.lvServices.MultiSelect = false;
-			this.lvServices.Name = "lvServices";
-			this.lvServices.Size = new System.Drawing.Size(359, 124);
-			this.lvServices.TabIndex = 8;
-			this.lvServices.UseCompatibleStateImageBehavior = false;
-			this.lvServices.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "Name";
-			this.columnHeader1.Width = 120;
-			// 
-			// columnHeader2
-			// 
-			this.columnHeader2.Text = "Translation direction";
+			this.aMoveServiceDown.Checked = false;
+			this.aMoveServiceDown.Enabled = true;
+			this.aMoveServiceDown.Hint = "Move service down";
+			this.aMoveServiceDown.ImageIndex = 4;
+			this.aMoveServiceDown.Tag = null;
+			this.aMoveServiceDown.Text = "action1";
+			this.aMoveServiceDown.Visible = true;
+			this.aMoveServiceDown.Execute += new System.EventHandler(this.AMoveServiceDownExecute);
+			this.aMoveServiceDown.Update += new System.EventHandler(this.AMoveServiceDownUpdate);
 			// 
 			// CustomProfilesControl
 			// 
@@ -508,14 +563,18 @@ namespace Translate
 			this.tcOptions.ResumeLayout(false);
 			this.tpOptions.ResumeLayout(false);
 			this.tpServices.ResumeLayout(false);
-			this.tpDefaultOptions.ResumeLayout(false);
 			this.pServiceControl.ResumeLayout(false);
+			this.tpDefaultOptions.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
-		private FreeCL.UI.SpeedButton speedButton5;
-		private FreeCL.UI.SpeedButton speedButton4;
-		private FreeCL.UI.SpeedButton speedButton3;
-		private FreeCL.UI.SpeedButton speedButton1;
+		private FreeCL.UI.SpeedButton sbRemoveService;
+		private FreeCL.UI.SpeedButton sbEditServices;
+		private FreeCL.UI.SpeedButton sbMoveServiceUp;
+		private FreeCL.UI.SpeedButton sbMoveServiceDown;
+		private FreeCL.UI.Actions.Action aMoveServiceDown;
+		private FreeCL.UI.Actions.Action aMoveServiceUp;
+		private FreeCL.UI.Actions.Action aRemoveService;
+		private FreeCL.UI.Actions.Action aEditServices;
 		private System.Windows.Forms.Panel pServiceControl;
 		private System.Windows.Forms.ColumnHeader columnHeader2;
 		private System.Windows.Forms.ColumnHeader columnHeader1;

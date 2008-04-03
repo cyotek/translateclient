@@ -61,6 +61,31 @@ namespace Translate
 			this.languagePair = languagePair;
 		}
 		
+		public ServiceItemData(ServiceItem serviceItem, LanguagePair languagePair, string subject):base(serviceItem.FullName, subject)
+		{
+			this.languagePair = languagePair;
+			this.ServiceItem = serviceItem;
+		}
+		
+		[NonSerialized]
+		ServiceItem serviceItem;
+		[ XmlIgnore()]
+		public ServiceItem ServiceItem {
+			get { return serviceItem; }
+			set 
+			{ 
+				serviceItem = value; 
+				if(serviceItem != null)
+					Name = serviceItem.FullName;
+			}
+		}
+		
+		public void AttachToServiceItem()
+		{
+			if(serviceItem == null)
+				serviceItem = Manager.FindServiceItem(Name, languagePair, Subject);
+		}
+		
 		
 		LanguagePair languagePair;
 		public LanguagePair LanguagePair {

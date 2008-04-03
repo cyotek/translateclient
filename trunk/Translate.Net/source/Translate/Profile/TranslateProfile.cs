@@ -186,7 +186,7 @@ namespace Translate
 			int result = idxx - idxy;
 			if (result == 0) 
 			{
-				result = string.Compare(x.ServiceItem.Service.Name + x.ServiceItem.Name, y.ServiceItem.Service.Name + y.ServiceItem.Name);
+				result = string.Compare(x.ServiceItem.FullName, y.ServiceItem.FullName);
 			}
 			return result;
 		}

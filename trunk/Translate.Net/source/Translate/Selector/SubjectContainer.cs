@@ -38,44 +38,27 @@
 
 
 using System;
-using System.Collections.Generic;
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of UserTranslateProfile.
+	/// Description of SubjectContainer.
 	/// </summary>
-	public class UserTranslateProfile : TranslateProfile, ICloneable
+	public class SubjectContainer
 	{
-		public UserTranslateProfile()
+		public SubjectContainer(string subject, string text)
 		{
+			this.Subject = subject;
+			this.Text = text;
 		}
-		
-		public override object Clone()
+			
+		public string Subject;
+		public string Text;
+			
+		public override string ToString()
 		{
-			UserTranslateProfile result = new UserTranslateProfile();
-			result.Name = Name;
-			result.Position = Position;
-			result.Subjects.AddRange(Subjects);
-			result.History.AddRange(History);
-			result.SelectedLanguagePair = SelectedLanguagePair;
-			foreach(ServiceItemsSortDataCollection d in SortData)
-				result.SortData.Add(d);
-			result.TranslationDirection = TranslationDirection;	
-			return result;	
+			return Text;
 		}
-		
-		ServiceItemsDataCollection services = new ServiceItemsDataCollection();
-		public ServiceItemsDataCollection Services {
-			get { return services; }
-			set { services = value; }
-		}
-		
+			
 	}
-	
-	public class UserTranslateProfilesCollection :  List<UserTranslateProfile>
-	{
-	
-	}
-	
 }
