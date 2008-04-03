@@ -46,41 +46,19 @@ namespace Translate
 	/// <summary>
 	/// Description of TranslatorSetting.
 	/// </summary>
-	public class ServiceSetting
+	public class ServiceSetting : ServiceItemData
 	{
-		public ServiceSetting(LanguagePair languagePair, string subject, ServiceItem serviceItem, NetworkSetting networkSetting)
+		public ServiceSetting(LanguagePair languagePair, string subject, ServiceItem serviceItem, NetworkSetting networkSetting):base(serviceItem, languagePair, subject)
 		{
-			this.languagePair = languagePair;
-			this.subject = subject;
-			this.serviceItem = serviceItem;
 			this.networkSetting = networkSetting;
 		}
 		
-		ServiceItem serviceItem;
-		public ServiceItem ServiceItem {
-			get { return serviceItem; }
-			set { serviceItem = value; }
-		}
-		
-		LanguagePair languagePair;
-		public LanguagePair LanguagePair {
-			get { return languagePair; }
-			set { languagePair = value; }
-		}
 		
 		NetworkSetting networkSetting;
 		public NetworkSetting NetworkSetting {
 			get { return networkSetting; }
 			set { networkSetting = value; }
 		}
-		
-		string subject;
-		public string Subject {
-			get { return subject; }
-			set { subject = value; }
-		}
-		
-		
 	}
 	
 	

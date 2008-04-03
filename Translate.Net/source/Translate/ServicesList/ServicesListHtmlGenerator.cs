@@ -223,7 +223,7 @@ namespace Translate
 				return;
 			}
 				
-			string langNodeName = si.Service.Name + si.Name + "_langs";
+			string langNodeName = si.FullName + "_langs";
 			htmlString +=  "<br>" + GenerateTopNode(langNodeName, LangPack.TranslateString("Languages"), 0.5);
 			tableCell.InnerHtml = htmlString;
 			
@@ -259,14 +259,14 @@ namespace Translate
 				htmlString = "";
 				foreach(KeyValuePair<string, SortedDictionary<string, string>> kvp_langs in langs)	
 				{
-					string nodeName = si.Service.Name + si.Name + "_lang_" + kvp_langs.Key;
+					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
 					htmlString +=  GenerateTopNode(nodeName, kvp_langs.Key + "->", 1);
 				}
 				langsNode.InnerHtml = htmlString;
 				
 				foreach(KeyValuePair<string, SortedDictionary<string, string>> kvp_langs in langs)	
 				{
-					string nodeName = si.Service.Name + si.Name + "_lang_" + kvp_langs.Key;
+					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
 					HtmlElement node = doc.GetElementById(nodeName);	
 					htmlString = "";
 					foreach(KeyValuePair<string, string> kvp_to_langs in kvp_langs.Value)

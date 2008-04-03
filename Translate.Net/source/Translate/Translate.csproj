@@ -66,6 +66,10 @@
     <Compile Include="Options\CustomProfilesControl.Designer.cs">
       <DependentUpon>CustomProfilesControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\CustomProfileServicesForm.cs" />
+    <Compile Include="Options\CustomProfileServicesForm.Designer.cs">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\FontSelectionControl.cs" />
     <Compile Include="Options\FontSelectionControl.Designer.cs">
       <DependentUpon>FontSelectionControl.cs</DependentUpon>
@@ -89,6 +93,10 @@
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\ResultWindowOptions.cs" />
+    <Compile Include="Options\ServicesListView.cs" />
+    <Compile Include="Options\ServicesListView.Designer.cs">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\SetProfileNameForm.cs" />
     <Compile Include="Options\SetProfileNameForm.Designer.cs">
       <DependentUpon>SetProfileNameForm.cs</DependentUpon>
@@ -122,6 +130,7 @@
     <Compile Include="Selector\ServiceStatusControl.Designer.cs">
       <DependentUpon>ServiceStatusControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Selector\SubjectContainer.cs" />
     <Compile Include="ServicesList\ServicesListHtmlGenerator.cs" />
     <Compile Include="TranslateMainForm.cs" />
     <Compile Include="TranslateMainForm.Designer.cs">
@@ -151,6 +160,9 @@
     <EmbeddedResource Include="Options\CustomProfilesControl.resx">
       <DependentUpon>CustomProfilesControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomProfileServicesForm.resx">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Options\FontSelectionControl.resx">
       <DependentUpon>FontSelectionControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
       <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ServicesListView.resx">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\SetProfileNameForm.resx">
       <DependentUpon>SetProfileNameForm.cs</DependentUpon>

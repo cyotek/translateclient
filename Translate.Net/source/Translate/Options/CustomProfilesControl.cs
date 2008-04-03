@@ -76,6 +76,11 @@ namespace Translate
 			bChangeName.Text = TranslateString("Change profile name");
 			lLangPair.Text  = TranslateString("Translation direction");
 			
+			aEditServices.Hint = TranslateString("Edit services");
+			aRemoveService.Hint = TranslateString("Remove service");
+			aMoveServiceUp.Hint = TranslateString("Move service up");
+			aMoveServiceDown.Hint = TranslateString("Move service down");
+			
 			foreach(ListViewItem lvi in lvProfiles.Items)
 			{
 				if(lvi.Tag == defaultProfile)
@@ -432,6 +437,42 @@ namespace Translate
 					 " -> " + 
 					 LangPack.TranslateLanguage(pf.TranslationDirection.To)
 					);
+			
+		}
+		
+		void AEditServicesExecute(object sender, EventArgs e)
+		{
+			CustomProfileServicesForm form = new CustomProfileServicesForm();
+			form.ShowDialog(this);
+		}
+		
+		void ARemoveServiceUpdate(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void ARemoveServiceExecute(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void AMoveServiceUpExecute(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void AMoveServiceUpUpdate(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void AMoveServiceDownExecute(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void AMoveServiceDownUpdate(object sender, EventArgs e)
+		{
 			
 		}
 	}
