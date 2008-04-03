@@ -71,6 +71,34 @@ namespace Translate
 			get { return langpair_serviceItems; }
 		}
 		
+		public static ServiceItem FindServiceItem(string serviceItemName, LanguagePair languagePair, string subject)
+		{
+			ServiceItemsCollection list;
+			if(!langpair_serviceItems.TryGetValue(languagePair, out list))
+				throw new ArgumentException("LanguagePair : " + languagePair.ToString() + " not supported", "languagePair");
+			
+			ServiceItem result = null;
+			foreach(ServiceItem si in list)
+			{
+				if(si.FullName == serviceItemName)
+				{
+					result = si;
+					break;
+				}
+			}
+				
+			if(result == null)	
+				throw new ArgumentException("serviceItemName : " + serviceItemName + " not supported", "serviceItemName");
+				
+			foreach(string s in result.SupportedSubjects)
+			{
+				if(s == subject)
+					return result;
+			}
+			
+			throw new ArgumentException("Subject : " + subject + " not supported", "subject");
+		}
+		
 		static TranslatorsCollection translators = new TranslatorsCollection();
 		public static ReadOnlyTranslatorsCollection Translators {
 			get { return new ReadOnlyTranslatorsCollection(translators); }
