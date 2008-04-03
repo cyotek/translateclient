@@ -63,6 +63,17 @@ namespace Translate
 			set { name = value; }
 		}
 		
+		public string FullName
+		{
+			get
+			{
+				if(service != null)
+					return service.Name + Name;
+				else
+					return Name;
+			}
+		}
+		
 		int wordsCount = -1;
 		public int WordsCount {
 			get { return wordsCount; }
