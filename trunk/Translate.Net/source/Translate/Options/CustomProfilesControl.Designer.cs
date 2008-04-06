@@ -75,6 +75,7 @@ namespace Translate
 			this.lvProfiles = new System.Windows.Forms.ListView();
 			this.chName = new System.Windows.Forms.ColumnHeader();
 			this.chDirection = new System.Windows.Forms.ColumnHeader();
+			this.chSubject = new System.Windows.Forms.ColumnHeader();
 			this.pProfilesControl = new System.Windows.Forms.Panel();
 			this.speedButton2 = new FreeCL.UI.SpeedButton();
 			this.ilMain = new System.Windows.Forms.ImageList(this.components);
@@ -83,6 +84,8 @@ namespace Translate
 			this.sbServiceDown = new FreeCL.UI.SpeedButton();
 			this.tcOptions = new System.Windows.Forms.TabControl();
 			this.tpOptions = new System.Windows.Forms.TabPage();
+			this.cbSubject = new System.Windows.Forms.ComboBox();
+			this.lSubject = new System.Windows.Forms.Label();
 			this.cbTo = new System.Windows.Forms.ComboBox();
 			this.cbFrom = new System.Windows.Forms.ComboBox();
 			this.lLangPair = new System.Windows.Forms.Label();
@@ -90,9 +93,7 @@ namespace Translate
 			this.lProfileName = new System.Windows.Forms.Label();
 			this.lName = new System.Windows.Forms.Label();
 			this.tpServices = new System.Windows.Forms.TabPage();
-			this.lvServices = new System.Windows.Forms.ListView();
-			this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-			this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
+			this.lvServices = new Translate.ServicesListView();
 			this.pServiceControl = new System.Windows.Forms.Panel();
 			this.sbRemoveService = new FreeCL.UI.SpeedButton();
 			this.sbEditServices = new FreeCL.UI.SpeedButton();
@@ -143,7 +144,8 @@ namespace Translate
 			// 
 			this.lvProfiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.chName,
-									this.chDirection});
+									this.chDirection,
+									this.chSubject});
 			this.lvProfiles.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lvProfiles.FullRowSelect = true;
 			this.lvProfiles.GridLines = true;
@@ -165,6 +167,10 @@ namespace Translate
 			// chDirection
 			// 
 			this.chDirection.Text = "Translation direction";
+			// 
+			// chSubject
+			// 
+			this.chSubject.Text = "Subject";
 			// 
 			// pProfilesControl
 			// 
@@ -250,6 +256,8 @@ namespace Translate
 			// 
 			// tpOptions
 			// 
+			this.tpOptions.Controls.Add(this.cbSubject);
+			this.tpOptions.Controls.Add(this.lSubject);
 			this.tpOptions.Controls.Add(this.cbTo);
 			this.tpOptions.Controls.Add(this.cbFrom);
 			this.tpOptions.Controls.Add(this.lLangPair);
@@ -263,6 +271,27 @@ namespace Translate
 			this.tpOptions.TabIndex = 0;
 			this.tpOptions.Text = "Options";
 			this.tpOptions.UseVisualStyleBackColor = true;
+			// 
+			// cbSubject
+			// 
+			this.cbSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbSubject.FormattingEnabled = true;
+			this.cbSubject.Location = new System.Drawing.Point(159, 70);
+			this.cbSubject.Name = "cbSubject";
+			this.cbSubject.Size = new System.Drawing.Size(110, 21);
+			this.cbSubject.Sorted = true;
+			this.cbSubject.TabIndex = 12;
+			this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.CbSubjectSelectedIndexChanged);
+			// 
+			// lSubject
+			// 
+			this.lSubject.Location = new System.Drawing.Point(7, 68);
+			this.lSubject.Name = "lSubject";
+			this.lSubject.Size = new System.Drawing.Size(83, 23);
+			this.lSubject.TabIndex = 11;
+			this.lSubject.Text = "Subject";
+			this.lSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbTo
 			// 
@@ -338,29 +367,12 @@ namespace Translate
 			// 
 			// lvServices
 			// 
-			this.lvServices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-									this.columnHeader1,
-									this.columnHeader2});
 			this.lvServices.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvServices.FullRowSelect = true;
-			this.lvServices.GridLines = true;
-			this.lvServices.HideSelection = false;
 			this.lvServices.Location = new System.Drawing.Point(3, 3);
-			this.lvServices.MultiSelect = false;
 			this.lvServices.Name = "lvServices";
 			this.lvServices.Size = new System.Drawing.Size(359, 124);
+			this.lvServices.Sorted = false;
 			this.lvServices.TabIndex = 8;
-			this.lvServices.UseCompatibleStateImageBehavior = false;
-			this.lvServices.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.Text = "Name";
-			this.columnHeader1.Width = 120;
-			// 
-			// columnHeader2
-			// 
-			this.columnHeader2.Text = "Translation direction";
 			// 
 			// pServiceControl
 			// 
@@ -428,7 +440,7 @@ namespace Translate
 			this.tpDefaultOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpDefaultOptions.Name = "tpDefaultOptions";
 			this.tpDefaultOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpDefaultOptions.Size = new System.Drawing.Size(391, 130);
+			this.tpDefaultOptions.Size = new System.Drawing.Size(371, 130);
 			this.tpDefaultOptions.TabIndex = 2;
 			this.tpDefaultOptions.Text = "Options";
 			this.tpDefaultOptions.UseVisualStyleBackColor = true;
@@ -567,6 +579,9 @@ namespace Translate
 			this.tpDefaultOptions.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label lSubject;
+		private System.Windows.Forms.ComboBox cbSubject;
+		private System.Windows.Forms.ColumnHeader chSubject;
 		private FreeCL.UI.SpeedButton sbRemoveService;
 		private FreeCL.UI.SpeedButton sbEditServices;
 		private FreeCL.UI.SpeedButton sbMoveServiceUp;
@@ -576,9 +591,7 @@ namespace Translate
 		private FreeCL.UI.Actions.Action aRemoveService;
 		private FreeCL.UI.Actions.Action aEditServices;
 		private System.Windows.Forms.Panel pServiceControl;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
-		private System.Windows.Forms.ListView lvServices;
+		private Translate.ServicesListView lvServices;
 		private System.Windows.Forms.ColumnHeader chDirection;
 		private System.Windows.Forms.ComboBox cbFrom;
 		private System.Windows.Forms.ComboBox cbTo;

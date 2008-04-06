@@ -36,7 +36,7 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
-namespace Translate.Options
+namespace Translate
 {
 	partial class ServicesListView
 	{
@@ -66,11 +66,13 @@ namespace Translate.Options
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			this.lvMain = new System.Windows.Forms.ListView();
 			this.chName = new System.Windows.Forms.ColumnHeader();
 			this.chType = new System.Windows.Forms.ColumnHeader();
 			this.chLanguagePair = new System.Windows.Forms.ColumnHeader();
 			this.chSubject = new System.Windows.Forms.ColumnHeader();
+			this.tDeselectAll = new System.Windows.Forms.Timer(this.components);
 			this.SuspendLayout();
 			// 
 			// lvMain
@@ -89,9 +91,11 @@ namespace Translate.Options
 			this.lvMain.Name = "lvMain";
 			this.lvMain.ShowItemToolTips = true;
 			this.lvMain.Size = new System.Drawing.Size(150, 150);
+			this.lvMain.Sorting = System.Windows.Forms.SortOrder.Ascending;
 			this.lvMain.TabIndex = 0;
 			this.lvMain.UseCompatibleStateImageBehavior = false;
 			this.lvMain.View = System.Windows.Forms.View.Details;
+			this.lvMain.SelectedIndexChanged += new System.EventHandler(this.LvMainSelectedIndexChanged);
 			// 
 			// chName
 			// 
@@ -109,6 +113,11 @@ namespace Translate.Options
 			// 
 			this.chSubject.Text = "Subject";
 			// 
+			// tDeselectAll
+			// 
+			this.tDeselectAll.Interval = 1000;
+			this.tDeselectAll.Tick += new System.EventHandler(this.TDeselectAllTick);
+			// 
 			// ServicesListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -117,6 +126,7 @@ namespace Translate.Options
 			this.Name = "ServicesListView";
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Timer tDeselectAll;
 		private System.Windows.Forms.ColumnHeader chSubject;
 		private System.Windows.Forms.ColumnHeader chLanguagePair;
 		private System.Windows.Forms.ColumnHeader chType;

@@ -68,7 +68,6 @@ namespace Translate
 			result.SelectedLanguagePair = SelectedLanguagePair;
 			foreach(ServiceItemsSortDataCollection d in SortData)
 				result.SortData.Add(d);
-			result.TranslationDirection = TranslationDirection;	
 			return result;	
 		}
 		
@@ -84,13 +83,6 @@ namespace Translate
 			get { return position; }
 			set { position = value; }
 		}
-		
-		LanguagePair translationDirection = new LanguagePair();
-		public LanguagePair TranslationDirection {
-			get { return translationDirection; }
-			set { translationDirection = value; }
-		}
-		
 		
 		[NonSerialized]
 		SubjectCollection subjects = new SubjectCollection();

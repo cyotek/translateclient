@@ -202,6 +202,7 @@ namespace Translate
 			profiles.Add(defaultProfile);
 			foreach(UserTranslateProfile pf in userProfiles)
 			{
+				pf.AfterLoad();
 				if(pf.Position < profiles.Count)
 					profiles.Insert(pf.Position, pf);	
 				else

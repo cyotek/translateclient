@@ -39,6 +39,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Translate
 {
@@ -62,6 +63,11 @@ namespace Translate
 			foreach(ServiceItemsSortDataCollection d in SortData)
 				result.SortData.Add(d);
 			result.TranslationDirection = TranslationDirection;	
+			result.Subject = Subject;
+			
+			foreach(ServiceItemData sid in services)
+				result.Services.Add(sid);
+			
 			return result;	
 		}
 		
@@ -71,6 +77,44 @@ namespace Translate
 			set { services = value; }
 		}
 		
+		LanguagePair translationDirection = new LanguagePair();
+		public LanguagePair TranslationDirection {
+			get { return translationDirection; }
+			set { translationDirection = value; }
+		}
+
+		string subject = SubjectConstants.Any;
+		[System.ComponentModel.DefaultValueAttribute(SubjectConstants.Any)]
+		public string Subject {
+			get { return subject; }
+			set { subject = value; }
+		}
+		
+		
+		public void AfterLoad()
+		{
+			ServiceItemsDataCollection sids_to_delete = new ServiceItemsDataCollection();
+			foreach(ServiceItemData sid in services)
+			{
+				try
+				{
+					sid.AttachToServiceItem();
+				}
+				catch(Exception e)
+				{
+					MessageBox.Show("Service not found with error : " + 
+							e.Message + System.Environment.NewLine +
+							"Service will be deleted from profile.",
+						"Error on loading services in profile : " + Name,  
+						MessageBoxButtons.OK, 
+						MessageBoxIcon.Error);
+					sids_to_delete.Add(sid);	
+				}
+			}
+			
+			foreach(ServiceItemData sid in sids_to_delete)
+				services.Remove(sid);
+		}
 	}
 	
 	public class UserTranslateProfilesCollection :  List<UserTranslateProfile>
