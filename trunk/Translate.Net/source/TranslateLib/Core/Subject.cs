@@ -46,6 +46,7 @@ namespace Translate
 {
 	public static class SubjectConstants
 	{
+		public const string Any = "Any";
 		public const string Common = "Common";
 		public const string Aviation = "Aviation";
 		public const string Auto = "Auto";
