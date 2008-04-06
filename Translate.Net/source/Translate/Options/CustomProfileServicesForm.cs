@@ -49,11 +49,17 @@ namespace Translate
 	/// </summary>
 	public partial class CustomProfileServicesForm : FreeCL.Forms.BaseForm
 	{
-		public CustomProfileServicesForm()
+		public CustomProfileServicesForm(UserTranslateProfile profile)
 		{
 			InitializeComponent();
 			
 			RegisterLanguageEvent(OnLanguageChanged);
+
+			this.profile = profile;
+			ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+			foreach(ServiceItemData sid in profile.Services)
+				services.Add(sid);	
+			lvCurrent.Services = services;	
 			
 			cbFrom.Items.Clear();
 			cbTo.Items.Clear();
@@ -83,24 +89,58 @@ namespace Translate
 				}
 			}
 			
-			foreach(object o in cbSubject.Items)
+			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, "+" + LangPack.TranslateString(SubjectConstants.Any));
+			cbSubject.Items.Add(sc1);
+			
+			cbSubject.SelectedIndex = 0;
+			
+			for(int i = 0; i < cbFrom.Items.Count; i++)
 			{
-				SubjectContainer sc = o as SubjectContainer;
-				if(sc.Subject == SubjectConstants.Common)
+				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
+					
+				if(ld.Language == profile.TranslationDirection.From)
+					cbFrom.SelectedItem = ld;
+	
+				if(ld.Language == profile.TranslationDirection.To)
+					cbTo.SelectedItem = ld;
+			}
+				
+			for(int i = 0; i < cbSubject.Items.Count; i++)
+			{
+				SubjectContainer sc  = cbSubject.Items[i] as SubjectContainer;
+				if(profile.Subject == sc.Subject)
 				{
 					cbSubject.SelectedItem = sc;
 					break;
-				}	
+				}
 			}
+			
 			
 			initialized = true;
 			CbFromSelectedIndexChanged(null, new EventArgs());
+			
+			serviceStatusSource.Visible = false;
+			serviceStatusCurrent.Visible = false;
+			
 		}
 		
 		void OnLanguageChanged()
 		{
 			Text = TranslateString("Edit services");
 			lLangPair.Text  = TranslateString("Translation direction");
+			lSubject.Text  = TranslateString("Subject");
+			
+			aRemoveService.Hint = TranslateString("Remove service");
+			aMoveServiceUp.Hint = TranslateString("Move service up");
+			aMoveServiceDown.Hint = TranslateString("Move service down");
+			aAddSelected.Hint = TranslateString("Add selected service");
+			aAddAll.Hint = TranslateString("Add all services");
+			aClearAll.Hint = TranslateString("Remove all services");
+			
+			gbFilter.Text  = TranslateString("Services filter");
+			gbSource.Text  = TranslateString("Exists services");
+			gbCurrent.Text  = TranslateString("Selected services");
+			
 		}		
 		
 		void CustomProfileServicesFormSizeChanged(object sender, EventArgs e)
@@ -111,43 +151,204 @@ namespace Translate
 		bool initialized;
 		void LoadSources()
 		{
-			lvSource.Services = null;
-			
-			ServiceItemsDataCollection services = new ServiceItemsDataCollection();
-			
-			Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
-			Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
-			LanguagePair languagePair = new LanguagePair(from, to);
-			string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
-			
-			
-			foreach (KeyValuePair<LanguagePair, ServiceItemsCollection> kvp in Manager.LanguagePairServiceItems)
+			UseWaitCursor = true;
+			Application.DoEvents();
+			LockUpdate(true);
+			try
 			{
-				if( 
-					(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
-					(kvp.Key.To == languagePair.To || languagePair.To == Language.Any)
-				  )
-				{				
-					foreach(ServiceItem si in kvp.Value)
-					{
-						if(si.SupportedSubjects.Contains(subject))
+				lvSource.Services = null;
+				
+				ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+				
+				Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
+				Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
+				LanguagePair languagePair = new LanguagePair(from, to);
+				string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+				
+				
+				foreach (KeyValuePair<LanguagePair, ServiceItemsCollection> kvp in Manager.LanguagePairServiceItems)
+				{
+					if( 
+						(kvp.Key.From == languagePair.From || languagePair.From == Language.Any) &&
+						(kvp.Key.To == languagePair.To || languagePair.To == Language.Any)
+					  )
+					{				
+						foreach(ServiceItem si in kvp.Value)
 						{
-							ServiceItemData sid = new ServiceItemData(si, kvp.Key, subject);
-							services.Add(sid);
+							if(subject != SubjectConstants.Any)
+							{
+								if(si.SupportedSubjects.Contains(subject))
+								{
+									ServiceItemData sid = new ServiceItemData(si, kvp.Key, subject);
+									if(!profile.Services.Contains(sid))
+										services.Add(sid);
+								}
+							}
+							else
+							{
+								foreach(string siSubject in si.SupportedSubjects)
+								{
+									ServiceItemData sid = new ServiceItemData(si, kvp.Key, siSubject);
+									if(!profile.Services.Contains(sid))
+										services.Add(sid);
+								}
+							}
 						}
 					}
 				}
+				lvSource.Services = services;
 			}
-			lvSource.Services = services;
+			finally
+			{
+				UseWaitCursor = false;
+				LockUpdate(false);
+			}	
 		}
-		
 		
 		void CbFromSelectedIndexChanged(object sender, EventArgs e)
 		{
 			if(!initialized)
 				return;
-				
+			
 			LoadSources();	
 		}
+		
+		void ShowStatus(ServiceItemData serviceItemData, ServiceStatusControl statusControl)		
+		{
+			if(serviceItemData == null)
+			{
+				statusControl.Visible = false;
+			}
+			else
+			{
+				statusControl.Visible = true;
+				statusControl.ShowLanguage = true;
+				ServiceSettingsContainer sc = new ServiceSettingsContainer(
+					new ServiceSetting(serviceItemData.LanguagePair, 
+										serviceItemData.Subject, serviceItemData.ServiceItem,
+										null),
+					true);
+				statusControl.Status = sc;
+			}
+		}
+		void LvSourceServiceItemChangedEvent(object sender, ServiceItemChangedEventArgs e)
+		{
+			ShowStatus(e.ServiceItemData, serviceStatusSource);			
+		}
+		
+		void LvCurrentServiceItemChangedEvent(object sender, ServiceItemChangedEventArgs e)
+		{
+			ShowStatus(e.ServiceItemData, serviceStatusCurrent);
+		}
+		
+		UserTranslateProfile profile;
+		public UserTranslateProfile Profile {
+			get { return profile; }
+			set { 
+					profile = value; 
+					//lvCurrent.Services = profile.Services;
+				}
+		}
+		
+		void AAddSelectedExecute(object sender, EventArgs e)
+		{
+			ServiceItemsDataCollection services = lvCurrent.Services;
+			services.Add(lvSource.Selected);
+			lvCurrent.Services = services;
+			lvSource.RemoveSelected();
+		}
+		
+		void AAddAllExecute(object sender, EventArgs e)
+		{
+			ServiceItemsDataCollection services = lvCurrent.Services;
+			foreach(ServiceItemData sid in lvSource.Services)
+					services.Add(sid);
+			lvCurrent.Services = services;
+			lvSource.RemoveAll();
+		}
+		
+		void AAddSelectedUpdate(object sender, EventArgs e)
+		{
+			aAddAll.Enabled = lvSource.Services.Count > 0;
+			aAddSelected.Enabled = aAddAll.Enabled;
+		}
+
+		void ARemoveServiceUpdate(object sender, EventArgs e)
+		{
+			aRemoveService.Enabled = lvCurrent.Selected != null;	
+		}
+		
+		void ARemoveServiceExecute(object sender, EventArgs e)
+		{
+			Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
+			Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
+			LanguagePair languagePair = new LanguagePair(from, to);
+			string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+		
+			if(lvCurrent.Selected.LanguagePair == languagePair &&
+				(lvCurrent.Selected.Subject == subject || subject == SubjectConstants.Any)
+			)
+			{
+				ServiceItemsDataCollection services = lvSource.Services;
+				services.Add(lvCurrent.Selected);
+				lvSource.Services = services;
+			}
+			
+			lvCurrent.RemoveSelected();
+		}
+		
+		void AClearAllUpdate(object sender, EventArgs e)
+		{
+			aClearAll.Enabled = lvCurrent.Selected != null;	
+		}
+		
+		void AClearAllExecute(object sender, EventArgs e)
+		{
+			Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
+			Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
+			LanguagePair languagePair = new LanguagePair(from, to);
+			string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+		
+			ServiceItemsDataCollection services = lvSource.Services;
+			foreach(ServiceItemData sid in lvCurrent.Services)
+			{
+				if(sid.LanguagePair == languagePair &&
+					(sid.Subject == subject || subject == SubjectConstants.Any)
+				)
+					services.Add(sid);
+			}
+			lvSource.Services = services;
+		
+			lvCurrent.RemoveAll();
+		}
+		
+		void AMoveServiceUpExecute(object sender, EventArgs e)
+		{
+			lvCurrent.MoveUp();
+		}
+		
+		void AMoveServiceUpUpdate(object sender, EventArgs e)
+		{
+			aMoveServiceUp.Enabled = lvCurrent.CanMoveUp;
+		}
+		
+		void AMoveServiceDownExecute(object sender, EventArgs e)
+		{
+			lvCurrent.MoveDown();
+		}
+		
+		void AMoveServiceDownUpdate(object sender, EventArgs e)
+		{
+			aMoveServiceDown.Enabled = lvCurrent.CanMoveDown;
+		}
+		
+		void BOkClick(object sender, EventArgs e)
+		{
+			ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+			foreach(ServiceItemData sid in lvCurrent.Services)
+				services.Add(sid);	
+			profile.Services = services;	
+		}
+		
 	}
 }

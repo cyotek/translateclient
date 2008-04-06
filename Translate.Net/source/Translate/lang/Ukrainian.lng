@@ -210,6 +210,18 @@ HTTP-проксі
 Редагувати сервіси
 [Remove service]
 Видалити сервіс
+[Add selected service]
+Додати вибраний сервіс
+[Add all services]
+Додати усі сервіси 
+[Remove all services]
+Видалити усі сервіси
+[Services filter]
+Фільтр сервісів
+[Exists services]
+Існуючі сервіси
+[Selected services]
+Вибрані сервіси
 [Name :]
 Назва :
 [Size :]

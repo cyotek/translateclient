@@ -95,6 +95,12 @@ namespace Translate
 			}
 		}
 		
+		bool shortView;
+		public bool ShortView {
+			get { return shortView; }
+			set { shortView = value; }
+		}
+		
 		void LoadStatus()
 		{
 			Clear();
@@ -119,36 +125,60 @@ namespace Translate
 					HttpUtility.HtmlEncode(LangPack.TranslateString(status.Setting.ServiceItem.Service.FullName)));
 			
 			htmlString += "<br><b>" + LangPack.TranslateString("Type") + "</b> : " + status.Type;
-			if(status.Setting.Subject != SubjectConstants.Common)
-				htmlString+= "<br>" + "<b>" + LangPack.TranslateString("Subject") + "</b> : " + LangPack.TranslateString(status.Setting.Subject);
-			if(showLanguage)
-			{
-				htmlString+= "<br>" + LangPack.TranslateLanguage(status.Setting.LanguagePair.From) +
-						"->" + 
-						LangPack.TranslateLanguage(status.Setting.LanguagePair.To);
 			
-			}
-			
-			if(status.DisabledByUser)
+			if(!shortView)
 			{
-				htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Disabled");
-				htmlString+= string.Format("<br><button id=\"btn\" type=\"button\"  align=\"top\" style=\"{0}\">{1}</button>", 
-					HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Enable"));
-			}
-			else if(status.Enabled)
-			{
-				htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Enabled");
-				htmlString+= string.Format("<br><button id=\"btn\" type=\"button\" align=\"top\" style=\"{0}\">{1}</button>", 
-					HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Disable"));
-				
-			}
+				if(status.Setting.Subject != SubjectConstants.Common)
+					htmlString+= "<br>" + "<b>" + LangPack.TranslateString("Subject") + "</b> : " + LangPack.TranslateString(status.Setting.Subject);
+			}	
 			else
 			{
-				htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Error");
-				htmlString+= " - " + string.Format("<span style=\"" + HtmlHelper.ErrorTextStyle + "\">{0}</span>",  status.Error);
-				htmlString+= string.Format("<br><button id=\"btn\" type=\"button\" align=\"top\" style=\"{0}\">{1}</button>", 
-					HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Disable"));
+				htmlString+= ", " + "<b>" + LangPack.TranslateString("Subject") + "</b> : " + LangPack.TranslateString(status.Setting.Subject);
 			}
+			
+			if(showLanguage)
+			{
+				if(!shortView)
+				{
+					htmlString+= "<br>" + LangPack.TranslateLanguage(status.Setting.LanguagePair.From) +
+							"->" + 
+							LangPack.TranslateLanguage(status.Setting.LanguagePair.To);
+				}		
+				else
+				{
+					htmlString+= "<br><b>" + LangPack.TranslateString("Translation direction") + 
+							"</b> : " +
+							LangPack.TranslateLanguage(status.Setting.LanguagePair.From) +
+							"->" + 
+							LangPack.TranslateLanguage(status.Setting.LanguagePair.To);
+				
+				}
+			
+			}
+			
+			if(!shortView)
+			{
+				if(status.DisabledByUser)
+				{
+					htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Disabled");
+					htmlString+= string.Format("<br><button id=\"btn\" type=\"button\"  align=\"top\" style=\"{0}\">{1}</button>", 
+						HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Enable"));
+				}
+				else if(status.Enabled)
+				{
+					htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Enabled");
+					htmlString+= string.Format("<br><button id=\"btn\" type=\"button\" align=\"top\" style=\"{0}\">{1}</button>", 
+						HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Disable"));
+					
+				}
+				else
+				{
+					htmlString+= "<br>" + LangPack.TranslateString("<b>Status</b> : Error");
+					htmlString+= " - " + string.Format("<span style=\"" + HtmlHelper.ErrorTextStyle + "\">{0}</span>",  status.Error);
+					htmlString+= string.Format("<br><button id=\"btn\" type=\"button\" align=\"top\" style=\"{0}\">{1}</button>", 
+						HtmlHelper.ButtonTextStyle, LangPack.TranslateString("Disable"));
+				}
+			}	
 			
 			if(status.Setting.ServiceItem.CharsLimit != -1)
 			{

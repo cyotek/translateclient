@@ -42,7 +42,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Translate.Options
+namespace Translate
 {
 	/// <summary>
 	/// Description of ServicesListView.
@@ -79,6 +79,12 @@ namespace Translate.Options
 				services = value; 
 				LoadServices();
 			}
+		}
+		
+		public bool Sorted
+		{
+			get{ return lvMain.Sorting == SortOrder.Ascending;}
+			set{lvMain.Sorting = value ? SortOrder.Ascending : SortOrder.None;}
 		}
 		
 		class ServiceItemDataContainer
@@ -136,30 +142,48 @@ namespace Translate.Options
 		
 		void LoadServices()
 		{
-			lvMain.Items.Clear();
-			if(services == null)
-				return;
-			foreach(ServiceItemData sd in services)
+			SuspendLayout();
+			try
 			{
-				ServiceItemDataContainer sid = new ServiceItemDataContainer(sd);
-				ListViewItem lvi = new ListViewItem();
-				lvi.Text = sid.Name;
-				lvi.Tag = sid;
-				lvi.SubItems.Add(sid.Type);
-				lvi.SubItems.Add(sid.LanguagePair);
-				lvi.SubItems.Add(sid.Subject);
-				lvi.ToolTipText = sid.Name;
-				lvMain.Items.Add(lvi);
+				lvMain.Items.Clear();
+				if(services == null)
+					return;
+				foreach(ServiceItemData sd in services)
+				{
+					ServiceItemDataContainer sid = new ServiceItemDataContainer(sd);
+					ListViewItem lvi = new ListViewItem();
+					lvi.Text = sid.Name;
+					lvi.Tag = sid;
+					lvi.SubItems.Add(sid.Type);
+					lvi.SubItems.Add(sid.LanguagePair);
+					lvi.SubItems.Add(sid.Subject);
+					lvi.ToolTipText = sid.Name;
+					lvMain.Items.Add(lvi);
+				}
+				lvMain.Focus();
+				if(lvMain.Items.Count > 0)
+				{
+					lvMain.Items[0].Selected = true;
+					lvMain.Items[0].Focused = true;
+				}
+				else
+				{
+					if(ServiceItemChangedEvent != null)
+						ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+				}
+				
+				//LvProfilesSelectedIndexChanged(lvMain, new EventArgs());
+				chName.Width = 200;
+				chType.Width = -1;
+				chLanguagePair.Width = 150;						
+				chSubject.Width = -2;
 			}
-			lvMain.Focus();
-			lvMain.Items[0].Selected = true;
-			lvMain.Items[0].Focused = true;
+			finally
+			{
+				ResumeLayout();
+			}	
+
 			
-			//LvProfilesSelectedIndexChanged(lvMain, new EventArgs());
-			chName.Width = 150;
-			chSubject.Width = -1;
-			chType.Width = -1;
-			chLanguagePair.Width = -1;
 		}
 		
 		public ServiceItemData Selected
@@ -177,5 +201,140 @@ namespace Translate.Options
 			}
 			
 		}
+		
+		public event EventHandler<ServiceItemChangedEventArgs> ServiceItemChangedEvent;
+
+		void LvMainSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if(ServiceItemChangedEvent != null)
+			{
+				if(lvMain.SelectedItems.Count == 0)
+					tDeselectAll.Enabled = true;
+				else	
+				{
+					ServiceItemDataContainer sidc = lvMain.SelectedItems[0].Tag as ServiceItemDataContainer;
+				
+					if(sidc == null)
+						tDeselectAll.Enabled = true;
+					else	
+					{
+						tDeselectAll.Enabled = false;
+						ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(sidc.ServiceItemData));
+					}	
+				}
+			}
+		}
+		
+		public void RemoveSelected()
+		{
+			if(lvMain.SelectedItems.Count == 0)
+				return;
+				
+			ServiceItemDataContainer sidc = lvMain.SelectedItems[0].Tag as ServiceItemDataContainer;
+			
+			if(sidc == null)
+				return;
+				
+			ListViewItem lvi = lvMain.SelectedItems[0];
+			lvi.Selected = false;
+			lvi.Focused = false;
+			
+			services.Remove(sidc.ServiceItemData);
+			lvMain.Items.Remove(lvi);
+			
+			if(lvMain.Items.Count > 0)
+			{
+				lvMain.Items[0].Selected = true;
+				lvMain.Items[0].Focused = true;
+			}
+			else
+			{
+				if(ServiceItemChangedEvent != null)			
+					ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+			}	
+		}
+		
+		public void RemoveAll()
+		{
+			services.Clear();
+			lvMain.Items.Clear();
+			if(ServiceItemChangedEvent != null)
+				ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+		}
+		
+		public bool CanMoveUp
+		{
+			get
+			{
+				return lvMain.SelectedItems.Count > 0 && lvMain.SelectedIndices[0] != 0;
+			}
+		}
+		
+		public void MoveUp()
+		{
+			if(!CanMoveUp)
+				return;
+				
+			ListViewItem lvi = lvMain.SelectedItems[0];	
+			lvi.Selected = false;
+			lvi.Focused = false;
+			int idx = lvi.Index;
+			lvMain.Items.RemoveAt(idx);
+			lvMain.Items.Insert(idx - 1, lvi);
+			lvi.Selected = true;
+			lvi.Focused = true;
+			ServiceItemDataContainer sidc = lvi.Tag as ServiceItemDataContainer;
+			services.RemoveAt(idx);
+			services.Insert(idx - 1, sidc.ServiceItemData);
+		}
+		
+		public bool CanMoveDown
+		{
+			get
+			{
+				return lvMain.SelectedItems.Count > 0 && lvMain.SelectedIndices[0] != lvMain.Items.Count - 1;
+			}
+		}
+		
+		public void MoveDown()
+		{
+			if(!CanMoveDown)
+				return;
+				
+			ListViewItem lvi = lvMain.SelectedItems[0];	
+			lvi.Selected = false;
+			lvi.Focused = false;
+			int idx = lvi.Index;
+			lvMain.Items.RemoveAt(idx);
+			lvMain.Items.Insert(idx + 1, lvi);
+			lvi.Selected = true;
+			lvi.Focused = true;
+			ServiceItemDataContainer sidc = lvi.Tag as ServiceItemDataContainer;
+			services.RemoveAt(idx);
+			services.Insert(idx + 1, sidc.ServiceItemData);
+		}
+		
+		void TDeselectAllTick(object sender, EventArgs e)
+		{
+			if(ServiceItemChangedEvent != null)
+				ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+			tDeselectAll.Enabled = false;
+		}
 	}
+	
+	public class ServiceItemChangedEventArgs : EventArgs
+	{
+		public ServiceItemChangedEventArgs(ServiceItemData serviceItemData)
+		{
+			this.serviceItemData = serviceItemData;
+		}
+		
+		ServiceItemData serviceItemData;
+		public ServiceItemData ServiceItemData {
+			get { return serviceItemData; }
+			set { serviceItemData = value; }
+		}
+		
+	}
+
 }

@@ -45,6 +45,7 @@ using FreeCL.Forms;
 using System.Net;
 using System.Globalization;
 using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
 
 namespace Translate
 {
@@ -66,6 +67,7 @@ namespace Translate
 			aMoveProfileDown.Hint = TranslateString("Move profile down");
 			chName.Text  = TranslateString("Name");
 			chDirection.Text  = TranslateString("Translation direction");
+			chSubject.Text  = TranslateString("Subject");
 			lName.Text  = TranslateString("Name");
 			cbIncludeMonolingualDictionaryInTranslation.Text = TranslateString("Include monolingual dictionaries in translation");
 			aAddProfile.Hint = TranslateString("Add new user profile");
@@ -75,6 +77,7 @@ namespace Translate
 			tpServices.Text = TranslateString("Services");
 			bChangeName.Text = TranslateString("Change profile name");
 			lLangPair.Text  = TranslateString("Translation direction");
+			lSubject.Text  = TranslateString("Subject");
 			
 			aEditServices.Hint = TranslateString("Edit services");
 			aRemoveService.Hint = TranslateString("Remove service");
@@ -87,12 +90,18 @@ namespace Translate
 				{
 					lvi.Text = TranslateString(TranslateOptions.Instance.DefaultProfile.Name);
 				}	
-				
-				TranslateProfile pf = lvi.Tag as TranslateProfile;		
-				lvi.SubItems[1].Text = (LangPack.TranslateLanguage(pf.TranslationDirection.From) +
-					 " -> " + 
-					 LangPack.TranslateLanguage(pf.TranslationDirection.To)
-					);
+				else
+				{
+					UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;		
+					if(pf != null)
+					{
+						lvi.SubItems[1].Text = (LangPack.TranslateLanguage(pf.TranslationDirection.From) +
+							 " -> " + 
+							 LangPack.TranslateLanguage(pf.TranslationDirection.To)
+							);
+						lvi.SubItems[2].Text = 	LangPack.TranslateString(pf.Subject);
+					}	
+				}
 				
 			}
 			
@@ -101,7 +110,13 @@ namespace Translate
 				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
 				ld.Text = LangPack.TranslateLanguage(ld.Language);
 			}
-			chDirection.Width = -2;	
+			chDirection.Width = -1;	
+			chSubject.Width = -2;
+			
+			foreach(SubjectContainer sc in cbSubject.Items)
+			{
+				sc.Text = LangPack.TranslateString(sc.Subject);
+			}
 		}
 
 		TranslateProfilesCollection profiles = new TranslateProfilesCollection();
@@ -144,10 +159,16 @@ namespace Translate
 				else
 					lvi.Text = pf.Name;
 				lvi.Tag = pf;
-				lvi.SubItems.Add(LangPack.TranslateLanguage(pf.TranslationDirection.From) +
-					 " -> " + 
-					 LangPack.TranslateLanguage(pf.TranslationDirection.To)
-					);
+				
+				UserTranslateProfile upf = pf as UserTranslateProfile;
+				if(upf != null)
+				{
+					lvi.SubItems.Add(LangPack.TranslateLanguage(upf.TranslationDirection.From) +
+						 " -> " + 
+						 LangPack.TranslateLanguage(upf.TranslationDirection.To)
+						);
+					lvi.SubItems.Add(LangPack.TranslateString(upf.Subject));	
+				}	
 				lvProfiles.Items.Add(lvi);
 			}
 			lvProfiles.Focus();
@@ -158,7 +179,21 @@ namespace Translate
 			LvProfilesSelectedIndexChanged(lvProfiles, new EventArgs());
 			chDirection.Width = -2;
 			
-			
+			List<string> subjects = new List<string>();
+			foreach(ServiceItem si in Manager.ServiceItems)
+			{
+				foreach(string subject in si.SupportedSubjects)
+				{
+					if(!subjects.Contains(subject))
+					{
+						subjects.Add(subject);
+						SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
+						cbSubject.Items.Add(sc);
+					}	
+				}
+			}
+			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, LangPack.TranslateString(SubjectConstants.Any));
+			cbSubject.Items.Add(sc1);
 		}
 
 		public override void Apply()
@@ -204,29 +239,43 @@ namespace Translate
 			}
 			else
 			{
-				if(!tcOptions.TabPages.Contains(tpOptions))
-					tcOptions.TabPages.Add(tpOptions);
-
 				if(!tcOptions.TabPages.Contains(tpServices))
 					tcOptions.TabPages.Add(tpServices);
 			
+				if(!tcOptions.TabPages.Contains(tpOptions))
+					tcOptions.TabPages.Add(tpOptions);
+
 				tcOptions.TabPages.Remove(tpDefaultOptions);
 				lProfileName.Text = pf.Name;
+				lvServices.Services = (pf as UserTranslateProfile).Services;
 			}
 			
-			ignoreLanguageChange = true;
-			for(int i = 0; i < cbFrom.Items.Count; i++)
+			UserTranslateProfile upf = pf as UserTranslateProfile;
+			if(upf != null)
 			{
-				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
+				ignoreLanguageChange = true;
+				for(int i = 0; i < cbFrom.Items.Count; i++)
+				{
+					LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
+					
+					if(ld.Language == upf.TranslationDirection.From)
+						cbFrom.SelectedItem = ld;
+	
+					if(ld.Language == upf.TranslationDirection.To)
+						cbTo.SelectedItem = ld;
+				}
 				
-				if(ld.Language == pf.TranslationDirection.From)
-					cbFrom.SelectedItem = ld;
-
-				if(ld.Language == pf.TranslationDirection.To)
-					cbTo.SelectedItem = ld;
+				for(int i = 0; i < cbSubject.Items.Count; i++)
+				{
+					SubjectContainer sc  = cbSubject.Items[i] as SubjectContainer;
+					if(upf.Subject == sc.Subject)
+					{
+						cbSubject.SelectedItem = sc;
+						break;
+					}
+				}
+				ignoreLanguageChange = false;
 			}
-			ignoreLanguageChange = false;
-
 		}
 
 		bool IsProfileNameExists(string name)
@@ -407,7 +456,10 @@ namespace Translate
 				return;
 				
 			ListViewItem lvi = lvProfiles.SelectedItems[0];		
-			TranslateProfile pf = lvi.Tag as TranslateProfile;
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+			
+			if(pf == null)
+				return;
 				
 			LanguageDataContainer ld = cbFrom.SelectedItem as LanguageDataContainer;
 			pf.TranslationDirection.From = ld.Language;
@@ -428,7 +480,10 @@ namespace Translate
 				return;
 				
 			ListViewItem lvi = lvProfiles.SelectedItems[0];		
-			TranslateProfile pf = lvi.Tag as TranslateProfile;
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+			
+			if(pf == null)
+				return;
 
 			LanguageDataContainer ld = cbTo.SelectedItem as LanguageDataContainer;
 			pf.TranslationDirection.To = ld.Language;
@@ -440,40 +495,68 @@ namespace Translate
 			
 		}
 		
+		void CbSubjectSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if(ignoreLanguageChange)
+				return;
+				
+			if(lvProfiles.SelectedItems.Count != 1)	
+				return;
+				
+			ListViewItem lvi = lvProfiles.SelectedItems[0];		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+			
+			if(pf == null)
+				return;
+
+			SubjectContainer sc = cbSubject.SelectedItem as SubjectContainer;
+			pf.Subject = sc.Subject;
+			
+			lvi.SubItems[2].Text = LangPack.TranslateString(sc.Subject);
+		}
+		
+		
 		void AEditServicesExecute(object sender, EventArgs e)
 		{
-			CustomProfileServicesForm form = new CustomProfileServicesForm();
-			form.ShowDialog(this);
+			ListViewItem lvi = lvProfiles.SelectedItems[0];		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+		
+			CustomProfileServicesForm form = new CustomProfileServicesForm(pf);
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				lvServices.Services = (pf as UserTranslateProfile).Services;
+			}
 		}
 		
 		void ARemoveServiceUpdate(object sender, EventArgs e)
 		{
-			
+			aRemoveService.Enabled = lvServices.Selected != null;	
 		}
 		
 		void ARemoveServiceExecute(object sender, EventArgs e)
 		{
-			
+			lvServices.RemoveSelected();
 		}
 		
 		void AMoveServiceUpExecute(object sender, EventArgs e)
 		{
-			
+			lvServices.MoveUp();
 		}
 		
 		void AMoveServiceUpUpdate(object sender, EventArgs e)
 		{
-			
+			aMoveServiceUp.Enabled = lvServices.CanMoveUp;
 		}
 		
 		void AMoveServiceDownExecute(object sender, EventArgs e)
 		{
-			
+			lvServices.MoveDown();
 		}
 		
 		void AMoveServiceDownUpdate(object sender, EventArgs e)
 		{
-			
+			aMoveServiceDown.Enabled = lvServices.CanMoveDown;
 		}
+		
 	}
 }
