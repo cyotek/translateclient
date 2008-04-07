@@ -68,18 +68,18 @@ namespace Translate
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomProfileServicesForm));
-			this.pTop = new FreeCL.UI.Panel();
-			this.pLeft = new FreeCL.UI.Panel();
-			this.pRight = new FreeCL.UI.Panel();
+			this.pTop = new System.Windows.Forms.Panel();
+			this.pLeft = new System.Windows.Forms.Panel();
+			this.pRight = new System.Windows.Forms.Panel();
 			this.pServiceControl = new System.Windows.Forms.Panel();
 			this.speedButton4 = new FreeCL.UI.SpeedButton();
 			this.speedButton3 = new FreeCL.UI.SpeedButton();
 			this.sbMoveServiceUp = new FreeCL.UI.SpeedButton();
 			this.sbMoveServiceDown = new FreeCL.UI.SpeedButton();
-			this.pCenter = new FreeCL.UI.Panel();
+			this.pCenter = new System.Windows.Forms.Panel();
 			this.speedButton1 = new FreeCL.UI.SpeedButton();
 			this.speedButton2 = new FreeCL.UI.SpeedButton();
-			this.pBottom = new FreeCL.UI.Panel();
+			this.pBottom = new System.Windows.Forms.Panel();
 			this.bCancel = new System.Windows.Forms.Button();
 			this.bOk = new System.Windows.Forms.Button();
 			this.aAddSelected = new FreeCL.UI.Actions.Action(this.components);
@@ -541,10 +541,10 @@ namespace Translate
 		private Translate.ServicesListView lvSource;
 		private System.Windows.Forms.Button bOk;
 		private System.Windows.Forms.Button bCancel;
-		private FreeCL.UI.Panel pBottom;
-		private FreeCL.UI.Panel pCenter;
-		private FreeCL.UI.Panel pRight;
-		private FreeCL.UI.Panel pLeft;
-		private FreeCL.UI.Panel pTop;
+		private System.Windows.Forms.Panel pBottom;
+		private System.Windows.Forms.Panel pCenter;
+		private System.Windows.Forms.Panel pRight;
+		private System.Windows.Forms.Panel pLeft;
+		private System.Windows.Forms.Panel pTop;
 	}
 }

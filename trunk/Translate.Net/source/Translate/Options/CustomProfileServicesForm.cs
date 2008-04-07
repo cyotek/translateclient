@@ -138,7 +138,7 @@ namespace Translate
 			aClearAll.Hint = TranslateString("Remove all services");
 			
 			gbFilter.Text  = TranslateString("Services filter");
-			gbSource.Text  = TranslateString("Exists services");
+			gbSource.Text  = TranslateString("Available services");
 			gbCurrent.Text  = TranslateString("Selected services");
 			
 		}		
