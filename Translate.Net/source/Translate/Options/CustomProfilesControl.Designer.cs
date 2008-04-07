@@ -244,8 +244,8 @@ namespace Translate
 			// 
 			// tcOptions
 			// 
-			this.tcOptions.Controls.Add(this.tpOptions);
 			this.tcOptions.Controls.Add(this.tpServices);
+			this.tcOptions.Controls.Add(this.tpOptions);
 			this.tcOptions.Controls.Add(this.tpDefaultOptions);
 			this.tcOptions.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.tcOptions.Location = new System.Drawing.Point(10, 192);
@@ -440,7 +440,7 @@ namespace Translate
 			this.tpDefaultOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpDefaultOptions.Name = "tpDefaultOptions";
 			this.tpDefaultOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpDefaultOptions.Size = new System.Drawing.Size(371, 130);
+			this.tpDefaultOptions.Size = new System.Drawing.Size(391, 130);
 			this.tpDefaultOptions.TabIndex = 2;
 			this.tpDefaultOptions.Text = "Options";
 			this.tpDefaultOptions.UseVisualStyleBackColor = true;
