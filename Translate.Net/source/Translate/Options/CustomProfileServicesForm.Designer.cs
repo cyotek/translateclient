@@ -69,8 +69,20 @@ namespace Translate
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomProfileServicesForm));
 			this.pTop = new System.Windows.Forms.Panel();
+			this.gbFilter = new System.Windows.Forms.GroupBox();
+			this.cbSubject = new System.Windows.Forms.ComboBox();
+			this.lSubject = new System.Windows.Forms.Label();
+			this.cbTo = new System.Windows.Forms.ComboBox();
+			this.cbFrom = new System.Windows.Forms.ComboBox();
+			this.lLangPair = new System.Windows.Forms.Label();
 			this.pLeft = new System.Windows.Forms.Panel();
+			this.gbSource = new System.Windows.Forms.GroupBox();
+			this.lvSource = new Translate.ServicesListView();
+			this.serviceStatusSource = new Translate.ServiceStatusControl();
 			this.pRight = new System.Windows.Forms.Panel();
+			this.gbCurrent = new System.Windows.Forms.GroupBox();
+			this.lvCurrent = new Translate.ServicesListView();
+			this.serviceStatusCurrent = new Translate.ServiceStatusControl();
 			this.pServiceControl = new System.Windows.Forms.Panel();
 			this.speedButton4 = new FreeCL.UI.SpeedButton();
 			this.speedButton3 = new FreeCL.UI.SpeedButton();
@@ -88,27 +100,15 @@ namespace Translate
 			this.aMoveServiceUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveServiceDown = new FreeCL.UI.Actions.Action(this.components);
 			this.aClearAll = new FreeCL.UI.Actions.Action(this.components);
-			this.gbFilter = new System.Windows.Forms.GroupBox();
-			this.cbSubject = new System.Windows.Forms.ComboBox();
-			this.lSubject = new System.Windows.Forms.Label();
-			this.cbTo = new System.Windows.Forms.ComboBox();
-			this.cbFrom = new System.Windows.Forms.ComboBox();
-			this.lLangPair = new System.Windows.Forms.Label();
-			this.gbSource = new System.Windows.Forms.GroupBox();
-			this.lvSource = new Translate.ServicesListView();
-			this.serviceStatusSource = new Translate.ServiceStatusControl();
-			this.gbCurrent = new System.Windows.Forms.GroupBox();
-			this.lvCurrent = new Translate.ServicesListView();
-			this.serviceStatusCurrent = new Translate.ServiceStatusControl();
 			this.pTop.SuspendLayout();
+			this.gbFilter.SuspendLayout();
 			this.pLeft.SuspendLayout();
+			this.gbSource.SuspendLayout();
 			this.pRight.SuspendLayout();
+			this.gbCurrent.SuspendLayout();
 			this.pServiceControl.SuspendLayout();
 			this.pCenter.SuspendLayout();
 			this.pBottom.SuspendLayout();
-			this.gbFilter.SuspendLayout();
-			this.gbSource.SuspendLayout();
-			this.gbCurrent.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// il
@@ -140,6 +140,70 @@ namespace Translate
 			this.pTop.Size = new System.Drawing.Size(663, 53);
 			this.pTop.TabIndex = 0;
 			// 
+			// gbFilter
+			// 
+			this.gbFilter.Controls.Add(this.cbSubject);
+			this.gbFilter.Controls.Add(this.lSubject);
+			this.gbFilter.Controls.Add(this.cbTo);
+			this.gbFilter.Controls.Add(this.cbFrom);
+			this.gbFilter.Controls.Add(this.lLangPair);
+			this.gbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbFilter.Location = new System.Drawing.Point(0, 0);
+			this.gbFilter.Name = "gbFilter";
+			this.gbFilter.Size = new System.Drawing.Size(663, 53);
+			this.gbFilter.TabIndex = 11;
+			this.gbFilter.TabStop = false;
+			this.gbFilter.Text = "Services filter";
+			// 
+			// cbSubject
+			// 
+			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbSubject.FormattingEnabled = true;
+			this.cbSubject.Location = new System.Drawing.Point(475, 21);
+			this.cbSubject.Name = "cbSubject";
+			this.cbSubject.Size = new System.Drawing.Size(110, 21);
+			this.cbSubject.Sorted = true;
+			this.cbSubject.TabIndex = 15;
+			this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// lSubject
+			// 
+			this.lSubject.Location = new System.Drawing.Point(417, 19);
+			this.lSubject.Name = "lSubject";
+			this.lSubject.Size = new System.Drawing.Size(50, 23);
+			this.lSubject.TabIndex = 14;
+			this.lSubject.Text = "Subject";
+			this.lSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cbTo
+			// 
+			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbTo.FormattingEnabled = true;
+			this.cbTo.Location = new System.Drawing.Point(260, 21);
+			this.cbTo.Name = "cbTo";
+			this.cbTo.Size = new System.Drawing.Size(110, 21);
+			this.cbTo.TabIndex = 13;
+			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// cbFrom
+			// 
+			this.cbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbFrom.FormattingEnabled = true;
+			this.cbFrom.Location = new System.Drawing.Point(144, 21);
+			this.cbFrom.Name = "cbFrom";
+			this.cbFrom.Size = new System.Drawing.Size(110, 21);
+			this.cbFrom.TabIndex = 12;
+			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// lLangPair
+			// 
+			this.lLangPair.Location = new System.Drawing.Point(6, 19);
+			this.lLangPair.Name = "lLangPair";
+			this.lLangPair.Size = new System.Drawing.Size(135, 23);
+			this.lLangPair.TabIndex = 11;
+			this.lLangPair.Text = "Translation direction";
+			this.lLangPair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// pLeft
 			// 
 			this.pLeft.Controls.Add(this.gbSource);
@@ -148,6 +212,38 @@ namespace Translate
 			this.pLeft.Name = "pLeft";
 			this.pLeft.Size = new System.Drawing.Size(298, 346);
 			this.pLeft.TabIndex = 1;
+			// 
+			// gbSource
+			// 
+			this.gbSource.Controls.Add(this.lvSource);
+			this.gbSource.Controls.Add(this.serviceStatusSource);
+			this.gbSource.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbSource.Location = new System.Drawing.Point(0, 0);
+			this.gbSource.Name = "gbSource";
+			this.gbSource.Size = new System.Drawing.Size(298, 346);
+			this.gbSource.TabIndex = 2;
+			this.gbSource.TabStop = false;
+			this.gbSource.Text = "Exists services";
+			// 
+			// lvSource
+			// 
+			this.lvSource.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvSource.Location = new System.Drawing.Point(3, 142);
+			this.lvSource.Name = "lvSource";
+			this.lvSource.Size = new System.Drawing.Size(292, 201);
+			this.lvSource.Sorted = true;
+			this.lvSource.TabIndex = 2;
+			this.lvSource.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvSourceServiceItemChangedEvent);
+			// 
+			// serviceStatusSource
+			// 
+			this.serviceStatusSource.Dock = System.Windows.Forms.DockStyle.Top;
+			this.serviceStatusSource.Location = new System.Drawing.Point(3, 16);
+			this.serviceStatusSource.Name = "serviceStatusSource";
+			this.serviceStatusSource.ShortView = true;
+			this.serviceStatusSource.ShowLanguage = false;
+			this.serviceStatusSource.Size = new System.Drawing.Size(292, 126);
+			this.serviceStatusSource.TabIndex = 3;
 			// 
 			// pRight
 			// 
@@ -158,6 +254,38 @@ namespace Translate
 			this.pRight.Name = "pRight";
 			this.pRight.Size = new System.Drawing.Size(339, 346);
 			this.pRight.TabIndex = 2;
+			// 
+			// gbCurrent
+			// 
+			this.gbCurrent.Controls.Add(this.lvCurrent);
+			this.gbCurrent.Controls.Add(this.serviceStatusCurrent);
+			this.gbCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.gbCurrent.Location = new System.Drawing.Point(0, 0);
+			this.gbCurrent.Name = "gbCurrent";
+			this.gbCurrent.Size = new System.Drawing.Size(313, 346);
+			this.gbCurrent.TabIndex = 10;
+			this.gbCurrent.TabStop = false;
+			this.gbCurrent.Text = "Selected services";
+			// 
+			// lvCurrent
+			// 
+			this.lvCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.lvCurrent.Location = new System.Drawing.Point(3, 142);
+			this.lvCurrent.Name = "lvCurrent";
+			this.lvCurrent.Size = new System.Drawing.Size(307, 201);
+			this.lvCurrent.Sorted = false;
+			this.lvCurrent.TabIndex = 10;
+			this.lvCurrent.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvCurrentServiceItemChangedEvent);
+			// 
+			// serviceStatusCurrent
+			// 
+			this.serviceStatusCurrent.Dock = System.Windows.Forms.DockStyle.Top;
+			this.serviceStatusCurrent.Location = new System.Drawing.Point(3, 16);
+			this.serviceStatusCurrent.Name = "serviceStatusCurrent";
+			this.serviceStatusCurrent.ShortView = true;
+			this.serviceStatusCurrent.ShowLanguage = false;
+			this.serviceStatusCurrent.Size = new System.Drawing.Size(307, 126);
+			this.serviceStatusCurrent.TabIndex = 11;
 			// 
 			// pServiceControl
 			// 
@@ -357,134 +485,6 @@ namespace Translate
 			this.aClearAll.Execute += new System.EventHandler(this.AClearAllExecute);
 			this.aClearAll.Update += new System.EventHandler(this.AClearAllUpdate);
 			// 
-			// gbFilter
-			// 
-			this.gbFilter.Controls.Add(this.cbSubject);
-			this.gbFilter.Controls.Add(this.lSubject);
-			this.gbFilter.Controls.Add(this.cbTo);
-			this.gbFilter.Controls.Add(this.cbFrom);
-			this.gbFilter.Controls.Add(this.lLangPair);
-			this.gbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbFilter.Location = new System.Drawing.Point(0, 0);
-			this.gbFilter.Name = "gbFilter";
-			this.gbFilter.Size = new System.Drawing.Size(663, 53);
-			this.gbFilter.TabIndex = 11;
-			this.gbFilter.TabStop = false;
-			this.gbFilter.Text = "Services filter";
-			// 
-			// cbSubject
-			// 
-			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbSubject.FormattingEnabled = true;
-			this.cbSubject.Location = new System.Drawing.Point(475, 21);
-			this.cbSubject.Name = "cbSubject";
-			this.cbSubject.Size = new System.Drawing.Size(110, 21);
-			this.cbSubject.Sorted = true;
-			this.cbSubject.TabIndex = 15;
-			this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
-			// 
-			// lSubject
-			// 
-			this.lSubject.Location = new System.Drawing.Point(386, 19);
-			this.lSubject.Name = "lSubject";
-			this.lSubject.Size = new System.Drawing.Size(83, 23);
-			this.lSubject.TabIndex = 14;
-			this.lSubject.Text = "Subject";
-			this.lSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// cbTo
-			// 
-			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbTo.FormattingEnabled = true;
-			this.cbTo.Location = new System.Drawing.Point(260, 21);
-			this.cbTo.Name = "cbTo";
-			this.cbTo.Size = new System.Drawing.Size(110, 21);
-			this.cbTo.TabIndex = 13;
-			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
-			// 
-			// cbFrom
-			// 
-			this.cbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbFrom.FormattingEnabled = true;
-			this.cbFrom.Location = new System.Drawing.Point(144, 21);
-			this.cbFrom.Name = "cbFrom";
-			this.cbFrom.Size = new System.Drawing.Size(110, 21);
-			this.cbFrom.TabIndex = 12;
-			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
-			// 
-			// lLangPair
-			// 
-			this.lLangPair.Location = new System.Drawing.Point(6, 19);
-			this.lLangPair.Name = "lLangPair";
-			this.lLangPair.Size = new System.Drawing.Size(135, 23);
-			this.lLangPair.TabIndex = 11;
-			this.lLangPair.Text = "Translation direction";
-			this.lLangPair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// gbSource
-			// 
-			this.gbSource.Controls.Add(this.lvSource);
-			this.gbSource.Controls.Add(this.serviceStatusSource);
-			this.gbSource.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbSource.Location = new System.Drawing.Point(0, 0);
-			this.gbSource.Name = "gbSource";
-			this.gbSource.Size = new System.Drawing.Size(298, 346);
-			this.gbSource.TabIndex = 2;
-			this.gbSource.TabStop = false;
-			this.gbSource.Text = "Exists services";
-			// 
-			// lvSource
-			// 
-			this.lvSource.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvSource.Location = new System.Drawing.Point(3, 142);
-			this.lvSource.Name = "lvSource";
-			this.lvSource.Size = new System.Drawing.Size(292, 201);
-			this.lvSource.Sorted = true;
-			this.lvSource.TabIndex = 2;
-			this.lvSource.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvSourceServiceItemChangedEvent);
-			// 
-			// serviceStatusSource
-			// 
-			this.serviceStatusSource.Dock = System.Windows.Forms.DockStyle.Top;
-			this.serviceStatusSource.Location = new System.Drawing.Point(3, 16);
-			this.serviceStatusSource.Name = "serviceStatusSource";
-			this.serviceStatusSource.ShortView = true;
-			this.serviceStatusSource.ShowLanguage = false;
-			this.serviceStatusSource.Size = new System.Drawing.Size(292, 126);
-			this.serviceStatusSource.TabIndex = 3;
-			// 
-			// gbCurrent
-			// 
-			this.gbCurrent.Controls.Add(this.lvCurrent);
-			this.gbCurrent.Controls.Add(this.serviceStatusCurrent);
-			this.gbCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.gbCurrent.Location = new System.Drawing.Point(0, 0);
-			this.gbCurrent.Name = "gbCurrent";
-			this.gbCurrent.Size = new System.Drawing.Size(313, 346);
-			this.gbCurrent.TabIndex = 10;
-			this.gbCurrent.TabStop = false;
-			this.gbCurrent.Text = "Selected services";
-			// 
-			// lvCurrent
-			// 
-			this.lvCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lvCurrent.Location = new System.Drawing.Point(3, 142);
-			this.lvCurrent.Name = "lvCurrent";
-			this.lvCurrent.Size = new System.Drawing.Size(307, 201);
-			this.lvCurrent.Sorted = false;
-			this.lvCurrent.TabIndex = 10;
-			this.lvCurrent.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvCurrentServiceItemChangedEvent);
-			// 
-			// serviceStatusCurrent
-			// 
-			this.serviceStatusCurrent.Dock = System.Windows.Forms.DockStyle.Top;
-			this.serviceStatusCurrent.Location = new System.Drawing.Point(3, 16);
-			this.serviceStatusCurrent.Name = "serviceStatusCurrent";
-			this.serviceStatusCurrent.ShortView = true;
-			this.serviceStatusCurrent.ShowLanguage = false;
-			this.serviceStatusCurrent.Size = new System.Drawing.Size(307, 126);
-			this.serviceStatusCurrent.TabIndex = 11;
-			// 
 			// CustomProfileServicesForm
 			// 
 			this.AcceptButton = this.bOk;
@@ -504,14 +504,14 @@ namespace Translate
 			this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
 			this.SizeChanged += new System.EventHandler(this.CustomProfileServicesFormSizeChanged);
 			this.pTop.ResumeLayout(false);
+			this.gbFilter.ResumeLayout(false);
 			this.pLeft.ResumeLayout(false);
+			this.gbSource.ResumeLayout(false);
 			this.pRight.ResumeLayout(false);
+			this.gbCurrent.ResumeLayout(false);
 			this.pServiceControl.ResumeLayout(false);
 			this.pCenter.ResumeLayout(false);
 			this.pBottom.ResumeLayout(false);
-			this.gbFilter.ResumeLayout(false);
-			this.gbSource.ResumeLayout(false);
-			this.gbCurrent.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.GroupBox gbCurrent;

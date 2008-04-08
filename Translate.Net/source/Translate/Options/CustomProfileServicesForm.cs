@@ -75,19 +75,11 @@ namespace Translate
 			cbTo.SelectedIndex = 0;
 			
 			//cbSubject
-			List<string> subjects = new List<string>();
-			foreach(ServiceItem si in Manager.ServiceItems)
+			foreach(string subject in Manager.Subjects)
 			{
-				foreach(string subject in si.SupportedSubjects)
-				{
-					if(!subjects.Contains(subject))
-					{
-						subjects.Add(subject);
-						SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
-						cbSubject.Items.Add(sc);
-					}	
-				}
-			}
+				SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
+				cbSubject.Items.Add(sc);
+			}	
 			
 			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, "+" + LangPack.TranslateString(SubjectConstants.Any));
 			cbSubject.Items.Add(sc1);

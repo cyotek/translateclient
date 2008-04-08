@@ -109,18 +109,7 @@ namespace Translate
 		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
 		public override SubjectCollection GetSupportedSubjects()
 		{
-			SubjectCollection result = new SubjectCollection();
-			
-			foreach(ServiceItem item in Manager.ServiceItems)
-			{
-				foreach(string subject in item.SupportedSubjects)
-				{
-					if(!result.Contains(subject))
-						result.Add(subject);
-				}
-			}
-			
-			return result;
+			return Manager.Subjects;
 		}
 
 		public override ReadOnlyLanguagePairCollection GetLanguagePairs()

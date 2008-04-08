@@ -110,7 +110,8 @@ namespace Translate
 				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
 				ld.Text = LangPack.TranslateLanguage(ld.Language);
 			}
-			chDirection.Width = -1;	
+			
+			chDirection.Width = -2;	
 			chSubject.Width = -2;
 			
 			foreach(SubjectContainer sc in cbSubject.Items)
@@ -169,31 +170,31 @@ namespace Translate
 						);
 					lvi.SubItems.Add(LangPack.TranslateString(upf.Subject));	
 				}	
+				else
+				{
+					lvi.SubItems.Add("");
+					lvi.SubItems.Add("");
+				}
 				lvProfiles.Items.Add(lvi);
 			}
 			lvProfiles.Focus();
 			lvProfiles.Items[0].Selected = true;
 			lvProfiles.Items[0].Focused = true;
+
+			foreach(string subject in Manager.Subjects)
+			{
+				SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
+				cbSubject.Items.Add(sc);
+			}	
+			
+			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, LangPack.TranslateString(SubjectConstants.Any));
+			cbSubject.Items.Add(sc1);
 			
 			changed = false;
 			LvProfilesSelectedIndexChanged(lvProfiles, new EventArgs());
-			chDirection.Width = -2;
 			
-			List<string> subjects = new List<string>();
-			foreach(ServiceItem si in Manager.ServiceItems)
-			{
-				foreach(string subject in si.SupportedSubjects)
-				{
-					if(!subjects.Contains(subject))
-					{
-						subjects.Add(subject);
-						SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
-						cbSubject.Items.Add(sc);
-					}	
-				}
-			}
-			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, LangPack.TranslateString(SubjectConstants.Any));
-			cbSubject.Items.Add(sc1);
+			chDirection.Width = -2;	
+			chSubject.Width = -2;
 		}
 
 		public override void Apply()
@@ -226,6 +227,7 @@ namespace Translate
 		
 		void LvProfilesSelectedIndexChanged(object sender, EventArgs e)
 		{
+			aEditServices.Enabled = false;
 			if(lvProfiles.SelectedItems.Count == 0)
 				return;
 			TranslateProfile pf = lvProfiles.SelectedItems[0].Tag as TranslateProfile;
@@ -249,6 +251,8 @@ namespace Translate
 				lProfileName.Text = pf.Name;
 				lvServices.Services = (pf as UserTranslateProfile).Services;
 			}
+			
+			aEditServices.Enabled = pf != defaultProfile;
 			
 			UserTranslateProfile upf = pf as UserTranslateProfile;
 			if(upf != null)
