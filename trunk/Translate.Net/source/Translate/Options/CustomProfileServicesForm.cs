@@ -238,7 +238,6 @@ namespace Translate
 			get { return profile; }
 			set { 
 					profile = value; 
-					//lvCurrent.Services = profile.Services;
 				}
 		}
 		

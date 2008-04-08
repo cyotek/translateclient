@@ -147,7 +147,9 @@ namespace Translate
 			{
 				lvMain.Items.Clear();
 				if(services == null)
+				{
 					return;
+				}	
 				foreach(ServiceItemData sd in services)
 				{
 					ServiceItemDataContainer sid = new ServiceItemDataContainer(sd);
@@ -165,18 +167,24 @@ namespace Translate
 				{
 					lvMain.Items[0].Selected = true;
 					lvMain.Items[0].Focused = true;
+					
+					chName.Width = 200;
+					chType.Width = -1;
+					chLanguagePair.Width = 150;						
+					chSubject.Width = -2;
+					
 				}
 				else
 				{
 					if(ServiceItemChangedEvent != null)
 						ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+						
+					chName.Width = 200;
+					chType.Width = -2;
+					chLanguagePair.Width = 150;						
+					chSubject.Width = -2;
+						
 				}
-				
-				//LvProfilesSelectedIndexChanged(lvMain, new EventArgs());
-				chName.Width = 200;
-				chType.Width = -1;
-				chLanguagePair.Width = 150;						
-				chSubject.Width = -2;
 			}
 			finally
 			{

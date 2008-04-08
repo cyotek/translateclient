@@ -103,12 +103,12 @@ namespace Translate
 			this.tpDefaultOptions = new System.Windows.Forms.TabPage();
 			this.cbIncludeMonolingualDictionaryInTranslation = new System.Windows.Forms.CheckBox();
 			this.alMain = new FreeCL.UI.Actions.ActionList(this.components);
+			this.aEditServices = new FreeCL.UI.Actions.Action(this.components);
 			this.aRemoveProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aAddProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveProfileUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveProfileDown = new FreeCL.UI.Actions.Action(this.components);
 			this.aRemoveService = new FreeCL.UI.Actions.Action(this.components);
-			this.aEditServices = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveServiceUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveServiceDown = new FreeCL.UI.Actions.Action(this.components);
 			this.pBody.SuspendLayout();
@@ -125,11 +125,7 @@ namespace Translate
 			// 
 			this.pBody.Controls.Add(this.pProfiles);
 			this.pBody.Controls.Add(this.tcOptions);
-			this.pBody.Size = new System.Drawing.Size(419, 358);
-			// 
-			// lCaption
-			// 
-			this.lCaption.Size = new System.Drawing.Size(403, 24);
+			this.pBody.Size = new System.Drawing.Size(399, 358);
 			// 
 			// pProfiles
 			// 
@@ -138,7 +134,7 @@ namespace Translate
 			this.pProfiles.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pProfiles.Location = new System.Drawing.Point(10, 10);
 			this.pProfiles.Name = "pProfiles";
-			this.pProfiles.Size = new System.Drawing.Size(399, 182);
+			this.pProfiles.Size = new System.Drawing.Size(379, 182);
 			this.pProfiles.TabIndex = 0;
 			// 
 			// lvProfiles
@@ -154,7 +150,7 @@ namespace Translate
 			this.lvProfiles.Location = new System.Drawing.Point(0, 0);
 			this.lvProfiles.MultiSelect = false;
 			this.lvProfiles.Name = "lvProfiles";
-			this.lvProfiles.Size = new System.Drawing.Size(373, 182);
+			this.lvProfiles.Size = new System.Drawing.Size(353, 182);
 			this.lvProfiles.TabIndex = 0;
 			this.lvProfiles.UseCompatibleStateImageBehavior = false;
 			this.lvProfiles.View = System.Windows.Forms.View.Details;
@@ -181,7 +177,7 @@ namespace Translate
 			this.pProfilesControl.Controls.Add(this.sbServiceUp);
 			this.pProfilesControl.Controls.Add(this.sbServiceDown);
 			this.pProfilesControl.Dock = System.Windows.Forms.DockStyle.Right;
-			this.pProfilesControl.Location = new System.Drawing.Point(373, 0);
+			this.pProfilesControl.Location = new System.Drawing.Point(353, 0);
 			this.pProfilesControl.Name = "pProfilesControl";
 			this.pProfilesControl.Size = new System.Drawing.Size(26, 182);
 			this.pProfilesControl.TabIndex = 6;
@@ -265,7 +261,7 @@ namespace Translate
 			this.tcOptions.Location = new System.Drawing.Point(10, 192);
 			this.tcOptions.Name = "tcOptions";
 			this.tcOptions.SelectedIndex = 0;
-			this.tcOptions.Size = new System.Drawing.Size(399, 156);
+			this.tcOptions.Size = new System.Drawing.Size(379, 156);
 			this.tcOptions.TabIndex = 1;
 			// 
 			// tpServices
@@ -362,17 +358,16 @@ namespace Translate
 			this.tpOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpOptions.Name = "tpOptions";
 			this.tpOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpOptions.Size = new System.Drawing.Size(391, 130);
+			this.tpOptions.Size = new System.Drawing.Size(371, 130);
 			this.tpOptions.TabIndex = 0;
 			this.tpOptions.Text = "Options";
 			this.tpOptions.UseVisualStyleBackColor = true;
 			// 
 			// cbSubject
 			// 
-			this.cbSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbSubject.FormattingEnabled = true;
-			this.cbSubject.Location = new System.Drawing.Point(159, 70);
+			this.cbSubject.Location = new System.Drawing.Point(139, 70);
 			this.cbSubject.Name = "cbSubject";
 			this.cbSubject.Size = new System.Drawing.Size(110, 21);
 			this.cbSubject.Sorted = true;
@@ -383,30 +378,30 @@ namespace Translate
 			// 
 			this.lSubject.Location = new System.Drawing.Point(7, 68);
 			this.lSubject.Name = "lSubject";
-			this.lSubject.Size = new System.Drawing.Size(83, 23);
+			this.lSubject.Size = new System.Drawing.Size(126, 23);
 			this.lSubject.TabIndex = 11;
 			this.lSubject.Text = "Subject";
 			this.lSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbTo
 			// 
-			this.cbTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbTo.FormattingEnabled = true;
-			this.cbTo.Location = new System.Drawing.Point(275, 41);
+			this.cbTo.Location = new System.Drawing.Point(255, 41);
 			this.cbTo.Name = "cbTo";
 			this.cbTo.Size = new System.Drawing.Size(110, 21);
+			this.cbTo.Sorted = true;
 			this.cbTo.TabIndex = 5;
 			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbToSelectedIndexChanged);
 			// 
 			// cbFrom
 			// 
-			this.cbFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbFrom.FormattingEnabled = true;
-			this.cbFrom.Location = new System.Drawing.Point(159, 41);
+			this.cbFrom.Location = new System.Drawing.Point(139, 41);
 			this.cbFrom.Name = "cbFrom";
 			this.cbFrom.Size = new System.Drawing.Size(110, 21);
+			this.cbFrom.Sorted = true;
 			this.cbFrom.TabIndex = 4;
 			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
 			// 
@@ -414,15 +409,14 @@ namespace Translate
 			// 
 			this.lLangPair.Location = new System.Drawing.Point(7, 39);
 			this.lLangPair.Name = "lLangPair";
-			this.lLangPair.Size = new System.Drawing.Size(135, 23);
+			this.lLangPair.Size = new System.Drawing.Size(126, 23);
 			this.lLangPair.TabIndex = 3;
 			this.lLangPair.Text = "Translation direction";
 			this.lLangPair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// bChangeName
 			// 
-			this.bChangeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.bChangeName.Location = new System.Drawing.Point(217, 6);
+			this.bChangeName.Location = new System.Drawing.Point(197, 7);
 			this.bChangeName.Name = "bChangeName";
 			this.bChangeName.Size = new System.Drawing.Size(168, 23);
 			this.bChangeName.TabIndex = 2;
@@ -434,7 +428,7 @@ namespace Translate
 			// 
 			this.lProfileName.Location = new System.Drawing.Point(84, 7);
 			this.lProfileName.Name = "lProfileName";
-			this.lProfileName.Size = new System.Drawing.Size(127, 23);
+			this.lProfileName.Size = new System.Drawing.Size(107, 23);
 			this.lProfileName.TabIndex = 1;
 			this.lProfileName.Text = "label1";
 			this.lProfileName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -454,7 +448,7 @@ namespace Translate
 			this.tpDefaultOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpDefaultOptions.Name = "tpDefaultOptions";
 			this.tpDefaultOptions.Padding = new System.Windows.Forms.Padding(3);
-			this.tpDefaultOptions.Size = new System.Drawing.Size(391, 130);
+			this.tpDefaultOptions.Size = new System.Drawing.Size(371, 130);
 			this.tpDefaultOptions.TabIndex = 2;
 			this.tpDefaultOptions.Text = "Options";
 			this.tpDefaultOptions.UseVisualStyleBackColor = true;
@@ -482,6 +476,17 @@ namespace Translate
 			this.alMain.ImageList = this.ilMain;
 			this.alMain.LockAllExecute = false;
 			this.alMain.Tag = null;
+			// 
+			// aEditServices
+			// 
+			this.aEditServices.Checked = false;
+			this.aEditServices.Enabled = true;
+			this.aEditServices.Hint = "Edit services";
+			this.aEditServices.ImageIndex = 2;
+			this.aEditServices.Tag = null;
+			this.aEditServices.Text = "Edit services";
+			this.aEditServices.Visible = true;
+			this.aEditServices.Execute += new System.EventHandler(this.AEditServicesExecute);
 			// 
 			// aRemoveProfile
 			// 
@@ -542,17 +547,6 @@ namespace Translate
 			this.aRemoveService.Execute += new System.EventHandler(this.ARemoveServiceExecute);
 			this.aRemoveService.Update += new System.EventHandler(this.ARemoveServiceUpdate);
 			// 
-			// aEditServices
-			// 
-			this.aEditServices.Checked = false;
-			this.aEditServices.Enabled = true;
-			this.aEditServices.Hint = "Edit services";
-			this.aEditServices.ImageIndex = 2;
-			this.aEditServices.Tag = null;
-			this.aEditServices.Text = "Edit services";
-			this.aEditServices.Visible = true;
-			this.aEditServices.Execute += new System.EventHandler(this.AEditServicesExecute);
-			// 
 			// aMoveServiceUp
 			// 
 			this.aMoveServiceUp.Checked = false;
@@ -582,7 +576,7 @@ namespace Translate
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "CustomProfilesControl";
-			this.Size = new System.Drawing.Size(419, 398);
+			this.Size = new System.Drawing.Size(399, 398);
 			this.pBody.ResumeLayout(false);
 			this.pProfiles.ResumeLayout(false);
 			this.pProfilesControl.ResumeLayout(false);

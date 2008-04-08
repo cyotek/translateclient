@@ -51,19 +51,181 @@ namespace Translate
 	/// </summary>
 	public partial class SetProfileNameForm :  FreeCL.Forms.BaseForm
 	{
-		public SetProfileNameForm()
+		public SetProfileNameForm(UserTranslateProfile profile, TranslateProfilesCollection profiles)
 		{
 			InitializeComponent();
 			RegisterLanguageEvent(OnLanguageChanged);
+			
+			this.profile = profile;
+			this.profiles = profiles;
+			
+			cbFrom.Items.Clear();
+			cbTo.Items.Clear();
+			
+			for(int i = 0; i < (int)Language.Last; i++)
+			{
+				LanguageDataContainer ld = new LanguageDataContainer((Language)i, LangPack.TranslateLanguage((Language)i));
+				cbFrom.Items.Add(ld);
+				cbTo.Items.Add(ld);
+			}
+			
+			cbFrom.SelectedIndex = 0;
+			cbTo.SelectedIndex = 0;
+			
+
+			foreach(string subject in Manager.Subjects)
+			{
+				SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
+				cbSubject.Items.Add(sc);
+			}	
+			
+			SubjectContainer sc1 = new SubjectContainer(SubjectConstants.Any, LangPack.TranslateString(SubjectConstants.Any));
+			cbSubject.Items.Add(sc1);
+			
+			cbSubject.SelectedIndex = 0;			
+			
+			for(int i = 0; i < cbFrom.Items.Count; i++)
+			{
+				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
+					
+				if(ld.Language == profile.TranslationDirection.From)
+					cbFrom.SelectedItem = ld;
+	
+				if(ld.Language == profile.TranslationDirection.To)
+					cbTo.SelectedItem = ld;
+			}
+				
+			for(int i = 0; i < cbSubject.Items.Count; i++)
+			{
+				SubjectContainer sc  = cbSubject.Items[i] as SubjectContainer;
+				if(profile.Subject == sc.Subject)
+				{
+					cbSubject.SelectedItem = sc;
+					break;
+				}
+			}
+
+			if(!string.IsNullOrEmpty(profile.Name))			
+			{
+				tbName.Text = profile.Name;
+			}
+			else
+			{
+				tbName.Text = GetNewProfileName();
+			}	
+			
+			initialized = true;
 		}
 		
 		void OnLanguageChanged()
 		{
 			bCancel.Text = LangPack.TranslateString("Cancel");
-			lName.Text = LangPack.TranslateString("Profile name :");
-			Text = LangPack.TranslateString("Change profile name");
+			lName.Text = LangPack.TranslateString("Profile name");
+			lLangPair.Text  = TranslateString("Translation direction");
+			lSubject.Text  = TranslateString("Subject");
+			
+			Text = LangPack.TranslateString("Set profile properties");
 		}
 		
+		bool initialized;
 		
+		void CbFromSelectedIndexChanged(object sender, EventArgs e)
+		{
+			if(!initialized)
+				return;
+
+			bool generatedName = tbName.Text == GetNewProfileName();
+				
+			LanguageDataContainer ld = cbFrom.SelectedItem as LanguageDataContainer;
+			profile.TranslationDirection.From = ld.Language;
+	
+			ld = cbTo.SelectedItem as LanguageDataContainer;
+			profile.TranslationDirection.To = ld.Language;
+	
+			SubjectContainer sc = cbSubject.SelectedItem as SubjectContainer;
+			profile.Subject = sc.Subject;
+			
+			if(generatedName)
+				tbName.Text = GetNewProfileName();
+			
+		}
+		
+		UserTranslateProfile profile;
+		public UserTranslateProfile Profile {
+			get { return profile; }
+		}
+		
+		TranslateProfilesCollection profiles;
+		
+		public TranslateProfilesCollection Profiles {
+			get { return profiles; }
+		}
+		
+		bool IsProfileNameExists(string name)
+		{
+			return IsProfileNameExists(name, "");
+		}
+		
+		bool IsProfileNameExists(string name, string currName)
+		{
+			bool exists = false;
+			foreach(TranslateProfile pf in profiles)
+			{
+				if(pf.Name == name && (string.IsNullOrEmpty(currName) || pf.Name != currName))
+				{
+					exists = true;
+					break;
+				}
+			}
+			return exists;
+		}
+		
+		string GetNewProfileName()
+		{
+			string nameBase = "";
+			
+			if(profile.TranslationDirection.From != Language.Any)
+				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.From).Substring(0, 3);
+			else	
+				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.From);
+				
+			nameBase += "->";
+			
+			if(profile.TranslationDirection.To != Language.Any)
+				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.To).Substring(0, 3);
+			else	
+				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.To);
+					
+			if(profile.Subject != SubjectConstants.Any && profile.Subject != SubjectConstants.Common)
+				nameBase += "->" + LangPack.TranslateString(profile.Subject).Substring(0, 3);
+
+			if(!IsProfileNameExists(nameBase, profile.Name))
+					return nameBase;
+
+			string result;
+			for(int i = 1; i < 1000; i++)
+			{
+				result = nameBase + " " + i.ToString();
+				if(!IsProfileNameExists(result, profile.Name))
+					return result;
+			}
+			return "";
+		}
+
+		void BOkClick(object sender, EventArgs e)
+		{
+			if(string.IsNullOrEmpty(tbName.Text))
+			{
+				MessageBox.Show(FindForm(), TranslateString("Profile name don't set. Please enter profile name."), Constants.AppName, MessageBoxButtons.OK);
+				DialogResult = DialogResult.None;
+			}
+			else if(IsProfileNameExists(tbName.Text, profile.Name))	
+			{
+				MessageBox.Show(FindForm(), TranslateString("Name for new profile you enter already used. Please enter unique name."), Constants.AppName, MessageBoxButtons.OK);
+				DialogResult = DialogResult.None;
+			}
+			else
+				profile.Name = tbName.Text;
+		}
 	}
 }

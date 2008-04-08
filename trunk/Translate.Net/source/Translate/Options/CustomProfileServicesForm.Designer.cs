@@ -182,6 +182,7 @@ namespace Translate
 			this.cbTo.Location = new System.Drawing.Point(260, 21);
 			this.cbTo.Name = "cbTo";
 			this.cbTo.Size = new System.Drawing.Size(110, 21);
+			this.cbTo.Sorted = true;
 			this.cbTo.TabIndex = 13;
 			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
 			// 
@@ -192,6 +193,7 @@ namespace Translate
 			this.cbFrom.Location = new System.Drawing.Point(144, 21);
 			this.cbFrom.Name = "cbFrom";
 			this.cbFrom.Size = new System.Drawing.Size(110, 21);
+			this.cbFrom.Sorted = true;
 			this.cbFrom.TabIndex = 12;
 			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
 			// 

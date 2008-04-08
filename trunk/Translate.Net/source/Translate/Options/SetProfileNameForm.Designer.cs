@@ -70,12 +70,17 @@ namespace Translate
 			this.bOk = new System.Windows.Forms.Button();
 			this.lName = new System.Windows.Forms.Label();
 			this.tbName = new System.Windows.Forms.TextBox();
+			this.cbSubject = new System.Windows.Forms.ComboBox();
+			this.lSubject = new System.Windows.Forms.Label();
+			this.cbTo = new System.Windows.Forms.ComboBox();
+			this.cbFrom = new System.Windows.Forms.ComboBox();
+			this.lLangPair = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// bCancel
 			// 
 			this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.bCancel.Location = new System.Drawing.Point(279, 37);
+			this.bCancel.Location = new System.Drawing.Point(302, 95);
 			this.bCancel.Name = "bCancel";
 			this.bCancel.Size = new System.Drawing.Size(88, 23);
 			this.bCancel.TabIndex = 3;
@@ -85,28 +90,80 @@ namespace Translate
 			// bOk
 			// 
 			this.bOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.bOk.Location = new System.Drawing.Point(185, 37);
+			this.bOk.Location = new System.Drawing.Point(208, 95);
 			this.bOk.Name = "bOk";
 			this.bOk.Size = new System.Drawing.Size(88, 23);
 			this.bOk.TabIndex = 2;
 			this.bOk.Text = "OK";
 			this.bOk.UseVisualStyleBackColor = true;
+			this.bOk.Click += new System.EventHandler(this.BOkClick);
 			// 
 			// lName
 			// 
-			this.lName.Location = new System.Drawing.Point(12, 9);
+			this.lName.Location = new System.Drawing.Point(12, 67);
 			this.lName.Name = "lName";
-			this.lName.Size = new System.Drawing.Size(100, 23);
+			this.lName.Size = new System.Drawing.Size(87, 23);
 			this.lName.TabIndex = 4;
-			this.lName.Text = "Profile name : ";
+			this.lName.Text = "Profile name";
 			this.lName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// tbName
 			// 
-			this.tbName.Location = new System.Drawing.Point(105, 11);
+			this.tbName.Location = new System.Drawing.Point(164, 69);
 			this.tbName.Name = "tbName";
-			this.tbName.Size = new System.Drawing.Size(262, 20);
+			this.tbName.Size = new System.Drawing.Size(224, 20);
 			this.tbName.TabIndex = 5;
+			// 
+			// cbSubject
+			// 
+			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbSubject.FormattingEnabled = true;
+			this.cbSubject.Location = new System.Drawing.Point(164, 42);
+			this.cbSubject.Name = "cbSubject";
+			this.cbSubject.Size = new System.Drawing.Size(110, 21);
+			this.cbSubject.Sorted = true;
+			this.cbSubject.TabIndex = 17;
+			this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// lSubject
+			// 
+			this.lSubject.Location = new System.Drawing.Point(12, 40);
+			this.lSubject.Name = "lSubject";
+			this.lSubject.Size = new System.Drawing.Size(83, 23);
+			this.lSubject.TabIndex = 16;
+			this.lSubject.Text = "Subject";
+			this.lSubject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cbTo
+			// 
+			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbTo.FormattingEnabled = true;
+			this.cbTo.Location = new System.Drawing.Point(280, 13);
+			this.cbTo.Name = "cbTo";
+			this.cbTo.Size = new System.Drawing.Size(110, 21);
+			this.cbTo.Sorted = true;
+			this.cbTo.TabIndex = 15;
+			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// cbFrom
+			// 
+			this.cbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbFrom.FormattingEnabled = true;
+			this.cbFrom.Location = new System.Drawing.Point(164, 13);
+			this.cbFrom.Name = "cbFrom";
+			this.cbFrom.Size = new System.Drawing.Size(110, 21);
+			this.cbFrom.Sorted = true;
+			this.cbFrom.TabIndex = 14;
+			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
+			// 
+			// lLangPair
+			// 
+			this.lLangPair.Location = new System.Drawing.Point(12, 11);
+			this.lLangPair.Name = "lLangPair";
+			this.lLangPair.Size = new System.Drawing.Size(139, 23);
+			this.lLangPair.TabIndex = 13;
+			this.lLangPair.Text = "Translation direction";
+			this.lLangPair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// SetProfileNameForm
 			// 
@@ -114,22 +171,33 @@ namespace Translate
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.bCancel;
-			this.ClientSize = new System.Drawing.Size(379, 69);
+			this.ClientSize = new System.Drawing.Size(400, 125);
 			this.ControlBox = false;
+			this.Controls.Add(this.cbSubject);
+			this.Controls.Add(this.lSubject);
+			this.Controls.Add(this.cbTo);
+			this.Controls.Add(this.cbFrom);
+			this.Controls.Add(this.lLangPair);
 			this.Controls.Add(this.tbName);
 			this.Controls.Add(this.lName);
 			this.Controls.Add(this.bCancel);
 			this.Controls.Add(this.bOk);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "SetProfileNameForm";
 			this.ShowInTaskbar = false;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-			this.Text = "Change profile name";
+			this.Text = "Set profile properties";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		public System.Windows.Forms.TextBox tbName;
+		private System.Windows.Forms.Label lLangPair;
+		private System.Windows.Forms.ComboBox cbFrom;
+		private System.Windows.Forms.ComboBox cbTo;
+		private System.Windows.Forms.Label lSubject;
+		private System.Windows.Forms.ComboBox cbSubject;
+		private System.Windows.Forms.TextBox tbName;
 		private System.Windows.Forms.Label lName;
 		private System.Windows.Forms.Button bOk;
 		private System.Windows.Forms.Button bCancel;
