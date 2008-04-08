@@ -141,8 +141,6 @@ namespace Translate
 			miHelp.DropDownItems.Insert(0, miWebsite);
 			
 
-			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);
-			
 			aScrollResultPageDown.Shortcut = Keys.Control | Keys.PageDown;
 			aScrollResultPageUp.Shortcut = Keys.Control | Keys.PageUp;
 		}
@@ -193,9 +191,11 @@ namespace Translate
 			
 		
 			if(!string.IsNullOrEmpty(selectionName))
-				lSelectedLangsPair.Text = languageSelector.Selection.From.ToString().Substring(0, 3) +
+				lSelectedLangsPair.Text = LangPack.TranslateLanguage(languageSelector.Selection.From).Substring(0, 3) +
 					"->" + 
-					languageSelector.Selection.To.ToString().Substring(0, 3);
+					LangPack.TranslateLanguage(languageSelector.Selection.To).Substring(0, 3);
+					
+			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);		
 		}
 		
 		TranslateProfile currentProfile;
@@ -407,8 +407,6 @@ namespace Translate
 			if(!InputLanguageManager.IsInputLanguageChanged)
 				return;
 				
-			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);
-			
 			if(!InputLanguageManager.IsLanguageSupported(languageSelector.Selection.From))
 			{
 				foreach(LanguagePair lp in languageSelector.History)
