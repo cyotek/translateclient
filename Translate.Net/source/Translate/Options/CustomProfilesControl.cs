@@ -75,7 +75,7 @@ namespace Translate
 			tpDefaultOptions.Text = TranslateString("Options");
 			tpOptions.Text = TranslateString("Options");
 			tpServices.Text = TranslateString("Services");
-			bChangeName.Text = TranslateString("Change profile name");
+			bChangeName.Text = TranslateString("Set profile properties");
 			lLangPair.Text  = TranslateString("Translation direction");
 			lSubject.Text  = TranslateString("Subject");
 			
@@ -105,19 +105,11 @@ namespace Translate
 				
 			}
 			
-			for(int i = 0; i < cbFrom.Items.Count; i++)
-			{
-				LanguageDataContainer ld = cbFrom.Items[i] as LanguageDataContainer;
-				ld.Text = LangPack.TranslateLanguage(ld.Language);
-			}
 			
 			chDirection.Width = -2;	
 			chSubject.Width = -2;
 			
-			foreach(SubjectContainer sc in cbSubject.Items)
-			{
-				sc.Text = LangPack.TranslateString(sc.Subject);
-			}
+			InitUserProfileControls();
 		}
 
 		TranslateProfilesCollection profiles = new TranslateProfilesCollection();
@@ -126,15 +118,6 @@ namespace Translate
 		
 		public override void Init()
 		{
-			cbFrom.Items.Clear();
-			cbTo.Items.Clear();
-			
-			for(int i = 0; i < (int)Language.Last; i++)
-			{
-				LanguageDataContainer ld = new LanguageDataContainer((Language)i, LangPack.TranslateLanguage((Language)i));
-				cbFrom.Items.Add(ld);
-				cbTo.Items.Add(ld);
-			}
 			
 			defaultProfile = (DefaultTranslateProfile)TranslateOptions.Instance.DefaultProfile.Clone();
 			cbIncludeMonolingualDictionaryInTranslation.Checked = defaultProfile.IncludeMonolingualDictionaryInTranslation;			
@@ -181,6 +164,25 @@ namespace Translate
 			lvProfiles.Items[0].Selected = true;
 			lvProfiles.Items[0].Focused = true;
 
+			InitUserProfileControls();
+			
+			chDirection.Width = -2;	
+			chSubject.Width = -2;
+		}
+		
+		void InitUserProfileControls()
+		{
+			cbFrom.Items.Clear();
+			cbTo.Items.Clear();
+			
+			for(int i = 0; i < (int)Language.Last; i++)
+			{
+				LanguageDataContainer ld = new LanguageDataContainer((Language)i, LangPack.TranslateLanguage((Language)i));
+				cbFrom.Items.Add(ld);
+				cbTo.Items.Add(ld);
+			}
+
+			cbSubject.Items.Clear();
 			foreach(string subject in Manager.Subjects)
 			{
 				SubjectContainer sc = new SubjectContainer(subject, LangPack.TranslateString(subject));
@@ -192,9 +194,6 @@ namespace Translate
 			
 			changed = false;
 			LvProfilesSelectedIndexChanged(lvProfiles, new EventArgs());
-			
-			chDirection.Width = -2;	
-			chSubject.Width = -2;
 		}
 
 		public override void Apply()
@@ -282,63 +281,30 @@ namespace Translate
 			}
 		}
 
-		bool IsProfileNameExists(string name)
-		{
-			return IsProfileNameExists(name, "");
-		}
-		
-		bool IsProfileNameExists(string name, string currName)
-		{
-			bool exists = false;
-			foreach(TranslateProfile pf in profiles)
-			{
-				if(pf.Name == name && (string.IsNullOrEmpty(currName) || pf.Name != currName))
-				{
-					exists = true;
-					break;
-				}
-			}
-			return exists;
-		}
-		
-		string GetNewProfileName()
-		{
-			string nameBase = TranslateString("Profile");
-			string result;
-			for(int i = profiles.Count + 1; i < 1000; i++)
-			{
-				result = nameBase + " " + i.ToString();
-				if(!IsProfileNameExists(result))
-					return result;
-			}
-			return "";
-		}
 		
 		void AAddProfileExecute(object sender, EventArgs e)
 		{
-			SetProfileNameForm nameForm = new SetProfileNameForm(); 
-			nameForm.tbName.Text = GetNewProfileName();
+			
+			UserTranslateProfile pf = new UserTranslateProfile();
+			
+			SetProfileNameForm nameForm = new SetProfileNameForm(pf, profiles); 
 			DialogResult dr = nameForm.ShowDialog(FindForm());
-			while(dr != DialogResult.Cancel)
-			{
-				if(IsProfileNameExists(nameForm.tbName.Text))	
-				{
-					MessageBox.Show(FindForm(), TranslateString("Name for new profile you enter already used. Please enter unique name."), Constants.AppName, MessageBoxButtons.OK);
-					dr = nameForm.ShowDialog(FindForm());
-				}
-				else
-				  break;
-			}
+			nameForm.Dispose();
 			if(dr == DialogResult.Cancel)
 				return;
 				
-			UserTranslateProfile pf = new UserTranslateProfile();
-			pf.Name = nameForm.tbName.Text;
 			profiles.Add(pf);
 			
 			ListViewItem lvi = new ListViewItem();
 			lvi.Text = pf.Name;
 			lvi.Tag = pf;
+			
+			lvi.SubItems.Add(LangPack.TranslateLanguage(pf.TranslationDirection.From) +
+						 " -> " + 
+						 LangPack.TranslateLanguage(pf.TranslationDirection.To)
+						);
+			lvi.SubItems.Add(LangPack.TranslateString(pf.Subject));	
+			
 			lvProfiles.Items.Add(lvi);
 			lvProfiles.Focus();
 			
@@ -350,32 +316,37 @@ namespace Translate
 				
 			lvi.Selected = true;
 			lvi.Focused = true;
+			
+			AEditServicesExecute(this, new EventArgs());
 		}
 		
 		void BChangeNameClick(object sender, EventArgs e)
 		{
 			ListViewItem lvi = lvProfiles.SelectedItems[0];	
-			TranslateProfile pf = lvi.Tag as TranslateProfile;		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;		
 			
-			SetProfileNameForm nameForm = new SetProfileNameForm(); 
-			nameForm.tbName.Text = pf.Name;
+			string oldName = pf.Name;
+			SetProfileNameForm nameForm = new SetProfileNameForm(pf as UserTranslateProfile, profiles); 
+			
 			DialogResult dr = nameForm.ShowDialog(FindForm());
-			while(dr != DialogResult.Cancel)
-			{
-				if(IsProfileNameExists(nameForm.tbName.Text, pf.Name))	
-				{
-					MessageBox.Show(FindForm(), TranslateString("Name for new profile you enter already used. Please enter unique name."), Constants.AppName, MessageBoxButtons.OK);
-					dr = nameForm.ShowDialog(FindForm());
-				}
-				else
-				  break;
-			}
+			nameForm.Dispose();
 			if(dr == DialogResult.Cancel)
+			{
+				pf.Name = oldName;
 				return;
+			}	
 				
-			pf.Name = nameForm.tbName.Text;
-			lvi.Text = nameForm.tbName.Text;
+			lvi.Text = pf.Name;
 			lProfileName.Text = pf.Name;
+			
+			lvi.SubItems[1].Text = (LangPack.TranslateLanguage(pf.TranslationDirection.From) +
+					 " -> " + 
+					 LangPack.TranslateLanguage(pf.TranslationDirection.To)
+					);
+			lvi.SubItems[2].Text = LangPack.TranslateString(pf.Subject);		
+			
+			
+			LvProfilesSelectedIndexChanged(lvProfiles, new EventArgs());
 		}
 		
 		void ARemoveProfileExecute(object sender, EventArgs e)
@@ -530,6 +501,7 @@ namespace Translate
 			{
 				lvServices.Services = (pf as UserTranslateProfile).Services;
 			}
+			form.Dispose();
 		}
 		
 		void ARemoveServiceUpdate(object sender, EventArgs e)

@@ -188,14 +188,16 @@ HTTP-проксі
 Список
 [Add new user profile]
 Додати профіль користувача
-[Change profile name]
-Зміна назви профіля
-[Profile name :]
-Назва профіля :
+[Set profile properties]
+Встановити властивості профіля
+[Profile name]
+Назва профіля
 [Translation direction]
 Напрямок перекладу
 [Name for new profile you enter already used. Please enter unique name.]
 Назва, введена для нового профіля, вже використовується. Будь ласка, введіть унікальне ім'я.
+[Profile name don't set. Please enter profile name.]
+Назва профілю не встановлена. Будь ласка, задайте ім'я профілю. 
 [Remove user profile]
 Видалити профіль користувача
 [The profile {0} will be deleted.\r\nAre you sure ?]
