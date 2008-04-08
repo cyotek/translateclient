@@ -130,12 +130,40 @@ namespace Translate
 			get { return langpair_monolingualDictionaries; }
 		}
 		
+		static void AddLangPairServiceItem(LanguagePair langPair, ServiceItem serviceItem)
+		{
+			ServiceItemsCollection serviceItems_list;
+			if(!langpair_serviceItems.TryGetValue(langPair, out serviceItems_list))
+			{
+				serviceItems_list = new ServiceItemsCollection();
+				langpair_serviceItems.Add(langPair, serviceItems_list);
+			}
+			serviceItems_list.Add(serviceItem);
+		}
+		
+		static SubjectCollection subjects = new SubjectCollection();
+		public static SubjectCollection Subjects {
+			get { return subjects; }
+		}
+		
+		static void AddServiceItem(ServiceItem serviceItem)
+		{
+			serviceItems.Add(serviceItem);
+			
+			foreach(string subject in serviceItem.SupportedSubjects)
+			{
+				if(!subjects.Contains(subject))
+					subjects.Add(subject);
+			}
+			
+		}
+		
 		static void Add(Service service)
 		{
 			services.Add(service);
 			foreach(Translator translator in service.Translators)
 			{
-				serviceItems.Add(translator);
+				AddServiceItem(translator);
 				translators.Add(translator);
 				foreach(LanguagePair langPair in translator.SupportedTranslations)
 				{
@@ -147,19 +175,13 @@ namespace Translate
 					}
 					translators_list.Add(translator);					
 					
-					ServiceItemsCollection serviceItems_list;
-					if(!langpair_serviceItems.TryGetValue(langPair, out serviceItems_list))
-					{
-						serviceItems_list = new ServiceItemsCollection();
-						langpair_serviceItems.Add(langPair, serviceItems_list);
-					}
-					serviceItems_list.Add(translator);
+					AddLangPairServiceItem(langPair, translator);
 				}
 			}
 			
 			foreach(BilingualDictionary dictionary in service.BilingualDictionaries)
 			{
-				serviceItems.Add(dictionary);
+				AddServiceItem(dictionary);
 				bilingualDictionaries.Add(dictionary);
 				foreach(LanguagePair langPair in dictionary.SupportedTranslations)
 				{
@@ -172,20 +194,13 @@ namespace Translate
 					
 					dictionaries_list.Add(dictionary);
 					
-					ServiceItemsCollection serviceItems_list;
-					if(!langpair_serviceItems.TryGetValue(langPair, out serviceItems_list))
-					{
-						serviceItems_list = new ServiceItemsCollection();
-						langpair_serviceItems.Add(langPair, serviceItems_list);
-					}
-					serviceItems_list.Add(dictionary);
-					
+					AddLangPairServiceItem(langPair, dictionary);
 				}
 			}
 
 			foreach(MonolingualDictionary dictionary in service.MonolingualDictionaries)
 			{
-				serviceItems.Add(dictionary);
+				AddServiceItem(dictionary);
 				monolingualDictionaries.Add(dictionary);
 				foreach(LanguagePair langPair in dictionary.SupportedTranslations)
 				{
@@ -198,14 +213,7 @@ namespace Translate
 					
 					dictionaries_list.Add(dictionary);
 					
-					ServiceItemsCollection serviceItems_list;
-					if(!langpair_serviceItems.TryGetValue(langPair, out serviceItems_list))
-					{
-						serviceItems_list = new ServiceItemsCollection();
-						langpair_serviceItems.Add(langPair, serviceItems_list);
-					}
-					serviceItems_list.Add(dictionary);
-					
+					AddLangPairServiceItem(langPair, dictionary);
 				}
 			}
 			
@@ -224,6 +232,8 @@ namespace Translate
 					Add(service);
 				}
 			}
+			
+			subjects.Sort();
 		}
 		
 	}
