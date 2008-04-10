@@ -78,8 +78,8 @@ namespace Translate
 		
 		void OnLanguageChanged()
 		{
-			lName.Text = LangPack.TranslateString("Name :");
-			lSize.Text = LangPack.TranslateString("Size :");
+			lName.Text = LangPack.TranslateString("Name") + " :";
+			lSize.Text = LangPack.TranslateString("Size") + " :";
 			cbSystem.Text = LangPack.TranslateString("System font");
 		}
 		
