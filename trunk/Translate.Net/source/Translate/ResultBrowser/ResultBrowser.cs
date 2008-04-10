@@ -782,8 +782,16 @@ namespace Translate
 		
 		void GEventsIdle(object sender, EventArgs e)
 		{
-			if(needRecalcSize)
-				RealRecalcSizes();
+			try
+			{
+				if(needRecalcSize)
+					RealRecalcSizes();
+			}
+			catch(ObjectDisposedException)
+			{	
+				//raised in sharpdevloper formdesigner
+				//do nothing
+			}
 		}
 		
 		
