@@ -40,6 +40,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Diagnostics.CodeAnalysis;
+
 
 namespace Translate
 {
@@ -67,6 +69,13 @@ namespace Translate
 			
 			foreach(ServiceItemData sid in services)
 				result.Services.Add(sid);
+				
+			foreach(ServiceItemData d in DisabledServiceItems)
+				result.DisabledServiceItems.Add(d); 
+				
+			result.ShowLanguages = ShowLanguages;
+			result.ShowServices = ShowServices;
+			result.ShowSubjects = ShowSubjects;
 			
 			return result;	
 		}
@@ -88,6 +97,24 @@ namespace Translate
 		public string Subject {
 			get { return subject; }
 			set { subject = value; }
+		}
+		
+		bool showSubjects;
+		public bool ShowSubjects {
+			get { return showSubjects; }
+			set { showSubjects = value; }
+		}
+		
+		bool showLanguages;
+		public bool ShowLanguages {
+			get { return showLanguages; }
+			set { showLanguages = value; }
+		}
+
+		bool showServices;
+		public bool ShowServices {
+			get { return showServices; }
+			set { showServices = value; }
 		}
 		
 		
@@ -115,6 +142,56 @@ namespace Translate
 			foreach(ServiceItemData sid in sids_to_delete)
 				services.Remove(sid);
 		}
+		
+		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
+		public override SubjectCollection GetSupportedSubjects()
+		{
+			SubjectCollection subjects = new SubjectCollection();
+			foreach(ServiceItemData sid in services)
+			{
+				if(!subjects.Contains(sid.Subject))
+					subjects.Add(sid.Subject);
+			}
+			return subjects;
+		}
+
+		public override ReadOnlyLanguagePairCollection GetLanguagePairs()
+		{
+			LanguagePairCollection result = new LanguagePairCollection();
+			
+			foreach(ServiceItemData sid in services)
+			{
+				if(Subjects.Contains(sid.Subject) && !result.Contains(sid.LanguagePair))
+				{
+					result.Add(sid.LanguagePair);
+				}
+			}
+			
+			return new ReadOnlyLanguagePairCollection(result);
+		}
+		
+		public override ReadOnlyServiceSettingCollection GetServiceSettings(string phrase, LanguagePair languagePair)
+		{
+			ServiceSettingCollection result = new ServiceSettingCollection();
+			
+			foreach(ServiceItemData sid in services)
+			{
+				if( 
+					(sid.LanguagePair.From == languagePair.From || languagePair.From == Language.Any) &&
+					(sid.LanguagePair.To == languagePair.To || languagePair.To == Language.Any)
+					  )
+				{				
+						
+					if(Subjects.Contains(sid.Subject))
+					{
+						ServiceSetting tsetting = new ServiceSetting(sid.LanguagePair, sid.Subject, sid.ServiceItem, TranslateOptions.Instance.GetNetworkSetting(sid.ServiceItem.Service));
+						result.Add(tsetting);
+					}
+				}
+			}
+			return new ReadOnlyServiceSettingCollection(result);
+		}
+		
 	}
 	
 	public class UserTranslateProfilesCollection :  List<UserTranslateProfile>

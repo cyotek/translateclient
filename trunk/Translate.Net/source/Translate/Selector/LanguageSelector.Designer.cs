@@ -374,6 +374,7 @@ namespace Translate
 			this.serviceStatus.Dock = System.Windows.Forms.DockStyle.Top;
 			this.serviceStatus.Location = new System.Drawing.Point(4, 4);
 			this.serviceStatus.Name = "serviceStatus";
+			this.serviceStatus.ShortView = false;
 			this.serviceStatus.ShowLanguage = false;
 			this.serviceStatus.Size = new System.Drawing.Size(227, 103);
 			this.serviceStatus.TabIndex = 0;

@@ -204,6 +204,88 @@ namespace Translate
 		{
 			currentProfile = TranslateOptions.Instance.CurrentProfile;
 			languageSelector.Profile = currentProfile;
+			checkedProfileButton = null;
+			
+			while(tsTranslate.Items.Count > 1)
+				tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
+			
+			if(TranslateOptions.Instance.Profiles.Count > 1)
+			{
+				tsTranslate.Items.Add(new ToolStripSeparator());	
+				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
+				{
+					ToolStripButton tsButton = new ToolStripButton();
+					if(pf == TranslateOptions.Instance.DefaultProfile)
+						tsButton.Text = TranslateString(pf.Name);
+					else 
+						tsButton.Text = pf.Name;
+					
+					tsButton.Tag = pf;
+					tsButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+					tsButton.Click +=  OnProfileButtonClick;
+					
+					if(pf == currentProfile)
+					{
+						checkedProfileButton = tsButton;
+						tsButton.Checked = true;
+					}
+						
+					tsTranslate.Items.Add(tsButton);	
+				}
+			}
+			UpdateLanguageSelector();
+		}
+		
+		ToolStripButton checkedProfileButton = null; 
+		void OnProfileButtonClick(object sender, EventArgs e)
+		{
+			if(checkedProfileButton == sender)
+				return;
+			
+			if(checkedProfileButton != null)
+				checkedProfileButton.Checked = false;
+				
+			ToolStripButton tsButton = sender as ToolStripButton;
+			tsButton.Checked = true;
+			checkedProfileButton = tsButton;
+			
+			TranslateProfile pf = tsButton.Tag as TranslateProfile;
+			
+			
+			TranslateOptions.Instance.CurrentProfile = pf;
+			currentProfile = TranslateOptions.Instance.CurrentProfile;
+			languageSelector.Profile = currentProfile;
+			UpdateLanguageSelector();
+		}
+		
+		void UpdateLanguageSelector()
+		{
+			UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+			
+			if(upf == null)
+			{
+				if(!pRight.Visible)
+				{
+					splitterRight.Enabled = true;
+					pRight.Visible = true;
+					pRight.Enabled = true;
+				}
+			}
+			else
+			{
+				if(!upf.ShowLanguages && !upf.ShowServices && !upf.ShowSubjects)
+				{
+					splitterRight.Enabled = false;
+					pRight.Visible = false;
+					pRight.Enabled = false;
+				}
+				else if(!pRight.Visible)
+				{
+					splitterRight.Enabled = true;
+					pRight.Visible = true;
+					pRight.Enabled = true;
+				}
+			}
 		}
 		
 		void TranslateMainFormFormClosing(object sender, FormClosingEventArgs e)

@@ -86,6 +86,7 @@ namespace Translate
 			get { return status; }
 			set 
 			{
+				Clear();
 				if(value != null)
 				{
 					status = value; 
