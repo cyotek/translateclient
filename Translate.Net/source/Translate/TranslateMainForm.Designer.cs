@@ -124,6 +124,7 @@ namespace Translate
 			this.aWebsite = new FreeCL.UI.Actions.Action(this.components);
 			this.aFeedback = new FreeCL.UI.Actions.Action(this.components);
 			this.miFeedback = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsSeparatorTranslate = new System.Windows.Forms.ToolStripSeparator();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -556,7 +557,7 @@ namespace Translate
 			this.resBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.resBrowser.Location = new System.Drawing.Point(0, 0);
 			this.resBrowser.Name = "resBrowser";
-			this.resBrowser.Size = new System.Drawing.Size(386, 187);
+			this.resBrowser.Size = new System.Drawing.Size(386, 189);
 			this.resBrowser.TabIndex = 3;
 			this.resBrowser.StatusTextChanged += new System.EventHandler(this.ResBrowserStatusTextChanged);
 			// 
@@ -579,7 +580,7 @@ namespace Translate
 			// 
 			this.splitterTranslate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.splitterTranslate.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitterTranslate.Location = new System.Drawing.Point(0, 187);
+			this.splitterTranslate.Location = new System.Drawing.Point(0, 189);
 			this.splitterTranslate.Name = "splitterTranslate";
 			this.splitterTranslate.Size = new System.Drawing.Size(386, 5);
 			this.splitterTranslate.TabIndex = 2;
@@ -589,7 +590,7 @@ namespace Translate
 			// 
 			this.tbFrom.AcceptsReturn = true;
 			this.tbFrom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tbFrom.Location = new System.Drawing.Point(0, 192);
+			this.tbFrom.Location = new System.Drawing.Point(0, 194);
 			this.tbFrom.MaxLength = 0;
 			this.tbFrom.Multiline = true;
 			this.tbFrom.Name = "tbFrom";
@@ -603,10 +604,12 @@ namespace Translate
 			this.tsTranslate.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.tsTranslate.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.tsTranslate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.tsbTranslate});
-			this.tsTranslate.Location = new System.Drawing.Point(0, 319);
+									this.tsbTranslate,
+									this.tsSeparatorTranslate});
+			this.tsTranslate.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+			this.tsTranslate.Location = new System.Drawing.Point(0, 321);
 			this.tsTranslate.Name = "tsTranslate";
-			this.tsTranslate.Size = new System.Drawing.Size(386, 25);
+			this.tsTranslate.Size = new System.Drawing.Size(386, 23);
 			this.tsTranslate.TabIndex = 0;
 			// 
 			// tsbTranslate
@@ -615,7 +618,7 @@ namespace Translate
 			this.tsbTranslate.AutoToolTip = false;
 			this.tsbTranslate.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbTranslate.Name = "tsbTranslate";
-			this.tsbTranslate.Size = new System.Drawing.Size(56, 22);
+			this.tsbTranslate.Size = new System.Drawing.Size(56, 17);
 			this.tsbTranslate.Text = "Translate";
 			// 
 			// splitterLeft
@@ -873,6 +876,11 @@ namespace Translate
 			this.miFeedback.Size = new System.Drawing.Size(235, 22);
 			this.miFeedback.Text = "Send feedback or bugreport ...";
 			// 
+			// tsSeparatorTranslate
+			// 
+			this.tsSeparatorTranslate.Name = "tsSeparatorTranslate";
+			this.tsSeparatorTranslate.Size = new System.Drawing.Size(6, 23);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -927,6 +935,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripSeparator tsSeparatorTranslate;
 		private System.Windows.Forms.ToolStripMenuItem miFeedback;
 		private FreeCL.UI.Actions.Action aFeedback;
 		private FreeCL.UI.Actions.Action aWebsite;

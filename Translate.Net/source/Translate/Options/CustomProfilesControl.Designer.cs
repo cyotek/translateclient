@@ -102,6 +102,10 @@ namespace Translate
 			this.lName = new System.Windows.Forms.Label();
 			this.tpDefaultOptions = new System.Windows.Forms.TabPage();
 			this.cbIncludeMonolingualDictionaryInTranslation = new System.Windows.Forms.CheckBox();
+			this.tpLanguageSelector = new System.Windows.Forms.TabPage();
+			this.cbShowSubjects = new System.Windows.Forms.CheckBox();
+			this.cbShowLanguages = new System.Windows.Forms.CheckBox();
+			this.cbShowServices = new System.Windows.Forms.CheckBox();
 			this.alMain = new FreeCL.UI.Actions.ActionList(this.components);
 			this.aEditServices = new FreeCL.UI.Actions.Action(this.components);
 			this.aRemoveProfile = new FreeCL.UI.Actions.Action(this.components);
@@ -119,6 +123,7 @@ namespace Translate
 			this.pServiceControl.SuspendLayout();
 			this.tpOptions.SuspendLayout();
 			this.tpDefaultOptions.SuspendLayout();
+			this.tpLanguageSelector.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
@@ -257,6 +262,7 @@ namespace Translate
 			this.tcOptions.Controls.Add(this.tpServices);
 			this.tcOptions.Controls.Add(this.tpOptions);
 			this.tcOptions.Controls.Add(this.tpDefaultOptions);
+			this.tcOptions.Controls.Add(this.tpLanguageSelector);
 			this.tcOptions.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.tcOptions.Location = new System.Drawing.Point(10, 192);
 			this.tcOptions.Name = "tcOptions";
@@ -271,7 +277,7 @@ namespace Translate
 			this.tpServices.Location = new System.Drawing.Point(4, 22);
 			this.tpServices.Name = "tpServices";
 			this.tpServices.Padding = new System.Windows.Forms.Padding(3);
-			this.tpServices.Size = new System.Drawing.Size(391, 130);
+			this.tpServices.Size = new System.Drawing.Size(371, 130);
 			this.tpServices.TabIndex = 1;
 			this.tpServices.Text = "Services";
 			this.tpServices.UseVisualStyleBackColor = true;
@@ -281,7 +287,7 @@ namespace Translate
 			this.lvServices.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lvServices.Location = new System.Drawing.Point(3, 3);
 			this.lvServices.Name = "lvServices";
-			this.lvServices.Size = new System.Drawing.Size(359, 124);
+			this.lvServices.Size = new System.Drawing.Size(339, 124);
 			this.lvServices.Sorted = false;
 			this.lvServices.TabIndex = 8;
 			// 
@@ -292,7 +298,7 @@ namespace Translate
 			this.pServiceControl.Controls.Add(this.sbMoveServiceUp);
 			this.pServiceControl.Controls.Add(this.sbMoveServiceDown);
 			this.pServiceControl.Dock = System.Windows.Forms.DockStyle.Right;
-			this.pServiceControl.Location = new System.Drawing.Point(362, 3);
+			this.pServiceControl.Location = new System.Drawing.Point(342, 3);
 			this.pServiceControl.Name = "pServiceControl";
 			this.pServiceControl.Size = new System.Drawing.Size(26, 124);
 			this.pServiceControl.TabIndex = 7;
@@ -463,6 +469,49 @@ namespace Translate
 			this.cbIncludeMonolingualDictionaryInTranslation.UseVisualStyleBackColor = true;
 			this.cbIncludeMonolingualDictionaryInTranslation.CheckedChanged += new System.EventHandler(this.CbIncludeMonolingualDictionaryInTranslationCheckedChanged);
 			// 
+			// tpLanguageSelector
+			// 
+			this.tpLanguageSelector.Controls.Add(this.cbShowSubjects);
+			this.tpLanguageSelector.Controls.Add(this.cbShowLanguages);
+			this.tpLanguageSelector.Controls.Add(this.cbShowServices);
+			this.tpLanguageSelector.Location = new System.Drawing.Point(4, 22);
+			this.tpLanguageSelector.Name = "tpLanguageSelector";
+			this.tpLanguageSelector.Padding = new System.Windows.Forms.Padding(3);
+			this.tpLanguageSelector.Size = new System.Drawing.Size(371, 130);
+			this.tpLanguageSelector.TabIndex = 3;
+			this.tpLanguageSelector.Text = "View";
+			this.tpLanguageSelector.UseVisualStyleBackColor = true;
+			// 
+			// cbShowSubjects
+			// 
+			this.cbShowSubjects.Location = new System.Drawing.Point(6, 66);
+			this.cbShowSubjects.Name = "cbShowSubjects";
+			this.cbShowSubjects.Size = new System.Drawing.Size(353, 24);
+			this.cbShowSubjects.TabIndex = 6;
+			this.cbShowSubjects.Text = "Show subjects list";
+			this.cbShowSubjects.UseVisualStyleBackColor = true;
+			this.cbShowSubjects.CheckedChanged += new System.EventHandler(this.CbShowSubjectsCheckedChanged);
+			// 
+			// cbShowLanguages
+			// 
+			this.cbShowLanguages.Location = new System.Drawing.Point(6, 36);
+			this.cbShowLanguages.Name = "cbShowLanguages";
+			this.cbShowLanguages.Size = new System.Drawing.Size(353, 24);
+			this.cbShowLanguages.TabIndex = 5;
+			this.cbShowLanguages.Text = "Show languages list";
+			this.cbShowLanguages.UseVisualStyleBackColor = true;
+			this.cbShowLanguages.CheckedChanged += new System.EventHandler(this.CbShowLanguagesCheckedChanged);
+			// 
+			// cbShowServices
+			// 
+			this.cbShowServices.Location = new System.Drawing.Point(6, 6);
+			this.cbShowServices.Name = "cbShowServices";
+			this.cbShowServices.Size = new System.Drawing.Size(353, 24);
+			this.cbShowServices.TabIndex = 4;
+			this.cbShowServices.Text = "Show services list";
+			this.cbShowServices.UseVisualStyleBackColor = true;
+			this.cbShowServices.CheckedChanged += new System.EventHandler(this.CbShowServicesCheckedChanged);
+			// 
 			// alMain
 			// 
 			this.alMain.Actions.Add(this.aAddProfile);
@@ -585,8 +634,13 @@ namespace Translate
 			this.pServiceControl.ResumeLayout(false);
 			this.tpOptions.ResumeLayout(false);
 			this.tpDefaultOptions.ResumeLayout(false);
+			this.tpLanguageSelector.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.CheckBox cbShowServices;
+		private System.Windows.Forms.CheckBox cbShowLanguages;
+		private System.Windows.Forms.CheckBox cbShowSubjects;
+		private System.Windows.Forms.TabPage tpLanguageSelector;
 		private FreeCL.UI.SpeedButton speedButton1;
 		private System.Windows.Forms.Label lSubject;
 		private System.Windows.Forms.ComboBox cbSubject;

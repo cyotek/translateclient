@@ -224,10 +224,16 @@ HTTP-проксі
 Придатні сервіси
 [Selected services]
 Вибрані сервіси
-[Name :]
-Назва :
-[Size :]
-Розмір :
+[View]
+Вигляд
+[Show services list]
+Показувати список сервісів
+[Show languages list]
+Показувати список мов
+[Show subjects list ]
+Показувати список тем
+[Size]
+Розмір
 [System font]
 Системний шрифт
 [Fonts]

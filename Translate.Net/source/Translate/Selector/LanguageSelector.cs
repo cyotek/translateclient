@@ -66,6 +66,10 @@ namespace Translate
 			{
 				ilServices.Images.Add(s.Name, s.Icon);
 			}
+			
+			lvServicesEnabled.Items.Clear();
+			lvServicesDisabled.Items.Clear();
+			lvServicesDisabledByUser.Items.Clear();
 		}
 		
 		void OnLanguageChanged()
@@ -148,13 +152,54 @@ namespace Translate
 			set 
 			{ 
 				profile = value;
+				
 				if(profile != null)
 				{
+					pBottom.Visible = true;
+					pBottom.Enabled = true;
+						
+					splitterBottom.Enabled = true;
+					splitterBottom.Visible = true;
+					
+					tcMain.Visible = true;
+					tcMain.Enabled = true;
+						
+					tcMain.TabPages.Clear();
+					tcMain.TabPages.Add(tpServices);
+					tcMain.TabPages.Add(tpLangs);
+					tcMain.TabPages.Add(tpSubject);
+				
+					UserTranslateProfile upf = profile as UserTranslateProfile;
+					if(upf != null)
+					{
+						if(!upf.ShowLanguages)
+						{
+							tcMain.TabPages.Remove(tpLangs);
+
+							splitterBottom.Enabled = false;
+							splitterBottom.Visible = false;
+							
+							pBottom.Visible = false;
+							pBottom.Enabled = false;
+						}
+					
+						if(!upf.ShowServices)
+						{
+							tcMain.TabPages.Remove(tpServices);
+						}
+						
+						if(!upf.ShowSubjects)
+							tcMain.TabPages.Remove(tpSubject);
+					}
+					
 					lvServicesEnabled.ListViewItemSorter = null;
 					lvServicesDisabled.ListViewItemSorter = null;
+					serviceStatus.Status = null;
 					SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
 					Languages = profile.GetLanguagePairs();
 					History = profile.History;
+					
+					CalcServicesSizes();
 				}
 			}
 		}
@@ -225,6 +270,7 @@ namespace Translate
 		{
 			SuspendLayout();
 			lbFrom.Items.Clear();
+			lbTo.Items.Clear();
 			
 			LanguageCollection fromLangs = new LanguageCollection();
 			

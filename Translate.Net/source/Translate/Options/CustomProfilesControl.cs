@@ -84,6 +84,13 @@ namespace Translate
 			aMoveServiceUp.Hint = TranslateString("Move service up");
 			aMoveServiceDown.Hint = TranslateString("Move service down");
 			
+			
+			tpLanguageSelector.Text  = TranslateString("View");
+			cbShowServices.Text  = TranslateString("Show services list");
+			cbShowLanguages.Text  = TranslateString("Show languages list");
+			cbShowSubjects.Text  = TranslateString("Show subjects list");
+			
+			
 			foreach(ListViewItem lvi in lvProfiles.Items)
 			{
 				if(lvi.Tag == defaultProfile)
@@ -210,8 +217,14 @@ namespace Translate
 				if(pf.Name == currentProfileName)
 				{
 					TranslateOptions.Instance.CurrentProfile = pf;
-					break;
 				}	
+				
+				if(pf is UserTranslateProfile)
+				{
+					pf.Subjects.Clear();
+					pf.Subjects.AddRange(pf.GetSupportedSubjects());
+					pf.SortData.Clear();
+				}
 			}
 			
 			(TranslateMainForm.Instance as TranslateMainForm).UpdateProfiles();
@@ -237,6 +250,7 @@ namespace Translate
 				
 				tcOptions.TabPages.Remove(tpOptions);
 				tcOptions.TabPages.Remove(tpServices);
+				tcOptions.TabPages.Remove(tpLanguageSelector);
 			}
 			else
 			{
@@ -245,6 +259,9 @@ namespace Translate
 			
 				if(!tcOptions.TabPages.Contains(tpOptions))
 					tcOptions.TabPages.Add(tpOptions);
+
+				if(!tcOptions.TabPages.Contains(tpLanguageSelector))
+					tcOptions.TabPages.Add(tpLanguageSelector);
 
 				tcOptions.TabPages.Remove(tpDefaultOptions);
 				lProfileName.Text = pf.Name;
@@ -277,6 +294,11 @@ namespace Translate
 						break;
 					}
 				}
+				
+				cbShowServices.Checked = upf.ShowServices;
+				cbShowSubjects.Checked = upf.ShowSubjects;
+				cbShowLanguages.Checked = upf.ShowLanguages;
+				
 				ignoreLanguageChange = false;
 			}
 		}
@@ -534,5 +556,44 @@ namespace Translate
 			aMoveServiceDown.Enabled = lvServices.CanMoveDown;
 		}
 		
+		
+		void CbShowServicesCheckedChanged(object sender, EventArgs e)
+		{
+			if(ignoreLanguageChange)			
+				return;
+				
+			ListViewItem lvi = lvProfiles.SelectedItems[0];		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+				
+			pf.ShowServices = cbShowServices.Checked;
+			
+			changed = true;
+		}
+		
+		void CbShowLanguagesCheckedChanged(object sender, EventArgs e)
+		{
+			if(ignoreLanguageChange)			
+				return;
+				
+			ListViewItem lvi = lvProfiles.SelectedItems[0];		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+				
+			pf.ShowLanguages = cbShowLanguages.Checked;
+			
+			changed = true;
+		}
+		
+		void CbShowSubjectsCheckedChanged(object sender, EventArgs e)
+		{
+			if(ignoreLanguageChange)			
+				return;
+				
+			ListViewItem lvi = lvProfiles.SelectedItems[0];		
+			UserTranslateProfile pf = lvi.Tag as UserTranslateProfile;
+				
+			pf.ShowSubjects	= cbShowSubjects.Checked;
+			
+			changed = true;
+		}
 	}
 }

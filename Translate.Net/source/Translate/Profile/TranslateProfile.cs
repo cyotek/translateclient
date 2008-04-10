@@ -68,6 +68,8 @@ namespace Translate
 			result.SelectedLanguagePair = SelectedLanguagePair;
 			foreach(ServiceItemsSortDataCollection d in SortData)
 				result.SortData.Add(d);
+			foreach(ServiceItemData d in DisabledServiceItems)
+				result.DisabledServiceItems.Add(d); 
 			return result;	
 		}
 		
@@ -119,14 +121,31 @@ namespace Translate
 		}
 		
 		
+		[NonSerialized]
+		ServiceItemsDataCollection disabledServiceItems = new ServiceItemsDataCollection();
+		
+		public ServiceItemsDataCollection DisabledServiceItems {
+			get { return disabledServiceItems; }
+		}
+
 		public virtual void EnableService(string name, LanguagePair languagePair, string subject, bool enable)
 		{
-		
+			ServiceItemData sid = new ServiceItemData(name, languagePair, subject);
+			if(enable)
+			{
+				disabledServiceItems.Remove(sid);
+			}
+			else
+			{
+				if(!disabledServiceItems.Contains(sid))
+					disabledServiceItems.Add(sid);
+			}
 		}
 		
 		public virtual bool IsServiceEnabled(string name, LanguagePair languagePair, string subject)
 		{
-			return true;
+			ServiceItemData sid = new ServiceItemData(name, languagePair, subject);
+			return !disabledServiceItems.Contains(sid);
 		}
 		
 		class ServiceSettingComparerClass : IComparer
