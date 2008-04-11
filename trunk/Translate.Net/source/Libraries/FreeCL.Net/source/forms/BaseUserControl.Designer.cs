@@ -1,4 +1,4 @@
-#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -36,60 +36,41 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
-using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
-using System.Collections.Generic;
-using FreeCL.RTL;
-
 namespace FreeCL.Forms
 {
-	/// <summary>
-	/// Description of BaseOptionsControl.
-	/// </summary>
-	public partial class BaseOptionsControl : BaseUserControl
+	partial class BaseUserControl
 	{
-		public BaseOptionsControl()
+		/// <summary>
+		/// Designer variable used to keep track of non-visual components.
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+		
+		/// <summary>
+		/// Disposes resources used by the control.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
-			InitializeComponent();
-			
-			
-			
+			if (disposing) {
+				if (components != null) {
+					components.Dispose();
+				}
+			}
+			base.Dispose(disposing);
 		}
 		
-		
-		public virtual void Init()
+		/// <summary>
+		/// This method is required for Windows Forms designer support.
+		/// Do not change the method contents inside the source code editor. The Forms designer might
+		/// not be able to load this method if it was changed manually.
+		/// </summary>
+		private void InitializeComponent()
 		{
-		
+			// 
+			// BaseUserControl
+			// 
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Name = "BaseUserControl";
 		}
-		
-		public virtual void Apply()
-		{
-		
-		}
-
-		public virtual void Revert()
-		{
-		
-		}
-		
-		public virtual bool IsChanged()
-		{
-			return false;
-		}
-		
-		
-		public virtual void Activate()
-		{
-		
-		}
-		
-		
 	}
-	
-	
 }

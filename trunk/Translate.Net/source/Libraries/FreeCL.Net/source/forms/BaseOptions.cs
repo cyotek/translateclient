@@ -122,6 +122,8 @@ namespace FreeCL.Forms
 		{
 			if(source == null)
 				throw new ArgumentNullException("source");
+				
+			BaseOptions result = source;
 		
 			try
 			{
@@ -129,18 +131,17 @@ namespace FreeCL.Forms
 				{
 					FileStream FStream = new FileStream(source.OptionsFileName_, FileMode.Open, FileAccess.Read, FileShare.Read);			 
 					if(FStream.Length > 0)
-				 		return (BaseOptions)XmlSerializableObject.Load(FStream, source.GetType(), source.UseSoapSerialization);				
-				 	else	
-				 		return source;
+				 		result = (BaseOptions)XmlSerializableObject.Load(FStream, source.GetType(), source.UseSoapSerialization);				
 			 	}	 
-			 	else 
-					return source;				
 			}
 			catch(System.Exception e)
 			{
 				FreeCL.Forms.Application.OnThreadException(e);
-				return source;				
 			}
+			if(result == source)
+				result.OnLoaded();
+				
+			return result;	
 		}
 
 		public void Save()
