@@ -53,6 +53,10 @@
     <Compile Include="BaseOptionsControl.Designer.cs">
       <DependentUpon>BaseOptionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="BaseUserControl.cs" />
+    <Compile Include="BaseUserControl.Designer.cs">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="LockedGUIForm.cs" />
     <Compile Include="BaseForm.cs" />
     <Compile Include="BaseMainForm.cs" />

@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -36,60 +36,44 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Collections.Generic;
 using FreeCL.RTL;
 
 namespace FreeCL.Forms
 {
 	/// <summary>
-	/// Description of BaseOptionsControl.
+	/// Description of BaseUserControl.
 	/// </summary>
-	public partial class BaseOptionsControl : BaseUserControl
+	public partial class BaseUserControl : UserControl
 	{
-		public BaseOptionsControl()
+		public BaseUserControl()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
 			
+			//
+			// TODO: Add constructor code after the InitializeComponent() call.
+			//
+		}
+		
+		public static string TranslateString(string data)
+		{
+			return LangPack.TranslateString(data);
+		}
+	
+		public static void RegisterLanguageEvent(OnLanguageChangedEventHandler onLanguageChangedEventHandler)
+		{
+			LangPack.RegisterLanguageEvent(onLanguageChangedEventHandler);
 			
-			
+			if(onLanguageChangedEventHandler != null)
+				onLanguageChangedEventHandler.Invoke();
 		}
-		
-		
-		public virtual void Init()
-		{
-		
-		}
-		
-		public virtual void Apply()
-		{
-		
-		}
-
-		public virtual void Revert()
-		{
-		
-		}
-		
-		public virtual bool IsChanged()
-		{
-			return false;
-		}
-		
-		
-		public virtual void Activate()
-		{
-		
-		}
-		
 		
 	}
-	
-	
 }
