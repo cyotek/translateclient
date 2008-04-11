@@ -172,6 +172,15 @@ namespace Translate
 			aControlInsIns.Text  = TranslateString("Activate on Ctrl+Ins+Ins hotkey"); 
 			
 			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
+			
+			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			{
+				UserTranslateProfile pf = tsTranslate.Items[i].Tag as UserTranslateProfile;
+				if(pf == null)
+					tsTranslate.Items[i].Text = TranslateString(TranslateOptions.Instance.DefaultProfile.Name);
+				else
+					tsTranslate.Items[i].ToolTipText = GetProfileName(pf);
+			}
 
 			UpdateCaption();
 		}
@@ -184,7 +193,13 @@ namespace Translate
 			if(TranslationComment != "TranslationComment")
 				caption += TranslationComment;
 			
-			string selectionName = languageSelector.SelectionName;
+			UserTranslateProfile pf = currentProfile as UserTranslateProfile;
+			if(pf != null && languageSelector.Selection != pf.TranslationDirection)
+				caption += " " + pf.Name + " ";
+
+			string selectionName = "";
+			if(languageSelector.Selection != null)
+				selectionName = languageSelector.SelectionName;
 			caption += "  {" + selectionName + "}";
 				
 			Text = Constants.AppName + " " + caption;
@@ -194,6 +209,8 @@ namespace Translate
 				lSelectedLangsPair.Text = LangPack.TranslateLanguage(languageSelector.Selection.From).Substring(0, 3) +
 					"->" + 
 					LangPack.TranslateLanguage(languageSelector.Selection.To).Substring(0, 3);
+			else 		
+				lSelectedLangsPair.Text = "";
 					
 			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);		
 		}
@@ -202,6 +219,7 @@ namespace Translate
 		
 		public void UpdateProfiles()
 		{
+			ignoreProfileReposition = true;
 			currentProfile = TranslateOptions.Instance.CurrentProfile;
 			languageSelector.Profile = currentProfile;
 			checkedProfileButton = null;
@@ -211,18 +229,22 @@ namespace Translate
 			
 			if(TranslateOptions.Instance.Profiles.Count > 1)
 			{
-				tsTranslate.Items.Add(new ToolStripSeparator());	
+				tsTranslate.Items.Add(tsSeparatorTranslate);	
 				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
 				{
 					ToolStripButton tsButton = new ToolStripButton();
 					if(pf == TranslateOptions.Instance.DefaultProfile)
 						tsButton.Text = TranslateString(pf.Name);
 					else 
+					{
 						tsButton.Text = pf.Name;
+						tsButton.ToolTipText = GetProfileName(pf as UserTranslateProfile);
+					}	
 					
 					tsButton.Tag = pf;
 					tsButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
 					tsButton.Click +=  OnProfileButtonClick;
+					tsButton.LocationChanged += TsbTranslateLocationChanged;
 					
 					if(pf == currentProfile)
 					{
@@ -234,6 +256,8 @@ namespace Translate
 				}
 			}
 			UpdateLanguageSelector();
+			tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 1;
+			ignoreProfileReposition = false;
 		}
 		
 		ToolStripButton checkedProfileButton = null; 
@@ -286,7 +310,28 @@ namespace Translate
 					pRight.Enabled = true;
 				}
 			}
+			UpdateCaption();
 		}
+		
+		string GetProfileName(UserTranslateProfile profile)
+		{
+			string nameBase = "";
+			nameBase += profile.Name;
+			nameBase += " ( ";
+			
+			nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.From);
+				
+			nameBase += "->";
+			
+			nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.To);
+					
+			if(profile.Subject != SubjectConstants.Any && profile.Subject != SubjectConstants.Common)
+				nameBase += "->" + LangPack.TranslateString(profile.Subject);
+
+			nameBase += " )";
+			return nameBase;
+		}
+		
 		
 		void TranslateMainFormFormClosing(object sender, FormClosingEventArgs e)
 		{
@@ -486,7 +531,12 @@ namespace Translate
 		bool skipChangeInput;
 		void GlobalEventsIdle(object sender, EventArgs e)
 		{
+			CheckOrderOfProfiles();
+			
 			if(!InputLanguageManager.IsInputLanguageChanged)
+				return;
+				
+			if(languageSelector.Selection == null)	
 				return;
 				
 			if(!InputLanguageManager.IsLanguageSupported(languageSelector.Selection.From))
@@ -643,6 +693,69 @@ namespace Translate
 			MailTo.Send(ApplicationInfo.SupportEmail, 
 				TranslateString("Feedback for :") + " " + ApplicationInfo.ProductName + " " + ApplicationInfo.ProductVersion,
 				TranslateString("<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>"));
+			
+		}
+		
+		void AAddProfileExecute(object sender, EventArgs e)
+		{
+			UserTranslateProfile pf = new UserTranslateProfile();
+			
+			SetProfileNameForm nameForm = new SetProfileNameForm(pf, TranslateOptions.Instance.Profiles); 
+			DialogResult dr = nameForm.ShowDialog(FindForm());
+			nameForm.Dispose();
+			if(dr == DialogResult.Cancel)
+				return;
+	
+			CustomProfileServicesForm form = new CustomProfileServicesForm(pf);
+			form.ShowDialog(this);
+			form.Dispose();
+			
+			TranslateOptions.Instance.Profiles.Add(pf);
+			TranslateOptions.Instance.CurrentProfile = pf;			
+			
+			pf.Subjects.AddRange(pf.GetSupportedSubjects());
+			
+			UpdateProfiles();
+		}
+		
+		void TsTranslateEndDrag(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void TsTranslateDragDrop(object sender, DragEventArgs e)
+		{
+		}
+
+		bool profilePositionChanged;
+		void CheckOrderOfProfiles()
+		{
+			if(profilePositionChanged && MouseButtons == MouseButtons.None && tsTranslate.Items.Count > 1)
+			{
+				tsTranslate.Items.Remove(tsbTranslate);
+				tsTranslate.Items.Remove(tsSeparatorTranslate);
+				
+				TranslateOptions.Instance.Profiles.Clear();
+				
+				for(int i = 0; i < tsTranslate.Items.Count; i++)
+				{
+					TranslateOptions.Instance.Profiles.Add(tsTranslate.Items[i].Tag as TranslateProfile);
+				}
+				tsTranslate.Items.Clear();
+				tsTranslate.Items.Insert(0, tsbTranslate);
+				UpdateProfiles();
+				profilePositionChanged = false;
+			}
+		}
+		
+		bool ignoreProfileReposition = true;
+		void TsbTranslateLocationChanged(object sender, EventArgs e)
+		{
+			
+			if(ignoreProfileReposition || tsTranslate.Items.Count == 1)
+				return;
+			
+			profilePositionChanged = true;
 			
 		}
 	}
