@@ -152,6 +152,12 @@ namespace Translate
 			set 
 			{ 
 				profile = value;
+				selection = null;
+				lvServicesEnabled.Items.Clear();
+				lvServicesDisabled.Items.Clear();
+				lvServicesDisabledByUser.Items.Clear();
+				serviceStatus.Status = null;
+
 				
 				if(profile != null)
 				{
@@ -194,7 +200,6 @@ namespace Translate
 					
 					lvServicesEnabled.ListViewItemSorter = null;
 					lvServicesDisabled.ListViewItemSorter = null;
-					serviceStatus.Status = null;
 					SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
 					Languages = profile.GetLanguagePairs();
 					History = profile.History;
