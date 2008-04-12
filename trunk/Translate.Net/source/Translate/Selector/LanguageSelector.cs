@@ -494,8 +494,12 @@ namespace Translate
 				{
 					lbHistory.Items.RemoveAt(lbHistory.SelectedIndex);
 					history.Remove(new LanguagePair(currHistorySel.From.Language, currHistorySel.To.Language));
-					Selection =  new LanguagePair(Language.Any, Language.Any);
-				}
+					try
+					{
+						Selection =  new LanguagePair(Language.Any, Language.Any);
+					}
+					catch{}
+				}	
 			}
 		}
 		
