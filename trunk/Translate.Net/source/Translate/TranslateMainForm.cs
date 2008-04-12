@@ -907,5 +907,46 @@ namespace Translate
 			
 		}
 		
+
+		void ANextProfileUpdate(object sender, EventArgs e)
+		{
+			aNextProfile.Enabled = tsTranslate.Items.Count != 1;
+			aPreviousProfile.Enabled = aNextProfile.Enabled;
+		}
+		
+		void ANextProfileExecute(object sender, EventArgs e)
+		{
+			int idx = 0;
+			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			{
+				if(tsTranslate.Items[i].Tag == currentProfile)
+				{
+					idx = i + 1;
+					if(idx >= tsTranslate.Items.Count)
+						idx = 2;
+						
+					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
+					return;
+				}
+			}
+		}
+		
+		
+		void APreviousProfileExecute(object sender, EventArgs e)
+		{
+			int idx = 0;
+			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			{
+				if(tsTranslate.Items[i].Tag == currentProfile)
+				{
+					idx = i - 1;
+					if(idx < 2)
+						idx = tsTranslate.Items.Count - 1;
+						
+					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
+					return;
+				}
+			}
+		}
 	}
 }

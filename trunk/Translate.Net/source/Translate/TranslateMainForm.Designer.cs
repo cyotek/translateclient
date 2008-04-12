@@ -155,6 +155,8 @@ namespace Translate
 			this.aShowProfileServices = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowProfileLanguages = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowProfileSubjects = new FreeCL.UI.Actions.Action(this.components);
+			this.aNextProfile = new FreeCL.UI.Actions.Action(this.components);
+			this.aPreviousProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -435,6 +437,8 @@ namespace Translate
 			this.al.Actions.Add(this.aShowProfileServices);
 			this.al.Actions.Add(this.aShowProfileLanguages);
 			this.al.Actions.Add(this.aShowProfileSubjects);
+			this.al.Actions.Add(this.aNextProfile);
+			this.al.Actions.Add(this.aPreviousProfile);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1193,6 +1197,30 @@ namespace Translate
 			this.aShowProfileSubjects.Visible = true;
 			this.aShowProfileSubjects.Execute += new System.EventHandler(this.AShowProfileSubjectsExecute);
 			// 
+			// aNextProfile
+			// 
+			this.aNextProfile.Checked = false;
+			this.aNextProfile.Enabled = true;
+			this.aNextProfile.Hint = null;
+			this.aNextProfile.Shortcut = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Tab)));
+			this.aNextProfile.Tag = null;
+			this.aNextProfile.Text = "Next profile";
+			this.aNextProfile.Visible = true;
+			this.aNextProfile.Execute += new System.EventHandler(this.ANextProfileExecute);
+			this.aNextProfile.Update += new System.EventHandler(this.ANextProfileUpdate);
+			// 
+			// aPreviousProfile
+			// 
+			this.aPreviousProfile.Checked = false;
+			this.aPreviousProfile.Enabled = true;
+			this.aPreviousProfile.Hint = null;
+			this.aPreviousProfile.Shortcut = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+									| System.Windows.Forms.Keys.Tab)));
+			this.aPreviousProfile.Tag = null;
+			this.aPreviousProfile.Text = "Previous profile";
+			this.aPreviousProfile.Visible = true;
+			this.aPreviousProfile.Execute += new System.EventHandler(this.APreviousProfileExecute);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1248,6 +1276,8 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private FreeCL.UI.Actions.Action aPreviousProfile;
+		private FreeCL.UI.Actions.Action aNextProfile;
 		private System.Windows.Forms.ToolStripMenuItem miSelectedProfile;
 		private System.Windows.Forms.ToolStripSeparator tsSepProfiles4;
 		private System.Windows.Forms.ToolStripMenuItem miSetProfileProperties;
