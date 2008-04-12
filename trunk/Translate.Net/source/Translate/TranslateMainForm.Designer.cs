@@ -942,6 +942,7 @@ namespace Translate
 			this.aInvertTranslationDirection.Text = "Invert";
 			this.aInvertTranslationDirection.Visible = true;
 			this.aInvertTranslationDirection.Execute += new System.EventHandler(this.AInvertTranslationDirectionExecute);
+			this.aInvertTranslationDirection.Update += new System.EventHandler(this.AInvertTranslationDirectionUpdate);
 			// 
 			// miAnimatedIcon
 			// 

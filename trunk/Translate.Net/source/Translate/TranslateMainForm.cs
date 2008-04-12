@@ -119,7 +119,6 @@ namespace Translate
 			splitterBottom.Enabled = false;
 			splitterBottom.Visible = false;
 			
-			UpdateProfiles();
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			miFile.DropDownItems.Remove(miTranslate);
@@ -145,7 +144,21 @@ namespace Translate
 
 			aScrollResultPageDown.Shortcut = Keys.Control | Keys.PageDown;
 			aScrollResultPageUp.Shortcut = Keys.Control | Keys.PageUp;
+			
+			for(int i = 1; i < 10; i++)
+			{
+				FreeCL.UI.Actions.Action action = new FreeCL.UI.Actions.Action();
+				action.Shortcut = Keys.Control | (Keys)Enum.Parse(typeof(Keys), "D" + i.ToString());
+				action.Execute += ProfileSwitchOnCtrl1Execute;
+				profileSwitchOnCtrl1Actions.Add(action);
+				al.Actions.Add(action);				
+			}
+			
+			UpdateProfiles();
+			
 		}
+		
+		List<FreeCL.UI.Actions.Action> profileSwitchOnCtrl1Actions = new List<FreeCL.UI.Actions.Action>();
 		
 		void TranslateMainFormLoad(object sender, EventArgs e)
 		{
@@ -261,22 +274,37 @@ namespace Translate
 			languageSelector.Profile = currentProfile;
 			checkedProfileButton = null;
 			
+			foreach(FreeCL.UI.Actions.Action a in profileSwitchOnCtrl1Actions)
+				a.Tag = null;
+				
 			while(tsTranslate.Items.Count > 1)
 				tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
 			
 			if(TranslateOptions.Instance.Profiles.Count > 1)
 			{
 				tsTranslate.Items.Add(tsSeparatorTranslate);	
+				int actionIdx = 0;
 				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
 				{
 					ToolStripButton tsButton = new ToolStripButton();
 					if(pf == TranslateOptions.Instance.DefaultProfile)
+					{
 						tsButton.Text = TranslateString(pf.Name);
+						tsButton.ToolTipText = tsButton.Text;
+					}	
 					else 
 					{
 						tsButton.Text = pf.Name;
 						tsButton.ToolTipText = GetProfileName(pf as UserTranslateProfile);
 					}	
+					
+					if(actionIdx < 9)
+					{
+						profileSwitchOnCtrl1Actions[actionIdx].Tag = tsButton;
+						string displayString =	System.ComponentModel.TypeDescriptor.GetConverter(typeof(Keys)).ConvertToString(profileSwitchOnCtrl1Actions[actionIdx].Shortcut);
+						tsButton.ToolTipText += " (" + displayString + ")";
+					}
+					actionIdx++;
 					
 					tsButton.Tag = pf;
 					tsButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
@@ -541,6 +569,13 @@ namespace Translate
 		{
 			languageSelector.Invert();
 		}
+		
+		void AInvertTranslationDirectionUpdate(object sender, EventArgs e)
+		{
+			UserTranslateProfile pf = currentProfile as UserTranslateProfile;
+			aInvertTranslationDirection.Enabled = pf == null || pf.ShowLanguages;
+		}
+		
 		
 		//avoiding bug with tooltip bug
 		void sbInvertMouseLeave(object sender, EventArgs e)
@@ -810,13 +845,21 @@ namespace Translate
 				return;
 			}	
 			
+			int actionIdx = 0;
 			foreach(ToolStripItem tsi in tsTranslate.Items)
 			{
 				if(tsi.Tag == currentProfile)
 				{
 					tsi.Text = pf.Name;
+					tsi.ToolTipText = GetProfileName(pf);
+					if(actionIdx < 9)
+					{
+						string displayString =	System.ComponentModel.TypeDescriptor.GetConverter(typeof(Keys)).ConvertToString(profileSwitchOnCtrl1Actions[actionIdx].Shortcut);
+						tsi.ToolTipText += " (" + displayString + ")";
+					}
 					break;
 				}
+				actionIdx++;
 			}
 			UpdateCaption();
 		}
@@ -948,5 +991,21 @@ namespace Translate
 				}
 			}
 		}
+		
+		void ProfileSwitchOnCtrl1Execute(object sender, EventArgs e)
+		{
+			FreeCL.UI.Actions.Action action = sender as FreeCL.UI.Actions.Action;		
+			if(action == null)
+				return;
+				
+			ToolStripButton button = action.Tag as ToolStripButton;
+			
+			if(button == null)
+				return;
+				
+			OnProfileButtonClick(button, new EventArgs());	
+		}
+		
+		
 	}
 }
