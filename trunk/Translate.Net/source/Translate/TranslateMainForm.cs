@@ -327,6 +327,21 @@ namespace Translate
 			profilePositionChanged = false;
 		}
 		
+		void ActivateProfile(TranslateProfile profile)
+		{
+			if(currentProfile == profile)
+				return;
+				
+			foreach(ToolStripItem tsi in tsTranslate.Items)
+			{
+				if(tsi.Tag == profile)
+				{
+					OnProfileButtonClick(tsi, new EventArgs());
+					return;
+				}
+			}
+		}
+		
 		ToolStripButton checkedProfileButton = null; 
 		void OnProfileButtonClick(object sender, EventArgs e)
 		{
@@ -622,22 +637,87 @@ namespace Translate
 				
 			if(!InputLanguageManager.IsLanguageSupported(languageSelector.Selection.From))
 			{
-				foreach(LanguagePair lp in languageSelector.History)
+
+				bool default_selected = currentProfile == TranslateOptions.Instance.DefaultProfile;
+				
+				//step 1. seek in current if not default
+				UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+				if(upf != null)
 				{
-					if(InputLanguageManager.IsLanguageSupported(lp.From))
+					if(upf.TranslationDirection.From == Language.Any || InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From))
 					{
-						try
-						{
-							skipChangeInput = true;
-							languageSelector.Selection = lp;
-							UpdateCaption();
-						}
-						finally
-						{
-							skipChangeInput = false;
-						}
 						tbFrom.Focus();
 						return;
+					}
+					
+					foreach(LanguagePair lp in languageSelector.History)
+					{
+						if(InputLanguageManager.IsLanguageSupported(lp.From))
+						{
+							try
+							{
+								skipChangeInput = true;
+								languageSelector.Selection = lp;
+								UpdateCaption();
+							}
+							finally
+							{
+								skipChangeInput = false;
+							}
+							tbFrom.Focus();
+							return;
+						}
+					}
+				}
+				
+				//step 2. Generate list of profiles. default - last
+				TranslateProfilesCollection profiles = new TranslateProfilesCollection();
+				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
+				{
+					if(pf == TranslateOptions.Instance.DefaultProfile)
+							continue;
+
+					if(pf == currentProfile)
+							continue;
+							
+					profiles.Add(pf);		
+				}	
+				profiles.Add(TranslateOptions.Instance.DefaultProfile);
+
+				
+				//step 2. seek in other not default profiles
+				foreach(TranslateProfile pf in profiles)
+				{
+					foreach(LanguagePair lp in pf.History)
+					{
+						if(InputLanguageManager.IsLanguageSupported(lp.From))
+						{
+							try
+							{
+								skipChangeInput = true;
+								ActivateProfile(pf);
+								languageSelector.Selection = lp;
+								UpdateCaption();
+							}
+							finally
+							{
+								skipChangeInput = false;
+							}
+							tbFrom.Focus();
+							return;
+						}
+					}
+				
+					upf = pf as UserTranslateProfile;
+					if(upf != null)
+					{
+						if(InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From))
+						{
+							skipChangeInput = true;
+							ActivateProfile(upf);
+							tbFrom.Focus();
+							return;
+						}
 					}
 				}
 			}
