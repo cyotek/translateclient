@@ -157,6 +157,21 @@ namespace Translate
 			this.aShowProfileSubjects = new FreeCL.UI.Actions.Action(this.components);
 			this.aNextProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aPreviousProfile = new FreeCL.UI.Actions.Action(this.components);
+			this.miView = new System.Windows.Forms.ToolStripMenuItem();
+			this.aShowStatistics = new FreeCL.UI.Actions.Action(this.components);
+			this.aShowErrors = new FreeCL.UI.Actions.Action(this.components);
+			this.aHideWithoutResult = new FreeCL.UI.Actions.Action(this.components);
+			this.aShowTranslationDirection = new FreeCL.UI.Actions.Action(this.components);
+			this.aShowServiceName = new FreeCL.UI.Actions.Action(this.components);
+			this.aShowAccents = new FreeCL.UI.Actions.Action(this.components);
+			this.miShowAccents = new System.Windows.Forms.ToolStripMenuItem();
+			this.miHideWithoutResult = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.miShowTranslateDirection = new System.Windows.Forms.ToolStripMenuItem();
+			this.miShowServiceNames = new System.Windows.Forms.ToolStripMenuItem();
+			this.miShowStats = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.miMarkErrors = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -386,6 +401,7 @@ namespace Translate
 			// 
 			this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miProfiles,
+									this.miView,
 									this.miAnimatedIcon});
 			this.msMain.Size = new System.Drawing.Size(615, 24);
 			this.msMain.Text = "";
@@ -439,6 +455,12 @@ namespace Translate
 			this.al.Actions.Add(this.aShowProfileSubjects);
 			this.al.Actions.Add(this.aNextProfile);
 			this.al.Actions.Add(this.aPreviousProfile);
+			this.al.Actions.Add(this.aShowStatistics);
+			this.al.Actions.Add(this.aShowErrors);
+			this.al.Actions.Add(this.aHideWithoutResult);
+			this.al.Actions.Add(this.aShowTranslationDirection);
+			this.al.Actions.Add(this.aShowServiceName);
+			this.al.Actions.Add(this.aShowAccents);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1222,6 +1244,140 @@ namespace Translate
 			this.aPreviousProfile.Visible = true;
 			this.aPreviousProfile.Execute += new System.EventHandler(this.APreviousProfileExecute);
 			// 
+			// miView
+			// 
+			this.miView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miShowAccents,
+									this.miMarkErrors,
+									this.toolStripSeparator1,
+									this.miShowTranslateDirection,
+									this.miShowServiceNames,
+									this.miShowStats,
+									this.toolStripSeparator2,
+									this.miHideWithoutResult});
+			this.miView.Name = "miView";
+			this.miView.Size = new System.Drawing.Size(41, 20);
+			this.miView.Text = "View";
+			// 
+			// aShowStatistics
+			// 
+			this.aShowStatistics.Checked = false;
+			this.aShowStatistics.Enabled = true;
+			this.aShowStatistics.Hint = null;
+			this.aShowStatistics.Tag = null;
+			this.aShowStatistics.Text = "Show query time and other information";
+			this.aShowStatistics.Visible = true;
+			this.aShowStatistics.Execute += new System.EventHandler(this.AShowStatisticsExecute);
+			// 
+			// aShowErrors
+			// 
+			this.aShowErrors.Checked = false;
+			this.aShowErrors.Enabled = true;
+			this.aShowErrors.Hint = null;
+			this.aShowErrors.Tag = null;
+			this.aShowErrors.Text = "Mark by red color untranslated words";
+			this.aShowErrors.Visible = true;
+			this.aShowErrors.Execute += new System.EventHandler(this.AShowErrorsExecute);
+			// 
+			// aHideWithoutResult
+			// 
+			this.aHideWithoutResult.Checked = false;
+			this.aHideWithoutResult.Enabled = true;
+			this.aHideWithoutResult.Hint = null;
+			this.aHideWithoutResult.Tag = null;
+			this.aHideWithoutResult.Text = "Don\'t show \"Nothing found\" results";
+			this.aHideWithoutResult.Visible = true;
+			this.aHideWithoutResult.Execute += new System.EventHandler(this.AHideWithoutResultExecute);
+			this.aHideWithoutResult.Update += new System.EventHandler(this.AHideWithoutResultUpdate);
+			// 
+			// aShowTranslationDirection
+			// 
+			this.aShowTranslationDirection.Checked = false;
+			this.aShowTranslationDirection.Enabled = true;
+			this.aShowTranslationDirection.Hint = null;
+			this.aShowTranslationDirection.Tag = null;
+			this.aShowTranslationDirection.Text = "Show direction of translation";
+			this.aShowTranslationDirection.Visible = true;
+			this.aShowTranslationDirection.Execute += new System.EventHandler(this.AShowTranslationDirectionExecute);
+			// 
+			// aShowServiceName
+			// 
+			this.aShowServiceName.Checked = false;
+			this.aShowServiceName.Enabled = true;
+			this.aShowServiceName.Hint = null;
+			this.aShowServiceName.Tag = null;
+			this.aShowServiceName.Text = "Show names of services";
+			this.aShowServiceName.Visible = true;
+			this.aShowServiceName.Execute += new System.EventHandler(this.AShowServiceNameExecute);
+			// 
+			// aShowAccents
+			// 
+			this.aShowAccents.Checked = false;
+			this.aShowAccents.Enabled = true;
+			this.aShowAccents.Hint = null;
+			this.aShowAccents.Tag = null;
+			this.aShowAccents.Text = "Show accents";
+			this.aShowAccents.Visible = true;
+			this.aShowAccents.Execute += new System.EventHandler(this.AShowAccentsExecute);
+			// 
+			// miShowAccents
+			// 
+			this.al.SetAction(this.miShowAccents, this.aShowAccents);
+			this.miShowAccents.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowAccents.Name = "miShowAccents";
+			this.miShowAccents.Size = new System.Drawing.Size(272, 22);
+			this.miShowAccents.Text = "Show accents";
+			// 
+			// miHideWithoutResult
+			// 
+			this.al.SetAction(this.miHideWithoutResult, this.aHideWithoutResult);
+			this.miHideWithoutResult.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miHideWithoutResult.Name = "miHideWithoutResult";
+			this.miHideWithoutResult.Size = new System.Drawing.Size(272, 22);
+			this.miHideWithoutResult.Text = "Don\'t show \"Nothing found\" results";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
+			// 
+			// miShowTranslateDirection
+			// 
+			this.al.SetAction(this.miShowTranslateDirection, this.aShowTranslationDirection);
+			this.miShowTranslateDirection.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowTranslateDirection.Name = "miShowTranslateDirection";
+			this.miShowTranslateDirection.Size = new System.Drawing.Size(272, 22);
+			this.miShowTranslateDirection.Text = "Show direction of translation";
+			// 
+			// miShowServiceNames
+			// 
+			this.al.SetAction(this.miShowServiceNames, this.aShowServiceName);
+			this.miShowServiceNames.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowServiceNames.Name = "miShowServiceNames";
+			this.miShowServiceNames.Size = new System.Drawing.Size(272, 22);
+			this.miShowServiceNames.Text = "Show names of services";
+			// 
+			// miShowStats
+			// 
+			this.al.SetAction(this.miShowStats, this.aShowStatistics);
+			this.miShowStats.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowStats.Name = "miShowStats";
+			this.miShowStats.Size = new System.Drawing.Size(272, 22);
+			this.miShowStats.Text = "Show query time and other information";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
+			// 
+			// miMarkErrors
+			// 
+			this.al.SetAction(this.miMarkErrors, this.aShowErrors);
+			this.miMarkErrors.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miMarkErrors.Name = "miMarkErrors";
+			this.miMarkErrors.Size = new System.Drawing.Size(272, 22);
+			this.miMarkErrors.Text = "Mark by red color untranslated words";
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1277,6 +1433,21 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miHideWithoutResult;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem miShowStats;
+		private System.Windows.Forms.ToolStripMenuItem miShowServiceNames;
+		private System.Windows.Forms.ToolStripMenuItem miShowTranslateDirection;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem miMarkErrors;
+		private System.Windows.Forms.ToolStripMenuItem miShowAccents;
+		private FreeCL.UI.Actions.Action aShowAccents;
+		private FreeCL.UI.Actions.Action aShowServiceName;
+		private FreeCL.UI.Actions.Action aShowTranslationDirection;
+		private FreeCL.UI.Actions.Action aHideWithoutResult;
+		private FreeCL.UI.Actions.Action aShowErrors;
+		private FreeCL.UI.Actions.Action aShowStatistics;
+		private System.Windows.Forms.ToolStripMenuItem miView;
 		private FreeCL.UI.Actions.Action aPreviousProfile;
 		private FreeCL.UI.Actions.Action aNextProfile;
 		private System.Windows.Forms.ToolStripMenuItem miSelectedProfile;
