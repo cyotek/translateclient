@@ -139,8 +139,12 @@ namespace Translate
 			miHelp.DropDownItems.Remove(miWebsite);
 			miHelp.DropDownItems.Insert(0, miWebsite);
 			
+			
+			msMain.Items.Remove(miView);
+			msMain.Items.Insert(2, miView);
+			
 			msMain.Items.Remove(miProfiles);
-			msMain.Items.Insert(2, miProfiles);
+			msMain.Items.Insert(3, miProfiles);
 
 			aScrollResultPageDown.Shortcut = Keys.Control | Keys.PageDown;
 			aScrollResultPageUp.Shortcut = Keys.Control | Keys.PageUp;
@@ -195,6 +199,7 @@ namespace Translate
 			aRemoveProfile.Text = aRemoveProfile.Hint + " ...";
 			
 			miProfiles.Text = TranslateString("Profile");
+			miView.Text = TranslateString("View");
 			
 			aSetProfileProperties.Hint = TranslateString("Set profile properties");
 			aSetProfileProperties.Text = aSetProfileProperties.Hint + " ...";;
@@ -214,6 +219,13 @@ namespace Translate
 			
 			miProfileView.Text = TranslateString("View");
 			miProfileView2.Text = miProfileView.Text;
+			
+			aShowStatistics.Text = TranslateString("Show query time and other information");
+			aShowErrors.Text = TranslateString("Mark by red color untranslated words");
+			aHideWithoutResult.Text = TranslateString("Don't show \"Nothing found\" results");
+			aShowTranslationDirection.Text = TranslateString("Show direction of translation");
+			aShowServiceName.Text = TranslateString("Show names of services");
+			aShowAccents.Text = TranslateString("Show accents");
 			
 			
 			for(int i = 2; i < tsTranslate.Items.Count; i++)
@@ -1089,5 +1101,53 @@ namespace Translate
 		}
 		
 		
+		
+		void AShowAccentsExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.ShowAccents = !current.ShowAccents;
+		}
+		
+		void AShowErrorsExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.MarkErrorsWithRed = !current.MarkErrorsWithRed;
+		}
+		
+		void AShowServiceNameExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.ShowServiceName = !current.ShowServiceName;
+		}
+		
+		void AShowStatisticsExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.ShowQueryStatistics = !current.ShowQueryStatistics;
+			
+		}
+		
+		void AShowTranslationDirectionExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.ShowTranslationDirection = !current.ShowTranslationDirection;
+		}
+		
+		void AHideWithoutResultExecute(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			current.HideWithoutResult = !current.HideWithoutResult;
+		}
+		
+		void AHideWithoutResultUpdate(object sender, EventArgs e)
+		{
+			ResultWindowOptions current = TranslateOptions.Instance.ResultWindowOptions;
+			aShowStatistics.Checked = current.ShowQueryStatistics;
+			aShowErrors.Checked = current.MarkErrorsWithRed;
+			aHideWithoutResult.Checked = current.HideWithoutResult;
+			aShowTranslationDirection.Checked = current.ShowTranslationDirection;
+			aShowServiceName.Checked = current.ShowServiceName;
+			aShowAccents.Checked = current.ShowAccents;
+		}
 	}
 }
