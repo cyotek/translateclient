@@ -323,6 +323,7 @@ namespace Translate
 					tsButton.TextAlign = ContentAlignment.MiddleCenter;
 					tsButton.Click +=  OnProfileButtonClick;
 					tsButton.LocationChanged += TsbTranslateLocationChanged;
+					tsButton.MouseDown += OnProfileMouseDown;
 					
 					if(pf == currentProfile)
 					{
@@ -376,6 +377,15 @@ namespace Translate
 			languageSelector.Profile = currentProfile;
 			UpdateLanguageSelector();
 			tbFrom.Focus();
+		}
+		
+		
+		void OnProfileMouseDown(object sender, EventArgs e)
+		{
+			if(MouseButtons == MouseButtons.Right)
+			{
+				OnProfileButtonClick(sender, e);
+			}
 		}
 		
 		void UpdateLanguageSelector()
