@@ -85,6 +85,17 @@ namespace Translate
 	
 	}
 	
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class Encyclopedia : MonolingualDictionary
+	{
+	
+	}
+
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class SearchEngine : MonolingualDictionary
+	{
+	
+	}
 	 
 	public class MonolingualDictionariesCollection : Collection<MonolingualDictionary>
 	{
