@@ -275,34 +275,41 @@ namespace Translate
 					htmlString.AppendFormat("<p style=\"margin-top: 0pt; margin-bottom: 0pt; margin-left: {0}em;\">", 
 						indent.ToString("0.##", CultureInfo.InvariantCulture));
 
-					
-					List<string> words = SplitResultToParts(s);
-					
-					foreach(string word in words)
+					if(!s.StartsWith("html!"))
 					{
-						if(string.IsNullOrEmpty(word))
-							continue;
-							
-						bool IsDelimiter = false;
-						bool IsError = word.Length > 1;
-						if(!IsError && word.Length == 1)
+						List<string> words = SplitResultToParts(s);
+						
+						foreach(string word in words)
 						{
-							IsError = delimiterCharsList.BinarySearch(word[0]) < 0;
-							IsDelimiter = true;
-						}
-						if(IsError)	
-							IsError = topPhrase.IndexOf(word.ToLowerInvariant()) >=0;
-							
-						if(!IsDelimiter)
-						{
-							if(IsError)
-								htmlString.AppendFormat("<span style=\"" + HtmlHelper.ErrorTextStyle + "\">{0}</span>", HttpUtility.HtmlEncode(word));
+							if(string.IsNullOrEmpty(word))
+								continue;
+								
+							bool IsDelimiter = false;
+							bool IsError = word.Length > 1;
+							if(!IsError && word.Length == 1)
+							{
+								IsError = delimiterCharsList.BinarySearch(word[0]) < 0;
+								IsDelimiter = true;
+							}
+							if(IsError)	
+								IsError = topPhrase.IndexOf(word.ToLowerInvariant()) >=0;
+								
+							if(!IsDelimiter)
+							{
+								if(IsError)
+									htmlString.AppendFormat("<span style=\"" + HtmlHelper.ErrorTextStyle + "\">{0}</span>", HttpUtility.HtmlEncode(word));
+								else
+									htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\">{0}</span>", HttpUtility.HtmlEncode(word));
+							}
 							else
-								htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\">{0}</span>", HttpUtility.HtmlEncode(word));
+								htmlString.Append(HttpUtility.HtmlEncode(word));
 						}
-						else
-							htmlString.Append(HttpUtility.HtmlEncode(word));
 					}
+					else
+					{ //append html directly
+						htmlString.Append(s.Substring(5));
+					}
+					
 					htmlString.Append("</p>");
 					if(indent > 0)
 						htmlString.Append("</li>");

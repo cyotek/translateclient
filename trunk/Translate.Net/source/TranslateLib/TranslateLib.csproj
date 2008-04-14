@@ -101,6 +101,8 @@
     <Compile Include="Ulif\UlifService.cs" />
     <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
     <Compile Include="Ulif\UlifWebService.cs" />
+    <Compile Include="Wiki\WikiSearchEngine.cs" />
+    <Compile Include="Wiki\WikipediaService.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />
@@ -115,6 +117,7 @@
     <EmbeddedResource Include="ProlingofficeCom\Service.ico" />
     <EmbeddedResource Include="PcDigestNet\Service.ico" />
     <EmbeddedResource Include="Ulif\Service.ico" />
+    <EmbeddedResource Include="Wiki\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -122,6 +125,7 @@
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
+    <Folder Include="Wiki" />
     <Folder Include="Ulif" />
     <Folder Include="PcDigestNet" />
     <Folder Include="ProlingofficeCom" />
