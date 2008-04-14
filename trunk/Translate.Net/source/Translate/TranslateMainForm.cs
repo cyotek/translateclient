@@ -325,6 +325,7 @@ namespace Translate
 			tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 1;
 			ignoreProfileReposition = false;
 			profilePositionChanged = false;
+			tbFrom.Focus();
 		}
 		
 		void ActivateProfile(TranslateProfile profile)
@@ -362,6 +363,7 @@ namespace Translate
 			currentProfile = TranslateOptions.Instance.CurrentProfile;
 			languageSelector.Profile = currentProfile;
 			UpdateLanguageSelector();
+			tbFrom.Focus();
 		}
 		
 		void UpdateLanguageSelector()
