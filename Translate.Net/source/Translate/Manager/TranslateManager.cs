@@ -91,7 +91,7 @@ namespace Translate
 
 			WorkerEventHandler workerDelegate = new WorkerEventHandler(TranslateWorker);
 			
-			foreach(ServiceSetting ts in translatorsSettings)
+			foreach(ServiceItemSetting ts in translatorsSettings)
 			{
     			workerDelegate.BeginInvoke(
 	        		ts,
@@ -124,11 +124,11 @@ namespace Translate
 		}
 		
 		delegate void WorkerEventHandler(
-			ServiceSetting translatorSetting,
+			ServiceItemSetting translatorSetting,
 		    AsyncTranslateState translateState);
 		    
 		static void TranslateWorker(
-			ServiceSetting translatorSetting,
+			ServiceItemSetting translatorSetting,
 		    AsyncTranslateState translateState)
 		{
 			Result tr = translatorSetting.ServiceItem.Translate(translateState.Phrase, translatorSetting.LanguagePair, translatorSetting.Subject, translatorSetting.NetworkSetting);

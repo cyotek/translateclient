@@ -46,9 +46,9 @@ namespace Translate
 	/// <summary>
 	/// Description of TranslatorSetting.
 	/// </summary>
-	public class ServiceSetting : ServiceItemData
+	public class ServiceItemSetting : ServiceItemData
 	{
-		public ServiceSetting(LanguagePair languagePair, string subject, ServiceItem serviceItem, NetworkSetting networkSetting):base(serviceItem, languagePair, subject)
+		public ServiceItemSetting(LanguagePair languagePair, string subject, ServiceItem serviceItem, NetworkSetting networkSetting):base(serviceItem, languagePair, subject)
 		{
 			this.networkSetting = networkSetting;
 		}
@@ -62,12 +62,12 @@ namespace Translate
 	}
 	
 	
-	public class ServiceSettingCollection : Collection<ServiceSetting>
+	public class ServiceSettingCollection : Collection<ServiceItemSetting>
 	{
 	
 	}
 
-	public class ReadOnlyServiceSettingCollection: ReadOnlyCollection<ServiceSetting>
+	public class ReadOnlyServiceSettingCollection: ReadOnlyCollection<ServiceItemSetting>
 	{
 		public ReadOnlyServiceSettingCollection(ServiceSettingCollection list):base(list)
 		{

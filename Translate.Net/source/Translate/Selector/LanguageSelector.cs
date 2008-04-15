@@ -651,7 +651,7 @@ namespace Translate
 				disabledLVItems.Clear();
 				disabledByUserLVItems.Clear();
 				bool showLanguage = selection.From == Language.Any || selection.To == Language.Any;
-				foreach(ServiceSetting ss in serviceItemsSettings)
+				foreach(ServiceItemSetting ss in serviceItemsSettings)
 				{
 					ServiceSettingsContainer sc = new ServiceSettingsContainer(ss, showLanguage);
 					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.FullName, ss.LanguagePair, ss.Subject);
@@ -719,7 +719,7 @@ namespace Translate
 			foreach(ListViewItem lvi in lvServicesEnabled.Items)
 			{
 				ServiceSettingsContainer sc = lvi.Tag as ServiceSettingsContainer;
-				ServiceSetting tsetting = new ServiceSetting(sc.Setting.LanguagePair, sc.Setting.Subject, sc.Setting.ServiceItem , TranslateOptions.Instance.GetNetworkSetting(sc.Setting.ServiceItem.Service));
+				ServiceItemSetting tsetting = new ServiceItemSetting(sc.Setting.LanguagePair, sc.Setting.Subject, sc.Setting.ServiceItem , TranslateOptions.Instance.GetNetworkSetting(sc.Setting.ServiceItem.Service));
 				result.Add(tsetting);
 			}
 			return new ReadOnlyServiceSettingCollection(result);

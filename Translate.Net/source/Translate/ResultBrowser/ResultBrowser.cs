@@ -550,7 +550,7 @@ namespace Translate
 				result += "&s=" + HttpUtility.UrlEncode(phraseStr);
 				
 				List<string> subjects = new List<string>();
-				foreach(ServiceSetting ss in settings)
+				foreach(ServiceItemSetting ss in settings)
 				{
 					if(ss.Subject != SubjectConstants.Common && !subjects.Contains(ss.Subject))
 						subjects.Add(ss.Subject);

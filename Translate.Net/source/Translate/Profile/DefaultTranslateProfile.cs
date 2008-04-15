@@ -128,7 +128,7 @@ namespace Translate
 						{
 							if(Subjects.Contains(subject))
 							{
-								ServiceSetting tsetting = new ServiceSetting(kvp.Key, subject, si, TranslateOptions.Instance.GetNetworkSetting(si.Service));
+								ServiceItemSetting tsetting = new ServiceItemSetting(kvp.Key, subject, si, TranslateOptions.Instance.GetNetworkSetting(si.Service));
 								result.Add(tsetting);
 							}
 						}

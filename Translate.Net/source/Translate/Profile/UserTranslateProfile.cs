@@ -184,7 +184,7 @@ namespace Translate
 						
 					if(Subjects.Contains(sid.Subject))
 					{
-						ServiceSetting tsetting = new ServiceSetting(sid.LanguagePair, sid.Subject, sid.ServiceItem, TranslateOptions.Instance.GetNetworkSetting(sid.ServiceItem.Service));
+						ServiceItemSetting tsetting = new ServiceItemSetting(sid.LanguagePair, sid.Subject, sid.ServiceItem, TranslateOptions.Instance.GetNetworkSetting(sid.ServiceItem.Service));
 						result.Add(tsetting);
 					}
 				}

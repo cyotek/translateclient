@@ -118,7 +118,7 @@ namespace Translate
 		}
 		
 		
-		public int IndexOf(ServiceSetting a)
+		public int IndexOf(ServiceItemSetting a)
 		{
 			ServiceItemSortData data = new ServiceItemSortData(a.ServiceItem.FullName, a.Subject);
 			int result = items.IndexOf(data);
@@ -130,7 +130,7 @@ namespace Translate
 			return result;
 		}
 		
-		public void MoveBefore(ServiceSetting serviceSettingBefore, ServiceSetting serviceSetting)
+		public void MoveBefore(ServiceItemSetting serviceSettingBefore, ServiceItemSetting serviceSetting)
 		{
 			int idx = IndexOf(serviceSetting);
 			ServiceItemSortData data = items[idx];
@@ -144,7 +144,7 @@ namespace Translate
 			}
 		}
 		
-		public void MoveAfter(ServiceSetting serviceSettingAfter, ServiceSetting serviceSetting)
+		public void MoveAfter(ServiceItemSetting serviceSettingAfter, ServiceItemSetting serviceSetting)
 		{
 			int idx = IndexOf(serviceSetting);
 			ServiceItemSortData data = items[idx];
