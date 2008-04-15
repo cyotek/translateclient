@@ -216,7 +216,7 @@ namespace Translate
 				statusControl.Visible = true;
 				statusControl.ShowLanguage = true;
 				ServiceSettingsContainer sc = new ServiceSettingsContainer(
-					new ServiceSetting(serviceItemData.LanguagePair, 
+					new ServiceItemSetting(serviceItemData.LanguagePair, 
 										serviceItemData.Subject, serviceItemData.ServiceItem,
 										null),
 					true);

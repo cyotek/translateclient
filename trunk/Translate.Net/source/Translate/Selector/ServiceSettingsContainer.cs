@@ -46,7 +46,7 @@ namespace Translate
 	/// </summary>
 		internal class ServiceSettingsContainer
 		{
-			public ServiceSettingsContainer(ServiceSetting setting, bool showLanguage)
+			public ServiceSettingsContainer(ServiceItemSetting setting, bool showLanguage)
 			{
 				this.setting = setting;
 				this.showLanguage = showLanguage;
@@ -59,8 +59,8 @@ namespace Translate
 				set { showLanguage = value; }
 			}
 			
-			ServiceSetting setting;
-			public ServiceSetting Setting {
+			ServiceItemSetting setting;
+			public ServiceItemSetting Setting {
 				get { return setting; }
 			}
 			

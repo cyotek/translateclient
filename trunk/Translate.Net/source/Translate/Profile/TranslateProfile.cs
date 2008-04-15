@@ -160,8 +160,8 @@ namespace Translate
 			
 	        public int Compare(object x, object y)
 	        {
-	        	ServiceSetting xss = ((ServiceSettingsContainer)(((ListViewItem)x).Tag)).Setting;
-	        	ServiceSetting yss = ((ServiceSettingsContainer)(((ListViewItem)y).Tag)).Setting;
+	        	ServiceItemSetting xss = ((ServiceSettingsContainer)(((ListViewItem)x).Tag)).Setting;
+	        	ServiceItemSetting yss = ((ServiceSettingsContainer)(((ListViewItem)y).Tag)).Setting;
 	            return owner.CompareServiceSettings(xss, yss);
 	        }
 		}
@@ -183,7 +183,7 @@ namespace Translate
 			set { languagePair = value; }
 		}
 		
-		public int CompareServiceSettings(ServiceSetting x, ServiceSetting y)
+		public int CompareServiceSettings(ServiceItemSetting x, ServiceItemSetting y)
 		{
 			ServiceItemsSortDataCollection itemsSortData;
 			if(!sortData.TryGetValue(languagePair, out itemsSortData))
@@ -221,7 +221,7 @@ namespace Translate
 			}
 		}
 		
-		public void MoveBefore(ServiceSetting serviceSettingBefore, ServiceSetting serviceSetting)
+		public void MoveBefore(ServiceItemSetting serviceSettingBefore, ServiceItemSetting serviceSetting)
 		{
 			ServiceItemsSortDataCollection itemsSortData;
 			if(sortData.TryGetValue(languagePair, out itemsSortData))
@@ -231,7 +231,7 @@ namespace Translate
 			
 		}
 		
-		public void MoveAfter(ServiceSetting serviceSettingAfter, ServiceSetting serviceSetting)
+		public void MoveAfter(ServiceItemSetting serviceSettingAfter, ServiceItemSetting serviceSetting)
 		{
 			ServiceItemsSortDataCollection itemsSortData;
 			if(sortData.TryGetValue(languagePair, out itemsSortData))
