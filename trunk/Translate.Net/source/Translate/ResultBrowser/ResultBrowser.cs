@@ -307,7 +307,7 @@ namespace Translate
 					}
 					else
 					{ //append html directly
-						htmlString.Append(s.Substring(5));
+						htmlString.Append(s.Substring(5).Replace("{allowed_width}", (wBrowser.Width - 26).ToString()));
 					}
 					
 					htmlString.Append("</p>");
@@ -369,13 +369,13 @@ namespace Translate
 				
 				if(result.ServiceItem is MonolingualDictionary)
 				{
-					htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From);
+					htmlString+= LangPack.TranslateLanguage(result.LanguagePair.From);
 				}
 				else
 				{
-					htmlString+= LangPack.TranslateLanguage(result.LanguagesPair.From) +
+					htmlString+= LangPack.TranslateLanguage(result.LanguagePair.From) +
 							"->" + 
-							LangPack.TranslateLanguage(result.LanguagesPair.To);
+							LangPack.TranslateLanguage(result.LanguagePair.To);
 				}
 			}
 			
