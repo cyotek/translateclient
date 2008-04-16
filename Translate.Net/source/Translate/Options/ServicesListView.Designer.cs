@@ -95,6 +95,7 @@ namespace Translate
 			this.lvMain.TabIndex = 0;
 			this.lvMain.UseCompatibleStateImageBehavior = false;
 			this.lvMain.View = System.Windows.Forms.View.Details;
+			this.lvMain.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LvMainMouseDoubleClick);
 			this.lvMain.SelectedIndexChanged += new System.EventHandler(this.LvMainSelectedIndexChanged);
 			// 
 			// chName

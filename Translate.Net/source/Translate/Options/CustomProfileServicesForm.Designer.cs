@@ -235,6 +235,7 @@ namespace Translate
 			this.lvSource.Size = new System.Drawing.Size(292, 201);
 			this.lvSource.Sorted = true;
 			this.lvSource.TabIndex = 2;
+			this.lvSource.DoubleClick += new System.EventHandler<System.EventArgs>(this.AAddSelectedExecute);
 			this.lvSource.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvSourceServiceItemChangedEvent);
 			// 
 			// serviceStatusSource
@@ -277,6 +278,7 @@ namespace Translate
 			this.lvCurrent.Size = new System.Drawing.Size(307, 201);
 			this.lvCurrent.Sorted = false;
 			this.lvCurrent.TabIndex = 10;
+			this.lvCurrent.DoubleClick += new System.EventHandler<System.EventArgs>(this.ARemoveServiceExecute);
 			this.lvCurrent.ServiceItemChangedEvent += new System.EventHandler<Translate.ServiceItemChangedEventArgs>(this.LvCurrentServiceItemChangedEvent);
 			// 
 			// serviceStatusCurrent

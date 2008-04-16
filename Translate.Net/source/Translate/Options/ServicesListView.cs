@@ -328,6 +328,13 @@ namespace Translate
 				ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
 			tDeselectAll.Enabled = false;
 		}
+		
+		public new event EventHandler<EventArgs> DoubleClick;
+		void LvMainMouseDoubleClick(object sender, MouseEventArgs e)
+		{
+			if(DoubleClick != null)
+				DoubleClick(this, e);
+		}
 	}
 	
 	public class ServiceItemChangedEventArgs : EventArgs
