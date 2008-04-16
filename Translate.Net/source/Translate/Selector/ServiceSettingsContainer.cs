@@ -128,6 +128,14 @@ namespace Translate
 				{
 					result = LangPack.TranslateString("Phraseological dictionary");
 				}
+				else if(serviceItem is Encyclopedia)
+				{
+					result = LangPack.TranslateString("Encyclopedia");
+				}
+				else if(serviceItem is SearchEngine)
+				{
+					result = LangPack.TranslateString("Search Engine");
+				}
 				else if(serviceItem is MonolingualDictionary)
 				{
 					result = LangPack.TranslateString("Monolingual dictionary");
@@ -159,6 +167,14 @@ namespace Translate
 				else if(setting.ServiceItem is PhraseologicalDictionary)
 				{
 					name += LangPack.TranslateString("PD");
+				}
+				else if(setting.ServiceItem is Encyclopedia)
+				{
+					name += LangPack.TranslateString("EN");
+				}
+				else if(setting.ServiceItem is SearchEngine)
+				{
+					name += LangPack.TranslateString("SE");
 				}
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{
