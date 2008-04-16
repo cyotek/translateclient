@@ -100,9 +100,14 @@ namespace Translate
 			return Name.Equals(arg.Name) && Subject.Equals(arg.Subject) && languagePair.Equals(arg.languagePair);
 		}
 			
+		public static int GetHashCode(string serviceItemName, LanguagePair languagePair, string subject)	
+		{
+			return unchecked(serviceItemName.GetHashCode() * 1000 + languagePair.GetHashCode() + subject.GetHashCode()*10000);
+		}
+		
 		public override int GetHashCode() 
 		{
-      		return unchecked(Name.GetHashCode() * 1000 + languagePair.GetHashCode() + Subject.GetHashCode()*10000);
+      		return GetHashCode(Name, languagePair, Subject);
    		}	
 			
 		public static bool operator ==(ServiceItemData a, ServiceItemData b)

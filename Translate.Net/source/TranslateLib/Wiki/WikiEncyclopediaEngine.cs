@@ -36,6 +36,7 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
 using System.Net; 
 using System.Text; 
@@ -49,15 +50,15 @@ using System.Globalization;
 namespace Translate
 {
 	/// <summary>
-	/// Description of WikiSearchEngine.
+	/// Description of WikiEncyclopediaEngine.
 	/// </summary>
-	public class WikiSearchEngine : SearchEngine
+	public class WikiEncyclopediaEngine : Encyclopedia
 	{
-	
-		//http://s23.org/wikistats/wikipedias_html.php?sort=good_desc
-		public WikiSearchEngine(string searchHost)
+		public WikiEncyclopediaEngine(WikiSearchEngine searchEngine, string searchHost)
 		{
+			this.searchEngine = searchEngine;
 			this.searchHost = searchHost;
+			
 			foreach(Language from in WikiUtils.LangToKey.Keys)
 			{
 				  AddSupportedTranslation(new LanguagePair(from, from));
@@ -65,58 +66,66 @@ namespace Translate
 			
 			AddSupportedSubject(SubjectConstants.Common);
 			
-			Name = "_search";
+			Name = "_encyclopedia";
+			
 		}
 		
+		WikiSearchEngine searchEngine;
 		string searchHost;
-
-		
-		
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			string query = "http://{0}.{1}/w/api.php?action=query&list=search&srsearch={2}&srlimit={3}&format=xml&srwhat=text";
+			Result searchResult = searchEngine.Translate(phrase, languagesPair, subject, networkSetting);
+			if(!searchResult.HasData || searchResult.Translations.Count < 1)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			string url = StringParser.Parse("<a href=\"", "\">", searchResult.Translations[0]);
+			string searched_name = url.Substring(url.LastIndexOf("/") + 1);
+			
+			if(string.Compare(phrase, searched_name, true) != 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			//http://en.wikipedia.org/w/api.php?action=parse&prop=text&format=xml&page=Ukraine
+			string query = "http://{0}.{1}/w/api.php?action=parse&prop=text|revid&format=xml&page={2}";
 			string lang = WikiUtils.ConvertLanguage(languagesPair.From);
 			query = string.Format(query, lang, 
 				searchHost,
-				HttpUtility.UrlEncode(phrase),
-				SearchEngine.ResultsLimit);
-				
+				HttpUtility.UrlEncode(searched_name));
+			
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet);
 		
 			string responseFromServer = helper.GetResponse();
-			
-			if(responseFromServer.IndexOf("info=\"") >= 0)
-			{
-				string error = StringParser.Parse("info=\"", "\"", responseFromServer);
-				throw new TranslationException(error);
-			}
-			
-			if(responseFromServer.IndexOf("<p ns=\"0\" title=\"") < 0)
+			if(responseFromServer.IndexOf("<parse revid=\"0\">") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
+
+			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
+			res = "html!<div style='width:{allowed_width}px;overflow:scroll'>" + HttpUtility.HtmlDecode(res) + "&nbsp</div>";
 			
-			StringParser parser = new StringParser(responseFromServer);
-			string[] items = parser.ReadItemsList("<p ns=\"0\" title=\"", "\"", "787654323");
+			res = res.Replace("<h2>", "");
+			res = res.Replace("</h2>", "");
 			
-			string link;
-			foreach(string part in items)
-			{
-				//link = "html!";
-				link = "html!<a href=\"http://{0}.{1}/wiki/{2}\">{3}</a>";
-				link = string.Format(link, lang, 
-					searchHost,
-					part,
-					part);
-				result.Translations.Add(link);
-			}
+			res = StringParser.RemoveAll("<span class=\"editsection\">[<a", "</a>]", res);
+			res = StringParser.RemoveAll("href=\"#", "\"", res);
+			
+			
+			url = string.Format("a href=\"http://{0}.{1}/", lang, searchHost);
+			res = res.Replace("a href=\"/", url);
+			
+			url = string.Format("img src=\"http://{0}.{1}/", lang, searchHost);
+			res = res.Replace("img src=\"/", url);
+			result.Translations.Add(res);
 		}
 	}
 }
-
-

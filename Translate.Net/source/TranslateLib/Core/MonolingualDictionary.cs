@@ -95,6 +95,13 @@ namespace Translate
 	public abstract class SearchEngine : MonolingualDictionary
 	{
 	
+		static int resultsLimit = 15;
+		
+		public static int ResultsLimit {
+			get { return resultsLimit; }
+			set { resultsLimit = value; }
+		}
+		
 	}
 	 
 	public class MonolingualDictionariesCollection : Collection<MonolingualDictionary>
