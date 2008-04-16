@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Cache\ResultsCache.cs" />
     <Compile Include="Core\BilingualDictionary.cs" />
     <Compile Include="Core\Language.cs" />
     <Compile Include="Core\Manager.cs" />
@@ -104,8 +105,10 @@
     <Compile Include="Ulif\UlifService.cs" />
     <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
     <Compile Include="Ulif\UlifWebService.cs" />
+    <Compile Include="Wiki\WikiEncyclopediaEngine.cs" />
     <Compile Include="Wiki\WikiSearchEngine.cs" />
     <Compile Include="Wiki\WikipediaService.cs" />
+    <Compile Include="Wiki\WikiUtils.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />
@@ -128,6 +131,7 @@
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
+    <Folder Include="Cache" />
     <Folder Include="Wiki" />
     <Folder Include="Ulif" />
     <Folder Include="PcDigestNet" />

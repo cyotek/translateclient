@@ -36,34 +36,64 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
-using System.Diagnostics.CodeAnalysis;
-
-
-[module: SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Scope="namespace", Target="Translate.WikiService")]
-[module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope="namespace", Target="Translate.WikiService")]
-[module: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Scope="namespace", Target="Translate.WikiService")]
+using System.Collections.Generic;
 
 namespace Translate
 {
-	
-	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
-	public class WikipediaService : Service
+	/// <summary>
+	/// Description of ResultsCache.
+	/// </summary>
+	public static class ResultsCache
 	{
-		public WikipediaService()
+		static ResultsCache()
 		{
-			Url = new Uri("http://wikipedia.org");
-			Name = "wikipedia_org";
-			CompanyName = "Wikimedia Foundation, Inc.";
-			Copyright = "GNU Free Documentation License";
-			IconUrl = new Uri("http://en.wikipedia.org/favicon.ico");
-			FullName = "The free encyclopedia that anyone can edit";
-			IconResourceName = "Translate.Wiki.Service.ico";
-						
-			WikiSearchEngine se = new WikiSearchEngine("wikipedia.org");
-			AddMonolingualDictionary(se);
-			AddMonolingualDictionary(new WikiEncyclopediaEngine(se, "wikipedia.org"));
+		}
+		
+		static Dictionary<string, ResultsHashtable> cache = new Dictionary<string, ResultsHashtable>();
+		
+		public static Result GetCachedResult(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject)
+		{
+			string key = phrase.Trim().ToLowerInvariant();
+			
+			ResultsHashtable collection;
+			bool collection_exists = true;
+			
+			lock(cache)
+			{
+				if(!cache.TryGetValue(key, out collection))
+				{
+					collection = new ResultsHashtable();
+					cache.Add(key, collection);
+					collection_exists = false;
+				}	
+			}
+			
+			int hash = Result.GetHashCode(serviceItem.FullName, languagesPair, subject);
+			bool needed_new_result = !collection_exists;
+
+			Result res = null;
+			
+			lock(collection)
+			{
+				if(!needed_new_result)
+				{
+					if(!collection.TryGetValue(hash, out res))
+						needed_new_result = true;
+					else
+					{
+						needed_new_result = res.Error != null && !res.ResultNotFound;
+					}
+				}
+	
+				if(needed_new_result)
+				{
+					res = new Result(serviceItem, phrase, languagesPair, subject);
+					collection[hash] = res;
+				}
+			}
+			return res;
 		}
 	}
-	
 }

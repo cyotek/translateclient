@@ -123,19 +123,24 @@ namespace Translate
 			if(!SupportedSubjects.Contains(subject))
 				throw new ArgumentException("Subject : " + subject + " not supported");
 			
-			long start = DateTime.Now.Ticks;
-			Result result = CreateNewResult(phrase, languagesPair, subject);
-			
-			try
+			Result result = ResultsCache.GetCachedResult(this, phrase, languagesPair, subject);
+			lock(result)
 			{
-				CheckPhrase(phrase);
-				DoTranslate(phrase, languagesPair, subject, result, networkSetting);
+				if(result.HasData)
+					return result;
+					
+				long start = DateTime.Now.Ticks;			
+				try
+				{
+					CheckPhrase(phrase);
+					DoTranslate(phrase, languagesPair, subject, result, networkSetting);
+				}
+				catch(System.Exception e)
+				{
+					result.Error = e;
+				}
+				result.QueryTicks = DateTime.Now.Ticks - start;
 			}
-			catch(System.Exception e)
-			{
-				result.Error = e;
-			}
-			result.QueryTicks = DateTime.Now.Ticks - start;
 			return result;
 		}
 		

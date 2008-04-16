@@ -47,13 +47,10 @@ namespace Translate
 	/// <summary>
 	/// Description of BaseTranslateResult.
 	/// </summary>
-	public class Result
+	public class Result : ServiceItemData
 	{
-		public Result(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject)
+		public Result(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject):base(serviceItem, languagesPair, subject)
 		{
-			this.serviceItem = serviceItem;
-			this.languagesPair = languagesPair;
-			this.subject = subject;
 			this.phrase = phrase;
 			childs = new ResultCollection(this);
 		}
@@ -73,19 +70,6 @@ namespace Translate
 		public string Abbreviation {
 			get { return abbreviation; }
 			set { abbreviation = value; }
-		}
-		
-		
-		ServiceItem serviceItem;
-		public ServiceItem ServiceItem {
-			get { return serviceItem; }
-			set { serviceItem = value; }
-		}
-		
-		LanguagePair languagesPair;
-		public LanguagePair LanguagesPair {
-			get { return languagesPair; }
-			set { languagesPair = value; }
 		}
 		
 		Exception error;		
@@ -118,12 +102,6 @@ namespace Translate
 			set { bytesReceived = value; }
 		}
 
-		string subject;
-		public string Subject {
-			get { return subject; }
-			set { subject = value; }
-		}
-		
 		bool resultNotFound;
 		public bool ResultNotFound {
 			get { return resultNotFound; }
@@ -141,6 +119,13 @@ namespace Translate
 			set { parent = value; }
 		}
 		
+		public bool HasData
+		{
+			get
+			{
+				return (translations.Count != 0 || childs.Count != 0) && !resultNotFound && error == null;
+			}
+		}
 		
 	}
 	
@@ -175,6 +160,11 @@ namespace Translate
 	}
 	
 	public class StringsCollection : Collection<string>
+	{
+	
+	}
+	
+	public class ResultsHashtable : Dictionary<int, Result>
 	{
 	
 	}
