@@ -75,11 +75,20 @@ namespace Translate
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
+			string link_f = "html!<a href=\"http://{0}.{1}/wiki/{2}\">{3}</a><br><br>";
+			string lang = WikiUtils.ConvertLanguage(languagesPair.From);
+			
+			string link = string.Format(link_f, lang, 
+					searchHost,
+					phrase,
+					phrase);
+				
+		
 			Result searchResult = searchEngine.Translate(phrase, languagesPair, subject, networkSetting);
 			if(!searchResult.HasData || searchResult.Translations.Count < 1)
 			{
-				result.ResultNotFound = true;
-				throw new TranslationException("Nothing found");
+				result.Translations.Add(link);
+				return;
 			}
 			
 			string url = StringParser.Parse("<a href=\"", "\">", searchResult.Translations[0]);
@@ -87,13 +96,21 @@ namespace Translate
 			
 			if(string.Compare(phrase, searched_name, true) != 0)
 			{
-				result.ResultNotFound = true;
-				throw new TranslationException("Nothing found");
+				result.Translations.Add(link);
+				return;				
+			}
+			else
+			{
+				link = string.Format(link_f, lang, 
+					searchHost,
+					searched_name,
+					searched_name);			
+				result.Translations.Add(link);					
 			}
 			
 			//http://en.wikipedia.org/w/api.php?action=parse&prop=text&format=xml&page=Ukraine
 			string query = "http://{0}.{1}/w/api.php?action=parse&prop=text|revid&format=xml&page={2}";
-			string lang = WikiUtils.ConvertLanguage(languagesPair.From);
+			
 			query = string.Format(query, lang, 
 				searchHost,
 				HttpUtility.UrlEncode(searched_name));
@@ -106,8 +123,7 @@ namespace Translate
 			string responseFromServer = helper.GetResponse();
 			if(responseFromServer.IndexOf("<parse revid=\"0\">") >= 0)
 			{
-				result.ResultNotFound = true;
-				throw new TranslationException("Nothing found");
+				return;
 			}
 
 			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
