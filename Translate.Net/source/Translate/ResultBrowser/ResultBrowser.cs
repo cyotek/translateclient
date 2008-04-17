@@ -307,7 +307,11 @@ namespace Translate
 					}
 					else
 					{ //append html directly
-						htmlString.Append(s.Substring(5).Replace("{allowed_width}", (wBrowser.Width - 26).ToString()));
+						int allowedWidth = wBrowser.Width - 26;
+						if(vScrollBar.Visible)
+							allowedWidth += SystemInformation.VerticalScrollBarWidth;
+
+						htmlString.Append(s.Substring(5).Replace("{allowed_width}", allowedWidth.ToString()));
 					}
 					
 					htmlString.Append("</p>");
