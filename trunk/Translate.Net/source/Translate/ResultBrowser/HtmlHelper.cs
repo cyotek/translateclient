@@ -151,20 +151,25 @@ namespace Translate
 		}
 		
 		
-		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}\" src=\"{2}\" align=\"top\"></a>";
-		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, Service service)
+		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
+		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, ServiceItem serviceItem)
 		{
 			if(doc == null)
 				throw new ArgumentNullException("doc");
 
-			if(service == null)
+			if(serviceItem == null)
 				throw new ArgumentNullException("service");
 		
 			HtmlElement tableCell = doc.CreateElement("TD");
 
 			tableCell.Style = IconCellStyle;
 			tableCell.SetAttribute("valign", "top");
-			tableCell.InnerHtml = string.Format(CultureInfo.InvariantCulture, IconFormat, service.Url, service.Copyright, service.IconUrl);
+			tableCell.InnerHtml = string.Format(CultureInfo.InvariantCulture, 
+				IconFormat, 
+				serviceItem.Service.Url,
+				serviceItem.Service.Copyright, 
+				ServiceSettingsContainer.GetServiceItemType(serviceItem), 
+				serviceItem.Service.IconUrl);
 			return tableCell;
 		}
 		

@@ -113,7 +113,7 @@ namespace Translate
 			HtmlDocument doc = wbStatus.Document;
 			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, true);
 			
-			HtmlElement icon = HtmlHelper.CreateServiceIconCell(doc, status.Setting.ServiceItem.Service);
+			HtmlElement icon = HtmlHelper.CreateServiceIconCell(doc, status.Setting.ServiceItem);
 			tableRow.AppendChild(icon);
 			
 			HtmlElement tableCell = doc.CreateElement("TD");

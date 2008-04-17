@@ -337,7 +337,7 @@ namespace Translate
 			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, isClean);
 			
 			//icon
-			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, result.ServiceItem.Service));
+			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, result.ServiceItem));
 
 			//translate			
 			HtmlElement tableCell = doc.CreateElement("TD");
