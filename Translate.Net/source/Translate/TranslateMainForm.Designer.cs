@@ -158,20 +158,20 @@ namespace Translate
 			this.aNextProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aPreviousProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.miView = new System.Windows.Forms.ToolStripMenuItem();
+			this.miShowAccents = new System.Windows.Forms.ToolStripMenuItem();
+			this.miMarkErrors = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.miShowTranslateDirection = new System.Windows.Forms.ToolStripMenuItem();
+			this.miShowServiceNames = new System.Windows.Forms.ToolStripMenuItem();
+			this.miShowStats = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.miHideWithoutResult = new System.Windows.Forms.ToolStripMenuItem();
 			this.aShowStatistics = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowErrors = new FreeCL.UI.Actions.Action(this.components);
 			this.aHideWithoutResult = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowTranslationDirection = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowServiceName = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowAccents = new FreeCL.UI.Actions.Action(this.components);
-			this.miShowAccents = new System.Windows.Forms.ToolStripMenuItem();
-			this.miHideWithoutResult = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.miShowTranslateDirection = new System.Windows.Forms.ToolStripMenuItem();
-			this.miShowServiceNames = new System.Windows.Forms.ToolStripMenuItem();
-			this.miShowStats = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.miMarkErrors = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -686,13 +686,13 @@ namespace Translate
 			// 
 			this.msProfileAdd.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miAddProfile,
+									this.tsSepProfiles4,
+									this.miRemoveProfile,
 									this.tsSepProfiles3,
 									this.miSelectedProfile,
 									this.miProfileView,
-									this.miEditProfileServices,
 									this.miSetProfileProperties,
-									this.tsSepProfiles4,
-									this.miRemoveProfile});
+									this.miEditProfileServices});
 			this.msProfileAdd.Name = "msProfileAdd";
 			this.msProfileAdd.Size = new System.Drawing.Size(185, 148);
 			// 
@@ -802,12 +802,12 @@ namespace Translate
 			// 
 			this.miProfiles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miAddProfile2,
+									this.tsSepProfiles2,
+									this.miRemoveProfile2,
 									this.tsSepProfiles,
 									this.miProfileView2,
-									this.miEditProfileServices2,
 									this.miEditProfileProperties2,
-									this.tsSepProfiles2,
-									this.miRemoveProfile2});
+									this.miEditProfileServices2});
 			this.miProfiles.Name = "miProfiles";
 			this.miProfiles.Size = new System.Drawing.Size(54, 20);
 			this.miProfiles.Text = "Profiles";
@@ -1259,6 +1259,64 @@ namespace Translate
 			this.miView.Size = new System.Drawing.Size(41, 20);
 			this.miView.Text = "View";
 			// 
+			// miShowAccents
+			// 
+			this.al.SetAction(this.miShowAccents, this.aShowAccents);
+			this.miShowAccents.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowAccents.Name = "miShowAccents";
+			this.miShowAccents.Size = new System.Drawing.Size(272, 22);
+			this.miShowAccents.Text = "Show accents";
+			// 
+			// miMarkErrors
+			// 
+			this.al.SetAction(this.miMarkErrors, this.aShowErrors);
+			this.miMarkErrors.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miMarkErrors.Name = "miMarkErrors";
+			this.miMarkErrors.Size = new System.Drawing.Size(272, 22);
+			this.miMarkErrors.Text = "Mark by red color untranslated words";
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
+			// 
+			// miShowTranslateDirection
+			// 
+			this.al.SetAction(this.miShowTranslateDirection, this.aShowTranslationDirection);
+			this.miShowTranslateDirection.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowTranslateDirection.Name = "miShowTranslateDirection";
+			this.miShowTranslateDirection.Size = new System.Drawing.Size(272, 22);
+			this.miShowTranslateDirection.Text = "Show direction of translation";
+			// 
+			// miShowServiceNames
+			// 
+			this.al.SetAction(this.miShowServiceNames, this.aShowServiceName);
+			this.miShowServiceNames.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowServiceNames.Name = "miShowServiceNames";
+			this.miShowServiceNames.Size = new System.Drawing.Size(272, 22);
+			this.miShowServiceNames.Text = "Show names of services";
+			// 
+			// miShowStats
+			// 
+			this.al.SetAction(this.miShowStats, this.aShowStatistics);
+			this.miShowStats.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miShowStats.Name = "miShowStats";
+			this.miShowStats.Size = new System.Drawing.Size(272, 22);
+			this.miShowStats.Text = "Show query time and other information";
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
+			// 
+			// miHideWithoutResult
+			// 
+			this.al.SetAction(this.miHideWithoutResult, this.aHideWithoutResult);
+			this.miHideWithoutResult.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miHideWithoutResult.Name = "miHideWithoutResult";
+			this.miHideWithoutResult.Size = new System.Drawing.Size(272, 22);
+			this.miHideWithoutResult.Text = "Don\'t show \"Nothing found\" results";
+			// 
 			// aShowStatistics
 			// 
 			this.aShowStatistics.Checked = false;
@@ -1319,64 +1377,6 @@ namespace Translate
 			this.aShowAccents.Text = "Show accents";
 			this.aShowAccents.Visible = true;
 			this.aShowAccents.Execute += new System.EventHandler(this.AShowAccentsExecute);
-			// 
-			// miShowAccents
-			// 
-			this.al.SetAction(this.miShowAccents, this.aShowAccents);
-			this.miShowAccents.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miShowAccents.Name = "miShowAccents";
-			this.miShowAccents.Size = new System.Drawing.Size(272, 22);
-			this.miShowAccents.Text = "Show accents";
-			// 
-			// miHideWithoutResult
-			// 
-			this.al.SetAction(this.miHideWithoutResult, this.aHideWithoutResult);
-			this.miHideWithoutResult.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miHideWithoutResult.Name = "miHideWithoutResult";
-			this.miHideWithoutResult.Size = new System.Drawing.Size(272, 22);
-			this.miHideWithoutResult.Text = "Don\'t show \"Nothing found\" results";
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
-			// 
-			// miShowTranslateDirection
-			// 
-			this.al.SetAction(this.miShowTranslateDirection, this.aShowTranslationDirection);
-			this.miShowTranslateDirection.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miShowTranslateDirection.Name = "miShowTranslateDirection";
-			this.miShowTranslateDirection.Size = new System.Drawing.Size(272, 22);
-			this.miShowTranslateDirection.Text = "Show direction of translation";
-			// 
-			// miShowServiceNames
-			// 
-			this.al.SetAction(this.miShowServiceNames, this.aShowServiceName);
-			this.miShowServiceNames.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miShowServiceNames.Name = "miShowServiceNames";
-			this.miShowServiceNames.Size = new System.Drawing.Size(272, 22);
-			this.miShowServiceNames.Text = "Show names of services";
-			// 
-			// miShowStats
-			// 
-			this.al.SetAction(this.miShowStats, this.aShowStatistics);
-			this.miShowStats.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miShowStats.Name = "miShowStats";
-			this.miShowStats.Size = new System.Drawing.Size(272, 22);
-			this.miShowStats.Text = "Show query time and other information";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(269, 6);
-			// 
-			// miMarkErrors
-			// 
-			this.al.SetAction(this.miMarkErrors, this.aShowErrors);
-			this.miMarkErrors.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miMarkErrors.Name = "miMarkErrors";
-			this.miMarkErrors.Size = new System.Drawing.Size(272, 22);
-			this.miMarkErrors.Text = "Mark by red color untranslated words";
 			// 
 			// TranslateMainForm
 			// 
