@@ -105,12 +105,12 @@ namespace Translate
 						throw new TranslationException("Wrong data structure");
 
 				tree = tree.Childs[0];
-				
+
 				Result wordres = null;	
 					
 				foreach(StringsTree words_tree in tree.Childs)
 				{
-					string word = StringParser.Parse("/\">", "</a>", words_tree.Data);
+					string word = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", words_tree.Data));
 					if(tree.Childs.Count == 1)
 					{
 						wordres = result;
@@ -124,7 +124,7 @@ namespace Translate
 					Result abbrres = null;	
 					foreach(StringsTree abbr_tree in words_tree.Childs)
 					{
-						string abbr = StringParser.Parse("none\">", "</a>", abbr_tree.Data);
+						string abbr = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", abbr_tree.Data));
 						if(words_tree.Childs.Count == 1)
 						{
 							wordres.Abbreviation = abbr;
@@ -140,7 +140,7 @@ namespace Translate
 						Result areares = null;	
 						foreach(StringsTree area_tree in abbr_tree.Childs)
 						{
-							string area = StringParser.Parse("none\">", "</a>", area_tree.Data);
+							string area = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", area_tree.Data));
 							if(abbr_tree.Childs.Count == 1)
 							{
 								if(area != "General")
@@ -156,7 +156,8 @@ namespace Translate
 							
 							foreach(StringsTree translation_tree in area_tree.Childs)
 							{
-								string trans = StringParser.Parse("/\">", "</a>", translation_tree.Data);
+								string trans = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", translation_tree.Data));
+
 								areares.Translations.Add(trans);
 							}
 						}
