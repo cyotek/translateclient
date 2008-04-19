@@ -97,6 +97,8 @@
     <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
+    <Compile Include="Systran\SystranService.cs" />
+    <Compile Include="Systran\SystranTranslator.cs" />
     <Compile Include="TridentComUa\TridentComUaService.cs" />
     <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
     <Compile Include="Ulif\UlifAntonymsDictionary.cs" />
@@ -127,6 +129,7 @@
     <EmbeddedResource Include="PcDigestNet\Service.ico" />
     <EmbeddedResource Include="Ulif\Service.ico" />
     <EmbeddedResource Include="Wiki\Service.ico" />
+    <EmbeddedResource Include="Systran\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -135,6 +138,7 @@
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
     <Folder Include="Cache" />
+    <Folder Include="Systran" />
     <Folder Include="Wiki" />
     <Folder Include="Ulif" />
     <Folder Include="PcDigestNet" />
