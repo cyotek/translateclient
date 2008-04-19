@@ -77,11 +77,11 @@ namespace Translate
 			
 			//http://dict.linux.org.ua/dict/db/table_adv.php?word_str=help&expr=any&A=on&P=on&O=on
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://dict.linux.org.ua/dict/db/table_adv.php"), 
+				new WebRequestHelper(result, new Uri("http://dict.linux.org.ua/db/table_adv.php"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
-			helper.Encoding = Encoding.GetEncoding(21866); //koi8-u
-			string query = "word_str={0}&expr=any&A=on&P=on&O=on";
+			//helper.Encoding = Encoding.GetEncoding(21866); //koi8-u
+			string query = "word={0}&expr=any&A=on&P=on&O=on";
 			
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, helper.Encoding));
 			helper.AddPostData(query);
@@ -99,7 +99,7 @@ namespace Translate
 			}
 			else
 			{
-				string translation = StringParser.Parse("<table BORDER COLS=4 WIDTH=", "</table>", responseFromServer);
+				string translation = StringParser.Parse("<table BORDER WIDTH=", "</table>", responseFromServer);
 				translation = translation.Replace("<B>", "");
 				translation = translation.Replace("</B>", "");
 				
