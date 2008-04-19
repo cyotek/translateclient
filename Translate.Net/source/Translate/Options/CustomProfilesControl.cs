@@ -243,6 +243,8 @@ namespace Translate
 			if(lvProfiles.SelectedItems.Count == 0)
 				return;
 			TranslateProfile pf = lvProfiles.SelectedItems[0].Tag as TranslateProfile;
+			UserTranslateProfile upf = pf as UserTranslateProfile;
+			
 			if(pf == defaultProfile)
 			{
 				if(!tcOptions.TabPages.Contains(tpDefaultOptions))
@@ -252,7 +254,7 @@ namespace Translate
 				tcOptions.TabPages.Remove(tpServices);
 				tcOptions.TabPages.Remove(tpLanguageSelector);
 			}
-			else
+			else if(upf != null)
 			{
 				if(!tcOptions.TabPages.Contains(tpServices))
 					tcOptions.TabPages.Add(tpServices);
@@ -265,12 +267,11 @@ namespace Translate
 
 				tcOptions.TabPages.Remove(tpDefaultOptions);
 				lProfileName.Text = pf.Name;
-				lvServices.Services = (pf as UserTranslateProfile).Services;
+				lvServices.Services = upf.Services;
 			}
 			
 			aEditServices.Enabled = pf != defaultProfile;
 			
-			UserTranslateProfile upf = pf as UserTranslateProfile;
 			if(upf != null)
 			{
 				ignoreLanguageChange = true;
