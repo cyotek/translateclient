@@ -179,17 +179,30 @@ namespace Translate
 			
 			if(string.Compare(phrase, searched_name, true) != 0)
 			{
-				result.ResultNotFound = true;
-				throw new TranslationException("Nothing found");
+				//check second line
+				if(searchResult.Translations.Count < 2)
+				{
+					result.ResultNotFound = true;
+					throw new TranslationException("Nothing found");
+				}
+				else
+				{
+					url = StringParser.Parse("<a href=\"", "\">", searchResult.Translations[1]);
+					searched_name = url.Substring(url.LastIndexOf("/") + 1);
+					if(string.Compare(phrase, searched_name, true) != 0)
+					{
+						result.ResultNotFound = true;
+						throw new TranslationException("Nothing found");
+					}
+				}
 			}
-			else
-			{
-				link = string.Format(link_f, lang, 
-					searchHost,
-					searched_name,
-					searched_name);			
-				result.EditArticleUrl = link;					
-			}
+			
+			
+			link = string.Format(link_f, lang, 
+				searchHost,
+				searched_name,
+				searched_name);			
+			result.EditArticleUrl = link;					
 			
 			//http://en.wikipedia.org/w/api.php?action=parse&prop=text&format=xml&page=Ukraine
 			string query = "http://{0}.{1}/w/api.php?action=parse&prop=text|revid&format=xml&page={2}";
