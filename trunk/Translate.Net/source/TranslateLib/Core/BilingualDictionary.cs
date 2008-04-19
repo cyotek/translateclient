@@ -69,6 +69,11 @@ namespace Translate
 		
 	}
 	
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class BilingualSearchEngine : BilingualDictionary
+	{
+	}
+	
 	public class BilingualDictionariesCollection : Collection<BilingualDictionary>
 	{
 		public BilingualDictionariesCollection()

@@ -75,73 +75,7 @@ namespace Translate
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			string link_f = "html!<a href=\"http://{0}.{1}/wiki/{2}\">{3}</a><br><br>";
-			string lang = WikiUtils.ConvertLanguage(languagesPair.From);
-			
-			string link = string.Format(link_f, lang, 
-					searchHost,
-					phrase,
-					phrase);
-				
-		
-			Result searchResult = searchEngine.Translate(phrase, languagesPair, subject, networkSetting);
-			if(!searchResult.HasData || searchResult.Translations.Count < 1)
-			{
-				result.Translations.Add(link);
-				return;
-			}
-			
-			string url = StringParser.Parse("<a href=\"", "\">", searchResult.Translations[0]);
-			string searched_name = url.Substring(url.LastIndexOf("/") + 1);
-			
-			if(string.Compare(phrase, searched_name, true) != 0)
-			{
-				result.Translations.Add(link);
-				return;				
-			}
-			else
-			{
-				link = string.Format(link_f, lang, 
-					searchHost,
-					searched_name,
-					searched_name);			
-				result.Translations.Add(link);					
-			}
-			
-			//http://en.wikipedia.org/w/api.php?action=parse&prop=text&format=xml&page=Ukraine
-			string query = "http://{0}.{1}/w/api.php?action=parse&prop=text|revid&format=xml&page={2}";
-			
-			query = string.Format(query, lang, 
-				searchHost,
-				HttpUtility.UrlEncode(searched_name));
-			
-			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri(query), 
-					networkSetting, 
-					WebRequestContentType.UrlEncodedGet);
-		
-			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("<parse revid=\"0\">") >= 0)
-			{
-				return;
-			}
-
-			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
-			res = "html!<div style='width:{allowed_width}px;overflow:scroll'>" + HttpUtility.HtmlDecode(res) + "&nbsp</div>";
-			
-			res = res.Replace("<h2>", "");
-			res = res.Replace("</h2>", "");
-			
-			res = StringParser.RemoveAll("<span class=\"editsection\">[<a", "</a>]", res);
-			res = StringParser.RemoveAll("href=\"#", "\"", res);
-			
-			
-			url = string.Format("a href=\"http://{0}.{1}/", lang, searchHost);
-			res = res.Replace("a href=\"/", url);
-			
-			url = string.Format("img src=\"http://{0}.{1}/", lang, searchHost);
-			res = res.Replace("img src=\"/", url);
-			result.Translations.Add(res);
+			WikiUtils.DoTranslate(searchEngine, searchHost, phrase, languagesPair, subject, result, networkSetting);
 		}
 	}
 }

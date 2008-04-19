@@ -132,7 +132,7 @@ namespace Translate
 				{
 					result = LangPack.TranslateString("Encyclopedia");
 				}
-				else if(serviceItem is SearchEngine)
+				else if(serviceItem is MonolingualSearchEngine || serviceItem is BilingualSearchEngine)
 				{
 					result = LangPack.TranslateString("Search Engine");
 				}
@@ -172,7 +172,7 @@ namespace Translate
 				{
 					name += LangPack.TranslateString("EN");
 				}
-				else if(setting.ServiceItem is SearchEngine)
+				else if(setting.ServiceItem is MonolingualSearchEngine || setting.ServiceItem is BilingualSearchEngine)
 				{
 					name += LangPack.TranslateString("SE");
 				}

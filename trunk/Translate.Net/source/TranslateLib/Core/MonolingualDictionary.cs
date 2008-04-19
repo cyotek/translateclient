@@ -92,7 +92,7 @@ namespace Translate
 	}
 
 	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
-	public abstract class SearchEngine : MonolingualDictionary
+	public abstract class MonolingualSearchEngine : MonolingualDictionary
 	{
 	
 		static int resultsLimit = 15;

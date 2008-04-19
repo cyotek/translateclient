@@ -49,33 +49,37 @@ using System.Globalization;
 namespace Translate
 {
 	/// <summary>
-	/// Description of WikiSearchEngine.
+	/// Description of WictionaryDictionary.
 	/// </summary>
-	public class WikiSearchEngine : MonolingualSearchEngine
+	public class WictionaryDictionary : BilingualDictionary
 	{
-	
-		public WikiSearchEngine(string searchHost)
+		public WictionaryDictionary(WiktionarySearchEngine searchEngine, string searchHost)
 		{
+			this.searchEngine = searchEngine;
 			this.searchHost = searchHost;
+			
+			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(WikiUtils.LangToKey);
+			
 			foreach(Language from in WikiUtils.LangToKey.Keys)
 			{
-				  AddSupportedTranslation(new LanguagePair(from, from));
+				foreach(Language to in tmp.Keys)
+				{
+					  AddSupportedTranslation(new LanguagePair(from, to));
+				}
 			}
 			
 			AddSupportedSubject(SubjectConstants.Common);
 			
-			Name = "_search";
+			Name = "_dictionary";
+			
 		}
+		
+		WiktionarySearchEngine searchEngine;
 		string searchHost;
-
-		
-		
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			WikiUtils.DoSearch(searchHost, phrase, languagesPair, subject, result, networkSetting);
+			WikiUtils.DoTranslate(searchEngine, searchHost, phrase, languagesPair, subject, result, networkSetting);
 		}
 	}
 }
-
-

@@ -57,6 +57,7 @@ namespace Translate
 	{
 		static WikiUtils()
 		{
+			//http://s23.org/wikistats/wikipedias_html.php?sort=good_desc
 			langToKey.Add(Language.Arabic, "ar");
 			langToKey.Add(Language.Belarusian, "be");
 			langToKey.Add(Language.Bulgarian, "bg");
@@ -109,6 +110,126 @@ namespace Translate
 				throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
 			else
 				return result;
+		}
+		
+		public static void DoSearch(string searchHost, string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string query = "http://{0}.{1}/w/api.php?action=query&list=search&srsearch={2}&srlimit={3}&format=xml&srwhat=text";
+			string lang = WikiUtils.ConvertLanguage(languagesPair.To);
+			query = string.Format(query, lang, 
+				searchHost,
+				HttpUtility.UrlEncode(phrase),
+				MonolingualSearchEngine.ResultsLimit);
+				
+			WebRequestHelper helper = 
+				new WebRequestHelper(result, new Uri(query), 
+					networkSetting, 
+					WebRequestContentType.UrlEncodedGet);
+		
+			string responseFromServer = helper.GetResponse();
+			
+			if(responseFromServer.IndexOf("info=\"") >= 0)
+			{
+				string error = StringParser.Parse("info=\"", "\"", responseFromServer);
+				throw new TranslationException(error);
+			}
+			
+			if(responseFromServer.IndexOf("<p ns=\"0\" title=\"") < 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			StringParser parser = new StringParser(responseFromServer);
+			string[] items = parser.ReadItemsList("<p ns=\"0\" title=\"", "\"", "787654323");
+			
+			string link;
+			foreach(string part in items)
+			{
+				//link = "html!";
+				link = "html!<a href=\"http://{0}.{1}/wiki/{2}\">{3}</a>";
+				link = string.Format(link, lang, 
+					searchHost,
+					part,
+					part);
+				result.Translations.Add(link);
+			}
+		}
+		
+		public static void DoTranslate(ServiceItem searchEngine, string searchHost, string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string link_f = "http://{0}.{1}/wiki/{2}";
+			string lang = WikiUtils.ConvertLanguage(languagesPair.To);
+			
+			string link = string.Format(link_f, lang, 
+					searchHost,
+					phrase);
+				
+			result.EditArticleUrl = link;	
+		
+			Result searchResult = searchEngine.Translate(phrase, languagesPair, subject, networkSetting);
+			if(!searchResult.HasData || searchResult.Translations.Count < 1)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			
+			string url = StringParser.Parse("<a href=\"", "\">", searchResult.Translations[0]);
+			string searched_name = url.Substring(url.LastIndexOf("/") + 1);
+			
+			if(string.Compare(phrase, searched_name, true) != 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+			else
+			{
+				link = string.Format(link_f, lang, 
+					searchHost,
+					searched_name,
+					searched_name);			
+				result.EditArticleUrl = link;					
+			}
+			
+			//http://en.wikipedia.org/w/api.php?action=parse&prop=text&format=xml&page=Ukraine
+			string query = "http://{0}.{1}/w/api.php?action=parse&prop=text|revid&format=xml&page={2}";
+			
+			query = string.Format(query, lang, 
+				searchHost,
+				HttpUtility.UrlEncode(searched_name));
+			
+			WebRequestHelper helper = 
+				new WebRequestHelper(result, new Uri(query), 
+					networkSetting, 
+					WebRequestContentType.UrlEncodedGet);
+		
+			string responseFromServer = helper.GetResponse();
+			if(responseFromServer.IndexOf("<parse revid=\"0\">") >= 0)
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+
+			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
+			res = "html!<div style='width:{allowed_width}px;overflow:scroll'>" + HttpUtility.HtmlDecode(res) + "&nbsp</div>";
+			
+			res = res.Replace("<h2>", "");
+			res = res.Replace("</h2>", "");
+			res = res.Replace("<h3>", "");
+			res = res.Replace("</h3>", "");
+			res = res.Replace("<h4>", "");
+			res = res.Replace("</h4>", "");
+			
+			res = StringParser.RemoveAll("<span class=\"editsection\">[<a", "</a>]", res);
+			res = StringParser.RemoveAll("href=\"#", "\"", res);
+			
+			
+			url = string.Format("a href=\"http://{0}.{1}/", lang, searchHost);
+			res = res.Replace("a href=\"/", url);
+			
+			url = string.Format("img src=\"http://{0}.{1}/", lang, searchHost);
+			res = res.Replace("img src=\"/", url);
+			result.Translations.Add(res);
 		}
 		
 	}

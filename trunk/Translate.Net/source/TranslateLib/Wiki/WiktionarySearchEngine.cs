@@ -36,6 +36,7 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
 using System.Net; 
 using System.Text; 
@@ -51,21 +52,28 @@ namespace Translate
 	/// <summary>
 	/// Description of WikiSearchEngine.
 	/// </summary>
-	public class WikiSearchEngine : MonolingualSearchEngine
+	public class WiktionarySearchEngine : BilingualSearchEngine
 	{
 	
-		public WikiSearchEngine(string searchHost)
+		public WiktionarySearchEngine(string searchHost)
 		{
 			this.searchHost = searchHost;
+			
+			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(WikiUtils.LangToKey);
+			
 			foreach(Language from in WikiUtils.LangToKey.Keys)
 			{
-				  AddSupportedTranslation(new LanguagePair(from, from));
+				foreach(Language to in tmp.Keys)
+				{
+					  AddSupportedTranslation(new LanguagePair(from, to));
+				}
 			}
 			
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			Name = "_search";
 		}
+		
 		string searchHost;
 
 		
