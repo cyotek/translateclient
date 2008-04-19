@@ -97,29 +97,31 @@ namespace Translate
 			this.tsTranslate = new System.Windows.Forms.ToolStrip();
 			this.msProfileAdd = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.miAddProfile = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsSepProfiles4 = new System.Windows.Forms.ToolStripSeparator();
+			this.miRemoveProfile = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsSepProfiles3 = new System.Windows.Forms.ToolStripSeparator();
 			this.miSelectedProfile = new System.Windows.Forms.ToolStripMenuItem();
 			this.miProfileView = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileServices = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileLanguages = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileSubjects = new System.Windows.Forms.ToolStripMenuItem();
-			this.miEditProfileServices = new System.Windows.Forms.ToolStripMenuItem();
+			this.miIncludeMonolingualDicts2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miSetProfileProperties = new System.Windows.Forms.ToolStripMenuItem();
-			this.tsSepProfiles4 = new System.Windows.Forms.ToolStripSeparator();
-			this.miRemoveProfile = new System.Windows.Forms.ToolStripMenuItem();
+			this.miEditProfileServices = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsbTranslate = new System.Windows.Forms.ToolStripButton();
 			this.tsSeparatorTranslate = new System.Windows.Forms.ToolStripSeparator();
 			this.miProfiles = new System.Windows.Forms.ToolStripMenuItem();
 			this.miAddProfile2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsSepProfiles2 = new System.Windows.Forms.ToolStripSeparator();
+			this.miRemoveProfile2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsSepProfiles = new System.Windows.Forms.ToolStripSeparator();
 			this.miProfileView2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileServices2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileLanguages2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miShowProfileSubjects2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.miEditProfileServices2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.miIncludeMonolingualDicts = new System.Windows.Forms.ToolStripMenuItem();
 			this.miEditProfileProperties2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.tsSepProfiles2 = new System.Windows.Forms.ToolStripSeparator();
-			this.miRemoveProfile2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.miEditProfileServices2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterLeft = new System.Windows.Forms.Splitter();
 			this.splitterRight = new System.Windows.Forms.Splitter();
 			this.splitterTop = new System.Windows.Forms.Splitter();
@@ -172,6 +174,7 @@ namespace Translate
 			this.aShowTranslationDirection = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowServiceName = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowAccents = new FreeCL.UI.Actions.Action(this.components);
+			this.aIncludeMonolingualDicts = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -461,6 +464,7 @@ namespace Translate
 			this.al.Actions.Add(this.aShowTranslationDirection);
 			this.al.Actions.Add(this.aShowServiceName);
 			this.al.Actions.Add(this.aShowAccents);
+			this.al.Actions.Add(this.aIncludeMonolingualDicts);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -691,30 +695,45 @@ namespace Translate
 									this.tsSepProfiles3,
 									this.miSelectedProfile,
 									this.miProfileView,
+									this.miIncludeMonolingualDicts2,
 									this.miSetProfileProperties,
 									this.miEditProfileServices});
 			this.msProfileAdd.Name = "msProfileAdd";
-			this.msProfileAdd.Size = new System.Drawing.Size(185, 148);
+			this.msProfileAdd.Size = new System.Drawing.Size(200, 170);
 			// 
 			// miAddProfile
 			// 
 			this.al.SetAction(this.miAddProfile, this.aAddProfile);
 			this.miAddProfile.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAddProfile.Name = "miAddProfile";
-			this.miAddProfile.Size = new System.Drawing.Size(184, 22);
+			this.miAddProfile.Size = new System.Drawing.Size(199, 22);
 			this.miAddProfile.Text = "Add new user profile";
 			this.miAddProfile.ToolTipText = "Add new user profile";
+			// 
+			// tsSepProfiles4
+			// 
+			this.tsSepProfiles4.Name = "tsSepProfiles4";
+			this.tsSepProfiles4.Size = new System.Drawing.Size(196, 6);
+			// 
+			// miRemoveProfile
+			// 
+			this.al.SetAction(this.miRemoveProfile, this.aRemoveProfile);
+			this.miRemoveProfile.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miRemoveProfile.Name = "miRemoveProfile";
+			this.miRemoveProfile.Size = new System.Drawing.Size(199, 22);
+			this.miRemoveProfile.Text = "Remove user profile";
+			this.miRemoveProfile.ToolTipText = "Remove user profile";
 			// 
 			// tsSepProfiles3
 			// 
 			this.tsSepProfiles3.Name = "tsSepProfiles3";
-			this.tsSepProfiles3.Size = new System.Drawing.Size(181, 6);
+			this.tsSepProfiles3.Size = new System.Drawing.Size(196, 6);
 			// 
 			// miSelectedProfile
 			// 
 			this.miSelectedProfile.Enabled = false;
 			this.miSelectedProfile.Name = "miSelectedProfile";
-			this.miSelectedProfile.Size = new System.Drawing.Size(184, 22);
+			this.miSelectedProfile.Size = new System.Drawing.Size(199, 22);
 			this.miSelectedProfile.Text = "Profile";
 			// 
 			// miProfileView
@@ -724,7 +743,7 @@ namespace Translate
 									this.miShowProfileLanguages,
 									this.miShowProfileSubjects});
 			this.miProfileView.Name = "miProfileView";
-			this.miProfileView.Size = new System.Drawing.Size(184, 22);
+			this.miProfileView.Size = new System.Drawing.Size(199, 22);
 			this.miProfileView.Text = "View";
 			// 
 			// miShowProfileServices
@@ -751,35 +770,29 @@ namespace Translate
 			this.miShowProfileSubjects.Size = new System.Drawing.Size(179, 22);
 			this.miShowProfileSubjects.Text = "Show subjects list";
 			// 
-			// miEditProfileServices
+			// miIncludeMonolingualDicts2
 			// 
-			this.al.SetAction(this.miEditProfileServices, this.aEditProfileServices);
-			this.miEditProfileServices.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miEditProfileServices.Name = "miEditProfileServices";
-			this.miEditProfileServices.Size = new System.Drawing.Size(184, 22);
-			this.miEditProfileServices.Text = "Edit profile services";
+			this.al.SetAction(this.miIncludeMonolingualDicts2, this.aIncludeMonolingualDicts);
+			this.miIncludeMonolingualDicts2.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miIncludeMonolingualDicts2.Name = "miIncludeMonolingualDicts2";
+			this.miIncludeMonolingualDicts2.Size = new System.Drawing.Size(199, 22);
+			this.miIncludeMonolingualDicts2.Text = "IncludeMonolingualDicts";
 			// 
 			// miSetProfileProperties
 			// 
 			this.al.SetAction(this.miSetProfileProperties, this.aSetProfileProperties);
 			this.miSetProfileProperties.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miSetProfileProperties.Name = "miSetProfileProperties";
-			this.miSetProfileProperties.Size = new System.Drawing.Size(184, 22);
+			this.miSetProfileProperties.Size = new System.Drawing.Size(199, 22);
 			this.miSetProfileProperties.Text = "Set profile properies";
 			// 
-			// tsSepProfiles4
+			// miEditProfileServices
 			// 
-			this.tsSepProfiles4.Name = "tsSepProfiles4";
-			this.tsSepProfiles4.Size = new System.Drawing.Size(181, 6);
-			// 
-			// miRemoveProfile
-			// 
-			this.al.SetAction(this.miRemoveProfile, this.aRemoveProfile);
-			this.miRemoveProfile.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miRemoveProfile.Name = "miRemoveProfile";
-			this.miRemoveProfile.Size = new System.Drawing.Size(184, 22);
-			this.miRemoveProfile.Text = "Remove user profile";
-			this.miRemoveProfile.ToolTipText = "Remove user profile";
+			this.al.SetAction(this.miEditProfileServices, this.aEditProfileServices);
+			this.miEditProfileServices.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miEditProfileServices.Name = "miEditProfileServices";
+			this.miEditProfileServices.Size = new System.Drawing.Size(199, 22);
+			this.miEditProfileServices.Text = "Edit profile services";
 			// 
 			// tsbTranslate
 			// 
@@ -806,6 +819,7 @@ namespace Translate
 									this.miRemoveProfile2,
 									this.tsSepProfiles,
 									this.miProfileView2,
+									this.miIncludeMonolingualDicts,
 									this.miEditProfileProperties2,
 									this.miEditProfileServices2});
 			this.miProfiles.Name = "miProfiles";
@@ -817,14 +831,28 @@ namespace Translate
 			this.al.SetAction(this.miAddProfile2, this.aAddProfile);
 			this.miAddProfile2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAddProfile2.Name = "miAddProfile2";
-			this.miAddProfile2.Size = new System.Drawing.Size(184, 22);
+			this.miAddProfile2.Size = new System.Drawing.Size(199, 22);
 			this.miAddProfile2.Text = "Add new user profile";
 			this.miAddProfile2.ToolTipText = "Add new user profile";
+			// 
+			// tsSepProfiles2
+			// 
+			this.tsSepProfiles2.Name = "tsSepProfiles2";
+			this.tsSepProfiles2.Size = new System.Drawing.Size(196, 6);
+			// 
+			// miRemoveProfile2
+			// 
+			this.al.SetAction(this.miRemoveProfile2, this.aRemoveProfile);
+			this.miRemoveProfile2.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miRemoveProfile2.Name = "miRemoveProfile2";
+			this.miRemoveProfile2.Size = new System.Drawing.Size(199, 22);
+			this.miRemoveProfile2.Text = "Remove user profile";
+			this.miRemoveProfile2.ToolTipText = "Remove user profile";
 			// 
 			// tsSepProfiles
 			// 
 			this.tsSepProfiles.Name = "tsSepProfiles";
-			this.tsSepProfiles.Size = new System.Drawing.Size(181, 6);
+			this.tsSepProfiles.Size = new System.Drawing.Size(196, 6);
 			// 
 			// miProfileView2
 			// 
@@ -833,7 +861,7 @@ namespace Translate
 									this.miShowProfileLanguages2,
 									this.miShowProfileSubjects2});
 			this.miProfileView2.Name = "miProfileView2";
-			this.miProfileView2.Size = new System.Drawing.Size(184, 22);
+			this.miProfileView2.Size = new System.Drawing.Size(199, 22);
 			this.miProfileView2.Text = "View";
 			// 
 			// miShowProfileServices2
@@ -860,35 +888,29 @@ namespace Translate
 			this.miShowProfileSubjects2.Size = new System.Drawing.Size(179, 22);
 			this.miShowProfileSubjects2.Text = "Show subjects list";
 			// 
-			// miEditProfileServices2
+			// miIncludeMonolingualDicts
 			// 
-			this.al.SetAction(this.miEditProfileServices2, this.aEditProfileServices);
-			this.miEditProfileServices2.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miEditProfileServices2.Name = "miEditProfileServices2";
-			this.miEditProfileServices2.Size = new System.Drawing.Size(184, 22);
-			this.miEditProfileServices2.Text = "Edit profile services";
+			this.al.SetAction(this.miIncludeMonolingualDicts, this.aIncludeMonolingualDicts);
+			this.miIncludeMonolingualDicts.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miIncludeMonolingualDicts.Name = "miIncludeMonolingualDicts";
+			this.miIncludeMonolingualDicts.Size = new System.Drawing.Size(199, 22);
+			this.miIncludeMonolingualDicts.Text = "IncludeMonolingualDicts";
 			// 
 			// miEditProfileProperties2
 			// 
 			this.al.SetAction(this.miEditProfileProperties2, this.aSetProfileProperties);
 			this.miEditProfileProperties2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miEditProfileProperties2.Name = "miEditProfileProperties2";
-			this.miEditProfileProperties2.Size = new System.Drawing.Size(184, 22);
+			this.miEditProfileProperties2.Size = new System.Drawing.Size(199, 22);
 			this.miEditProfileProperties2.Text = "Set profile properies";
 			// 
-			// tsSepProfiles2
+			// miEditProfileServices2
 			// 
-			this.tsSepProfiles2.Name = "tsSepProfiles2";
-			this.tsSepProfiles2.Size = new System.Drawing.Size(181, 6);
-			// 
-			// miRemoveProfile2
-			// 
-			this.al.SetAction(this.miRemoveProfile2, this.aRemoveProfile);
-			this.miRemoveProfile2.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miRemoveProfile2.Name = "miRemoveProfile2";
-			this.miRemoveProfile2.Size = new System.Drawing.Size(184, 22);
-			this.miRemoveProfile2.Text = "Remove user profile";
-			this.miRemoveProfile2.ToolTipText = "Remove user profile";
+			this.al.SetAction(this.miEditProfileServices2, this.aEditProfileServices);
+			this.miEditProfileServices2.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miEditProfileServices2.Name = "miEditProfileServices2";
+			this.miEditProfileServices2.Size = new System.Drawing.Size(199, 22);
+			this.miEditProfileServices2.Text = "Edit profile services";
 			// 
 			// splitterLeft
 			// 
@@ -1378,6 +1400,17 @@ namespace Translate
 			this.aShowAccents.Visible = true;
 			this.aShowAccents.Execute += new System.EventHandler(this.AShowAccentsExecute);
 			// 
+			// aIncludeMonolingualDicts
+			// 
+			this.aIncludeMonolingualDicts.Checked = false;
+			this.aIncludeMonolingualDicts.Enabled = true;
+			this.aIncludeMonolingualDicts.Hint = null;
+			this.aIncludeMonolingualDicts.Tag = null;
+			this.aIncludeMonolingualDicts.Text = "IncludeMonolingualDicts";
+			this.aIncludeMonolingualDicts.Visible = true;
+			this.aIncludeMonolingualDicts.Execute += new System.EventHandler(this.AIncludeMonolingualDictsExecute);
+			this.aIncludeMonolingualDicts.Update += new System.EventHandler(this.AIncludeMonolingualDictsUpdate);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1433,6 +1466,9 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miIncludeMonolingualDicts2;
+		private System.Windows.Forms.ToolStripMenuItem miIncludeMonolingualDicts;
+		private FreeCL.UI.Actions.Action aIncludeMonolingualDicts;
 		private System.Windows.Forms.ToolStripMenuItem miHideWithoutResult;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripMenuItem miShowStats;
