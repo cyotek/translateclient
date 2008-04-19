@@ -127,6 +127,13 @@ namespace Translate
 			}
 		}
 		
+		string editArticleUrl;
+		
+		public string EditArticleUrl {
+			get { return editArticleUrl; }
+			set { editArticleUrl = value; }
+		}
+		
 	}
 	
 	public class ResultCollection : Collection<Result>

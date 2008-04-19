@@ -203,7 +203,21 @@ namespace Translate
 		string GetResultHtml(Result result, double indent)
 		{
 
-			StringBuilder htmlString = new StringBuilder();;
+			StringBuilder htmlString = new StringBuilder();
+			
+			if(result.Error == null || result.ResultNotFound)
+			{
+				if(!string.IsNullOrEmpty(result.EditArticleUrl))
+				{
+					string link_f = "<a href=\"{0}\">{1} \"{2}\"</a><br><br>";
+					htmlString.AppendFormat(link_f, result.EditArticleUrl,
+						result.ResultNotFound ? 
+							LangPack.TranslateString("Create article") : 
+							LangPack.TranslateString("Open article"),
+						result.Phrase);
+				}
+			}
+			
 			if(result.Error == null)
 			{
 				if(result.Childs.Count != 0)
@@ -332,7 +346,9 @@ namespace Translate
 			if(result == null)
 				throw new ArgumentNullException("result");
 				
-			if(result.ResultNotFound && TranslateOptions.Instance.ResultWindowOptions.HideWithoutResult)
+			if(result.ResultNotFound && 
+				string.IsNullOrEmpty(result.EditArticleUrl) &&
+				TranslateOptions.Instance.ResultWindowOptions.HideWithoutResult)
 				return; //skip
 				
 			Wait();	

@@ -105,10 +105,13 @@
     <Compile Include="Ulif\UlifService.cs" />
     <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
     <Compile Include="Ulif\UlifWebService.cs" />
+    <Compile Include="Wiki\WictionaryDictionary.cs" />
     <Compile Include="Wiki\WikiEncyclopediaEngine.cs" />
     <Compile Include="Wiki\WikiSearchEngine.cs" />
     <Compile Include="Wiki\WikipediaService.cs" />
     <Compile Include="Wiki\WikiUtils.cs" />
+    <Compile Include="Wiki\WiktionarySearchEngine.cs" />
+    <Compile Include="Wiki\WiktionaryService.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />

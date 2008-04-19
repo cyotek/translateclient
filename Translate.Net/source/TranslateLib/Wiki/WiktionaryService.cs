@@ -36,46 +36,35 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
-using System.Net; 
-using System.Text; 
-using System.IO; 
-using System.Web; 
-using System.IO.Compression;
 using System.Diagnostics.CodeAnalysis;
-using System.Collections.Generic;
-using System.Globalization;
+
+
+[module: SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase", Scope="namespace", Target="Translate.WikiService")]
+[module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope="namespace", Target="Translate.WikiService")]
+[module: SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Scope="namespace", Target="Translate.WikiService")]
 
 namespace Translate
 {
-	/// <summary>
-	/// Description of WikiSearchEngine.
-	/// </summary>
-	public class WikiSearchEngine : MonolingualSearchEngine
-	{
 	
-		public WikiSearchEngine(string searchHost)
+	[SuppressMessage("Microsoft.Naming", "CA1706:ShortAcronymsShouldBeUppercase")]
+	public class WikitionaryService : Service
+	{
+		public WikitionaryService()
 		{
-			this.searchHost = searchHost;
-			foreach(Language from in WikiUtils.LangToKey.Keys)
-			{
-				  AddSupportedTranslation(new LanguagePair(from, from));
-			}
-			
-			AddSupportedSubject(SubjectConstants.Common);
-			
-			Name = "_search";
-		}
-		string searchHost;
-
-		
-		
-		
-		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
-		{
-			WikiUtils.DoSearch(searchHost, phrase, languagesPair, subject, result, networkSetting);
+			Url = new Uri("http://wiktionary.org");
+			Name = "wiktionary_org";
+			CompanyName = "Wikimedia Foundation, Inc.";
+			Copyright = "GNU Free Documentation License";
+			IconUrl = new Uri("http://en.wikipedia.org/favicon.ico");
+			FullName = "The free dictionary that anyone can edit";
+			IconResourceName = "Translate.Wiki.Service.ico";
+						
+			WiktionarySearchEngine se = new WiktionarySearchEngine("wiktionary.org");			
+			AddBilingualDictionary(se);
+			AddBilingualDictionary(new WictionaryDictionary(se, "wiktionary.org"));
 		}
 	}
+	
 }
-
-
