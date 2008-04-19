@@ -227,7 +227,9 @@ namespace Translate
 			aShowServiceName.Text = TranslateString("Show names of services");
 			aShowAccents.Text = TranslateString("Show accents");
 			
-			
+			aIncludeMonolingualDicts.Hint = TranslateString("Include monolingual dictionaries in translation");
+			aIncludeMonolingualDicts.Text = aIncludeMonolingualDicts.Hint;
+
 			for(int i = 2; i < tsTranslate.Items.Count; i++)
 			{
 				UserTranslateProfile pf = tsTranslate.Items[i].Tag as UserTranslateProfile;
@@ -1158,6 +1160,26 @@ namespace Translate
 			aShowTranslationDirection.Checked = current.ShowTranslationDirection;
 			aShowServiceName.Checked = current.ShowServiceName;
 			aShowAccents.Checked = current.ShowAccents;
+		}
+		
+		void AIncludeMonolingualDictsExecute(object sender, EventArgs e)
+		{
+			DefaultTranslateProfile pf = currentProfile as DefaultTranslateProfile;
+			if(pf == null)
+				return;
+			pf.IncludeMonolingualDictionaryInTranslation = !pf.IncludeMonolingualDictionaryInTranslation;
+			languageSelector.Profile = currentProfile;			
+			UpdateLanguageSelector();
+			
+		}
+		
+		void AIncludeMonolingualDictsUpdate(object sender, EventArgs e)
+		{
+			DefaultTranslateProfile pf = currentProfile as DefaultTranslateProfile;
+		
+			aIncludeMonolingualDicts.Enabled = pf != null;	
+			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
+			
 		}
 	}
 }
