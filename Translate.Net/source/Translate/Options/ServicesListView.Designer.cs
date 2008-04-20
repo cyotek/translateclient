@@ -73,6 +73,7 @@ namespace Translate
 			this.chLanguagePair = new System.Windows.Forms.ColumnHeader();
 			this.chSubject = new System.Windows.Forms.ColumnHeader();
 			this.tDeselectAll = new System.Windows.Forms.Timer(this.components);
+			this.ilServices = new System.Windows.Forms.ImageList(this.components);
 			this.SuspendLayout();
 			// 
 			// lvMain
@@ -91,6 +92,7 @@ namespace Translate
 			this.lvMain.Name = "lvMain";
 			this.lvMain.ShowItemToolTips = true;
 			this.lvMain.Size = new System.Drawing.Size(150, 150);
+			this.lvMain.SmallImageList = this.ilServices;
 			this.lvMain.Sorting = System.Windows.Forms.SortOrder.Ascending;
 			this.lvMain.TabIndex = 0;
 			this.lvMain.UseCompatibleStateImageBehavior = false;
@@ -119,6 +121,12 @@ namespace Translate
 			this.tDeselectAll.Interval = 1000;
 			this.tDeselectAll.Tick += new System.EventHandler(this.TDeselectAllTick);
 			// 
+			// ilServices
+			// 
+			this.ilServices.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+			this.ilServices.ImageSize = new System.Drawing.Size(16, 16);
+			this.ilServices.TransparentColor = System.Drawing.Color.Transparent;
+			// 
 			// ServicesListView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +135,7 @@ namespace Translate
 			this.Name = "ServicesListView";
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ImageList ilServices;
 		private System.Windows.Forms.Timer tDeselectAll;
 		private System.Windows.Forms.ColumnHeader chSubject;
 		private System.Windows.Forms.ColumnHeader chLanguagePair;
