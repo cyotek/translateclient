@@ -225,7 +225,9 @@ namespace Translate
 
 			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
 			res = "html!<div style='width:{allowed_width}px;overflow:scroll'>" + HttpUtility.HtmlDecode(res) + "&nbsp</div>";
-			
+
+			res = res.Replace("<h1>", "");
+			res = res.Replace("</h1>", "");
 			res = res.Replace("<h2>", "");
 			res = res.Replace("</h2>", "");
 			res = res.Replace("<h3>", "");
