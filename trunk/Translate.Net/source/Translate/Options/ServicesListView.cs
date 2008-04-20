@@ -58,7 +58,10 @@ namespace Translate
 			
 			RegisterLanguageEvent(OnLanguageChanged);
 			
-			
+			foreach(Service s in Manager.Services)
+			{
+				ilServices.Images.Add(s.Name, s.Icon);
+			}
 		}
 		
 		void OnLanguageChanged()
@@ -156,6 +159,7 @@ namespace Translate
 					ListViewItem lvi = new ListViewItem();
 					lvi.Text = sid.Name;
 					lvi.Tag = sid;
+					lvi.ImageKey = sd.ServiceItem.Service.Name;
 					lvi.SubItems.Add(sid.Type);
 					lvi.SubItems.Add(sid.LanguagePair);
 					lvi.SubItems.Add(sid.Subject);
