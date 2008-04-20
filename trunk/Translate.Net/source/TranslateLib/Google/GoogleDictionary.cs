@@ -74,6 +74,12 @@ namespace Translate
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
 			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_TW));
+			AddSupportedTranslation(new LanguagePair(Language.Chinese_TW, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Portuguese));
+			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.English));
 			
 			AddSupportedSubject(SubjectConstants.Common);
 		}
@@ -98,52 +104,36 @@ namespace Translate
 			responseFromServer = StringParser.Parse("<h1>Translation</h1>", "</body>", responseFromServer);
 			
 			//translations
-			string translations = StringParser.Parse("</strong>", "</bdo>", responseFromServer);
-			translations = translations.Replace("<b>", "");
-			translations = translations.Replace("</b>", "");
-			translations = translations.Replace("<font color=#676767>", "");
-			translations = translations.Replace("</font>", "");
+			string translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
 			
-			int subdefinitionIdx = translations.IndexOf("1.");
-			if(subdefinitionIdx < 0)
-				throw new TranslationException("Can't found '1.' tag");
-				
+			StringParser parser = new StringParser(translations);
+			string[] subtranslation_list = parser.ReadItemsList("<li>", "</li>", "3485730457203");
+			
 			Result subres_tr = CreateNewResult(phrase, languagesPair, subject);
 			result.Childs.Add(subres_tr);
-				
-			string subtranslation = translations.Substring(subdefinitionIdx + 2);
-			for(int i = 2; i < 100; i++)
-			{
-				int numIdx = subtranslation.IndexOf(i.ToString(CultureInfo.InvariantCulture) + ".");
-				if(numIdx < 0)
-				{  //last def
-					subres_tr.Translations.Add(subtranslation.Trim());
-					break;
-				}
-				else
-				{
-					string Definition = subtranslation.Substring(0, numIdx);
-					subtranslation = subtranslation.Substring(numIdx + 2);
-					subres_tr.Translations.Add(Definition.Trim());
-				}
-			}
 			
+			foreach(string subtrans_s in subtranslation_list)
+			{
+				string subtrans_str = subtrans_s;
+				subtrans_str = StringParser.RemoveAll("<span", ">", subtrans_str);
+				subtrans_str = subtrans_str.Replace("</span>", "");
+				subres_tr.Translations.Add(subtrans_str.Trim());
+			}
 			
 			//related words
 			string related = StringParser.Parse("<tr>", "</tr>", responseFromServer);
 			if(string.IsNullOrEmpty(related))
 				return;
 			
-			StringParser parser = new StringParser(related);
-			string[] related_list = parser.ReadItemsList("<li>", "<font color=#676767> </font>", "3485730457203");
+			parser = new StringParser(related);
+			string[] related_list = parser.ReadItemsList("<li class=\"related_index\">", "</li>", "3485730457203");
 			
 			foreach(string related_s in related_list)
 			{
 				string related_str = related_s;
-				related_str = related_str.Replace("<b>", "");
-				related_str = related_str.Replace("</b>", "");
-				related_str = related_str.Replace("<font color=#676767>", "");
-				related_str = related_str.Replace("</font>", "");
+				related_str = related_str.Replace("<span class=\"related_definition\">", "\n");
+				related_str = StringParser.RemoveAll("<span", ">", related_str);
+				related_str = related_str.Replace("</span>", "");
 			
 				int translationIdx = related_str.IndexOf("\n");
 				if(translationIdx < 0)
