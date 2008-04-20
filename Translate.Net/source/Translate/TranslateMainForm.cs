@@ -283,63 +283,72 @@ namespace Translate
 		
 		public void UpdateProfiles()
 		{
-			ignoreProfileReposition = true;
-			currentProfile = TranslateOptions.Instance.CurrentProfile;
-			languageSelector.Profile = currentProfile;
-			checkedProfileButton = null;
-			
-			foreach(FreeCL.UI.Actions.Action a in profileSwitchOnCtrl1Actions)
-				a.Tag = null;
-				
-			while(tsTranslate.Items.Count > 1)
-				tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
-			
-			if(TranslateOptions.Instance.Profiles.Count > 1)
+			LockUpdate(true);
+			try
 			{
-				tsTranslate.Items.Add(tsSeparatorTranslate);	
-				int actionIdx = 0;
-				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
+				ignoreProfileReposition = true;
+				currentProfile = TranslateOptions.Instance.CurrentProfile;
+				languageSelector.Profile = currentProfile;
+				checkedProfileButton = null;
+				
+				foreach(FreeCL.UI.Actions.Action a in profileSwitchOnCtrl1Actions)
+					a.Tag = null;
+					
+				while(tsTranslate.Items.Count > 1)
+					tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
+				
+				if(TranslateOptions.Instance.Profiles.Count > 1)
 				{
-					ToolStripButton tsButton = new ToolStripButton();
-					if(pf == TranslateOptions.Instance.DefaultProfile)
+					tsTranslate.Items.Add(tsSeparatorTranslate);	
+					int actionIdx = 0;
+					foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
 					{
-						tsButton.Text = TranslateString(pf.Name);
-						tsButton.ToolTipText = tsButton.Text;
-					}	
-					else 
-					{
-						tsButton.Text = pf.Name;
-						tsButton.ToolTipText = GetProfileName(pf as UserTranslateProfile);
-					}	
-					
-					if(actionIdx < 9)
-					{
-						profileSwitchOnCtrl1Actions[actionIdx].Tag = tsButton;
-						string displayString =	System.ComponentModel.TypeDescriptor.GetConverter(typeof(Keys)).ConvertToString(profileSwitchOnCtrl1Actions[actionIdx].Shortcut);
-						tsButton.ToolTipText += " (" + displayString + ")";
-					}
-					actionIdx++;
-					
-					tsButton.Tag = pf;
-					tsButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
-					tsButton.TextAlign = ContentAlignment.MiddleCenter;
-					tsButton.Click +=  OnProfileButtonClick;
-					tsButton.LocationChanged += TsbTranslateLocationChanged;
-					tsButton.MouseDown += OnProfileMouseDown;
-					
-					if(pf == currentProfile)
-					{
-						checkedProfileButton = tsButton;
-						tsButton.Checked = true;
-					}
+						ToolStripButton tsButton = new ToolStripButton();
+						if(pf == TranslateOptions.Instance.DefaultProfile)
+						{
+							tsButton.Text = TranslateString(pf.Name);
+							tsButton.ToolTipText = tsButton.Text;
+						}	
+						else 
+						{
+							tsButton.Text = pf.Name;
+							tsButton.ToolTipText = GetProfileName(pf as UserTranslateProfile);
+						}	
 						
-					tsTranslate.Items.Add(tsButton);	
+						if(actionIdx < 9)
+						{
+							profileSwitchOnCtrl1Actions[actionIdx].Tag = tsButton;
+							string displayString =	System.ComponentModel.TypeDescriptor.GetConverter(typeof(Keys)).ConvertToString(profileSwitchOnCtrl1Actions[actionIdx].Shortcut);
+							tsButton.ToolTipText += " (" + displayString + ")";
+						}
+						actionIdx++;
+						
+						tsButton.Tag = pf;
+						tsButton.DisplayStyle = ToolStripItemDisplayStyle.Text;
+						tsButton.TextAlign = ContentAlignment.MiddleCenter;
+						tsButton.Click +=  OnProfileButtonClick;
+						tsButton.LocationChanged += TsbTranslateLocationChanged;
+						tsButton.MouseDown += OnProfileMouseDown;
+						
+						if(pf == currentProfile)
+						{
+							checkedProfileButton = tsButton;
+							tsButton.Checked = true;
+						}
+							
+						tsTranslate.Items.Add(tsButton);	
+					}
 				}
+				UpdateLanguageSelector();
+				tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 1;
+				ignoreProfileReposition = false;
+				profilePositionChanged = false;
+			} 
+			finally
+			{
+				LockUpdate(false);
 			}
-			UpdateLanguageSelector();
-			tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 1;
-			ignoreProfileReposition = false;
-			profilePositionChanged = false;
+			
 			tbFrom.Focus();
 		}
 		
@@ -363,21 +372,31 @@ namespace Translate
 		{
 			if(checkedProfileButton == sender)
 				return;
-			
-			if(checkedProfileButton != null)
-				checkedProfileButton.Checked = false;
+		
+			LockUpdate(true);
+			try
+			{
+				if(checkedProfileButton != null)
+					checkedProfileButton.Checked = false;
+					
+				ToolStripButton tsButton = sender as ToolStripButton;
+				tsButton.Checked = true;
+				checkedProfileButton = tsButton;
 				
-			ToolStripButton tsButton = sender as ToolStripButton;
-			tsButton.Checked = true;
-			checkedProfileButton = tsButton;
+				TranslateProfile pf = tsButton.Tag as TranslateProfile;
+				
+				
+				TranslateOptions.Instance.CurrentProfile = pf;
+				currentProfile = TranslateOptions.Instance.CurrentProfile;
 			
-			TranslateProfile pf = tsButton.Tag as TranslateProfile;
+				languageSelector.Profile = currentProfile;
+				UpdateLanguageSelector();
+			} 
+			finally
+			{
+				LockUpdate(false);
+			}
 			
-			
-			TranslateOptions.Instance.CurrentProfile = pf;
-			currentProfile = TranslateOptions.Instance.CurrentProfile;
-			languageSelector.Profile = currentProfile;
-			UpdateLanguageSelector();
 			tbFrom.Focus();
 		}
 		
@@ -392,33 +411,42 @@ namespace Translate
 		
 		void UpdateLanguageSelector()
 		{
-			UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+			LockUpdate(true);
+			try
+			{
+				UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+				
+				if(upf == null)
+				{
+					if(!pRight.Visible)
+					{
+						splitterRight.Enabled = true;
+						pRight.Visible = true;
+						pRight.Enabled = true;
+					}
+				}
+				else
+				{
+					if(!upf.ShowLanguages && !upf.ShowServices && !upf.ShowSubjects)
+					{
+						splitterRight.Enabled = false;
+						pRight.Visible = false;
+						pRight.Enabled = false;
+					}
+					else if(!pRight.Visible)
+					{
+						splitterRight.Enabled = true;
+						pRight.Visible = true;
+						pRight.Enabled = true;
+					}
+				}
+				UpdateCaption();
+			} 
+			finally
+			{
+				LockUpdate(false);
+			}
 			
-			if(upf == null)
-			{
-				if(!pRight.Visible)
-				{
-					splitterRight.Enabled = true;
-					pRight.Visible = true;
-					pRight.Enabled = true;
-				}
-			}
-			else
-			{
-				if(!upf.ShowLanguages && !upf.ShowServices && !upf.ShowSubjects)
-				{
-					splitterRight.Enabled = false;
-					pRight.Visible = false;
-					pRight.Enabled = false;
-				}
-				else if(!pRight.Visible)
-				{
-					splitterRight.Enabled = true;
-					pRight.Visible = true;
-					pRight.Enabled = true;
-				}
-			}
-			UpdateCaption();
 		}
 		
 		string GetProfileName(UserTranslateProfile profile)
@@ -867,7 +895,16 @@ namespace Translate
 		
 		void TbFromTextChanged(object sender, EventArgs e)
 		{
-			languageSelector.Phrase = tbFrom.Text.Trim();
+			LockUpdate(true);
+			try
+			{
+				languageSelector.Phrase = tbFrom.Text.Trim();
+			} 
+			finally
+			{
+				LockUpdate(false);
+			}
+			
 		}
 		
 		void AWebsiteExecute(object sender, EventArgs e)
