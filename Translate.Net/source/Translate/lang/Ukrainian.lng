@@ -32,9 +32,9 @@
 Повторення попередньої операції
 [&Redo]
 По&вторити
-[Select all]
+[Select Аll]
 Виділити все
-[&Select all]
+[&Select Аll]
 Виділити в&се
 [&Window]
 &Вікно
@@ -258,7 +258,7 @@ HTTP-проксі
 з
 [To]
 на 
-[Any]
+[Any Language]
 Будь-яка
 [Arabic]
 Арабська
@@ -366,6 +366,8 @@ HTTP-проксі
 Теми
 [Subject]
 Тема
+[Any]
+Будь-яка
 [Common]
 Загальна
 [Aviation]
