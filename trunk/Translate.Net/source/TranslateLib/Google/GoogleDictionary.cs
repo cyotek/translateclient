@@ -121,6 +121,9 @@ namespace Translate
 			}
 			
 			//related words
+			if(responseFromServer.IndexOf("Related phrases") < 0)
+				return;
+			
 			string related = StringParser.Parse("<tr>", "</tr>", responseFromServer);
 			if(string.IsNullOrEmpty(related))
 				return;
