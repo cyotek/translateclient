@@ -508,7 +508,10 @@ namespace Translate
 			if(!r.ResultNotFound && r.Error == null)
 			{
 				foreach(string s in r.Translations)
-					resultwords += s + " ";
+				{
+					if(!s.StartsWith("html!"))
+						resultwords += s + " ";
+				}	
 					
 				foreach(Result child in r.Childs)
 				{
