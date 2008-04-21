@@ -74,6 +74,8 @@ namespace Translate
 		
 			try
 			{
+				ResultsCache.UseCache = true;
+				
 				UpdatesManager.Init();
 				Application.ShowSplashForm(null);
 				
