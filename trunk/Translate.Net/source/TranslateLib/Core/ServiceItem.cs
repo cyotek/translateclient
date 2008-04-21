@@ -126,7 +126,7 @@ namespace Translate
 			Result result = ResultsCache.GetCachedResult(this, phrase, languagesPair, subject);
 			lock(result)
 			{
-				if(result.HasData)
+				if(result.IsHasData())
 					return result;
 					
 				long start = DateTime.Now.Ticks;			
