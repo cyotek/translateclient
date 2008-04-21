@@ -198,8 +198,7 @@ namespace FreeCL.RTL
 						{
 							LoadLangPack(fileName);
 							currentLang = langName;
-							if(LanguageChanged != null)
-								LanguageChanged();
+							RaiseOnLanguageChanged();
 						}
 					}
 					catch(Exception E)
@@ -212,10 +211,25 @@ namespace FreeCL.RTL
 			else
 			{
 				currentLang = langName; 
-				if(LanguageChanged != null)
-					LanguageChanged();
+				RaiseOnLanguageChanged();
 			}
 			
+		}
+		
+		static void RaiseOnLanguageChanged()
+		{
+			if(LanguageChanged == null)
+				return;
+				
+			Delegate[] delegates = LanguageChanged.GetInvocationList();
+			
+			foreach(Delegate d in delegates)
+			{
+				System.Windows.Forms.Control ctrl = d.Target as System.Windows.Forms.Control;
+				
+				if(ctrl == null || !ctrl.IsDisposed)
+					d.DynamicInvoke(null);
+			}
 		}
 		
 		public static void LoadCurrent()
