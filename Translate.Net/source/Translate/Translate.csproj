@@ -260,6 +260,9 @@
       <Link>site\versions.txt</Link>
     </None>
     <None Include="lang\Original.lng" />
+    <None Include="lang\Russian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Ukrainian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
