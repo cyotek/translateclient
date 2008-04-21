@@ -39,6 +39,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
+
 
 namespace Translate
 {
@@ -49,13 +51,34 @@ namespace Translate
 	{
 		static ResultsCache()
 		{
+			collectGarbageTimer = new Timer(new TimerCallback(OnTimer), null, 60000, 60000);
+		}
+		
+		static Timer collectGarbageTimer;
+		
+		static bool useCache = false;
+		
+		public static bool UseCache {
+			get { return useCache; }
+			set { 
+					useCache = value; 
+					if(!value)
+						results_history.Clear();
+				}
 		}
 		
 		static Dictionary<string, ResultsHashtable> cache = new Dictionary<string, ResultsHashtable>();
 		
+		static List<Result> results_history = new List<Result>();
+		
 		public static Result GetCachedResult(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject)
 		{
+			if(!useCache)
+				new Result(serviceItem, phrase, languagesPair, subject);
+				
 			string key = phrase.Trim().ToLowerInvariant();
+			if(key.Length > 500)
+				key = key.Substring(0, 500);
 			
 			ResultsHashtable collection;
 			bool collection_exists = true;
@@ -83,7 +106,7 @@ namespace Translate
 						needed_new_result = true;
 					else
 					{
-						needed_new_result = res.Error != null && !res.ResultNotFound;
+						needed_new_result = (res.Error != null && !res.ResultNotFound) || res.Phrase != phrase;
 					}
 				}
 	
@@ -91,9 +114,93 @@ namespace Translate
 				{
 					res = new Result(serviceItem, phrase, languagesPair, subject);
 					collection[hash] = res;
+					lock(results_history)
+					{
+						results_history.Add(res);
+					}	
 				}
+				else
+				{
+					res.LastUsed = DateTime.Now;
+					lock(results_history)
+					{
+						results_history.Remove(res);
+						results_history.Add(res);
+					}
+				}	
 			}
 			return res;
+		}
+		
+		static void OnTimer(Object stateInfo)
+		{
+			List<Result> results_to_delete = new List<Result>();
+
+			lock(results_history)
+			{
+				int count_to_remove = results_history.Count - 100;
+				if(count_to_remove > 0)
+				{
+					results_to_delete.AddRange(results_history.GetRange(0, count_to_remove));
+					results_history.RemoveRange(0, count_to_remove);
+				}
+			}
+			
+			
+			List<string> collections_to_delete = new List<string>();
+			
+			ResultsHashtable collection;
+			foreach(Result r in results_to_delete)
+			{
+				string key = r.Phrase.Trim().ToLowerInvariant();
+				if(key.Length > 500)
+					key = key.Substring(0, 500);
+				
+				lock(cache)
+				{
+					if(!cache.TryGetValue(key, out collection))
+					{
+						continue;
+					}	
+				}
+				
+				int hash = Result.GetHashCode(r.ServiceItem.FullName, r.LanguagePair, r.Subject);
+				
+				lock(collection)
+				{
+					Result res;
+					if(!collection.TryGetValue(hash, out res))
+					{
+						continue;
+					}
+					
+					if(res.Phrase == r.Phrase)
+					{
+						collection.Remove(hash);
+						if(collection.Count == 0)	
+							collections_to_delete.Add(key);
+					}	
+				}
+			}
+			
+			foreach(string key in collections_to_delete)
+			{
+				lock(cache)
+				{
+					if(cache.TryGetValue(key, out collection))
+					{
+						lock(collection)
+						{
+							if(collection.Count == 0)
+							{
+								cache.Remove(key);
+							}
+						}
+					}	
+				}
+			
+			}
+
 		}
 	}
 }
