@@ -141,8 +141,8 @@ namespace FreeCL.Forms
 
 			
 			
-			aEditSelectAll.Hint = LangPack.TranslateString("Select all");
-			aEditSelectAll.Text = LangPack.TranslateString("&Select All");
+			aEditSelectAll.Hint = LangPack.TranslateString("Select Àll");
+			aEditSelectAll.Text = LangPack.TranslateString("&Select Àll");
 			
 			miEdit.Text = LangPack.TranslateString("&Edit");
 
@@ -419,7 +419,7 @@ namespace FreeCL.Forms
 			// 
 			// miEditSelectAll
 			// 
-			this.al.SetAction(this.miEditSelectAll, this.aEditSelectAll);
+			
 			this.miEditSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("miEditSelectAll.Image")));
 			this.miEditSelectAll.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miEditSelectAll.MergeIndex = 8;
@@ -429,6 +429,7 @@ namespace FreeCL.Forms
 			this.miEditSelectAll.Size = new System.Drawing.Size(167, 22);
 			this.miEditSelectAll.Text = "&Select All";
 			this.miEditSelectAll.ToolTipText = "Select all";
+			this.al.SetAction(this.miEditSelectAll, this.aEditSelectAll);
 			// 
 			// miFile
 			// 
