@@ -52,6 +52,11 @@ namespace Translate
 		
 		public static string TranslateLanguage(Language language)
 		{
+			if(language == Language.Any && FreeCL.RTL.LangPack.CurrentLanguage != "English")
+			{
+				return TranslateString("Any Language");
+			}
+			
 			string val = Enum.GetName(typeof(Language), language);
 			val = TranslateString(val);
 			return val;
