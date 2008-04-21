@@ -119,12 +119,9 @@ namespace Translate
 			set { parent = value; }
 		}
 		
-		public bool HasData
+		public bool IsHasData()
 		{
-			get
-			{
-				return (translations.Count != 0 || childs.Count != 0) && !resultNotFound && error == null;
-			}
+			return (translations.Count != 0 || childs.Count != 0) && !resultNotFound && error == null;
 		}
 		
 		string editArticleUrl;
@@ -133,6 +130,31 @@ namespace Translate
 			get { return editArticleUrl; }
 			set { editArticleUrl = value; }
 		}
+		
+		DateTime lastUsed = DateTime.Now;
+		
+		public DateTime LastUsed {
+			get { return lastUsed; }
+			set { lastUsed = value; }
+		}
+		
+		public int GetCharsCount()
+		{
+			int result = phrase.Length;
+			result += abbreviation.Length;
+			foreach(string s in translations)
+			{
+				result+= s.Length;
+			}
+			
+			foreach(Result child in childs)
+			{
+				result += child.GetCharsCount();
+			}
+			
+			return result;
+		}
+		
 		
 	}
 	
