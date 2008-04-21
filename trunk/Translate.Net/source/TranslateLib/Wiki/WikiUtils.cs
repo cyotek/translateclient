@@ -168,7 +168,7 @@ namespace Translate
 			result.EditArticleUrl = link;	
 		
 			Result searchResult = searchEngine.Translate(phrase, languagesPair, subject, networkSetting);
-			if(!searchResult.HasData || searchResult.Translations.Count < 1)
+			if(!searchResult.IsHasData() || searchResult.Translations.Count < 1)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
