@@ -124,6 +124,8 @@ namespace Translate
 				translation = translation.Replace("<span class=\"KrymRusBold\">", "");
 				translation = translation.Replace("<span class=\"KrymRusItalic\">", "");
 				translation = translation.Replace("<span class=\"KrymRusItalic\">", "");
+				translation = translation.Replace("<span class=\"KrymUkAux\">", "");
+				translation = translation.Replace("<span class=\"KrymLat\">", "");
 				translation = StringParser.RemoveAll("<a href=\"?word_str=", "\">", translation);
 				translation = StringParser.RemoveAll("<b title=\"", "</a></b>", translation);
 				translation = translation.Replace("</a>", "");
