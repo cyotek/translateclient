@@ -68,6 +68,7 @@ namespace Translate
 			
 			Name = "_encyclopedia";
 			
+			CharsLimit = 255;
 		}
 		
 		WikiSearchEngine searchEngine;
