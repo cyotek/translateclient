@@ -608,6 +608,7 @@ namespace Translate
 				
 			currentQuery = query;
 			SetExplorerSound(false);
+			advertLoaded = false;
 			wAdvertBrowser.Navigate(new Uri(Constants.StatsPageUrl + "?" + currentQuery));
 		}
 		
@@ -794,12 +795,12 @@ namespace Translate
 		
 		void WAdvertBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			if(!e.Url.AbsoluteUri.Contains("shdoclc.dll") && !wAdvertBrowser.DocumentText.Contains("shdocvw.dll"))
-			{
-				advertLoaded = true;
-				SetExplorerSound(true);
-				RecalcSizes();
-			}
+			advertLoaded = !e.Url.AbsoluteUri.Contains("shdoclc.dll") && 
+				!wAdvertBrowser.DocumentText.Contains("shdocvw.dll") &&
+				!wAdvertBrowser.DocumentText.Contains("shdoclc.dll");
+				
+			SetExplorerSound(true);
+			RecalcSizes();
 		}
 
 		void ResultBrowserSizeChanged(object sender, EventArgs e)
