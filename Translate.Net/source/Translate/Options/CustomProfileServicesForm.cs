@@ -107,12 +107,12 @@ namespace Translate
 				}
 			}
 			
+			serviceStatusSource.Visible = false;
+			serviceStatusCurrent.Visible = false;
 			
 			initialized = true;
 			CbFromSelectedIndexChanged(null, new EventArgs());
 			
-			serviceStatusSource.Visible = false;
-			serviceStatusCurrent.Visible = false;
 			
 		}
 		
