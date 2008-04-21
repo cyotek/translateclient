@@ -135,7 +135,14 @@ namespace Translate
 			
 			ReportProgressState repState = new ReportProgressState(tr,translateState);
 
-			translateState.AsyncOperation.Post(ReportProgress, repState);
+			try
+			{  //lock errors when 
+				translateState.AsyncOperation.Post(ReportProgress, repState);
+			}
+			catch(InvalidOperationException)
+			{
+			
+			}
 		}
 	}
 	
