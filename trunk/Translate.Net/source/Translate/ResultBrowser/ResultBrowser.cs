@@ -97,6 +97,10 @@ namespace Translate
 				{
 					url += "uk.html";
 				}
+				else if(FreeCL.RTL.LangPack.CurrentLanguage == "Russian")
+				{
+					url += "ru.html";
+				}
 				else
 				{
 					url += "en.html";				

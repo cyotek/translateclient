@@ -63,6 +63,8 @@ namespace Translate
 			BuildFile("..\\site\\services.unpackeddata.en.html", "..\\site\\servicesdata_en.java");
 			FreeCL.RTL.LangPack.Load("Ukrainian");
 			BuildFile("..\\site\\services.unpackeddata.uk.html", "..\\site\\servicesdata_uk.java");
+			FreeCL.RTL.LangPack.Load("Russian");
+			BuildFile("..\\site\\services.unpackeddata.ru.html", "..\\site\\servicesdata_ru.java");
 		}
 		
 		static void BuildFile(string fileName, string classFileName)
