@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<ClassDiagram Zoom="1" MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="FreeCL.Forms.BaseOptionsForm" Collapsed="False">
+    <Position X="0.5" Y="5.7" Width="2.732599" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+      <Compartment Name="Events" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Delegate Name="FreeCL.Forms.LockCallback" Collapsed="False">
+    <Position X="0.5" Y="33" Width="1.238293" />
+    <Compartments />
+  </Delegate>
+  <Class Name="FreeCL.Forms.BaseForm" Collapsed="False">
+    <Position X="0.5" Y="0.5" Width="2.4" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+      <Compartment Name="Nested Types" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.BaseMainForm" Collapsed="False">
+    <Position X="14.7" Y="14.4" Width="2.7" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+      <Compartment Name="Nested Types" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.BaseOptions" Collapsed="False">
+    <Position X="0.5" Y="34.2" Width="1.877028" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.Application" Collapsed="False">
+    <Position X="0.5" Y="39.3" Width="2.344367" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="False" />
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.BaseAboutForm" Collapsed="False">
+    <Position X="11.9" Y="5.7" Width="2.215514" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Interface Name="FreeCL.Forms.IOptionsForm" Collapsed="False">
+    <Position X="0.5" Y="45.1" Width="1.250055" />
+    <Compartments />
+  </Interface>
+  <Class Name="FreeCL.Forms.MainForm" Collapsed="False">
+    <Position X="17.5" Y="19.2" Width="2.394694" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.BaseGuiForm" Collapsed="False">
+    <Position X="14.6" Y="5.7" Width="3.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+      <Compartment Name="Nested Types" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Enum Name="FreeCL.Forms.CommonMenusEnum" Collapsed="False">
+    <Position X="0.5" Y="46.2" Width="2.277423" />
+    <Compartments />
+  </Enum>
+  <Enum Name="FreeCL.Forms.CommonItemsEnum" Collapsed="False">
+    <Position X="0.5" Y="48.1" Width="3.475446" />
+    <Compartments />
+  </Enum>
+  <Class Name="FreeCL.Forms.ExceptionDialog" Collapsed="False">
+    <Position X="2.8" Y="9.2" Width="2.403073" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Class Name="FreeCL.Forms.BaseSplashForm" Collapsed="False">
+    <Position X="3.9" Y="5.9" Width="2.317565" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="False" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+  <Enum Name="FreeCL.Forms.CommonToolStripsEnum" Collapsed="False">
+    <Position X="0.5" Y="53.1" Width="2.241007" />
+    <Compartments />
+  </Enum>
+  <Class Name="FreeCL.Forms.BaseOptionsControl" Collapsed="False">
+    <Position X="0.5" Y="54.5" Width="2.6" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="True" />
+      <Compartment Name="Fields" Collapsed="False" />
+    </Compartments>
+  </Class>
+</ClassDiagram>
