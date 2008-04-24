@@ -205,6 +205,9 @@
     <None Include="..\..\site\changelog.data.en.html">
       <Link>site\changelog.data.en.html</Link>
     </None>
+    <None Include="..\..\site\changelog.data.ru.html">
+      <Link>site\changelog.data.ru.html</Link>
+    </None>
     <None Include="..\..\site\changelog.data.uk.html">
       <Link>site\changelog.data.uk.html</Link>
     </None>
