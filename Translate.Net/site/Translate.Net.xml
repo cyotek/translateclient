@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XML_DIZ_INFO>
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_VERSION>2.01</MASTER_PAD_VERSION>
+	</MASTER_PAD_VERSION_INFO>
+	<Program_Info>
+		<Program_Name>Translate.Net</Program_Name>
+		<Program_Version>0.1.3036.9031</Program_Version>
+		<Program_Release_Month></Program_Release_Month>
+		<Program_Release_Day></Program_Release_Day>
+		<Program_Release_Year></Program_Release_Year>
+		<Program_Cost_Dollars> 0.00</Program_Cost_Dollars>
+		<Program_Type></Program_Type>
+		<Program_OS_Support>Windows 2k, Windows XP, Windows 2003 Server, Windows Vista</Program_OS_Support>
+		<Program_System_Requirements></Program_System_Requirements>
+		<Expire_Info>
+			<Has_Expire_Info></Has_Expire_Info>
+			<Expire_Count></Expire_Count>
+			<Expire_Based_On>N/A</Expire_Based_On>
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		<English>
+			<Char_Desc_450><![CDATA[Translate.Net is free client to many language services available online (translators, monolingual and bilingual dictionaries).
+17 services, 25 languages, 1352 translations directions. 
+
+Use:
+- Google dictionary and Google translator
+- Wikipedia and wiktionary
+- SYSTRAN translator (used by Altavista Babel Fish)
+
+Full list of languages\services available at 
+http://translateclient.googlepages.com/services.en.html
+
+Features:
+- ability to create user profiles - custom set of services
+- history of used language pairs which sorted by last use time
+- input locale catching - when user change input locale, the latest language pair from history is selected. When user select language pairs - input locale changed accordingly
+- system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy 
+
+]]></Char_Desc_450>
+		</English>
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>http://translateclient.googlepages.com</Application_Info_URL>
+			<Application_Screenshot_URL>http://translateclient.googlepages.com/screen1.eng.png</Application_Screenshot_URL>
+			<Application_Icon_URL></Application_Icon_URL>
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3036.9031.exe</Primary_Download_URL>
+		</Download_URLs>
+	</Web_Info>
+</XML_DIZ_INFO>
