@@ -1,97 +1,143 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <XML_DIZ_INFO>
-  <MASTER_PAD_VERSION_INFO>
-    <MASTER_PAD_VERSION>3.01</MASTER_PAD_VERSION>
-    <MASTER_PAD_EDITOR>PADManager 1.0.35</MASTER_PAD_EDITOR>
-    <MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
-  </MASTER_PAD_VERSION_INFO>
-  <Company_Info>
-    <Company_Name>Oleksii Prudkyi</Company_Name>
-    <Address_1></Address_1>
-    <Address_2></Address_2>
-    <City_Town></City_Town>
-    <State_Province></State_Province>
-    <Zip_Postal_Code></Zip_Postal_Code>
-    <Country>Ukraine</Country>
-    <Company_WebSite_URL>http://translateclient.googlepages.com/</Company_WebSite_URL>
-    <Contact_Info>
-      <Contact_First_Name>Oleksii</Contact_First_Name>
-      <Contact_Last_Name>Prudkyi</Contact_Last_Name>
-      <Contact_Email>Oleksii.Prudkyi@gmail.com</Contact_Email>
-      <Author_First_Name>Oleksii</Author_First_Name>
-      <Author_Last_Name>Prudkyi</Author_Last_Name>
-      <Author_Email>Oleksii.Prudkyi@gmail.com</Author_Email>
-    </Contact_Info>
-    <Support_Info>
-      <Sales_Email></Sales_Email>
-      <Support_Email></Support_Email>
-      <General_Email></General_Email>
-      <Sales_Phone></Sales_Phone>
-      <Support_Phone></Support_Phone>
-      <General_Phone></General_Phone>
-      <Fax_Phone></Fax_Phone>
-    </Support_Info>
-  </Company_Info>
-  <Program_Info>
-    <Program_Name>Translate.Net</Program_Name>
-    <Program_Version>0.1.3036.9031</Program_Version>
-    <Program_Cost_Dollars>0.00</Program_Cost_Dollars>
-    <Expire_Info>
-      <Expire_Based_On>Days</Expire_Based_On>
-      <Has_Expire_Info>N</Has_Expire_Info>
-      <Expire_Count></Expire_Count>
-      <Expire_Other_Info></Expire_Other_Info>
-      <Expire_Month></Expire_Month>
-      <Expire_Day></Expire_Day>
-      <Expire_Year></Expire_Year>
-    </Expire_Info>
-    <Program_Type>Freeware</Program_Type>
-    <Program_Language>English,Russian,Ukrainian</Program_Language>
-    <Includes_JAVA_VM>N</Includes_JAVA_VM>
-    <Includes_VB_Runtime>N</Includes_VB_Runtime>
-    <Includes_DirectX>N</Includes_DirectX>
-    <Program_Release_Month>04</Program_Release_Month>
-    <Program_Release_Day>24</Program_Release_Day>
-    <Program_Release_Year>2008</Program_Release_Year>
-    <Program_OS_Support>WinXP,Windows2000,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64</Program_OS_Support>
-    <Program_Specific_Category>Education</Program_Specific_Category>
-    <Program_Category_Class>Education::Dictionaries</Program_Category_Class>
-    <Program_Categories>Education :: Dictionaries,Education :: Language,Home &amp; Hobby :: Education</Program_Categories>
-    <Program_Release_Status>Beta</Program_Release_Status>
-    <Program_Install_Support>Install and Uninstall</Program_Install_Support>
-    <Program_System_Requirements>.Net Framework 2.0, internet connection</Program_System_Requirements>
-    <File_Info>
-      <Filename_Versioned>Translate.Net.0.1.3036.9031.exe</Filename_Versioned>
-      <File_Size_Bytes>698130</File_Size_Bytes>
-      <File_Size_K>681</File_Size_K>
-      <File_Size_MB>0.67</File_Size_MB>
-      <Filename_Previous></Filename_Previous>
-      <Filename_Generic></Filename_Generic>
-      <Filename_Long></Filename_Long>
-    </File_Info>
-    <Program_Cost_Other_Code></Program_Cost_Other_Code>
-    <Program_Cost_Other></Program_Cost_Other>
-    <Program_Change_Info></Program_Change_Info>
-    <Limitations></Limitations>
-    <Awards></Awards>
-  </Program_Info>
-  <Web_Info>
-    <Application_URLs>
-      <Application_Info_URL>http://translateclient.googlepages.com</Application_Info_URL>
-      <Application_Screenshot_URL>http://translateclient.googlepages.com/screen1.eng.png</Application_Screenshot_URL>
-      <Application_Icon_URL>http://translateclient.googlepages.com/translate.png</Application_Icon_URL>
-      <Application_XML_File_URL>http://translateclient.googlepages.com/Translate.Net.xml</Application_XML_File_URL>
-      <Application_Order_URL></Application_Order_URL>
-    </Application_URLs>
-    <Download_URLs>
-      <Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3036.9031.exe</Primary_Download_URL>
-      <Secondary_Download_URL></Secondary_Download_URL>
-      <Additional_Download_URL_1></Additional_Download_URL_1>
-      <Additional_Download_URL_2></Additional_Download_URL_2>
-    </Download_URLs>
-  </Web_Info>
-  <Permissions>
-    <EULA>TRANSLATE.NET END-USER SOFTWARE LICENSE AGREEMENT
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_VERSION>3.01</MASTER_PAD_VERSION>
+		<MASTER_PAD_EDITOR>PADGen 3.0.1.37 http://www.padgen.org</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+	</MASTER_PAD_VERSION_INFO>
+	<Company_Info>
+		<Company_Name>Oleksii Prudkyi</Company_Name>
+		<Address_1 />
+		<Address_2 />
+		<City_Town>Kharkiv</City_Town>
+		<State_Province />
+		<Zip_Postal_Code />
+		<Country>Ukraine</Country>
+		<Company_WebSite_URL>http://translateclient.googlepages.com/</Company_WebSite_URL>
+		<Contact_Info>
+			<Author_First_Name>Oleksii</Author_First_Name>
+			<Author_Last_Name>Prudkyi</Author_Last_Name>
+			<Author_Email>Oleksii.Prudkyi@gmail.com</Author_Email>
+			<Contact_First_Name>Oleksii</Contact_First_Name>
+			<Contact_Last_Name>Prudkyi</Contact_Last_Name>
+			<Contact_Email>Oleksii.Prudkyi@gmail.com</Contact_Email>
+		</Contact_Info>
+		<Support_Info>
+			<Sales_Email>Oleksii.Prudkyi@gmail.com</Sales_Email>
+			<Support_Email>Oleksii.Prudkyi@gmail.com</Support_Email>
+			<General_Email>Oleksii.Prudkyi@gmail.com</General_Email>
+			<Sales_Phone />
+			<Support_Phone />
+			<General_Phone />
+			<Fax_Phone />
+		</Support_Info>
+	</Company_Info>
+	<Program_Info>
+		<Program_Name>Translate.Net</Program_Name>
+		<Program_Version>0.1.3036.9031</Program_Version>
+		<Program_Release_Month>04</Program_Release_Month>
+		<Program_Release_Day>24</Program_Release_Day>
+		<Program_Release_Year>2008</Program_Release_Year>
+		<Program_Cost_Dollars>0.00</Program_Cost_Dollars>
+		<Program_Cost_Other_Code />
+		<Program_Cost_Other />
+		<Program_Type>Freeware</Program_Type>
+		<Program_Release_Status>Beta</Program_Release_Status>
+		<Program_Install_Support>Install and Uninstall</Program_Install_Support>
+		<Program_OS_Support>Windows2000,WinXP,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64</Program_OS_Support>
+		<Program_Language>English,Russian,Ukrainian</Program_Language>
+		<Program_Change_Info />
+		<Program_Specific_Category>Education</Program_Specific_Category>
+		<Program_Category_Class>Education::Dictionaries</Program_Category_Class>
+		<Program_System_Requirements>.Net Framework 2.0, internet connection</Program_System_Requirements>
+		<File_Info>
+			<File_Size_Bytes>698130</File_Size_Bytes>
+			<File_Size_K>681</File_Size_K>
+			<File_Size_MB>0.67</File_Size_MB>
+		</File_Info>
+		<Expire_Info>
+			<Has_Expire_Info>N</Has_Expire_Info>
+			<Expire_Count />
+			<Expire_Based_On>Days</Expire_Based_On>
+			<Expire_Other_Info />
+			<Expire_Month />
+			<Expire_Day />
+			<Expire_Year />
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		<English>
+			<Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator</Keywords>
+			<Char_Desc_45>Translate.Net is client to online translators</Char_Desc_45>
+			<Char_Desc_80>Translate.Net is free client to many language services available online</Char_Desc_80>
+			<Char_Desc_250>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries).
+17 services, 25 languages, 1352 translations directions. 
+
+Services:
+- Google dictionary and Google translator
+- Wikipedia and wiktionary
+- SYSTRAN translator (used by Altavista Babel Fish)
+
+Full list of languages\services available at http://translateclient.googlepages.com/services.en.html
+
+
+Features:
+- ability to create user profiles - custom set of services
+- history of used language pairs which sorted by last use time
+- input locale catching - when user change input locale, the latest language pair from history is selected. When user select language pairs - input locale changed accordingly
+- system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy</Char_Desc_2000>
+		</English>
+		<Ukrainian>
+			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
+			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
+			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
+17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
+Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
+
+Повний список мов, сервісів, напрямків перекладу:
+http://translateclient.googlepages.com/services.uk.html
+
+Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
+		</Ukrainian>
+		<Russian>
+			<Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
+			<Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам, словарям, толковым словарям</Char_Desc_80>
+			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар. 
+
+Наиболее поддерживаемые языки - украинский, русский, английский. 
+
+Полный список служб, языков:
+http://translateclient.googlepages.com/services.en.html    http://translateclient.googlepages.com/services.uk.html
+
+Требует наличия Microsoft .Net Framework 2.0 и соединения с интернет</Char_Desc_2000>
+		</Russian>
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>http://translateclient.googlepages.com</Application_Info_URL>
+			<Application_Order_URL />
+			<Application_Screenshot_URL>http://translateclient.googlepages.com/screen1.eng.png</Application_Screenshot_URL>
+			<Application_Icon_URL>http://translateclient.googlepages.com/translate.png</Application_Icon_URL>
+			<Application_XML_File_URL>http://translateclient.googlepages.com/Translate.Net.xml</Application_XML_File_URL>
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3036.9031.exe</Primary_Download_URL>
+			<Secondary_Download_URL />
+			<Additional_Download_URL_1 />
+			<Additional_Download_URL_2 />
+		</Download_URLs>
+	</Web_Info>
+	<Permissions>
+		<Distribution_Permissions />
+		<EULA>TRANSLATE.NET END-USER SOFTWARE LICENSE AGREEMENT
 
 Version 1.0
 
@@ -164,84 +210,116 @@ For More Information
 If you have questions about this privacy policy, please contact author at: Oleksii.Prudkyi@gmail.com
 
 This Privacy Policy is modified "Mozilla Firefox Privacy Policy" stored at http://www.mozilla.com/en-US/legal/privacy/firefox-en.html</EULA>
-    <Distribution_Permissions></Distribution_Permissions>
-  </Permissions>
-  <Press_Release>
-    <Press_Release></Press_Release>
-    <Headline></Headline>
-    <Summary></Summary>
-  </Press_Release>
-  <Article>
-    <Article_FORM></Article_FORM>
-    <Article_VERSION></Article_VERSION>
-    <Article_Title></Article_Title>
-    <Article_URL></Article_URL>
-    <Article_Summary></Article_Summary>
-    <Article_Keywords></Article_Keywords>
-    <Article_Author_Info></Article_Author_Info>
-    <Article_Photo_URL></Article_Photo_URL>
-    <Article_Photo_Local></Article_Photo_Local>
-    <Article_Text></Article_Text>
-    <Article_Text_Plain></Article_Text_Plain>
-  </Article>
-  <ESC>
-    <ESC_FORM></ESC_FORM>
-  </ESC>
-  <Program_Descriptions>
-    <English>
-      <Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator</Keywords>
-      <Char_Desc_45>Translate.Net is client to online translators</Char_Desc_45>
-      <Char_Desc_80>Translate.Net is free client to many language services available online</Char_Desc_80>
-      <Char_Desc_250>Translate.Net is free and opensource client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions.</Char_Desc_250>
-      <Char_Desc_450>Translate.Net is free and opensource client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions.  &lt;br&gt; &lt;br&gt; Full list of languages\services available &lt;a href="http://translateclient.googlepages.com/services.en.html"&gt;here&lt;/a&gt;</Char_Desc_450>
-      <Char_Desc_2000>Translate.Net is free and opensource client to many language services available online (translators, monolingual and bilingual dictionaries).
-17 services, 25 languages, 1352 translations directions. 
-&lt;br&gt;
-&lt;br&gt;
-Services:&lt;br&gt;
-&lt;li&gt;Google dictionary and Google translator&lt;/li&gt;
-&lt;li&gt;Wikipedia and wiktionary&lt;/li&gt;
-&lt;li&gt;SYSTRAN translator (used by Altavista Babel Fish)&lt;/li&gt;
-&lt;br&gt;
-Full list of languages\services available 
-&lt;a href="http://translateclient.googlepages.com/services.en.html"&gt;here&lt;/a&gt;
-&lt;br&gt;
-&lt;br&gt;
-Features:&lt;br&gt;
-&lt;li&gt;ability to create user profiles - custom set of services&lt;/li&gt;
-&lt;li&gt;history of used language pairs which sorted by last use time&lt;/li&gt;
-&lt;li&gt;input locale catching - when user change input locale, the latest language pair from history is selected. When user select language pairs - input locale changed accordingly&lt;/li&gt;
-&lt;li&gt;system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy&lt;/li&gt;</Char_Desc_2000>
-    </English>
-    <Russian>
-      <Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
-      <Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
-      <Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам, словарям, толковым словарям</Char_Desc_80>
-      <Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар.</Char_Desc_250>
-      <Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
-      <Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 17 служб. 35 языков, 1352 языковых пар. 
-
-Наиболее поддерживаемые языки - украинский, русский, английский. 
-
-Полный список служб, языков:
-http://translateclient.googlepages.com/services.en.html    http://translateclient.googlepages.com/services.uk.html
-
-Требует наличия Microsoft .Net Framework 2.0 и соединения с интернет</Char_Desc_2000>
-    </Russian>
-    <Ukrainian>
-      <Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
-17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
-Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
-
-Повний список мов, сервісів, напрямків перекладу:
-http://translateclient.googlepages.com/services.uk.html
-
-Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
-      <Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
-      <Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
-      <Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
-      <Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
-      <Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
-    </Ukrainian>
-  </Program_Descriptions>
+	</Permissions>
+	<Affiliates>
+		<Affiliates_FORM>Y</Affiliates_FORM>
+		<Affiliates_VERSION>1.4</Affiliates_VERSION>
+		<Affiliates_URL>http://www.asp-shareware.org/pad/extensions/Affiliates.htm</Affiliates_URL>
+		<Affiliates_Information_Page />
+		<Affiliates_Avangate_Order_Page />
+		<Affiliates_Avangate_Vendor_ID />
+		<Affiliates_Avangate_Product_ID />
+		<Affiliates_Avangate_Maximum_Commission_Rate />
+		<Affiliates_BMTMicro_Order_Page />
+		<Affiliates_BMTMicro_Vendor_ID />
+		<Affiliates_BMTMicro_Product_ID />
+		<Affiliates_BMTMicro_Maximum_Commission_Rate />
+		<Affiliates_Cleverbridge_Order_Page />
+		<Affiliates_Cleverbridge_Vendor_ID />
+		<Affiliates_Cleverbridge_Product_ID />
+		<Affiliates_Cleverbridge_Maximum_Commission_Rate />
+		<Affiliates_clixGalore_Order_Page />
+		<Affiliates_clixGalore_Vendor_ID />
+		<Affiliates_clixGalore_Product_ID />
+		<Affiliates_clixGalore_Maximum_Commission_Rate />
+		<Affiliates_CommissionJunction_Order_Page />
+		<Affiliates_CommissionJunction_Vendor_ID />
+		<Affiliates_CommissionJunction_Product_ID />
+		<Affiliates_CommissionJunction_Maximum_Commission_Rate />
+		<Affiliates_DigiBuy_Order_Page />
+		<Affiliates_DigiBuy_Vendor_ID />
+		<Affiliates_DigiBuy_Product_ID />
+		<Affiliates_DigiBuy_Maximum_Commission_Rate />
+		<Affiliates_DigitalCandle_Order_Page />
+		<Affiliates_DigitalCandle_Vendor_ID />
+		<Affiliates_DigitalCandle_Product_ID />
+		<Affiliates_DigitalCandle_Maximum_Commission_Rate />
+		<Affiliates_Emetrix_Order_Page />
+		<Affiliates_Emetrix_Vendor_ID />
+		<Affiliates_Emetrix_Product_ID />
+		<Affiliates_Emetrix_Maximum_Commission_Rate />
+		<Affiliates_eSellerate_Order_Page />
+		<Affiliates_eSellerate_Vendor_ID />
+		<Affiliates_eSellerate_Product_ID />
+		<Affiliates_eSellerate_Maximum_Commission_Rate />
+		<Affiliates_Kagi_Order_Page />
+		<Affiliates_Kagi_Vendor_ID />
+		<Affiliates_Kagi_Product_ID />
+		<Affiliates_Kagi_Maximum_Commission_Rate />
+		<Affiliates_LinkShare_Order_Page />
+		<Affiliates_LinkShare_Vendor_ID />
+		<Affiliates_LinkShare_Product_ID />
+		<Affiliates_LinkShare_Maximum_Commission_Rate />
+		<Affiliates_NorthStarSol_Order_Page />
+		<Affiliates_NorthStarSol_Vendor_ID />
+		<Affiliates_NorthStarSol_Product_ID />
+		<Affiliates_NorthStarSol_Maximum_Commission_Rate />
+		<Affiliates_OneNetworkDirect_Order_Page />
+		<Affiliates_OneNetworkDirect_Vendor_ID />
+		<Affiliates_OneNetworkDirect_Product_ID />
+		<Affiliates_OneNetworkDirect_Maximum_Commission_Rate />
+		<Affiliates_Order1_Order_Page />
+		<Affiliates_Order1_Vendor_ID />
+		<Affiliates_Order1_Product_ID />
+		<Affiliates_Order1_Maximum_Commission_Rate />
+		<Affiliates_Osolis_Order_Page />
+		<Affiliates_Osolis_Vendor_ID />
+		<Affiliates_Osolis_Product_ID />
+		<Affiliates_Osolis_Maximum_Commission_Rate />
+		<Affiliates_Plimus_Order_Page />
+		<Affiliates_Plimus_Vendor_ID />
+		<Affiliates_Plimus_Product_ID />
+		<Affiliates_Plimus_Maximum_Commission_Rate />
+		<Affiliates_Regnet_Order_Page />
+		<Affiliates_Regnet_Vendor_ID />
+		<Affiliates_Regnet_Product_ID />
+		<Affiliates_Regnet_Maximum_Commission_Rate />
+		<Affiliates_Regnow_Order_Page />
+		<Affiliates_Regnow_Vendor_ID />
+		<Affiliates_Regnow_Product_ID />
+		<Affiliates_Regnow_Maximum_Commission_Rate />
+		<Affiliates_Regsoft_Order_Page />
+		<Affiliates_Regsoft_Vendor_ID />
+		<Affiliates_Regsoft_Product_ID />
+		<Affiliates_Regsoft_Maximum_Commission_Rate />
+		<Affiliates_ShareIt_Order_Page />
+		<Affiliates_ShareIt_Vendor_ID />
+		<Affiliates_ShareIt_Product_ID />
+		<Affiliates_ShareIt_Maximum_Commission_Rate />
+		<Affiliates_Shareasale_Order_Page />
+		<Affiliates_Shareasale_Vendor_ID />
+		<Affiliates_Shareasale_Product_ID />
+		<Affiliates_Shareasale_Maximum_Commission_Rate />
+		<Affiliates_SWReg_Order_Page />
+		<Affiliates_SWReg_Vendor_ID />
+		<Affiliates_SWReg_Product_ID />
+		<Affiliates_SWReg_Maximum_Commission_Rate />
+		<Affiliates_V-Share_Order_Page />
+		<Affiliates_V-Share_Vendor_ID />
+		<Affiliates_V-Share_Product_ID />
+		<Affiliates_V-Share_Maximum_Commission_Rate />
+		<Affiliates_VFree_Order_Page />
+		<Affiliates_VFree_Vendor_ID />
+		<Affiliates_VFree_Product_ID />
+		<Affiliates_VFree_Maximum_Commission_Rate />
+		<Affiliates_Yaskifo_Order_Page />
+		<Affiliates_Yaskifo_Vendor_ID />
+		<Affiliates_Yaskifo_Product_ID />
+		<Affiliates_Yaskifo_Maximum_Commission_Rate />
+	</Affiliates>
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>N</ASP_Member>
+		<ASP_Member_Number />
+	</ASP>
 </XML_DIZ_INFO>
