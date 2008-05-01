@@ -957,7 +957,8 @@ namespace Translate
 			}
 			lvServicesEnabled.Sort();
 			lvServicesDisabled.Sort();	
-			LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
+			if(lvi != null)
+				LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
 		}
 		
 		void SbServiceDownClick(object sender, EventArgs e)
@@ -982,7 +983,8 @@ namespace Translate
 			}
 			lvServicesEnabled.Sort();
 			lvServicesDisabled.Sort();	
-			LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
+			if(lvi != null)
+				LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
 		}
 	}
 	
