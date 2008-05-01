@@ -272,6 +272,19 @@ namespace Translate
 			return current;
 		}
 		
+		public static string SafeResizeString(string data, int length)
+		{
+			string result = "";
+			if(!string.IsNullOrEmpty(data))
+			{
+				if(data.Length > length)
+					result = data.Substring(0, length);
+				else
+					result = data;
+			}		
+			return result;
+		}
+		
 	}
 	
 	public class StringsTree

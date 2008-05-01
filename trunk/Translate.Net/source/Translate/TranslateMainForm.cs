@@ -263,9 +263,7 @@ namespace Translate
 			
 		
 			if(!string.IsNullOrEmpty(selectionName))
-				lSelectedLangsPair.Text = LangPack.TranslateLanguage(languageSelector.Selection.From).Substring(0, 3) +
-					"->" + 
-					LangPack.TranslateLanguage(languageSelector.Selection.To).Substring(0, 3);
+				lSelectedLangsPair.Text = ServiceSettingsContainer.GetShortNameOfTranslateDirection(languageSelector.Selection);
 			else 		
 				lSelectedLangsPair.Text = "";
 					
