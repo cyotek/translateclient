@@ -118,10 +118,17 @@ namespace FreeCL.UI
 				if(active != null)
 				{
 					//TODO: check rich text, formats, etc
-					IDataObject iData = System.Windows.Forms.Clipboard.GetDataObject();
+					IDataObject iData = null;
+					try
+					{
+						iData = System.Windows.Forms.Clipboard.GetDataObject();
+					}
+					catch(System.Runtime.InteropServices.ExternalException)
+					{
+					
+					}
 
-
-					return !active.ReadOnly && iData.GetDataPresent(DataFormats.Text);
+					return iData != null && !active.ReadOnly && iData.GetDataPresent(DataFormats.Text);
 				}
 				return false;
 			}
