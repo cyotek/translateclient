@@ -70,12 +70,17 @@ namespace FreeCL.Forms
 		private void InitializeComponent()
 		{
 			this.lbLanguage = new System.Windows.Forms.ListBox();
+			this.pInfo = new FreeCL.UI.Panel();
+			this.tbData = new System.Windows.Forms.TextBox();
+			this.lTranslatedBy = new System.Windows.Forms.Label();
 			this.pBody.SuspendLayout();
+			this.pInfo.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
 			this.pBody.Controls.Add(this.lbLanguage);
+			this.pBody.Controls.Add(this.pInfo);
 			// 
 			// lbLanguage
 			// 
@@ -83,9 +88,45 @@ namespace FreeCL.Forms
 			this.lbLanguage.FormattingEnabled = true;
 			this.lbLanguage.Location = new System.Drawing.Point(10, 10);
 			this.lbLanguage.Name = "lbLanguage";
-			this.lbLanguage.Size = new System.Drawing.Size(379, 173);
+			this.lbLanguage.Size = new System.Drawing.Size(379, 134);
 			this.lbLanguage.TabIndex = 2;
 			this.lbLanguage.SelectedIndexChanged += new System.EventHandler(this.LbLanguageSelectedIndexChanged);
+			// 
+			// pInfo
+			// 
+			this.pInfo.BevelInner = FreeCL.UI.BevelStyle.Lowered;
+			this.pInfo.Controls.Add(this.tbData);
+			this.pInfo.Controls.Add(this.lTranslatedBy);
+			this.pInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.pInfo.Location = new System.Drawing.Point(10, 150);
+			this.pInfo.Name = "pInfo";
+			this.pInfo.Padding = new System.Windows.Forms.Padding(5);
+			this.pInfo.Size = new System.Drawing.Size(379, 40);
+			this.pInfo.TabIndex = 3;
+			// 
+			// tbData
+			// 
+			this.tbData.BackColor = System.Drawing.SystemColors.Control;
+			this.tbData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tbData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tbData.Location = new System.Drawing.Point(105, 5);
+			this.tbData.Multiline = true;
+			this.tbData.Name = "tbData";
+			this.tbData.ReadOnly = true;
+			this.tbData.Size = new System.Drawing.Size(269, 30);
+			this.tbData.TabIndex = 1;
+			this.tbData.Text = "d\r\nd";
+			this.tbData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			// 
+			// lTranslatedBy
+			// 
+			this.lTranslatedBy.Dock = System.Windows.Forms.DockStyle.Left;
+			this.lTranslatedBy.Location = new System.Drawing.Point(5, 5);
+			this.lTranslatedBy.Name = "lTranslatedBy";
+			this.lTranslatedBy.Size = new System.Drawing.Size(100, 30);
+			this.lTranslatedBy.TabIndex = 0;
+			this.lTranslatedBy.Text = "Translated by :";
+			this.lTranslatedBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// UILanguageOptionsControl
 			// 
@@ -93,8 +134,13 @@ namespace FreeCL.Forms
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "UILanguageOptionsControl";
 			this.pBody.ResumeLayout(false);
+			this.pInfo.ResumeLayout(false);
+			this.pInfo.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private FreeCL.UI.Panel pInfo;
+		private System.Windows.Forms.Label lTranslatedBy;
+		private System.Windows.Forms.TextBox tbData;
 		private System.Windows.Forms.ListBox lbLanguage;
 	}
 }
