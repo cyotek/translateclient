@@ -34,9 +34,9 @@
 	</Company_Info>
 	<Program_Info>
 		<Program_Name>Translate.Net</Program_Name>
-		<Program_Version>0.1.3036.9031</Program_Version>
-		<Program_Release_Month>04</Program_Release_Month>
-		<Program_Release_Day>24</Program_Release_Day>
+		<Program_Version>0.1.3043.33387</Program_Version>
+		<Program_Release_Month>05</Program_Release_Month>
+		<Program_Release_Day>01</Program_Release_Day>
 		<Program_Release_Year>2008</Program_Release_Year>
 		<Program_Cost_Dollars>0.00</Program_Cost_Dollars>
 		<Program_Cost_Other_Code />
@@ -46,13 +46,13 @@
 		<Program_Install_Support>Install and Uninstall</Program_Install_Support>
 		<Program_OS_Support>Windows2000,WinXP,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64</Program_OS_Support>
 		<Program_Language>English,Russian,Ukrainian</Program_Language>
-		<Program_Change_Info />
+		<Program_Change_Info>added French,Chinese gui translation. few bugs fixed. </Program_Change_Info>
 		<Program_Specific_Category>Education</Program_Specific_Category>
 		<Program_Category_Class>Education::Dictionaries</Program_Category_Class>
 		<Program_System_Requirements>.Net Framework 2.0, internet connection</Program_System_Requirements>
 		<File_Info>
-			<File_Size_Bytes>698130</File_Size_Bytes>
-			<File_Size_K>681</File_Size_K>
+			<File_Size_Bytes>704349</File_Size_Bytes>
+			<File_Size_K>687</File_Size_K>
 			<File_Size_MB>0.67</File_Size_MB>
 		</File_Info>
 		<Expire_Info>
@@ -73,7 +73,7 @@
 			<Char_Desc_250>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions.</Char_Desc_250>
 			<Char_Desc_450>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 17 services, 25 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
 			<Char_Desc_2000>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries).
-17 services, 25 languages, 1352 translations directions. 
+17 services, 35 languages, 1352 translations directions. 
 
 Services:
 - Google dictionary and Google translator
@@ -87,23 +87,10 @@ Features:
 - ability to create user profiles - custom set of services
 - history of used language pairs which sorted by last use time
 - input locale catching - when user change input locale, the latest language pair from history is selected. When user select language pairs - input locale changed accordingly
-- system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy</Char_Desc_2000>
+- system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy
+
+require .Net Framework 2.0 and internet connection</Char_Desc_2000>
 		</English>
-		<Ukrainian>
-			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
-			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
-			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
-			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
-			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
-17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
-Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
-
-Повний список мов, сервісів, напрямків перекладу:
-http://translateclient.googlepages.com/services.uk.html
-
-Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
-		</Ukrainian>
 		<Russian>
 			<Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
 			<Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
@@ -119,6 +106,21 @@ http://translateclient.googlepages.com/services.en.html    http://translateclien
 
 Требует наличия Microsoft .Net Framework 2.0 и соединения с интернет</Char_Desc_2000>
 		</Russian>
+		<Ukrainian>
+			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
+			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
+			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
+17 онлайнових сервісів, 35  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
+Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
+
+Повний список мов, сервісів, напрямків перекладу:
+http://translateclient.googlepages.com/services.uk.html
+
+Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
+		</Ukrainian>
 	</Program_Descriptions>
 	<Web_Info>
 		<Application_URLs>
@@ -129,7 +131,7 @@ http://translateclient.googlepages.com/services.en.html    http://translateclien
 			<Application_XML_File_URL>http://translateclient.googlepages.com/Translate.Net.xml</Application_XML_File_URL>
 		</Application_URLs>
 		<Download_URLs>
-			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3036.9031.exe</Primary_Download_URL>
+			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3043.33387.exe</Primary_Download_URL>
 			<Secondary_Download_URL />
 			<Additional_Download_URL_1 />
 			<Additional_Download_URL_2 />

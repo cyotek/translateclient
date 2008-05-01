@@ -1,6 +1,7 @@
 Thanks for translations:
 
 To French - 2008-05-01 by Roger (member of http://www.korben.info/)
+To Chinese - 2008-05-01 by Sun Minghao (minghao.sun@gmail.com)
 
 Thanks for bug reporting:
 
@@ -10,3 +11,6 @@ Keith Sheasley
 Julian Fisher, MD
 Charles Wm. Stewart
 Kevin Johnson
+Stephen Korsman
+Jeff Ayers
+henri-pierre.chavaz
