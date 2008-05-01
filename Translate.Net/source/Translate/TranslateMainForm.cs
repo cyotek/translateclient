@@ -1018,6 +1018,7 @@ namespace Translate
 			{
 				pf.Subjects.Clear();
 				pf.Subjects.AddRange(pf.GetSupportedSubjects());
+				pf.History.Clear();
 				languageSelector.Profile = currentProfile;
 			}
 			form.Dispose();

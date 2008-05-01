@@ -523,6 +523,7 @@ namespace Translate
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
 				lvServices.Services = (pf as UserTranslateProfile).Services;
+				pf.History.Clear();
 			}
 			form.Dispose();
 		}
