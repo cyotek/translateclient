@@ -1,0 +1,504 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+
+[TranslatedByURL]
+
+[Translated by]
+Переклад здійснено
+[&File]
+&Файл
+[Exit from application]
+Вийти із програми
+[E&xit]
+Ви&йти
+[&Edit]
+&Правка
+[Copy selection to clipboard]
+Копіювання виділеного фрагмента до буфера обміну
+[&Copy]
+Ко&піювати
+[Cut selection to clipboard]
+Видалення виділеного фрагмента й копіювання його до буфера обміну
+[Cu&t]
+В&ирізати
+[Paste from clipboard]
+Вставка із буфера обміну
+[&Paste]
+Вс&тавити
+[Delete selection]
+Стерти виділення
+[&Delete]
+&Стерти
+[Undo last operation]
+Скасування попередньої операції
+[&Undo]
+&Скасувати
+[Redo last operation]
+Повторення попередньої операції
+[&Redo]
+По&вторити
+[Select Аll]
+Виділити все
+[&Select Аll]
+Виділити в&се
+[&Window]
+&Вікно
+[Close All]
+Закрити всі
+[&Help]
+&Довідка
+[&About ...]
+Про пр&ограму ...
+[About]
+Про програму
+[Send feedback or bugreport ...]
+Відіслати пропозиції або інформацію про помилки ...
+[Feedback for :]
+Зворотній зв'язок для :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Надрукуйте Ваші пропозиції або інформацію про помилки тут (англійською, українською або російською мовою) >>
+[Options]
+Налаштування
+[Cancel]
+Скасувати
+[Apply]
+Застосувати
+[Minimize]
+Мінімізувати
+[{0} Updater]
+Оновлення {0}
+[Preparing]
+Підготовка до оновлення
+[Check version]
+Перевірка версії
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Завантажено {0}Kb з {1}Kb із швидкістю {2}Kb/s
+[Update downloaded]
+Оновлення завантажено
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Нова версія завантажена. Зупинити Translate.Net та запустити інсталятор нової версії ?
+[Please select where to save installer of new version which you can run later]
+Виберіть куди записати інсталятор нової версії який Ви можете запустити пізніше
+[Installer saved to \r\n{0}]
+Інсталятор записано \r\n{0}
+[Update will be run later]
+Перевірка оновлення буде запущена пізніше
+[Check Updates ...]
+Перевірити оновлення ...
+[Updates]
+Оновлення
+[Automatically check updates]
+Автоматично перевіряти оновлення
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Останнє оновлення відбулося - {0}\r\nОстання перевірка наявності оновлення - {1} із статусом - {2}\r\nНаступна перевірка оновлення - {3}
+[Close]
+Закрити
+[Error on downloading {0}]
+Помилка при завантаженні {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} не містить тег {1}:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} містить погано форматований тег {1}:\r\n{2}
+[Canceled]
+Перервано
+[Program is up to date]
+Оновлення не знайдене
+[File {0} already exists]
+Файл {0} вже існує
+[Version]
+Версія
+[&Tools]
+&Інструменти
+[O&ptions...]
+&Налаштування...
+[General]
+Головні
+[UI Language]
+Мова
+[Network]
+Мережа
+[HTTP-Proxy]
+HTTP-проксі
+[Proxy]
+Проксі
+[Port]
+Порт
+[Timeout]
+Таймаут
+[System]
+Системний
+[Custom]
+Ручний
+[None]
+Пряме з'єднання
+[Startup]
+Запуск програми
+[Autorun in startup]
+Автостарт при запуску системи
+[Minimize to tray]
+Мінімізувати у трей
+[Tray]
+Трей
+[Hotkeys]
+Глобальні гарячі клавіши
+[Activate on Ctrl+C+C hotkey]
+Активізувати по Ctrl+C+C 
+[Activate on Ctrl+Ins+Ins hotkey]
+Активізувати по Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Запускати переклад після активації 
+[Show query time and other information]
+Показувати час запиту та іншу інформацію
+[Mark by red color untranslated words]
+Відмічати червоним кольором слова, що не перекладені
+[Don't show "Nothing found" results]
+Не показувати результати сервісів, які нічого не знайшли
+[Show direction of translation]
+Показувати напрямок перекладу
+[Show accents]
+Показувати наголоси
+[Show names of services]
+Показувати назви сервісів
+[Nothing found]
+Нічого не знайдено
+[Translation direction is not correct]
+Невірний напрямок перекладу
+[Only cyrillic characters supported]
+Дозволені лише кириличні символи 
+[Ukrainian characters in russian query]
+Українські літери в запиті по російських позиціях
+[Parse error, start tags not found]
+Помилка аналізу отриманих даних, стартовий тег не знайдено
+[Nothing to translate]
+Немає чого перекладати  
+[Length too big]
+Дуже велика довжина
+[Wrong data structure]
+Неправильна структура даних
+[Query contains extraneous symbols]
+Запит містить сторонні символи
+[Service version not supported]
+Версія сервісу не підтримується
+[Result view]
+Вид результату
+[Include monolingual dictionaries in translation]
+Викликати тлумачні словники при перекладі
+[Profile]
+Профіль
+[Profiles]
+Профілі
+[Default]
+Основний
+[List]
+Список
+[Add new user profile]
+Додати профіль користувача
+[Set profile properties]
+Встановити властивості профіля
+[Profile name]
+Назва профіля
+[Translation direction]
+Напрямок перекладу
+[Name for new profile you enter already used. Please enter unique name.]
+Назва, введена для нового профіля, вже використовується. Будь ласка, введіть унікальне ім'я.
+[Profile name don't set. Please enter profile name.]
+Назва профілю не встановлена. Будь ласка, задайте ім'я профілю. 
+[Remove user profile]
+Видалити профіль користувача
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Профіль {0} буде видалений. \r\nВи згодні ? 
+[Move profile up]
+Посунути профіль вище
+[Move profile down]
+Посунути профіль нижче
+[Name]
+Назва
+[Edit services]
+Редагувати сервіси
+[Remove service]
+Видалити сервіс
+[Add selected service]
+Додати вибраний сервіс
+[Add all services]
+Додати усі сервіси 
+[Remove all services]
+Видалити усі сервіси
+[Services filter]
+Фільтр сервісів
+[Available services]
+Придатні сервіси
+[Selected services]
+Вибрані сервіси
+[View]
+Вигляд
+[Show services list]
+Показувати список сервісів
+[Show languages list]
+Показувати список мов
+[Show subjects list]
+Показувати список тем
+[Size]
+Розмір
+[System font]
+Системний шрифт
+[Fonts]
+Шрифти
+[Input text]
+Текст для перекладу
+[To default]
+Початкове значення
+[&Translate]
+&Переклад
+[Translate]
+Перекласти
+[Size or format of query don't supported by available translation services]
+Розмір або формат запиту не підтримується доступними сервісами перекладу
+[Reverse translation direction]
+Інвертувати напрямок перекладу
+[Show\\Hide]
+Показати\\Сховати
+[Show HTML source]
+Перегляд HTML-коду
+[From]
+з
+[To]
+на 
+[Any Language]
+Будь-яка
+[Arabic]
+Арабська
+[Belarusian]
+Білоруська
+[Bulgarian]
+Болгарська
+[Chinese]
+Китайська
+[Chinese_CN]
+Китайська спрощена
+[Chinese_TW]
+Китайська традиційна
+[Croatian]
+Хорватська
+[Czech]
+Чеська
+[Danish]
+Данська
+[Dutch]
+Голландська
+[English]
+Англійська
+[English_GB]
+Англійська-Англія
+[English_US]
+Англійська-США
+[Esperanto]
+Есперанто
+[Estonian]
+Естонська
+[Icelandic]
+Ісландська
+[Finnish]
+Фінська
+[French]
+Французька
+[German]
+Германська
+[Greek]
+Грецька
+[Hungarian]
+Угорська
+[Italian]
+Італійська
+[Japanese]
+Японська
+[Korean]
+Корейська
+[Latin]
+Латина
+[Latvian]
+Латвійська 
+[Lithuanian]
+Литовська
+[Macedonian]
+Македонська
+[Norwegian]
+Норвезька
+[Polish]
+Польська
+[Portuguese]
+Португальська
+[Romanian]
+Румунська
+[Russian]
+Російська
+[Serbian]
+Сербська
+[Slovak]
+Словацька
+[Slovenian]
+Словенська
+[Spanish]
+Іспанська
+[Swedish]
+Шведська
+[Ukrainian]
+Українська
+[Languages]
+Мови
+[Services]
+Сервіси
+[Enabled]
+Увімкнені
+[Error]
+Помилка
+[Disabled]
+Вимкнені
+[Move service up]
+Посунути сервіс вище
+[Move service down]
+Посунути сервіс нижче
+[<b>Status</b> : Enabled]
+<b>Статус</b> : Увімкнуто
+[<b>Status</b> : Error]
+<b>Статус</b> : Помилка
+[<b>Status</b> : Disabled]
+<b>Статус</b> : Вимкнено
+[Enable]
+Увімкнути
+[Disable]
+Вимкнути
+[Subjects]
+Теми
+[Subject]
+Тема
+[Any]
+Будь-яка
+[Common]
+Загальна
+[Aviation]
+Авіація
+[Auto]
+Авто
+[Anatomy]
+Анатомія
+[Bank]
+Банк
+[Bible]
+Біблія 
+[Business]
+Бізнес
+[Military]
+Військова
+[Law]
+Закон
+[Informatics]
+Інформатика
+[Art]
+Мистецтво
+[Space]
+Космос
+[Socio-political]
+Соціально-політична
+[Medicine]
+Медицина
+[Music]
+Музика
+[Sex]
+Секс
+[Sport]
+Спорт
+[Tech]
+Техніка
+[Philosophy]
+Філософія
+[Chemistry]
+Хімія
+[Economy]
+Економіка
+[Electronics]
+Електроніка
+[Type]
+Тип
+[Translator]
+Перекладачка
+[Monolingual dictionary]
+Тлумачний словник
+[Bilingual dictionary]
+Двомовний словник
+[Dictionary of synonyms]
+Словник синонімів 
+[Dictionary of antonyms]
+Словник антонімів
+[Phraseological dictionary]
+Фразеологічний словник
+[Encyclopedia]
+Енциклопедія
+[Search Engine]
+Сервіс пошуку
+[T]
+П
+[MD]
+ТС
+[BD]
+ДС
+[SD]
+CC
+[AD]
+СА
+[PD]
+ФС
+[EN]
+ЕН
+[SE]
+СП
+[Limit]
+Межа 
+[characters]
+символів
+[Masks]
+Маски
+[English-Ukrainian technical dictionary]
+Англо-український словник технічних термінів
+[Google Translator]
+Перекладачка Google
+[<META> Translator]
+Перекладачка <META>
+[Free open source machine translation system]
+Вільна багатомовна система автоматизованого перекладу
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Російсько-український (академічний) словник (1924–1933)
+[Large explanatory dictionary of modern Ukrainian]
+Великий тлумачний словник сучасної української мови
+[Slovnyk - the multilanguage dictionary]
+Багатомовний словник slovnyk.org
+[Russian-Ukrainian dictionary of constant expressions]
+Російсько-український словник сталих виразів
+[Pragma 5.x on-line translation]
+Pragma 5.x он-лайн переклад
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Англійсько-український та Українсько-англійський словники для перекладу в он-лайн - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Українсько-англійсько-український словник - Slovnenya
+[Dictionary of foreign words]
+Словник іншомовних слів
+[Dictionaries of Ukraine]
+Словники України
+[The free encyclopedia that anyone can edit]
+Вільна енциклопедія, яку кожний може редагувати
+[The free dictionary that anyone can edit]
+Вільний словник, який може редагувати кожен
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN перекладачка (використовується у Altavista Babel Fish)
+[Grouped by Service's Url]
+Групування по адресі сервісів
+[Grouped by Language]
+Групування по мові
+[{0} language pairs]
+мовних пар - {0}
+[{0} services]
+сервісов - {0}
+[Create article]
+Створити статтю
+[Open article]
+Відкрити статтю
