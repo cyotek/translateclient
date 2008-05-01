@@ -74,7 +74,7 @@ namespace Translate
 		public override void Init()
 		{
 			string current = (string)Registry.GetValue(keyName, Constants.AppName, "Not set");
-			initialAutorun = current != "Not set";
+			initialAutorun = current != null && current != "Not set";
 			cbAutorun.Checked = initialAutorun;
 			
 			options = TranslateOptions.Instance;
@@ -90,7 +90,7 @@ namespace Translate
 				else
 				{
 					RegistryKey rk = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-					rk.DeleteValue(Constants.AppName);
+					rk.DeleteValue(Constants.AppName, false);
 				 }
 			}
 			options.MinimizeToTrayOnStartup = cbMinimizeToTray.Checked;
