@@ -196,9 +196,7 @@ namespace Translate
 				if(showLanguage)
 				{
 					name += "-";
-					name += LangPack.TranslateLanguage(Setting.LanguagePair.From).Substring(0, 3) +
-						"->" + 
-						LangPack.TranslateLanguage(Setting.LanguagePair.To).Substring(0, 3);
+					name += GetShortNameOfTranslateDirection(Setting.LanguagePair);
 				}
 				
 				if(setting.Subject != SubjectConstants.Common)
@@ -206,6 +204,17 @@ namespace Translate
 					name += "-";
 					name += LangPack.TranslateString(setting.Subject);
 				}
+			}
+			
+			public static string GetShortNameOfTranslateDirection(LanguagePair languagePair)
+			{
+				string result = "";
+				
+				result += StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.From), 3);
+				result += "->";
+				result += StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.To), 3);
+				
+				return result;
 			}
 			
 			public override string ToString()

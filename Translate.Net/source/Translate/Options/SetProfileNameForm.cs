@@ -185,19 +185,19 @@ namespace Translate
 			string nameBase = "";
 			
 			if(profile.TranslationDirection.From != Language.Any)
-				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.From).Substring(0, 3);
+				nameBase += StringParser.SafeResizeString(LangPack.TranslateLanguage(profile.TranslationDirection.From), 3);
 			else	
 				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.From);
 				
 			nameBase += "->";
 			
 			if(profile.TranslationDirection.To != Language.Any)
-				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.To).Substring(0, 3);
+				nameBase += StringParser.SafeResizeString(LangPack.TranslateLanguage(profile.TranslationDirection.To), 3);
 			else	
 				nameBase += LangPack.TranslateLanguage(profile.TranslationDirection.To);
 					
 			if(profile.Subject != SubjectConstants.Any && profile.Subject != SubjectConstants.Common)
-				nameBase += "->" + LangPack.TranslateString(profile.Subject).Substring(0, 3);
+				nameBase += "->" + StringParser.SafeResizeString(LangPack.TranslateString(profile.Subject), 3);
 
 			if(!IsProfileNameExists(nameBase, profile.Name))
 					return nameBase;
