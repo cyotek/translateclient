@@ -253,6 +253,9 @@
     <None Include="..\..\site\screenshots.uk.html">
       <Link>site\screenshots.uk.html</Link>
     </None>
+    <None Include="..\..\site\services.uk.html">
+      <Link>site\services.uk.html</Link>
+    </None>
     <None Include="..\..\site\support.en.html">
       <Link>site\support.en.html</Link>
     </None>
@@ -261,6 +264,9 @@
     </None>
     <None Include="..\..\site\versions.txt">
       <Link>site\versions.txt</Link>
+    </None>
+    <None Include="lang\French.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="lang\Original.lng" />
     <None Include="lang\Russian.lng">
