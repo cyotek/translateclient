@@ -57,15 +57,42 @@ namespace FreeCL.Forms
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-
 		}
 		
 		void LbLanguageSelectedIndexChanged(object sender, EventArgs e)
 		{
 			string SelectedLang = (string)lbLanguage.SelectedItem;
 			LangPack.CurrentLanguage = SelectedLang;
+			UpdateInfo();
 		}
 
+		void UpdateInfo()
+		{
+			lTranslatedBy.Text = LangPack.TranslateString("Translated by");
+			
+			string translator = "";
+			string url = "";
+			
+			string tmp = LangPack.TranslateString("TranslatedBy");
+			if(tmp != "TranslatedBy")
+				translator = tmp;
+			
+			tmp = LangPack.TranslateString("TranslatedByURL");
+			if(tmp != "TranslatedByURL")
+				url = tmp;
+			
+			if(!string.IsNullOrEmpty(url))
+				translator += Environment.NewLine + url;
+			
+			if(!string.IsNullOrEmpty(translator))
+			{
+				tbData.Text = translator;	
+				pInfo.Visible = true;
+			}
+			else
+				pInfo.Visible = false;
+		}
+		
 		string initialLanguage;
 		public override void Init()
 		{
@@ -77,6 +104,7 @@ namespace FreeCL.Forms
 			}
 			initialLanguage = LangPack.CurrentLanguage;
 			lbLanguage.SelectedItem = LangPack.CurrentLanguage;
+			UpdateInfo();
 		}
 		
 		public override void Apply()
