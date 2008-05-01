@@ -89,6 +89,7 @@ Source: ..\source\Translate\lang\*.lng; DestDir: {app}\lang
 Source: texts\info\*.rtf; DestDir: {app}
 Source: texts\license\*.rtf; DestDir: {app}
 Source: texts\privacy\*.rtf; DestDir: {app}
+Source: texts\thanks.txt; DestDir: {app}
 
 [Registry]
 Root: HKCU; SubKey: Software\Microsoft\Windows\CurrentVersion\Run; ValueType: string; ValueName: Translate.Net; ValueData: {app}\Translate.Net.exe -skipsplash
