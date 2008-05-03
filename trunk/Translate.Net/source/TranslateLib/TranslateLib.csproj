@@ -73,6 +73,9 @@
     <Compile Include="CybermovaCom\CybermovaComService.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
+    <Compile Include="DictPl\DictPlDeDictionary.cs" />
+    <Compile Include="DictPl\DictPlEnDictionary.cs" />
+    <Compile Include="DictPl\DictPlService.cs" />
     <Compile Include="Google\GoogleDictionary.cs" />
     <Compile Include="Google\GoogleService.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
@@ -130,6 +133,7 @@
     <EmbeddedResource Include="Ulif\Service.ico" />
     <EmbeddedResource Include="Wiki\Service.ico" />
     <EmbeddedResource Include="Systran\Service.ico" />
+    <EmbeddedResource Include="DictPl\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -138,6 +142,7 @@
     <Folder Include="DictLinuxOrgUa" />
     <Folder Include="CybermovaCom" />
     <Folder Include="Cache" />
+    <Folder Include="DictPl" />
     <Folder Include="Systran" />
     <Folder Include="Wiki" />
     <Folder Include="Ulif" />
