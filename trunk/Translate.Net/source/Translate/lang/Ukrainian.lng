@@ -106,6 +106,8 @@
 Оновлення не знайдене
 [File {0} already exists]
 Файл {0} вже існує
+[The server of updates is overloaded. The check of updates will be delayed.]
+Сервер оновлень перевантажений. Перевірка буде виконана пізніше. 
 [Version]
 Версія
 [&Tools]

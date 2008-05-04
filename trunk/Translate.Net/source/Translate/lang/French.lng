@@ -104,6 +104,8 @@ Annulé
 Le programme est à jour
 [File {0} already exists]
 Le fichier {0} existe déjà
+[The server of updates is overloaded. The check of updates will be delayed.]
+
 [Version]
 Version
 [&Tools]
