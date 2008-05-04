@@ -86,6 +86,12 @@ namespace Translate
 			{
 				File.Delete(Path.Combine(pathToAppData, file));
 			}
+
+			if(Constants.VersionsTxtUrls.Count > 1)			
+			{
+				Random rand = new Random( );
+				versionUrlToCheck = rand.Next(Constants.VersionsTxtUrls.Count);
+			}
 		}
 		
 		static bool isNewVersion;
@@ -302,6 +308,15 @@ namespace Translate
 		
 		static void ParseVersions(WebClient client, string versions)
 		{
+			if(versions.IndexOf("<title>Bandwidth or Pageview Quota Exceeded</title>") >= 0)
+			{
+				if(TryToRerunVersionsCheck(client))
+					return;
+			
+				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("The server of updates is overloaded. The check of updates will be delayed.")));
+				return;
+			}
+			
 			StringReader strReader = new StringReader(versions);
 			string versionOnSite = strReader.ReadLine();
 			if(!versionOnSite.StartsWith("Version="))

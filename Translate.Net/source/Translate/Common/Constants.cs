@@ -49,7 +49,9 @@ namespace Translate
 		public const string AppName = "Translate.Net";
 		
 		static ReadOnlyCollection<string> versionsTxtUrls = new ReadOnlyCollection<string>(
-			new string[] {"http://translateclient.googlepages.com/versions.txt"}
+			new string[] {"http://translateclient.googlepages.com/versions.txt", 
+							"http://translateclient.googlecode.com/svn/trunk/Translate.Net/site/versions.txt"
+			}
 			);
 		public static ReadOnlyCollection<string> VersionsTxtUrls {
 			get { return versionsTxtUrls; }
