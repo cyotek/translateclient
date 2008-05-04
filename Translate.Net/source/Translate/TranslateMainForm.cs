@@ -572,8 +572,9 @@ namespace Translate
 			tsbTranslate.Image = (((System.Drawing.Icon)(resources.GetObject("StaticIcon")))).ToBitmap();
 			ignoreProfileReposition = false;
 			
-			if(!e.Cancelled && e.Error == null && e.TranslateState.Results.Count > 0)
-				resBrowser.AddAdvertisement(e.TranslateState);
+			//don't generate any statistics calls to avoid overloading of googlepages
+			//if(!e.Cancelled && e.Error == null && e.TranslateState.Results.Count > 0)
+			//	resBrowser.AddAdvertisement(e.TranslateState);
 			
 			if(activeTranslateState == e.TranslateState)
 			{
