@@ -84,7 +84,14 @@ namespace Translate
 			string[] files = Directory.GetFiles(pathToAppData);
 			foreach(string file in files)
 			{
-				File.Delete(Path.Combine(pathToAppData, file));
+				try
+				{
+					File.Delete(Path.Combine(pathToAppData, file));
+				}
+				catch(UnauthorizedAccessException)
+				{ //ignore errors when can't delete downloaded installers
+				
+				}
 			}
 
 			if(Constants.VersionsTxtUrls.Count > 1)			
