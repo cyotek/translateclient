@@ -52,7 +52,7 @@ namespace Translate
 			CompanyName = "<META>";
 			Copyright = "Copyright © 1998-2008, <META>";
 
-			IconUrl = new Uri("http://translate.meta.ua/favicon.ico");
+			IconUrl = new Uri("http://translateclient.googlepages.com/metaua.png");
 			IconResourceName = "Translate.MetaUa.Service.ico";
 			FullName = "<META> Translator";
 			

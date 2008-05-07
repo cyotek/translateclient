@@ -53,7 +53,7 @@ namespace Translate
 			Name = "systran_co_uk";
 			CompanyName = "SYSTRAN S.A.";
 			Copyright = "Copyright © 2008 SYSTRAN S.A.";
-			IconUrl = new Uri("http://www.systran.co.uk/EN-US/img/Icons/ses6.png");
+			IconUrl = new Uri("http://translateclient.googlepages.com/systran.png");
 			FullName = "SYSTRAN translation software (used by Altavista Babel Fish)";
 						
 			AddTranslator(new SystranTranslator());
