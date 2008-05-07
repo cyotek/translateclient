@@ -53,7 +53,7 @@ namespace Translate
 			Name = "ulif";
 			CompanyName = "ULIF";
 			Copyright = "Copyright © ULIF, 2003-2007";
-			IconUrl = new Uri("http://lcorp.ulif.org.ua/dictua/img/arrow/forward.gif");
+			IconUrl = new Uri("http://www1.ulif.org.ua/ulif/favicon.ico");
 			FullName = "Dictionaries of Ukraine";
 			
 			AddMonolingualDictionary(new UlifSynonymsDictionary());
