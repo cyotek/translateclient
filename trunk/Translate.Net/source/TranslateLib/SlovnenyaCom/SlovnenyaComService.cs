@@ -53,7 +53,7 @@ namespace Translate
 			CompanyName = "Slovnenya";
 			Copyright = "Copyright © 2008, Slovnenya";
 
-			IconUrl = new Uri("http://www.slovnenya.com/images/slovnenya_en_jpg");
+			IconUrl = new Uri("http://translateclient.googlepages.com/slovnenya.png");
 			FullName = "Ukrainian-English-Ukrainian dictionary - Slovnenya";
 			
 			AddBilingualDictionary(new SlovnenyaComDictionary());
