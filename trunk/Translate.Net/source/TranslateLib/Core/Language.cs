@@ -192,8 +192,16 @@ namespace Translate
 			if(culture == null)
 				throw new ArgumentNullException("culture");
 				
+			Language lang = language;	 
+			
+			if(lang == Language.English_US || lang == Language.English_GB)
+				lang = Language.English;
 				
-			string name = Enum.GetName(typeof(Language), language);
+			if(lang == Language.Chinese_CN || lang == Language.Chinese_TW)
+				lang = Language.Chinese;
+			
+			string name = Enum.GetName(typeof(Language), lang);
+			
 			if(culture.EnglishName.IndexOf(name) >= 0)
 				return true;
 				
