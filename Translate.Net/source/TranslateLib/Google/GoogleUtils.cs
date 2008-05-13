@@ -40,6 +40,7 @@ using System;
 using System.Text;
 using System.Web; 
 using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
 
 namespace Translate
 {
@@ -51,43 +52,60 @@ namespace Translate
 	public static class GoogleUtils
 	{
 	
+		static GoogleUtils()
+		{
+			langToKey.Add(Language.Autodetect,"auto");
+			langToKey.Add(Language.Arabic,"ar");
+			langToKey.Add(Language.Bulgarian,"bg");
+			langToKey.Add(Language.Chinese,"zh");
+			langToKey.Add(Language.Chinese_CN,"zh-CN");
+			langToKey.Add(Language.Chinese_TW,"zh-TW");
+			langToKey.Add(Language.Croatian,"hr");
+			langToKey.Add(Language.Czech,"cs");
+			langToKey.Add(Language.Danish,"da");
+			langToKey.Add(Language.Dutch,"nl");
+			langToKey.Add(Language.English,"en");
+			langToKey.Add(Language.English_US,"en");
+			langToKey.Add(Language.English_GB,"en");
+			langToKey.Add(Language.Finnish,"fi");
+			langToKey.Add(Language.French,"fr");
+			langToKey.Add(Language.German,"de");
+			langToKey.Add(Language.Greek,"el");
+			langToKey.Add(Language.Hindi,"hi");
+			langToKey.Add(Language.Italian,"it");
+			langToKey.Add(Language.Japanese,"ja");
+			langToKey.Add(Language.Korean,"ko");
+			langToKey.Add(Language.Norwegian,"no");
+			langToKey.Add(Language.Polish,"po");
+			langToKey.Add(Language.Portuguese,"pt");
+			langToKey.Add(Language.Romanian,"ro");
+			langToKey.Add(Language.Russian,"ru");
+			langToKey.Add(Language.Spanish,"es");
+			langToKey.Add(Language.Swedish,"sv");
+		}
+
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String,System.String)")]
 		public static string ConvertLanguage(Language language)
 		{
-			switch(language)
-			{
-				case Language.Arabic:
-					return "ar";
-				case Language.Chinese:
-					return "zh";
-				case Language.Chinese_CN:
-					return "zh-CN";
-				case Language.Chinese_TW:
-					return "zh-TW";
-				case Language.Dutch:
-					return "nl";
-				case Language.English:
-					return "en";
-				case Language.French:
-					return "fr";
-				case Language.German:
-					return "de";
-				case Language.Greek:
-					return "el";
-				case Language.Italian:
-					return "it";
-				case Language.Japanese:
-					return "ja";
-				case Language.Korean:
-					return "ko";
-				case Language.Portuguese:
-					return "pt";
-				case Language.Russian:
-					return "ru";
-				case Language.Spanish:
-					return "es";
-			}
-			throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
+			string result;
+			if(!langToKey.TryGetValue(language, out result))
+				throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
+			else
+				return result;
+		}
+		
+		static SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
+		
+		public static SortedDictionary<Language, string> LangToKey {
+			get { return langToKey; }
+		}
+
+		public static string ConvertTranslatorLanguagesPair(LanguagePair languagesPair)
+		{
+			if(languagesPair == null)
+				throw new ArgumentNullException("languagesPair");
+			
+			return "sl=" + ConvertLanguage(languagesPair.From) + "&tl=" + ConvertLanguage(languagesPair.To);
 		}
 		
 		public static string ConvertLanguagesPair(LanguagePair languagesPair)
@@ -97,5 +115,7 @@ namespace Translate
 			
 			return HttpUtility.UrlEncode(ConvertLanguage(languagesPair.From) + "|" + ConvertLanguage(languagesPair.To), System.Text.Encoding.UTF8);
 		}
+		
+		
 	}
 }

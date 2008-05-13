@@ -78,8 +78,17 @@ namespace Translate
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_TW));
 			AddSupportedTranslation(new LanguagePair(Language.Chinese_TW, Language.English));
 
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_CN));
+			AddSupportedTranslation(new LanguagePair(Language.Chinese_CN, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese));
+			AddSupportedTranslation(new LanguagePair(Language.Chinese, Language.English));
+
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Portuguese));
 			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Hindi));
+			AddSupportedTranslation(new LanguagePair(Language.Hindi, Language.English));
 			
 			AddSupportedSubject(SubjectConstants.Common);
 		}

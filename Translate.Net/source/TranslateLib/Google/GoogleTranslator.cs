@@ -42,6 +42,7 @@ using System.Text;
 using System.IO; 
 using System.Web; 
 using System.IO.Compression;
+using System.Collections.Generic;
 
 namespace Translate
 {
@@ -52,45 +53,24 @@ namespace Translate
 	{
 		public GoogleTranslator()
 		{
-			AddSupportedTranslation(new LanguagePair(Language.Arabic, Language.English));
+			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(GoogleUtils.LangToKey);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Chinese, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Chinese_CN, Language.Chinese_TW));
-			AddSupportedTranslation(new LanguagePair(Language.Chinese_TW, Language.Chinese_CN));
-			
-			AddSupportedTranslation(new LanguagePair(Language.Dutch, Language.English));
-			
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Arabic));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_CN));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_TW));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Dutch));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.French));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.German));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Greek));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Italian));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Japanese));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Korean));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Portuguese));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Spanish));
-			
-			AddSupportedTranslation(new LanguagePair(Language.French, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.French, Language.German));
+			foreach(Language from in GoogleUtils.LangToKey.Keys)
+			{
+				foreach(Language to in tmp.Keys)
+				{
+					if( (from != Language.English || (to != Language.English_GB && to != Language.English_US)) &&
+						(to != Language.English || (from != Language.English_GB && from != Language.English_US)) &&
+						(to != Language.Autodetect) &&
+						(!(to == Language.English_US && from == Language.English_GB)) &&
+						(!(from == Language.English_US && to == Language.English_GB)) &&
+						from != to
+					  )
+					  AddSupportedTranslation(new LanguagePair(from, to));
+				}
+			}
 		
-		
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.English));		
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.French));		
-			
-			AddSupportedTranslation(new LanguagePair(Language.Greek, Language.English));		
-			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Japanese, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Korean, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.English));
-			
 			AddSupportedSubject(SubjectConstants.Common);
-			
 		}
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
@@ -103,7 +83,7 @@ namespace Translate
 			
 			//query
 			//hl=en&ie=UTF8&text=small+test&langpair=en%7Cru			
-			string langpair= "langpair=" + GoogleUtils.ConvertLanguagesPair(languagesPair);
+			string langpair= "langpair=" + GoogleUtils.ConvertTranslatorLanguagesPair(languagesPair);
 			string query = "hl=en&ie=UTF8&text=" + HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ) + "&" + langpair;
 			helper.AddPostData(query);
 			
