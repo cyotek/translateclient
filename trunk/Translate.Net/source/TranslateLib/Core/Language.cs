@@ -50,6 +50,7 @@ namespace Translate
 	public enum Language
 	{
 		Any,
+		Autodetect,
 		Arabic,
 		Belarusian,
 		Bulgarian,
@@ -76,6 +77,7 @@ namespace Translate
 		French,
 		German,
 		Greek,
+		Hindi,
 		Hungarian,
 		Italian,
 		Japanese,
