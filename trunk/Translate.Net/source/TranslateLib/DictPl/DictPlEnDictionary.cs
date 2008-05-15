@@ -64,6 +64,38 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			Name = "_pl_en";
+			
+			WordsCount = 5;
+			SplitToSubQueries = true;
+		}
+		
+		public override string[] SplitPhraseToSubqueries(string phrase)
+		{
+			List<string> words = StringParser.SplitToWords(phrase);
+			List<string> result = new List<string>();
+
+			for(int i = 0; i < MaxCountOfSubQueries; i++)			
+			{
+				if(i*WordsCount >= words.Count)
+					break;
+			
+				string subres = ""; 
+				for(int sub_idx = 0; sub_idx < WordsCount; sub_idx++)
+				{
+					if(i*WordsCount + sub_idx >= words.Count)
+					{
+						if(!string.IsNullOrEmpty(subres))
+						{
+							result.Add(subres);
+						}
+						break;
+					}
+					subres += words[i*WordsCount + sub_idx] + " ";
+					
+				}
+			}
+			
+			return result.ToArray();
 		}
 		
 		

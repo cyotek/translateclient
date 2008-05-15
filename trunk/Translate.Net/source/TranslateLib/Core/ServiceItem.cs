@@ -80,6 +80,22 @@ namespace Translate
 			set { wordsCount = value; }
 		}
 		
+		bool splitToSubQueries;
+		public bool SplitToSubQueries {
+			get { return splitToSubQueries; }
+			set { splitToSubQueries = value; }
+		}
+		
+		int maxCountOfSubQueries = 1;
+		public int MaxCountOfSubQueries {
+			get { return maxCountOfSubQueries; }
+			set { maxCountOfSubQueries = value; }
+		}
+		
+		public virtual string[] SplitPhraseToSubqueries(string phrase)
+		{
+			return new string[]{phrase};
+		}
 		
 		Service service;
 		public Service Service {
