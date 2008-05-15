@@ -80,6 +80,9 @@
     <Compile Include="Google\GoogleService.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
     <Compile Include="Google\GoogleUtils.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterSearchEngine.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterService.cs" />
     <Compile Include="MetaUa\MetaUaService.cs" />
     <Compile Include="MetaUa\MetaUaTranslator.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
@@ -134,6 +137,7 @@
     <EmbeddedResource Include="Wiki\Service.ico" />
     <EmbeddedResource Include="Systran\Service.ico" />
     <EmbeddedResource Include="DictPl\Service.ico" />
+    <EmbeddedResource Include="MerriamWebster\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -143,6 +147,7 @@
     <Folder Include="CybermovaCom" />
     <Folder Include="Cache" />
     <Folder Include="DictPl" />
+    <Folder Include="MerriamWebster" />
     <Folder Include="Systran" />
     <Folder Include="Wiki" />
     <Folder Include="Ulif" />
