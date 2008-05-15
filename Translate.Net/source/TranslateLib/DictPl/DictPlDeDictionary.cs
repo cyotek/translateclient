@@ -64,6 +64,9 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			Name = "_pl_de";
+			
+			WordsCount = 5;
+			SplitToSubQueries = true;
 		}
 		
 		
