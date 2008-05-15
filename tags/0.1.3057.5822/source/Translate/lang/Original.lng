@@ -1,0 +1,511 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+
+[TranslatedByURL]
+
+[Translated by]
+
+[&File]
+
+[Exit from application]
+
+[E&xit]
+
+[&Edit]
+
+[Copy selection to clipboard]
+
+[&Copy]
+
+[Cut selection to clipboard]
+
+[Cu&t]
+
+[Paste from clipboard]
+
+[&Paste]
+
+[Delete selection]
+
+[&Delete]
+
+[Undo last operation]
+
+[&Undo]
+
+[Redo last operation]
+
+[&Redo]
+
+[Select Аll]
+
+[&Select Аll]
+
+[&Window]
+
+[Close All]
+
+[&Help]
+
+[&About ...]
+
+[About]
+
+[Send feedback or bugreport ...]
+
+[Feedback for :]
+
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+
+[Options]
+
+[Cancel]
+
+[Apply]
+
+[Minimize]
+
+[{0} Updater]
+
+[Preparing]
+
+[Check version]
+
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+
+[Update downloaded]
+
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+
+[Please select where to save installer of new version which you can run later]
+
+[Installer saved to \r\n{0}]
+
+[Update will be run later]
+
+[Check Updates ...]
+
+[Updates]
+
+[Automatically check updates]
+
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+
+[Close]
+
+[Error on downloading {0}]
+
+[{0} don't contained {1} tag:\r\n{2}]
+
+[{0} has wrong formatted {1} tag:\r\n{2}]
+
+[Canceled]
+
+[Program is up to date]
+
+[File {0} already exists]
+
+[The server of updates is overloaded. The check of updates will be delayed.]
+
+[Version]
+
+[&Tools]
+
+[O&ptions...]
+
+[General]
+
+[UI Language]
+
+[Network]
+
+[HTTP-Proxy]
+
+[Proxy]
+
+[Port]
+
+[Timeout]
+
+[System]
+
+[Custom]
+
+[None]
+
+[Startup]
+
+[Autorun in startup]
+
+[Minimize to tray]
+
+[Tray]
+
+[Hotkeys]
+
+[Activate on Ctrl+C+C hotkey]
+
+[Activate on Ctrl+Ins+Ins hotkey]
+
+[Translate when activated by hotkey]
+
+[Show query time and other information]
+
+[Mark by red color untranslated words]
+
+[Don't show "Nothing found" results]
+
+[Show direction of translation]
+
+[Show accents]
+
+[Show names of services]
+
+[Nothing found]
+
+[Translation direction is not correct]
+
+[Only cyrillic characters supported]
+
+[Ukrainian characters in russian query]
+
+[Parse error, start tags not found]
+
+[Nothing to translate]
+
+[Length too big]
+
+[Wrong data structure]
+
+[Query contains extraneous symbols]
+
+[Service version not supported]
+
+[Result view]
+
+[Include monolingual dictionaries in translation]
+
+[Profile]
+
+[Profiles]
+
+[Default]
+
+[List]
+
+[Add new user profile]
+
+[Set profile properties]
+
+[Profile name]
+
+[Translation direction]
+
+[Name for new profile you enter already used. Please enter unique name.]
+
+[Profile name don't set. Please enter profile name.]
+
+[Remove user profile]
+
+[The profile {0} will be deleted.\r\nAre you sure ?]
+
+[Move profile up]
+
+[Move profile down]
+
+[Name]
+
+[Edit services]
+
+[Remove service]
+
+[Add selected service]
+
+[Add all services]
+
+[Remove all services]
+
+[Services filter]
+
+[Available services]
+
+[Selected services]
+
+[View]
+
+[Show services list]
+
+[Show languages list]
+
+[Show subjects list]
+
+[Size]
+
+[System font]
+
+[Fonts]
+
+[Input text]
+
+[To default]
+
+[&Translate]
+
+[Translate]
+
+[Size or format of query don't supported by available translation services]
+
+[Reverse translation direction]
+
+[Show\\Hide]
+
+[Show HTML source]
+
+[From]
+
+[To]
+
+[Any Language]
+
+[Autodetect]
+
+[Arabic]
+
+[Belarusian]
+
+[Bulgarian]
+
+[Chinese]
+
+[Chinese_CN]
+
+[Chinese_TW]
+
+[Croatian]
+
+[Czech]
+
+[Danish]
+
+[Dutch]
+
+[English]
+
+[English_GB]
+
+[English_US]
+
+[Esperanto]
+
+[Estonian]
+
+[Icelandic]
+
+[Finnish]
+
+[French]
+
+[German]
+
+[Greek]
+
+[Hindi]
+
+[Hungarian]
+
+[Italian]
+
+[Japanese]
+
+[Korean]
+
+[Latin]
+
+[Latvian]
+
+[Lithuanian]
+
+[Macedonian]
+
+[Norwegian]
+
+[Polish]
+
+[Portuguese]
+
+[Romanian]
+
+[Russian]
+
+[Serbian]
+
+[Slovak]
+
+[Slovenian]
+
+[Spanish]
+
+[Swedish]
+
+[Ukrainian]
+
+[Languages]
+
+[Services]
+
+[Enabled]
+
+[Error]
+
+[Disabled]
+
+[Move service up]
+
+[Move service down]
+
+[<b>Status</b> : Enabled]
+
+[<b>Status</b> : Error]
+
+[<b>Status</b> : Disabled]
+
+[Enable]
+
+[Disable]
+
+[Subjects]
+
+[Subject]
+
+[Any]
+
+[Common]
+
+[Aviation]
+
+[Auto]
+
+[Anatomy]
+
+[Bank]
+
+[Bible]
+
+[Business]
+
+[Military]
+
+[Law]
+
+[Informatics]
+
+[Art]
+
+[Space]
+
+[Socio-political]
+
+[Medicine]
+
+[Music]
+
+[Sex]
+
+[Sport]
+
+[Tech]
+
+[Philosophy]
+
+[Chemistry]
+
+[Economy]
+
+[Electronics]
+
+[Type]
+
+[Translator]
+
+[Monolingual dictionary]
+
+[Bilingual dictionary]
+
+[Dictionary of synonyms]
+
+[Dictionary of antonyms]
+
+[Phraseological dictionary]
+
+[Encyclopedia]
+
+[Search Engine]
+
+[T]
+
+[MD]
+
+[BD]
+
+[SD]
+
+[AD]
+
+[PD]
+
+[EN]
+
+[SE]
+
+[Limit]
+
+[characters]
+
+[Masks]
+
+[English-Ukrainian technical dictionary]
+
+[Google Translator]
+
+[<META> Translator]
+
+[Free open source machine translation system]
+
+[Russian-Ukrainian academic dictionary (1924–1933)]
+
+[Large explanatory dictionary of modern Ukrainian]
+
+[Slovnyk - the multilanguage dictionary]
+
+[Russian-Ukrainian dictionary of constant expressions]
+
+[Pragma 5.x on-line translation]
+
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+
+[Dictionary of foreign words]
+
+[Dictionaries of Ukraine]
+
+[The free encyclopedia that anyone can edit]
+
+[The free dictionary that anyone can edit]
+
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+
+[Grouped by Service's Url]
+
+[Grouped by Language]
+
+[{0} language pairs]
+
+[{0} services]
+
+[Create article]
+
+[Open article]
