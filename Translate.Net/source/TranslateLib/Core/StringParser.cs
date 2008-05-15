@@ -49,6 +49,15 @@ namespace Translate
 	/// </summary>
 	public class StringParser
 	{
+		static List<char> delimiterCharsList;
+		static StringParser()
+		{
+			char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|' };
+			delimiterCharsList = new List<char>(delimiterChars);
+			delimiterCharsList.Sort();
+		}
+		
+		
 		string internalData;
 		int pos;
 		public StringParser(string startTag, string endTag, string data)
@@ -122,6 +131,10 @@ namespace Translate
 			return ReadItem(startTag, endTag, endTag);
 		}
 		
+		public string[] ReadItemsList(string startTag, string endTag)
+		{
+			return ReadItemsList(startTag, endTag, "238742sdf89723sd9821"); //some unique end tag
+		}
 		public string[] ReadItemsList(string startTag, string endTag, string stopTag)
 		{
 			List<string> res = new List<string>();
@@ -271,6 +284,40 @@ namespace Translate
 			}
 			return current;
 		}
+		
+		
+		public static List<string> SplitToWords(string data)
+		{
+			List<string> result = new List<string>();
+			char[] dataChars = data.ToCharArray();
+			
+			StringBuilder sb = new StringBuilder();
+			foreach(char ch in dataChars)
+			{
+				if(delimiterCharsList.BinarySearch(ch) >= 0)	
+				{
+					if(sb.Length >= 0)
+					{
+						result.Add(sb.ToString());
+						sb = new StringBuilder();
+					}
+					
+					result.Add(ch.ToString());
+				}
+				else
+				{
+					sb.Append(ch);
+				}
+			}
+			
+			if(sb.Length >= 0)
+			{
+				result.Add(sb.ToString());
+			}
+			
+			return result;
+		}
+		
 		
 		public static string SafeResizeString(string data, int length)
 		{
