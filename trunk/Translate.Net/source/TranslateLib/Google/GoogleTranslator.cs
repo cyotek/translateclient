@@ -83,7 +83,7 @@ namespace Translate
 			
 			//query
 			//hl=en&ie=UTF8&text=small+test&langpair=en%7Cru			
-			string langpair= "langpair=" + GoogleUtils.ConvertTranslatorLanguagesPair(languagesPair);
+			string langpair= GoogleUtils.ConvertTranslatorLanguagesPair(languagesPair);
 			string query = "hl=en&ie=UTF8&text=" + HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ) + "&" + langpair;
 			helper.AddPostData(query);
 			
