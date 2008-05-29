@@ -125,7 +125,7 @@ namespace Translate
 			supportedSubjects.Add(subject);
 		}
 		
-		protected Result CreateNewResult(string phrase, LanguagePair languagesPair, string subject)
+		protected internal Result CreateNewResult(string phrase, LanguagePair languagesPair, string subject)
 		{
 			Result res = new Result(this, phrase, languagesPair, subject);
 			return res;
