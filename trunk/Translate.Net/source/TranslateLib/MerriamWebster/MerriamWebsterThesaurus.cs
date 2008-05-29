@@ -37,29 +37,37 @@
 #endregion
 
 using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Web; 
+using System.Text; 
+using System.Globalization;
+
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of GoogleService.
+	/// Description of MerriamWebsterTranslator.
 	/// </summary>
-	public class MerriamWebsterService : Service
+	
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public class MerriamWebsterThesaurus : SynonymsDictionary
 	{
-		public MerriamWebsterService()
+		public MerriamWebsterThesaurus()
 		{
-			Url = new Uri("http://www.merriam-webster.com");
-			Name = "merriam_webster";
-			CompanyName = "Merriam-Webster, Inc.";
-			Copyright = "Copyright © 2007 Merriam-Webster, Incorporated";
-			IconUrl = new Uri("http://translateclient.googlepages.com/merriamwebster.png");
-			FullName = "Merriam-Webster dictionary";
+			//CharsLimit = 255;
+			Name = "_thesaurus";
+		
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.English_US, Language.English_US));
 			
-			AddMonolingualDictionary(new MerriamWebsterDictionary());			
-			AddMonolingualDictionary(new MerriamWebsterThesaurus());
-			AddMonolingualDictionary(new MerriamWebsterDictionarySearchEngine());
-			//AddMonolingualDictionary(new MerriamWebsterMedicalDictionary());
-			AddBilingualDictionary(new MerriamWebsterSpEnDictionary());
-			
+			AddSupportedSubject(SubjectConstants.Common);
 		}
-	}
+		
+		
+		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			MerriamWebsterUtils.DoTranslate(this, "http://www.merriam-webster.com/thesaurus", "Thesaurus", phrase, languagesPair, subject, result, networkSetting);
+		}
+		
+	} 
 }
