@@ -73,64 +73,65 @@ namespace Translate
 			langToKey.Add(Language.Spanish, "es");
 			langToKey.Add(Language.Swedish, "sv");
 
-			AddSupportedTranslation(new LanguagePair(Language.Arabic, Language.English));
+			AddSupportedTranslationToEnglish(Language.Arabic);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Chinese, Language.English));
+			AddSupportedTranslationToEnglish(Language.Chinese);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Dutch, Language.English));
+			AddSupportedTranslationToEnglish(Language.Dutch);
 			AddSupportedTranslation(new LanguagePair(Language.Dutch, Language.French));
 			
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Arabic));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.French));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Dutch));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.German));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Greek));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Italian));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Japanese));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Korean));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Portuguese));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Spanish));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Swedish));
+			AddSupportedTranslationFromEnglish(Language.Arabic);
+			AddSupportedTranslationFromEnglish(Language.Chinese);
+			AddSupportedTranslationFromEnglish(Language.French);
+			AddSupportedTranslationFromEnglish(Language.Dutch);
+			AddSupportedTranslationFromEnglish(Language.German);
+			AddSupportedTranslationFromEnglish(Language.Greek);
+			AddSupportedTranslationFromEnglish(Language.Italian);
+			AddSupportedTranslationFromEnglish(Language.Japanese);
+			AddSupportedTranslationFromEnglish(Language.Korean);
+			AddSupportedTranslationFromEnglish(Language.Portuguese);
+			AddSupportedTranslationFromEnglish(Language.Russian);
+			AddSupportedTranslationFromEnglish(Language.Spanish);
+			AddSupportedTranslationFromEnglish(Language.Swedish);
 			
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.Dutch));			
-			AddSupportedTranslation(new LanguagePair(Language.French, Language.English));			
+			AddSupportedTranslationToEnglish(Language.French);			
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.German));	
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.Greek));	
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.Italian));	
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.Portuguese));	
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.Spanish));	
 
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.English));	
+			AddSupportedTranslationToEnglish(Language.German);	
 			AddSupportedTranslation(new LanguagePair(Language.German, Language.French));	
 			
-			AddSupportedTranslation(new LanguagePair(Language.Greek, Language.English));
+			AddSupportedTranslationToEnglish(Language.Greek);
 			AddSupportedTranslation(new LanguagePair(Language.Greek, Language.French));
 			
-			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.English));
+			AddSupportedTranslationToEnglish(Language.Italian);
 			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.French));
 			
-			AddSupportedTranslation(new LanguagePair(Language.Japanese, Language.English));
+			AddSupportedTranslationToEnglish(Language.Japanese);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Korean, Language.English));
+			AddSupportedTranslationToEnglish(Language.Korean);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Polish, Language.English));
+			AddSupportedTranslationToEnglish(Language.Polish);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.English));
+			AddSupportedTranslationToEnglish(Language.Portuguese);
 			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.French));
 			
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
+			AddSupportedTranslationToEnglish(Language.Russian);
 			
-			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.English));
+			AddSupportedTranslationToEnglish(Language.Spanish);
 			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.French));
 			
-			AddSupportedTranslation(new LanguagePair(Language.Swedish, Language.English));
+			AddSupportedTranslationToEnglish(Language.Swedish);
 			
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			//CharsLimit = 1000;
 		}
+		
 		
 		SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
 		
