@@ -81,8 +81,12 @@
     <Compile Include="Google\GoogleTranslator.cs" />
     <Compile Include="Google\GoogleUtils.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterMedicalDictionary.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterSearchEngine.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterService.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterSpEnDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterThesaurus.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterUtils.cs" />
     <Compile Include="MetaUa\MetaUaService.cs" />
     <Compile Include="MetaUa\MetaUaTranslator.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
@@ -120,6 +124,8 @@
     <Compile Include="Wiki\WikiUtils.cs" />
     <Compile Include="Wiki\WiktionarySearchEngine.cs" />
     <Compile Include="Wiki\WiktionaryService.cs" />
+    <Compile Include="Yahoo\YahooService.cs" />
+    <Compile Include="Yahoo\YahooTranslator.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
     <EmbeddedResource Include="MetaUa\Service.ico" />
     <EmbeddedResource Include="PereOrgUa\Service.ico" />
@@ -138,6 +144,7 @@
     <EmbeddedResource Include="Systran\Service.ico" />
     <EmbeddedResource Include="DictPl\Service.ico" />
     <EmbeddedResource Include="MerriamWebster\Service.ico" />
+    <EmbeddedResource Include="Yahoo\Service.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -148,6 +155,7 @@
     <Folder Include="Cache" />
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
+    <Folder Include="Yahoo" />
     <Folder Include="Systran" />
     <Folder Include="Wiki" />
     <Folder Include="Ulif" />
