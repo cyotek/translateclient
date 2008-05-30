@@ -61,6 +61,8 @@ namespace Translate
 			langToKey.Add(Language.Chinese, "zh");
 			langToKey.Add(Language.Dutch, "nl");
 			langToKey.Add(Language.English, "en");
+			langToKey.Add(Language.English_US, "en");
+			langToKey.Add(Language.English_GB, "en");
 			langToKey.Add(Language.French, "fr");
 			langToKey.Add(Language.German, "de");
 			langToKey.Add(Language.Greek, "el");
