@@ -129,6 +129,11 @@ namespace Translate
 			set { acceptLanguage = value; }
 		}
 		
+		string acceptCharset;
+		public string AcceptCharset {
+			get { return acceptCharset; }
+			set { acceptCharset = value; }
+		}
 		
 		string multiPartBoundary = "-----------------------------325433208117628";
 		
@@ -232,10 +237,16 @@ namespace Translate
 			{
 				webRequest.Headers[HttpRequestHeader.AcceptLanguage] = acceptLanguage;
 			}
+
+			if(!string.IsNullOrEmpty(acceptCharset))
+			{
+				webRequest.Headers[HttpRequestHeader.AcceptCharset] = acceptCharset;
+			}
+			
+			
 			//headers
 			webRequest.UserAgent = "Mozilla/5.0, Translate.Net";
 			webRequest.Referer = url.AbsoluteUri;
-			
 			
 			request.Headers.Add(HttpRequestHeader.KeepAlive , "300");
 			request.Credentials = CredentialCache.DefaultCredentials;
