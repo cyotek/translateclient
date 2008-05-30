@@ -114,6 +114,25 @@ namespace Translate
 		{
 			supportedTranslations.Add(languagePair);
 		}
+
+		protected void AddSupportedTranslation(Language from, Language to)
+		{
+			AddSupportedTranslation(new LanguagePair(from ,to));
+		}
+		
+		protected void AddSupportedTranslationToEnglish(Language from)
+		{
+			AddSupportedTranslation(from, Language.English);
+			AddSupportedTranslation(from, Language.English_GB);
+			AddSupportedTranslation(from, Language.English_US);
+		}
+
+		protected void AddSupportedTranslationFromEnglish(Language to)
+		{
+			AddSupportedTranslation(Language.English, to);
+			AddSupportedTranslation(Language.English_GB, to);
+			AddSupportedTranslation(Language.English_US, to);
+		}
 		
 		SubjectCollection supportedSubjects = new SubjectCollection();
 		public ReadOnlySubjectCollection SupportedSubjects {
