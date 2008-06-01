@@ -52,7 +52,7 @@ namespace Translate
 			CompanyName = "Yahoo! Inc.";
 			Copyright = "Copyright © 2008 Yahoo! Inc.";
 			IconUrl = new Uri("http://babelfish.yahoo.com/favicon.ico");
-			FullName = "Yahoo Babel Fish";
+			FullName = "Yahoo Babel Fish Translator";
 			
 			AddTranslator(new YahooTranslator());
 		}
