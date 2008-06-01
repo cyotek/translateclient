@@ -252,6 +252,11 @@ namespace Translate
 			set { hookOptions = value; }
 		}
 		
+		StatOptions statOptions = new StatOptions();
+		public StatOptions StatOptions {
+			get { return statOptions; }
+			set { statOptions = value; }
+		}
 		
 	}
 }

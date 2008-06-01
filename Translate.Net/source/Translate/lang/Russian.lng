@@ -512,3 +512,5 @@ SYSTRAN переводчик (используется в  Altavista Babel Fish)
 Создать статью
 [Open article]
 Открыть статью
+[{0} phrases translated by {1} calls to translate services]
+Переведено {0} фраз с помощью {1} вызовов сервисов перевода

@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutForm.cs" />
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\InputLanguageManager.cs" />
@@ -129,6 +133,8 @@
     </Compile>
     <Compile Include="Selector\SubjectContainer.cs" />
     <Compile Include="ServicesList\ServicesListHtmlGenerator.cs" />
+    <Compile Include="Statistics\StatManager.cs" />
+    <Compile Include="Statistics\StatOptions.cs" />
     <Compile Include="TranslateMainForm.cs" />
     <Compile Include="TranslateMainForm.Designer.cs">
       <DependentUpon>TranslateMainForm.cs</DependentUpon>
@@ -150,6 +156,9 @@
     <Compile Include="Updates\UpdatesOptionsControl.Designer.cs">
       <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Common\Icons.resx" />
     <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
       <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
@@ -293,6 +302,7 @@
     <Folder Include="Common" />
     <Folder Include="lang" />
     <Folder Include="Hooks" />
+    <Folder Include="Statistics" />
     <Folder Include="ServicesList" />
     <Folder Include="site" />
     <Folder Include="Selector" />
