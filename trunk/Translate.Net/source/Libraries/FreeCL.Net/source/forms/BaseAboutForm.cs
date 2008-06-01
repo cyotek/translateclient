@@ -189,9 +189,9 @@ namespace FreeCL.Forms
 			((System.ComponentModel.ISupportInitialize)(this.picApp)).EndInit();
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.Button bOk;
+		protected System.Windows.Forms.Button bOk;
 		private System.Windows.Forms.Label lCopyright;
-		private System.Windows.Forms.Label lAppTitle;
+		protected System.Windows.Forms.Label lAppTitle;
 		private System.Windows.Forms.Label lAppCompany;
 		private System.Windows.Forms.Label lVersion;
 		private System.Windows.Forms.PictureBox picApp;

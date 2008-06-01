@@ -559,6 +559,7 @@ namespace Translate
 		{
 			resBrowser.SetResult(e.TranslateResult, e.TranslateState.LanguagePair);
 			pbMain.Value = e.ProgressPercentage;
+			StatManager.IncrementServiceCalls();
 		}
 		
 		internal void TranslateCompletedEventHandler(object sender, TranslateCompletedEventArgs e)
@@ -581,6 +582,7 @@ namespace Translate
 				activeTranslateState = null;
 			}
 			pbMain.Visible = false;
+			StatManager.IncrementCalls();
 		}
 		
 		long startTranslateTicks;

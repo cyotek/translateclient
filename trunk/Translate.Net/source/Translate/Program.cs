@@ -81,6 +81,7 @@ namespace Translate
 				
 				Application.OptionsForm = new BaseOptionsForm();
 				Application.BaseOptions = new TranslateOptions();
+				Application.AboutForm = new AboutForm();
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(StartupOptionsControl), "General", 0, "Startup", 1);
 				OptionsControlsManager.RegisterOptionControl(typeof(TrayOptionsControl), "General", 0, "Tray", 2);
