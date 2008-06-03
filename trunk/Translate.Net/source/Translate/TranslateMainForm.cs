@@ -816,6 +816,13 @@ namespace Translate
 			{
 				WindowState = FormWindowState.Minimized;
 			}
+			
+			if(UpdatesManager.IsNewInstall)
+			{
+				UpdatesManager.IsNewInstall = false;
+				UpdatesManager.CheckUpdates();
+			}	
+			
 		}
 		
 		void AShowHtmlSourceExecute(object sender, EventArgs e)
