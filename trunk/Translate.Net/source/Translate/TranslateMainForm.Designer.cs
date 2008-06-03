@@ -175,6 +175,8 @@ namespace Translate
 			this.aShowServiceName = new FreeCL.UI.Actions.Action(this.components);
 			this.aShowAccents = new FreeCL.UI.Actions.Action(this.components);
 			this.aIncludeMonolingualDicts = new FreeCL.UI.Actions.Action(this.components);
+			this.aDonate = new FreeCL.UI.Actions.Action(this.components);
+			this.miDonate = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -371,7 +373,8 @@ namespace Translate
 									this.miHelpSeparator1,
 									this.miHelpSeparator2,
 									this.miWebsite,
-									this.miFeedback});
+									this.miFeedback,
+									this.miDonate});
 			this.miHelp.Visible = true;
 			// 
 			// miEditSep2
@@ -465,6 +468,7 @@ namespace Translate
 			this.al.Actions.Add(this.aShowServiceName);
 			this.al.Actions.Add(this.aShowAccents);
 			this.al.Actions.Add(this.aIncludeMonolingualDicts);
+			this.al.Actions.Add(this.aDonate);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1411,6 +1415,24 @@ namespace Translate
 			this.aIncludeMonolingualDicts.Execute += new System.EventHandler(this.AIncludeMonolingualDictsExecute);
 			this.aIncludeMonolingualDicts.Update += new System.EventHandler(this.AIncludeMonolingualDictsUpdate);
 			// 
+			// aDonate
+			// 
+			this.aDonate.Checked = false;
+			this.aDonate.Enabled = true;
+			this.aDonate.Hint = null;
+			this.aDonate.Tag = null;
+			this.aDonate.Text = "Donate ...";
+			this.aDonate.Visible = true;
+			this.aDonate.Execute += new System.EventHandler(this.ADonateExecute);
+			// 
+			// miDonate
+			// 
+			this.al.SetAction(this.miDonate, this.aDonate);
+			this.miDonate.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miDonate.Name = "miDonate";
+			this.miDonate.Size = new System.Drawing.Size(235, 22);
+			this.miDonate.Text = "Donate ...";
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1466,6 +1488,8 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miDonate;
+		private FreeCL.UI.Actions.Action aDonate;
 		private System.Windows.Forms.ToolStripMenuItem miIncludeMonolingualDicts2;
 		private System.Windows.Forms.ToolStripMenuItem miIncludeMonolingualDicts;
 		private FreeCL.UI.Actions.Action aIncludeMonolingualDicts;

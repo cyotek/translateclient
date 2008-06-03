@@ -67,6 +67,7 @@ namespace Translate
 		private void InitializeComponent()
 		{
 			this.lStats = new System.Windows.Forms.Label();
+			this.bDonate = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// bOk
@@ -83,19 +84,33 @@ namespace Translate
 			this.lStats.Text = "label1";
 			this.lStats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
+			// bDonate
+			// 
+			this.bDonate.Location = new System.Drawing.Point(183, 179);
+			this.bDonate.Name = "bDonate";
+			this.bDonate.Size = new System.Drawing.Size(75, 23);
+			this.bDonate.TabIndex = 9;
+			this.bDonate.Text = "Donate ...";
+			this.bDonate.UseVisualStyleBackColor = true;
+			this.bDonate.Click += new System.EventHandler(this.BDonateClick);
+			// 
 			// AboutForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(344, 211);
+			this.Controls.Add(this.bDonate);
 			this.Controls.Add(this.lStats);
 			this.Name = "AboutForm";
 			this.Text = "AboutForm";
 			this.VisibleChanged += new System.EventHandler(this.AboutFormVisibleChanged);
+			this.Controls.SetChildIndex(this.lAppTitle, 0);
 			this.Controls.SetChildIndex(this.bOk, 0);
 			this.Controls.SetChildIndex(this.lStats, 0);
+			this.Controls.SetChildIndex(this.bDonate, 0);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button bDonate;
 		private System.Windows.Forms.Label lStats;
 	}
 }
