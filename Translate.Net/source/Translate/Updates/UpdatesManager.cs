@@ -107,9 +107,15 @@ namespace Translate
 			set { isNewVersion = value; }
 		}
 		
+		static bool isNewInstall;
+		public static bool IsNewInstall {
+			get { return isNewInstall; }
+			set { isNewInstall = value; }
+		}
 		
 		public static void CheckNewVersion()
 		{
+			isNewInstall = false;
 			string previousVersion = TranslateOptions.Instance.UpdateOptions.PreviousVersion;
 			TranslateOptions.Instance.UpdateOptions.PreviousVersion = ApplicationInfo.ProductVersion;
 			if(previousVersion == ApplicationInfo.ProductVersion)
@@ -121,6 +127,7 @@ namespace Translate
 			if(string.IsNullOrEmpty(previousVersion))
 			{
 				isNewVersion = true;
+				isNewInstall = true;
 				return;
 			}
 			
