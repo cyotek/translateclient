@@ -133,6 +133,13 @@ namespace Translate
 			miHelp.DropDownItems.Remove(miHelpSeparator2);
 			miHelp.DropDownItems.Insert(0, miHelpSeparator2);
 
+			bool visibleDonate = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
+			if(visibleDonate)
+			{
+				miHelp.DropDownItems.Remove(miDonate);
+				miHelp.DropDownItems.Insert(0, miDonate);
+			}
+
 			miHelp.DropDownItems.Remove(miFeedback);
 			miHelp.DropDownItems.Insert(0, miFeedback);
 			
@@ -191,6 +198,14 @@ namespace Translate
 			aControlInsIns.Text  = TranslateString("Activate on Ctrl+Ins+Ins hotkey"); 
 			
 			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
+			aDonate.Text = TranslateString("Donate ...");
+			
+			bool visibleDonate = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
+			miHelp.DropDownItems.Remove(miDonate);
+			if(visibleDonate)
+			{
+				miHelp.DropDownItems.Insert(2, miDonate);
+			}
 			
 			aAddProfile.Hint = TranslateString("Add new user profile");
 			aAddProfile.Text = aAddProfile.Hint + " ...";
@@ -913,6 +928,12 @@ namespace Translate
 			System.Diagnostics.Process.Start(Constants.HomeUrl);
 		}
 		
+		void ADonateExecute(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(Constants.DonateUrl);
+		}
+
+		
 		void AFeedbackExecute(object sender, EventArgs e)
 		{
 			MailTo.Send(ApplicationInfo.SupportEmail, 
@@ -1220,5 +1241,6 @@ namespace Translate
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
 			
 		}
+		
 	}
 }

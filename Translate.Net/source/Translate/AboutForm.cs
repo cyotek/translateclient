@@ -74,6 +74,13 @@ namespace Translate
 			);	
 			
 			Text = LangPack.TranslateString("About")+ " " + lAppTitle.Text;
+			bDonate.Text  = LangPack.TranslateString("Donate ...");
+			bDonate.Visible = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
+		}
+		
+		void BDonateClick(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(Constants.DonateUrl);
 		}
 	}
 }
