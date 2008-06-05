@@ -61,6 +61,8 @@ namespace Translate
 		{
 			foreach(string lang in FreeCL.RTL.LangPack.GetLanguages())
 			{
+				if(lang == "Chinese" || lang == "French" || lang == "Russian")
+					continue;
 				FreeCL.RTL.LangPack.Load(lang);
 				string langcode = lang.ToLowerInvariant().Substring(0, 2);
 				string unpacked_file = string.Format("..\\site\\services.unpackeddata.{0}.html", langcode);

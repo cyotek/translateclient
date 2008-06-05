@@ -34,9 +34,9 @@
 	</Company_Info>
 	<Program_Info>
 		<Program_Name>Translate.Net</Program_Name>
-		<Program_Version>0.1.3057.5822</Program_Version>
-		<Program_Release_Month>05</Program_Release_Month>
-		<Program_Release_Day>15</Program_Release_Day>
+		<Program_Version>0.1.3076.37121</Program_Version>
+		<Program_Release_Month>06</Program_Release_Month>
+		<Program_Release_Day>03</Program_Release_Day>
 		<Program_Release_Year>2008</Program_Release_Year>
 		<Program_Cost_Dollars>0.00</Program_Cost_Dollars>
 		<Program_Cost_Other_Code />
@@ -46,14 +46,14 @@
 		<Program_Install_Support>Install and Uninstall</Program_Install_Support>
 		<Program_OS_Support>Windows2000,WinXP,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64</Program_OS_Support>
 		<Program_Language>English,Chinese,French,Russian,Ukrainian</Program_Language>
-		<Program_Change_Info>Sync to latest Google translator changes (new languages, new directions, etc), added Merriam-Webster dictionary support, added http://www.dict.pl/dict_iso and http://www.dep.pl/dict_iso (Polish-English-Polish and Polish-German-Polish dictionaries) support</Program_Change_Info>
+		<Program_Change_Info>Yahoo Babel Fish Translator, Sync to latest Google translator changes (new languages, new directions, etc), added Merriam-Webster dictionary and thesaurus support, added http://www.dict.pl/dict_iso and http://www.dep.pl/dict_iso (Polish-English-Polish and Polish-German-Polish dictionaries) support</Program_Change_Info>
 		<Program_Specific_Category>Education</Program_Specific_Category>
 		<Program_Category_Class>Education::Dictionaries</Program_Category_Class>
 		<Program_System_Requirements>.Net Framework 2.0, internet connection</Program_System_Requirements>
 		<File_Info>
-			<File_Size_Bytes>713794</File_Size_Bytes>
-			<File_Size_K>697</File_Size_K>
-			<File_Size_MB>0.68</File_Size_MB>
+			<File_Size_Bytes>721020</File_Size_Bytes>
+			<File_Size_K>704</File_Size_K>
+			<File_Size_MB>0.69</File_Size_MB>
 		</File_Info>
 		<Expire_Info>
 			<Has_Expire_Info>N</Has_Expire_Info>
@@ -67,18 +67,20 @@
 	</Program_Info>
 	<Program_Descriptions>
 		<English>
-			<Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator</Keywords>
+			<Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator,altavista,babelfish</Keywords>
 			<Char_Desc_45>Translate.Net is client to online translators</Char_Desc_45>
 			<Char_Desc_80>Translate.Net is free client to many language services available online</Char_Desc_80>
-			<Char_Desc_250>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 19 services, 37 languages, 1352 translations directions.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 19 services, 37 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
+			<Char_Desc_250>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 20 sites, 31 services, 37 languages, 1352 translations directions.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 20 sites, 31 services, 37 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
 			<Char_Desc_2000>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries).
-19 services, 37 languages, 1352 translations directions. 
+20 sites, 31 services, 37 languages, 1352 translations directions. 
 
 Services:
 - Google dictionary and Google translator
 - Wikipedia and wiktionary
-- SYSTRAN translator (used by Altavista Babel Fish)
+- Yahoo Babel Fish translator
+- SYSTRAN translator (used by Yahoo Babel Fish)
+- Merriam-Webster dictionary and thesaurus
 
 Full list of languages\services available at http://translateclient.googlepages.com/services.en.html
 
@@ -95,9 +97,9 @@ require .Net Framework 2.0 and internet connection</Char_Desc_2000>
 			<Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
 			<Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
 			<Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам, словарям, толковым словарям</Char_Desc_80>
-			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 19 служб. 37 языков, 1352 языковых пар.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 19 служб. 37 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
-			<Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 19 служб. 37 языков, 1352 языковых пар. 
+			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 20 сайтов, 31 сервис, 37 языков, 1352 языковых пар.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 20 сайтов, 31 сервис, 37 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 20 сайтов, 31 сервис, 37 языков, 1352 языковых пар. 
 
 Наиболее поддерживаемые языки - украинский, русский, английский. 
 
@@ -110,10 +112,10 @@ http://translateclient.googlepages.com/services.en.html    http://translateclien
 			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
 			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
 			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
-			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 19 онлайнових сервісів, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 19 онлайнових сервісів, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
+			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 20 сайтів, 31 онлайнових сервіс, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 20 сайтів, 31 онлайнових сервіс, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
 			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
-19 онлайнових сервісів, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
+20 сайтів, 31 онлайнових сервіс, 37  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
 Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
 
 Повний список мов, сервісів, напрямків перекладу:
@@ -125,13 +127,13 @@ http://translateclient.googlepages.com/services.uk.html
 	<Web_Info>
 		<Application_URLs>
 			<Application_Info_URL>http://translateclient.googlepages.com</Application_Info_URL>
-			<Application_Order_URL />
+			<Application_Order_URL>http://translateclient.googlepages.com</Application_Order_URL>
 			<Application_Screenshot_URL>http://translateclient.googlepages.com/screen1.eng.png</Application_Screenshot_URL>
 			<Application_Icon_URL>http://translateclient.googlepages.com/translate.png</Application_Icon_URL>
 			<Application_XML_File_URL>http://translateclient.googlepages.com/Translate.Net.xml</Application_XML_File_URL>
 		</Application_URLs>
 		<Download_URLs>
-			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3057.5822.exe</Primary_Download_URL>
+			<Primary_Download_URL>http://translateclient.googlecode.com/files/Translate.Net.0.1.3076.37121.exe</Primary_Download_URL>
 			<Secondary_Download_URL />
 			<Additional_Download_URL_1 />
 			<Additional_Download_URL_2 />
@@ -324,4 +326,17 @@ This Privacy Policy is modified "Mozilla Firefox Privacy Policy" stored at http:
 		<ASP_Member>N</ASP_Member>
 		<ASP_Member_Number />
 	</ASP>
+	<PADTUBE>
+		<PADTUBE_FORM>Y</PADTUBE_FORM>
+		<PADTUBE_DESCRIPTION>Allows publishers to link PAD files to their PADTube publisher accounts.</PADTUBE_DESCRIPTION>
+		<PADTUBE_VERSION>1.0</PADTUBE_VERSION>
+		<PADTUBE_URL>http://www.padtube.com/pad/extensions/PADTube.htm</PADTUBE_URL>
+		<PADTUBE_SCOPE>Company</PADTUBE_SCOPE>
+		<PADTUBE_Member>Y</PADTUBE_Member>
+		<PADTUBE_Member_REGEX>^[yYnN]\Z</PADTUBE_Member_REGEX>
+		<PADTUBE_Member_REGEX_DOCUMENTATION>Y, y, N, or n</PADTUBE_Member_REGEX_DOCUMENTATION>
+		<PADTUBE_Username>OPrudky</PADTUBE_Username>
+		<PADTUBE_Username_REGEX>^[a-zA-Z0-9_.]{6,32}\Z</PADTUBE_Username_REGEX>
+		<PADTUBE_Username_REGEX_DOCUMENTATION>Alphanumeric with underscore allowed 6-32 characters</PADTUBE_Username_REGEX_DOCUMENTATION>
+	</PADTUBE>
 </XML_DIZ_INFO>
