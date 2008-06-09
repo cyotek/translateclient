@@ -65,4 +65,35 @@
       <loc>http://translateclient.googlepages.com/support.uk.html</loc>
    </url>
    
+   <url>
+      <loc>http://translateclient.googlepages.com/index.ru.html</loc>
+   </url>
+   
+   <url>
+      <loc>http://translateclient.googlepages.com/changelog.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/download.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/features.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/services.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/services.unpackeddata.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/screenshots.ru.html</loc>
+   </url>
+
+   <url>
+      <loc>http://translateclient.googlepages.com/support.ru.html</loc>
+   </url>   
 </urlset> 
