@@ -62,8 +62,10 @@ namespace Translate
 				if(!isVersionChecked)
 				{
 					string[] res;
-					if(service.checkver("1.0.3.28", out res))
-						isVersionSupported = true;
+					bool checkverResult;
+					bool checkverResultSpecified;
+					service.checkver("1.0.3.28", out checkverResult, out checkverResultSpecified, out res);
+					isVersionSupported = checkverResult;
 					isVersionChecked = true;
 				}
 				if(!isVersionSupported)
@@ -87,11 +89,19 @@ namespace Translate
 			ulif.dictlib service = GetService(networkSetting);
 			CheckVersion(service);
 			bool found;
-			int word_idx = service.SearchWord(word, dic.SYN_DIC, true, out found);
+			bool SearchWordResultSpecified;
+			bool rSpecified;
+			int word_idx;
+			service.SearchWord(word, gldescdic.SYN_DIC,
+				true, true, true, out word_idx, out SearchWordResultSpecified, 
+				out found, out rSpecified);
 			if(!found)
 				return "";
-			int word_uid = service.ReestrGetID(word_idx, dic.SYN_DIC, true);
-			return service.DictPrepare2(word_uid, "", "style2_2.css", dic.SYN_DIC, true);
+				
+			int word_uid;
+			service.ReestrGetID(word_idx, true, gldescdic.SYN_DIC, true, true, true, out word_uid, out rSpecified);
+			
+			return service.DictPrepare2(word_uid, true, "", "style2_2.css", gldescdic.SYN_DIC, true, true, true);
 		}
 		
 		public static string GetAntonymsPage(string word, NetworkSetting networkSetting)
@@ -99,11 +109,21 @@ namespace Translate
 			ulif.dictlib service = GetService(networkSetting);
 			CheckVersion(service);
 			bool found;
-			int word_idx = service.SearchWord(word, dic.ANT_DIC, true, out found);
+			bool SearchWordResultSpecified;
+			bool rSpecified;
+			int word_idx;
+
+			service.SearchWord(word, gldescdic.ANT_DIC,
+				true, true, true, out word_idx, out SearchWordResultSpecified, 
+				out found, out rSpecified);
+
 			if(!found)
 				return "";
-			int word_uid = service.ReestrGetID(word_idx, dic.ANT_DIC, true);
-			return service.DictPrepare2(word_uid, "", "style2_2.css", dic.ANT_DIC, true);
+				
+			int word_uid;
+			service.ReestrGetID(word_idx, true, gldescdic.ANT_DIC, true, true, true, out word_uid, out rSpecified);
+				
+			return service.DictPrepare2(word_uid, true, "", "style2_2.css", gldescdic.ANT_DIC, true, true, true);
 		}
 
 		public static string[] GetPhrasesPages(string word, NetworkSetting networkSetting)
@@ -112,24 +132,34 @@ namespace Translate
 			ulif.dictlib service = GetService(networkSetting);
 			CheckVersion(service);
 			bool found;
-			int word_idx = service.SearchWord(word, dic.PHRAS_DIC, true, out found);
+
+			bool SearchWordResultSpecified;
+			bool rSpecified;
+			int word_idx;
+			
+			service.SearchWord(word, gldescdic.PHRAS_DIC,
+				true, true, true, out word_idx, out SearchWordResultSpecified, 
+				out found, out rSpecified);
+			
 			if(!found)
 				return result.ToArray();
-			int word_uid = service.ReestrGetID(word_idx, dic.PHRAS_DIC, true);
+				
+			int word_uid;
+			service.ReestrGetID(word_idx, true, gldescdic.PHRAS_DIC, true, true, true, out word_uid, out rSpecified);
 			
 			
-			phraseology[] phraseologies;
-			byte[] first_res = service.phrasPrepare(word_uid, out phraseologies);
+			phrasdictphraseology[] phraseologies;
+			byte[] first_res = service.phrasPrepare(word_uid, true, out phraseologies);
 			
 			List<KeyValuePair<int, sbyte> > used_aid = new List<KeyValuePair<int, sbyte> >();
 			
 			
-			for(int i = 1; i < phraseologies.Length; i++)
+			for(int i = 0; i < phraseologies.Length; i++)
 			{
 				KeyValuePair<int, sbyte> kvp = new KeyValuePair<int, sbyte>(phraseologies[i].aid, phraseologies[i].l);
 				if (!used_aid.Contains(kvp)) 
 				{
-					result.Add(service.getpharticle2(phraseologies[i].aid, phraseologies[i].l, "style2_2.css", true));
+					result.Add(service.getpharticle2(phraseologies[i].aid, true, phraseologies[i].l, true, "style2_2.css", true, true));
 					used_aid.Add(kvp);
 				}
 			}
