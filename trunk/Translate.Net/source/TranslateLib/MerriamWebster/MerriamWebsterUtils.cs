@@ -198,7 +198,8 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 			
-			if(responseFromServer.IndexOf("The word you've entered isn't in the dictionary.") >= 0)
+			if(responseFromServer.IndexOf("The word you've entered isn't in the dictionary.") >= 0 ||
+				responseFromServer.IndexOf("No entries found.<br>") >= 0)
 			{
 				if(responseFromServer.IndexOf("<PRE>") >= 0)
 				{	//suggestions
