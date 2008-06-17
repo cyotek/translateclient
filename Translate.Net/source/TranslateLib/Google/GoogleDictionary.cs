@@ -104,7 +104,7 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 			
-			if(responseFromServer.IndexOf("<strong> No translation was found for") >= 0)
+			if(responseFromServer.IndexOf("<strong> No dictionary translations were found for") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
