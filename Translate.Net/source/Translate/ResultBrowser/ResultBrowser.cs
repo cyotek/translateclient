@@ -233,7 +233,7 @@ namespace Translate
 								
 						if(!string.IsNullOrEmpty(result.Abbreviation))
 						{
-							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\">{0}</span>", HttpUtility.HtmlEncode(result.Abbreviation));
+							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
 						}
 						
 						if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
@@ -261,7 +261,7 @@ namespace Translate
 								htmlString.Append("</p>");
 						}
 								
-						if(!string.IsNullOrEmpty(r.Abbreviation))
+						if(!string.IsNullOrEmpty(r.Abbreviation) && r.Childs.Count == 0)
 						{
 							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(r.Abbreviation));
 						}
