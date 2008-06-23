@@ -89,6 +89,8 @@
     <Compile Include="MerriamWebster\MerriamWebsterUtils.cs" />
     <Compile Include="MetaUa\MetaUaService.cs" />
     <Compile Include="MetaUa\MetaUaTranslator.cs" />
+    <Compile Include="Multitran\MultitranDictionary.cs" />
+    <Compile Include="Multitran\MultitranService.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
     <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
@@ -145,6 +147,9 @@
     <EmbeddedResource Include="DictPl\Service.ico" />
     <EmbeddedResource Include="MerriamWebster\Service.ico" />
     <EmbeddedResource Include="Yahoo\Service.ico" />
+    <EmbeddedResource Include="Multitran\Service.ico" />
+    <None Include="Ulif\generatestub.cmd" />
+    <None Include="Ulif\generatestub.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
@@ -155,6 +160,7 @@
     <Folder Include="Cache" />
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
+    <Folder Include="Multitran" />
     <Folder Include="Yahoo" />
     <Folder Include="Systran" />
     <Folder Include="Wiki" />
