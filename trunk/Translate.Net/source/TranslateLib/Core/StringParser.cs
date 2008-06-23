@@ -113,7 +113,8 @@ namespace Translate
 			resultIdxStart += startTagLength;
 
 			int resultIdxEnd = internalData.IndexOf(endTag, resultIdxStart);
-			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag);
+			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag +
+				" in string : " + internalData.Substring(resultIdxStart));
 			
 			if(stopTagIdx >= 0 && stopTagIdx < resultIdxEnd)
 			{
