@@ -50,6 +50,7 @@ namespace Translate
 	public enum Language
 	{
 		Any,
+		Afrikaans,
 		Autodetect,
 		Arabic,
 		Belarusian,
