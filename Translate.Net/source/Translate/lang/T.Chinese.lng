@@ -1,0 +1,519 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Smallchou Lin (Ver.970623)
+[TranslatedByURL]
+smallchoulcc@yahoo.com.tw
+[Translated by]
+正體中文翻譯者
+
+[&File]
+檔案(&F)
+[Exit from application]
+離開程式
+[E&xit]
+結束(&X)
+[&Edit]
+編輯(&E)
+[Copy selection to clipboard]
+複製選擇的內容到剪貼簿
+[&Copy]
+複製(&C)
+[Cut selection to clipboard]
+剪下選擇的內容到剪貼簿
+[Cu&t]
+剪下(&T)
+[Paste from clipboard]
+貼上剪貼簿的內容
+[&Paste]
+貼上(&P)
+[Delete selection]
+刪除選擇的內容
+[&Delete]
+刪除(&D)
+[Undo last operation]
+復原上一次動作
+[&Undo]
+復原(&U)
+[Redo last operation]
+重做上一次動作
+[&Redo]
+重做(&R)
+[Select Аll]
+選擇全部
+[&Select Аll]
+全選(&S)
+[&Window]
+視窗(&W)
+[Close All]
+關閉全部
+[&Help]
+說明(&H)
+[&About ...]
+關於(&A)...
+[About]
+關於
+[Send feedback or bugreport ...]
+提供意見或錯誤回報...
+[Feedback for :]
+意見：
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< 請在此輸入您的意見或錯誤回報（限用英文、烏克蘭文、俄文）。 >>
+[Donate ...]
+贊助 ...
+[Options]
+選項
+[Cancel]
+取消
+[Apply]
+套用
+[Minimize]
+最小化
+[{0} Updater]
+{0} 更新
+[Preparing]
+正在準備
+[Check version]
+檢查版本
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+已下載 {0}Kb 總共 {1}Kb 速度 {2}Kb/s
+[Update downloaded]
+已下載更新
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+新版本已下載。您是否想要關閉 Translate.Net 並執行新版本的安裝程式？
+[Please select where to save installer of new version which you can run later]
+請選擇新版本安裝程式的儲存路徑以便您稍後使用。
+[Installer saved to \r\n{0}]
+安裝程式另存至\r\n{0}
+[Update will be run later]
+更新將在稍後執行
+[Check Updates ...]
+檢查更新...
+[Updates]
+更新
+[Automatically check updates]
+自動檢查更新
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+已更新 - {0}\r\n最近一次檢查更新 - {1}，狀態 - {2}\r\n下一次檢查更新 - {3}
+[Close]
+關閉
+[Error on downloading {0}]
+下載 {0} 時發生錯誤
+[{0} don't contained {1} tag:\r\n{2}]
+{0} 沒有包含 {1} 標籤：\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} 使用了錯誤格式的 {1} 標籤：\r\n{2}
+[Canceled]
+已取消
+[Program is up to date]
+程式已更新
+[File {0} already exists]
+檔案 {0} 已存在
+[The server of updates is overloaded. The check of updates will be delayed.]
+更新伺服器過載，檢查更新的動作將有所延遲。
+[Version]
+版本
+[&Tools]
+工具(&T)
+[O&ptions...]
+選項(&P)...
+[General]
+一般
+[UI Language]
+介面語言
+[Network]
+網路
+[HTTP-Proxy]
+
+[Proxy]
+代理伺服器
+[Port]
+連接埠
+[Timeout]
+逾時
+[System]
+依系統設定
+[Custom]
+自定
+[None]
+無
+[Startup]
+啟動
+[Autorun in startup]
+隨 Windows 啟動
+[Minimize to tray]
+最小化到 Windows 通知區域
+[Tray]
+系統列
+[Hotkeys]
+快速鍵
+[Activate on Ctrl+C+C hotkey]
+按下 Ctrl+C+C 時顯示主視窗並送入複製的文字
+[Activate on Ctrl+Ins+Ins hotkey]
+按下 Ctrl+Ins+Ins 時顯示主視窗並送入複製的文字
+[Translate when activated by hotkey]
+以快速鍵呼叫主視窗時對送入複製的文字進行翻譯
+[Show query time and other information]
+顯示查詢時間與其它資訊
+[Mark by red color untranslated words]
+將未翻譯的文字標示為紅色
+[Don't show "Nothing found" results]
+不顯示「未找到」的結果
+[Show direction of translation]
+顯示翻譯方向
+[Show accents]
+顯示音標
+[Show names of services]
+顯示服務名稱
+[Nothing found]
+未找到
+[Translation direction is not correct]
+翻譯方向不正確
+[Only cyrillic characters supported]
+僅支援西里爾字母
+[Ukrainian characters in russian query]
+在俄語查詢中，使用烏克蘭語字母
+[Parse error, start tags not found]
+解析錯誤，沒有找到起始標籤
+[Nothing to translate]
+沒有可翻譯文字
+[Length too big]
+翻譯文字過長
+[Wrong data structure]
+資料結構不正確
+[Query contains extraneous symbols]
+查詢包含特殊字元
+[Service version not supported]
+服務版本不支援
+[Result view]
+結果檢視
+[Include monolingual dictionaries in translation]
+翻譯中只包含一種語言字典
+[Profile]
+使用者定義
+[Profiles]
+使用者定義
+[Default]
+預設
+[List]
+清單
+[Add new user profile]
+新增使用者定義
+[Set profile properties]
+設定使用者定義項目
+[Profile name]
+使用者定義名稱
+[Translation direction]
+翻譯方向
+[Name for new profile you enter already used. Please enter unique name.]
+您輸入的使用者定義名稱已被使用，請輸入另一個唯一的名稱。
+[Profile name don't set. Please enter profile name.]
+沒有輸入使用者定義名稱，請輸入使用者定義名稱。
+[Remove user profile]
+移除使用者定義
+[The profile {0} will be deleted.\r\nAre you sure ?]
+使用者定義 {0} 將被刪除。\r\n您確定嗎？
+[Move profile up]
+上移使用者定義
+[Move profile down]
+下移使用者定義
+[Name]
+名稱
+[Edit services]
+編輯服務
+[Remove service]
+移除服務
+[Add selected service]
+加入選擇的服務
+[Add all services]
+加入全部的服務
+[Remove all services]
+移除全部的服務
+[Services filter]
+服務過濾器
+[Available services]
+可用的服務
+[Selected services]
+已選擇的服務
+[View]
+檢視
+[Show services list]
+顯示服務清單
+[Show languages list]
+顯示語言清單
+[Show subjects list]
+顯示標題清單
+[Size]
+大小
+[System font]
+系統字型
+[Fonts]
+字型
+[Input text]
+輸入文字
+[To default]
+回復成預設值
+[&Translate]
+翻譯(&T)
+[Translate]
+翻譯
+[Size or format of query don't supported by available translation services]
+查詢的文字長度或格式不受可用的翻譯服務支援
+[Reverse translation direction]
+反向翻譯
+[Show\\Hide]
+顯示\\隱藏
+[Show HTML source]
+顯示 HTML 原始碼
+[From]
+從
+[To]
+到
+[Any Language]
+任何語言
+[Autodetect]
+自動偵測
+[Arabic]
+阿拉伯語
+[Belarusian]
+白俄羅斯語
+[Bulgarian]
+保加利亞語
+[Chinese]
+中文
+[Chinese_CN]
+中文（簡體）
+[Chinese_TW]
+中文（正體）
+[Croatian]
+克羅地亞語
+[Czech]
+捷克語
+[Danish]
+丹麥語
+[Dutch]
+荷蘭語
+[English]
+英文
+[English_GB]
+英語（英式）
+[English_US]
+英語（美式）
+[Esperanto]
+世界語
+[Estonian]
+愛沙尼亞語
+[Icelandic]
+冰島語
+[Finnish]
+芬蘭語
+[French]
+法語
+[German]
+德語
+[Greek]
+希臘語
+[Hindi]
+北印度語
+[Hungarian]
+匈牙利語
+[Italian]
+義大利語
+[Japanese]
+日語
+[Korean]
+韓語
+[Latin]
+拉丁語
+[Latvian]
+拉脫維亞語
+[Lithuanian]
+立陶宛語
+[Macedonian]
+馬其頓語
+[Norwegian]
+挪威語
+[Polish]
+波蘭語
+[Portuguese]
+葡萄牙語
+[Romanian]
+羅馬尼亞語
+[Russian]
+俄語
+[Serbian]
+塞爾維亞語
+[Slovak]
+斯洛伐克語
+[Slovenian]
+斯洛文尼亞語
+[Spanish]
+西班牙語
+[Swedish]
+瑞典語
+[Ukrainian]
+烏克蘭語
+[Languages]
+語言
+[Services]
+服務
+[Enabled]
+啟用
+[Error]
+錯誤
+[Disabled]
+禁用
+[Move service up]
+向上移動服務
+[Move service down]
+向下移動服務
+[<b>Status</b> : Enabled]
+<b>狀態</b>：啟用
+[<b>Status</b> : Error]
+<b>狀態</b>：錯誤
+[<b>Status</b> : Disabled]
+<b>狀態</b>：禁用
+[Enable]
+啟用
+[Disable]
+禁用
+[Subjects]
+標題
+[Subject]
+標題
+[Any]
+任何的
+[Common]
+一般
+[Aviation]
+航空
+[Auto]
+汽車
+[Anatomy]
+解剖學
+[Bank]
+金融
+[Bible]
+聖經
+[Business]
+商業
+[Military]
+軍事
+[Law]
+法律
+[Informatics]
+資訊學
+[Art]
+藝術
+[Space]
+太空
+[Socio-political]
+社會政治
+[Medicine]
+醫學
+[Music]
+音樂
+[Sex]
+性
+[Sport]
+運動
+[Tech]
+技術
+[Philosophy]
+哲學
+[Chemistry]
+化學
+[Economy]
+經濟
+[Electronics]
+電子
+[Type]
+類型
+[Translator]
+翻譯器
+[Monolingual dictionary]
+單一語言辭典
+[Bilingual dictionary]
+雙語辭典
+[Dictionary of synonyms]
+同意詞辭典
+[Dictionary of antonyms]
+反意詞辭典
+[Phraseological dictionary]
+片語辭典
+[Encyclopedia]
+百科全書
+[Search Engine]
+搜尋引擎
+[T]
+器
+[MD]
+單
+[BD]
+雙
+[SD]
+同
+[AD]
+反
+[PD]
+片
+[EN]
+百
+[SE]
+搜
+[Limit]
+限制
+[characters]
+字元
+[Masks]
+遮罩
+[English-Ukrainian technical dictionary]
+英語-烏克蘭語　技術辭典
+[Google Translator]
+Google 翻譯器
+[<META> Translator]
+<META> 翻譯器
+[Free open source machine translation system]
+開放源始碼的免費翻譯系統
+[Russian-Ukrainian academic dictionary (1924–1933)]
+俄語-烏克蘭語　學術辭典（1924-1933）
+[Large explanatory dictionary of modern Ukrainian]
+現代烏克蘭語大辭典
+[Slovnyk - the multilanguage dictionary]
+斯洛伐克 - 多語言辭典
+[Russian-Ukrainian dictionary of constant expressions]
+俄語-烏克蘭語　常數表達辭典
+[Pragma 5.x on-line translation]
+Pragma 5.x 線上翻譯
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+英語-烏克蘭語　雙向辭典 - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+英語-烏克蘭語　雙向辭典 - Slovnenya
+[Dictionary of foreign words]
+外來詞辭典
+[Dictionaries of Ukraine]
+烏克蘭辭典
+[The free encyclopedia that anyone can edit]
+任何人都可以編輯的免費百科全書
+[The free dictionary that anyone can edit]
+任何人都可以編輯的免費辭典
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN 翻譯軟體（使用 Altavista Babel Fish）
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+波蘭語-英語　波蘭語-德語　辭典
+[Yahoo Babel Fish Translator]
+Yahoo Babel Fish 翻譯器
+[Grouped by Service's Url]
+以服務的鏈結分組
+[Grouped by Language]
+以語言分組
+[{0} language pairs]
+{0} 語言比對
+[{0} services]
+{0} 服務
+[Create article]
+建立項目
+[Open article]
+開啟項目
+[{0} phrases translated by {1} calls to translate services]
+{0} 個詞組經由 {1} 個翻譯服務所翻譯
