@@ -38,28 +38,39 @@
 
 
 using System;
+using System.Net; 
+using System.Text; 
+using System.IO; 
+using System.Web; 
+using System.IO.Compression;
+using System.Diagnostics.CodeAnalysis;
+using System.Collections.Generic;
+using System.Globalization;
+
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of MultitranService.
+	/// Description of MultitranSentensesDictionary.
 	/// </summary>
-	public class MultitranService : Service
+	public class MultitranSentensesDictionary : BilingualSentensesDictionary
 	{
-		public MultitranService()
+		public MultitranSentensesDictionary()
 		{
-			Url = new Uri("http://www.multitran.ru/");
-			Name = "multitran_ru";
-			CompanyName = "Andrei Pominov";
-			Copyright = "Copyright © 1993-2008, Andrei Pominov";
-
-			IconUrl = new Uri("http://www.multitran.ru/favicon.ico");
-			FullName = "Multitran Dictionary";
-			
-			AddBilingualDictionary(new MultitranDictionary());
-			AddBilingualDictionary(new MultitranPhrasesDictionary());
-			AddBilingualDictionary(new MultitranSentensesDictionary());
+			AddSupportedSubject(SubjectConstants.Common);
+			AddSupportedTranslationToEnglish(Language.Russian);
+			AddSupportedTranslationFromEnglish(Language.Russian);
+			Name = "_sentenses_dict";
 			
 		}
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
+		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string query = "http://www.multitran.ru/c/m.exe?EXT=0&a=TM&s={0}&";
+
+			MultitranUtils.DoTranslateSentences(this, query, phrase, languagesPair, subject, result, networkSetting);
+		}		
+		
 	}
 }

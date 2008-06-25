@@ -38,28 +38,29 @@
 
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of MultitranService.
+	/// Description of MultitranPhrasesDictionary.
 	/// </summary>
-	public class MultitranService : Service
+	public class MultitranPhrasesDictionary : BilingualPhrasesDictionary
 	{
-		public MultitranService()
+		public MultitranPhrasesDictionary()
 		{
-			Url = new Uri("http://www.multitran.ru/");
-			Name = "multitran_ru";
-			CompanyName = "Andrei Pominov";
-			Copyright = "Copyright © 1993-2008, Andrei Pominov";
-
-			IconUrl = new Uri("http://www.multitran.ru/favicon.ico");
-			FullName = "Multitran Dictionary";
-			
-			AddBilingualDictionary(new MultitranDictionary());
-			AddBilingualDictionary(new MultitranPhrasesDictionary());
-			AddBilingualDictionary(new MultitranSentensesDictionary());
-			
+			MultitranUtils.InitServiceItem(this);
+			Name = "_phrase_dict";
 		}
+		
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
+		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			string query = "http://www.multitran.ru/c/m.exe?a=phr&s={0}&";
+
+			MultitranUtils.DoTranslatePhrases(this, query, phrase, languagesPair, subject, result, networkSetting);
+		}		
+
 	}
 }
