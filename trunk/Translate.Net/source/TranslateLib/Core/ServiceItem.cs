@@ -110,24 +110,24 @@ namespace Translate
 			get{return new ReadOnlyLanguagePairCollection(supportedTranslations);}
 		}
 		
-		protected void AddSupportedTranslation(LanguagePair languagePair)
+		protected internal void AddSupportedTranslation(LanguagePair languagePair)
 		{
 			supportedTranslations.Add(languagePair);
 		}
 
-		protected void AddSupportedTranslation(Language from, Language to)
+		protected internal void AddSupportedTranslation(Language from, Language to)
 		{
 			AddSupportedTranslation(new LanguagePair(from ,to));
 		}
 		
-		protected void AddSupportedTranslationToEnglish(Language from)
+		protected internal void AddSupportedTranslationToEnglish(Language from)
 		{
 			AddSupportedTranslation(from, Language.English);
 			AddSupportedTranslation(from, Language.English_GB);
 			AddSupportedTranslation(from, Language.English_US);
 		}
 
-		protected void AddSupportedTranslationFromEnglish(Language to)
+		protected internal void AddSupportedTranslationFromEnglish(Language to)
 		{
 			AddSupportedTranslation(Language.English, to);
 			AddSupportedTranslation(Language.English_GB, to);
@@ -139,7 +139,7 @@ namespace Translate
 			get { return new ReadOnlySubjectCollection(supportedSubjects); }
 		}
 		
-		protected void AddSupportedSubject(string subject)
+		protected internal void AddSupportedSubject(string subject)
 		{
 			supportedSubjects.Add(subject);
 		}
