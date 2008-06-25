@@ -102,7 +102,8 @@ namespace Translate
 
 			int startTagLength = startTag.Length;
 			int resultIdxStart = internalData.IndexOf(startTag, pos);
-			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag);
+			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag +
+				" in string : " + internalData.Substring(pos));
 			
 			if(stopTagIdx >= 0 && stopTagIdx < resultIdxStart)
 			{
@@ -164,11 +165,11 @@ namespace Translate
 		
 			int startTagLength = startTag.Length;
 			int resultIdxStart = data.IndexOf(startTag);
-			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag);
+			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag + " in string : " +  data);
 			resultIdxStart += startTagLength;
 
 			int resultIdxEnd = data.IndexOf(endTag, resultIdxStart);
-			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag);
+			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
 			
 			String result_string = HttpUtility.HtmlDecode(data.Substring(resultIdxStart, resultIdxEnd - resultIdxStart));
 			result_string = result_string.Replace("&apos;", "'");
