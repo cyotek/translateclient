@@ -89,8 +89,12 @@
     <Compile Include="MerriamWebster\MerriamWebsterUtils.cs" />
     <Compile Include="MetaUa\MetaUaService.cs" />
     <Compile Include="MetaUa\MetaUaTranslator.cs" />
+    <Compile Include="Multitran\EucJPStreamFixer.cs" />
     <Compile Include="Multitran\MultitranDictionary.cs" />
+    <Compile Include="Multitran\MultitranPhrasesDictionary.cs" />
+    <Compile Include="Multitran\MultitranSentensesDictionary.cs" />
     <Compile Include="Multitran\MultitranService.cs" />
+    <Compile Include="Multitran\MultitranUtils.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
     <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
