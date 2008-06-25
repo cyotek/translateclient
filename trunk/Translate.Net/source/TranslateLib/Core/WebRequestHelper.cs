@@ -54,6 +54,11 @@ namespace Translate
 		Multipart,
 		UrlEncodedGet
 	}
+	
+	public abstract class StreamConvertor
+	{
+		public abstract Stream ConvertStream(Stream stream);
+	}
 	/// <summary>
 	/// Description of WebRequestHelper.
 	/// </summary>
@@ -133,6 +138,12 @@ namespace Translate
 		public string AcceptCharset {
 			get { return acceptCharset; }
 			set { acceptCharset = value; }
+		}
+		
+		StreamConvertor streamConvertor;
+		public StreamConvertor StreamConvertor {
+			get { return streamConvertor; }
+			set { streamConvertor = value; }
 		}
 		
 		string multiPartBoundary = "-----------------------------325433208117628";
@@ -294,6 +305,10 @@ namespace Translate
 			result.BytesReceived += response.Headers.ToByteArray().Length;
 			
 			Stream responseStream = response.GetResponseStream ();
+			
+			if(streamConvertor != null)
+				responseStream = streamConvertor.ConvertStream(responseStream);
+				
 			StreamReader reader = new StreamReader (responseStream, encoding);
 			string resultStr = reader.ReadToEnd ();
 			if(response.ContentLength != -1)
