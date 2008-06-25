@@ -74,6 +74,18 @@ namespace Translate
 	{
 	}
 	
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class BilingualPhrasesDictionary : BilingualDictionary
+	{
+	
+	}
+
+	[SuppressMessage("Microsoft.Naming", "CA1711:IdentifiersShouldNotHaveIncorrectSuffix")]
+	public abstract class BilingualSentensesDictionary : BilingualDictionary
+	{
+	
+	}
+	
 	public class BilingualDictionariesCollection : Collection<BilingualDictionary>
 	{
 		public BilingualDictionariesCollection()
