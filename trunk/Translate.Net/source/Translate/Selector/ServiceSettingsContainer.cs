@@ -140,6 +140,14 @@ namespace Translate
 				{
 					result = LangPack.TranslateString("Monolingual dictionary");
 				}
+				else if(serviceItem is BilingualPhrasesDictionary)
+				{
+					result = LangPack.TranslateString("Bilingual phrases dictionary");
+				}
+				else if(serviceItem is BilingualSentensesDictionary)
+				{
+					result = LangPack.TranslateString("Bilingual sentenses dictionary");
+				}
 				else
 				{
 					result = LangPack.TranslateString("Bilingual dictionary");
@@ -179,6 +187,14 @@ namespace Translate
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{
 					name += LangPack.TranslateString("MD");
+				}
+				else if(setting.ServiceItem is BilingualPhrasesDictionary)
+				{
+					name += LangPack.TranslateString("BP");
+				}
+				else if(setting.ServiceItem is BilingualSentensesDictionary)
+				{
+					name += LangPack.TranslateString("BS");
 				}
 				else
 				{
