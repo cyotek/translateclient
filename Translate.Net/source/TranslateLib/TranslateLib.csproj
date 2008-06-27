@@ -103,6 +103,10 @@
     <Compile Include="ProlingofficeCom\ProlingofficeDictionary.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeSynonymsDictionary.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeTranslator.cs" />
+    <Compile Include="Promt\PromtDictionary.cs" />
+    <Compile Include="Promt\PromtService.cs" />
+    <Compile Include="Promt\PromtTranslator.cs" />
+    <Compile Include="Promt\PromtUtils.cs" />
     <Compile Include="r2uOrgUa\R2uOrgUaDictionary.cs" />
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
@@ -152,6 +156,7 @@
     <EmbeddedResource Include="MerriamWebster\Service.ico" />
     <EmbeddedResource Include="Yahoo\Service.ico" />
     <EmbeddedResource Include="Multitran\Service.ico" />
+    <EmbeddedResource Include="Promt\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
   </ItemGroup>
@@ -165,6 +170,7 @@
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
+    <Folder Include="Promt" />
     <Folder Include="Yahoo" />
     <Folder Include="Systran" />
     <Folder Include="Wiki" />
