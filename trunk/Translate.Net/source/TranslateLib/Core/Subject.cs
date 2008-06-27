@@ -57,6 +57,7 @@ namespace Translate
 		public const string Military = "Military";
 		public const string Law = "Law";
 		public const string Informatics = "Informatics";
+		public const string Internet = "Internet";
 		public const string Art = "Art";
 		public const string Space = "Space";
 		public const string Medicine = "Medicine";
@@ -68,6 +69,12 @@ namespace Translate
 		public const string Chemistry = "Chemistry";
 		public const string Economy = "Economy";
 		public const string Electronics = "Electronics";
+		public const string Logistics = "Logistics";
+		public const string Travel = "Travel";
+		public const string Football = "Football";
+		public const string Phrasebook = "Phrasebook";
+		public const string Perfumery = "Perfumery";
+		
 	}
 	
 	public class SubjectCollection : List<String>
