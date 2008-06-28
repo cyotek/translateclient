@@ -426,6 +426,18 @@ HTTP-проксі
 Економіка
 [Electronics]
 Електроніка
+[Internet]
+Интернет
+[Logistics]
+Логістика
+[Travel]
+Подорож
+[Football]
+Футбол
+[Phrasebook]
+Розмовник
+[Perfumery]
+Парфумерія
 [Type]
 Тип
 [Translator]
@@ -444,6 +456,10 @@ HTTP-проксі
 Енциклопедія
 [Search Engine]
 Сервіс пошуку
+[Bilingual phrases dictionary]
+Двомовний фразеологічний словник
+[Bilingual sentenses dictionary]
+Словник паралельних текстів 
 [T]
 П
 [MD]
@@ -460,6 +476,10 @@ CC
 ЕН
 [SE]
 СП
+[BP]
+ДФ
+[BS]
+ПТ
 [Limit]
 Межа 
 [characters]
@@ -502,6 +522,10 @@ SYSTRAN перекладачка (використовується у Altavista 
 Польсько-англійсько-польський та польсько-германсько-польський словники
 [Yahoo Babel Fish Translator]
 Перекладачка Yahoo Babel Fish
+[Multitran - system for translators]
+Мультитран - система для перекладачів 
+[PROMT - Free Text Translator]
+Онлайн-перекладач тексту компанії ПРОМТ
 [Grouped by Service's Url]
 Групування по адресі сервісів
 [Grouped by Language]

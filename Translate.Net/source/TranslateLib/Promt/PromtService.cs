@@ -55,7 +55,7 @@ namespace Translate
 			Restrictions = "For private noncommercial use only";
 
 			IconUrl = new Uri("http://translateclient.googlepages.com/promt.png");
-			FullName = "PROMT - Multilingual Translator";
+			FullName = "PROMT - Free Text Translator";
 			
 			AddTranslator(new PromtTranslator());
 			AddTranslator(new PromtErTranslator());

@@ -54,7 +54,7 @@ namespace Translate
 			Copyright = "Copyright © 1993-2008, Andrei Pominov";
 
 			IconUrl = new Uri("http://www.multitran.ru/favicon.ico");
-			FullName = "Multitran Dictionary";
+			FullName = "Multitran - system for translators";
 			
 			AddBilingualDictionary(new MultitranDictionary());
 			AddBilingualDictionary(new MultitranPhrasesDictionary());
