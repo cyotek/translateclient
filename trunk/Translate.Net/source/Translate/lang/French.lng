@@ -423,6 +423,18 @@ Chimie
 Economie
 [Electronics]
 Electronique
+[Internet]
+
+[Logistics]
+Logistique
+[Travel]
+Voyage
+[Football]
+
+[Phrasebook]
+Conversation
+[Perfumery]
+Parfumerie
 [Type]
 Type
 [Translator]
@@ -441,6 +453,10 @@ Dictionnaire syntaxique
 Encyclopédie
 [Search Engine]
 Moteur de recherche
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
 [T]
 T
 [MD]
@@ -457,6 +473,10 @@ PD
 EN
 [SE]
 SE
+[BP]
+
+[BS]
+
 [Limit]
 Limite 
 [characters]
@@ -498,6 +518,10 @@ Logiciel de traduction SYSTRAN (utlisé par Babel Fish d'Altavista)
 [Polish-English-Polish and Polish-German-Polish dictionaries]
 
 [Yahoo Babel Fish Translator]
+
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
 
 [Grouped by Service's Url]
 Rangés par Url des Services

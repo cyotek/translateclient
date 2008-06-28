@@ -424,6 +424,18 @@ Chimico
 Economico
 [Electronics]
 Elettronico
+[Internet]
+
+[Logistics]
+Logistica
+[Travel]
+Corsa
+[Football]
+Calcio
+[Phrasebook]
+Frasario
+[Perfumery]
+Profumeria
 [Type]
 Digita
 [Translator]
@@ -442,6 +454,10 @@ Dizionario fraseologico
 Enciclopedia
 [Search Engine]
 Motore di ricerca
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
 [T]
 T
 [MD]
@@ -458,6 +474,10 @@ PD
 EN
 [SE]
 SE
+[BP]
+
+[BS]
+
 [Limit]
 Limite
 [characters]
@@ -500,6 +520,10 @@ SYSTRAN translation software (usato da Altavista Babel Fish)
 Dizionario Polacco-Inglese-Polacco e Polacco-Tedesco-Polacco
 [Yahoo Babel Fish Translator]
 Traduttore Yahoo Babel Fish
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
+
 [Grouped by Service's Url]
 Raggruppa per Servizi url
 [Grouped by Language]

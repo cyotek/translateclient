@@ -426,6 +426,18 @@ HTTP 代理
 经济
 [Electronics]
 电子
+[Internet]
+互联网
+[Logistics]
+物流
+[Travel]
+旅行
+[Football]
+足球
+[Phrasebook]
+短语
+[Perfumery]
+香水
 [Type]
 类型
 [Translator]
@@ -444,6 +456,10 @@ HTTP 代理
 百科全书
 [Search Engine]
 搜索引擎
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
 [T]
 T
 [MD]
@@ -460,6 +476,10 @@ PD
 EN
 [SE]
 SE
+[BP]
+
+[BS]
+
 [Limit]
 限制
 [characters]
@@ -501,6 +521,10 @@ SYSTRAN 翻译软件（使用 Altavista Babel Fish）
 [Polish-English-Polish and Polish-German-Polish dictionaries]
 
 [Yahoo Babel Fish Translator]
+
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
 
 [Grouped by Service's Url]
 Grouped by Service's Url
