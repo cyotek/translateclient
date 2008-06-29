@@ -120,7 +120,15 @@ namespace Translate
 		
 		    // The asyncOp object is responsible for marshaling 
 		    // the call.
-		    asyncOp.PostOperationCompleted(TranslateCompleted, e);
+		    try 
+		    {	//some time operation already completed 
+				asyncOp.PostOperationCompleted(TranslateCompleted, e);
+		    } 
+		    catch (InvalidOperationException) 
+		    { 
+		    	
+		    }
+		    
 		}
 		
 		delegate void WorkerEventHandler(
