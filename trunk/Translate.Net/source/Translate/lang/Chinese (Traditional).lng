@@ -137,6 +137,8 @@ smallchoulcc@yahoo.com.tw
 自定
 [None]
 無
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
 [Startup]
 啟動
 [Autorun in startup]

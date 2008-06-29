@@ -134,6 +134,8 @@ Sistema
 Personalizza
 [None]
 No
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
 [Startup]
 Avvio
 [Autorun in startup]

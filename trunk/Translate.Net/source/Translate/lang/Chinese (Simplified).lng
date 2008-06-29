@@ -136,6 +136,8 @@ HTTP 代理
 自定义
 [None]
 无
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
 [Startup]
 启动
 [Autorun in startup]
