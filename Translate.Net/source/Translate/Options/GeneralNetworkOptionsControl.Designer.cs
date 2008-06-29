@@ -76,17 +76,17 @@ namespace Translate
 			this.lHost = new System.Windows.Forms.Label();
 			this.tbProxy = new System.Windows.Forms.TextBox();
 			this.lPort = new System.Windows.Forms.Label();
-			this.tbPort = new System.Windows.Forms.TextBox();
 			this.lTimeout = new System.Windows.Forms.Label();
-			this.tbTimeout = new System.Windows.Forms.TextBox();
+			this.tbPort = new System.Windows.Forms.MaskedTextBox();
+			this.tbTimeout = new System.Windows.Forms.MaskedTextBox();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
 			this.pBody.Controls.Add(this.tbTimeout);
-			this.pBody.Controls.Add(this.lTimeout);
 			this.pBody.Controls.Add(this.tbPort);
+			this.pBody.Controls.Add(this.lTimeout);
 			this.pBody.Controls.Add(this.lPort);
 			this.pBody.Controls.Add(this.tbProxy);
 			this.pBody.Controls.Add(this.lHost);
@@ -134,13 +134,6 @@ namespace Translate
 			this.lPort.TabIndex = 4;
 			this.lPort.Text = "Port";
 			// 
-			// tbPort
-			// 
-			this.tbPort.Location = new System.Drawing.Point(340, 41);
-			this.tbPort.Name = "tbPort";
-			this.tbPort.Size = new System.Drawing.Size(51, 20);
-			this.tbPort.TabIndex = 5;
-			// 
 			// lTimeout
 			// 
 			this.lTimeout.Location = new System.Drawing.Point(13, 78);
@@ -149,10 +142,25 @@ namespace Translate
 			this.lTimeout.TabIndex = 6;
 			this.lTimeout.Text = "Timeout";
 			// 
+			// tbPort
+			// 
+			this.tbPort.AsciiOnly = true;
+			this.tbPort.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+			this.tbPort.Location = new System.Drawing.Point(340, 41);
+			this.tbPort.Mask = "99999";
+			this.tbPort.Name = "tbPort";
+			this.tbPort.PromptChar = ' ';
+			this.tbPort.Size = new System.Drawing.Size(51, 20);
+			this.tbPort.TabIndex = 5;
+			// 
 			// tbTimeout
 			// 
+			this.tbTimeout.AsciiOnly = true;
+			this.tbTimeout.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
 			this.tbTimeout.Location = new System.Drawing.Point(108, 75);
+			this.tbTimeout.Mask = "9999999";
 			this.tbTimeout.Name = "tbTimeout";
+			this.tbTimeout.PromptChar = ' ';
 			this.tbTimeout.Size = new System.Drawing.Size(181, 20);
 			this.tbTimeout.TabIndex = 7;
 			// 
@@ -165,9 +173,9 @@ namespace Translate
 			this.pBody.PerformLayout();
 			this.ResumeLayout(false);
 		}
-		private System.Windows.Forms.TextBox tbTimeout;
+		private System.Windows.Forms.MaskedTextBox tbTimeout;
 		private System.Windows.Forms.Label lTimeout;
-		private System.Windows.Forms.TextBox tbPort;
+		private System.Windows.Forms.MaskedTextBox tbPort;
 		private System.Windows.Forms.Label lProxy;
 		private System.Windows.Forms.ComboBox cbProxy;
 		private System.Windows.Forms.Label lHost;
