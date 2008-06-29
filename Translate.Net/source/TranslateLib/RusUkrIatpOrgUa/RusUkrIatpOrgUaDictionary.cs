@@ -73,7 +73,7 @@ namespace Translate
 			
 			//http://rosukrdic.iatp.org.ua/search.php?fullname=%E0%E2%EE%F1%FC
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://rosukrdic.iatp.org.ua/search.php"), 
+				new WebRequestHelper(result, new Uri("http://www.rosukrdic.ho.ua/search.php"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
 			helper.Encoding = Encoding.GetEncoding(1251); //koi8-u
