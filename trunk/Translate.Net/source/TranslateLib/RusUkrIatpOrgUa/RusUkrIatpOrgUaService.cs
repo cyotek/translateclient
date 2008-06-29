@@ -53,11 +53,11 @@ namespace Translate
 	{
 		public RusUkrIatpOrgUaService()
 		{
-			Url = new Uri("http://rosukrdic.iatp.org.ua/");
+			Url = new Uri("http://www.rosukrdic.ho.ua/");
 			Name = "rosukrdic_iatp_org_ua_dic";
 			CompanyName = "Anatolyi Evpak";
 			Copyright = "Copyright © 2008, Anatolyi Evpak, I.O.Vyrgan, M.M.Pylynska";
-			IconUrl = new Uri("http://ua.iatp.net/_img/country/logo.gif");
+			IconUrl = new Uri("http://translateclient.googlepages.com/rosukrdic.png");
 			FullName = "Russian-Ukrainian dictionary of constant expressions";
 						
 			BilingualDictionary tr = new RusUkrIatpOrgUaDictionary();
