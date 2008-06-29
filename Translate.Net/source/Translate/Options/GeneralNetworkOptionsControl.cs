@@ -91,9 +91,13 @@ namespace Translate
 		
 		public override void Apply()
 		{
-			current.SetProxy((ProxyMode)cbProxy.SelectedIndex, tbProxy.Text, 
-				tbPort.Text.Length > 0  ? int.Parse(tbPort.Text, CultureInfo.InvariantCulture) : 0);
 			current.Timeout = int.Parse(tbTimeout.Text, CultureInfo.InvariantCulture);
+			if(!current.SetProxy((ProxyMode)cbProxy.SelectedIndex, tbProxy.Text, 
+				tbPort.Text.Length > 0  ? int.Parse(tbPort.Text, CultureInfo.InvariantCulture) : 0))
+			{ //error on setting, reset
+				cbProxy.SelectedIndex = (int)current.ProxyMode;
+			}
+			
 		}
 		
 		public override bool IsChanged()

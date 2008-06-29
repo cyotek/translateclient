@@ -136,6 +136,8 @@ HTTP-проксі
 Ручний
 [None]
 Пряме з'єднання
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+HTTP-проксі має помилковий формат - {0}. Будуть використовуватися системні налаштування проксі.
 [Startup]
 Запуск програми
 [Autorun in startup]

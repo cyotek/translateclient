@@ -42,6 +42,7 @@ using System.Runtime.Serialization;
 using System.Net;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Windows.Forms;
 
 namespace Translate
 {
@@ -99,12 +100,12 @@ namespace Translate
 			set { proxyPort = value; }
 		}
 		
-		public void SetProxy(ProxyMode proxyMode, string proxyHost, int proxyPort)
+		public bool SetProxy(ProxyMode proxyMode, string proxyHost, int proxyPort)
 		{
 			this.proxyMode = proxyMode;
 			this.proxyHost = proxyHost;
 			this.proxyPort = proxyPort;
-			Apply();
+			return Apply();
 		}
 		
 		public int Timeout {
@@ -122,7 +123,7 @@ namespace Translate
 			return networkSetting;
 		}
 		
-		public void Apply()
+		public bool Apply()
 		{
 			if(proxyMode == ProxyMode.System)
 			{
@@ -134,9 +135,22 @@ namespace Translate
 			}
 			else
 			{
-				WebProxy proxyObject = new WebProxy("http://" + proxyHost + ":" + proxyPort.ToString(CultureInfo.InvariantCulture) +  "/", true);
-				networkSetting.Proxy = proxyObject;
+				try 
+				{
+					WebProxy proxyObject = new WebProxy("http://" + proxyHost + ":" + proxyPort.ToString(CultureInfo.InvariantCulture) +  "/", true);
+					networkSetting.Proxy = proxyObject;
+				} 
+				catch (System.UriFormatException) 
+				{
+					proxyMode = ProxyMode.System;
+					string errmessage = LangPack.TranslateString("Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.");
+					errmessage = string.Format(errmessage, proxyHost);
+					MessageBox.Show(errmessage, Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return false;
+				}
+				
 			}
+			return true;
 		}
 	}
 	

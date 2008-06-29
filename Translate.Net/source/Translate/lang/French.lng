@@ -134,6 +134,8 @@ Système
 Personnalisé
 [None]
 Null
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
 [Startup]
 Démarrage
 [Autorun in startup]
