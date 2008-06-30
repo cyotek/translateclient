@@ -97,6 +97,11 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Query contains extraneous symbols");
 			}
+			else if(!responseFromServer.Contains("</html>"))
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
 			else
 			{
 				string translation = StringParser.Parse("<table BORDER WIDTH=", "</table>", responseFromServer);
