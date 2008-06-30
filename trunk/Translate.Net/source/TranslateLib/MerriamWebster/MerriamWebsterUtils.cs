@@ -54,6 +54,12 @@ namespace Translate
 	
 		public static void SetResult(Result result, string data)
 		{
+		
+			if(data.IndexOf("</strong> can be found at Merriam-WebsterUnabridged.com.") > 0)
+			{
+				result.Translations.Add(result.Phrase);
+				return;
+			}
 			
 			if(data.IndexOf("<dd class=\"func\">") > 0)
 			{
@@ -91,6 +97,9 @@ namespace Translate
 				string abbr = StringParser.Parse("<dd class=\"ety\">", "</dd>", data);
 				abbr = abbr.Replace("<em>", "(");
 				abbr = abbr.Replace("</em>", ")");
+				abbr = StringParser.RemoveAll("<a href", ">", abbr);
+				abbr = abbr.Replace("</a>", "");
+
 				if(!string.IsNullOrEmpty(result.Abbreviation))
 					result.Abbreviation += ", ";
 				result.Abbreviation += "Etymology: " + abbr;
@@ -106,12 +115,30 @@ namespace Translate
 				result.Abbreviation += "Date: " + abbr;
 			}
 			
+			if(!data.Contains("<div class=\"defs\">") && data.Contains("<span class=\"variant\">"))
+			{  //variant, like a blew - past of blow
+				string variant = StringParser.Parse("<span class=\"variant\">", "</div>", data);
+				variant = StringParser.RemoveAll("<span", ">", variant);
+				variant = StringParser.RemoveAll("<a href", ">", variant);
+				variant = variant.Replace("</a>", "");
+				variant = variant.Replace("</span>", "");
+				variant = variant.Replace("<em>", "");
+				variant = variant.Replace("</em>", "");
+				variant = variant.Replace("</dd>", " ");
+				variant = variant.Replace("</dl>", "");
+				
+				result.Translations.Add(variant.Trim());
+				return;
+			}
 			
 			string defs = StringParser.Parse("<div class=\"defs\">", "</div>", data);
 			defs = defs.Replace(" a</span>", " a ");
 			defs = defs.Replace("</span>", "");
 			defs = defs.Replace("<em>", "");
 			defs = defs.Replace("</em>", "");
+			defs = defs.Replace("<strong>Synonyms</strong>", "Synonyms: ");
+			defs = defs.Replace("<strong>Related Words</strong>", "Related Words: ");
+			defs = defs.Replace("<strong>Antonyms</strong>", "Antonyms: ");
 			defs = defs.Replace("<strong>", "");
 			defs = defs.Replace("</strong>", "");
 			defs = defs.Replace(":�<a", "- <a");
@@ -123,28 +150,48 @@ namespace Translate
 			defs = defs.Replace("<span>", "");
 			defs = defs.Replace("�", "");
 			defs = defs.Replace("<span class=\"vi\">", "");
+			defs = defs.Replace("<span class=\"text\">", "");
+			defs = defs.Replace("<span class=\"dxn\">", "");
 			
 			
 			
 			
 			if(defs.IndexOf("<span class=\"sense_break\"/>") < 0)
 			{ //single def
-				result.Translations.Add(defs.Trim());
+				if(defs.IndexOf("<span class=\"syn\">") < 0 &&
+				   defs.IndexOf("<span class=\"rel\">") < 0 &&
+				   defs.IndexOf("<span class=\"ant\">") < 0
+				)
+				{
+					result.Translations.Add(defs.Trim());
+					return;
+				}
+				else
+				{
+					defs = "<span class=\"sense_label start\">" + defs;
+				}
 			}
-			else
+			
+			
 			{
+				defs = defs.Replace("<span class=\"verb_class\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
+				defs = defs.Replace("<div class=\"synonym\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
+				defs = defs.Replace("<span class=\"syn\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
+				defs = defs.Replace("<span class=\"rel\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
+				defs = defs.Replace("<span class=\"ant\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
 				defs += "<span class=\"sense_break\"/>"; //ending mark
+				
 				StringParser parser = new StringParser(defs);
 				string[] defs_items = parser.ReadItemsList("<span class=\"sense_label start\">", "<span class=\"sense_break\"/>");
 				string translation;
 				foreach(string item in defs_items)
 				{
-					translation = item.Substring(1).Trim(); //skip idx
+					translation = item.Trim();
+					if(translation[0] <= '9' && translation[0] >= '0')
+						translation = item.Substring(1).Trim(); //skip idx
 					
 					if(translation[0] <= '9' && translation[0] >= '0')
-					{
 						translation = translation.Substring(1).Trim(); //skip idx
-					}
 					
 					if(translation.StartsWith(":"))
 						translation = translation.Substring(1); 
