@@ -202,7 +202,11 @@ namespace Translate
 						else
 						{
 							int subdefinitionIdx = subtranslation.IndexOf("1.");
-							subtranslation = subtranslation.Substring(subdefinitionIdx + 2);
+							string tmp_subtranslation = subtranslation.Substring(subdefinitionIdx + 2).Trim();
+							if(string.IsNullOrEmpty(tmp_subtranslation))
+								subtranslation = subtranslation.Substring(0, subdefinitionIdx).Trim();
+							else 	
+								subtranslation = tmp_subtranslation;
 							List<string> subsubtranslations = new List<string>();
 							for(int i = 2; i < 100; i++)
 							{
