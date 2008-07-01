@@ -54,7 +54,7 @@ namespace Translate
 	{
 		public MerriamWebsterDictionarySearchEngine()
 		{
-			//CharsLimit = 255;
+			CharsLimit = 50;
 			Name = "_dict_search";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));

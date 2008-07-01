@@ -54,7 +54,7 @@ namespace Translate
 	{
 		public GoogleDictionary()
 		{
-			CharsLimit = 255;
+			CharsLimit = 50;
 			Name = "_dictionary";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.French));

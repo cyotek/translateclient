@@ -71,7 +71,7 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			Name = "_dictionary";
-			CharsLimit = 255;
+			CharsLimit = 50;
 			
 		}
 		

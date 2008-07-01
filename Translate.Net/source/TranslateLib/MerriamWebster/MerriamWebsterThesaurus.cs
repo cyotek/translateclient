@@ -54,7 +54,7 @@ namespace Translate
 	{
 		public MerriamWebsterThesaurus()
 		{
-			//CharsLimit = 255;
+			CharsLimit = 50;
 			Name = "_thesaurus";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));

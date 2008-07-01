@@ -54,7 +54,7 @@ namespace Translate
 	{
 		public MerriamWebsterMedicalDictionary()
 		{
-			//CharsLimit = 255;
+			CharsLimit = 50;
 			Name = "_med_dictionary";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
