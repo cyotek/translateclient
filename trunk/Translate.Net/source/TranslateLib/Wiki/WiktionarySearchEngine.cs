@@ -72,6 +72,7 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			Name = "_search";
+			CharsLimit = 50;
 		}
 		
 		string searchHost;

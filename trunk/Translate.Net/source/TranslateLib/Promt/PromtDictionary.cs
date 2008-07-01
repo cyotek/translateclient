@@ -54,7 +54,7 @@ namespace Translate
 		public PromtDictionary()
 		{
 			Name = "_dictionary";
-			CharsLimit = 3000;
+			CharsLimit = 50;
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			AddSupportedTranslationFromEnglish(Language.Spanish);
