@@ -177,6 +177,8 @@ namespace Translate
 			this.aIncludeMonolingualDicts = new FreeCL.UI.Actions.Action(this.components);
 			this.aDonate = new FreeCL.UI.Actions.Action(this.components);
 			this.miDonate = new System.Windows.Forms.ToolStripMenuItem();
+			this.miOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
+			this.aOnlineHelp = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -374,7 +376,8 @@ namespace Translate
 									this.miHelpSeparator2,
 									this.miWebsite,
 									this.miFeedback,
-									this.miDonate});
+									this.miDonate,
+									this.miOnlineHelp});
 			this.miHelp.Visible = true;
 			// 
 			// miEditSep2
@@ -436,6 +439,7 @@ namespace Translate
 			this.il.Images.SetKeyName(14, "plus.16x16.png");
 			this.il.Images.SetKeyName(15, "minus.16x16.png");
 			this.il.Images.SetKeyName(16, "edit.16x16.png");
+			this.il.Images.SetKeyName(17, "Help.16x16.png");
 			// 
 			// al
 			// 
@@ -469,6 +473,7 @@ namespace Translate
 			this.al.Actions.Add(this.aShowAccents);
 			this.al.Actions.Add(this.aIncludeMonolingualDicts);
 			this.al.Actions.Add(this.aDonate);
+			this.al.Actions.Add(this.aOnlineHelp);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1433,6 +1438,29 @@ namespace Translate
 			this.miDonate.Size = new System.Drawing.Size(235, 22);
 			this.miDonate.Text = "Donate ...";
 			// 
+			// miOnlineHelp
+			// 
+			this.al.SetAction(this.miOnlineHelp, this.aOnlineHelp);
+			this.miOnlineHelp.Image = ((System.Drawing.Image)(resources.GetObject("miOnlineHelp.Image")));
+			this.miOnlineHelp.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miOnlineHelp.Name = "miOnlineHelp";
+			this.miOnlineHelp.ShortcutKeyDisplayString = "F1";
+			this.miOnlineHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
+			this.miOnlineHelp.Size = new System.Drawing.Size(235, 22);
+			this.miOnlineHelp.Text = "Online Help";
+			// 
+			// aOnlineHelp
+			// 
+			this.aOnlineHelp.Checked = false;
+			this.aOnlineHelp.Enabled = true;
+			this.aOnlineHelp.Hint = null;
+			this.aOnlineHelp.ImageIndex = 17;
+			this.aOnlineHelp.Shortcut = System.Windows.Forms.Keys.F1;
+			this.aOnlineHelp.Tag = null;
+			this.aOnlineHelp.Text = "Online Help";
+			this.aOnlineHelp.Visible = true;
+			this.aOnlineHelp.Execute += new System.EventHandler(this.AOnlineHelpExecute);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1488,6 +1516,8 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miOnlineHelp;
+		private FreeCL.UI.Actions.Action aOnlineHelp;
 		private System.Windows.Forms.ToolStripMenuItem miDonate;
 		private FreeCL.UI.Actions.Action aDonate;
 		private System.Windows.Forms.ToolStripMenuItem miIncludeMonolingualDicts2;

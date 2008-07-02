@@ -145,6 +145,9 @@ namespace Translate
 			
 			miHelp.DropDownItems.Remove(miWebsite);
 			miHelp.DropDownItems.Insert(0, miWebsite);
+
+			miHelp.DropDownItems.Remove(miOnlineHelp);
+			miHelp.DropDownItems.Insert(0, miOnlineHelp);
 			
 			
 			msMain.Items.Remove(miView);
@@ -199,6 +202,7 @@ namespace Translate
 			
 			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
 			aDonate.Text = TranslateString("Donate ...");
+			aOnlineHelp.Text = TranslateString("Online Help");
 			
 			bool visibleDonate = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
 			miHelp.DropDownItems.Remove(miDonate);
@@ -939,8 +943,12 @@ namespace Translate
 		{
 			System.Diagnostics.Process.Start(Constants.DonateUrl);
 		}
-
 		
+		void AOnlineHelpExecute(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(Constants.HelpUrl);
+		}
+
 		void AFeedbackExecute(object sender, EventArgs e)
 		{
 			MailTo.Send(ApplicationInfo.SupportEmail, 
@@ -1248,6 +1256,7 @@ namespace Translate
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
 			
 		}
+		
 		
 	}
 }
