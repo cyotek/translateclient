@@ -275,6 +275,16 @@ namespace Translate
 					return htmlString.ToString();
 				}
 				
+				if(result.Parent == null)
+				{ //abreviations
+					if(!string.IsNullOrEmpty(result.Abbreviation))
+					{
+						htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
+					}
+						
+					if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
+						htmlString.Append("<br>");
+				}
 				List<char> delimiterCharsList = new List<char>(delimiterChars);
 				delimiterCharsList.Sort();
 			
@@ -325,7 +335,7 @@ namespace Translate
 					}
 					else
 					{ //append html directly
-						int allowedWidth = wBrowser.Width - 26;
+						int allowedWidth = (int)((double)wBrowser.Width*.95) - 26;
 						if(vScrollBar.Visible)
 							allowedWidth += SystemInformation.VerticalScrollBarWidth;
 

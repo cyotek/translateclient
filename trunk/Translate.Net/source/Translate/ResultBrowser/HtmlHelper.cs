@@ -65,7 +65,7 @@ namespace Translate
 		}
 		
 		public static string TableStyle {
-			get { return "text-align: left;" + DefaultTextFormat + DataCellStyle; }
+			get { return "text-align: left;" + DefaultTextFormat + "width: 95%"; }
 		}
 		public const string FirstRowCellStyle = DataCellStyle;
 		public const string RowCellStyle = "border-top: 1px solid gray;" +  FirstRowCellStyle;
@@ -104,6 +104,7 @@ namespace Translate
 			resultTable.SetAttribute("border", "0");
 			resultTable.SetAttribute("cellpadding", "1");
 			resultTable.SetAttribute("cellspacing", "3");
+			resultTable.SetAttribute("align", "left");
 			parent.AppendChild(resultTable);
 			
 			

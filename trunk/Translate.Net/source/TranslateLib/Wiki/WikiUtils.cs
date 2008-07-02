@@ -224,6 +224,9 @@ namespace Translate
 			}
 
 			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
+			res = res.Replace("width: 100%", "width: 95%");
+			res = res.Replace("float:right;", "float: right;margin-right: 0.5em;");
+			
 			res = "html!<div style='width:{allowed_width}px;overflow:scroll'>" + HttpUtility.HtmlDecode(res) + "&nbsp</div>";
 
 			res = res.Replace("<h1>", "");
