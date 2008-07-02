@@ -62,5 +62,7 @@ namespace Translate
 		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.data.";
 		public const string RedirectPageUrl = HomeUrl + "/r.htm";
 		public const string DonateUrl = HomeUrl + "/donations.en.html";
+		public const string HelpUrl = HomeUrl + "/help.index.en.html";
+		
 	}
 }
