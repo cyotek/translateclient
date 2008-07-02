@@ -61,6 +61,12 @@ namespace Translate
 				return;
 			}
 			
+			if(data.Contains("No entries found that match "))
+			{
+				result.Translations.Add(result.Phrase);
+				return;
+			}
+			
 			if(data.IndexOf("<dd class=\"func\">") > 0)
 			{
 				string abbr = StringParser.Parse("<dd class=\"func\">", "</dd>", data);
