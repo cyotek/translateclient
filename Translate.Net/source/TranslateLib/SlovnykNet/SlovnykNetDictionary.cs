@@ -87,7 +87,7 @@ namespace Translate
 			}
 			else
 			{
-				string translation = StringParser.Parse("<tr><td class='art_body'>", "</td></tr>", responseFromServer);
+				string translation = StringParser.Parse("<tr><td class= 'art_body' >", "</td></tr>", responseFromServer);
 				
 				translation = translation.Replace("<span style=\"color:red\">", "");
 				translation = translation.Replace("</span>", "́");
