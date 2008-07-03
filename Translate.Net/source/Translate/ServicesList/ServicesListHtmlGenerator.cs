@@ -61,7 +61,7 @@ namespace Translate
 		{
 			foreach(string lang in FreeCL.RTL.LangPack.GetLanguages())
 			{
-				if(lang == "Chinese" || lang == "French" || lang == "Russian")
+				if(lang != "Russian" && lang != "Ukrainian" && lang != "English")
 					continue;
 				FreeCL.RTL.LangPack.Load(lang);
 				string langcode = lang.ToLowerInvariant().Substring(0, 2);
@@ -73,8 +73,6 @@ namespace Translate
 				GC.Collect();
 			}
 			
-			//FreeCL.RTL.LangPack.Load("Ukrainian");
-			//BuildFile("..\\site\\services.unpackeddata.uk.html", "..\\site\\servicesdata_uk.java");
 		}
 		
 		static void BuildFile(string fileName, string classFileName)
@@ -105,7 +103,11 @@ namespace Translate
 				"else\r\n" +
 				"  section_element.style.display = 'none';\r\n" +
 				"}\r\n" +
-				"</script>\r\n");
+				"</script>\r\n" +
+				"<a href=\"http://translateclient.googlepages.com/\">" +
+				"<img style=\"border: 0px solid ;width: 32px; height: 32px;\" alt=\"\" src=\"translate.png\">" + 
+				"</a>"
+				);
 			HtmlDocument doc = wBrowser.Document;
 			doc.Write(template);
 			
@@ -233,8 +235,22 @@ namespace Translate
 				htmlString.Append(LangPack.TranslateLanguage(si.SupportedTranslations[0].From));
 			}
 			
-			htmlString.Append(", ");			
+			htmlString.Append(", ");
 			htmlString.Append(ServiceSettingsContainer.GetServiceItemType(si));
+			
+			if(si.SupportedSubjects.Count > 1)
+			{
+				htmlString.Append(", " + LangPack.TranslateString("Subjects") + " : ");
+				htmlString.Append(LangPack.TranslateString(SubjectConstants.Common));
+				foreach(string subject in si.SupportedSubjects)
+				{
+					if(subject != SubjectConstants.Common)
+					{
+						htmlString.Append(", ");
+						htmlString.Append(LangPack.TranslateString(subject));
+					}
+				}
+			}
 					
 			htmlString.Append(", ");
 			htmlString.Append(HttpUtility.HtmlEncode(si.Service.Copyright));
@@ -311,7 +327,7 @@ namespace Translate
 		static void GenerateListByUrlHtml(HtmlElement parent)
 		{
 			string nodeName = "list_by_url";
-			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Service's Url") + " - " + Manager.Services.Count.ToString());
+			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Service's Url") + " - " + Manager.Services.Count.ToString(), 0, true);
 			HtmlDocument doc = parent.Document;
 			HtmlHelper.CreateTable(doc, doc.GetElementById(nodeName), nodeName + "_table");
 			
@@ -435,10 +451,15 @@ namespace Translate
 		
 		static string GenerateTopNode(string nodeName, string nodeCaption)
 		{
-			return GenerateTopNode(nodeName, nodeCaption, 0);
+			return GenerateTopNode(nodeName, nodeCaption, 0, false);
 		}
 		
 		static string GenerateTopNode(string nodeName, string nodeCaption, double indent)
+		{
+			return GenerateTopNode(nodeName, nodeCaption, indent, false);
+		}
+		
+		static string GenerateTopNode(string nodeName, string nodeCaption, double indent, bool visible)
 		{
 			StringBuilder sb = new StringBuilder();
 			if(indent == 0)
@@ -453,7 +474,10 @@ namespace Translate
 			sb.Append("</a><br><div ");
 			sb.Append("id='");
 			sb.Append(nodeName);
-			sb.Append("' style=\"display: none;\">");
+			if(!visible)
+				sb.Append("' style=\"display: none;\">");
+			else	
+				sb.Append("' style=\"display: inline;\">");
 			sb.Append("</div></div>");
 			return sb.ToString();
 		}
