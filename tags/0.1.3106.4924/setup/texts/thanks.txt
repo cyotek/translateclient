@@ -1,0 +1,22 @@
+Thanks for translations:
+
+To Traditional Chinese - 2008-06-23 by Smallchou Lin (smallchoulcc@yahoo.com.tw)
+To Italian - 2008-06-06 by Enrico (noto Siberio) (siberio@email.it) 
+To French - 2008-05-01 by Roger (member of http://www.korben.info/)
+To Simplified Chinese - 2008-05-01 by Sun Minghao (minghao.sun@gmail.com)
+
+Thanks for bug reporting:
+
+2008-07-03:
+Philippe Zufferey
+unreal_spam
+
+2008-05-01:
+Stefan Daugaard Poulsen
+Keith Sheasley
+Julian Fisher, MD
+Charles Wm. Stewart
+Kevin Johnson
+Stephen Korsman
+Jeff Ayers
+henri-pierre.chavaz
