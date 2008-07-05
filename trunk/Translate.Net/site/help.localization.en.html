@@ -2,12 +2,12 @@
 <html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Command Line Usage</title>
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Localization Tutorial</title>
 
 <meta name="author" content="Oleksii Prudkyi">
 <meta name="robots" content="FOLLOW,INDEX">
-<meta name="description" content="Command line for Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
-<meta name="keywords" content="command line, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
+<meta name="description" content="Localization Tutorial for Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
+<meta name="keywords" content="Localization, Tutorial,introduction, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
 <link rel="stylesheet" type="text/css" href="main.css">
 <meta name="Default" content="Default">
 </head>
@@ -95,14 +95,35 @@
 <td valign="top" style="margin-left: 10px" >
 <br>
 <!--  help body -->
-<b>Command Line Usage</b>
-<p>Next few command line parameters supported :
+<b>Localization Tutorial</b>
+<p>Here a few simple steps:
+<ol>
+<li>Copy and rename "c:\Program Files\SAU KP\Translate.Net\lang\Original.lng" or other .lng file from directory<br>
+"c:\Program Files\SAU KP\Translate.Net\lang\" to some file named like mylanguage.lng
+</li>
+<li>Open .lng file in any text editor (like Notepad) or even in MS Word (as utf-8 txt)
+</li>
+<li>Add/Edit translations strings. Format of .lng file described below.  
+</li>
+<li>Send new .lng file to <a href="mailto:translate.net@gmail.com">me</a>  
+</ol>   
+ 
+<p><b>.lng file format:</b> 
+<p>.lng file format very simple - each translation contains two lines - one with English text, second with localized. 
+First one with square brackets (<i>[]</i>) as English text, second - with translation<br> 
+Sample of French translation of two lines:<br><br>  
+<i>[&Select Аll]<br>
+&Sélectionner tout<br>
+[&Window]<br>
+&Fenêtre<br></i>
+<p>Localization file also contains special symbols. You can move them in line, but please don't remove them:
 <ul>
-<li><b>-nohide</b> - don't hide tool to tray when started. Overwrite startup setting from "Options" dialog</li>
-<li><b>-skipsplash</b> - allow to skip "Splash Screen" when tool starting</li> 
-<li><b>-skipchangelog</b> - skip loading of changelog at start (useful only at development time) </li>
-
-
+<li><b>&</b> - Accelerator of menu, underlined letter shortcut (when Alt pressed)</li>
+<li><b>\r\n</b> - newline string, by ex. : <i>[The profile {0} will be deleted.\r\nAre you sure ?]</i>
+</li>
+<li><b>{0},{1},{2},{3}</b> - format placeholders, marks where other data will be inserted by tool, by example : 
+<i>[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]</i> </li>
+<li><b>\\</b> - backslash, by ex. <i>[Show\\Hide]</i> </li>
 </ul>
 <!--  end help body -->
 
