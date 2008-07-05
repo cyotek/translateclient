@@ -68,12 +68,12 @@
 	<Program_Descriptions>
 		<English>
 			<Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator,altavista,babelfish</Keywords>
-			<Char_Desc_45>Translate.Net is client to online translators</Char_Desc_45>
-			<Char_Desc_80>Translate.Net is free client to many language services available online</Char_Desc_80>
-			<Char_Desc_250>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 22 sites, 35 services, 38 languages, 1352 translations directions.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries). 22 sites, 35 services, 38 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
-			<Char_Desc_2000>Translate.Net is free and open source client to many language services available online (translators, monolingual and bilingual dictionaries).
-22 sites, 35 services, 38 languages, 1352 translations directions. 
+			<Char_Desc_45>Client for many online translators</Char_Desc_45>
+			<Char_Desc_80>Translate words and phrases to and from numerous languages in simple way</Char_Desc_80>
+			<Char_Desc_250>Translate.Net is free and open source client for many language services available online (translators, monolingual and bilingual dictionaries). 22 sites, 35 services, 38 languages, 1352 translations directions.</Char_Desc_250>
+			<Char_Desc_450>The Translate.Net will help you to translate words and phrases to and from numerous languages in simple way. This free, open-source software work as client to most popular translating services available online (translators, monolingual and bilingual dictionaries). 22 sites, 35 services, 38 languages, 1352 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
+			<Char_Desc_2000>The Translate.Net will help you to translate words and phrases to and from numerous languages in simple way. This free, open-source software work as client to most popular translating services available online (translators, monolingual and bilingual dictionaries). Using results of translations from many different sources allow receiving much more reliability of translation. 
+Already supported 22 sites with language services, 35 services, 38 languages, 1352 translations directions. 
 
 Services:
 - Google dictionary and Google translator
@@ -82,6 +82,7 @@ Services:
 - SYSTRAN translator (used by Yahoo Babel Fish)
 - Merriam-Webster dictionary and thesaurus
 - PROMT translator and dictionary
+- and much more
 
 Full list of languages\services available at http://translateclient.googlepages.com/services.en.html
 
@@ -94,13 +95,28 @@ Features:
 
 require .Net Framework 2.0 and internet connection</Char_Desc_2000>
 		</English>
+		<Ukrainian>
+			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
+			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
+			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
+22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
+Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
+
+Повний список мов, сервісів, напрямків перекладу:
+http://translateclient.googlepages.com/services.uk.html
+
+Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
+		</Ukrainian>
 		<Russian>
 			<Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
 			<Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
-			<Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам, словарям, толковым словарям</Char_Desc_80>
-			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайтов, 35 сервис, 38 языков, 1352 языковых пар.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайтов, 35 сервис, 38 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
-			<Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайтов, 35 сервис, 38 языков, 1352 языковых пар. 
+			<Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам и словарям</Char_Desc_80>
+			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайта, 35 сервисов, 38 языков, 1352 языковых пар.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайта, 35 сервисов, 38 языков, 1352 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 22 сайта, 35 сервисов, 38 языков, 1352 языковых пар. 
 
 Наиболее поддерживаемые языки - украинский, русский, английский. 
 
@@ -118,21 +134,6 @@ require .Net Framework 2.0 and internet connection</Char_Desc_2000>
 
 Требует наличия Microsoft .Net Framework 2.0 и соединения с интернет</Char_Desc_2000>
 		</Russian>
-		<Ukrainian>
-			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
-			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
-			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
-			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
-			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
-			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
-22 сайтів, 35 онлайнових сервіс, 38  мов, 1352  напрямків перекладу  із різним  рівнем підтримки.
-Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
-
-Повний список мов, сервісів, напрямків перекладу:
-http://translateclient.googlepages.com/services.uk.html
-
-Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
-		</Ukrainian>
 	</Program_Descriptions>
 	<Web_Info>
 		<Application_URLs>
