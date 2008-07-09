@@ -92,7 +92,7 @@ namespace Translate
 			// 
 			// cbShowStatistics
 			// 
-			this.cbShowStatistics.Location = new System.Drawing.Point(13, 103);
+			this.cbShowStatistics.Location = new System.Drawing.Point(13, 133);
 			this.cbShowStatistics.Name = "cbShowStatistics";
 			this.cbShowStatistics.Size = new System.Drawing.Size(373, 24);
 			this.cbShowStatistics.TabIndex = 1;
@@ -101,11 +101,11 @@ namespace Translate
 			// 
 			// cbMarkErrors
 			// 
-			this.cbMarkErrors.Location = new System.Drawing.Point(13, 133);
+			this.cbMarkErrors.Location = new System.Drawing.Point(13, 43);
 			this.cbMarkErrors.Name = "cbMarkErrors";
 			this.cbMarkErrors.Size = new System.Drawing.Size(373, 24);
 			this.cbMarkErrors.TabIndex = 2;
-			this.cbMarkErrors.Text = "Mark by red color words";
+			this.cbMarkErrors.Text = "Mark by red color untranslated words";
 			this.cbMarkErrors.UseVisualStyleBackColor = true;
 			// 
 			// cbHideWithoutResult
@@ -119,7 +119,7 @@ namespace Translate
 			// 
 			// cbShowTranslationDirection
 			// 
-			this.cbShowTranslationDirection.Location = new System.Drawing.Point(13, 13);
+			this.cbShowTranslationDirection.Location = new System.Drawing.Point(13, 73);
 			this.cbShowTranslationDirection.Name = "cbShowTranslationDirection";
 			this.cbShowTranslationDirection.Size = new System.Drawing.Size(373, 24);
 			this.cbShowTranslationDirection.TabIndex = 4;
@@ -128,7 +128,7 @@ namespace Translate
 			// 
 			// cbShowAccents
 			// 
-			this.cbShowAccents.Location = new System.Drawing.Point(13, 43);
+			this.cbShowAccents.Location = new System.Drawing.Point(13, 13);
 			this.cbShowAccents.Name = "cbShowAccents";
 			this.cbShowAccents.Size = new System.Drawing.Size(373, 24);
 			this.cbShowAccents.TabIndex = 5;
@@ -137,7 +137,7 @@ namespace Translate
 			// 
 			// cbShowServiceName
 			// 
-			this.cbShowServiceName.Location = new System.Drawing.Point(13, 73);
+			this.cbShowServiceName.Location = new System.Drawing.Point(13, 103);
 			this.cbShowServiceName.Name = "cbShowServiceName";
 			this.cbShowServiceName.Size = new System.Drawing.Size(373, 24);
 			this.cbShowServiceName.TabIndex = 6;
