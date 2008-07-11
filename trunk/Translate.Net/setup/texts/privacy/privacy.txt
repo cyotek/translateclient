@@ -23,8 +23,6 @@ Interactive Product Features
 
 Automated Update Service.  Translate.Net's automatic update feature periodically checks to see if an updated version of Translate.Net is available from author.  This feature sends Non-Personally-Identifying Information to author, including the version of Translate.Net you are using. Author uses this Non-Personally-Identifying Information to provide you with updated versions of Translate.Net.  Author do not collect or track any Personally-Identifying Information or any information about the Web sites or network services used, and author do not release the raw information obtained from this feature to the public.  Author may release reports containing aggregate data.  To prevent Translate.Net from obtaining this information, you can turn this feature off in Translate.Net's preferences.
 
-Ads. Translate.Net's ads may be integrated in result view. This feature sends Potentially Personally-Identifying Information to ads services to generate ads based on context of your queries. Such information include queries, subjects, languages.      
-
 
 Cookies
 
