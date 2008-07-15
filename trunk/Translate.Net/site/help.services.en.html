@@ -2,12 +2,12 @@
 <html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Results View</title>
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - "Services" tab</title>
 
 <meta name="author" content="Oleksii Prudkyi">
 <meta name="robots" content="FOLLOW,INDEX">
-<meta name="description" content="Results View of Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
-<meta name="keywords" content="Results, View, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
+<meta name="description" content="Services tab of Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
+<meta name="keywords" content="Services, tab, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
 <link rel="stylesheet" type="text/css" href="main.css">
 <meta name="Default" content="Default">
 </head>
@@ -101,38 +101,49 @@
 <td valign="top" style="margin-left: 10px" >
 <br>
 <!--  help body -->
-<b>Results View</b>
-<p>Result view of <b>Translate.Net</b> implemented as embeded Internet Explorer window and 
-it behaves like any web page. 
+<b>"Services" tab</b>
+<br>
+<br>
 
-<table cellspacing="10">
+<table>
 <tbody>
 <tr>
-<td>
-<div style="text-align: center;"><br>
-<img style="border-width: 0;width: 288px;" src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHCu0vykivI/AAAAAAAAAHY/ogasnumz_0Q/s288/resultview1.eng.png" />
-<br></div>
+<td valign="top">
+<br>
+<p>This tab allow inspect, sort, disable and enable translation services for 
+selected translation direction. 
+As you can see on image here a few areas in tab:
+<ul>
+<li>"Buttons for sorting" - you can move services up-down inside area where service placed. This feature for 
+usability only.<br>
+Please note what ordering of services don't change order of results - results from fast services will be 
+first and results of slow services will be last.
+</li>
+<li>"Enabled", "Error", "Disabled" lists - services grouped by state. 
+<ul>
+<li> "Enabled" - services active for selected translation direction and entered phrase for translation</li>
+<li> "Error" - services disabled by system for current translation direction and phrase. This is result of 
+some limitation in service, like phrase length, unsupported characters in phrase, etc.
+<b>Translate.Net</b> check such limits when you type and change state of services.     
+You can click on service name and data panel will show error message for service</li>
+<li> "Disabled" - services disabled by user for selected translation direction</li>
+</ul>
+</li>
+</ul>
+  
+
+  
 </td>
-<td>
+<td valign="top">
 <div style="text-align: center;"><br>
-<img src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHEtpLkJqtI/AAAAAAAAAII/puUJqyTSKQs/s800/resultview4.eng.png" />
+<img style="border-width: 0" src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHfmnz-8BxI/AAAAAAAAAIk/JSKpzCbuGqU/s800/services2.eng.png" />
 <br></div>
 
 </td>
 </tr>
 </tbody>
 </table>
-<br><br> 
-<p>For each translation you can see few types of information - icon of web source that was used to obtain translation,  
-translation of phrase and also you can enable additional information : name, type of web source and direction of translation, 
-time of query and other technical data.   
-
-<p>You can change options related to results view from menu view: 
-
-<div style="text-align: center;"><br>
-<img src="http://lh4.ggpht.com/Oleksii.Prudkyi/SHERK1cL28I/AAAAAAAAAH4/49T_yBVu9i8/s800/resultview2.eng.png" />
-<br></div>
-<br><br> 
+<br><br>
 
 <br> 
 <div style="text-align: center;" align="center">
@@ -162,97 +173,90 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
 </div>
+<br>
 
-
-<p>Or under "Result view" page in "Options" dialog (menu item Tools\Options ...):
-
-<div style="text-align: center;"><br>
-<img src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHVApypa-YI/AAAAAAAAAIQ/XksWjyEh_rk/s800/resultview3.options.eng.png" />
-<br></div>
-<br><br> 
-    
+For each service name, abbreviation of type and "subject" of service (if not equal to "Common") displayed.
+When you move mouse over service name the tooltip will show type of service.    
+<br>
+<br>
 <table  border="1" cellspacing="0" style="border-collapse: collapse;">
 <tbody>
-<tr><td colspan="2" align="center"><br><b>Description of options<br> <br></b></td></tr>
+<tr><td colspan="3" align="center"><br><b>Supported types of services<br> <br></b></td></tr>
 
-<tr><td><b>Show accents</b></td><td>When this option enabled then some services will show accents as special accent char (like á, é, ó ). 
-When you copy translation to clipboard and paste it later to other place which not support accents (any textbox controls) then 
-accent inserted like separate symbol (like a', e', o'). <br>When this option unchecked the chars of accents will be removed from results, 
-so you will have text ready for copy\paste anywhere.  
-<br><i>Enabled by default</i>
-</td></tr>
+<tr>
+<th>Name</th><th>Abbr.</th><th>Description</th>
+</tr>
 
-<tr><td><b>Mark by red color untranslated words</b></td><td>
-When translators don't know translation for some word they show word as is (untranslated). This feature allow to 
-see such words in red color. 
-<br><i>Enabled by default</i>  
-</td></tr>
+<tr>
+<th>Translator</th><th>T</th>
+<td>Service for translating long phrases and sentences, like <a href="http://translate.google.com/">"Google Translator"</a> 
+</td>
+</tr>
 
-<tr><td><b>Show direction of translation</b></td><td>
-Show direction of translation (like "English-&gt;Portuguese") above of each translation result. 
-Useful with custom profiles which translate to (or from) many languages.   
-<br><i>Disabled by default</i>  
-</td></tr>
+<tr>
+<th>Bilingual dictionary</th><th>BD</th>
+<td>Translate single words or small sentences. Often show different variants of translations
+</td>
+</tr>
 
-<tr><td><b>Show names of services</b></td><td>
-Show name of service used (like <a href="http://translate.google.com/">"Google Translator"</a>) above of each translation result.
-<br><i>Disabled by default</i>
+<tr>
+<th>Monolingual dictionary</th><th>MD</th>
+<td>Dictionaries for single language which returns meaning of words and related information, like <a href="http://www.merriam-webster.com/">Merriam-Webster dictionary</a>  
+</td>
+</tr>
 
-<tr><td><b>Show query time and other information</b></td><td>
-Show technical data of query, this includes time of query, volume of data sent\received and count of access to web.
-Here a some notes:
-<ol>
-<li>Here impossible to get volume of data sent\received for soap\WebService based 
-engines. At this time used only one such engine - <a href="http://lcorp.ulif.org.ua/dictua/">Dictionaries of Ukraine</a>
-</li>
+<tr>
+<th>Dictionary of synonyms</th><th>SD</th>
+<td>Thesauruses, like <a href="http://www.merriam-webster.com/">Merriam-Webster thesaurus</a>   
+</td>
+</tr>
 
-<li>ASP.NET based services require additional query before start working. So on first use of service here will be retry 
-count set to "2".<br>
-At this time ASP.NET used by two engines - <a href="http://www.prolingoffice.com/">ProLing Office</a> and 
-<a href="http://www.online-translator.com/">PROMT</a>
-</li> 
+<tr>
+<th>Dictionary of antonyms</th><th>AD</th>
+<td>Dictionaries which store antonyms of words 
+</td>
+</tr>
 
-<li><a href="http://www.merriam-webster.com/">Merriam-Webster</a> may require few queries to get all exists variants.</li>
-<li>Sometime other services can has "Retry count" > 1, this is because <a href="http://en.wikipedia.org/wiki/HTTP_pipelining">pipelining</a> 
-used and some servers refuse to process big count of queries.</li>  
-</ol>      
-<br><i>Disabled by default</i>  
-  
-</td></tr>
+<tr>
+<th>Phraseological dictionary</th><th>PD</th>
+<td>Returns quotations as samples of using word  
+</td>
+</tr>
 
-<tr><td><b>Don't show "Nothing found" results</b></td><td>
-When engine can't translate or word not found in dictionary then nothing added to result view. 
-Sometime this confusing, to avoid this please disable this option and "Nothing found" will be added to 
-result for each service which queried without success.  
-<br><i>Enabled by default</i>
-</td></tr>
+<tr>
+<th>Encyclopedia</th><th>EN</th>
+<td>Encyclopedias like <a href="http://en.wikipedia.org/">Wikipedia</a> 
+</td>
+</tr>
+
+<tr>
+<th>Search Engine</th><th>SE</th>
+<td>Search words in different bases (like <a href="http://en.wikipedia.org/">Wikipedia</a> or <a href="http://www.merriam-webster.com/">Merriam-Webster</a>), 
+returns list of links, related to query. 
+</td>
+</tr>
+
+<tr>
+<th>Bilingual phrases dictionary</th><th>BP</th>
+<td>Returns phrases where translated word used. 
+Supported only by <a href="http://www.multitran.ru/">Multitran</a> 
+</td>
+</tr>
+
+<tr>
+<th>Bilingual sentenses dictionary</th><th>BS</th>
+<td>Return list of pairs of sentences translated by professional human. 
+Supported only by <a href="http://www.multitran.ru/">Multitran</a> 
+</td>
+</tr>
 
 </tbody>
 </table>
-
 <br>
 <br>
-Also here a few shortcuts you can use in "Result view":
-<table  border="1" cellspacing="0" style="border-collapse: collapse;width: 500px">
-<tbody>
-<tr><td colspan="2" align="center"><br><b>Keyboard shortcuts For "Result View"<br> <br></b></td></tr>
-<tr>
-<td>Scroll one line down</td><td>Ctrl+Down Arrow</td>
-</tr>
-<tr>
-<td>Scroll one line up</td><td>Ctrl+Up Arrow</td>
-</tr>
-<tr>
-<td>Scroll one page down</td><td>Ctrl+Page Down</td>
-</tr>
-<tr>
-<td>Scroll one page up</td><td>Ctrl+Page Up</td>
-</tr>
-</tbody>
-</table>
 
 
-    
+     
 <!--  end help body -->
 
 </td>

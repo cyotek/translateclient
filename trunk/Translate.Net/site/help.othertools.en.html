@@ -2,12 +2,12 @@
 <html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Results View</title>
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - "Use from other tools"</title>
 
 <meta name="author" content="Oleksii Prudkyi">
 <meta name="robots" content="FOLLOW,INDEX">
-<meta name="description" content="Results View of Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
-<meta name="keywords" content="Results, View, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
+<meta name="description" content="Use Translate.Net from other tools - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
+<meta name="keywords" content="Translate.Net, other, tools, tab, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
 <link rel="stylesheet" type="text/css" href="main.css">
 <meta name="Default" content="Default">
 </head>
@@ -101,38 +101,14 @@
 <td valign="top" style="margin-left: 10px" >
 <br>
 <!--  help body -->
-<b>Results View</b>
-<p>Result view of <b>Translate.Net</b> implemented as embeded Internet Explorer window and 
-it behaves like any web page. 
+<b>Use Translate.Net from other tools</b>
+<br>
+<br>
 
-<table cellspacing="10">
-<tbody>
-<tr>
-<td>
-<div style="text-align: center;"><br>
-<img style="border-width: 0;width: 288px;" src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHCu0vykivI/AAAAAAAAAHY/ogasnumz_0Q/s288/resultview1.eng.png" />
-<br></div>
-</td>
-<td>
-<div style="text-align: center;"><br>
-<img src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHEtpLkJqtI/AAAAAAAAAII/puUJqyTSKQs/s800/resultview4.eng.png" />
-<br></div>
-
-</td>
-</tr>
-</tbody>
-</table>
-<br><br> 
-<p>For each translation you can see few types of information - icon of web source that was used to obtain translation,  
-translation of phrase and also you can enable additional information : name, type of web source and direction of translation, 
-time of query and other technical data.   
-
-<p>You can change options related to results view from menu view: 
-
-<div style="text-align: center;"><br>
-<img src="http://lh4.ggpht.com/Oleksii.Prudkyi/SHERK1cL28I/AAAAAAAAAH4/49T_yBVu9i8/s800/resultview2.eng.png" />
-<br></div>
-<br><br> 
+<p>You can call <b>Translate.Net</b> with help of system-wide hotkeys (the other methods, like activating by mouse still not implemented). 
+<p>The use of hotkeys is simple - select text you want to translate and then press shortcut (Ctrl+C+C or Ctrl+Ins+Ins, based on 
+settings you use) then tool will be activated and selected text will be inserted into input box. Also, if you enabled automatic 
+translation by hotkey then translation process will be started.  
 
 <br> 
 <div style="text-align: center;" align="center">
@@ -163,96 +139,29 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 </div>
 
+<p>You can change setting of hotkeys by use "Options" dialog or via context menu (activated by right mouse click on tray icon). 
 
-<p>Or under "Result view" page in "Options" dialog (menu item Tools\Options ...):
-
-<div style="text-align: center;"><br>
-<img src="http://lh3.ggpht.com/Oleksii.Prudkyi/SHVApypa-YI/AAAAAAAAAIQ/XksWjyEh_rk/s800/resultview3.options.eng.png" />
-<br></div>
-<br><br> 
-    
-<table  border="1" cellspacing="0" style="border-collapse: collapse;">
-<tbody>
-<tr><td colspan="2" align="center"><br><b>Description of options<br> <br></b></td></tr>
-
-<tr><td><b>Show accents</b></td><td>When this option enabled then some services will show accents as special accent char (like á, é, ó ). 
-When you copy translation to clipboard and paste it later to other place which not support accents (any textbox controls) then 
-accent inserted like separate symbol (like a', e', o'). <br>When this option unchecked the chars of accents will be removed from results, 
-so you will have text ready for copy\paste anywhere.  
-<br><i>Enabled by default</i>
-</td></tr>
-
-<tr><td><b>Mark by red color untranslated words</b></td><td>
-When translators don't know translation for some word they show word as is (untranslated). This feature allow to 
-see such words in red color. 
-<br><i>Enabled by default</i>  
-</td></tr>
-
-<tr><td><b>Show direction of translation</b></td><td>
-Show direction of translation (like "English-&gt;Portuguese") above of each translation result. 
-Useful with custom profiles which translate to (or from) many languages.   
-<br><i>Disabled by default</i>  
-</td></tr>
-
-<tr><td><b>Show names of services</b></td><td>
-Show name of service used (like <a href="http://translate.google.com/">"Google Translator"</a>) above of each translation result.
-<br><i>Disabled by default</i>
-
-<tr><td><b>Show query time and other information</b></td><td>
-Show technical data of query, this includes time of query, volume of data sent\received and count of access to web.
-Here a some notes:
-<ol>
-<li>Here impossible to get volume of data sent\received for soap\WebService based 
-engines. At this time used only one such engine - <a href="http://lcorp.ulif.org.ua/dictua/">Dictionaries of Ukraine</a>
-</li>
-
-<li>ASP.NET based services require additional query before start working. So on first use of service here will be retry 
-count set to "2".<br>
-At this time ASP.NET used by two engines - <a href="http://www.prolingoffice.com/">ProLing Office</a> and 
-<a href="http://www.online-translator.com/">PROMT</a>
-</li> 
-
-<li><a href="http://www.merriam-webster.com/">Merriam-Webster</a> may require few queries to get all exists variants.</li>
-<li>Sometime other services can has "Retry count" > 1, this is because <a href="http://en.wikipedia.org/wiki/HTTP_pipelining">pipelining</a> 
-used and some servers refuse to process big count of queries.</li>  
-</ol>      
-<br><i>Disabled by default</i>  
-  
-</td></tr>
-
-<tr><td><b>Don't show "Nothing found" results</b></td><td>
-When engine can't translate or word not found in dictionary then nothing added to result view. 
-Sometime this confusing, to avoid this please disable this option and "Nothing found" will be added to 
-result for each service which queried without success.  
-<br><i>Enabled by default</i>
-</td></tr>
-
-</tbody>
+<table cellspacing="10px" width="100%">
+  <tr>
+    <td>
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh6.ggpht.com/Oleksii.Prudkyi/SHvjhIg6ZWI/AAAAAAAAAIs/r6f3T3WxQCc/s800/othertools1.eng.png" />
+	<br></div>
+    </td>
+    <td>
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh4.ggpht.com/Oleksii.Prudkyi/SHvjhPss-lI/AAAAAAAAAI0/fXkiPr8p3z0/s800/othertools2.eng.png" />
+	<br></div>
+    </td>
+  </tr>
 </table>
-
-<br>
-<br>
-Also here a few shortcuts you can use in "Result view":
-<table  border="1" cellspacing="0" style="border-collapse: collapse;width: 500px">
-<tbody>
-<tr><td colspan="2" align="center"><br><b>Keyboard shortcuts For "Result View"<br> <br></b></td></tr>
-<tr>
-<td>Scroll one line down</td><td>Ctrl+Down Arrow</td>
-</tr>
-<tr>
-<td>Scroll one line up</td><td>Ctrl+Up Arrow</td>
-</tr>
-<tr>
-<td>Scroll one page down</td><td>Ctrl+Page Down</td>
-</tr>
-<tr>
-<td>Scroll one page up</td><td>Ctrl+Page Up</td>
-</tr>
-</tbody>
-</table>
+<p>You can enable\disable specific hotkey and\or enable automatic translation which will start after pressing hotkey. 
+Please note what <b>Translate.Net</b> will use current translation direction for automatic translation.   
+ 
 
 
-    
+
+     
 <!--  end help body -->
 
 </td>
