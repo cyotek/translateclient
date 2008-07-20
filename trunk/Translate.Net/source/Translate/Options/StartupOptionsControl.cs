@@ -63,7 +63,7 @@ namespace Translate
 		
 		void OnLanguageChanged()
 		{
-			cbAutorun.Text = TranslateString("Autorun in startup");
+			cbAutorun.Text = TranslateString("Launch at system startup");
 			cbMinimizeToTray.Text = TranslateString("Minimize to tray");
 		}
 

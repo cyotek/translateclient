@@ -142,7 +142,7 @@ Nenhum
 O formato do HTTP-Proxy ({0}) está errado. Os ajustes do proxy serão restaurados para o ajuste padrão
 [Startup]
 Início
-[Autorun in startup]
+[Launch at system startup]
 Auto-rodar ao iniciar
 [Minimize to tray]
 Minimizar para a bandeja
