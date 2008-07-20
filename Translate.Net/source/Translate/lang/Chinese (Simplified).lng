@@ -142,7 +142,7 @@ HTTP 代理
 
 [Startup]
 启动
-[Autorun in startup]
+[Launch at system startup]
 启动时自动运行
 [Minimize to tray]
 最小化到系统托盘

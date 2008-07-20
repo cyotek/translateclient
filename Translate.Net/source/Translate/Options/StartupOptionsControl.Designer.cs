@@ -88,7 +88,7 @@ namespace Translate
 			this.cbAutorun.Name = "cbAutorun";
 			this.cbAutorun.Size = new System.Drawing.Size(373, 24);
 			this.cbAutorun.TabIndex = 0;
-			this.cbAutorun.Text = "Autorun in startup";
+			this.cbAutorun.Text = "Launch at system startup";
 			this.cbAutorun.UseVisualStyleBackColor = true;
 			// 
 			// cbMinimizeToTray

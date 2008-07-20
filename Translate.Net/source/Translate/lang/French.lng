@@ -140,7 +140,7 @@ Null
 
 [Startup]
 Démarrage
-[Autorun in startup]
+[Launch at system startup]
 Lancement automatique au démarrage
 [Minimize to tray]
 Réduire dans la barre des tâches
