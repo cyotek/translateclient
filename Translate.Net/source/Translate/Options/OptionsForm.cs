@@ -16,7 +16,7 @@
  *
  * The Initial Developer of the Original Code is 
  *  Oleksii Prudkyi (Oleksii.Prudkyi@gmail.com).
- * Portions created by the Initial Developer are Copyright (C) 2007-2008
+ * Portions created by the Initial Developer are Copyright (C) 2008
  * the Initial Developer. All Rights Reserved.
  *
  * Contributor(s):
@@ -36,34 +36,46 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
+
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+using FreeCL.Forms;
+using System.Reflection;
+using System.Resources;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using FreeCL.RTL;
+
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of Constants.
+	/// Description of OptionsForm.
 	/// </summary>
-	public static class Constants
+	public partial class OptionsForm : BaseOptionsForm
 	{
-		public const string AppName = "Translate.Net";
-		
-		static ReadOnlyCollection<string> versionsTxtUrls = new ReadOnlyCollection<string>(
-			new string[] {"http://translateclient.googlepages.com/versions.txt", 
-							"http://translateclient.googlecode.com/svn/trunk/Translate.Net/site/versions.txt"
-			}
-			);
-		public static ReadOnlyCollection<string> VersionsTxtUrls {
-			get { return versionsTxtUrls; }
+		public OptionsForm()
+		{
+			//
+			// The InitializeComponent() call is required for Windows Forms designer support.
+			//
+			InitializeComponent();
+			
+			//
+			// TODO: Add constructor code after the InitializeComponent() call.
+			//
 		}
-	
-		public const string HomeUrl = "http://translateclient.googlepages.com";
-		public const string StatsPageUrl = HomeUrl + "/q.htm";
-		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.data.";
-		public const string RedirectPageUrl = HomeUrl + "/r.htm";
-		public const string DonateUrl = HomeUrl + "/donations.en.html";
-		public const string HelpUrl = HomeUrl + "/help.index.en.html";
-		public const string OptionsHelpUrl = HomeUrl + "/help.options.en.html";
 		
+		void OptionsFormHelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			System.Diagnostics.Process.Start(Constants.OptionsHelpUrl);
+		}
+		
+		void OptionsFormHelpRequested(object sender, HelpEventArgs hlpevent)
+		{
+			System.Diagnostics.Process.Start(Constants.OptionsHelpUrl);
+		}
 	}
 }
