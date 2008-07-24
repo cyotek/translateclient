@@ -79,7 +79,7 @@ namespace Translate
 				UpdatesManager.Init();
 				Application.ShowSplashForm(null);
 				
-				Application.OptionsForm = new BaseOptionsForm();
+				Application.OptionsForm = new OptionsForm();
 				Application.BaseOptions = new TranslateOptions();
 				Application.AboutForm = new AboutForm();
 				

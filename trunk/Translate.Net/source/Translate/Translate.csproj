@@ -87,6 +87,10 @@
       <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\NetworkOptions.cs" />
+    <Compile Include="Options\OptionsForm.cs" />
+    <Compile Include="Options\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\ResultViewFontOptionsControl.cs" />
     <Compile Include="Options\ResultViewFontOptionsControl.Designer.cs">
       <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
@@ -177,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\InputFontOptionsControl.resx">
       <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\ResultViewFontOptionsControl.resx">
       <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
