@@ -138,13 +138,22 @@ namespace Translate
 		public void Wait()
 		{
 			while(wBrowser.IsBusy)
+			{
 				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
 
 			while(wBrowser.Document == null)
+			{
 				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
 
 			while(wBrowser.Document.Body == null)
+			{
 				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
 				
 		}
 		
