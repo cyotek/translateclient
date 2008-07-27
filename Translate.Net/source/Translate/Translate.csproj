@@ -297,6 +297,9 @@
     <None Include="lang\Portuguese.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="lang\Portuguese_1.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Russian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
