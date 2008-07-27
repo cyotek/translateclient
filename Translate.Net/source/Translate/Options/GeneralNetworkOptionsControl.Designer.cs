@@ -79,11 +79,27 @@ namespace Translate
 			this.lTimeout = new System.Windows.Forms.Label();
 			this.tbPort = new System.Windows.Forms.MaskedTextBox();
 			this.tbTimeout = new System.Windows.Forms.MaskedTextBox();
+			this.cbProxyAuthentication = new System.Windows.Forms.CheckBox();
+			this.tbDomain = new System.Windows.Forms.TextBox();
+			this.lDomain = new System.Windows.Forms.Label();
+			this.cbNTLMAuthentication = new System.Windows.Forms.CheckBox();
+			this.tbPassword = new System.Windows.Forms.TextBox();
+			this.lPassword = new System.Windows.Forms.Label();
+			this.tbUser = new System.Windows.Forms.TextBox();
+			this.lUser = new System.Windows.Forms.Label();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.tbDomain);
+			this.pBody.Controls.Add(this.lDomain);
+			this.pBody.Controls.Add(this.cbNTLMAuthentication);
+			this.pBody.Controls.Add(this.tbPassword);
+			this.pBody.Controls.Add(this.lPassword);
+			this.pBody.Controls.Add(this.tbUser);
+			this.pBody.Controls.Add(this.lUser);
+			this.pBody.Controls.Add(this.cbProxyAuthentication);
 			this.pBody.Controls.Add(this.tbTimeout);
 			this.pBody.Controls.Add(this.tbPort);
 			this.pBody.Controls.Add(this.lTimeout);
@@ -92,14 +108,17 @@ namespace Translate
 			this.pBody.Controls.Add(this.lHost);
 			this.pBody.Controls.Add(this.cbProxy);
 			this.pBody.Controls.Add(this.lProxy);
+			this.pBody.Size = new System.Drawing.Size(399, 234);
 			// 
 			// lProxy
 			// 
-			this.lProxy.Location = new System.Drawing.Point(13, 10);
+			this.lProxy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lProxy.Location = new System.Drawing.Point(13, 5);
 			this.lProxy.Name = "lProxy";
 			this.lProxy.Size = new System.Drawing.Size(89, 23);
 			this.lProxy.TabIndex = 0;
 			this.lProxy.Text = "Proxy";
+			this.lProxy.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbProxy
 			// 
@@ -113,11 +132,13 @@ namespace Translate
 			// 
 			// lHost
 			// 
-			this.lHost.Location = new System.Drawing.Point(13, 44);
+			this.lHost.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.lHost.Location = new System.Drawing.Point(13, 39);
 			this.lHost.Name = "lHost";
 			this.lHost.Size = new System.Drawing.Size(89, 23);
 			this.lHost.TabIndex = 2;
 			this.lHost.Text = "HTTP-Proxy";
+			this.lHost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// tbProxy
 			// 
@@ -136,7 +157,7 @@ namespace Translate
 			// 
 			// lTimeout
 			// 
-			this.lTimeout.Location = new System.Drawing.Point(13, 78);
+			this.lTimeout.Location = new System.Drawing.Point(13, 204);
 			this.lTimeout.Name = "lTimeout";
 			this.lTimeout.Size = new System.Drawing.Size(89, 23);
 			this.lTimeout.TabIndex = 6;
@@ -157,22 +178,97 @@ namespace Translate
 			// 
 			this.tbTimeout.AsciiOnly = true;
 			this.tbTimeout.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-			this.tbTimeout.Location = new System.Drawing.Point(108, 75);
+			this.tbTimeout.Location = new System.Drawing.Point(108, 201);
 			this.tbTimeout.Mask = "9999999";
 			this.tbTimeout.Name = "tbTimeout";
 			this.tbTimeout.PromptChar = ' ';
 			this.tbTimeout.Size = new System.Drawing.Size(181, 20);
 			this.tbTimeout.TabIndex = 7;
 			// 
+			// cbProxyAuthentication
+			// 
+			this.cbProxyAuthentication.Location = new System.Drawing.Point(16, 76);
+			this.cbProxyAuthentication.Name = "cbProxyAuthentication";
+			this.cbProxyAuthentication.Size = new System.Drawing.Size(295, 24);
+			this.cbProxyAuthentication.TabIndex = 12;
+			this.cbProxyAuthentication.Text = "Enable Authentication";
+			this.cbProxyAuthentication.UseVisualStyleBackColor = true;
+			this.cbProxyAuthentication.CheckedChanged += new System.EventHandler(this.CbProxyAuthenticationCheckedChanged);
+			// 
+			// tbDomain
+			// 
+			this.tbDomain.Location = new System.Drawing.Point(186, 164);
+			this.tbDomain.Name = "tbDomain";
+			this.tbDomain.Size = new System.Drawing.Size(103, 20);
+			this.tbDomain.TabIndex = 22;
+			// 
+			// lDomain
+			// 
+			this.lDomain.Location = new System.Drawing.Point(104, 167);
+			this.lDomain.Name = "lDomain";
+			this.lDomain.Size = new System.Drawing.Size(65, 23);
+			this.lDomain.TabIndex = 21;
+			this.lDomain.Text = "Domain";
+			// 
+			// cbNTLMAuthentication
+			// 
+			this.cbNTLMAuthentication.Location = new System.Drawing.Point(108, 136);
+			this.cbNTLMAuthentication.Name = "cbNTLMAuthentication";
+			this.cbNTLMAuthentication.Size = new System.Drawing.Size(283, 24);
+			this.cbNTLMAuthentication.TabIndex = 20;
+			this.cbNTLMAuthentication.Text = "Use NTLM Authentication";
+			this.cbNTLMAuthentication.UseVisualStyleBackColor = true;
+			this.cbNTLMAuthentication.CheckedChanged += new System.EventHandler(this.CbNTLMAuthenticationCheckedChanged);
+			// 
+			// tbPassword
+			// 
+			this.tbPassword.Location = new System.Drawing.Point(299, 107);
+			this.tbPassword.Name = "tbPassword";
+			this.tbPassword.PasswordChar = '*';
+			this.tbPassword.Size = new System.Drawing.Size(92, 20);
+			this.tbPassword.TabIndex = 19;
+			// 
+			// lPassword
+			// 
+			this.lPassword.Location = new System.Drawing.Point(220, 110);
+			this.lPassword.Name = "lPassword";
+			this.lPassword.Size = new System.Drawing.Size(69, 23);
+			this.lPassword.TabIndex = 18;
+			this.lPassword.Text = "Password";
+			// 
+			// tbUser
+			// 
+			this.tbUser.Location = new System.Drawing.Point(108, 107);
+			this.tbUser.Name = "tbUser";
+			this.tbUser.Size = new System.Drawing.Size(103, 20);
+			this.tbUser.TabIndex = 17;
+			// 
+			// lUser
+			// 
+			this.lUser.Location = new System.Drawing.Point(13, 110);
+			this.lUser.Name = "lUser";
+			this.lUser.Size = new System.Drawing.Size(89, 23);
+			this.lUser.TabIndex = 16;
+			this.lUser.Text = "User";
+			// 
 			// GeneralNetworkOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "GeneralNetworkOptionsControl";
+			this.Size = new System.Drawing.Size(399, 274);
 			this.pBody.ResumeLayout(false);
 			this.pBody.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label lDomain;
+		private System.Windows.Forms.TextBox tbDomain;
+		private System.Windows.Forms.Label lUser;
+		private System.Windows.Forms.TextBox tbUser;
+		private System.Windows.Forms.Label lPassword;
+		private System.Windows.Forms.TextBox tbPassword;
+		private System.Windows.Forms.CheckBox cbProxyAuthentication;
+		private System.Windows.Forms.CheckBox cbNTLMAuthentication;
 		private System.Windows.Forms.MaskedTextBox tbTimeout;
 		private System.Windows.Forms.Label lTimeout;
 		private System.Windows.Forms.MaskedTextBox tbPort;

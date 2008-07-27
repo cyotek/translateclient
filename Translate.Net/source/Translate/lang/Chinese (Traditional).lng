@@ -131,6 +131,16 @@ smallchoulcc@yahoo.com.tw
 代理伺服器
 [Port]
 連接埠
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 逾時
 [System]

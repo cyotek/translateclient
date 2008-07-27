@@ -128,6 +128,16 @@ Proxi-HTTP
 Proxi
 [Port]
 Porta
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 Timeout
 [System]

@@ -100,11 +100,70 @@ namespace Translate
 			set { proxyPort = value; }
 		}
 		
-		public bool SetProxy(ProxyMode proxyMode, string proxyHost, int proxyPort)
+		bool proxyAuthentication;
+		public bool ProxyAuthentication {
+			get { return proxyAuthentication; }
+			set { proxyAuthentication = value; }
+		}
+		
+		string proxyUser;
+		public string ProxyUser {
+			get { return proxyUser; }
+			set { proxyUser = value; }
+		}
+		
+		[XmlIgnore]
+		public string ProxyDecryptedPassword 
+		{
+			get 
+			{ 
+				if(proxyPassword != "")
+				{
+					return FreeCL.RTL.CryptoTools.DecryptStringWith3DES(proxyPassword, "NetworkOptions", "SavedPassword"); 
+				}
+				else 
+					return proxyPassword; 
+			}
+			set 
+			{ 
+				if(string.IsNullOrEmpty(value))
+					proxyPassword = ""; 
+				else
+					proxyPassword = FreeCL.RTL.CryptoTools.EncryptStringWith3DES(value, "NetworkOptions", "SavedPassword"); 
+			}
+		}
+		
+		string proxyPassword = "";
+		public string ProxyPassword {
+			get { return proxyPassword; }
+			set { proxyPassword = value; }
+		}
+		
+		bool proxyNtlmAuthentication;
+		public bool ProxyNTLMAuthentication {
+			get { return proxyNtlmAuthentication; }
+			set { proxyNtlmAuthentication = value; }
+		}
+		
+		string proxyNtlmDomain;
+		public string ProxyNTLMDomain {
+			get { return proxyNtlmDomain; }
+			set { proxyNtlmDomain = value; }
+		}
+		
+		public bool SetProxy(ProxyMode proxyMode, string proxyHost, int proxyPort, 
+			bool proxyAuthentication, string proxyUser, string proxyPassword,
+			bool ntlmAuthentication, string ntlmDomain)
 		{
 			this.proxyMode = proxyMode;
 			this.proxyHost = proxyHost;
 			this.proxyPort = proxyPort;
+			this.proxyAuthentication = proxyAuthentication;
+			this.proxyUser = proxyUser;
+			this.ProxyDecryptedPassword = proxyPassword;
+			this.proxyNtlmAuthentication = ntlmAuthentication;
+			this.proxyNtlmDomain = ntlmDomain;
+			
 			return Apply();
 		}
 		
@@ -138,6 +197,13 @@ namespace Translate
 				try 
 				{
 					WebProxy proxyObject = new WebProxy("http://" + proxyHost + ":" + proxyPort.ToString(CultureInfo.InvariantCulture) +  "/", true);
+					if(proxyAuthentication)
+					{
+						if(!proxyNtlmAuthentication)
+							proxyObject.Credentials = new NetworkCredential(proxyUser, ProxyDecryptedPassword);
+						else
+							proxyObject.Credentials = new NetworkCredential(proxyUser, ProxyDecryptedPassword, proxyNtlmDomain);
+					}
 					networkSetting.Proxy = proxyObject;
 				} 
 				catch (System.UriFormatException) 
