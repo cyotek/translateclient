@@ -69,6 +69,11 @@ namespace Translate
 			lProxy.Text = TranslateString("Proxy");
 			lPort.Text = TranslateString("Port");
 			lTimeout.Text = TranslateString("Timeout");
+			cbProxyAuthentication.Text = TranslateString("Enable Authentication");
+			lUser.Text = TranslateString("User"); 
+			lPassword.Text = TranslateString("Password"); 
+			cbNTLMAuthentication.Text = TranslateString("Use NTLM Authentication");
+			lDomain.Text = TranslateString("Domain"); 
 			
 			int savedIdx = cbProxy.SelectedIndex;
 			cbProxy.Items.Clear();
@@ -93,7 +98,14 @@ namespace Translate
 		{
 			current.Timeout = int.Parse(tbTimeout.Text, CultureInfo.InvariantCulture);
 			if(!current.SetProxy((ProxyMode)cbProxy.SelectedIndex, tbProxy.Text, 
-				tbPort.Text.Length > 0  ? int.Parse(tbPort.Text, CultureInfo.InvariantCulture) : 0))
+				tbPort.Text.Length > 0  ? int.Parse(tbPort.Text, CultureInfo.InvariantCulture) : 0,
+				cbProxyAuthentication.Checked,
+				tbUser.Text,
+				tbPassword.Text,
+				cbNTLMAuthentication.Checked,
+				tbDomain.Text
+				)
+			)
 			{ //error on setting, reset
 				cbProxy.SelectedIndex = (int)current.ProxyMode;
 			}
@@ -117,9 +129,23 @@ namespace Translate
 				if(!changed)
 					changed = tbProxy.Text != current.ProxyHost;
 				if(!changed)
-				{
 					changed = tbPort.Text != current.ProxyPort.ToString(CultureInfo.InvariantCulture);
-				}
+
+				if(!changed)
+					changed = cbProxyAuthentication.Checked != current.ProxyAuthentication;
+					
+				if(!changed)
+					changed = tbUser.Text != current.ProxyUser;
+					
+				if(!changed)
+					changed = tbPassword.Text != current.ProxyDecryptedPassword;
+
+				if(!changed)
+					changed = cbNTLMAuthentication.Checked != current.ProxyNTLMAuthentication;
+
+				if(!changed)
+					changed = tbDomain.Text != current.ProxyNTLMDomain;
+					
 				return changed;
 			}
 		}
@@ -131,6 +157,7 @@ namespace Translate
 			int savedIdx = cbProxy.SelectedIndex;	
 			tbProxy.Enabled = savedIdx == 1;
 			tbPort.Enabled = savedIdx == 1;
+			
 			if(savedIdx == 0)
 			{
 				Uri uri = new Uri("http://google.com");
@@ -142,12 +169,55 @@ namespace Translate
 			{
 				tbProxy.Text = current.ProxyHost;
 				tbPort.Text = current.ProxyPort.ToString(CultureInfo.InvariantCulture);
+				tbUser.Text = current.ProxyUser;
+				tbPassword.Text = current.ProxyDecryptedPassword;
+				cbProxyAuthentication.Enabled = true;
+				cbProxyAuthentication.Checked = current.ProxyAuthentication;
+				cbNTLMAuthentication.Checked = current.ProxyNTLMAuthentication;
+				tbDomain.Text = current.ProxyNTLMDomain;
 			}
 			else
 			{
 				tbProxy.Text = "";
 				tbPort.Text = "";
 			}
+			
+			if(savedIdx != 1)
+			{
+				cbProxyAuthentication.Enabled = false;
+				cbProxyAuthentication.Checked = false;
+				CbProxyAuthenticationCheckedChanged(this, new EventArgs());
+				
+				tbUser.Text = "";
+				tbPassword.Text = "";
+				cbNTLMAuthentication.Checked = false;
+				CbNTLMAuthenticationCheckedChanged(this, new EventArgs());
+				tbDomain.Text = "";
+			}
+		}
+		
+		void CbProxyAuthenticationCheckedChanged(object sender, EventArgs e)
+		{
+			bool check = cbProxyAuthentication.Checked;
+			lUser.Enabled = check;
+			tbUser.Enabled = check;
+			lPassword.Enabled = check;
+			tbPassword.Enabled = check;
+			cbNTLMAuthentication.Enabled = check;
+			if(!check)
+			{
+				lDomain.Enabled = check;
+				tbDomain.Enabled = check;
+			}
+			else
+				CbNTLMAuthenticationCheckedChanged(this, new EventArgs());
+		}
+		
+		void CbNTLMAuthenticationCheckedChanged(object sender, EventArgs e)
+		{
+			bool check = cbNTLMAuthentication.Checked;
+			lDomain.Enabled = check;
+			tbDomain.Enabled = check;
 		}
 	}
 }

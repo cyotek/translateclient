@@ -130,6 +130,16 @@ HTTP-проксі
 Проксі
 [Port]
 Порт
+[Enable Authentication]
+Використовувати автентифікацію
+[User]
+Користувач
+[Password]
+Пароль
+[Use NTLM Authentication]
+Використовувати NTLM-автентифікацію
+[Domain]
+Домен
 [Timeout]
 Таймаут
 [System]

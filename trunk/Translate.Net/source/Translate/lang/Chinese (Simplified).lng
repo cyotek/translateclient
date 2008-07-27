@@ -130,6 +130,16 @@ HTTP 代理
 代理
 [Port]
 端口
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 超时
 [System]

@@ -130,6 +130,16 @@ HTTP-Proxy
 Proxy
 [Port]
 Porta
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 Intervalo de parada
 [System]
