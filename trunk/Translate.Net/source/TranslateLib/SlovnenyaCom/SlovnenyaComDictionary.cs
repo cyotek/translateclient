@@ -106,62 +106,33 @@ namespace Translate
 
 				tree = tree.Childs[0];
 
-				Result wordres = null;	
-					
-				foreach(StringsTree words_tree in tree.Childs)
-				{
-					string word = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", words_tree.Data));
-					if(tree.Childs.Count == 1)
-					{
-						wordres = result;
-					}
-					else
-					{
-						wordres = CreateNewResult(word, languagesPair, subject);
-						result.Childs.Add(wordres);
-					}
-				
-					Result abbrres = null;	
-					foreach(StringsTree abbr_tree in words_tree.Childs)
-					{
-						string abbr = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", abbr_tree.Data));
-						if(words_tree.Childs.Count == 1)
-						{
-							wordres.Abbreviation = abbr;
-							abbrres = wordres;
-						}
-						else
-						{
-							Result tmpRes = CreateNewResult(abbr, languagesPair, subject);
-							wordres.Childs.Add(tmpRes);
-							abbrres = tmpRes;
-						}
-						
-						Result areares = null;	
-						foreach(StringsTree area_tree in abbr_tree.Childs)
-						{
-							string area = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", area_tree.Data));
-							if(abbr_tree.Childs.Count == 1)
-							{
-								if(area != "General")
-									abbrres.Abbreviation += " " + area;
-								areares = abbrres;	
-							}
-							else
-							{
-								Result tmpRes = CreateNewResult(area, languagesPair, subject);
-								abbrres.Childs.Add(tmpRes);
-								areares = tmpRes;
-							}
-							
-							foreach(StringsTree translation_tree in area_tree.Childs)
-							{
-								string trans = StringParser.Parse(">", "<", StringParser.Parse("<a", "/a>", translation_tree.Data));
+				Result wordres = result;	
 
-								areares.Translations.Add(trans);
-							}
-						}
-					}
+				if(tree.Childs.Count == 0)
+						throw new TranslationException("Wrong data structure");
+						
+
+				//get word 
+				if(tree.Childs[0].Childs.Count != 1)
+					throw new TranslationException("Wrong data structure");
+					
+
+				string word = StringParser.Parse("font-size:14pt;\">", "<", tree.Childs[0].Childs[0].Data);
+					
+				for(int i = 1; i < tree.Childs.Count; i++)
+				{
+					StringsTree abbr_tree = tree.Childs[i];
+					Result abbrres = null;	
+					
+					string abbr = StringParser.Parse("font-size:12pt;\">", "<", abbr_tree.Data);
+					Result tmpRes = CreateNewResult(abbr, languagesPair, subject);
+					wordres.Childs.Add(tmpRes);
+					abbrres = tmpRes;
+					
+					StringParser parser = new StringParser(abbr_tree.Childs[0].Data);
+					string[] translations = parser.ReadItemsList("font-size:12pt;\">", "<");
+					foreach(string trans in translations)
+						abbrres.Translations.Add(trans);
 				}
 			}
 			
