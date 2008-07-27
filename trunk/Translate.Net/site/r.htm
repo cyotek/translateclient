@@ -10,7 +10,12 @@
     <tr>
       <td style="width: 100%;">
 <div align=center>
-Redirecting .... 
+Redirecting ....
+<script type="text/javascript">
+var woopra_id = '1046809932';
+</script>
+<script src="http://static.woopra.com/js/woopra.js"></script>
+
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -26,11 +31,15 @@ if(pageTracker != undefined)
 
 <script type="text/javascript">
 
-function redirectpage(dest){
-if (window.location.replace)
-window.location.replace(dest)
-else
-window.location=dest
+function redirectpage(dest)
+{
+	WoopraEvent("exit",dest);
+	_WaitFor(400);
+
+	if (window.location.replace)
+		window.location.replace(dest)
+	else
+		window.location=dest
 }
 
 function gup( name )
