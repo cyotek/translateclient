@@ -1,0 +1,548 @@
+[TranslationComment]
+
+[TranslatedBy]
+Pix
+[TranslatedByURL]
+pixzinhu@gmail.com
+[Translated by]
+Pix
+[&File]
+&Arquivo
+[Exit from application]
+Sair do programa
+[E&xit]
+&Sair
+[&Edit]
+&Editar
+[Copy selection to clipboard]
+Copiar seleção para a área de trabalho
+[&Copy]
+&Copiar
+[Cut selection to clipboard]
+Recortar seleção para a área de trabalho
+[Cu&t]
+&Recortar
+[Paste from clipboard]
+Colar da área de trabalho
+[&Paste]
+Co&lar
+[Delete selection]
+Deletar seleção
+[&Delete]
+&Deletar
+[Undo last operation]
+Desfazer última operação
+[&Undo]
+Des&fazer
+[Redo last operation]
+Refazer última operação
+[&Redo]
+Refa&zer
+[Select Аll]
+Selecionar Tudo
+[&Select Аll]
+&Selecionar Tudo
+[&Window]
+&Janela
+[Close All]
+Fechar Tudo
+[&Help]
+A&juda
+[&About ...]
+S&obre ...
+[About]
+Sobre
+[Send feedback or bugreport ...]
+Enviar opinião ou reportar problema ...
+[Feedback for :]
+Opinião para :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Insira sua opinião ou reporte de problema aqui (Inglês, Ucraniano, Russo). >>
+[Donate ...]
+Doar ...
+[Online Help]
+Ajuda Online
+[Options]
+Opções
+[Cancel]
+Cancelar
+[Apply]
+Aplicar
+[Minimize]
+Minimizar
+[{0} Updater]
+{0} Atualizador
+[Preparing]
+Preparando
+[Check version]
+Verificar versão
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Baixado {0}Kb de {1}Kb com velocidade de {2}Kb/s
+[Update downloaded]
+Atualização baixada
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Uma nova versão foi baixada. Deseja fechar o Translate.Net e executar o instalador da nova versão?
+[Please select where to save installer of new version which you can run later]
+Por favor, escolha onde deseja salvar o instalador da nova versão a ser executada mais tarde
+[Installer saved to \r\n{0}]
+Instalador salvo para \r\n{0}
+[Update will be run later]
+A atualização será feita mais tarde
+[Check Updates ...]
+Verificar Atualizações ...
+[Updates]
+Atualizações
+[Automatically check updates]
+Verificar atualizações automaticamente
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Atualizado - {0}\r\nÚltima vericação de atualização - {1}, status - {2}\r\nPróxima verificação de atualização - {3}
+[Close]
+Fechar
+[Error on downloading {0}]
+Erro baixando {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} não contém {1} identificador:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} foi formatado erroneamente {1} identificador\r\n{2}
+[Canceled]
+Cancelado
+[Program is up to date]
+O programa está atualizado
+[File {0} already exists]
+O arquivo {0} já existe
+[The server of updates is overloaded. The check of updates will be delayed.]
+O servidor de atualizações está sobrecarregado. A verificação de atualizações será atrasada.
+[Version]
+Versão
+[&Tools]
+&Ferramentas
+[O&ptions...]
+O&pções
+[General]
+Geral
+[UI Language]
+Idioma
+[Network]
+Rede
+[HTTP-Proxy]
+HTTP-Proxy
+[Proxy]
+Proxy
+[Port]
+Porta
+[Timeout]
+Expira em
+[System]
+Sistema
+[Custom]
+Padrão
+[None]
+Nenhum
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+Formato do HTTP-Proxy ({0}) está incorreto. As cofigurações do proxy serão redefinidas para as padrões.
+[Startup]
+Inicialização
+[Autorun in startup]
+Auto-executar na inicialização
+[Minimize to tray]
+Minimar para a bandeja do sistema
+[Tray]
+Bandeja do Sistema
+[Hotkeys]
+Teclas de Atalho
+[Activate on Ctrl+C+C hotkey]
+Ativar com a tecla de atalho Ctrl+C+C
+[Activate on Ctrl+Ins+Ins hotkey]
+Ativar com a tecla de atalho Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Traduzir quando ativado pela tecla de atalho
+[Show query time and other information]
+Exibir tempo de busca e outras informações
+[Mark by red color untranslated words]
+Marcar palavras não traduzidas em vermelho
+[Don't show "Nothing found" results]
+Não exibir resultados "Nada encontrado"
+[Show direction of translation]
+Exibir sentido da tradução
+[Show accents]
+Exibir acentos
+[Show names of services]
+Exibir nomes dos serviços
+[Nothing found]
+Nada encontrado
+[Translation direction is not correct]
+O sentido da tradução não está correto
+[Only cyrillic characters supported]
+Somente caracteres cirílicos são suportados
+[Ukrainian characters in russian query]
+Caracteres ucranianos na busca russa
+[Parse error, start tags not found]
+Erro de análise gramatical, etiquetas iniciais não encontradas
+[Nothing to translate]
+Nada a traduzir
+[Length too big]
+Muito grande o tamanho
+[Wrong data structure]
+Estrutura de dados errada
+[Query contains extraneous symbols]
+A busca contém símbolos estranhos
+[Service version not supported]
+Versão do serviço não suportada
+[Result view]
+Visualização do Resultado
+[Include monolingual dictionaries in translation]
+Incluir dicionários monolíngues na tradução
+[Profile]
+Perfil
+[Profiles]
+Perfis
+[Default]
+Padrão
+[List]
+Lista
+[Add new user profile]
+Adicionar novo perfil de usuário
+[Set profile properties]
+Definir propriedades do perfil
+[Profile name]
+Nome do perfil
+[Translation direction]
+Sentido da tradução
+[Name for new profile you enter already used. Please enter unique name.]
+O nome para o novo perfil que você digitou já está em uso. Por favor, digite um novo nome.
+[Profile name don't set. Please enter profile name.]
+Perfil não definido. Por favor, digite um nome de perfil.
+[Remove user profile]
+Remover perfil do usuário.
+[The profile {0} will be deleted.\r\nAre you sure ?]
+O perfil {0} será removido.\r\nTem certeza ?
+[Move profile up]
+Mover perfil acima
+[Move profile down]
+Mover perfil abaixco
+[Name]
+Nome
+[Edit services]
+Editar serviços
+[Remove service]
+Remover serviço
+[Add selected service]
+Adicionar serviço selecionado
+[Add all services]
+Adicionar todos os serviços
+[Remove all services]
+Remover todos os serviços
+[Services filter]
+Filtro de serviços
+[Available services]
+Serviços disponíveis
+[Selected services]
+Serviços selecionados
+[View]
+Visualizar
+[Show services list]
+Exibir lista de serviços
+[Show languages list]
+Exibir lista de idiomas
+[Show subjects list]
+Exibir lista de assuntos
+[Size]
+Tamanho
+[System font]
+Fonte do sistema
+[Fonts]
+Fontes
+[Input text]
+Entrada de texto
+[To default]
+Para o padrão
+[&Translate]
+&Traduzir
+[Translate]
+Traduzir
+[Size or format of query don't supported by available translation services]
+O tamanho ou o formato da busca não é suportado pelos serviços de tradução disponíveis
+[Reverse translation direction]
+Sentido reverso de tradução
+[Show\\Hide]
+Exibir\\Ocultar
+[Show HTML source]
+Exibir código HTML
+[From]
+De
+[To]
+Para
+[Any Language]
+Qualquer idioma
+[Afrikaans]
+Africanês
+[Autodetect]
+Autodetectar
+[Arabic]
+Árabe
+[Belarusian]
+Bielorusso
+[Bulgarian]
+Búlgaro
+[Chinese]
+Chinês
+[Chinese_CN]
+Chinês_CN
+[Chinese_TW]
+Chinês_TW
+[Croatian]
+Croata
+[Czech]
+Tcheco
+[Danish]
+Dinamarquês
+[Dutch]
+Holandês
+[English]
+Inglês
+[English_GB]
+Inglês_GB
+[English_US]
+Inglês_US
+[Esperanto]
+Esperanto
+[Estonian]
+Estoniano
+[Icelandic]
+Islandês
+[Finnish]
+Finlandês
+[French]
+Francês
+[German]
+Alemão
+[Greek]
+Grego
+[Hindi]
+Hindi
+[Hungarian]
+Húngaro
+[Italian]
+Italiano
+[Japanese]
+Japonês
+[Korean]
+Coreano
+[Latin]
+Latin
+[Latvian]
+Latviano
+[Lithuanian]
+Lituano
+[Macedonian]
+Macedônio
+[Norwegian]
+Norueguês
+[Polish]
+Polonês
+[Portuguese]
+Português
+[Romanian]
+Romeno
+[Russian]
+Russo
+[Serbian]
+Sérbio
+[Slovak]
+Eslovaco
+[Slovenian]
+Esloveno
+[Spanish]
+Espanhol
+[Swedish]
+Sueco
+[Ukrainian]
+Ucraniano
+[Languages]
+Idiomas
+[Services]
+Serviços
+[Enabled]
+Habilitado
+[Error]
+Erro
+[Disabled]
+Desabilitado
+[Move service up]
+Mover serviço acima
+[Move service down]
+Mover serviço abaixo
+[<b>Status</b> : Enabled]
+<b>Status</b> : Habilitado
+[<b>Status</b> : Error]
+<b>Status</b> : Erro
+[<b>Status</b> : Disabled]
+<b>Status</b> : Desabilitado
+[Enable]
+Habilitar
+[Disable]
+Desabilitar
+[Subjects]
+Assuntos
+[Subject]
+Assunto
+[Any]
+Qualquer
+[Common]
+Comum
+[Aviation]
+Aviação
+[Auto]
+Automático
+[Anatomy]
+Anatomia
+[Bank]
+Bancário
+[Bible]
+Bíblia
+[Business]
+Negócios
+[Military]
+Militar
+[Law]
+Leis
+[Informatics]
+Informática
+[Art]
+Arte
+[Space]
+Espacial
+[Socio-political]
+Sócio-político
+[Medicine]
+Medicina
+[Music]
+Música
+[Sex]
+Sexo
+[Sport]
+Esporte
+[Tech]
+Tecnologia
+[Philosophy]
+Filosofia
+[Chemistry]
+Química
+[Economy]
+Economia
+[Electronics]
+Eletrônica
+[Internet]
+Internet
+[Logistics]
+Logística
+[Travel]
+Viagem
+[Football]
+Futebol
+[Phrasebook]
+Livro de Frases
+[Perfumery]
+Perfumaria
+[Type]
+Digite
+[Translator]
+Tradutor
+[Monolingual dictionary]
+Dicionário monolíngue
+[Bilingual dictionary]
+Dicionário bilíngue
+[Dictionary of synonyms]
+Dicionário de sinônimos
+[Dictionary of antonyms]
+Dicionário de antônimos
+[Phraseological dictionary]
+Dicionário de frases
+[Encyclopedia]
+Enciclopédia
+[Search Engine]
+Serviço de Busca
+[Bilingual phrases dictionary]
+Dicionário de frases bilingue
+[Bilingual sentenses dictionary]
+Dicionário de sentenças bilingue
+[T]
+
+[MD]
+
+[BD]
+
+[SD]
+
+[AD]
+
+[PD]
+
+[EN]
+
+[SE]
+
+[BP]
+
+[BS]
+
+[Limit]
+Limite
+[characters]
+caracteres
+[Masks]
+Máscaras
+[English-Ukrainian technical dictionary]
+Dicionário técnico Inglês-Ucraniano
+[Google Translator]
+Google Tradutor
+[<META> Translator]
+<META> Tradutor
+[Free open source machine translation system]
+Sistema gratuito de tradução automática de código aberto
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Dicionário acadêmico ucraniano russo (1924–1933)
+[Large explanatory dictionary of modern Ukrainian]
+Grande dicionário explanatório moderno ucraniano
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - o dicionário multilíngue
+[Russian-Ukrainian dictionary of constant expressions]
+Dicionário Ucraniano-Russo de expressões constantes
+[Pragma 5.x on-line translation]
+Pragma 5.x tradução on-line
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Dicionários On-line Inglês-Ucraniano e Ucraniano-Inglês - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Dicionário Ucraniano-Inglês-Ucraniano - Slovnenya
+[Dictionary of foreign words]
+Dicionário de palavras estrangeiras
+[Dictionaries of Ukraine]
+Dicionários da Ucrânia
+[The free encyclopedia that anyone can edit]
+A enciclopédia livre que qualquer um pode editar
+[The free dictionary that anyone can edit]
+O dicionário livre que qualquer um pode editar
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SOFTWARE de tradução de SYSTRAN (usada pelo Altavista Babel Fish
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Dicionários Polonês-Inglês-Polonês e Polonês-Alemão-Polonês
+[Yahoo Babel Fish Translator]
+Tradutor Yahoo Babel Fish
+[Multitran - system for translators]
+Multitran - sistema para tradutores
+[PROMT - Free Text Translator]
+PROMT - Tradutor de Texto Gratuito
+[Grouped by Service's Url]
+Agrupado por Url do Serviço
+[Grouped by Language]
+Agrupado por Idioma
+[{0} language pairs]
+{0} pares de idiomas
+[{0} services]
+{0} serviços
+[Create article]
+Criar artigo
+[Open article]
+Artigo aberto
+[{0} phrases translated by {1} calls to translate services]
+{0} frases traduzidas por {1} chamada para os serviços de tradução
