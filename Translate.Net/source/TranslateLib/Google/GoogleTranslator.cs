@@ -88,7 +88,7 @@ namespace Translate
 			helper.AddPostData(query);
 			
 			string responseFromServer = helper.GetResponse();
-			result.Translations.Add(StringParser.Parse("<div id=result_box dir=\"ltr\">", "</div>", responseFromServer));
+			result.Translations.Add(StringParser.Parse(">", "<", StringParser.Parse("<div id=result_box dir=", "/div>", responseFromServer)));
 		}
 	}
 }
