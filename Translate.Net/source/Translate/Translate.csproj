@@ -345,5 +345,9 @@
       <Project>{10546C49-8030-488E-A19F-8FC03E73E8A8}</Project>
       <Name>TranslateLib</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebUI\WebUI.csproj">
+      <Project>{E0806918-2B38-45FD-B33A-91680EFC7861}</Project>
+      <Name>WebUI</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

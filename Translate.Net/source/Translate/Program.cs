@@ -101,12 +101,20 @@ namespace Translate
 				KeyboardHook.Init();
 				UpdatesManager.CheckNewVersion();
 				
+				WebUI.ResultsWebServer.UnhandledException += OnUnhandledExceptionEvent; 
+				WebUI.ResultsWebServer.Start();
+				
 				Application.Run(new TranslateMainForm());
 			}
 			catch(Exception e)
 			{
 				Application.OnThreadException(e);
 			}
+		}
+		
+		static void OnUnhandledExceptionEvent(object sender, UnhandledExceptionEventArgs e)
+		{
+			Application.OnThreadException((Exception)e.ExceptionObject);
 		}
 		
 	}
