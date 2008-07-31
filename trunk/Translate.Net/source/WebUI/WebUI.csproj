@@ -1,0 +1,97 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{E0806918-2B38-45FD-B33A-91680EFC7861}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WebUI</RootNamespace>
+    <AssemblyName>Translate.WebUI</AssemblyName>
+    <OutputPath>..\..\bin\</OutputPath>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21}%3b{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>TranslateWebUI.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>0649,0618,0169,0675</NoWarn>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationServer.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="BaseApplicationHost.cs" />
+    <Compile Include="BaseRequestBroker.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GetIcon.aspx.cs">
+      <DependentUpon>GetIcon.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HttpErrors.cs" />
+    <Compile Include="IApplicationHost.cs" />
+    <Compile Include="InitialWorkerRequest.cs" />
+    <Compile Include="IWebSource.cs" />
+    <Compile Include="LingeringNetworkStream.cs" />
+    <Compile Include="MonoWorkerRequest.cs" />
+    <Compile Include="Paths.cs" />
+    <Compile Include="ResultsWebServer.cs" />
+    <Compile Include="ServiceStatus.aspx.cs">
+      <DependentUpon>ServiceStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tracing.cs" />
+    <Compile Include="VPathToHost.cs" />
+    <Compile Include="WebServerGate.cs" />
+    <Compile Include="XSPApplicationHost.cs" />
+    <Compile Include="XSPRequestBroker.cs" />
+    <Compile Include="XSPWebSource.cs" />
+    <Compile Include="XSPWorker.cs" />
+    <Compile Include="XSPWorkerRequest.cs" />
+    <EmbeddedResource Include="Default.aspx" />
+    <EmbeddedResource Include="GetIcon.aspx" />
+    <EmbeddedResource Include="Global.asax" />
+    <None Include="postbuild.cmd" />
+    <EmbeddedResource Include="ServiceStatus.aspx" />
+    <EmbeddedResource Include="Web.config" />
+    <EmbeddedResource Include="WebUI.css" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>call ..\source\webui\postbuild.cmd</PostBuildEvent>
+  </PropertyGroup>
+</Project>

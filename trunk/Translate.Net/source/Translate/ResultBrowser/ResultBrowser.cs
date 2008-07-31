@@ -128,8 +128,9 @@ namespace Translate
 			else
 			{
 				forceCleaning = false;
-				string clean = GetCleanHtml();
-				wBrowser.DocumentText = clean;
+				//string clean = GetCleanHtml();
+				//wBrowser.DocumentText = clean;
+				wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "Default.aspx"));
 			}
 			RecalcSizes();
 			isClean = true;	
@@ -638,20 +639,6 @@ namespace Translate
 			wAdvertBrowser.Navigate(new Uri(Constants.StatsPageUrl + "?" + currentQuery));
 		}
 		
-		void WBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e)
-		{
-			if(e.Url.AbsoluteUri == "about:blank")
-				return;
-			if(e.Url.AbsoluteUri.Contains(Constants.StatsPageUrl))
-				return;
-			if(e.Url.AbsoluteUri.Contains(Constants.ChangeLogPageUrlBase))
-				return;
-				
-			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
-				return;
-			HtmlHelper.OpenUrl(e.Url);
-			e.Cancel = true;
-		}
 		
 		public void ShowSource()
 		{
@@ -946,9 +933,27 @@ namespace Translate
 			}
 		}
 		
+		void WBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e)
+		{
+			//if(e.Url.AbsoluteUri == "about:blank")
+			//	return;
+			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
+				return;
+			if(e.Url.AbsoluteUri.Contains(Constants.StatsPageUrl))
+				return;
+			if(e.Url.AbsoluteUri.Contains(Constants.ChangeLogPageUrlBase))
+				return;
+				
+			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
+				return;
+			HtmlHelper.OpenUrl(e.Url);
+			e.Cancel = true;
+		}
+		
+		
 		void WBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			if(e.Url.AbsoluteUri == "about:blank")
+			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
 			{
 				HtmlHelper.InitDocument(wBrowser.Document);
 			}

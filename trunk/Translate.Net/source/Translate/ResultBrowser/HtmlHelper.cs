@@ -84,10 +84,11 @@ namespace Translate
 			if(doc == null)
 				throw new ArgumentNullException("doc");
 				
-			doc.Body.Style = HtmlHelper.BodyStyle;
+			//doc.Body.Style = HtmlHelper.BodyStyle;
 			
 			//result table
-			CreateTable(doc, doc.Body, "result_table");
+			//CreateTable(doc, doc.Body, "result_table");
+			doc.GetElementById("result_table_body").Style = TableStyle;
 		}
 		
 		public static void CreateTable(HtmlDocument doc, HtmlElement parent, string name)
@@ -170,7 +171,8 @@ namespace Translate
 				serviceItem.Service.Url,
 				serviceItem.Service.Copyright, 
 				ServiceSettingsContainer.GetServiceItemType(serviceItem), 
-				serviceItem.Service.IconUrl);
+				WebUI.ResultsWebServer.GetIconUrl(serviceItem.Service.Name));
+				//serviceItem.Service.IconUrl);
 			return tableCell;
 		}
 		

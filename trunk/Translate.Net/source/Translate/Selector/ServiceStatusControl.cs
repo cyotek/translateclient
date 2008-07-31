@@ -244,9 +244,9 @@ namespace Translate
 			}
 			else
 			{
-				string clean = GetCleanHtml();
-				wbStatus.DocumentText = clean;
-				return;
+				//string clean = GetCleanHtml();
+				//wbStatus.DocumentText = clean;
+				wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
 			}
 			RecalcSizes();
 			isClean = true;	
@@ -287,8 +287,8 @@ namespace Translate
 		void WbStatusDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			HtmlHelper.InitDocument(wbStatus.Document);
-			wbStatus.Document.Body.Style = wbStatus.Document.Body.Style + 
-				";background-color :ButtonHighlight;";
+			//wbStatus.Document.Body.Style = wbStatus.Document.Body.Style + 
+			//	";background-color :ButtonHighlight;";
 			isLoaded = true;
 			RecalcSizes();			
 		}
@@ -367,7 +367,7 @@ namespace Translate
 		
 		void WbStatusNavigating(object sender, WebBrowserNavigatingEventArgs e)
 		{
-			if(e.Url.AbsoluteUri == "about:blank")
+			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
 				return;
 		
 			HtmlHelper.OpenUrl(e.Url);

@@ -65,6 +65,7 @@ namespace Translate
 			foreach(Service s in Manager.Services)
 			{
 				ilServices.Images.Add(s.Name, s.Icon);
+				WebUI.ResultsWebServer.WebServerGate.AddServiceIcon(s.Name, s.Icon);
 			}
 			
 			lvServicesEnabled.Items.Clear();
