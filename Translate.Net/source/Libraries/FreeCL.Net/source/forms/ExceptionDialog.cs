@@ -38,6 +38,7 @@
  
 
 using System;
+using System.IO;
 using System.Windows.Forms;
 using System.Text;
 using System.Diagnostics;
@@ -86,6 +87,13 @@ namespace FreeCL.Forms
 			{
 				exceptionText.Append("ErrorCode : " + externalException.ErrorCode + "\r\n");
 			}
+			
+			FileNotFoundException fileNotFoundException = e as FileNotFoundException;
+			if(fileNotFoundException != null)
+			{
+				exceptionText.Append("Fusion Log \r\n" + fileNotFoundException.FusionLog + "\r\n");			
+			}
+			
 			exceptionText.Append("Stack Trace \r\n" + e.StackTrace + "\r\n");			
 			exceptionText.Append("Source : " + e.Source + "\r\n");						
 			exceptionText.Append("TargetSite : " + e.TargetSite + "\r\n");									
