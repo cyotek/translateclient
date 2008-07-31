@@ -946,6 +946,10 @@ namespace Translate
 				
 			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
 				return;
+				
+			if(e.Url.AbsoluteUri.Contains("http://ads.adbrite.com/adserver/"))
+				return;
+				
 			HtmlHelper.OpenUrl(e.Url);
 			e.Cancel = true;
 		}
