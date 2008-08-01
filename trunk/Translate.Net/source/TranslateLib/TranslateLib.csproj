@@ -111,6 +111,8 @@
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
+    <Compile Include="SeznamCz\SeznamCz.cs" />
+    <Compile Include="SeznamCz\SeznamCzDictionary.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComService.cs" />
     <Compile Include="SlovnykNet\SlovnykNetService.cs" />
@@ -157,6 +159,7 @@
     <EmbeddedResource Include="Yahoo\Service.ico" />
     <EmbeddedResource Include="Multitran\Service.ico" />
     <EmbeddedResource Include="Promt\Service.ico" />
+    <EmbeddedResource Include="SeznamCz\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
   </ItemGroup>
@@ -170,6 +173,7 @@
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
+    <Folder Include="SeznamCz" />
     <Folder Include="Promt" />
     <Folder Include="Yahoo" />
     <Folder Include="Systran" />
