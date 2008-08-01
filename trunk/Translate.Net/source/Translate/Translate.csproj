@@ -303,6 +303,9 @@
     <None Include="lang\Russian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="lang\Spanish.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Ukrainian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
