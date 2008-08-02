@@ -246,7 +246,8 @@ namespace Translate
 			{
 				//string clean = GetCleanHtml();
 				//wbStatus.DocumentText = clean;
-				wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
+				if(WebUI.ResultsWebServer.Uri != null)
+					wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
 			}
 			RecalcSizes();
 			isClean = true;	
