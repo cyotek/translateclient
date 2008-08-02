@@ -98,6 +98,7 @@ namespace Translate
 		Spanish,
 		Swedish,
 		Ukrainian,
+		Urdu,
 		Last
 	}
 	
