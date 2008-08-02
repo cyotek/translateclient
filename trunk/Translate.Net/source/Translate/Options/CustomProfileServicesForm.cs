@@ -206,6 +206,17 @@ namespace Translate
 			LoadSources();	
 		}
 		
+		void SbInvertClick(object sender, EventArgs e)
+		{
+			if(!initialized)
+				return;
+			
+			LanguageDataContainer ldFrom = cbFrom.SelectedItem as LanguageDataContainer;
+			LanguageDataContainer ldTo = cbTo.SelectedItem as LanguageDataContainer;
+			cbFrom.SelectedItem = ldTo;
+			cbTo.SelectedItem = ldFrom;
+		}
+		
 		void ShowStatus(ServiceItemData serviceItemData, ServiceStatusControl statusControl)		
 		{
 			if(serviceItemData == null)
@@ -341,6 +352,7 @@ namespace Translate
 				services.Add(sid);	
 			profile.Services = services;	
 		}
+		
 		
 	}
 }
