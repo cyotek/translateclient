@@ -70,6 +70,7 @@ namespace Translate
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomProfileServicesForm));
 			this.pTop = new System.Windows.Forms.Panel();
 			this.gbFilter = new System.Windows.Forms.GroupBox();
+			this.sbInvert = new FreeCL.UI.SpeedButton();
 			this.cbSubject = new System.Windows.Forms.ComboBox();
 			this.lSubject = new System.Windows.Forms.Label();
 			this.cbTo = new System.Windows.Forms.ComboBox();
@@ -142,6 +143,7 @@ namespace Translate
 			// 
 			// gbFilter
 			// 
+			this.gbFilter.Controls.Add(this.sbInvert);
 			this.gbFilter.Controls.Add(this.cbSubject);
 			this.gbFilter.Controls.Add(this.lSubject);
 			this.gbFilter.Controls.Add(this.cbTo);
@@ -154,6 +156,18 @@ namespace Translate
 			this.gbFilter.TabIndex = 11;
 			this.gbFilter.TabStop = false;
 			this.gbFilter.Text = "Services filter";
+			// 
+			// sbInvert
+			// 
+			this.sbInvert.Image = ((System.Drawing.Image)(resources.GetObject("sbInvert.Image")));
+			this.sbInvert.Location = new System.Drawing.Point(260, 21);
+			this.sbInvert.Name = "sbInvert";
+			this.sbInvert.Selectable = false;
+			this.sbInvert.Size = new System.Drawing.Size(24, 21);
+			this.sbInvert.TabIndex = 16;
+			this.sbInvert.TabStop = false;
+			this.sbInvert.UseVisualStyleBackColor = true;
+			this.sbInvert.Click += new System.EventHandler(this.SbInvertClick);
 			// 
 			// cbSubject
 			// 
@@ -179,7 +193,7 @@ namespace Translate
 			// 
 			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbTo.FormattingEnabled = true;
-			this.cbTo.Location = new System.Drawing.Point(260, 21);
+			this.cbTo.Location = new System.Drawing.Point(290, 21);
 			this.cbTo.Name = "cbTo";
 			this.cbTo.Size = new System.Drawing.Size(110, 21);
 			this.cbTo.Sorted = true;
@@ -518,6 +532,7 @@ namespace Translate
 			this.pBottom.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		public FreeCL.UI.SpeedButton sbInvert;
 		private System.Windows.Forms.GroupBox gbCurrent;
 		private System.Windows.Forms.GroupBox gbSource;
 		private System.Windows.Forms.GroupBox gbFilter;
