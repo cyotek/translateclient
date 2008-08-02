@@ -146,7 +146,36 @@ namespace FreeCL.Forms
 
 		public void Save()
 		{
-			base.Save(OptionsFileName_);
+			try
+			{
+				base.Save(OptionsFileName_);
+			}
+			catch(System.Exception e)
+			{
+				System.InvalidOperationException ioe = e as System.InvalidOperationException;
+				if(ioe != null && ioe.Message.Contains("CS2001") && ioe.Message.Contains("CS2008"))
+				{ 
+					//error with xml serialization
+					//Unhandled exception : System.InvalidOperationException
+					//Message : Unable to generate a temporary class (result=1).
+					//error CS2001: Source file 'C:\Windows\Temp\2cehzm2v.0.cs' could not be found
+					//error CS2008: No inputs specified
+					
+					ErrorMessageBox.Show( 
+						"Error on saving config file to " + OptionsFileName_ + Environment.NewLine + 
+						"Possible reason - denyed write access to system TEMP directory.",
+						"Error on saving config file",
+						e);
+				}
+				else
+				{
+					ErrorMessageBox.Show(
+						"Error on saving config file to " + OptionsFileName_,
+						"Error on saving config file", 
+						e);
+				}		
+				
+			}
 		}
 
 		[NonSerialized]

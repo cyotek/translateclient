@@ -65,7 +65,7 @@ namespace FreeCL.Forms
 		private System.Windows.Forms.PictureBox picApp;
 		
 		private System.Exception Current_;
-		public ExceptionDialog(System.Exception exception)
+		public ExceptionDialog(System.Exception exception, bool infoOnly)
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
@@ -74,6 +74,14 @@ namespace FreeCL.Forms
 			Current_ = exception;
 			
 			InitInfo();
+			
+			if(infoOnly)
+			{
+				bTerminate.Enabled = false;
+				bTerminate.Visible = false;
+				bContinue.Enabled = false;
+				bContinue.Visible = false;
+			}
 		}
 		
 		private static string SingleExceptionText(System.Exception e)
@@ -148,10 +156,15 @@ namespace FreeCL.Forms
 			
 		}
 		
+		public static void ShowException(System.Exception exception)
+		{
+			ShowException(exception, null, false);
+		}
+		
 		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		[SuppressMessage("Microsoft.Globalization", "CA1300:SpecifyMessageBoxOptions")]
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.MessageBox.Show(System.String,System.String,System.Windows.Forms.MessageBoxButtons,System.Windows.Forms.MessageBoxIcon)")]
-		public static void ShowException(System.Exception exception)
+		public static void ShowException(System.Exception exception, IWin32Window owner, bool infoOnly)
 		{
 			GlobalEvents.AllowIdleProcessing = false;
 			try
@@ -167,8 +180,11 @@ namespace FreeCL.Forms
 			DialogResult result = DialogResult.Cancel;
 			try
 			{
-					ExceptionDialog t = new ExceptionDialog(exception);
-					result = t.ShowDialog();
+					ExceptionDialog t = new ExceptionDialog(exception, infoOnly);
+					if(owner == null)
+						result = t.ShowDialog();
+					else
+						result = t.ShowDialog(owner);
 			}
 			catch
 			{
@@ -233,7 +249,7 @@ namespace FreeCL.Forms
 			this.bSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bSend.Location = new System.Drawing.Point(76, 371);
 			this.bSend.Name = "bSend";
-			this.bSend.Size = new System.Drawing.Size(88, 19);
+			this.bSend.Size = new System.Drawing.Size(88, 23);
 			this.bSend.TabIndex = 9;
 			this.bSend.Text = "Send by mail";
 			this.bSend.UseCompatibleTextRendering = true;
@@ -272,7 +288,7 @@ namespace FreeCL.Forms
 			this.bTerminate.DialogResult = System.Windows.Forms.DialogResult.Abort;
 			this.bTerminate.Location = new System.Drawing.Point(458, 371);
 			this.bTerminate.Name = "bTerminate";
-			this.bTerminate.Size = new System.Drawing.Size(88, 19);
+			this.bTerminate.Size = new System.Drawing.Size(88, 23);
 			this.bTerminate.TabIndex = 7;
 			this.bTerminate.Text = "Terminate";
 			this.bTerminate.UseCompatibleTextRendering = true;
@@ -282,7 +298,7 @@ namespace FreeCL.Forms
 			this.bCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bCopy.Location = new System.Drawing.Point(262, 371);
 			this.bCopy.Name = "bCopy";
-			this.bCopy.Size = new System.Drawing.Size(88, 19);
+			this.bCopy.Size = new System.Drawing.Size(88, 23);
 			this.bCopy.TabIndex = 8;
 			this.bCopy.Text = "Copy";
 			this.bCopy.UseCompatibleTextRendering = true;
@@ -294,7 +310,7 @@ namespace FreeCL.Forms
 			this.bContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.bContinue.Location = new System.Drawing.Point(172, 371);
 			this.bContinue.Name = "bContinue";
-			this.bContinue.Size = new System.Drawing.Size(80, 19);
+			this.bContinue.Size = new System.Drawing.Size(80, 23);
 			this.bContinue.TabIndex = 6;
 			this.bContinue.Text = "Continue";
 			this.bContinue.UseCompatibleTextRendering = true;
@@ -324,6 +340,7 @@ namespace FreeCL.Forms
 			this.Controls.Add(this.lMessage);
 			this.Controls.Add(this.picApp);
 			this.MaximizeBox = false;
+			this.MaximumSize = new System.Drawing.Size(572, 434);
 			this.MinimizeBox = false;
 			this.Name = "ExceptionDialog";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

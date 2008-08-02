@@ -57,6 +57,10 @@
     <Compile Include="BaseUserControl.Designer.cs">
       <DependentUpon>BaseUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorMessageBox.cs" />
+    <Compile Include="ErrorMessageBox.Designer.cs">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="LockedGUIForm.cs" />
     <Compile Include="BaseForm.cs" />
     <Compile Include="BaseMainForm.cs" />
@@ -76,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BaseSplashForm.resx">
       <DependentUpon>BaseSplashForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorMessageBox.resx">
+      <DependentUpon>ErrorMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExceptionDialog.resx">
       <DependentUpon>ExceptionDialog.cs</DependentUpon>
