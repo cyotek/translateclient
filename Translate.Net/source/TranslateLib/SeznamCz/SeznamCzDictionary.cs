@@ -99,6 +99,9 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String,System.String)")]
 		static string ConvertLanguage(Language language)
 		{
+			if(language == Language.English_GB || language == Language.English_US)
+				language = Language.English;
+				
 			string result;
 			if(!langToKey.TryGetValue(language, out result))
 				throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
@@ -129,8 +132,7 @@ namespace Translate
 					WebRequestContentType.UrlEncodedGet);
 		
 			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("</strong>&quot; nebylo ve Slovníku nic nalezeno.</h2>") >= 0 ||
-				responseFromServer.IndexOf("</strong>&quot; nebylo ve Slovníku nic nalezeno.</h2>") >= 0)
+			if(responseFromServer.Contains("</strong>&quot; nebylo ve Slovníku nic nalezeno.</h2>"))
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");

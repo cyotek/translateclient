@@ -111,8 +111,8 @@
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
-    <Compile Include="SeznamCz\SeznamCz.cs" />
     <Compile Include="SeznamCz\SeznamCzDictionary.cs" />
+    <Compile Include="SeznamCz\SeznamCzService.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComService.cs" />
     <Compile Include="SlovnykNet\SlovnykNetService.cs" />
@@ -121,6 +121,8 @@
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
     <Compile Include="Systran\SystranService.cs" />
     <Compile Include="Systran\SystranTranslator.cs" />
+    <Compile Include="TiscaliCz\TiscaliCzDictionary.cs" />
+    <Compile Include="TiscaliCz\TiscaliCzService.cs" />
     <Compile Include="TridentComUa\TridentComUaService.cs" />
     <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
     <Compile Include="Ulif\UlifAntonymsDictionary.cs" />
@@ -160,6 +162,7 @@
     <EmbeddedResource Include="Multitran\Service.ico" />
     <EmbeddedResource Include="Promt\Service.ico" />
     <EmbeddedResource Include="SeznamCz\Service.ico" />
+    <EmbeddedResource Include="TiscaliCz\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
   </ItemGroup>
@@ -173,6 +176,7 @@
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
+    <Folder Include="TiscaliCz" />
     <Folder Include="SeznamCz" />
     <Folder Include="Promt" />
     <Folder Include="Yahoo" />
