@@ -133,6 +133,8 @@
     <Compile Include="Ulif\UlifWebService.cs" />
     <Compile Include="UrduenglishdictionaryOrg\UrduenglishdictionaryOrgDictionary.cs" />
     <Compile Include="UrduenglishdictionaryOrg\UrduenglishdictionaryOrgService.cs" />
+    <Compile Include="UrduwordCom\UrduwordComDictionary.cs" />
+    <Compile Include="UrduwordCom\UrduwordComService.cs" />
     <Compile Include="Wiki\WictionaryDictionary.cs" />
     <Compile Include="Wiki\WikiEncyclopediaEngine.cs" />
     <Compile Include="Wiki\WikiSearchEngine.cs" />
@@ -167,6 +169,7 @@
     <EmbeddedResource Include="TiscaliCz\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
+    <EmbeddedResource Include="UrduwordCom\Service.ico" />
     <EmbeddedResource Include="UrduenglishdictionaryOrg\Service.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +182,7 @@
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
+    <Folder Include="UrduwordCom" />
     <Folder Include="UrduenglishdictionaryOrg" />
     <Folder Include="TiscaliCz" />
     <Folder Include="SeznamCz" />
