@@ -142,6 +142,11 @@ namespace Translate
 			HtmlHelper.Wait(wBrowser);
 		}
 		
+		public void Stop()
+		{
+			wBrowser.Stop();
+		}
+		
 		public static string GetCleanHtml()
 		{
 			if(!string.IsNullOrEmpty(cleanHtml))

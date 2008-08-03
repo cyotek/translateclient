@@ -622,9 +622,11 @@ namespace Translate
 			ignoreProfileReposition = false;
 			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
+			resBrowser.Stop();
+			resBrowser.Clear();
+			
 			if(settings.Count > 0)
 			{
-				resBrowser.Clear();
 				activeTranslateState = TranslateManager.TranslateAsync(languageSelector.Selection, tbFrom.Text, settings, TranslateProgressChanged, TranslateCompletedEventHandler);
 				pbMain.Value = 7;
 				pbMain.Visible = true;
@@ -632,7 +634,6 @@ namespace Translate
 			}
 			else
 			{
-				resBrowser.Clear();
 				MessageBox.Show(this, TranslateString("Size or format of query don't supported by available translation services"), Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
 			}
 		}
