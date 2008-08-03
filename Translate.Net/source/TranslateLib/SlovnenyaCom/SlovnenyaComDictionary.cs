@@ -83,7 +83,8 @@ namespace Translate
 			helper.AcceptLanguage = "en-us,en";
 			string responseFromServer = helper.GetResponse();
 			
-			if(responseFromServer.IndexOf("did not return any results</div>") >= 0)
+			if(responseFromServer.Contains("did not return any results</div>") || 
+				responseFromServer.Contains("</span>` did not return any results"))
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
