@@ -87,6 +87,7 @@
     <EmbeddedResource Include="GetIcon.aspx" />
     <EmbeddedResource Include="Global.asax" />
     <None Include="postbuild.cmd" />
+    <EmbeddedResource Include="WebUI.js" />
     <EmbeddedResource Include="ServiceStatus.aspx" />
     <EmbeddedResource Include="Web.config" />
     <EmbeddedResource Include="WebUI.css" />

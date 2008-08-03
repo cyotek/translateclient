@@ -185,5 +185,55 @@ namespace Translate
 			else
 				System.Diagnostics.Process.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
 		}
+		
+		public static void Wait(WebBrowser wBrowser)
+		{
+			while(wBrowser.IsBusy)
+			{
+				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
+
+			while(wBrowser.Document == null)
+			{
+				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
+
+			while(wBrowser.Document.Body == null)
+			{
+				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
+				
+		}
+		
+		public static bool ObjectToBool(object obj)
+		{
+			bool result = false;
+			if(obj != null && obj is bool)
+			{
+				result = (bool)obj;
+			}
+			return result; 
+		}
+		
+		public static bool InvokeScript(WebBrowser wBrowser, string scriptName, Object[] args)
+		{
+			object res = wBrowser.Document.InvokeScript(scriptName, args);
+			bool result = HtmlHelper.ObjectToBool(res);
+			return result;
+		}
+		
+		public static bool RemoveAllChilds(WebBrowser wBrowser)
+		{
+			return InvokeScript(wBrowser, "RemoveAllChilds", new object[]{"result_table_body"});
+		}
+		
+		public static bool RemoveElement(WebBrowser wBrowser, string elementName)
+		{
+			return InvokeScript(wBrowser, "RemoveElement", new object[]{elementName});
+		}
+		
 	}
 }

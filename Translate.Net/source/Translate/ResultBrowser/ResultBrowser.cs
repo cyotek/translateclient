@@ -115,21 +115,22 @@ namespace Translate
 			{ 
 				Wait();	
 				
-				HtmlDocument doc = wBrowser.Document;
-				HtmlElement tableBody = doc.GetElementById("result_table_body");
-				IHTMLDOMNode tableBodyNode = tableBody.DomElement as IHTMLDOMNode;
-				HtmlElementCollection rows =  tableBody.Children;
-				foreach(HtmlElement row in  rows)
+				if(wBrowser.Document != null)
 				{
-					tableBodyNode.RemoveChild(row.DomElement as IHTMLDOMNode);
+					if(!HtmlHelper.RemoveAllChilds(wBrowser))
+					{	//possible disabled javascript or error
+						forceCleaning = true;
+					}	
+					else
+						isClean = true;	//avoid double cleaning
 				}
-				
+				else
+					forceCleaning = true;
 			}
-			else
+			
+			if(wBrowser.Document == null || forceCleaning)
 			{
 				forceCleaning = false;
-				//string clean = GetCleanHtml();
-				//wBrowser.DocumentText = clean;
 				wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "Default.aspx"));
 			}
 			RecalcSizes();
@@ -138,24 +139,7 @@ namespace Translate
 		
 		public void Wait()
 		{
-			while(wBrowser.IsBusy)
-			{
-				Application.DoEvents();
-				System.Threading.Thread.Sleep(100);
-			}	
-
-			while(wBrowser.Document == null)
-			{
-				Application.DoEvents();
-				System.Threading.Thread.Sleep(100);
-			}	
-
-			while(wBrowser.Document.Body == null)
-			{
-				Application.DoEvents();
-				System.Threading.Thread.Sleep(100);
-			}	
-				
+			HtmlHelper.Wait(wBrowser);
 		}
 		
 		public static string GetCleanHtml()
@@ -964,12 +948,7 @@ namespace Translate
 			else
 			{
 				wBrowser.Document.Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
-				HtmlElement header = wBrowser.Document.GetElementById("big_header");
-				if(header != null)
-				{
-					IHTMLDOMNode parent = header.Parent.DomElement as IHTMLDOMNode;
-					parent.RemoveChild(header.DomElement as IHTMLDOMNode);
-				}
+				HtmlHelper.RemoveElement(wBrowser, "big_header");
 			}
 			RecalcSizes();			
 		}

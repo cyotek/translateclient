@@ -124,7 +124,6 @@
     <Compile Include="ResultBrowser\HtmlSourceViewForm.Designer.cs">
       <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResultBrowser\IHTMLDOMNode.cs" />
     <Compile Include="Selector\LanguageDataContainer.cs" />
     <Compile Include="Selector\LanguageSelector.cs" />
     <Compile Include="Selector\LanguageSelector.Designer.cs">
@@ -309,9 +308,7 @@
     <None Include="lang\Ukrainian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <EmbeddedResource Include="Selector\StatusTemplate.html" />
     <None Include="Updates\versions.txt" />
-    <EmbeddedResource Include="ResultBrowser\Template.html" />
     <EmbeddedResource Include="Updates\UpdaterForm.resx">
       <DependentUpon>UpdaterForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -228,45 +228,42 @@ namespace Translate
 			if(isClean)
 				return;
 				
+			bool forceCleaning = false;	
 			if (wbStatus.Document != null)
 			{ 
 				Wait();	
 				
-				HtmlDocument doc = wbStatus.Document;
-				HtmlElement tableBody = doc.GetElementById("result_table_body");
-				IHTMLDOMNode tableBodyNode = tableBody.DomElement as IHTMLDOMNode;
-				HtmlElementCollection rows =  tableBody.Children;
-				foreach(HtmlElement row in  rows)
+				if(wbStatus.Document != null)
 				{
-					tableBodyNode.RemoveChild(row.DomElement as IHTMLDOMNode);
+					if(!HtmlHelper.RemoveAllChilds(wbStatus))
+					{	//possible disabled javascript or error
+						forceCleaning = true;
+					}	
+					else
+						isClean = true;	//avoid double cleaning
 				}
-				
+				else
+					forceCleaning = true;
 			}
-			else
+			
+			if(wbStatus.Document == null || forceCleaning)
 			{
-				//string clean = GetCleanHtml();
-				//wbStatus.DocumentText = clean;
 				if(WebUI.ResultsWebServer.Uri != null)
 					wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
 			}
 			RecalcSizes();
-			isClean = true;	
+			isClean = true;
 		}
 		
 		public void Wait()
 		{
 			while(!isLoaded)
+			{
 				Application.DoEvents();
+				System.Threading.Thread.Sleep(100);
+			}	
 		
-			while(wbStatus.IsBusy)
-				Application.DoEvents();
-
-			while(wbStatus.Document == null)
-				Application.DoEvents();
-
-			while(wbStatus.Document.Body == null)
-				Application.DoEvents();
-				
+			HtmlHelper.Wait(wbStatus);
 		}
 		
 		static string cleanHtml = "";

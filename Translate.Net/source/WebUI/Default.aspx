@@ -17,7 +17,8 @@
 		<meta http-equiv="PRAGMA" content="NO-CACHE" />
 
 		<link href="WebUI.css" type="text/css" rel="stylesheet" />
-		
+		<script type="text/javascript" src="webui.js"></script>
+
 	</head>
 	<body>
 		<form id="Form1" method="post" runat="server">
