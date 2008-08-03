@@ -109,6 +109,7 @@ namespace Translate
 			this.miSetProfileProperties = new System.Windows.Forms.ToolStripMenuItem();
 			this.miEditProfileServices = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsbTranslate = new System.Windows.Forms.ToolStripButton();
+			this.tsbStop = new System.Windows.Forms.ToolStripButton();
 			this.tsSeparatorTranslate = new System.Windows.Forms.ToolStripSeparator();
 			this.miProfiles = new System.Windows.Forms.ToolStripMenuItem();
 			this.miAddProfile2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -180,6 +181,7 @@ namespace Translate
 			this.miOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
 			this.aOnlineHelp = new FreeCL.UI.Actions.Action(this.components);
 			this.timerRecheckServices = new System.Windows.Forms.Timer(this.components);
+			this.aStopTranslate = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -441,6 +443,7 @@ namespace Translate
 			this.il.Images.SetKeyName(15, "minus.16x16.png");
 			this.il.Images.SetKeyName(16, "edit.16x16.png");
 			this.il.Images.SetKeyName(17, "Help.16x16.png");
+			this.il.Images.SetKeyName(18, "stop.16x16.png");
 			// 
 			// al
 			// 
@@ -475,6 +478,7 @@ namespace Translate
 			this.al.Actions.Add(this.aIncludeMonolingualDicts);
 			this.al.Actions.Add(this.aDonate);
 			this.al.Actions.Add(this.aOnlineHelp);
+			this.al.Actions.Add(this.aStopTranslate);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -689,6 +693,7 @@ namespace Translate
 			this.tsTranslate.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
 			this.tsTranslate.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.tsbTranslate,
+									this.tsbStop,
 									this.tsSeparatorTranslate});
 			this.tsTranslate.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.tsTranslate.Location = new System.Drawing.Point(0, 321);
@@ -814,6 +819,19 @@ namespace Translate
 			this.tsbTranslate.Text = "Translate";
 			this.tsbTranslate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.tsbTranslate.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
+			// 
+			// tsbStop
+			// 
+			this.al.SetAction(this.tsbStop, this.aStopTranslate);
+			this.tsbStop.AutoToolTip = false;
+			this.tsbStop.Enabled = false;
+			this.tsbStop.Image = ((System.Drawing.Image)(resources.GetObject("tsbStop.Image")));
+			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.tsbStop.Name = "tsbStop";
+			this.tsbStop.Size = new System.Drawing.Size(49, 20);
+			this.tsbStop.Text = "Stop";
+			this.tsbStop.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsSeparatorTranslate
 			// 
@@ -1466,6 +1484,18 @@ namespace Translate
 			this.timerRecheckServices.Interval = 700;
 			this.timerRecheckServices.Tick += new System.EventHandler(this.TimerRecheckServicesTick);
 			// 
+			// aStopTranslate
+			// 
+			this.aStopTranslate.Checked = false;
+			this.aStopTranslate.Enabled = false;
+			this.aStopTranslate.Hint = null;
+			this.aStopTranslate.ImageIndex = 18;
+			this.aStopTranslate.Shortcut = System.Windows.Forms.Keys.Escape;
+			this.aStopTranslate.Tag = null;
+			this.aStopTranslate.Text = "Stop";
+			this.aStopTranslate.Visible = true;
+			this.aStopTranslate.Execute += new System.EventHandler(this.AStopTranslateExecute);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1521,6 +1551,8 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripButton tsbStop;
+		private FreeCL.UI.Actions.Action aStopTranslate;
 		private System.Windows.Forms.Timer timerRecheckServices;
 		private System.Windows.Forms.ToolStripMenuItem miOnlineHelp;
 		private FreeCL.UI.Actions.Action aOnlineHelp;

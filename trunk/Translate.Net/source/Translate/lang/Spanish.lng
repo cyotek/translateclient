@@ -260,6 +260,10 @@ Por defecto
 &Traducir
 [Translate]
 Traducir
+[Stop current operation]
+
+[Stop]
+
 [Size or format of query don't supported by available translation services]
 El tamaño o el formato de la consulta ne está soportado por los servicios de traducción disponibles
 [Reverse translation direction]

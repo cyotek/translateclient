@@ -188,6 +188,9 @@ namespace Translate
 			aShowMainForm.Text = TranslateString("Show\\Hide");
 			aTranslate.Text = TranslateString("Translate");
 			aTranslate.Hint = TranslateString("Translate");
+			aStopTranslate.Text = TranslateString("Stop");
+			aStopTranslate.Hint = TranslateString("Stop current operation");
+			
 			aInvertTranslationDirection.Hint = TranslateString("Reverse translation direction");
 			
 			//fix bug with tray menu
@@ -249,7 +252,7 @@ namespace Translate
 			aIncludeMonolingualDicts.Hint = TranslateString("Include monolingual dictionaries in translation");
 			aIncludeMonolingualDicts.Text = aIncludeMonolingualDicts.Hint;
 
-			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			for(int i = 3; i < tsTranslate.Items.Count; i++)
 			{
 				UserTranslateProfile pf = tsTranslate.Items[i].Tag as UserTranslateProfile;
 				if(pf == null)
@@ -311,7 +314,7 @@ namespace Translate
 				foreach(FreeCL.UI.Actions.Action a in profileSwitchOnCtrl1Actions)
 					a.Tag = null;
 					
-				while(tsTranslate.Items.Count > 1)
+				while(tsTranslate.Items.Count > 2)
 					tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
 				
 				if(TranslateOptions.Instance.Profiles.Count > 1)
@@ -357,7 +360,7 @@ namespace Translate
 					}
 				}
 				UpdateLanguageSelector();
-				tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 1;
+				tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 2;
 				ignoreProfileReposition = false;
 				profilePositionChanged = false;
 			} 
@@ -656,10 +659,17 @@ namespace Translate
 		
 		AsyncTranslateState activeTranslateState;
 		
+		void AStopTranslateExecute(object sender, EventArgs e)
+		{
+			StopCurrentTranslation(); 
+			resBrowser.Stop();
+		}
+		
 		
 		void ATranslateUpdate(object sender, EventArgs e)
 		{
 			aTranslate.Enabled = tbFrom.Text.Length > 0;	
+			aStopTranslate.Enabled = activeTranslateState != null;
 		}
 		
 		void AInvertTranslationDirectionExecute(object sender, EventArgs e)
@@ -1108,13 +1118,14 @@ namespace Translate
 		bool profilePositionChanged;
 		void CheckOrderOfProfiles()
 		{
-			if(profilePositionChanged && MouseButtons == MouseButtons.None && tsTranslate.Items.Count > 1)
+			if(profilePositionChanged && MouseButtons == MouseButtons.None && tsTranslate.Items.Count > 2)
 			{
 				ignoreProfileReposition = true;
 				LockUpdate(true);
 				try 
 				{
 					tsTranslate.Items.Remove(tsbTranslate);
+					tsTranslate.Items.Remove(tsbStop);
 					tsTranslate.Items.Remove(tsSeparatorTranslate);
 					
 					TranslateOptions.Instance.Profiles.Clear();
@@ -1124,7 +1135,9 @@ namespace Translate
 						TranslateOptions.Instance.Profiles.Add(tsTranslate.Items[i].Tag as TranslateProfile);
 					}
 					tsTranslate.Items.Clear();
+					tsTranslate.Items.Insert(0, tsbStop);
 					tsTranslate.Items.Insert(0, tsbTranslate);
+					
 					UpdateProfiles();
 				} 
 				finally
@@ -1138,7 +1151,7 @@ namespace Translate
 		void TsbTranslateLocationChanged(object sender, EventArgs e)
 		{
 			
-			if(ignoreProfileReposition || tsTranslate.Items.Count == 1)
+			if(ignoreProfileReposition)
 				return;
 			
 			profilePositionChanged = true;
@@ -1148,20 +1161,20 @@ namespace Translate
 
 		void ANextProfileUpdate(object sender, EventArgs e)
 		{
-			aNextProfile.Enabled = tsTranslate.Items.Count != 1;
+			aNextProfile.Enabled = tsTranslate.Items.Count != 2;
 			aPreviousProfile.Enabled = aNextProfile.Enabled;
 		}
 		
 		void ANextProfileExecute(object sender, EventArgs e)
 		{
 			int idx = 0;
-			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			for(int i = 3; i < tsTranslate.Items.Count; i++)
 			{
 				if(tsTranslate.Items[i].Tag == currentProfile)
 				{
 					idx = i + 1;
 					if(idx >= tsTranslate.Items.Count)
-						idx = 2;
+						idx = 3;
 						
 					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
 					return;
@@ -1173,12 +1186,12 @@ namespace Translate
 		void APreviousProfileExecute(object sender, EventArgs e)
 		{
 			int idx = 0;
-			for(int i = 2; i < tsTranslate.Items.Count; i++)
+			for(int i = 3; i < tsTranslate.Items.Count; i++)
 			{
 				if(tsTranslate.Items[i].Tag == currentProfile)
 				{
 					idx = i - 1;
-					if(idx < 2)
+					if(idx < 3)
 						idx = tsTranslate.Items.Count - 1;
 						
 					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
@@ -1270,6 +1283,7 @@ namespace Translate
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
 			
 		}
+		
 		
 		
 		
