@@ -179,6 +179,7 @@ namespace Translate
 			this.miDonate = new System.Windows.Forms.ToolStripMenuItem();
 			this.miOnlineHelp = new System.Windows.Forms.ToolStripMenuItem();
 			this.aOnlineHelp = new FreeCL.UI.Actions.Action(this.components);
+			this.timerRecheckServices = new System.Windows.Forms.Timer(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -1441,7 +1442,6 @@ namespace Translate
 			// miOnlineHelp
 			// 
 			this.al.SetAction(this.miOnlineHelp, this.aOnlineHelp);
-			this.miOnlineHelp.Image = ((System.Drawing.Image)(resources.GetObject("miOnlineHelp.Image")));
 			this.miOnlineHelp.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miOnlineHelp.Name = "miOnlineHelp";
 			this.miOnlineHelp.ShortcutKeyDisplayString = "F1";
@@ -1460,6 +1460,11 @@ namespace Translate
 			this.aOnlineHelp.Text = "Online Help";
 			this.aOnlineHelp.Visible = true;
 			this.aOnlineHelp.Execute += new System.EventHandler(this.AOnlineHelpExecute);
+			// 
+			// timerRecheckServices
+			// 
+			this.timerRecheckServices.Interval = 700;
+			this.timerRecheckServices.Tick += new System.EventHandler(this.TimerRecheckServicesTick);
 			// 
 			// TranslateMainForm
 			// 
@@ -1516,6 +1521,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Timer timerRecheckServices;
 		private System.Windows.Forms.ToolStripMenuItem miOnlineHelp;
 		private FreeCL.UI.Actions.Action aOnlineHelp;
 		private System.Windows.Forms.ToolStripMenuItem miDonate;
