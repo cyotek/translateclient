@@ -55,7 +55,8 @@ namespace WebUI
 		Dictionary<string, Icon> servicesIcons = new Dictionary<string, Icon>();
 		public void AddServiceIcon(string serviceName, Icon icon)
 		{
-			servicesIcons.Add(serviceName, icon);
+			if(!servicesIcons.ContainsKey(serviceName)) //avoid error in design mode
+				servicesIcons.Add(serviceName, icon);
 		}
 		
 		public Icon GetServiceIcon(string serviceName)
