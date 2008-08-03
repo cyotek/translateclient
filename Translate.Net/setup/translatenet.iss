@@ -18,7 +18,7 @@ AppMutex=SAUTRANSLATENET
 UninstallDisplayIcon={app}\Translate.Net.exe
 DefaultDirName={pf}\SAU KP\Translate.Net\
 DefaultGroupName=Translate.Net
-OutputBaseFilename=Translate.Net.{#AppVersion}
+OutputBaseFilename=translate.net.{#AppVersion}
 
 
 Compression=lzma
