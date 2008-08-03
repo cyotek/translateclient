@@ -620,6 +620,13 @@ namespace Translate
 			ignoreProfileReposition = true;
 			tsbTranslate.Image = ((System.Drawing.Image)(resources.GetObject("AnimatedIcon")));
 			ignoreProfileReposition = false;
+			
+			if(timerRecheckServices.Enabled)
+			{ //pending update of services list - force recheck
+				timerRecheckServices.Stop();
+				TimerRecheckServicesTick(sender, e);
+			}
+			
 			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
 			resBrowser.Stop();
@@ -920,9 +927,10 @@ namespace Translate
 			aControlCC.Checked = KeyboardHook.ControlCC;
 			aControlInsIns.Checked = KeyboardHook.ControlInsIns;
 		}
-		
-		void TbFromTextChanged(object sender, EventArgs e)
+
+		void TimerRecheckServicesTick(object sender, EventArgs e)
 		{
+			timerRecheckServices.Stop();
 			LockUpdate(true);
 			try
 			{
@@ -932,7 +940,12 @@ namespace Translate
 			{
 				LockUpdate(false);
 			}
-			
+		}
+		
+		void TbFromTextChanged(object sender, EventArgs e)
+		{
+			timerRecheckServices.Stop();
+			timerRecheckServices.Start();
 		}
 		
 		void AWebsiteExecute(object sender, EventArgs e)
@@ -1257,6 +1270,7 @@ namespace Translate
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
 			
 		}
+		
 		
 		
 	}

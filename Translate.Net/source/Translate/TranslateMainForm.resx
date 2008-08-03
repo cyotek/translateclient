@@ -190,15 +190,6 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="miOnlineHelp.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAJxJREFUOE+dk80N
-        wCAIhd21a/XaEVzDVTz2SAXrD1iI1ISYYN7HEzEEe0E5xnAvEh4JKDwQJmyAHUgXhvOtKnYLAle6q1VF
-        jPkeHz2hw5zzb0inWxDmAh1NToY9xckiHgB6YgbQriN6QH2bh8OEkLhahhgj9UsCVCdSiGKMlpcjyp1M
-        FZvwrWxOJ3tzj3DtSXGwU1H7aeo93V/TEjyDaHdIDtq9zgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="sbMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>414, 17</value>
   </metadata>
@@ -535,6 +526,9 @@
   </metadata>
   <metadata name="timerUpdater.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>209, 54</value>
+  </metadata>
+  <metadata name="timerRecheckServices.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 91</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
