@@ -256,8 +256,23 @@ namespace Translate
 			
 			if(lvMain.Items.Count > 0)
 			{
-				lvMain.Items[0].Selected = true;
-				lvMain.Items[0].Focused = true;
+				try
+				{ //try to avoid unrepeatable bug
+					lvMain.Items[0].Selected = true;
+					lvMain.Items[0].Focused = true;
+				}
+				catch
+				{
+					try
+					{
+						lvMain.Items[0].Selected = true;
+						lvMain.Items[0].Focused = true;
+					}
+					catch
+					{
+					
+					}
+				}
 			}
 			else
 			{
