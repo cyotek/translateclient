@@ -270,6 +270,10 @@ HTTP 代理
 翻译(&T)
 [Translate]
 翻译
+[Stop current operation]
+
+[Stop]
+
 [Size or format of query don't supported by available translation services]
 可用的翻译服务不支持查询的大小或格式
 [Reverse translation direction]
