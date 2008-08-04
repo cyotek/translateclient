@@ -130,6 +130,16 @@ HTTP-Proxy
 Proxy
 [Port]
 Puerto
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 Tiempo de espera
 [System]
@@ -142,7 +152,7 @@ Ningúno
 El formato del HTTP-Proxy ({0})  es incorrecto. Se restableceerán los valores del Proxy a los que tenía por defecto.
 [Startup]
 Iniciar
-[Autorun in startup]
+[Launch at system startup]
 Autoejecutar al iniciar
 [Minimize to tray]
 Minimizar en la barra de tareas
