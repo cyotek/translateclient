@@ -130,6 +130,16 @@ HTTP-Proxy
 Proxy
 [Port]
 Porta
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
 [Timeout]
 Expira em
 [System]
@@ -142,7 +152,7 @@ Nenhum
 Formato do HTTP-Proxy ({0}) está incorreto. As cofigurações do proxy serão redefinidas para as padrões.
 [Startup]
 Inicialização
-[Autorun in startup]
+[Launch at system startup]
 Auto-executar na inicialização
 [Minimize to tray]
 Minimar para a bandeja do sistema
