@@ -190,6 +190,7 @@ namespace Translate
 			aTranslate.Hint = TranslateString("Translate");
 			aStopTranslate.Text = TranslateString("Stop");
 			aStopTranslate.Hint = TranslateString("Stop current operation");
+			tsbStop.DisplayStyle = ToolStripItemDisplayStyle.Image;
 			
 			aInvertTranslationDirection.Hint = TranslateString("Reverse translation direction");
 			
