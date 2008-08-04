@@ -936,7 +936,10 @@ namespace Translate
 			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
 				return;
 				
-			if(e.Url.AbsoluteUri.Contains("http://ads.adbrite.com/adserver/"))
+			if(e.Url.AbsoluteUri.Contains("http://ads.adbrite.com/adserver/display_iab_ads.php"))
+				return;
+
+			if(e.Url.AbsoluteUri.Contains("http://syndication.exoclick.com/ads-iframe-display.php"))
 				return;
 				
 			HtmlHelper.OpenUrl(e.Url);
