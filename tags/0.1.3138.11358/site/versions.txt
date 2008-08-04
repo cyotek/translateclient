@@ -1,0 +1,3 @@
+Version=0.1.3138.11358
+UrlList="http://translateclient.googlecode.com/files/translate.net.0.1.3138.11358.exe"
+

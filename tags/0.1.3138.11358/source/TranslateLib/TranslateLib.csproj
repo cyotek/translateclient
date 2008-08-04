@@ -1,0 +1,204 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{10546C49-8030-488E-A19F-8FC03E73E8A8}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Translate</RootNamespace>
+    <AssemblyName>Translate</AssemblyName>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>TranslateLib.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <NoWarn>3001,3003</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>..\..\bin</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>..\..\bin</OutputPath>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Cache\ResultsCache.cs" />
+    <Compile Include="Core\BilingualDictionary.cs" />
+    <Compile Include="Core\Language.cs" />
+    <Compile Include="Core\Manager.cs" />
+    <Compile Include="Core\MonolingualDictionary.cs" />
+    <Compile Include="Core\NetworkSetting.cs" />
+    <Compile Include="Core\Result.cs" />
+    <Compile Include="Core\Service.cs" />
+    <Compile Include="Core\ServiceItem.cs" />
+    <Compile Include="Core\ServiceItemData.cs" />
+    <Compile Include="Core\ServiceItemSetting.cs" />
+    <Compile Include="Core\ServiceItemSortData.cs" />
+    <Compile Include="Core\StringParser.cs" />
+    <Compile Include="Core\Subject.cs" />
+    <Compile Include="Core\TranslationException.cs" />
+    <Compile Include="Core\Translator.cs" />
+    <Compile Include="Core\WebRequestHelper.cs" />
+    <Compile Include="CybermovaCom\CybermovaComDictionary.cs" />
+    <Compile Include="CybermovaCom\CybermovaComService.cs" />
+    <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
+    <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
+    <Compile Include="DictPl\DictPlDeDictionary.cs" />
+    <Compile Include="DictPl\DictPlEnDictionary.cs" />
+    <Compile Include="DictPl\DictPlService.cs" />
+    <Compile Include="Google\GoogleDictionary.cs" />
+    <Compile Include="Google\GoogleService.cs" />
+    <Compile Include="Google\GoogleTranslator.cs" />
+    <Compile Include="Google\GoogleUtils.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterMedicalDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterSearchEngine.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterService.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterSpEnDictionary.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterThesaurus.cs" />
+    <Compile Include="MerriamWebster\MerriamWebsterUtils.cs" />
+    <Compile Include="MetaUa\MetaUaService.cs" />
+    <Compile Include="MetaUa\MetaUaTranslator.cs" />
+    <Compile Include="Multitran\EucJPStreamFixer.cs" />
+    <Compile Include="Multitran\MultitranDictionary.cs" />
+    <Compile Include="Multitran\MultitranPhrasesDictionary.cs" />
+    <Compile Include="Multitran\MultitranSentensesDictionary.cs" />
+    <Compile Include="Multitran\MultitranService.cs" />
+    <Compile Include="Multitran\MultitranUtils.cs" />
+    <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
+    <Compile Include="PcDigestNet\PcDigestNetService.cs" />
+    <Compile Include="PereOrgUa\PereOrgUaService.cs" />
+    <Compile Include="PereOrgUa\PereOrgUaTranslator.cs" />
+    <Compile Include="ProlingofficeCom\ProlingofficeComService.cs" />
+    <Compile Include="ProlingofficeCom\ProlingofficeDictionary.cs" />
+    <Compile Include="ProlingofficeCom\ProlingofficeSynonymsDictionary.cs" />
+    <Compile Include="ProlingofficeCom\ProlingofficeTranslator.cs" />
+    <Compile Include="Promt\PromtDictionary.cs" />
+    <Compile Include="Promt\PromtService.cs" />
+    <Compile Include="Promt\PromtTranslator.cs" />
+    <Compile Include="Promt\PromtUtils.cs" />
+    <Compile Include="r2uOrgUa\R2uOrgUaDictionary.cs" />
+    <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
+    <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
+    <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
+    <Compile Include="SeznamCz\SeznamCzDictionary.cs" />
+    <Compile Include="SeznamCz\SeznamCzService.cs" />
+    <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
+    <Compile Include="SlovnenyaCom\SlovnenyaComService.cs" />
+    <Compile Include="SlovnykNet\SlovnykNetService.cs" />
+    <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
+    <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
+    <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
+    <Compile Include="Systran\SystranService.cs" />
+    <Compile Include="Systran\SystranTranslator.cs" />
+    <Compile Include="TiscaliCz\TiscaliCzDictionary.cs" />
+    <Compile Include="TiscaliCz\TiscaliCzService.cs" />
+    <Compile Include="TridentComUa\TridentComUaService.cs" />
+    <Compile Include="TridentComUa\TridentComUaTranslator.cs" />
+    <Compile Include="Ulif\UlifAntonymsDictionary.cs" />
+    <Compile Include="Ulif\UlifHelper.cs" />
+    <Compile Include="Ulif\UlifPhraseologicalDictionary.cs" />
+    <Compile Include="Ulif\UlifService.cs" />
+    <Compile Include="Ulif\UlifSynonymsDictionary.cs" />
+    <Compile Include="Ulif\UlifWebService.cs" />
+    <Compile Include="UrduenglishdictionaryOrg\UrduenglishdictionaryOrgDictionary.cs" />
+    <Compile Include="UrduenglishdictionaryOrg\UrduenglishdictionaryOrgService.cs" />
+    <Compile Include="UrduwordCom\UrduwordComDictionary.cs" />
+    <Compile Include="UrduwordCom\UrduwordComService.cs" />
+    <Compile Include="Wiki\WictionaryDictionary.cs" />
+    <Compile Include="Wiki\WikiEncyclopediaEngine.cs" />
+    <Compile Include="Wiki\WikiSearchEngine.cs" />
+    <Compile Include="Wiki\WikipediaService.cs" />
+    <Compile Include="Wiki\WikiUtils.cs" />
+    <Compile Include="Wiki\WiktionarySearchEngine.cs" />
+    <Compile Include="Wiki\WiktionaryService.cs" />
+    <Compile Include="Yahoo\YahooService.cs" />
+    <Compile Include="Yahoo\YahooTranslator.cs" />
+    <EmbeddedResource Include="Google\Service.ico" />
+    <EmbeddedResource Include="MetaUa\Service.ico" />
+    <EmbeddedResource Include="PereOrgUa\Service.ico" />
+    <EmbeddedResource Include="r2uOrgUa\Service.ico" />
+    <EmbeddedResource Include="SlovnykNet\Service.ico" />
+    <EmbeddedResource Include="SlovnykOrg\Service.ico" />
+    <EmbeddedResource Include="DictLinuxOrgUa\Service.ico" />
+    <EmbeddedResource Include="RusUkrIatpOrgUa\Service.ico" />
+    <EmbeddedResource Include="TridentComUa\Service.ico" />
+    <EmbeddedResource Include="CybermovaCom\Service.ico" />
+    <EmbeddedResource Include="SlovnenyaCom\Service.ico" />
+    <EmbeddedResource Include="ProlingofficeCom\Service.ico" />
+    <EmbeddedResource Include="PcDigestNet\Service.ico" />
+    <EmbeddedResource Include="Ulif\Service.ico" />
+    <EmbeddedResource Include="Wiki\Service.ico" />
+    <EmbeddedResource Include="Systran\Service.ico" />
+    <EmbeddedResource Include="DictPl\Service.ico" />
+    <EmbeddedResource Include="MerriamWebster\Service.ico" />
+    <EmbeddedResource Include="Yahoo\Service.ico" />
+    <EmbeddedResource Include="Multitran\Service.ico" />
+    <EmbeddedResource Include="Promt\Service.ico" />
+    <EmbeddedResource Include="SeznamCz\Service.ico" />
+    <EmbeddedResource Include="TiscaliCz\Service.ico" />
+    <None Include="Ulif\generatestub.cmd" />
+    <None Include="Ulif\generatestub.xml" />
+    <EmbeddedResource Include="UrduwordCom\Service.ico" />
+    <EmbeddedResource Include="UrduenglishdictionaryOrg\Service.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core" />
+    <Folder Include="Google" />
+    <Folder Include="MetaUa" />
+    <Folder Include="DictLinuxOrgUa" />
+    <Folder Include="CybermovaCom" />
+    <Folder Include="Cache" />
+    <Folder Include="DictPl" />
+    <Folder Include="MerriamWebster" />
+    <Folder Include="Multitran" />
+    <Folder Include="UrduwordCom" />
+    <Folder Include="UrduenglishdictionaryOrg" />
+    <Folder Include="TiscaliCz" />
+    <Folder Include="SeznamCz" />
+    <Folder Include="Promt" />
+    <Folder Include="Yahoo" />
+    <Folder Include="Systran" />
+    <Folder Include="Wiki" />
+    <Folder Include="Ulif" />
+    <Folder Include="PcDigestNet" />
+    <Folder Include="ProlingofficeCom" />
+    <Folder Include="SlovnenyaCom" />
+    <Folder Include="TridentComUa" />
+    <Folder Include="RusUkrIatpOrgUa" />
+    <Folder Include="r2uOrgUa" />
+    <Folder Include="SlovnykNet" />
+    <Folder Include="SlovnykOrg" />
+    <Folder Include="PereOrgUa" />
+  </ItemGroup>
+</Project>

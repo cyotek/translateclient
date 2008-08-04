@@ -1,0 +1,353 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Translate</RootNamespace>
+    <AssemblyName>Translate.Net</AssemblyName>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ApplicationIcon>icons\translate.net.ico</ApplicationIcon>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Translate.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>../../bin</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE;SPEED_TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs" />
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\InputLanguageManager.cs" />
+    <Compile Include="Common\LangPack.cs" />
+    <Compile Include="Hooks\HookOptions.cs" />
+    <Compile Include="Hooks\HotkeysOptionsControl.cs" />
+    <Compile Include="Hooks\HotkeysOptionsControl.Designer.cs">
+      <DependentUpon>HotkeysOptrionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks\KeyboardHook.cs" />
+    <Compile Include="Options\CustomProfilesControl.cs" />
+    <Compile Include="Options\CustomProfilesControl.Designer.cs">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\CustomProfileServicesForm.cs" />
+    <Compile Include="Options\CustomProfileServicesForm.Designer.cs">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\FontSelectionControl.cs" />
+    <Compile Include="Options\FontSelectionControl.Designer.cs">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\FontsOptions.cs" />
+    <Compile Include="Options\InputFontOptionsControl.cs" />
+    <Compile Include="Options\InputFontOptionsControl.Designer.cs">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\GeneralNetworkOptionsControl.cs" />
+    <Compile Include="Options\GeneralNetworkOptionsControl.Designer.cs">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\NetworkOptions.cs" />
+    <Compile Include="Options\OptionsForm.cs" />
+    <Compile Include="Options\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultViewFontOptionsControl.cs" />
+    <Compile Include="Options\ResultViewFontOptionsControl.Designer.cs">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultWindowOptionControl.cs" />
+    <Compile Include="Options\ResultWindowOptionControl.Designer.cs">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultWindowOptions.cs" />
+    <Compile Include="Options\ServicesListView.cs" />
+    <Compile Include="Options\ServicesListView.Designer.cs">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\SetProfileNameForm.cs" />
+    <Compile Include="Options\SetProfileNameForm.Designer.cs">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\StartupOptionsControl.cs" />
+    <Compile Include="Options\StartupOptionsControl.Designer.cs">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\TrayOptionsControl.cs" />
+    <Compile Include="Options\TrayOptionsControl.Designer.cs">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\DefaultTranslateProfile.cs" />
+    <Compile Include="Profile\TranslateProfile.cs" />
+    <Compile Include="Profile\UserTranslateProfile.cs" />
+    <Compile Include="ResultBrowser\HtmlHelper.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.Designer.cs">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\LanguageDataContainer.cs" />
+    <Compile Include="Selector\LanguageSelector.cs" />
+    <Compile Include="Selector\LanguageSelector.Designer.cs">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\ServiceSettingsContainer.cs" />
+    <Compile Include="Selector\ServiceStatusControl.cs" />
+    <Compile Include="Selector\ServiceStatusControl.Designer.cs">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\SubjectContainer.cs" />
+    <Compile Include="ServicesList\ServicesListHtmlGenerator.cs" />
+    <Compile Include="Statistics\StatManager.cs" />
+    <Compile Include="Statistics\StatOptions.cs" />
+    <Compile Include="TranslateMainForm.cs" />
+    <Compile Include="TranslateMainForm.Designer.cs">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TranslateManager.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.Designer.cs">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdateOptions.cs" />
+    <Compile Include="Updates\UpdaterForm.cs" />
+    <Compile Include="Updates\UpdaterForm.Designer.cs">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdatesManager.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.Designer.cs">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Icons.resx" />
+    <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
+      <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomProfilesControl.resx">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomProfileServicesForm.resx">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\FontSelectionControl.resx">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\GeneralNetworkOptionsControl.resx">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\InputFontOptionsControl.resx">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultViewFontOptionsControl.resx">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ServicesListView.resx">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\SetProfileNameForm.resx">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\StartupOptionsControl.resx">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\TrayOptionsControl.resx">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\HtmlSourceViewForm.resx">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selector\LanguageSelector.resx">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selector\ServiceStatusControl.resx">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslateMainForm.resx">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\ResultBrowser.resx">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\..\site\changelog.data.en.html">
+      <Link>site\changelog.data.en.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.data.ru.html">
+      <Link>site\changelog.data.ru.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.data.uk.html">
+      <Link>site\changelog.data.uk.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.en.html">
+      <Link>site\changelog.en.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.uk.html">
+      <Link>site\changelog.uk.html</Link>
+    </None>
+    <None Include="..\..\site\download.en.html">
+      <Link>site\download.en.html</Link>
+    </None>
+    <None Include="..\..\site\download.uk.html">
+      <Link>site\download.uk.html</Link>
+    </None>
+    <None Include="..\..\site\features.en.html">
+      <Link>site\features.en.html</Link>
+    </None>
+    <None Include="..\..\site\features.uk.html">
+      <Link>site\features.uk.html</Link>
+    </None>
+    <None Include="..\..\site\index.en.html">
+      <Link>site\index.en.html</Link>
+    </None>
+    <None Include="..\..\site\index.uk.html">
+      <Link>site\index.uk.html</Link>
+    </None>
+    <None Include="..\..\site\links.en.html">
+      <Link>site\links.en.html</Link>
+    </None>
+    <None Include="..\..\site\links.uk.html">
+      <Link>site\links.uk.html</Link>
+    </None>
+    <None Include="..\..\site\q.htm">
+      <Link>site\q.htm</Link>
+    </None>
+    <None Include="..\..\site\r.htm">
+      <Link>site\r.htm</Link>
+    </None>
+    <None Include="..\..\site\screenshots.en.html">
+      <Link>site\screenshots.en.html</Link>
+    </None>
+    <None Include="..\..\site\screenshots.uk.html">
+      <Link>site\screenshots.uk.html</Link>
+    </None>
+    <None Include="..\..\site\services.uk.html">
+      <Link>site\services.uk.html</Link>
+    </None>
+    <None Include="..\..\site\support.en.html">
+      <Link>site\support.en.html</Link>
+    </None>
+    <None Include="..\..\site\support.uk.html">
+      <Link>site\support.uk.html</Link>
+    </None>
+    <None Include="..\..\site\versions.txt">
+      <Link>site\versions.txt</Link>
+    </None>
+    <None Include="lang\Chinese %28Simplified%29.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Chinese %28Traditional%29.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\French.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Italian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Original.lng" />
+    <None Include="lang\Portuguese.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Portuguese_1.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Russian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Spanish.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Ukrainian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Updates\versions.txt" />
+    <EmbeddedResource Include="Updates\UpdaterForm.resx">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updates\UpdatesOptionsControl.resx">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Manager" />
+    <Folder Include="Common" />
+    <Folder Include="lang" />
+    <Folder Include="Hooks" />
+    <Folder Include="Statistics" />
+    <Folder Include="ServicesList" />
+    <Folder Include="site" />
+    <Folder Include="Selector" />
+    <Folder Include="Updates" />
+    <Folder Include="Options" />
+    <Folder Include="Profile" />
+    <Folder Include="ResultBrowser" />
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\forms\FreeCL.Forms.csproj">
+      <Project>{4839E07C-B1D6-4058-B32D-DAEDA05B762D}</Project>
+      <Name>FreeCL.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.csproj">
+      <Project>{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}</Project>
+      <Name>FreeCL.RTL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\ui\FreeCL.UI.csproj">
+      <Project>{9E7DB092-177B-43AD-9C2C-4D37BD387164}</Project>
+      <Name>FreeCL.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TranslateLib\TranslateLib.csproj">
+      <Project>{10546C49-8030-488E-A19F-8FC03E73E8A8}</Project>
+      <Name>TranslateLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUI\WebUI.csproj">
+      <Project>{E0806918-2B38-45FD-B33A-91680EFC7861}</Project>
+      <Name>WebUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
