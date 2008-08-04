@@ -73,6 +73,9 @@
     <Compile Include="MonoWorkerRequest.cs" />
     <Compile Include="Paths.cs" />
     <Compile Include="ResultsWebServer.cs" />
+    <Compile Include="ServicesList.aspx.cs">
+      <DependentUpon>ServicesList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ServiceStatus.aspx.cs">
       <DependentUpon>ServiceStatus.aspx</DependentUpon>
     </Compile>
@@ -88,6 +91,7 @@
     <EmbeddedResource Include="GetIcon.aspx" />
     <EmbeddedResource Include="Global.asax" />
     <None Include="postbuild.cmd" />
+    <EmbeddedResource Include="ServicesList.aspx" />
     <EmbeddedResource Include="WebUI.js" />
     <EmbeddedResource Include="ServiceStatus.aspx" />
     <EmbeddedResource Include="Web.config" />

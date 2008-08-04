@@ -79,46 +79,11 @@ namespace Translate
 		{
 			WebBrowser wBrowser = new WebBrowser();
 			wBrowser.CreateControl();
-			wBrowser.Navigate("about:blank");
+			wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServicesList.aspx"));
+			HtmlHelper.Wait(wBrowser);
 			
-			while(wBrowser.IsBusy)
-				Application.DoEvents();
-
-			while(wBrowser.Document == null)
-				Application.DoEvents();
-
-			while(wBrowser.Document.Body == null)
-				Application.DoEvents();
-			
-			string template = ResultBrowser.GetCleanHtml();
-			template = template.Replace("</head>", "</head>\r\n<link rel=\"stylesheet\" type=\"text/css\" href=\"main.css\">");
-			template = template.Replace("Translate.Net result page", "Translate.Net services list");
-			template = template.Replace("<body>", "<body>" +
-				"<script language=\"javascript\">\r\n" +
-				"function treeView(section)\r\n" +
-				"{\r\n" +
-				"  section_element = document.getElementById(section);" +
-				"if(section_element.style.display == 'none')\r\n" +
-				"  section_element.style.display = 'inline';\r\n" +
-				"else\r\n" +
-				"  section_element.style.display = 'none';\r\n" +
-				"}\r\n" +
-				"</script>\r\n" +
-				"<a href=\"http://translateclient.googlepages.com/\">" +
-				"<img style=\"border: 0px solid ;width: 32px; height: 32px;\" alt=\"\" src=\"translate.png\">" + 
-				"</a>"
-				);
 			HtmlDocument doc = wBrowser.Document;
-			doc.Write(template);
-			
-			while(wBrowser.IsBusy)
-				Application.DoEvents();
-
-			while(wBrowser.Document == null)
-				Application.DoEvents();
-
-			while(wBrowser.Document.Body == null)
-				Application.DoEvents();
+			string template = wBrowser.DocumentText;
 			
 			GenerateDocument(doc);
 			int bodyidx = template.IndexOf("<body>");
@@ -214,7 +179,7 @@ namespace Translate
 		{
 			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, parent, first);
 			//icon
-			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, si));
+			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, si, true));
 					
 			//translate			
 			HtmlElement tableCell = doc.CreateElement("TD");
@@ -267,13 +232,26 @@ namespace Translate
 				return;
 			}
 				
+			//count langs without gb\us english 
+			int pairsCount = 0;
+			foreach(LanguagePair lp in si.SupportedTranslations)
+			{
+				if(lp.From != Language.English_GB && lp.From != Language.English_US && 
+					lp.To != Language.English_GB && lp.To != Language.English_US)
+				pairsCount ++;	
+			}
+			
 			string langNodeName = si.FullName + "_langs";
-			htmlString.Append("<br>" + GenerateTopNode(langNodeName, LangPack.TranslateString("Languages") + GetLangsPairsCount(si.SupportedTranslations.Count), 0.5));
+			htmlString.Append("<br>" + GenerateTopNode(langNodeName, LangPack.TranslateString("Languages") + GetLangsPairsCount(pairsCount), 0.5));
 			tableCell.InnerHtml = htmlString.ToString();
 			
 			SortedDictionary<string, SortedDictionary<string, string>> langs = new SortedDictionary<string, SortedDictionary<string, string>>();
 			foreach(LanguagePair lp in si.SupportedTranslations)
 			{
+				if(lp.From == Language.English_GB || lp.From == Language.English_US || 
+					lp.To == Language.English_GB || lp.To == Language.English_US)
+					continue;
+					
 				string fromlang = LangPack.TranslateLanguage(lp.From);
 				SortedDictionary<string, string> inner_list;
 				if(!langs.TryGetValue(fromlang, out inner_list))
@@ -357,8 +335,17 @@ namespace Translate
 
 		static void GenerateListByLangHtml(HtmlElement parent)
 		{
+			//count langs without gb\us english 
+			int pairsCount = 0;
+			foreach(LanguagePair lp in Manager.LanguagePairServiceItems.Keys)
+			{
+				if(lp.From != Language.English_GB && lp.From != Language.English_US && 
+					lp.To != Language.English_GB && lp.To != Language.English_US)
+				pairsCount ++;	
+			}
+		
 			string nodeName = "list_by_lang";
-			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Language") + GetLangsPairsCount(Manager.LanguagePairServiceItems.Count));
+			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Language") + GetLangsPairsCount(pairsCount), 0, true);
 			HtmlDocument doc = parent.Document;
 			HtmlHelper.CreateTable(doc, doc.GetElementById(nodeName), nodeName + "_table");
 			
@@ -366,6 +353,10 @@ namespace Translate
 			
 			foreach(KeyValuePair<LanguagePair, ServiceItemsCollection> kvpData in Manager.LanguagePairServiceItems)
 			{
+				if(kvpData.Key.From == Language.English_GB || kvpData.Key.From == Language.English_US || 
+					kvpData.Key.To == Language.English_GB || kvpData.Key.To == Language.English_US)
+					continue;
+			
 				string fromlang = LangPack.TranslateLanguage(kvpData.Key.From);
 				string tolang = LangPack.TranslateLanguage(kvpData.Key.To);
 				SortedDictionary<string, List<ServiceItem>> inner_list;
