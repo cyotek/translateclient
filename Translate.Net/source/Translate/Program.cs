@@ -63,6 +63,9 @@ namespace Translate
 			{
 				try
 				{
+					WebUI.ResultsWebServer.UnhandledException += OnUnhandledExceptionEvent; 
+					WebUI.ResultsWebServer.Start();
+				
 					ServicesListHtmlGenerator.Generate();
 				}
 				catch(Exception e)

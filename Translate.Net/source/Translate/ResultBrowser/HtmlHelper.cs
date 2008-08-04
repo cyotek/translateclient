@@ -153,8 +153,12 @@ namespace Translate
 		}
 		
 		
-		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
 		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, ServiceItem serviceItem)
+		{
+			return CreateServiceIconCell(doc, serviceItem, false);
+		}
+		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
+		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, ServiceItem serviceItem, bool useOuterIconUrl)
 		{
 			if(doc == null)
 				throw new ArgumentNullException("doc");
@@ -171,8 +175,8 @@ namespace Translate
 				serviceItem.Service.Url,
 				serviceItem.Service.Copyright, 
 				ServiceSettingsContainer.GetServiceItemType(serviceItem), 
+				useOuterIconUrl ? serviceItem.Service.IconUrl : 
 				WebUI.ResultsWebServer.GetIconUrl(serviceItem.Service.Name));
-				//serviceItem.Service.IconUrl);
 			return tableCell;
 		}
 		

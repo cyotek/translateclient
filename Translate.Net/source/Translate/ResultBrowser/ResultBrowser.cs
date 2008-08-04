@@ -79,9 +79,6 @@ namespace Translate
 		    	StatusTextChanged(this, new EventArgs());
 		}
 
-		static string cleanHtml = "";
-		
-		
 		bool isClean;
 		bool forceCleaning;
 		public void Clear()
@@ -145,19 +142,6 @@ namespace Translate
 		public void Stop()
 		{
 			wBrowser.Stop();
-		}
-		
-		public static string GetCleanHtml()
-		{
-			if(!string.IsNullOrEmpty(cleanHtml))
-				return cleanHtml;
-			else
-			{
-				Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Translate.ResultBrowser.Template.html");
-				StreamReader reader = new StreamReader (resourceStream);
-				string result = reader.ReadToEnd ();
-				return result;
-			}
 		}
 		
 
