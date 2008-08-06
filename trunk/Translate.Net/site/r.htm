@@ -1,6 +1,7 @@
 <html>
 <head>
-<meta charset=UTF-8>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Translate.Net Redirect Page</title>
 </head>
 <body style="margin: 0px;">
@@ -10,7 +11,7 @@
     <tr>
       <td style="width: 100%;">
 <div align=center>
-Redirecting ....
+Redirecting to <a id="redir_lnk" href=""></a> ....
 <script type="text/javascript">
 var woopra_id = '1046809932';
 </script>
@@ -39,7 +40,7 @@ function redirectpage(dest)
 	if (window.location.replace)
 		window.location.replace(dest)
 	else
-		window.location=dest
+		window.location=dest;
 }
 
 function gup( name )
@@ -53,9 +54,22 @@ function gup( name )
   else
     return results[1];
 }
-var link = gup('l');
-if(link != "")
-  redirectpage(decodeURIComponent(link));
+
+function process()
+{
+	var link = gup('l');
+	if(link != "")
+	  	redirectpage(decodeURIComponent(link));
+	else
+		redirectpage("http://translateclient.googlepages.com/");
+}
+
+var redir_lnk = document.getElementById('redir_lnk');
+redir_lnk.href = decodeURIComponent(gup('l'));
+redir_lnk.innerHTML = redir_lnk.href;
+
+setTimeout('process()',200);
+
 </script>
 
 
