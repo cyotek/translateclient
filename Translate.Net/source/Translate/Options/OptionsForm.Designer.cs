@@ -91,7 +91,6 @@ namespace Translate
 			this.Name = "OptionsForm";
 			this.Text = "OptionsForm";
 			this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.OptionsFormHelpButtonClicked);
-			this.HelpRequested += new System.Windows.Forms.HelpEventHandler(this.OptionsFormHelpRequested);
 			this.ResumeLayout(false);
 		}
 	}
