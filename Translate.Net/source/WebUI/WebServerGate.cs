@@ -52,6 +52,12 @@ namespace WebUI
 		{
 		}
 		
+		public override object InitializeLifetimeService ()
+		{
+			return null;
+		}
+		
+		
 		Dictionary<string, Icon> servicesIcons = new Dictionary<string, Icon>();
 		public void AddServiceIcon(string serviceName, Icon icon)
 		{
