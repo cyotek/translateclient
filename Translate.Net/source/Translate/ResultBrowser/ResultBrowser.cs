@@ -925,6 +925,15 @@ namespace Translate
 
 			if(e.Url.AbsoluteUri.Contains("http://syndication.exoclick.com/ads-iframe-display.php"))
 				return;
+
+			if(e.Url.AbsoluteUri.Contains("http://ad2.adecn.com/here.spot"))
+				return;
+
+			if(e.Url.AbsoluteUri.Contains("http://eb.adbureau.net/hserver"))
+				return;
+				
+			
+
 				
 			HtmlHelper.OpenUrl(e.Url);
 			e.Cancel = true;
