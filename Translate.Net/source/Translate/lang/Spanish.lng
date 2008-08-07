@@ -156,6 +156,14 @@ Iniciar
 Autoejecutar al iniciar
 [Minimize to tray]
 Minimizar en la barra de tareas
+[When enabled {0} will run when OS started]
+
+[{0} will be minimized to tray when OS started]
+
+[Single Instance]
+
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+
 [Tray]
 Bandeja
 [Hotkeys]

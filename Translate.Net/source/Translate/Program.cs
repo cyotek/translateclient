@@ -42,6 +42,7 @@ using FreeCL.Forms;
 using Application = FreeCL.Forms.Application;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using FreeCL.RTL;
 
 namespace Translate
 {
@@ -74,9 +75,10 @@ namespace Translate
 				}
 				return;
 			}
-		
+			
 			try
 			{
+			
 				ResultsCache.UseCache = true;
 				
 				UpdatesManager.Init();
@@ -100,6 +102,12 @@ namespace Translate
 				OptionsControlsManager.RegisterOptionControl(typeof(CustomProfilesControl), "Profiles", 3, "List", 4);
 				
 				Application.Initialize();
+				
+				if(TranslateOptions.Instance.SingleInstance && ProcessHelper.IsOtherInstanceAlreadyStarted())
+				{
+					ProcessHelper.ActivateOtherInstance(ApplicationInfo.ProductName);
+					return;
+				}	
 				
 				KeyboardHook.Init();
 				UpdatesManager.CheckNewVersion();

@@ -74,11 +74,13 @@ namespace Translate
 		{
 			this.cbAutorun = new System.Windows.Forms.CheckBox();
 			this.cbMinimizeToTray = new System.Windows.Forms.CheckBox();
+			this.cbSingleInstance = new System.Windows.Forms.CheckBox();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.cbSingleInstance);
 			this.pBody.Controls.Add(this.cbMinimizeToTray);
 			this.pBody.Controls.Add(this.cbAutorun);
 			// 
@@ -100,6 +102,15 @@ namespace Translate
 			this.cbMinimizeToTray.Text = "Minimize to tray";
 			this.cbMinimizeToTray.UseVisualStyleBackColor = true;
 			// 
+			// cbSingleInstance
+			// 
+			this.cbSingleInstance.Location = new System.Drawing.Point(13, 73);
+			this.cbSingleInstance.Name = "cbSingleInstance";
+			this.cbSingleInstance.Size = new System.Drawing.Size(373, 24);
+			this.cbSingleInstance.TabIndex = 3;
+			this.cbSingleInstance.Text = "Single Instance";
+			this.cbSingleInstance.UseVisualStyleBackColor = true;
+			// 
 			// StartupOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -108,6 +119,7 @@ namespace Translate
 			this.pBody.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.CheckBox cbSingleInstance;
 		private System.Windows.Forms.CheckBox cbMinimizeToTray;
 		private System.Windows.Forms.CheckBox cbAutorun;
 	}
