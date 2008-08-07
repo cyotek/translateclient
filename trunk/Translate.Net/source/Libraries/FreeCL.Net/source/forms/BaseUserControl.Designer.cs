@@ -66,11 +66,17 @@ namespace FreeCL.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
+			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.SuspendLayout();
 			// 
 			// BaseUserControl
 			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "BaseUserControl";
+			this.ResumeLayout(false);
 		}
+		public System.Windows.Forms.ToolTip toolTip;
 	}
 }
