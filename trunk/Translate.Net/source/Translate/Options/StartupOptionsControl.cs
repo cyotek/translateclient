@@ -42,6 +42,7 @@ using System.Reflection;
 using System.Drawing;
 using System.Windows.Forms;
 using FreeCL.Forms;
+using FreeCL.RTL;
 using Microsoft.Win32;
 
 namespace Translate
@@ -64,7 +65,23 @@ namespace Translate
 		void OnLanguageChanged()
 		{
 			cbAutorun.Text = TranslateString("Launch at system startup");
+			toolTip.SetToolTip(cbAutorun, 
+				string.Format(TranslateString(
+					"When enabled {0} will run when OS started"
+					), ApplicationInfo.ProductName));
+					
 			cbMinimizeToTray.Text = TranslateString("Minimize to tray");
+			toolTip.SetToolTip(cbMinimizeToTray, 
+				string.Format(TranslateString(
+					"{0} will be minimized to tray when OS started"
+					), ApplicationInfo.ProductName));
+			
+			cbSingleInstance.Text = TranslateString("Single Instance");
+			toolTip.SetToolTip(cbSingleInstance, 
+				string.Format(TranslateString(
+					"Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self"
+					), ApplicationInfo.ProductName));
+			
 		}
 
 		string keyName = "HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run";
@@ -79,6 +96,7 @@ namespace Translate
 			
 			options = TranslateOptions.Instance;
 			cbMinimizeToTray.Checked = options.MinimizeToTrayOnStartup;
+			cbSingleInstance.Checked = options.SingleInstance;
 		}
 		
 		public override void Apply()
@@ -94,12 +112,15 @@ namespace Translate
 				 }
 			}
 			options.MinimizeToTrayOnStartup = cbMinimizeToTray.Checked;
+			options.SingleInstance = cbSingleInstance.Checked;
 		}
 		
 		public override bool IsChanged()
 		{
 			cbMinimizeToTray.Enabled = cbAutorun.Checked;
-			return cbAutorun.Checked != initialAutorun || options.MinimizeToTrayOnStartup != cbMinimizeToTray.Checked;
+			return cbAutorun.Checked != initialAutorun || 
+				options.MinimizeToTrayOnStartup != cbMinimizeToTray.Checked ||
+				cbSingleInstance.Checked != options.SingleInstance;
 		}
 		
 	}

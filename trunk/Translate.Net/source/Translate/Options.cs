@@ -123,6 +123,11 @@ namespace Translate
 			set { minimizeToTrayOnStartup = value; }
 		}
 		
+		bool singleInstance = true;
+		public bool SingleInstance {
+			get { return singleInstance; }
+			set { singleInstance = value; }
+		}
 		
 		ResultWindowOptions resultWindowOptions = new ResultWindowOptions();
 		public ResultWindowOptions ResultWindowOptions {
