@@ -81,6 +81,9 @@
     <EmbeddedResource Include="BaseSplashForm.resx">
       <DependentUpon>BaseSplashForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BaseUserControl.resx">
+      <DependentUpon>BaseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ErrorMessageBox.resx">
       <DependentUpon>ErrorMessageBox.cs</DependentUpon>
     </EmbeddedResource>
