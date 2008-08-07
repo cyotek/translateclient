@@ -182,6 +182,7 @@ namespace Translate
 			this.aOnlineHelp = new FreeCL.UI.Actions.Action(this.components);
 			this.timerRecheckServices = new System.Windows.Forms.Timer(this.components);
 			this.aStopTranslate = new FreeCL.UI.Actions.Action(this.components);
+			this.miOnlineHelp2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -414,7 +415,8 @@ namespace Translate
 			this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miProfiles,
 									this.miView,
-									this.miAnimatedIcon});
+									this.miAnimatedIcon,
+									this.miOnlineHelp2});
 			this.msMain.Size = new System.Drawing.Size(615, 24);
 			this.msMain.Text = "";
 			// 
@@ -825,10 +827,9 @@ namespace Translate
 			this.al.SetAction(this.tsbStop, this.aStopTranslate);
 			this.tsbStop.AutoToolTip = false;
 			this.tsbStop.Enabled = false;
-			this.tsbStop.Image = ((System.Drawing.Image)(resources.GetObject("tsbStop.Image")));
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
-			this.tsbStop.Size = new System.Drawing.Size(49, 20);
+			this.tsbStop.Size = new System.Drawing.Size(33, 17);
 			this.tsbStop.Text = "Stop";
 			this.tsbStop.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
@@ -1019,9 +1020,11 @@ namespace Translate
 			// miAnimatedIcon
 			// 
 			this.miAnimatedIcon.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.miAnimatedIcon.AutoToolTip = true;
 			this.miAnimatedIcon.Image = ((System.Drawing.Image)(resources.GetObject("miAnimatedIcon.Image")));
 			this.miAnimatedIcon.Name = "miAnimatedIcon";
 			this.miAnimatedIcon.Size = new System.Drawing.Size(28, 20);
+			this.miAnimatedIcon.Click += new System.EventHandler(this.AWebsiteExecute);
 			// 
 			// lStatus
 			// 
@@ -1496,6 +1499,18 @@ namespace Translate
 			this.aStopTranslate.Visible = true;
 			this.aStopTranslate.Execute += new System.EventHandler(this.AStopTranslateExecute);
 			// 
+			// miOnlineHelp2
+			// 
+			this.miOnlineHelp2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+			this.miOnlineHelp2.AutoToolTip = true;
+			this.miOnlineHelp2.Image = ((System.Drawing.Image)(resources.GetObject("miOnlineHelp2.Image")));
+			this.miOnlineHelp2.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miOnlineHelp2.Name = "miOnlineHelp2";
+			this.miOnlineHelp2.ShortcutKeyDisplayString = "";
+			this.miOnlineHelp2.ShortcutKeys = System.Windows.Forms.Keys.F1;
+			this.miOnlineHelp2.Size = new System.Drawing.Size(28, 20);
+			this.miOnlineHelp2.Click += new System.EventHandler(this.AOnlineHelpExecute);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1510,6 +1525,7 @@ namespace Translate
 			this.Controls.Add(this.pBottom);
 			this.Controls.Add(this.pTop);
 			this.Controls.Add(this.pLeft);
+			this.HelpButton = true;
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MinimumSize = new System.Drawing.Size(400, 400);
 			this.Name = "TranslateMainForm";
@@ -1551,6 +1567,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miOnlineHelp2;
 		private System.Windows.Forms.ToolStripButton tsbStop;
 		private FreeCL.UI.Actions.Action aStopTranslate;
 		private System.Windows.Forms.Timer timerRecheckServices;

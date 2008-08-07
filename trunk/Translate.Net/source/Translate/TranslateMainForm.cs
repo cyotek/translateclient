@@ -170,6 +170,7 @@ namespace Translate
 			
 			UpdateProfiles();
 			
+			miAnimatedIcon.ToolTipText = aWebsite.Text;
 		}
 		
 		List<FreeCL.UI.Actions.Action> profileSwitchOnCtrl1Actions = new List<FreeCL.UI.Actions.Action>();
@@ -207,6 +208,7 @@ namespace Translate
 			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
 			aDonate.Text = TranslateString("Donate ...");
 			aOnlineHelp.Text = TranslateString("Online Help");
+			miOnlineHelp2.ToolTipText = aOnlineHelp.Text;
 			
 			bool visibleDonate = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
 			miHelp.DropDownItems.Remove(miDonate);
