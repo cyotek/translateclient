@@ -9,28 +9,91 @@
 <table style="width: 100%;border-style: inset;border-width: 1pt" border="0" cellpadding="1" cellspacing="0">
   <tbody>
     <tr>
+<td style="text-align: left;vertical-align: center;">
+<a href="/" style="">
+<img style="width: 32px; height: 32px;border: 0px" alt="Translate.Net homepage" title="Translate.Net homepage" src="translate.png" /><b></b>
+</a>
+</td>
+
       <td style="width: 100%;">
-<div align=center>
-Redirecting to <a id="redir_lnk" href=""></a> ....
+<div id="redir_div" align=center>
+Trying to redirect to <a id="redir_lnk" href=""></a> ....
+</div>
+
+<div id="error_div" align=center style="color: red;display: none;">
+Redirecting to <a id="redir_lnk_err" href=""></a>&nbsp; failed. Reason : <span id="reason"></span>
+</div>
+
+
 <script type="text/javascript">
 var woopra_id = '1046809932';
 </script>
 <script src="http://static.woopra.com/js/woopra.js"></script>
 
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+<script type="text/javascript"
+src="ga.js">
 </script>
 <script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-3495794-1");
-if(pageTracker != undefined)
+if(_gat != undefined)
 {
-  pageTracker._initData();
-  pageTracker._trackPageview();
+  var pageTracker = _gat._getTracker("UA-3495794-1");
+  if(pageTracker != undefined)
+  {
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  }
 }
 </script>
 
 <script type="text/javascript">
+
+function UrlList()
+{
+	this.whiteItems = new Array();
+	this.blackItems = new Array();
+
+	this.AddWhite = function(in_url_mask)
+	{
+		if (typeof(in_url_mask) != 'undefined')
+		{
+			this.whiteItems[in_url_mask] = true;;
+		}
+	}
+
+	this.InWhiteList = function(in_url)
+	{
+		if (typeof(in_url) == 'undefined' || in_url == null || in_url == "")
+			return false;
+		for (var i in this.whiteItems)
+		{
+			var mask = i.toLowerCase();
+			if(in_url.toLowerCase().indexOf(mask) == 0)
+				return true;
+		}
+		return false;
+	}
+
+	this.AddBlack = function(in_url_mask, in_url_reason)
+	{
+		if (typeof(in_url_mask) != 'undefined')
+		{
+			this.blackItems[in_url_mask] = in_url_reason;
+		}
+	}
+
+	this.GetBlackReason = function(in_url)
+	{
+		if (typeof(in_url) == 'undefined' || in_url == null || in_url == "")
+			return "";
+		for (var i in this.blackItems)
+		{
+			var mask = i.toLowerCase();
+			if(in_url.toLowerCase().indexOf(mask) == 0)
+				return this.blackItems[i];
+		}
+		return "";
+	}
+}
 
 function redirectpage(dest)
 {
@@ -55,13 +118,46 @@ function gup( name )
     return results[1];
 }
 
+urlList = new UrlList();
+urlList.AddWhite("http://translateclient.googlepages.com");
+
+
+urlList.AddBlack("file:", "Access denied");
+urlList.AddBlack("https:", "Access denied");
+urlList.AddBlack("http://log2.soft.cn.yahoo.com", "Virus actitivity");
+urlList.AddBlack("http://start.megapass.net", "Access denied");
+urlList.AddBlack("http://192.168", "Access denied");
+urlList.AddBlack("http://v.freefl.info", "Virus actitivity");
+
 function process()
 {
 	var link = gup('l');
 	if(link != "")
-	  	redirectpage(decodeURIComponent(link));
-	else
-		redirectpage("http://translateclient.googlepages.com/");
+	{
+		var link = decodeURIComponent(link);
+		if(urlList.InWhiteList(link))
+			redirectpage(link);
+		else
+		{
+			var reason = urlList.GetBlackReason(link);
+			if(reason != "")
+			{  //block
+				document.getElementById('redir_div').style.display="none";
+				document.getElementById('error_div').style.display="";
+				document.getElementById('reason').innerHTML=reason;
+				var redir_lnk = document.getElementById('redir_lnk');
+				var redir_lnk_err = document.getElementById('redir_lnk_err');
+				redir_lnk_err.href = redir_lnk.href;
+				redir_lnk_err.innerHTML = redir_lnk.href;
+			}
+			else
+			{ //ask later
+				redirectpage(link);
+			}
+		}
+	}
+	//else
+	//	redirectpage("../");
 }
 
 var redir_lnk = document.getElementById('redir_lnk');
@@ -73,7 +169,7 @@ setTimeout('process()',200);
 </script>
 
 
-</div>
+
 
       </td>
     </tr>
