@@ -62,6 +62,7 @@
     <Compile Include="Trace.cs" />
     <Compile Include="DateTimeUtils.cs" />
     <Compile Include="Drawing.cs" />
+    <Compile Include="WebBrowserHelper.cs" />
     <Compile Include="WindowHelper.cs" />
     <Compile Include="XMLSerializableObject.cs" />
     <Compile Include="LangPack.cs" />
