@@ -37,17 +37,18 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Text;
-using System.Web; 
 using System.Globalization;
-using System.Resources;
 using System.IO;
 using System.Reflection;
-using System.Collections.Generic;
+using System.Resources;
+using System.Text;
+using System.Web;
+using System.Windows.Forms;
 using Microsoft.Win32;
+using FreeCL.RTL;
 
 namespace Translate
 {
@@ -136,7 +137,7 @@ namespace Translate
 		
 		public void Wait()
 		{
-			HtmlHelper.Wait(wBrowser);
+			WebBrowserHelper.Wait(wBrowser);
 		}
 		
 		public void Stop()
@@ -912,29 +913,46 @@ namespace Translate
 			//	return;
 			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
 				return;
-			if(e.Url.AbsoluteUri.Contains(Constants.StatsPageUrl))
+			if(e.Url.AbsoluteUri.StartsWith(Constants.StatsPageUrl))
 				return;
-			if(e.Url.AbsoluteUri.Contains(Constants.ChangeLogPageUrlBase))
-				return;
-				
-			if(e.Url.AbsoluteUri.Contains("http://pagead2.googlesyndication.com/pagead/ads?"))
+			if(e.Url.AbsoluteUri.StartsWith(Constants.ChangeLogPageUrlBase))
 				return;
 				
-			if(e.Url.AbsoluteUri.Contains("http://ads.adbrite.com/adserver/display_iab_ads.php"))
+			if(e.Url.AbsoluteUri.StartsWith("http://pagead2.googlesyndication.com/pagead/ads?"))
+				return;
+				
+			if(e.Url.AbsoluteUri.StartsWith("http://ads.adbrite.com/adserver/display_iab_ads.php"))
 				return;
 
-			if(e.Url.AbsoluteUri.Contains("http://syndication.exoclick.com/ads-iframe-display.php"))
+			if(e.Url.AbsoluteUri.StartsWith("http://syndication.exoclick.com/ads-iframe-display.php"))
 				return;
 
-			if(e.Url.AbsoluteUri.Contains("http://ad2.adecn.com/here.spot"))
+			if(e.Url.AbsoluteUri.StartsWith("http://ad2.adecn.com/here.spot"))
 				return;
 
-			if(e.Url.AbsoluteUri.Contains("http://eb.adbureau.net/hserver"))
+			if(e.Url.AbsoluteUri.StartsWith("http://eb.adbureau.net/hserver"))
+				return;
+
+			if(e.Url.AbsoluteUri.StartsWith("javascript:"))
+				return;
+
+			if(e.Url.AbsoluteUri.Contains("ieframe.dll"))
+				return;
+
+			if(e.Url.AbsoluteUri.Contains("shdoclc.dll"))
 				return;
 				
 			
 
+			if(e.Url.AbsoluteUri.Contains("mailto:translate.net@gmail.com"))
+			{
+				MailTo.Send(ApplicationInfo.SupportEmail, 
+					LangPack.TranslateString("Feedback for :") + " " + ApplicationInfo.ProductName + " " + ApplicationInfo.ProductVersion,
+					LangPack.TranslateString("<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>"));
+				return;
+			}	
 				
+
 			HtmlHelper.OpenUrl(e.Url);
 			e.Cancel = true;
 		}
@@ -952,6 +970,12 @@ namespace Translate
 				HtmlHelper.RemoveElement(wBrowser, "big_header");
 			}
 			RecalcSizes();			
+		}
+		
+		public string GetSelection()
+		{
+			Wait();			
+			return HtmlHelper.GetSelection(wBrowser);
 		}
 	}
 }

@@ -91,6 +91,11 @@ namespace Translate
 			this.pMain = new FreeCL.UI.Panel();
 			this.resBrowser = new Translate.ResultBrowser();
 			this.msBrowser = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.miBrowserTranslateSel = new System.Windows.Forms.ToolStripMenuItem();
+			this.miBrowserSep2 = new System.Windows.Forms.ToolStripSeparator();
+			this.miBrowserCopy = new System.Windows.Forms.ToolStripMenuItem();
+			this.miBrowserSelectAll = new System.Windows.Forms.ToolStripMenuItem();
+			this.miBrowserSep1 = new System.Windows.Forms.ToolStripSeparator();
 			this.miShowSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitterTranslate = new System.Windows.Forms.Splitter();
 			this.tbFrom = new System.Windows.Forms.TextBox();
@@ -652,9 +657,55 @@ namespace Translate
 			// msBrowser
 			// 
 			this.msBrowser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miBrowserTranslateSel,
+									this.miBrowserSep2,
+									this.miBrowserCopy,
+									this.miBrowserSelectAll,
+									this.miBrowserSep1,
 									this.miShowSourceToolStripMenuItem});
 			this.msBrowser.Name = "browserMenu";
-			this.msBrowser.Size = new System.Drawing.Size(177, 26);
+			this.msBrowser.Size = new System.Drawing.Size(177, 126);
+			this.msBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.MsBrowserOpening);
+			// 
+			// miBrowserTranslateSel
+			// 
+			this.miBrowserTranslateSel.Name = "miBrowserTranslateSel";
+			this.miBrowserTranslateSel.Size = new System.Drawing.Size(176, 22);
+			this.miBrowserTranslateSel.Text = "Translate selection";
+			// 
+			// miBrowserSep2
+			// 
+			this.miBrowserSep2.Name = "miBrowserSep2";
+			this.miBrowserSep2.Size = new System.Drawing.Size(173, 6);
+			// 
+			// miBrowserCopy
+			// 
+			this.al.SetAction(this.miBrowserCopy, this.aEditCopy);
+			this.miBrowserCopy.Image = ((System.Drawing.Image)(resources.GetObject("miBrowserCopy.Image")));
+			this.miBrowserCopy.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miBrowserCopy.Name = "miBrowserCopy";
+			this.miBrowserCopy.ShortcutKeyDisplayString = "Ctrl+C";
+			this.miBrowserCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+			this.miBrowserCopy.Size = new System.Drawing.Size(176, 22);
+			this.miBrowserCopy.Text = "&Copy";
+			this.miBrowserCopy.ToolTipText = "Copy selection to clipboard";
+			// 
+			// miBrowserSelectAll
+			// 
+			this.al.SetAction(this.miBrowserSelectAll, this.aEditSelectAll);
+			this.miBrowserSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("miBrowserSelectAll.Image")));
+			this.miBrowserSelectAll.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miBrowserSelectAll.Name = "miBrowserSelectAll";
+			this.miBrowserSelectAll.ShortcutKeyDisplayString = "Ctrl+A";
+			this.miBrowserSelectAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+			this.miBrowserSelectAll.Size = new System.Drawing.Size(176, 22);
+			this.miBrowserSelectAll.Text = "&Select Аll";
+			this.miBrowserSelectAll.ToolTipText = "Select Аll";
+			// 
+			// miBrowserSep1
+			// 
+			this.miBrowserSep1.Name = "miBrowserSep1";
+			this.miBrowserSep1.Size = new System.Drawing.Size(173, 6);
 			// 
 			// miShowSourceToolStripMenuItem
 			// 
@@ -1567,6 +1618,11 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miBrowserTranslateSel;
+		private System.Windows.Forms.ToolStripMenuItem miBrowserSelectAll;
+		private System.Windows.Forms.ToolStripSeparator miBrowserSep1;
+		private System.Windows.Forms.ToolStripMenuItem miBrowserCopy;
+		private System.Windows.Forms.ToolStripSeparator miBrowserSep2;
 		private System.Windows.Forms.ToolStripMenuItem miOnlineHelp2;
 		private System.Windows.Forms.ToolStripButton tsbStop;
 		private FreeCL.UI.Actions.Action aStopTranslate;

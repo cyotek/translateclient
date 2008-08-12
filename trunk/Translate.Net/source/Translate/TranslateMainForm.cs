@@ -1289,6 +1289,195 @@ namespace Translate
 		
 		
 		
+		class MenuTranslateData
+		{
 		
+			public MenuTranslateData(TranslateProfile translateProfile, string selection, LanguagePair languagePair)
+			{
+				this.translateProfile = translateProfile;
+				this.selection = selection;
+				this.languagePair = languagePair;
+			}
+			
+			TranslateProfile translateProfile;
+			string selection;
+			LanguagePair languagePair;
+			
+			public TranslateProfile Profile {
+				get { return translateProfile; }
+				set { translateProfile = value; }
+			}
+			
+			public string Selection {
+				get { return selection; }
+				set { selection = value; }
+			}
+			
+			public LanguagePair LanguagePair {
+				get { return languagePair; }
+				set { languagePair = value; }
+			}
+			
+		}
+		
+		void MsBrowserOpening(object sender, System.ComponentModel.CancelEventArgs e)
+		{
+			string selection = resBrowser.GetSelection();
+			if(string.IsNullOrEmpty(selection))
+			{
+				miBrowserTranslateSel.Visible = false;
+				miBrowserSep2.Visible = false;
+			}
+			else
+			{
+				selection = selection.Trim();
+				string small_selection = selection;
+				if(small_selection.Length > 25)
+					small_selection = small_selection.Substring(0, 25) + " ...";
+				
+				miBrowserTranslateSel.Visible = true;
+				miBrowserSep2.Visible = true;
+				miBrowserTranslateSel.Text = 
+					TranslateString("Translate") + " «" + small_selection + "»";
+					
+				miBrowserTranslateSel.DropDownItems.Clear();
+				
+				UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+				if(currentProfile == TranslateOptions.Instance.DefaultProfile || 
+					(upf != null && upf.ShowLanguages)
+				)
+				{ //add direct and reverted directions
+					LanguagePair current_dir = languageSelector.Selection;
+					ToolStripMenuItem mi;
+					if(current_dir.To != current_dir.From)
+					{
+						LanguagePair inverted_dir = new LanguagePair(current_dir.To, current_dir.From);
+						if(currentProfile.GetLanguagePairs().Contains(inverted_dir) )
+						{
+							mi = new ToolStripMenuItem();
+							miBrowserTranslateSel.DropDownItems.Add(mi);
+							mi.Text = LangPack.TranslateLanguage(inverted_dir.From) + 
+								"->" + 
+								LangPack.TranslateLanguage(inverted_dir.To);
+							mi.Tag = new MenuTranslateData(currentProfile, selection, inverted_dir);
+							mi.Click += OnMenuTranslate;
+						}
+					}
+					
+					mi = new ToolStripMenuItem();
+					miBrowserTranslateSel.DropDownItems.Add(mi);
+					mi.Text = LangPack.TranslateLanguage(current_dir.From) + 
+						"->" + 
+						LangPack.TranslateLanguage(current_dir.To);
+					mi.Tag = new MenuTranslateData(currentProfile, selection, current_dir);
+					mi.Click += OnMenuTranslate;
+
+				}
+				else if(upf != null && !upf.ShowLanguages)
+				{
+					ToolStripMenuItem mi;
+					mi = new ToolStripMenuItem();
+					miBrowserTranslateSel.DropDownItems.Add(mi);
+					mi.Text = GetProfileName(upf);
+					mi.Tag = new MenuTranslateData(upf, selection, null);
+					mi.Click += OnMenuTranslate;
+				}
+				
+				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
+				{
+					if(currentProfile == pf)
+						continue;
+						
+					upf = pf as UserTranslateProfile;
+					if(pf == TranslateOptions.Instance.DefaultProfile || 
+						(upf != null && upf.ShowLanguages)
+					)
+					{ //add direct and reverted directions
+						LanguagePair current_dir = pf.SelectedLanguagePair;
+						ToolStripMenuItem mi;
+						ToolStripMenuItem parent_mi = miBrowserTranslateSel;
+						if(current_dir.To != current_dir.From)
+						{
+							//add submenu
+							parent_mi = new ToolStripMenuItem();
+							miBrowserTranslateSel.DropDownItems.Add(parent_mi);
+							if(pf == TranslateOptions.Instance.DefaultProfile)
+								parent_mi.Text = TranslateString(pf.Name);
+							else 	
+								parent_mi.Text = pf.Name;
+							
+							LanguagePair inverted_dir = new LanguagePair(current_dir.To, current_dir.From);
+							if(pf.GetLanguagePairs().Contains(inverted_dir) )
+							{
+								mi = new ToolStripMenuItem();
+								parent_mi.DropDownItems.Add(mi);
+								mi.Text = LangPack.TranslateLanguage(inverted_dir.From) + 
+									"->" + 
+									LangPack.TranslateLanguage(inverted_dir.To);
+								mi.Tag = new MenuTranslateData(pf, selection, inverted_dir);
+								mi.Click += OnMenuTranslate;
+							}
+						}
+						
+						mi = new ToolStripMenuItem();
+						parent_mi.DropDownItems.Add(mi);
+						
+						if(parent_mi == miBrowserTranslateSel)
+						{
+							if(pf == TranslateOptions.Instance.DefaultProfile)
+								mi.Text = TranslateString(pf.Name);
+							else 	
+								mi.Text = pf.Name;
+								
+							mi.Text += LangPack.TranslateLanguage(current_dir.From) + 
+								"->" + 
+								LangPack.TranslateLanguage(current_dir.To);
+						}
+						else
+							mi.Text = LangPack.TranslateLanguage(current_dir.From) + 
+								"->" + 
+								LangPack.TranslateLanguage(current_dir.To);
+						
+						mi.Tag = new MenuTranslateData(pf, selection, current_dir);
+						mi.Click += OnMenuTranslate;
+	
+					}
+					else if(upf != null && !upf.ShowLanguages)
+					{
+						ToolStripMenuItem mi;
+						mi = new ToolStripMenuItem();
+						miBrowserTranslateSel.DropDownItems.Add(mi);
+						mi.Text = GetProfileName(upf);
+						mi.Tag = new MenuTranslateData(upf, selection, null);
+						mi.Click += OnMenuTranslate;
+					}
+						
+				}
+			}
+		}
+		
+		void OnMenuTranslate(object sender, EventArgs e)					
+		{
+			ToolStripMenuItem mi = sender as ToolStripMenuItem;
+			if(mi == null)
+				return;
+				
+			object tag = mi.Tag;
+			MenuTranslateData data = tag as MenuTranslateData;
+			if(data != null)
+			{  //default
+				ActivateProfile(data.Profile);
+				UserTranslateProfile upf = data.Profile as UserTranslateProfile;
+				if(data.Profile == TranslateOptions.Instance.DefaultProfile || 
+					(upf != null && upf.ShowLanguages && data.LanguagePair != null)
+				)
+				{
+					languageSelector.Selection = data.LanguagePair;
+				}
+				UpdateCaption();
+				tbFrom.Text = data.Selection;
+				ATranslateExecute(sender, e);
+			}
+		}
 	}
 }

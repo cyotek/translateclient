@@ -544,6 +544,29 @@
   <metadata name="msBrowser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>326, 54</value>
   </metadata>
+  <data name="miBrowserCopy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAeZJREFUOE+lk9FP
+        UmEYxv1TSsecde0f0FpZrTbbal7URVvZuuJCr7pq2WzLNWy0iSHNwtIBdlBaS2npMIk0g0TKwEnmDBbK
+        zlESQdBfnI8lQRu4+W3PxXe+5/2973POd6qqDrocE99QJY0HhCwjXvocHwgv/2JfbLW41Gge9nC97TnB
+        xeXKEPtYoMiU3dmlq/8NTneASy2dlSGWUZ8AOEMgfQZ/WOGh+TXSpIJtQsbqknkyKqMfigsFV9LFU/U5
+        PHsP0ttZlI0UkVhCAEqjtQ+sUt/sxrewXjgz2Vxi0+veRjeicFv6SevTMP1v1/4DtBhjOKYUjjYN82k+
+        nj835PKquTeTGVblJEuRdb6G1zC9igpDh5RFlT/X9YouypGml9RdGKS28VkeoObdSmX2OmtNIW4YvvDA
+        ulQ0gfI7w8LKFu65DYzSDJpzjwsAJZFi/nsMXzCCx/+D8Y+LtPXmP++tgQRaQ5TL90OcvzMrZJSm0Zzp
+        LgDqT1+lVK36WWHI5OLF5Axz4U3GvAr2d3EeDXqoadCXvyPX2qeE4d/Ofyfotr2n+oSuPODiTRfJ9A6m
+        IS899hmML6ZFZ7XYYJnk8PF75QENWmfubVuFahvNaM72UHOqi+qTnbniDg4du1v5mu/rZzqo6Q+lwH90
+        m1/VwgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="miBrowserSelectAll.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAF1JREFUOE9jYBiU
+        QMZ95n90h2ETw+p4fAoJGgJSQAzGaTNMM65wRTYcRQ2xtqKrAxuCTTMxLoC7FpcB2GzDaRkxirG5Fmc4
+        EOMFgjGBL2Dxpn6KEhLMZIqSMt0zJwBv4rBEKXiIfwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="tsTranslate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>102, 54</value>
   </metadata>
