@@ -37,17 +37,18 @@
 #endregion
 
 
+using FreeCL.RTL;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Text;
-using System.Web; 
 using System.Globalization;
-using System.Resources;
 using System.IO;
 using System.Reflection;
-using System.Collections.Generic;
+using System.Resources;
+using System.Text;
+using System.Web;
+using System.Windows.Forms;
 using Microsoft.Win32;
 
 namespace Translate
@@ -263,7 +264,7 @@ namespace Translate
 				System.Threading.Thread.Sleep(100);
 			}	
 		
-			HtmlHelper.Wait(wbStatus);
+			WebBrowserHelper.Wait(wbStatus);
 		}
 		
 		static string cleanHtml = "";

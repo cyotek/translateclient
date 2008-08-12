@@ -37,18 +37,18 @@
 #endregion
 
 
+using FreeCL.RTL;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Windows.Forms;
-using System.Text;
-using System.Web; 
 using System.Globalization;
-using System.Resources;
 using System.IO;
 using System.Reflection;
-using System.Collections.Generic;
-
+using System.Resources;
+using System.Text;
+using System.Web;
+using System.Windows.Forms;
 
 namespace Translate
 {
@@ -80,7 +80,7 @@ namespace Translate
 			WebBrowser wBrowser = new WebBrowser();
 			wBrowser.CreateControl();
 			wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServicesList.aspx"));
-			HtmlHelper.Wait(wBrowser);
+			WebBrowserHelper.Wait(wBrowser);
 			
 			HtmlDocument doc = wBrowser.Document;
 			string template = wBrowser.DocumentText;

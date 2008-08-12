@@ -30,3 +30,28 @@ function RemoveElement(name)
 	}
 	return false;
 }
+
+function GetCurrentSelection() 
+{
+	if (document.getSelection) 
+	{
+		var str = document.getSelection();
+		if (window.RegExp) 
+		{
+			var regstr = unescape("%20%20%20%20%20");
+			var regexp = new RegExp(regstr, "g");
+			str = str.replace(regexp, "");
+		}
+	} 
+	else if (document.selection && document.selection.createRange) 
+	{
+		var range = document.selection.createRange();
+		var str = range.text;
+	} 
+	else
+	{
+		var str = "";//"Sorry, this is not possible with your browser.";
+	}
+	return str;
+}
+
