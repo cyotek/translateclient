@@ -1,0 +1,579 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Sun Minghao
+[TranslatedByURL]
+minghao.sun@gmail.com
+[Translated by]
+
+[&File]
+文件(&F)
+[Exit from application]
+退出应用程序
+[E&xit]
+退出(&X)
+[&Edit]
+编辑(&E)
+[Copy selection to clipboard]
+复制选择的内容到剪贴板
+[&Copy]
+复制(&C)
+[Cut selection to clipboard]
+剪切选择的内容到剪贴板
+[Cu&t]
+剪切(&T)
+[Paste from clipboard]
+从剪贴板粘贴
+[&Paste]
+粘贴(&P)
+[Delete selection]
+删除选择的内容
+[&Delete]
+删除(&D)
+[Undo last operation]
+撤销上一次操作
+[&Undo]
+撤销(&U)
+[Redo last operation]
+重做上一次操作
+[&Redo]
+重做(&R)
+[Select Аll]
+选择全部
+[&Select Аll]
+选择全部(&S)
+[&Window]
+窗口(&W)
+[Close All]
+关闭全部
+[&Help]
+帮助(&H)
+[&About ...]
+关于(&A)...
+[About]
+关于
+[Send feedback or bugreport ...]
+发送反馈或错误报告...
+[Feedback for :]
+反馈：
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< 请在这里输入您的反馈或错误报告（只限英语、乌克兰语或俄语）。 >>
+[Donate ...]
+
+[Online Help]
+
+[Options]
+选项
+[Cancel]
+取消
+[Apply]
+应用
+[Minimize]
+最小化
+[{0} Updater]
+{0} 更新
+[Preparing]
+正在准备
+[Check version]
+检查版本
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+已下载 {0}Kb 总共 {1}Kb 速度 {2}Kb/s
+[Update downloaded]
+已下载更新
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+新版本已下载。您是否想要结束 Translate.Net 并运行新版本的安装程序？
+[Please select where to save installer of new version which you can run later]
+请选择新版本安装程序的保存位置以便您稍后使用。
+[Installer saved to \r\n{0}]
+安装程序保存到\r\n{0}
+[Update will be run later]
+更新将在稍后运行
+[Check Updates ...]
+检查更新...
+[Updates]
+更新
+[Automatically check updates]
+自动检查更新
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+已更新 - {0}\r\n最后一次检查更新 - {1}，状态 - {2}\r\n下一次检查更新 - {3}
+[Close]
+关闭
+[Error on downloading {0}]
+下载 {0} 时发生错误
+[{0} don't contained {1} tag:\r\n{2}]
+{0} 没有包含 {1} 标签：\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} 使用了错误格式的 {1} 标签：\r\n{2}
+[Canceled]
+已取消
+[Program is up to date]
+程序已更新
+[File {0} already exists]
+文件 {0} 已存在
+[The server of updates is overloaded. The check of updates will be delayed.]
+
+[Version]
+版本
+[&Tools]
+工具(&T)
+[O&ptions...]
+选项(&P)...
+[General]
+常规
+[UI Language]
+界面语言
+[Network]
+网络
+[HTTP-Proxy]
+HTTP 代理
+[Proxy]
+代理
+[Port]
+端口
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
+[Timeout]
+超时
+[System]
+系统
+[Custom]
+自定义
+[None]
+无
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
+[Startup]
+启动
+[Launch at system startup]
+启动时自动运行
+[Minimize to tray]
+最小化到系统托盘
+[When enabled {0} will run when OS started]
+
+[{0} will be minimized to tray when OS started]
+
+[Single Instance]
+
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+
+[Tray]
+系统托盘
+[Hotkeys]
+热键
+[Activate on Ctrl+C+C hotkey]
+按下 Ctrl+C+C 时激活
+[Activate on Ctrl+Ins+Ins hotkey]
+按下 Ctrl+Ins+Ins 时激活
+[Translate when activated by hotkey]
+用热键激活时进行翻译
+[Show query time and other information]
+显示查询时间及其它信息
+[Mark by red color untranslated words]
+将未翻译的词标记为红色
+[Don't show "Nothing found" results]
+不显示“未找到”的结果
+[Show direction of translation]
+显示翻译方式
+[Show accents]
+显示音标
+[Show names of services]
+显示服务名称
+[Nothing found]
+未找到
+[Translation direction is not correct]
+翻译方式不正确
+[Only cyrillic characters supported]
+只支持西里尔字符
+[Ukrainian characters in russian query]
+在俄语查询中使用乌克兰语字符
+[Parse error, start tags not found]
+解析错误，没有找到起始标签
+[Nothing to translate]
+没有翻译内容
+[Length too big]
+内容过长
+[Wrong data structure]
+数据结构不正确
+[Query contains extraneous symbols]
+查询包含外部符号
+[Service version not supported]
+服务版本不支持
+[Result view]
+查看结果
+[Include monolingual dictionaries in translation]
+翻译中只包含一种语言字典
+[Profile]
+配置文件
+[Profiles]
+配置文件
+[Default]
+默认
+[List]
+列表
+[Add new user profile]
+添加新的用户配置文件
+[Set profile properties]
+设置配置文件属性
+[Profile name]
+配置文件名称
+[Translation direction]
+翻译方式
+[Name for new profile you enter already used. Please enter unique name.]
+您输入的配置文件名称已被使用。请输入一个唯一的名称。
+[Profile name don't set. Please enter profile name.]
+没有输入配置文件名称。请输入配置文件名称。
+[Remove user profile]
+移除用户配置文件
+[The profile {0} will be deleted.\r\nAre you sure ?]
+配置文件 {0} 将被删除。\r\n是否确认？
+[Move profile up]
+向上移动配置文件
+[Move profile down]
+向下移动配置文件
+[Name]
+名称
+[Edit services]
+编辑服务
+[Remove service]
+移除服务
+[Add selected service]
+添加选择的服务
+[Add all services]
+添加全部服务
+[Remove all services]
+移除全部服务
+[Services filter]
+服务过滤器
+[Available services]
+可用服务
+[Selected services]
+已选服务
+[View]
+查看
+[Show services list]
+显示服务列表
+[Show languages list]
+显示语言列表
+[Show subjects list]
+显示标题列表
+[Size]
+大小
+[System font]
+系统字体
+[Fonts]
+字体
+[Input text]
+输入文本
+[To default]
+恢复默认
+[&Translate]
+翻译(&T)
+[Translate]
+翻译
+[Stop current operation]
+
+[Stop]
+
+[Size or format of query don't supported by available translation services]
+可用的翻译服务不支持查询的大小或格式
+[Reverse translation direction]
+反向翻译
+[Show\\Hide]
+显示\\隐藏
+[Show HTML source]
+显示 HTML 源代码
+[From]
+从
+[To]
+到
+[Any Language]
+所有语言
+[Afrikaans]
+
+[Autodetect]
+
+[Arabic]
+阿拉伯语
+[Belarusian]
+白俄罗斯语
+[Bulgarian]
+保加利亚语
+[Chinese]
+中文
+[Chinese_CN]
+中文（简体）
+[Chinese_TW]
+中文（繁体）
+[Croatian]
+克罗地亚语
+[Czech]
+捷克语
+[Danish]
+丹麦语
+[Dutch]
+荷兰语
+[English]
+英语
+[English_GB]
+英语（英式）
+[English_US]
+英语（美式）
+[Esperanto]
+世界语
+[Estonian]
+爱沙尼亚语
+[Icelandic]
+冰岛语
+[Finnish]
+芬兰语
+[French]
+法语 
+[German]
+德语
+[Greek]
+希腊语
+[Hindi]
+
+[Hungarian]
+匈牙利语
+[Italian]
+意大利语
+[Japanese]
+日语
+[Korean]
+韩语
+[Latin]
+拉丁语
+[Latvian]
+拉脱维亚语
+[Lithuanian]
+立陶宛语
+[Macedonian]
+马其顿语
+[Norwegian]
+挪威语
+[Polish]
+波兰语
+[Portuguese]
+葡萄牙语
+[Romanian]
+罗马尼亚语
+[Russian]
+俄语
+[Serbian]
+塞尔维亚语
+[Slovak]
+斯洛伐克语
+[Slovenian]
+斯洛文尼亚语
+[Spanish]
+西班牙语
+[Swedish]
+瑞典语
+[Ukrainian]
+乌克兰语
+[Urdu]
+
+[Languages]
+语言
+[Services]
+服务
+[Enabled]
+启用
+[Error]
+错误
+[Disabled]
+禁用
+[Move service up]
+向上移动服务
+[Move service down]
+向下移动服务
+[<b>Status</b> : Enabled]
+<b>状态</b>：启用
+[<b>Status</b> : Error]
+<b>状态</b>：错误
+[<b>Status</b> : Disabled]
+<b>状态</b>：禁用
+[Enable]
+启用
+[Disable]
+禁用
+[Subjects]
+标题
+[Subject]
+标题
+[Any]
+全部
+[Common]
+公共
+[Aviation]
+航空
+[Auto]
+汽车
+[Anatomy]
+解剖学
+[Bank]
+银行
+[Bible]
+圣经
+[Business]
+商业
+[Military]
+军事
+[Law]
+法律
+[Informatics]
+信息学
+[Art]
+艺术
+[Space]
+空间
+[Socio-political]
+社会政治
+[Medicine]
+医学
+[Music]
+音乐
+[Sex]
+性
+[Sport]
+运动
+[Tech]
+技术
+[Philosophy]
+哲学
+[Chemistry]
+化学
+[Economy]
+经济
+[Electronics]
+电子
+[Internet]
+互联网
+[Logistics]
+物流
+[Travel]
+旅行
+[Football]
+足球
+[Phrasebook]
+短语
+[Perfumery]
+香水
+[Type]
+类型
+[Translator]
+翻译
+[Monolingual dictionary]
+单一语言词典
+[Bilingual dictionary]
+双语词典
+[Dictionary of synonyms]
+同意词典
+[Dictionary of antonyms]
+反意词典
+[Phraseological dictionary]
+熟语词典
+[Encyclopedia]
+百科全书
+[Search Engine]
+搜索引擎
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+
+[BS]
+
+[Limit]
+限制
+[characters]
+字符
+[Masks]
+掩饰
+[English-Ukrainian technical dictionary]
+英语-乌克兰语 技术词典
+[Google Translator]
+Google 翻译
+[<META> Translator]
+<META> 翻译
+[Free open source machine translation system]
+免费的开源翻译系统
+[Russian-Ukrainian academic dictionary (1924–1933)]
+俄语-乌克兰语 学术词典（1924-1933）
+[Large explanatory dictionary of modern Ukrainian]
+现代乌克兰语大辞典
+[Slovnyk - the multilanguage dictionary]
+斯洛伐克 - 多语言词典
+[Russian-Ukrainian dictionary of constant expressions]
+常数表达式 俄语-乌克兰语 词典
+[Pragma 5.x on-line translation]
+Pragma 5.x 在线翻译
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+英语-乌克兰语 双向在线词典 - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+英语-乌克兰语 双向词典 - Slovnenya
+[Dictionary of foreign words]
+外来词字典
+[Dictionaries of Ukraine]
+乌克兰字典
+[The free encyclopedia that anyone can edit]
+任何人都可以编辑的免费百科全书
+[The free dictionary that anyone can edit]
+任何人都可以编辑的免费字典
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN 翻译软件（使用 Altavista Babel Fish）
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+
+[Yahoo Babel Fish Translator]
+
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
+
+[LangSoft Translation & Educational Software]
+
+[Tiscali - Czech oriented dictionary]
+
+[Free Online Urdu-English Dictionary]
+
+[Online English-to-Urdu and Urdu-to-English dictionary]
+
+[Grouped by Service's Url]
+Grouped by Service's Url
+[Grouped by Language]
+Grouped by Language
+[{0} language pairs]
+{0} language pairs
+[{0} services]
+{0} 服务
+[Create article]
+创建项目
+[Open article]
+开放项目
+[{0} phrases translated by {1} calls to translate services]
