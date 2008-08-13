@@ -1,4 +1,4 @@
-﻿[TranslationComment]
+[TranslationComment]
 
 [TranslatedBy]
 Pix
@@ -131,15 +131,15 @@ Proxy
 [Port]
 Porta
 [Enable Authentication]
-
+Habilitar Autenticação
 [User]
-
+Usuário
 [Password]
-
+Senha
 [Use NTLM Authentication]
-
+Usar Autenticação NTLM
 [Domain]
-
+Domínio
 [Timeout]
 Expira em
 [System]
@@ -156,14 +156,6 @@ Inicialização
 Auto-executar na inicialização
 [Minimize to tray]
 Minimar para a bandeja do sistema
-[When enabled {0} will run when OS started]
-
-[{0} will be minimized to tray when OS started]
-
-[Single Instance]
-
-[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
 [Tray]
 Bandeja do Sistema
 [Hotkeys]
@@ -279,9 +271,9 @@ Para o padrão
 [Translate]
 Traduzir
 [Stop current operation]
-
+Parar operação atual
 [Stop]
-
+Parar
 [Size or format of query don't supported by available translation services]
 O tamanho ou o formato da busca não é suportado pelos serviços de tradução disponíveis
 [Reverse translation direction]
@@ -557,13 +549,13 @@ Multitran - sistema para tradutores
 [PROMT - Free Text Translator]
 PROMT - Tradutor de Texto Gratuito
 [LangSoft Translation & Educational Software]
-
+LangSoft Software Educacional & Tradutor
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - Dicionário orientado tcheco
 [Free Online Urdu-English Dictionary]
-
+Dicionário Online Gratuito Urdu-Inglês
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+Dicionário Online Inglês-para-Urdu e Urdu-para-Inglês
 [Grouped by Service's Url]
 Agrupado por Url do Serviço
 [Grouped by Language]
