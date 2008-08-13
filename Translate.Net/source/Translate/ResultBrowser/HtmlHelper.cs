@@ -57,7 +57,6 @@ namespace Translate
 	public static class HtmlHelper
 	{
 		public const string BodyStyle = "margin: -7px; border-width: 0px;";
-		public const string DataCellStyle = "width: 100%;";
 		
 		static string defaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
 		public static string DefaultTextFormat {
@@ -65,12 +64,6 @@ namespace Translate
 			set { defaultTextFormat = value; }
 		}
 		
-		public static string TableStyle {
-			get { return "text-align: left;" + DefaultTextFormat + "width: 95%"; }
-		}
-		public const string FirstRowCellStyle = DataCellStyle;
-		public const string RowCellStyle = "border-top: 1px solid gray;" +  FirstRowCellStyle;
-		public const string IconCellStyle = "width: 16px;";
 		public const string DefaultTextStyle = "";
 		public const string InfoTextStyle = "color: gray; font-size: 8pt;";
 		public const string ErrorTextStyle = "color: #AA0000; " + DefaultTextStyle;
@@ -79,109 +72,43 @@ namespace Translate
 		public static string ButtonTextStyle {
 			get { return "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat; }
 		}
+		
+		public const string ServiceNameFormat = "<a href=\"{0}\">{1}</a>";
 
-		public static void InitDocument(HtmlDocument doc)
+		public static void InitDocument(WebBrowser wBrowser)
 		{
-			if(doc == null)
-				throw new ArgumentNullException("doc");
-				
-			//doc.Body.Style = HtmlHelper.BodyStyle;
-			
-			//result table
-			//CreateTable(doc, doc.Body, "result_table");
-			doc.GetElementById("result_table_body").Style = TableStyle;
-		}
-		
-		public static void CreateTable(HtmlDocument doc, HtmlElement parent, string name)
-		{
-			if(doc == null)
-				throw new ArgumentNullException("doc");
-
-			if(parent == null)
-				throw new ArgumentNullException("parent");
-
-			HtmlElement resultTable = doc.CreateElement("table");
-			resultTable.Style = TableStyle;
-			resultTable.Id = name;
-			resultTable.SetAttribute("border", "0");
-			resultTable.SetAttribute("cellpadding", "1");
-			resultTable.SetAttribute("cellspacing", "3");
-			resultTable.SetAttribute("align", "left");
-			parent.AppendChild(resultTable);
-			
-			
-			HtmlElement tableBody = doc.CreateElement("TBODY");
-			resultTable.AppendChild(tableBody);
-			tableBody.Id = name +"_body";
-		}
-		
-		public static HtmlElement CreateDataRow(HtmlDocument doc, bool isClean)
-		{
-			return CreateDataRow(doc, doc.GetElementById("result_table_body"), isClean);
-		}
-		
-		public static HtmlElement CreateDataRow(HtmlDocument doc, HtmlElement tableBody, bool isClean)
-		{
-			if(doc == null)
-				throw new ArgumentNullException("doc");
-
-			if(tableBody == null)
-				throw new ArgumentNullException("tableBody");
-		
-			HtmlElement tableRow = doc.CreateElement("TR");
-			tableBody.AppendChild(tableRow);
-			
-			HtmlElement rowCell = doc.CreateElement("TD");
-			tableRow.AppendChild(rowCell);
-			if(isClean)
-				rowCell.Style = HtmlHelper.FirstRowCellStyle;
-			else
-				rowCell.Style = HtmlHelper.RowCellStyle;
-			
-			HtmlElement rowTable = doc.CreateElement("table");
-			rowCell.AppendChild(rowTable);
-			rowTable.Style = HtmlHelper.TableStyle;
-			rowTable.SetAttribute("border", "0");
-			rowTable.SetAttribute("cellpadding", "1");
-			rowTable.SetAttribute("cellspacing", "3");
-			
-			
-			tableBody = doc.CreateElement("TBODY");
-			rowTable.AppendChild(tableBody);
-			HtmlElement dataRow = doc.CreateElement("TR");
-			tableBody.AppendChild(dataRow);
-			return dataRow;
+			WebBrowserHelper.InvokeScript(wBrowser, "SetTableStyle", new object[]{DefaultTextFormat});
 		}
 		
 		
-		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, ServiceItem serviceItem)
+		public static void CreateTable(WebBrowser wBrowser, string parentName, string name)
 		{
-			return CreateServiceIconCell(doc, serviceItem, false);
+			WebBrowserHelper.InvokeScript(wBrowser, "CreateTable", 
+				new object[]{parentName, name, DefaultTextFormat});
 		}
+		
+		
 		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
-		public static HtmlElement CreateServiceIconCell(HtmlDocument doc, ServiceItem serviceItem, bool useOuterIconUrl)
+		public static string GetServiceIconCellHtml(ServiceItem serviceItem)
 		{
-			if(doc == null)
-				throw new ArgumentNullException("doc");
-
+			return GetServiceIconCellHtml(serviceItem, false);
+		}
+		
+		public static string GetServiceIconCellHtml(ServiceItem serviceItem, bool useOuterIconUrl)
+		{
 			if(serviceItem == null)
 				throw new ArgumentNullException("service");
 		
-			HtmlElement tableCell = doc.CreateElement("TD");
-
-			tableCell.Style = IconCellStyle;
-			tableCell.SetAttribute("valign", "top");
-			tableCell.InnerHtml = string.Format(CultureInfo.InvariantCulture, 
+			string result = string.Format(CultureInfo.InvariantCulture, 
 				IconFormat, 
 				serviceItem.Service.Url,
 				serviceItem.Service.Copyright, 
 				ServiceSettingsContainer.GetServiceItemType(serviceItem), 
 				useOuterIconUrl ? serviceItem.Service.IconUrl : 
 				WebUI.ResultsWebServer.GetIconUrl(serviceItem.Service.Name));
-			return tableCell;
+			return result;
 		}
 		
-		public const string ServiceNameFormat = "<a href=\"{0}\">{1}</a>";
 		
 		public static void OpenUrl(Uri url)
 		{
@@ -190,12 +117,45 @@ namespace Translate
 			else
 				System.Diagnostics.Process.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
 		}
+
+		public static void AddTranslationCell(WebBrowser wBrowser, string parentName, bool isClean, string dataCellHtml, ServiceItem serviceItem, bool useOuterIconUrl)
+		{
+			string iconCellHtml = HtmlHelper.GetServiceIconCellHtml(serviceItem, useOuterIconUrl);
+			AddTranslationCell(wBrowser, parentName, isClean, dataCellHtml, iconCellHtml);
+		}
+
+		public static void AddTranslationCell(WebBrowser wBrowser, bool isClean, string dataCellHtml, ServiceItem serviceItem)
+		{
+			AddTranslationCell(wBrowser, isClean, dataCellHtml, serviceItem, false);
+		}
+			
+		public static void AddTranslationCell(WebBrowser wBrowser, bool isClean, string dataCellHtml, ServiceItem serviceItem, bool useOuterIconUrl)
+		{
+			string iconCellHtml = HtmlHelper.GetServiceIconCellHtml(serviceItem, useOuterIconUrl);
+			AddTranslationCell(wBrowser, null, isClean, dataCellHtml, iconCellHtml);
+		}
+				
+		public static void AddTranslationCell(WebBrowser wBrowser, bool isClean, string dataCellHtml)
+		{
+			AddTranslationCell(wBrowser, null, isClean, dataCellHtml, "");
+		}
 		
+		public static void AddTranslationCell(WebBrowser wBrowser, string parentName, bool isClean, string dataCellHtml, string iconCellHtml)
+		{
+			WebBrowserHelper.InvokeScript(wBrowser, "AddTranslationCell", 
+				new object[]{parentName, isClean, DefaultTextFormat, iconCellHtml, dataCellHtml});
+		}
 		
-		public static bool RemoveAllChilds(WebBrowser wBrowser)
+		public static void SetNodeInnerHtml(WebBrowser wBrowser, string nodeName, string nodeHTML)
+		{
+			WebBrowserHelper.InvokeScript(wBrowser, "SetNodeInnerHtml", 
+				new object[]{nodeName, nodeHTML});
+		}
+		
+		public static bool ClearTranslations(WebBrowser wBrowser)
 		{
 			return WebBrowserHelper.ObjectToBool(
-					WebBrowserHelper.InvokeScript(wBrowser, "RemoveAllChilds", new object[]{"result_table_body"})
+					WebBrowserHelper.InvokeScript(wBrowser, "ClearTranslations", new object[]{})
 				);
 		}
 		

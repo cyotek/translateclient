@@ -115,7 +115,7 @@ namespace Translate
 				
 				if(wBrowser.Document != null)
 				{
-					if(!HtmlHelper.RemoveAllChilds(wBrowser))
+					if(!HtmlHelper.ClearTranslations(wBrowser))
 					{	//possible disabled javascript or error
 						forceCleaning = true;
 					}	
@@ -215,13 +215,13 @@ namespace Translate
 							htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>  ", 
 								HttpUtility.HtmlEncode(result.Translations[0]));
 								
-						if(!string.IsNullOrEmpty(result.Abbreviation))
-						{
-							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
-						}
+					if(!string.IsNullOrEmpty(result.Abbreviation))
+					{
+						htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
+					}
 						
-						if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
-							htmlString.Append("<br>");
+					if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
+						htmlString.Append("<br>");
 							
 					foreach(Result r in result.Childs)
 					{
@@ -349,18 +349,6 @@ namespace Translate
 				TranslateOptions.Instance.ResultWindowOptions.HideWithoutResult)
 				return; //skip
 				
-			Wait();	
-			
-			HtmlDocument doc = wBrowser.Document;
-			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, isClean);
-			
-			//icon
-			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, result.ServiceItem));
-
-			//translate			
-			HtmlElement tableCell = doc.CreateElement("TD");
-			tableRow.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
 			string htmlString = "";
 			if(TranslateOptions.Instance.ResultWindowOptions.ShowServiceName)
 			{
@@ -418,9 +406,9 @@ namespace Translate
 			{
 				htmlString = htmlString.Replace("́","");
 			}
-			tableCell.InnerHtml = htmlString;
 			
-
+			Wait();
+			HtmlHelper.AddTranslationCell(wBrowser, isClean, htmlString, result.ServiceItem);
 			isClean = false;	
 			RecalcSizes();
 		}
@@ -430,24 +418,11 @@ namespace Translate
 			if(!TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 			  return;
 			  
-			Wait();	
-			
-			HtmlDocument doc = wBrowser.Document;
-			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, isClean);
-			
-			
-			//icon
-			HtmlElement tableCell = doc.CreateElement("TD");
-			tableRow.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.IconCellStyle;
-			//translate			
-			tableCell = doc.CreateElement("TD");
-			tableRow.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
-
 			string htmlString = string.Format(CultureInfo.InvariantCulture, "Full time : {0} s", new DateTime(translateTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );;
-			tableCell.InnerHtml = "<span style=\""+ HtmlHelper.InfoTextStyle+"\">" + htmlString + "</span>";
+			htmlString = "<span style=\""+ HtmlHelper.InfoTextStyle+"\">" + htmlString + "</span>";
 			
+			Wait();
+			HtmlHelper.AddTranslationCell(wBrowser, isClean, htmlString);
 
 			isClean = false;	
 			RecalcSizes();
@@ -962,7 +937,7 @@ namespace Translate
 		{
 			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
 			{
-				HtmlHelper.InitDocument(wBrowser.Document);
+				HtmlHelper.InitDocument(wBrowser);
 			}
 			else
 			{
