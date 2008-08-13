@@ -80,14 +80,14 @@ Name: ua; MessagesFile: "compiler:Languages\Ukrainian.isl"; LicenseFile: texts\i
 
 
 [Files]
-Source: ..\bin\FreeCL.UI.*; DestDir: {app}
-Source: ..\bin\FreeCL.RTL.*; DestDir: {app}
-Source: ..\bin\FreeCL.Forms.*; DestDir: {app}
-Source: ..\bin\translate.*; DestDir: {app}
-Source: ..\bin\translate.net.*; DestDir: {app}
-Source: ..\bin\Translate.WebUI.*; DestDir: {app}
-Source: ..\bin\WebUI\*; DestDir: {app}\WebUI
-Source: ..\bin\WebUI\bin\*; DestDir: {app}\WebUI\bin
+Source: ..\bin\FreeCL.UI.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\FreeCL.RTL.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\FreeCL.Forms.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\translate.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\translate.net.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\Translate.WebUI.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\WebUI\*; DestDir: {app}\WebUI; Flags: ignoreversion
+Source: ..\bin\WebUI\bin\*; DestDir: {app}\WebUI\bin; Flags: ignoreversion
 Source: ..\source\Translate\lang\*.lng; DestDir: {app}\lang
 Source: texts\info\*.rtf; DestDir: {app}
 Source: texts\license\*.rtf; DestDir: {app}
