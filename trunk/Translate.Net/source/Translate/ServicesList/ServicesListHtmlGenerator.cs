@@ -85,7 +85,7 @@ namespace Translate
 			HtmlDocument doc = wBrowser.Document;
 			string template = wBrowser.DocumentText;
 			
-			GenerateDocument(doc);
+			GenerateDocument(wBrowser);
 			int bodyidx = template.IndexOf("<body>");
 			template = template.Substring(0, bodyidx);
 			StringBuilder body = new StringBuilder(doc.Body.OuterHtml);
@@ -145,22 +145,11 @@ namespace Translate
 			
 		}
 		
-		static void GenerateDocument(HtmlDocument doc)
+		static void GenerateDocument(WebBrowser wBrowser)
 		{
-			HtmlHelper.InitDocument(doc);
-			HtmlElement row = HtmlHelper.CreateDataRow(doc, true);
-			
-			HtmlElement tableCell = doc.CreateElement("TD");
-			row.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
-			GenerateListByUrlHtml(tableCell);
-			
-			row = HtmlHelper.CreateDataRow(doc, true);
-			tableCell = doc.CreateElement("TD");
-			row.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
-			GenerateListByLangHtml(tableCell);
-			
+			HtmlHelper.InitDocument(wBrowser);
+			GenerateListByUrlHtml(wBrowser);
+			GenerateListByLangHtml(wBrowser);
 		}
 		
 		static string GetLangsPairsCount(int count)
@@ -175,16 +164,8 @@ namespace Translate
 			return string.Format(format, count);
 		}
 		
-		static void GenerateServiceItemSell(HtmlDocument doc, ServiceItem si, HtmlElement parent, bool first, bool generateLangs)
+		static void GenerateServiceItemSell(WebBrowser wBrowser, ServiceItem si, string parentName, bool first, bool generateLangs)
 		{
-			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, parent, first);
-			//icon
-			tableRow.AppendChild(HtmlHelper.CreateServiceIconCell(doc, si, true));
-					
-			//translate			
-			HtmlElement tableCell = doc.CreateElement("TD");
-			tableRow.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
 			StringBuilder htmlString = new StringBuilder();
 			
 			htmlString.AppendFormat(CultureInfo.InvariantCulture, 
@@ -220,18 +201,12 @@ namespace Translate
 			htmlString.Append(", ");
 			htmlString.Append(HttpUtility.HtmlEncode(si.Service.Copyright));
 		
-			if(si is MonolingualDictionary)
+			if(si is MonolingualDictionary || !generateLangs)
 			{
-				tableCell.InnerHtml = htmlString.ToString();
+				HtmlHelper.AddTranslationCell(wBrowser, parentName, first, htmlString.ToString(), si, true);
 				return;
 			}	
 			
-			if(!generateLangs)
-			{
-				tableCell.InnerHtml = htmlString.ToString();
-				return;
-			}
-				
 			//count langs without gb\us english 
 			int pairsCount = 0;
 			foreach(LanguagePair lp in si.SupportedTranslations)
@@ -243,7 +218,7 @@ namespace Translate
 			
 			string langNodeName = si.FullName + "_langs";
 			htmlString.Append("<br>" + GenerateTopNode(langNodeName, LangPack.TranslateString("Languages") + GetLangsPairsCount(pairsCount), 0.5));
-			tableCell.InnerHtml = htmlString.ToString();
+			HtmlHelper.AddTranslationCell(wBrowser, parentName, first, htmlString.ToString(), si, true);
 			
 			SortedDictionary<string, SortedDictionary<string, string>> langs = new SortedDictionary<string, SortedDictionary<string, string>>();
 			foreach(LanguagePair lp in si.SupportedTranslations)
@@ -262,8 +237,6 @@ namespace Translate
 				inner_list.Add(LangPack.TranslateLanguage(lp.To), "");
 			}	
 			
-			HtmlElement langsNode = doc.GetElementById(langNodeName);	
-			
 			if(si.SupportedTranslations.Count <= 10)		
 			{
 				htmlString = new StringBuilder();
@@ -274,7 +247,7 @@ namespace Translate
 						htmlString.Append("<li>" + kvp_langs.Key + "->" + kvp_to_langs.Key + "</li>");
 					}
 				}
-				langsNode.InnerHtml = htmlString.ToString();
+				HtmlHelper.SetNodeInnerHtml(wBrowser, langNodeName, htmlString.ToString());
 			}
 			else
 			{
@@ -284,30 +257,32 @@ namespace Translate
 					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
 					htmlString.Append(GenerateTopNode(nodeName, kvp_langs.Key + "->" + GetLangsPairsCount(kvp_langs.Value.Count) , 1));
 				}
-				langsNode.InnerHtml = htmlString.ToString();
+				HtmlHelper.SetNodeInnerHtml(wBrowser, langNodeName, htmlString.ToString());
+
 				
 				foreach(KeyValuePair<string, SortedDictionary<string, string>> kvp_langs in langs)	
 				{
 					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
-					HtmlElement node = doc.GetElementById(nodeName);	
 					htmlString = new StringBuilder();
 					foreach(KeyValuePair<string, string> kvp_to_langs in kvp_langs.Value)
 					{
 						htmlString.Append("<li>" + kvp_to_langs.Key + "</li>");
 					}
-					node.InnerHtml = htmlString.ToString();
+					HtmlHelper.SetNodeInnerHtml(wBrowser, nodeName, htmlString.ToString());
 				}
 				
 			}
 			
 		}
 		
-		static void GenerateListByUrlHtml(HtmlElement parent)
+		static void GenerateListByUrlHtml(WebBrowser wBrowser)
 		{
 			string nodeName = "list_by_url";
-			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Service's Url") + " - " + Manager.Services.Count.ToString(), 0, true);
-			HtmlDocument doc = parent.Document;
-			HtmlHelper.CreateTable(doc, doc.GetElementById(nodeName), nodeName + "_table");
+			
+			string InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Service's Url") + " - " + Manager.Services.Count.ToString(), 0, true);
+			HtmlHelper.AddTranslationCell(wBrowser, null, true, InnerHtml, null);
+			
+			HtmlHelper.CreateTable(wBrowser, nodeName, nodeName + "_table");
 			
 			SortedDictionary<string, List<ServiceItem>> list = new SortedDictionary<string, List<ServiceItem>>();
 			foreach(Service service in Manager.Services)
@@ -327,13 +302,13 @@ namespace Translate
 			{
 				foreach(ServiceItem si in kvp.Value)
 				{
-					GenerateServiceItemSell(doc, si, doc.GetElementById(nodeName + "_table_body"), is_first, true);
+					GenerateServiceItemSell(wBrowser, si, nodeName + "_table_body", is_first, true);
 					if(is_first) is_first = false;
 				}
 			}
 		}
 
-		static void GenerateListByLangHtml(HtmlElement parent)
+		static void GenerateListByLangHtml(WebBrowser wBrowser)
 		{
 			//count langs without gb\us english 
 			int pairsCount = 0;
@@ -345,9 +320,9 @@ namespace Translate
 			}
 		
 			string nodeName = "list_by_lang";
-			parent.InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Language") + GetLangsPairsCount(pairsCount), 0, true);
-			HtmlDocument doc = parent.Document;
-			HtmlHelper.CreateTable(doc, doc.GetElementById(nodeName), nodeName + "_table");
+			string InnerHtml = GenerateTopNode(nodeName, LangPack.TranslateString("Grouped by Language") + GetLangsPairsCount(pairsCount), 0, true);
+			HtmlHelper.AddTranslationCell(wBrowser, null, true, InnerHtml, null);
+			HtmlHelper.CreateTable(wBrowser, nodeName, nodeName + "_table");
 			
 			SortedDictionary<string, SortedDictionary<string, List<ServiceItem>>> langs = new SortedDictionary<string, SortedDictionary<string, List<ServiceItem>>>();
 			
@@ -380,38 +355,28 @@ namespace Translate
 			}
 
 			
-			HtmlElement top = doc.GetElementById(nodeName + "_table_body");
 			foreach(KeyValuePair<string, SortedDictionary<string, List<ServiceItem>>> kvp in langs)
 			{
-				HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, top, true);
-				HtmlElement tableCell = doc.CreateElement("TD");
-				tableRow.AppendChild(tableCell);
-				tableCell.Style = HtmlHelper.DataCellStyle;
 				string htmlString = "";
 			
 				string childnodeName = "by_lang_" + kvp.Key;
 				htmlString += GenerateTopNode(childnodeName, "-" + kvp.Key + " ->" + GetLangsPairsCount(kvp.Value.Count));
-				tableCell.InnerHtml = htmlString;
+				HtmlHelper.AddTranslationCell(wBrowser, nodeName + "_table_body", true, htmlString, null);
 				
-				
-				HtmlHelper.CreateTable(doc, doc.GetElementById(childnodeName), childnodeName + "_table");
-				HtmlElement lang_node = doc.GetElementById(childnodeName + "_table_body");
+				HtmlHelper.CreateTable(wBrowser, childnodeName, childnodeName + "_table");
+				string topchildnodeName = childnodeName + "_table_body";
 				foreach(KeyValuePair<string, List<ServiceItem>> kvpToLangs in kvp.Value)
 				{
 					if(kvpToLangs.Value.Count == 0)
 						continue;
-					tableRow = HtmlHelper.CreateDataRow(doc, lang_node, true);
-					tableCell = doc.CreateElement("TD");
-					tableRow.AppendChild(tableCell);
-					tableCell.Style = HtmlHelper.DataCellStyle;
 					htmlString = "";
 				
+					
 					childnodeName = "by_lang_" + kvp.Key + "_" + kvpToLangs.Key;
 					htmlString += GenerateTopNode(childnodeName, kvp.Key + "->" + kvpToLangs.Key + " -" + GetServicesCount(kvpToLangs.Value.Count) , 1);
-					tableCell.InnerHtml = htmlString;
+					HtmlHelper.AddTranslationCell(wBrowser, topchildnodeName, true, htmlString, null);
 					
-					HtmlHelper.CreateTable(doc, doc.GetElementById(childnodeName), childnodeName + "_table");
-					HtmlElement sub_lang_node = doc.GetElementById(childnodeName + "_table_body");
+					HtmlHelper.CreateTable(wBrowser, childnodeName, childnodeName + "_table");
 					
 					SortedDictionary<string, List<ServiceItem>> sortedServices = new SortedDictionary<string, List<ServiceItem>>();
 					foreach(ServiceItem si in kvpToLangs.Value)
@@ -430,7 +395,7 @@ namespace Translate
 					{
 						foreach(ServiceItem si in kvpServices.Value)
 						{
-							GenerateServiceItemSell(doc, si, sub_lang_node, is_first, false);
+							GenerateServiceItemSell(wBrowser, si, childnodeName + "_table_body", is_first, false);
 							if(is_first) is_first = false;
 						}
 					}

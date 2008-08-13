@@ -111,16 +111,6 @@ namespace Translate
 			Wait();	
 			
 			
-			HtmlDocument doc = wbStatus.Document;
-			HtmlElement tableRow = HtmlHelper.CreateDataRow(doc, true);
-			
-			HtmlElement icon = HtmlHelper.CreateServiceIconCell(doc, status.Setting.ServiceItem);
-			tableRow.AppendChild(icon);
-			
-			HtmlElement tableCell = doc.CreateElement("TD");
-			tableRow.AppendChild(tableCell);
-			tableCell.Style = HtmlHelper.DataCellStyle;
-			
 			string htmlString = string.Format(CultureInfo.InvariantCulture, 
 					HtmlHelper.ServiceNameFormat, 
 					status.Setting.ServiceItem.Service.Url, 
@@ -204,7 +194,10 @@ namespace Translate
 				
 				
 			
-			tableCell.InnerHtml = htmlString;
+			//tableCell.InnerHtml = htmlString;
+			Wait();
+			HtmlHelper.AddTranslationCell(wbStatus, isClean, htmlString, status.Setting.ServiceItem);
+			
 			HtmlElement button =  wbStatus.Document.GetElementById("btn");
 			if(button != null)
 			{
@@ -236,7 +229,7 @@ namespace Translate
 				
 				if(wbStatus.Document != null)
 				{
-					if(!HtmlHelper.RemoveAllChilds(wbStatus))
+					if(!HtmlHelper.ClearTranslations(wbStatus))
 					{	//possible disabled javascript or error
 						forceCleaning = true;
 					}	
@@ -285,7 +278,7 @@ namespace Translate
 		
 		void WbStatusDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			HtmlHelper.InitDocument(wbStatus.Document);
+			HtmlHelper.InitDocument(wbStatus);
 			//wbStatus.Document.Body.Style = wbStatus.Document.Body.Style + 
 			//	";background-color :ButtonHighlight;";
 			isLoaded = true;
