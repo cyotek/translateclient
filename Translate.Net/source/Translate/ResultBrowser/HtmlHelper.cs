@@ -112,7 +112,10 @@ namespace Translate
 		
 		public static void OpenUrl(Uri url)
 		{
-			if(url.AbsoluteUri.Contains("wikipedia.org") || url.AbsoluteUri.Contains("wiktionary.org"))
+			if(url.AbsoluteUri.Contains("wikipedia.org") 
+				|| url.AbsoluteUri.Contains("wiktionary.org")
+				|| url.AbsoluteUri.StartsWith("http://click.adbrite.com/mb/click.php?")
+			)
 				System.Diagnostics.Process.Start(url.AbsoluteUri);
 			else
 				System.Diagnostics.Process.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
