@@ -908,6 +908,17 @@ namespace Translate
 			if(e.Url.AbsoluteUri.StartsWith("http://eb.adbureau.net/hserver"))
 				return;
 
+			if(e.Url.AbsoluteUri.StartsWith("http://ad.iconadserver.com/st"))
+				return;
+				
+			if(e.Url.AbsoluteUri.StartsWith("http://ads.us.e-planning.net"))
+				return;
+
+			if(e.Url.AbsoluteUri.StartsWith("http://b1.adbrite.com/iads"))
+				return;
+				
+				
+
 			if(e.Url.AbsoluteUri.StartsWith("javascript:"))
 				return;
 
