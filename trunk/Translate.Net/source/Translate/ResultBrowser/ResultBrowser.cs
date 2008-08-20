@@ -705,7 +705,10 @@ namespace Translate
 						allowedWidth -= SystemInformation.VerticalScrollBarWidth;
 						wBrowser.Width = allowedWidth;
 						wAdvertBrowser.Width = allowedWidth;
-						vScrollBar.LargeChange = Height;
+						if(Height > 0)
+							vScrollBar.LargeChange = Height;
+						else	
+							vScrollBar.LargeChange = 0;
 						vScrollBar.Maximum = FullHeight - Height + vScrollBar.LargeChange - 1;
 						vScrollBar.Value = 0;
 						wBrowser.Top = 0;
