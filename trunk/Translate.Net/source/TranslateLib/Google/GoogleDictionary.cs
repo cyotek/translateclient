@@ -104,16 +104,17 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 			
-			if(responseFromServer.IndexOf("<strong> No dictionary translations were found for") >= 0)
+			if(responseFromServer.IndexOf("No dictionary translations were found for: <strong>") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
 			
-			responseFromServer = StringParser.Parse("<h1>Translation</h1>", "</body>", responseFromServer);
+			responseFromServer = StringParser.Parse("<div id=\"dictionary-search-outer\">", "<div id=\"dictionary-right-section\">", responseFromServer);
 			
 			//translations
-			string translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
+			string translations = StringParser.Parse("<ul id=\"definition\">", "</ul>", responseFromServer);
+			translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
 			
 			StringParser parser = new StringParser(translations);
 			string[] subtranslation_list = parser.ReadItemsList("<li>", "</li>", "3485730457203");
@@ -130,34 +131,67 @@ namespace Translate
 			}
 			
 			//related words
-			if(responseFromServer.IndexOf("Related phrases") < 0)
-				return;
-			
-			string related = StringParser.Parse("<tr>", "</tr>", responseFromServer);
-			if(string.IsNullOrEmpty(related))
-				return;
-			
-			parser = new StringParser(related);
-			string[] related_list = parser.ReadItemsList("<li class=\"related_index\">", "</li>", "3485730457203");
-			
-			foreach(string related_s in related_list)
+			if(responseFromServer.Contains("<h3>Related phrases</h3>"))
 			{
-				string related_str = related_s;
-				related_str = related_str.Replace("<span class=\"related_definition\">", "\n");
-				related_str = StringParser.RemoveAll("<span", ">", related_str);
-				related_str = related_str.Replace("</span>", "");
-			
-				int translationIdx = related_str.IndexOf("\n");
-				if(translationIdx < 0)
-					throw new TranslationException("Can't found '\\n' tag");
+				string related = StringParser.Parse("<ul id=\"related-sentence\">", "</ul>", responseFromServer);
+				if(!string.IsNullOrEmpty(related))
+				{				
+					parser = new StringParser(related);
+					string[] related_list = parser.ReadItemsList("<li>", "</li>");
 					
-				string subphrase = related_str.Substring(0, translationIdx); 
-				string subphrasetrans = related_str.Substring(translationIdx + 1); 
-				Result subres = CreateNewResult(subphrase, languagesPair, subject);
-				subres.Translations.Add(subphrasetrans);
-				result.Childs.Add(subres);
+					foreach(string related_s in related_list)
+					{
+						string related_str = related_s;
+						related_str = related_str.Replace("</dfn>", "");
+						related_str = StringParser.RemoveAll("<span", ">", related_str);
+						related_str = related_str.Replace("</span>", "");
+						related_str = related_str.Replace("<strong>", "");
+						related_str = related_str.Replace("</strong>", "");
+						related_str = related_str.Replace("<br />", "");
+					
+						int translationIdx = related_str.IndexOf("<dfn>");
+						if(translationIdx < 0)
+							throw new TranslationException("Can't found '<dfn>' tag in string : " + related_str);
+							
+						string subphrase = related_str.Substring(0, translationIdx); 
+						string subphrasetrans = related_str.Substring(translationIdx + 5); 
+						Result subres = CreateNewResult(subphrase, languagesPair, subject);
+						subres.Translations.Add(subphrasetrans);
+						result.Childs.Add(subres);
+					}
+				}
 			}
+			
+			//Web definitions
+			if(responseFromServer.Contains("<h3>Web definitions</h3>"))
+			{
+				string related = StringParser.Parse("<ul id=\"glossary\">", "</div>", responseFromServer);
+				if(!string.IsNullOrEmpty(related))
+				{				
+					related = StringParser.Parse("<ul>", "<div>", related);
+					if(!string.IsNullOrEmpty(related))
+					{				
+					
+						Result subres_wd = CreateNewResult(phrase, languagesPair, subject);
+						result.Childs.Add(subres_wd);
+					
+						parser = new StringParser(related);
+						string[] related_list = parser.ReadItemsList("<li>", "</li>");
+						
+						foreach(string related_s in related_list)
+						{
+							string related_str = related_s;
+							related_str = related_str.Replace("<br/>", "").Trim();
+							subres_wd.Translations.Add(related_str);
+						}
+					}
+				}
+			}
+		
 		}
+		
+
+		
 		
 	} 
 }
