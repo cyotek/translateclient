@@ -84,7 +84,7 @@ function SetTableStyle(DefaultTextFormat)
 
 function ClearTranslations()
 {
-	RemoveAllChilds("result_table_body");
+	return RemoveAllChilds("result_table_body");
 }
 
 //Remove all childs from the element
