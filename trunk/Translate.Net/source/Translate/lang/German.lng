@@ -87,7 +87,7 @@ Bitte wähle, wo Du den Installer der neuen Version, den Du später ausgführen 
 [Installer saved to \r\n{0}]
 Installer gespeichert nach \r\n{0}
 [Update will be run later]
-Das Update wird späeter ausgeführt
+Das Update wird später ausgeführt
 [Check Updates ...]
 Auf Updates prüfen...
 [Updates]
@@ -95,7 +95,7 @@ Updates
 [Automatically check updates]
 Automatisch auf Updates prüfen
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
-Aktualisiert - {0}\r\nLetzte Überprüfung auf Updates - {1}, Status - {2}\r\nNächste Überprüfung auf Updates - {3}]
+Aktualisiert - {0}\r\nLetzte Update-Prüfung - {1}, Status - {2}\r\nNächste Update-Prüfung - {3}
 [Close]
 Schließen
 [Error on downloading {0}]
@@ -169,9 +169,9 @@ Tray
 [Hotkeys]
 Hotkeys
 [Activate on Ctrl+C+C hotkey]
-Mit Hotkey Strg+C+C aktivieren
+Mit Hotkey Ctrl+C+C aktivieren
 [Activate on Ctrl+Ins+Ins hotkey]
-Mit Hotkey Strg+Einfg+Einfg aktivieren
+Mit Hotkey Ctrl+Ins+Ins aktivieren
 [Translate when activated by hotkey]
 Wenn mit Hotkey aktiviert übersetzen
 [Show query time and other information]
@@ -209,7 +209,7 @@ Dienstversion nicht unterstützt
 [Result view]
 Ergebnisansicht
 [Include monolingual dictionaries in translation]
-Beziehe monolinguale Wörterbücher in Übersetzung ein
+Monolinguale Wörterbücher in Übersetzung einbeziehen
 [Profile]
 Profil
 [Profiles]
@@ -287,7 +287,7 @@ Größe oder Format wird von verfügbaren Diensten nicht unterstützt.
 [Reverse translation direction]
 Übersetzungsrichtung umkehren
 [Show\\Hide]
-Anzeigen/Verstecken
+Anzeigen\\Verstecken
 [Show HTML source]
 Zeige HTML-Quelltext
 [From]
@@ -303,7 +303,7 @@ Automatisch erkennen
 [Arabic]
 Arabisch
 [Belarusian]
-[Belorussisch
+Belorussisch
 [Bulgarian]
 Bulgarisch
 [Chinese]
