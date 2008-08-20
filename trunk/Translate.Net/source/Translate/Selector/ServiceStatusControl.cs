@@ -260,22 +260,6 @@ namespace Translate
 			WebBrowserHelper.Wait(wbStatus);
 		}
 		
-		static string cleanHtml = "";
-		static string GetCleanHtml()
-		{
-			if(!string.IsNullOrEmpty(cleanHtml))
-				return cleanHtml;
-			else
-			{
-				Stream resourceStream = Assembly.GetExecutingAssembly().GetManifestResourceStream("Translate.Selector.StatusTemplate.html");
-				StreamReader reader = new StreamReader (resourceStream);
-				string result = reader.ReadToEnd ();
-				return result;
-			}
-		}
-		
-		
-		
 		void WbStatusDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
 			HtmlHelper.InitDocument(wbStatus);
