@@ -52,10 +52,33 @@ namespace FreeCL.RTL
 		
 		public static void Wait(WebBrowser wBrowser)
 		{
-			while(wBrowser.IsBusy)
+			int exceptionsCount = 0;
+			bool isBusy = true;
+			try
+			{
+				isBusy = wBrowser.IsBusy;
+			}
+			catch(UnauthorizedAccessException)
+			{
+				exceptionsCount++;
+			}
+			
+			while(isBusy)
 			{
 				Application.DoEvents();
 				System.Threading.Thread.Sleep(100);
+
+				try
+				{
+					isBusy = wBrowser.IsBusy;
+				}
+				catch(UnauthorizedAccessException)
+				{
+					if(exceptionsCount > 10)
+						throw;
+					exceptionsCount++;
+				}
+				
 			}	
 
 			while(wBrowser.Document == null)
