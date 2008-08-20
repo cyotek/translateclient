@@ -37,6 +37,7 @@
 #endregion
 
 using FreeCL.RTL;
+using FreeCL.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -116,9 +117,9 @@ namespace Translate
 				|| url.AbsoluteUri.Contains("wiktionary.org")
 				|| url.AbsoluteUri.StartsWith("http://click.adbrite.com/mb/click.php?")
 			)
-				System.Diagnostics.Process.Start(url.AbsoluteUri);
+				ProcessStartHelper.Start(url.AbsoluteUri);
 			else
-				System.Diagnostics.Process.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
+				ProcessStartHelper.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
 		}
 
 		public static void AddTranslationCell(WebBrowser wBrowser, string parentName, bool isClean, string dataCellHtml, ServiceItem serviceItem, bool useOuterIconUrl)

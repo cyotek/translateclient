@@ -58,7 +58,7 @@ namespace FreeCL.Forms
 			string text,
 			string caption,
 			MessageBoxButtons buttons,
-			Exception exception)
+			Exception exception):base()
 		{
 			InitializeComponent();
 
@@ -66,6 +66,7 @@ namespace FreeCL.Forms
 			Text = caption;
 			this.exception = exception;
 			bShowExceptionIfno.Enabled =  exception != null;
+			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
 		}
 		
 		Exception exception;
