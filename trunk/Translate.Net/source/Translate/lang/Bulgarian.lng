@@ -1,0 +1,582 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Стефан Стефанов - Wankata
+
+[TranslatedByURL]
+
+[Translated by]
+Превод:
+[&File]
+&Файл
+[Exit from application]
+Изход от програмата
+[E&xit]
+Из&ход
+[&Edit]
+&Редакция
+[Copy selection to clipboard]
+Копиране на избраното в буфера
+[&Copy]
+Ко&пиране
+[Cut selection to clipboard]
+Изрязване на избраното в буфера
+[Cu&t]
+И&рязване
+[Paste from clipboard]
+Поставяне от буфера
+[&Paste]
+По&ставяне
+[Delete selection]
+Премахване на избраното 
+[&Delete]
+&Изтриване
+[Undo last operation]
+Отмяна на предишната операция
+[&Undo]
+&Отмяна
+[Redo last operation]
+Повторение на предишната операция
+[&Redo]
+По&вторение
+[Select Аll]
+Избиране на всички
+[&Select Аll]
+Избиране на в&сички
+[&Window]
+&Прозорец
+[Close All]
+Затваряне на всички прозорци
+[&Help]
+&Помощ
+[&About ...]
+За пр&ограмата ...
+[About]
+За програмата
+[Send feedback or bugreport ...]
+Изпращане на предложение или информация за грешки ...  
+[Feedback for :]
+Обратна връзка за:
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Въведете Вашето предложение или Вашата информация за грешки тук >>
+[Donate ...]
+Дарение
+
+[Online Help]
+Онлайн помощ: Translate.Net
+[Options]
+Настройки
+[Cancel]
+Отмяна
+[Apply]
+Прилагане
+[Minimize]
+Минимизиране
+[{0} Updater]
+Обновяване {0}
+[Preparing]
+Подготовка за обновяване
+[Check version]
+Проверка на версия
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Свалени {0}Kb от {1}Kb със скорост {2}Kb/s
+[Update downloaded]
+Обновлението е свалено
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Новата версия е свалена. Да бъде ли изключен Translate.Net и стартирана инсталацията на новата версия ?
+[Please select where to save installer of new version which you can run later]
+Изберете къде да бъде запазен инсталаторът на новата версия, за да можете да я стартирате по-късно
+[Installer saved to \r\n{0}]
+Инсталаторът е запазен в \r\n{0}
+[Update will be run later]
+Проверката за обновяване ще бъде стартирана по-късно
+[Check Updates ...]
+Проверка за обновяване ...
+[Updates]
+Обновления
+[Automatically check updates]
+Автоматична проверка за обновяване
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Последното обновяване е било на {0}\r\nПоследна проверка за обновления - {1} със статус — {2}\r\nСледваща проверка за обновления - {3}
+[Close]
+Затваряне
+[Error on downloading {0}]
+Грешка при сваляне {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} не съдържа таг {1}:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} съдържа лошо форматиран таг {1}:\r\n{2}
+[Canceled]
+Прекъсната
+[Program is up to date]
+Не са открити обновления
+[File {0} already exists]
+Файлът {0} вече съществува
+[The server of updates is overloaded. The check of updates will be delayed.]
+Сървърът за обновяване е претоварен. Проверката ще бъде извършена по-късно.
+[Version]
+Версия
+[&Tools]
+&Инструменти
+[O&ptions...]
+&Настройки...
+[General]
+Главни
+[UI Language]
+Език
+[Network]
+Мрежа
+[HTTP-Proxy]
+HTTP-прокси
+[Proxy]
+Прокси
+[Port]
+Порт
+[Enable Authentication]
+Използване на автентификация
+[User]
+Потребител
+[Password]
+Парола
+[Use NTLM Authentication]
+Използване на NTLM-автентификация
+[Domain]
+Домейн
+[Timeout]
+Таймаут
+[System]
+Системен
+[Custom]
+Ръчно
+[None]
+Директна връзка
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+HTTP-проксито има грешен формат - {0}. Ще бъдат използвани системните настройки за прокси.
+[Startup]
+Стартиране на програмата
+[Launch at system startup]
+Автоматично стартиране със зареждането на системата
+[Minimize to tray]
+Минимизиране в трея
+[When enabled {0} will run when OS started]
+Ако е включено, то {0} ще се стартира със зареждането на системата
+[{0} will be minimized to tray when OS started]
+Прозорецът {0} ще бъде минимизиран след стартирането заедно със зареждането на системата
+[Single Instance]
+Единично копие на програмата
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Проверка при стартиране, дали вече е стартирано копие на {0}. В този случай новата апликация ще активира старото копие и ще спре новото
+[Tray]
+Трей
+[Hotkeys]
+Глобални бързи клавиши
+[Activate on Ctrl+C+C hotkey]
+Активиране с Ctrl+C+C 
+[Activate on Ctrl+Ins+Ins hotkey]
+Активиране с Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Превод след активиране с горещ клавиш
+[Show query time and other information]
+Показване на продължителността на заявката и друга информация
+[Mark by red color untranslated words]
+Отбелязване с червен цвят на думите, които не са преведени
+[Don't show "Nothing found" results]
+Не показвай резултатите от служби, които не са открили нищо
+[Show direction of translation]
+Показване на направлението на превода
+[Show accents]
+Показване на ударения
+[Show names of services]
+Показване на имена на службите
+[Nothing found]
+Нищо не е открито
+[Translation direction is not correct]
+Направление превода не е коректно
+[Only cyrillic characters supported]
+Разрешени са само кирилски символи
+[Ukrainian characters in russian query]
+Украински символи в руска заявка
+[Parse error, start tags not found]
+Грешка при анализа на получените данни, началният таг не е открит
+[Nothing to translate]
+Няма нищо за превод
+[Length too big]
+Твърде голяма дължина
+[Wrong data structure]
+Неправилна структура на данните
+[Query contains extraneous symbols]
+Заявката съдържа неприсъщи символи
+[Service version not supported]
+Версията на службата не се поддържа
+[Result view]
+Вид на резултата
+[Include monolingual dictionaries in translation]
+Включване на тълковни речници при превода
+[Profile]
+Профил
+[Profiles]
+Профили
+[Default]
+Основен
+[List]
+Списък
+[Add new user profile]
+Добавяне на потребителски профил
+[Set profile properties]
+Задаване на свойства за профила
+[Profile name]
+Име на профила
+[Translation direction]
+Направление на превода
+[Name for new profile you enter already used. Please enter unique name.]
+Името, избрано за новия профил, вече се използва. Моля, въведете уникално име
+[Profile name don't set. Please enter profile name.]
+Не е избрано име за профила. Моля, въведете име за профила
+[Remove user profile]
+Премахване на потребителски профил
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Профилът {0} ще бъде премахнат. \r\nСигурни ли сте?
+[Move profile up]
+Преместване на профила по-нагоре
+[Move profile down]
+Преместване на профила по-надолу
+[Name]
+Име
+[Edit services]
+Редактиране на службите
+[Remove service]
+Премахване на служба
+[Add selected service]
+Добавяне на избраната служба
+[Add all services]
+Добавяне на всички служби
+[Remove all services]
+Премахване на всички служби
+[Services filter]
+Филтър за служби
+[Available services]
+Достъпни служби
+[Selected services]
+Избрани служби
+[View]
+Вид
+[Show services list]
+Показване на списък със служби
+[Show languages list]
+Показване на списък с езици
+[Show subjects list]
+Показване на списък с теми
+[Size]
+Размер
+[System font]
+Системен шрифт
+[Fonts]
+Шрифтове
+[Input text]
+Текст за превод
+[To default]
+По подразбиране
+[&Translate]
+&Превод
+[Translate]
+Превеждане
+[Stop current operation]
+Прекъсване на текущата операция
+[Stop]
+Прекъсване
+[Size or format of query don't supported by available translation services]
+Размерът или форматът на запитването не се поддържат от достъпните служби за превод
+[Reverse translation direction]
+Обръщане на направлението за превод
+[Show\\Hide]
+Показване\\Скриване
+[Show HTML source]
+Показване на HTML-код
+[From]
+от
+[To]
+на 
+[Any Language]
+Всички
+[Afrikaans]
+Африкаанс
+[Autodetect]
+Автоматично откриване
+[Arabic]
+Арабски
+[Belarusian]
+Белоруски
+[Bulgarian]
+Български
+[Chinese]
+Китайски
+[Chinese_CN]
+Опростен китайски
+[Chinese_TW]
+Традиционен китайски
+[Croatian]
+Хърватски
+[Czech]
+Чешки
+[Danish]
+Датски
+[Dutch]
+Холандски
+[English]
+Английски
+[English_GB]
+Английски-Англия
+[English_US]
+Английски-САЩ
+[Esperanto]
+Есперанто
+[Estonian]
+Естонски
+[Icelandic]
+Исландски
+[Finnish]
+Фински
+[French]
+Френски
+[German]
+Немски
+[Greek]
+Гръцки
+[Hindi]
+Хинди
+[Hungarian]
+Унгарски
+[Italian]
+Италиански
+[Japanese]
+Японски
+[Korean]
+Корейски
+[Latin]
+Латински
+[Latvian]
+Латвийски
+[Lithuanian]
+Литовски
+[Macedonian]
+Македонски
+[Norwegian]
+Норвежки
+[Polish]
+Полски
+[Portuguese]
+Португалски
+[Romanian]
+Румънски
+[Russian]
+Руски
+[Serbian]
+Сръбски
+[Slovak]
+Словашки
+[Slovenian]
+Словенски
+[Spanish]
+Испански
+[Swedish]
+Шведски
+[Ukrainian]
+Украински
+[Urdu]
+Урду
+[Languages]
+Езици
+[Services]
+Служби
+[Enabled]
+Разрешени
+[Error]
+Грешка
+[Disabled]
+Забранени
+[Move service up]
+Преместване на службата нагоре
+[Move service down]
+Преместване на службата надолу
+[<b>Status</b> : Enabled]
+<b>Статус</b> : Разрешен
+[<b>Status</b> : Error]
+<b>Статус</b> : Грешка
+[<b>Status</b> : Disabled]
+<b>Статус</b> : Забранен
+[Enable]
+Включване
+[Disable]
+Изключване
+[Subjects]
+Теми
+[Subject]
+Тема
+[Any]
+Всяка
+[Common]
+Обща
+[Aviation]
+Авиация
+[Auto]
+Авто
+[Anatomy]
+Анатомия
+[Bank]
+Банк
+[Bible]
+Библия
+[Business]
+Бизнес
+[Military]
+Военна
+[Law]
+Закон
+[Informatics]
+Информатика
+[Art]
+Изкуство
+[Space]
+Космос
+[Socio-political]
+Социално-политическа
+[Medicine]
+Медицина
+[Music]
+Музика
+[Sex]
+Секс
+[Sport]
+Спорт
+[Tech]
+Техника
+[Philosophy]
+Философия
+[Chemistry]
+Химия
+[Economy]
+Икономика
+[Electronics]
+Електроника
+[Internet]
+Интернет
+[Logistics]
+Логистика
+[Travel]
+Пътешествия
+[Football]
+Футбол
+[Phrasebook]
+Разговорник
+[Perfumery]
+Парфюмерия
+[Type]
+Тип
+[Translator]
+Преводач
+[Monolingual dictionary]
+Тълковен речник
+[Bilingual dictionary]
+Двуезичен речник
+[Dictionary of synonyms]
+Синонимен речник
+[Dictionary of antonyms]
+Антонимен речник
+[Phraseological dictionary]
+Фразеологичен речник
+[Encyclopedia]
+Енциклопедия
+[Search Engine]
+Служба за търсене
+[Bilingual phrases dictionary]
+Двуезичен фразеологичен речник
+[Bilingual sentenses dictionary]
+База с паралелни предложения
+[T]
+П
+[MD]
+ТС
+[BD]
+ДС
+[SD]
+CC
+[AD]
+СА
+[PD]
+ФС
+[EN]
+ЕН
+[SE]
+СП
+[BP]
+ДФ
+[BS]
+ПП
+[Limit]
+Ограничение
+[characters]
+символи
+[Masks]
+Маски
+[English-Ukrainian technical dictionary]
+Англо-украински речник на техническите термини
+[Google Translator]
+Google преводач
+[<META> Translator]
+Преводач <META>
+[Free open source machine translation system]
+Многоезична система за автоматизиран превод с отворен код
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Русско-украински (академичен) речник (1924–1933)
+[Large explanatory dictionary of modern Ukrainian]
+Голям тълковен речник на съвременния украински език
+[Slovnyk - the multilanguage dictionary]
+Многоезичен речник slovnyk.org
+[Russian-Ukrainian dictionary of constant expressions]
+Русско-украински речник на устойчивите изрази
+[Pragma 5.x on-line translation]
+Pragma 5.x онлайн превод
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Англо-украински и украинско-английски онлайн речници - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Украинско-английско-украински речник  - Slovnenya
+[Dictionary of foreign words]
+Речник на чуждите думи
+[Dictionaries of Ukraine]
+Речници на Украйна
+[The free encyclopedia that anyone can edit]
+Свободната енциклопедия, която всеки може да редактира
+[The free dictionary that anyone can edit]
+Свободен речник, който всеки може да редактира
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN преводач (използва се в Altavista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Полско-английско-полски и полско-немско-полски речници
+[Yahoo Babel Fish Translator]
+Преводач Yahoo Babel Fish
+[Multitran - system for translators]
+Мултитран - система за преводачи
+[PROMT - Free Text Translator]
+Онлайн преводач на текстове на компанията ПРОМТ
+[LangSoft Translation & Educational Software]
+LangSoft - програмно обезпечение за превод и образование
+[Tiscali - Czech oriented dictionary]
+Tiscali - речник, ориентиран към чешки език
+[Free Online Urdu-English Dictionary]
+Безплатен урду-английски онлайн речник 
+[Online English-to-Urdu and Urdu-to-English dictionary]
+Онлайн английско-урду-английски речник
+[Grouped by Service's Url]
+Подреждане по адрес на службата
+[Grouped by Language]
+Подреждане по език
+[{0} language pairs]
+езикови двойки - {0}
+[{0} services]
+служби - {0}
+[Create article]
+Създаване на статия
+[Open article]
+Отваряне на статия
+[{0} phrases translated by {1} calls to translate services]
+Преведени са {0} фрази с помощта на {1} опита за свързване със службите за превод
