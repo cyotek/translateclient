@@ -280,6 +280,9 @@
     <None Include="..\..\site\versions.txt">
       <Link>site\versions.txt</Link>
     </None>
+    <None Include="lang\Bulgarian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Chinese %28Simplified%29.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
