@@ -1,0 +1,61 @@
+.delicious-blogbadge-custom {
+font: 12px arial; border: 2px solid #B1B1B1; width: 110px; text-align: center; position: relative;
+}
+.delicious-blogbadge-custom .save-to-link {
+clear: both; display: block; padding: 0 0 0 12px; margin: 0.5em; text-align: center; color: blue !important;
+text-decoration: none;
+font-weight: bold;
+background: url(http://images.del.icio.us/static/img/delicious.small.gif) no-repeat 2px 50%;
+border: none !important;
+}
+.delicious-blogbadge-custom .url-link {
+text-align: right; display: block; float: right;
+color: #999 !important;
+text-decoration: none; padding: 4px 6px;
+position: relative; bottom: 0px; right: 0px;
+border: none !important;
+}
+.delicious-blogbadge-custom .url-link .post-count {
+background-color: #00f; color: #fff; padding: 0 0.25em 0 0.25em;
+}
+.delicious-blogbadge-custom .empty-save-to-link {
+display: none;
+border: none !important;
+}
+.delicious-blogbadge-custom .empty-save-to-link-label {
+display: block; font-size: 85%; text-align: center;
+}
+.delicious-blogbadge-custom .empty-message {
+background-color: #E6E6E6; float: right; font-size: 95%; display: block; font-weight: normal; width: 100%; padding: 2px 0 2px 0;
+}
+.delicious-blogbadge-custom .post-count-label-before {
+display: inline;
+}
+.delicious-blogbadge-custom .post-count {
+display: inline; text-align: center;
+}
+.delicious-blogbadge-custom .post-count-label-after {
+display: inline;
+}
+.delicious-blogbadge-custom .top-tags-container {
+display:none;background-color: #E6E6E6; text-align: left; padding: 4px 6px 4px 6px; margin-bottom: 0.75em;
+}
+.delicious-blogbadge-custom .top-tags-title {
+display: inline; font-size: 95%; font-weight: bold;
+}
+.delicious-blogbadge-custom .top-tags {
+display: inline; margin: 0; padding: 0; text-indent: 0;
+}
+.delicious-blogbadge-custom .top-tags li {
+font-size: 95%; display: inline; list-style: none; margin: 0; padding: 0 0.15em 0.15em 0;
+}
+.delicious-blogbadge-custom .top-tags li a {
+padding: 0;
+margin: 0;
+text-decoration: none;
+border: none !important;
+color: blue !important;
+}
+.delicious-blogbadge-custom br {
+clear: both;
+}

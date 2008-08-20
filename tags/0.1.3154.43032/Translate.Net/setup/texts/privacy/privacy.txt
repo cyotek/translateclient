@@ -1,0 +1,42 @@
+Translate.Net Privacy Policy
+January 2008
+
+This privacy policy explains how Translate.Net collects and uses information about users of the official Translate.Net tool.  It does not apply to other author's websites, products or services.  
+
+
+Types of Information
+
+Because Translate.Net emulate web browsers, Translate.Net sends certain information to the websites and other network services when in use.  This information falls into three categories:
+
+Personally-Identifying Information.  "Personally-Identifying Information" means information that, without the aid of additional information, can be directly associated with a specific person or entity including but not limited to a name, phone number or email address.  Except as described below, author does not collect or require end-users of Translate.Net to furnish Personally-Identifying Information.
+Non-Personally-Identifying Information.  "Non-Personally-Identifying Information" means information that cannot be directly associated with a specific person or entity.  Non-Personally-Identifying Information includes but is not limited to your computer's configuration and version of Microsoft Internet Explorer installed on your system.
+Potentially Personally-Identifying Information.  "Potentially Personally-Identifying Information" means information that is Non-Personally-Identifying Information in and of itself but that could be used in conjunction with other information to personally identify you.  This includes but is not limited to IP, your queries and cookies. For example, Uniform Resource Locators ("URLs") (the addresses of web pages) and Internet Protocol ("IP") addresses (the addresses of computers on the internet), which are Non-Personally-Identifying Information in and of themselves, could be Personally-Identifying Information when combined with internet service provider ("ISP") records.
+
+
+Information Translate.Net Sends to Websites and other network services
+
+When function, Translate.Net sends information to the websites and other network services like most web browsers, including (1) Non-Personally-Identifying Information of the type that web browsers typically make available, such as your language preference and the date and time of your visit; and (2) Potentially Personally-Identifying Information such as your IP address and Translate.Net related information (queries, subjects and languages), cookies.  This information may be logged on the websites and network services.  What information is logged and how that information is used depends on the policies of each of the websites and network service used.
+Each website and network service determines its own privacy policy for the distribution and use of this Non-Personally-Identifying Information and Potentially-Personally-Identifying Information.  If you are concerned about how a website or network service will use this information, check out its privacy policy.  
+
+
+Interactive Product Features
+
+Automated Update Service.  Translate.Net's automatic update feature periodically checks to see if an updated version of Translate.Net is available from author.  This feature sends Non-Personally-Identifying Information to author, including the version of Translate.Net you are using. Author uses this Non-Personally-Identifying Information to provide you with updated versions of Translate.Net.  Author do not collect or track any Personally-Identifying Information or any information about the Web sites or network services used, and author do not release the raw information obtained from this feature to the public.  Author may release reports containing aggregate data.  To prevent Translate.Net from obtaining this information, you can turn this feature off in Translate.Net's preferences.
+
+
+Cookies
+
+A cookie is a small string of information that a website stores on your computer and that web browsers make available to that website each time you return.  Translate.Net uses cookies stores on your computer by Microsoft Internet Explorer when requested to do so by websites only at time when query results shown.  A website uses cookies to help identify and track visitors, the use of the website, and visitors' website access preferences across multiple requests and visits. It is possible to include Personally-Identifying Information, or references to such information, in cookies, thereby enabling websites to track the online movements of particular individuals. To prevent Translate.Net from sending cookies to any website, configure Microsoft Internet Explorer to disable cookies.   
+
+
+Privacy Policy Changes
+
+Author may change the Translate.Net Privacy Policy from time to time.  Any and all changes will be reflected on this page.  When author changes this policy in a material way a notice will be posted on the website at http://translateclient.googlepages.com.  Substantive changes may also be announced through the other mechanisms like a mailing list.  It is your responsibility to ensure that you understand the terms of this Privacy Policy.  You should periodically check this page for any changes to the current policy.
+
+
+For More Information
+
+If you have questions about this privacy policy, please contact author at: oleksii.prudkyi!gmail.com.
+
+
+This Privacy Policy is modified "Mozilla Firefox Privacy Policy" stored at http://www.mozilla.com/en-US/legal/privacy/firefox-en.html

@@ -1,0 +1,3 @@
+Sitemap: http://translateclient.googlepages.com/sitemap.xml
+User-agent: *
+Disallow:

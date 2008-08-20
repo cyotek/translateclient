@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XML_DIZ_INFO>
+	<MASTER_PAD_VERSION_INFO>
+		<MASTER_PAD_VERSION>3.01</MASTER_PAD_VERSION>
+		<MASTER_PAD_EDITOR>PADGen 3.0.1.38 http://www.padgen.org</MASTER_PAD_EDITOR>
+		<MASTER_PAD_INFO>Portable Application Description, or PAD for short, is a data set that is used by shareware authors to disseminate information to anyone interested in their software products. To find out more go to http://www.asp-shareware.org/pad</MASTER_PAD_INFO>
+	</MASTER_PAD_VERSION_INFO>
+	<Company_Info>
+		<Company_Name>Oleksii Prudkyi</Company_Name>
+		<Address_1 />
+		<Address_2 />
+		<City_Town>Kharkiv</City_Town>
+		<State_Province />
+		<Zip_Postal_Code />
+		<Country>Ukraine</Country>
+		<Company_WebSite_URL>http://translateclient.googlepages.com/</Company_WebSite_URL>
+		<Contact_Info>
+			<Author_First_Name>Oleksii</Author_First_Name>
+			<Author_Last_Name>Prudkyi</Author_Last_Name>
+			<Author_Email>Oleksii.Prudkyi@gmail.com</Author_Email>
+			<Contact_First_Name>Oleksii</Contact_First_Name>
+			<Contact_Last_Name>Prudkyi</Contact_Last_Name>
+			<Contact_Email>Oleksii.Prudkyi@gmail.com</Contact_Email>
+		</Contact_Info>
+		<Support_Info>
+			<Sales_Email>Oleksii.Prudkyi@gmail.com</Sales_Email>
+			<Support_Email>Oleksii.Prudkyi@gmail.com</Support_Email>
+			<General_Email>Oleksii.Prudkyi@gmail.com</General_Email>
+			<Sales_Phone />
+			<Support_Phone />
+			<General_Phone />
+			<Fax_Phone />
+		</Support_Info>
+	</Company_Info>
+	<Program_Info>
+		<Program_Name>Translate.Net</Program_Name>
+		<Program_Version>0.1.3154.43032</Program_Version>
+		<Program_Release_Month>08</Program_Release_Month>
+		<Program_Release_Day>21</Program_Release_Day>
+		<Program_Release_Year>2008</Program_Release_Year>
+		<Program_Cost_Dollars>0.00</Program_Cost_Dollars>
+		<Program_Cost_Other_Code />
+		<Program_Cost_Other />
+		<Program_Type>Freeware</Program_Type>
+		<Program_Release_Status>Beta</Program_Release_Status>
+		<Program_Install_Support>Install and Uninstall</Program_Install_Support>
+		<Program_OS_Support>Windows2000,WinXP,Windows2003,Windows Vista Starter,Windows Vista Home Basic,Windows Vista Home Premium,Windows Vista Business,Windows Vista Enterprise,Windows Vista Ultimate,Windows Vista Home Basic x64,Windows Vista Home Premium x64,Windows Vista Business x64,Windows Vista Enterprise x64,Windows Vista Ultimate x64</Program_OS_Support>
+		<Program_Language>English,Bulgarian,Chinese,ChineseSimplified,ChineseTraditional,French,German,Italian,Portuguese,Russian,Spanish,Ukrainian</Program_Language>
+		<Program_Change_Info>German, Bulgarian gui translations, sync with new Google dictionary site design, fixes </Program_Change_Info>
+		<Program_Specific_Category>Education</Program_Specific_Category>
+		<Program_Category_Class>Education::Dictionaries</Program_Category_Class>
+		<Program_System_Requirements>.Net Framework 2.0, internet connection</Program_System_Requirements>
+		<File_Info>
+			<File_Size_Bytes>819787</File_Size_Bytes>
+			<File_Size_K>800</File_Size_K>
+			<File_Size_MB>0.78</File_Size_MB>
+		</File_Info>
+		<Expire_Info>
+			<Has_Expire_Info>N</Has_Expire_Info>
+			<Expire_Count />
+			<Expire_Based_On>Days</Expire_Based_On>
+			<Expire_Other_Info />
+			<Expire_Month />
+			<Expire_Day />
+			<Expire_Year />
+		</Expire_Info>
+	</Program_Info>
+	<Program_Descriptions>
+		<English>
+			<Keywords>translate,translator,dictionary,wikipedia,wikitictionary,google translator,altavista,babelfish,monolingual, bilingual, slovnyk, foreign, free, language, learning, open source, software</Keywords>
+			<Char_Desc_45>Client for many online translators</Char_Desc_45>
+			<Char_Desc_80>Translate words and phrases to and from numerous languages in simple way</Char_Desc_80>
+			<Char_Desc_250>Translate.Net is free and open source client for many language services available online (translators, monolingual and bilingual dictionaries). 26 sites, 40 services, 39 languages, 1367 translations directions.</Char_Desc_250>
+			<Char_Desc_450>The Translate.Net will help you to translate words and phrases to and from numerous languages in simple way. This free, open-source software work as client to most popular translating services available online (translators, monolingual and bilingual dictionaries). 26 sites, 40 services, 39 languages, 1367 translations directions. Full list of languages\services available at http://translateclient.googlepages.com/services.en.html</Char_Desc_450>
+			<Char_Desc_2000>The Translate.Net will help you to translate words and phrases to and from numerous languages in simple way. This free, open-source software work as client to most popular translating services available online (translators, monolingual and bilingual dictionaries). Using results of translations from many different sources allow receiving much more reliability of translation. 
+Already supported 26 sites with language services, 40 services, 39 languages, 1367 translations directions. 
+
+Services:
+- Google dictionary and Google translator
+- Wikipedia and wiktionary
+- Yahoo Babel Fish translator
+- SYSTRAN translator (used by Yahoo Babel Fish)
+- Merriam-Webster dictionary and thesaurus
+- PROMT translator and dictionary
+- and much more
+
+Full list of languages\services available at http://translateclient.googlepages.com/services.en.html
+
+
+Features:
+- ability to create user profiles - custom set of services
+- history of used language pairs which sorted by last use time
+- input locale catching - when user change input locale, the latest language pair from history is selected. When user select language pairs - input locale changed accordingly
+- system hotkeys (Ctrl+C+C and\or Ctrl+Ins+Ins) allow to activate Translate.Net and perform translation from any program easy
+
+require .Net Framework 2.0 and internet connection</Char_Desc_2000>
+		</English>
+		<Russian>
+			<Keywords>переводчик,словарь,перевести,украинский,русский,английский</Keywords>
+			<Char_Desc_45>Translate.Net - клиент к онлайн-переводчикам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клиент к онлайн-переводчикам и словарям</Char_Desc_80>
+			<Char_Desc_250>Translate.Net бесплатная программа, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 26 сайтов, 40 сервисов, 39 языков, 1367 языковых пар.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 26 сайтрв, 40 сервисов, 39 языков, 1367 языковых пар.  Наиболее поддерживаемые языки - украинский, русский, английский.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net переводит слова и фразы по множеству направлений. Это  бесплатная программа c открытым исходным кодом, которая работает как клиент к разнообразным бесплатным сетевым сервисам перевода - словарям, переводчикам, толковым словарям. 26 сайтов, 40 сервисов, 39 языков, 1367 языковых пар. 
+
+Наиболее поддерживаемые языки - украинский, русский, английский. 
+
+Поддержка:
+- переводчик и словарь PROMT
+- словарь Multitran
+- переводчик и словарь Google
+- Wikipedia и wiktionary
+- переводчик Yahoo Babel Fish 
+- переводчик SYSTRAN 
+
+
+Полный список служб, языков:
+ http://translateclient.googlepages.com/services.ru.html
+
+Требует наличия Microsoft .Net Framework 2.0 и соединения с интернет</Char_Desc_2000>
+		</Russian>
+		<Ukrainian>
+			<Keywords>перекладачка,словник,перекласти,українська,російська,англійська</Keywords>
+			<Char_Desc_45>Translate.Net - клієнт к онлайн-перекладачкам</Char_Desc_45>
+			<Char_Desc_80>Translate.Net - клієнт к онлайн-перекладачкам, словникам, тлумачним словникам</Char_Desc_80>
+			<Char_Desc_250>Translate.Net клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 26 сайтів, 40 онлайнових сервісів, 39  мов, 1367  напрямків перекладу  із різним  рівнем підтримки.</Char_Desc_250>
+			<Char_Desc_450>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників. 26 сайтів, 40 онлайнових сервісів, 39  мов, 1367  напрямків перекладу  із різним  рівнем підтримки. Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.</Char_Desc_450>
+			<Char_Desc_2000>Translate.Net безкоштовна програма з відкритими вихідними текстами, яка працює як клієнт до різноманітних мережевих перекладачок, тлумачних та двомовних словників.
+26 сайтів, 40 онлайнових сервісів, 39  мов, 1367  напрямків перекладу  із різним  рівнем підтримки.
+Підтримуються усі онлайнові українські перекладачки, двомовні, тлумачні та фразеологічні словники.
+
+Повний список мов, сервісів, напрямків перекладу:
+http://translateclient.googlepages.com/services.uk.html
+
+Потребує Microsoft .Net Framwork 2.0 та працюючий інтернет.</Char_Desc_2000>
+		</Ukrainian>
+	</Program_Descriptions>
+	<Web_Info>
+		<Application_URLs>
+			<Application_Info_URL>http://translateclient.googlepages.com</Application_Info_URL>
+			<Application_Order_URL>http://translateclient.googlepages.com</Application_Order_URL>
+			<Application_Screenshot_URL>http://translateclient.googlepages.com/screen1.eng.png</Application_Screenshot_URL>
+			<Application_Icon_URL>http://translateclient.googlepages.com/translate.png</Application_Icon_URL>
+			<Application_XML_File_URL>http://translateclient.googlepages.com/Translate.Net.xml</Application_XML_File_URL>
+		</Application_URLs>
+		<Download_URLs>
+			<Primary_Download_URL>http://translateclient.googlecode.com/files/translate.net.0.1.3154.43032.exe</Primary_Download_URL>
+			<Secondary_Download_URL />
+			<Additional_Download_URL_1 />
+			<Additional_Download_URL_2 />
+		</Download_URLs>
+	</Web_Info>
+	<Permissions>
+		<Distribution_Permissions />
+		<EULA>TRANSLATE.NET END-USER SOFTWARE LICENSE AGREEMENT
+
+Version 1.0
+
+A SOURCE CODE VERSION OF CERTAIN TRANSLATE.NET FUNCTIONALITY THAT YOU MAY USE, MODIFY AND DISTRIBUTE IS AVAILABLE TO YOU FREE-OF-CHARGE FROM http://translateclient.googlepages.com/ UNDER THE MOZILLA PUBLIC LICENSE and other open source software licenses.
+
+The accompanying executable code version of Translate.Net and related documentation (the "Product") is made available to you under the terms of this TRANSLATE.NET END-USER SOFTWARE LICENSE AGREEMENT (THE "AGREEMENT"). BY CLICKING THE "ACCEPT" BUTTON, OR BY INSTALLING OR USING THE TRANSLATE.NET, YOU ARE CONSENTING TO BE BOUND BY THE AGREEMENT. IF YOU DO NOT AGREE TO THE TERMS AND CONDITIONS OF THIS AGREEMENT, DO NOT CLICK THE "ACCEPT" BUTTON, AND DO NOT INSTALL OR USE ANY PART OF THE TRANSLATE.NET.
+
+1. LICENSE GRANT. The author (Oleksii Prudkyi) grants you a non-exclusive license to use the executable code version of the Product. This Agreement will also govern any software upgrades provided by author that replace and/or supplement the original Product, unless such upgrades are accompanied by a separate license, in which case the terms of that license will govern.
+
+2. TERMINATION. If you breach this Agreement your right to use the Product will terminate immediately and without notice, but all provisions of this Agreement except the License Grant (Paragraph 1) will survive termination and continue in effect. Upon termination, you must destroy all copies of the Product.
+
+3. PROPRIETARY RIGHTS. Portions of the Product are available in source code form under the terms of the Mozilla Public License and other open source licenses (collectively, "Open Source Licenses") at http://translateclient.googlepages.com/. Nothing in this Agreement will be construed to limit any rights granted under the Open Source Licenses. Subject to the foregoing, author, for itself and on behalf of his licensors, hereby reserves all intellectual property rights in the Product, except for the rights expressly granted in this Agreement. You may not remove or alter any trademark, logo, copyright or other proprietary notice in or on the Product. This license does not grant you any right to use the trademarks, service marks or logos of author or its licensors.
+
+4. PRIVACY POLICY. You agree to the Translate.Net Privacy Policy, made available online at http://translateclient.googlepages.com/download.en.html, as that policy may be changed from time to time. When author changes the policy in a material way a notice will be posted on the website at www.translateclient.googlepages.com, and when any change is made in the privacy policy, the updated policy will be posted at the above link. It is your responsibility to ensure that you understand the terms of the privacy policy, so you should periodically check the current version of the policy for changes.
+
+5. DISCLAIMER OF WARRANTY. THE PRODUCT IS PROVIDED "AS IS" WITH ALL FAULTS. TO THE EXTENT PERMITTED BY LAW, AUTHOR AND LICENSORS HEREBY DISCLAIM ALL WARRANTIES, WHETHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION WARRANTIES THAT THE PRODUCT IS FREE OF DEFECTS, MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE AND NON-INFRINGING. YOU BEAR THE ENTIRE RISK AS TO SELECTING THE PRODUCT FOR YOUR PURPOSES AND AS TO THE QUALITY AND PERFORMANCE OF THE PRODUCT. THIS LIMITATION WILL APPLY NOTWITHSTANDING THE FAILURE OF ESSENTIAL PURPOSE OF ANY REMEDY. SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF IMPLIED WARRANTIES, SO THIS DISCLAIMER MAY NOT APPLY TO YOU.
+
+6. LIMITATION OF LIABILITY. EXCEPT AS REQUIRED BY LAW, AUTHOR AND LICENSORS, CONTRIBUTORS AND AGENTS WILL NOT BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES ARISING OUT OF OR IN ANY WAY RELATING TO THIS AGREEMENT OR THE USE OF OR INABILITY TO USE THE PRODUCT, INCLUDING WITHOUT LIMITATION DAMAGES FOR LOSS OF GOODWILL, WORK STOPPAGE, LOST PROFITS, LOSS OF DATA, AND COMPUTER FAILURE OR MALFUNCTION, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND REGARDLESS OF THE THEORY (CONTRACT, TORT OR OTHERWISE) UPON WHICH SUCH CLAIM IS BASED. THE AUTHOR LIABILITY UNDER THIS AGREEMENT WILL NOT EXCEED THE GREATER OF $5 (FIVE DOLLARS) AND THE FEES PAID BY YOU UNDER THE LICENSE (IF ANY). SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF INCIDENTAL, CONSEQUENTIAL OR SPECIAL DAMAGES, SO THIS EXCLUSION AND LIMITATION MAY NOT APPLY TO YOU.
+
+7. EXPORT CONTROLS. This license is subject to all applicable export restrictions. You must comply with all export and import laws and restrictions and regulations of any United States or foreign agency or authority relating to the Product and its use.
+
+8. U.S. GOVERNMENT END-USERS. This Product is a "commercial item," as that term is defined in 48 C.F.R. 2.101, consisting of "commercial computer software" and "commercial computer software documentation," as such terms are used in 48 C.F.R. 12.212 (Sept. 1995) and 48 C.F.R. 227.7202 (June 1995). Consistent with 48 C.F.R. 12.212, 48 C.F.R. 27.405(b)(2) (June 1998) and 48 C.F.R. 227.7202, all U.S. Government End Users acquire the Product with only those rights as set forth therein.
+
+9. MISCELLANEOUS. (a) This Agreement constitutes the entire agreement between author and you concerning the subject matter hereof, and it may only be modified by a written amendment signed by an author or authorized executive of author. (b) Except to the extent applicable law, if any, provides otherwise, this Agreement will be governed by the laws of the Ukraine and of the state of California, U.S.A., excluding its conflict of law provisions. (c) This Agreement will not be governed by the United Nations Convention on Contracts for the International Sale of Goods. (d) If any part of this Agreement is held invalid or unenforceable, that part will be construed to reflect the parties' original intent, and the remaining portions will remain in full force and effect. (e) A waiver by either party of any term or condition of this Agreement or any breach thereof, in any one instance, will not waive such term or condition or any subsequent breach thereof. (f) Except as required by law, the controlling language of this Agreement is English. (g) You may assign your rights under this Agreement to any party that consents to, and agrees to be bound by, its terms; the author may assign its rights under this Agreement without condition. (h) This Agreement will be binding upon and inure to the benefit of the parties, their successors and permitted assigns.
+
+
+This EULA is modified Mozilla Firefox 2 EULA stored at http://www.mozilla.com/en-US/legal/eula/
+
+
+Translate.Net Privacy Policy
+January 2008
+
+This privacy policy explains how Translate.Net collects and uses information about users of the official Translate.Net tool.  It does not apply to other author's websites, products or services. 
+
+
+Types of Information
+
+Because Translate.Net emulate web browsers, Translate.Net sends certain information to the websites and other network services when in use.  This information falls into three categories:
+
+    * Personally-Identifying Information.  "Personally-Identifying Information" means information that, without the aid of additional information, can be directly associated with a specific person or entity including but not limited to a name, phone number or email address.  Except as described below, author does not collect or require end-users of Translate.Net to furnish Personally-Identifying Information.
+    * Non-Personally-Identifying Information.  "Non-Personally-Identifying Information" means information that cannot be directly associated with a specific person or entity.  Non-Personally-Identifying Information includes but is not limited to your computer's configuration and version of Microsoft Internet Explorer installed on your system.
+    * Potentially Personally-Identifying Information.  "Potentially Personally-Identifying Information" means information that is Non-Personally-Identifying Information in and of itself but that could be used in conjunction with other information to personally identify you.  This includes but is not limited to IP, your queries and cookies. For example, Uniform Resource Locators ("URLs") (the addresses of web pages) and Internet Protocol ("IP") addresses (the addresses of computers on the internet), which are Non-Personally-Identifying Information in and of themselves, could be Personally-Identifying Information when combined with internet service provider ("ISP") records.
+
+
+
+Information Translate.Net Sends to Websites and other network services
+
+When function, Translate.Net sends information to the websites and other network services by emulating web browsers and using Microsoft Internet Explorer api, including (1) Non-Personally-Identifying Information of the type that web browsers typically make available, such as your language preference and the date and time of your visit; and (2) Potentially Personally-Identifying Information such as your IP address and Translate.Net related information (queries, subjects and languages), cookies.  This information may be logged on the websites and network services.  What information is logged and how that information is used depends on the policies of each of the websites and network service used.
+Each website and network service determines its own privacy policy for the distribution and use of this Non-Personally-Identifying Information and Potentially-Personally-Identifying Information.  If you are concerned about how a website or network service will use this information, check out its privacy policy. 
+
+
+Interactive Product Features
+
+Automated Update Service.  Translate.Net's automatic update feature periodically checks to see if an updated version of Translate.Net is available from author.  This feature sends Non-Personally-Identifying Information to author, including the version of Translate.Net you are using. Author uses this Non-Personally-Identifying Information to provide you with updated versions of Translate.Net.  Author do not collect or track any Personally-Identifying Information or any information about the Web sites or network services used, and author do not release the raw information obtained from this feature to the public.  Author may release reports containing aggregate data.  To prevent Translate.Net from obtaining this information, you can turn this feature off in Translate.Net's preferences.
+
+Ads. Translate.Net's ads may be integrated in result view. This feature sends Potentially Personally-Identifying Information to ads services to generate ads based on context of your queries. Such information include queries, subjects, languages.     
+
+
+Cookies
+
+A cookie is a small string of information that a website stores on your computer and that web browsers make available to that website each time you return.  Translate.Net uses cookies stores on your computer by Microsoft Internet Explorer when requested to do so by websites only at time when query results shown.  A website uses cookies to help identify and track visitors, the use of the website, and visitors' website access preferences across multiple requests and visits. It is possible to include Personally-Identifying Information, or references to such information, in cookies, thereby enabling websites to track the online movements of particular individuals. To prevent Translate.Net from sending cookies to any website, configure Microsoft Internet Explorer to disable cookies.  
+
+
+Privacy Policy Changes
+
+Author may change the Translate.Net Privacy Policy from time to time.  Any and all changes will be reflected on this page.  When author changes this policy in a material way a notice will be posted on the website at http://translateclient.googlepages.com. Substantive changes may also be announced through the other mechanisms like a mailing list. It is your responsibility to ensure that you understand the terms of this Privacy Policy.  You should periodically check this page for any changes to the current policy.
+
+For More Information
+
+If you have questions about this privacy policy, please contact author at: Oleksii.Prudkyi@gmail.com
+
+This Privacy Policy is modified "Mozilla Firefox Privacy Policy" stored at http://www.mozilla.com/en-US/legal/privacy/firefox-en.html</EULA>
+	</Permissions>
+	<Affiliates>
+		<Affiliates_FORM>Y</Affiliates_FORM>
+		<Affiliates_VERSION>1.4</Affiliates_VERSION>
+		<Affiliates_URL>http://www.asp-shareware.org/pad/extensions/Affiliates.htm</Affiliates_URL>
+		<Affiliates_Information_Page />
+		<Affiliates_Avangate_Order_Page />
+		<Affiliates_Avangate_Vendor_ID />
+		<Affiliates_Avangate_Product_ID />
+		<Affiliates_Avangate_Maximum_Commission_Rate />
+		<Affiliates_BMTMicro_Order_Page />
+		<Affiliates_BMTMicro_Vendor_ID />
+		<Affiliates_BMTMicro_Product_ID />
+		<Affiliates_BMTMicro_Maximum_Commission_Rate />
+		<Affiliates_Cleverbridge_Order_Page />
+		<Affiliates_Cleverbridge_Vendor_ID />
+		<Affiliates_Cleverbridge_Product_ID />
+		<Affiliates_Cleverbridge_Maximum_Commission_Rate />
+		<Affiliates_clixGalore_Order_Page />
+		<Affiliates_clixGalore_Vendor_ID />
+		<Affiliates_clixGalore_Product_ID />
+		<Affiliates_clixGalore_Maximum_Commission_Rate />
+		<Affiliates_CommissionJunction_Order_Page />
+		<Affiliates_CommissionJunction_Vendor_ID />
+		<Affiliates_CommissionJunction_Product_ID />
+		<Affiliates_CommissionJunction_Maximum_Commission_Rate />
+		<Affiliates_DigiBuy_Order_Page />
+		<Affiliates_DigiBuy_Vendor_ID />
+		<Affiliates_DigiBuy_Product_ID />
+		<Affiliates_DigiBuy_Maximum_Commission_Rate />
+		<Affiliates_DigitalCandle_Order_Page />
+		<Affiliates_DigitalCandle_Vendor_ID />
+		<Affiliates_DigitalCandle_Product_ID />
+		<Affiliates_DigitalCandle_Maximum_Commission_Rate />
+		<Affiliates_Emetrix_Order_Page />
+		<Affiliates_Emetrix_Vendor_ID />
+		<Affiliates_Emetrix_Product_ID />
+		<Affiliates_Emetrix_Maximum_Commission_Rate />
+		<Affiliates_eSellerate_Order_Page />
+		<Affiliates_eSellerate_Vendor_ID />
+		<Affiliates_eSellerate_Product_ID />
+		<Affiliates_eSellerate_Maximum_Commission_Rate />
+		<Affiliates_Kagi_Order_Page />
+		<Affiliates_Kagi_Vendor_ID />
+		<Affiliates_Kagi_Product_ID />
+		<Affiliates_Kagi_Maximum_Commission_Rate />
+		<Affiliates_LinkShare_Order_Page />
+		<Affiliates_LinkShare_Vendor_ID />
+		<Affiliates_LinkShare_Product_ID />
+		<Affiliates_LinkShare_Maximum_Commission_Rate />
+		<Affiliates_NorthStarSol_Order_Page />
+		<Affiliates_NorthStarSol_Vendor_ID />
+		<Affiliates_NorthStarSol_Product_ID />
+		<Affiliates_NorthStarSol_Maximum_Commission_Rate />
+		<Affiliates_OneNetworkDirect_Order_Page />
+		<Affiliates_OneNetworkDirect_Vendor_ID />
+		<Affiliates_OneNetworkDirect_Product_ID />
+		<Affiliates_OneNetworkDirect_Maximum_Commission_Rate />
+		<Affiliates_Order1_Order_Page />
+		<Affiliates_Order1_Vendor_ID />
+		<Affiliates_Order1_Product_ID />
+		<Affiliates_Order1_Maximum_Commission_Rate />
+		<Affiliates_Osolis_Order_Page />
+		<Affiliates_Osolis_Vendor_ID />
+		<Affiliates_Osolis_Product_ID />
+		<Affiliates_Osolis_Maximum_Commission_Rate />
+		<Affiliates_Plimus_Order_Page />
+		<Affiliates_Plimus_Vendor_ID />
+		<Affiliates_Plimus_Product_ID />
+		<Affiliates_Plimus_Maximum_Commission_Rate />
+		<Affiliates_Regnet_Order_Page />
+		<Affiliates_Regnet_Vendor_ID />
+		<Affiliates_Regnet_Product_ID />
+		<Affiliates_Regnet_Maximum_Commission_Rate />
+		<Affiliates_Regnow_Order_Page />
+		<Affiliates_Regnow_Vendor_ID />
+		<Affiliates_Regnow_Product_ID />
+		<Affiliates_Regnow_Maximum_Commission_Rate />
+		<Affiliates_Regsoft_Order_Page />
+		<Affiliates_Regsoft_Vendor_ID />
+		<Affiliates_Regsoft_Product_ID />
+		<Affiliates_Regsoft_Maximum_Commission_Rate />
+		<Affiliates_ShareIt_Order_Page />
+		<Affiliates_ShareIt_Vendor_ID />
+		<Affiliates_ShareIt_Product_ID />
+		<Affiliates_ShareIt_Maximum_Commission_Rate />
+		<Affiliates_Shareasale_Order_Page />
+		<Affiliates_Shareasale_Vendor_ID />
+		<Affiliates_Shareasale_Product_ID />
+		<Affiliates_Shareasale_Maximum_Commission_Rate />
+		<Affiliates_SWReg_Order_Page />
+		<Affiliates_SWReg_Vendor_ID />
+		<Affiliates_SWReg_Product_ID />
+		<Affiliates_SWReg_Maximum_Commission_Rate />
+		<Affiliates_V-Share_Order_Page />
+		<Affiliates_V-Share_Vendor_ID />
+		<Affiliates_V-Share_Product_ID />
+		<Affiliates_V-Share_Maximum_Commission_Rate />
+		<Affiliates_VFree_Order_Page />
+		<Affiliates_VFree_Vendor_ID />
+		<Affiliates_VFree_Product_ID />
+		<Affiliates_VFree_Maximum_Commission_Rate />
+		<Affiliates_Yaskifo_Order_Page />
+		<Affiliates_Yaskifo_Vendor_ID />
+		<Affiliates_Yaskifo_Product_ID />
+		<Affiliates_Yaskifo_Maximum_Commission_Rate />
+	</Affiliates>
+	<ASP>
+		<ASP_FORM>Y</ASP_FORM>
+		<ASP_Member>N</ASP_Member>
+		<ASP_Member_Number />
+	</ASP>
+	<PADTUBE>
+		<PADTUBE_FORM>Y</PADTUBE_FORM>
+		<PADTUBE_DESCRIPTION>Allows publishers to link PAD files to their PADTube publisher accounts.</PADTUBE_DESCRIPTION>
+		<PADTUBE_VERSION>1.0</PADTUBE_VERSION>
+		<PADTUBE_URL>http://www.padtube.com/pad/extensions/PADTube.htm</PADTUBE_URL>
+		<PADTUBE_SCOPE>Company</PADTUBE_SCOPE>
+		<PADTUBE_Member>Y</PADTUBE_Member>
+		<PADTUBE_Member_REGEX>^[yYnN]\Z</PADTUBE_Member_REGEX>
+		<PADTUBE_Member_REGEX_DOCUMENTATION>Y, y, N, or n</PADTUBE_Member_REGEX_DOCUMENTATION>
+		<PADTUBE_Username>OPrudky</PADTUBE_Username>
+		<PADTUBE_Username_REGEX>^[a-zA-Z0-9_.]{6,32}\Z</PADTUBE_Username_REGEX>
+		<PADTUBE_Username_REGEX_DOCUMENTATION>Alphanumeric with underscore allowed 6-32 characters</PADTUBE_Username_REGEX_DOCUMENTATION>
+	</PADTUBE>
+</XML_DIZ_INFO>
