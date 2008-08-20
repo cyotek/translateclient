@@ -70,7 +70,7 @@ namespace Translate
 		
 		void OptionsFormHelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
 		{
-			System.Diagnostics.Process.Start(Constants.OptionsHelpUrl);
+			ProcessStartHelper.Start(Constants.OptionsHelpUrl);
 			e.Cancel = true;
 		}
 		

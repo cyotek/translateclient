@@ -36,51 +36,34 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
-
 using System;
-using System.Drawing;
-using System.Windows.Forms;
-using FreeCL.Forms;
-using System.Reflection;
-using System.Resources;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
-using FreeCL.RTL;
 
-
-namespace Translate
+namespace FreeCL.Forms
 {
 	/// <summary>
-	/// Description of AboutForm.
+	/// Description of ProcessHelper.
 	/// </summary>
-	public partial class AboutForm : BaseAboutForm
+	public static class ProcessStartHelper
 	{
-		public AboutForm()
+		static ProcessStartHelper()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
-			InitializeComponent();
-			
-			
 		}
 		
-		void AboutFormVisibleChanged(object sender, EventArgs e)
+		public static void Start(string fileName)
 		{
-			lStats.Text = string.Format(
-				TranslateString("{0} phrases translated by {1} calls to translate services"),
-				TranslateOptions.Instance.StatOptions.Calls,
-				TranslateOptions.Instance.StatOptions.ServiceCalls
-			);	
-			
-			Text = LangPack.TranslateString("About")+ " " + lAppTitle.Text;
-			bDonate.Text  = LangPack.TranslateString("Donate ...");
-			bDonate.Visible = !(FreeCL.RTL.LangPack.CurrentLanguage == "Russian" || FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian");
-		}
-		
-		void BDonateClick(object sender, EventArgs e)
-		{
-			ProcessStartHelper.Start(Constants.DonateUrl);
+			try 
+			{
+				System.Diagnostics.Process.Start(fileName);
+			} 
+			catch (Exception e)
+			{
+				ErrorMessageBox.Show( 
+						"Error on start process : " + fileName + Environment.NewLine + 
+						"Error message :" + e.Message,
+						"Error on start process",
+						e);
+				
+			}
 		}
 	}
 }

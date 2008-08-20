@@ -66,7 +66,7 @@ namespace FreeCL.Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.lMessage = new System.Windows.Forms.Label();
+			this.lMessage = new System.Windows.Forms.TextBox();
 			this.picApp = new System.Windows.Forms.PictureBox();
 			this.bOptions = new FreeCL.UI.Panel();
 			this.panel1 = new FreeCL.UI.Panel();
@@ -81,13 +81,14 @@ namespace FreeCL.Forms
 			// 
 			this.lMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.lMessage.AutoEllipsis = true;
 			this.lMessage.Location = new System.Drawing.Point(84, 8);
 			this.lMessage.Name = "lMessage";
 			this.lMessage.Size = new System.Drawing.Size(291, 96);
 			this.lMessage.TabIndex = 11;
 			this.lMessage.Text = "Message";
-			this.lMessage.UseCompatibleTextRendering = true;
+			this.lMessage.ReadOnly = true;
+			this.lMessage.Multiline = true;
+			
 			// 
 			// picApp
 			// 
@@ -165,6 +166,6 @@ namespace FreeCL.Forms
 		private FreeCL.UI.Panel panel1;
 		private FreeCL.UI.Panel bOptions;
 		private System.Windows.Forms.PictureBox picApp;
-		private System.Windows.Forms.Label lMessage;
+		private System.Windows.Forms.TextBox lMessage;
 	}
 }

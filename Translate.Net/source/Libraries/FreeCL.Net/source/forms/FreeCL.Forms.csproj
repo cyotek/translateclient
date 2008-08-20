@@ -113,6 +113,7 @@
     <Compile Include="CommonItemsEnum.cs" />
     <Compile Include="CommonToolStripsEnum.cs" />
     <Compile Include="OptionsControlsManager.cs" />
+    <Compile Include="ProcessStartHelper.cs" />
     <Compile Include="UILanguageOptionsControl.cs" />
     <Compile Include="UILanguageOptionsControl.Designer.cs">
       <DependentUpon>UILanguageOptionsControl.cs</DependentUpon>

@@ -963,17 +963,17 @@ namespace Translate
 		
 		void AWebsiteExecute(object sender, EventArgs e)
 		{
-			System.Diagnostics.Process.Start(Constants.HomeUrl);
+			ProcessStartHelper.Start(Constants.HomeUrl);
 		}
 		
 		void ADonateExecute(object sender, EventArgs e)
 		{
-			System.Diagnostics.Process.Start(Constants.DonateUrl);
+			ProcessStartHelper.Start(Constants.DonateUrl);
 		}
 		
 		void AOnlineHelpExecute(object sender, EventArgs e)
 		{
-			System.Diagnostics.Process.Start(Constants.HelpUrl);
+			ProcessStartHelper.Start(Constants.HelpUrl);
 		}
 
 		void AFeedbackExecute(object sender, EventArgs e)
