@@ -15,11 +15,11 @@ Anwendung beenden
 [&Edit]
 &Bearbeiten
 [Copy selection to clipboard]
-Kopiere Auswahl in die Zwischenablage
+Auswahl in die Zwischenablage kopieren
 [&Copy]
 &Kopieren
 [Cut selection to clipboard]
-Schneide Auswahl in die Zwischenablage aus
+Auswahl in die Zwischenablage ausschneiden
 [Cu&t]
 &Ausschneiden
 [Paste from clipboard]
@@ -53,11 +53,11 @@ Alles schließen
 [About]
 Über das Programm
 [Send feedback or bugreport ...]
-Feedback oder Bugreport schicken ...
+Feedback oder Bugreport senden...
 [Feedback for :]
 Feedback für:
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
-<< Gib Dein Feedback oder Deinen Bug-Report hier ein (Englisch, Ukrainisch, Russisch). >>
+<< Feedback oder Bug-Report hier eingeben (Englisch, Ukrainisch, Russisch). >>
 [Donate ...]
 Spenden...
 [Online Help]
@@ -81,9 +81,9 @@ Bereite vor
 [Update downloaded]
 Update heruntergeladen
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
-Neue Version wurde heruntergeladen. Willst Du Translate.Net anhalten und den Installer der neuen Version starten?
+Die neue Version wurde heruntergeladen. Translate.Net anhalten und den Installer der neuen Version starten?
 [Please select where to save installer of new version which you can run later]
-Bitte wähle, wo Du den Installer der neuen Version, den Du später ausgführen kannst, speichern willst.
+Bitte wählen, wo der Installer der neuen Version, der später ausgeführt werden kann, gespeichert werden soll.
 [Installer saved to \r\n{0}]
 Installer gespeichert nach \r\n{0}
 [Update will be run later]
@@ -163,7 +163,7 @@ Wenn aktiviert, wird {0} beim Start des OS gestartet
 [Single Instance]
 Nur eine Instanz
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-Überprüfe beim Start, ob eine andere Instanz von {0} bereits läuft. In diesem Fall wird keine weitere Instanz gestartet.
+Beim Start überprüfen, ob eine andere Instanz von {0} bereits läuft. In diesem Fall wird keine weitere Instanz gestartet.
 [Tray]
 Tray
 [Hotkeys]
@@ -173,27 +173,27 @@ Mit Hotkey Ctrl+C+C aktivieren
 [Activate on Ctrl+Ins+Ins hotkey]
 Mit Hotkey Ctrl+Ins+Ins aktivieren
 [Translate when activated by hotkey]
-Wenn mit Hotkey aktiviert übersetzen
+Bei Aktivierung durch Hotkey übersetzen
 [Show query time and other information]
-Zeige Abfragezeit und andere Informationen
+Abfragezeit und andere Informationen anzeigen
 [Mark by red color untranslated words]
-Markiere unübersetzte Wörter mit Rot
+Unübersetzte Wörter Rot markieren
 [Don't show "Nothing found" results]
-Zeige keine "Nichts gefunden"-Ergebnisse
+Keine "Nichts gefunden"-Ergebnisse anzeigen
 [Show direction of translation]
-Zeige Übersetzungsrichtung
+Übersetzungsrichtung anzeigen
 [Show accents]
-Zeige Akzente
+Akzente anzeigen
 [Show names of services]
-Zeige die Namen der Dienste
+Die Namen der Dienste anzeigen
 [Nothing found]
 Nichts gefunden
 [Translation direction is not correct]
 Übersetzungsrichtung ist nicht korrekt
 [Only cyrillic characters supported]
-Nur kyrillischen Buchstaben unterstützt
+Nur kyrillischen Zeichen unterstützt
 [Ukrainian characters in russian query]
-Ukrainische Buchstaben in russischer Anfrage
+Ukrainische Zeichen in russischer Anfrage
 [Parse error, start tags not found]
 Parse-Fehler, Start-Tags nicht gefunden
 [Nothing to translate]
@@ -233,7 +233,7 @@ Kein Profilname gesetzt. Bitte einen Profilname eingeben.
 [Remove user profile]
 Benutzerprofil entfernen
 [The profile {0} will be deleted.\r\nAre you sure ?]
-Das Profil {0} wird gelöscht.\r\nBist Du sicher?
+Das Profil {0} wird gelöscht.\r\nSind Sie sicher?
 [Move profile up]
 Profil nach oben
 [Move profile down]
@@ -259,11 +259,11 @@ Markierte Dienste
 [View]
 Ansicht
 [Show services list]
-Zeige Dienste-Liste
+Dienste-Liste anzeigen
 [Show languages list]
-Zeige Sprachliste
+Sprachliste anzeigen
 [Show subjects list]
-Zeige Fachgebietliste
+Fachgebietliste anzeigen
 [Size]
 Größe
 [System font]
@@ -289,7 +289,7 @@ Größe oder Format wird von verfügbaren Diensten nicht unterstützt.
 [Show\\Hide]
 Anzeigen\\Verstecken
 [Show HTML source]
-Zeige HTML-Quelltext
+HTML-Quelltext anzeigen
 [From]
 Von
 [To]
@@ -413,7 +413,7 @@ Fachgebiet
 [Any]
 Alle
 [Common]
-Verbreitet
+Allgemein
 [Aviation]
 Luftfahrt
 [Auto]
@@ -519,9 +519,9 @@ Masken
 [English-Ukrainian technical dictionary]
 Englisch-Ukrainisches technisches Wörterbuch
 [Google Translator]
-Google Translator
+Google Übersetzer
 [<META> Translator]
-<META> Translator
+<META> Übersetzer
 [Free open source machine translation system]
 Freies maschinelles Open Source Übersetzungssystem
 [Russian-Ukrainian academic dictionary (1924–1933)]
