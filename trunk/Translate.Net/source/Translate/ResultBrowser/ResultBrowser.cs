@@ -624,6 +624,13 @@ namespace Translate
 			bool isHeightChanged = false;
 			try
 			{
+				Rectangle scrollRectangle;
+				if(wAdvertBrowser.Document != null && wAdvertBrowser.Document.Body != null)
+					scrollRectangle = wAdvertBrowser.Document.Body.ScrollRectangle;
+				else
+					scrollRectangle = new Rectangle(0, 0, 0, 0);
+					
+				
 				int allowedWidth = ClientSize.Width;
 				if(vScrollBar.Visible)
 					allowedWidth -= SystemInformation.VerticalScrollBarWidth;
@@ -647,11 +654,11 @@ namespace Translate
 						isHeightChanged = true;
 					}
 				}
-				else if(wAdvertBrowser.Document != null && wAdvertBrowser.Document.Body != null && wAdvertBrowser.Document.Body.ScrollRectangle.Height != 0)
+				else if(scrollRectangle.Height != 0)
 				{
-					if(wAdvertBrowser.Height != wAdvertBrowser.Document.Body.ScrollRectangle.Height + 2)
+					if(wAdvertBrowser.Height != scrollRectangle.Height + 2)
 					{
-						wAdvertBrowser.Height = wAdvertBrowser.Document.Body.ScrollRectangle.Height + 2;
+						wAdvertBrowser.Height = scrollRectangle.Height + 2;
 						isHeightChanged = true;
 					}
 				}
@@ -671,9 +678,9 @@ namespace Translate
 					if(wBrowser.Height != allowedHeight - wAdvertBrowser.Height)
 						wBrowser.Height = allowedHeight - wAdvertBrowser.Height;
 				}
-				else if(wBrowser.Document != null && wBrowser.Document.Body != null && wBrowser.Document.Body.ScrollRectangle.Height != 0)
+				else if(scrollRectangle.Height != 0)
 				{
-					int height = wBrowser.Document.Body.ScrollRectangle.Height + 2;
+					int height = scrollRectangle.Height + 2;
 					if(wAdvertBrowser.Height + height < Height)
 						height = Height - wAdvertBrowser.Height;
 						
