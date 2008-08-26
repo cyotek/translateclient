@@ -95,14 +95,14 @@ namespace WebUI
 
 		}
 			
-		static Assembly MyResolveEventHandler(object sender, ResolveEventArgs args) 
+		public static Assembly MyResolveEventHandler(object sender, ResolveEventArgs args) 
 		{
 		    return null;
 		}
 		
 		public static event UnhandledExceptionEventHandler UnhandledException;
 		
-		static void OnUnhandledExceptionEvent(object sender, UnhandledExceptionEventArgs e)
+		public static void OnUnhandledExceptionEvent(object sender, UnhandledExceptionEventArgs e)
 		{
 			if(UnhandledException != null)
 				UnhandledException(sender, e);
