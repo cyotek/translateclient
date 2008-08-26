@@ -57,6 +57,7 @@
     <Compile Include="CryptoTools.cs" />
     <Compile Include="MailTo.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="MonoHelper.cs" />
     <Compile Include="ProcessHelper.cs" />
     <Compile Include="TaskConveyer.cs" />
     <Compile Include="Trace.cs" />
