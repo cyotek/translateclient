@@ -57,7 +57,7 @@ namespace FreeCL.UI
 		
 		static class NativeMethods
 		{
-			[DllImport("shell32.dll")]
+			[DllImport("shell32.dll", SetLastError=true)]
 			public static extern IntPtr SHGetFileInfo(string pszPath, uint dwFileAttributes, ref SHFILEINFO psfi, uint cbSizeFileInfo, uint uFlags);
 			
 			[DllImport("user32.dll")]
@@ -79,23 +79,38 @@ namespace FreeCL.UI
 		public static System.Drawing.Icon SmallIcon(string fileName)
 		{
 			SHFILEINFO shinfo = new SHFILEINFO();
-			NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON | SHGFI_SMALLICON);
+			if(NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON | SHGFI_SMALLICON) == IntPtr.Zero)
+				Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error()); 
 			System.Drawing.Icon tmp = System.Drawing.Icon.FromHandle(shinfo.hIcon);
-			System.Drawing.Icon res = (System.Drawing.Icon)tmp.Clone();
-			tmp.Dispose();
-			NativeMethods.DestroyIcon(shinfo.hIcon);
-			return res;
+			
+			try
+			{			
+				System.Drawing.Icon res = (System.Drawing.Icon)tmp.Clone();
+				tmp.Dispose();
+				NativeMethods.DestroyIcon(shinfo.hIcon);
+				return res;
+			}
+			catch
+			{}
+			return null;
 		}
 
 		public static System.Drawing.Icon LargeIcon(string fileName)
 		{
 			SHFILEINFO shinfo = new SHFILEINFO();
-			NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON |SHGFI_LARGEICON);
+			if(NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON |SHGFI_LARGEICON) == IntPtr.Zero)
+				Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error()); 
 			System.Drawing.Icon tmp = System.Drawing.Icon.FromHandle(shinfo.hIcon);
-			System.Drawing.Icon res = (System.Drawing.Icon)tmp.Clone();
-			tmp.Dispose();
-			NativeMethods.DestroyIcon(shinfo.hIcon);
-			return res;
+			try
+			{			
+				System.Drawing.Icon res = (System.Drawing.Icon)tmp.Clone();
+				tmp.Dispose();
+				NativeMethods.DestroyIcon(shinfo.hIcon);
+				return res;
+			}
+			catch
+			{}
+			return null;
 		}
 		
 		public static string DisplayName(string fileName)
