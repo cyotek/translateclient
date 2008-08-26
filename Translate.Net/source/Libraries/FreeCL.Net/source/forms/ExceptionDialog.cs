@@ -194,13 +194,13 @@ namespace FreeCL.Forms
 					}
 					finally
 					{
-						System.Environment.Exit(0);
+						System.Environment.FailFast("");
 					}
 			}
 
 			// Exits the program when the user clicks Abort.
 			if (result == DialogResult.Abort) 
-				System.Environment.Exit(0);
+				System.Environment.FailFast("");
 			else
 				GlobalEvents.AllowIdleProcessing = true;
 		}
