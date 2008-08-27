@@ -15,25 +15,25 @@ S&air
 [&Edit]
 &Editar
 [Copy selection to clipboard]
-Copiar a seleção para a área de transferência
+Copiar a seleção para a área de trabalho
 [&Copy]
 &Copiar
 [Cut selection to clipboard]
-Recortar a seleção para a área de transferência
+Recortar a seleção para a área de trabalho
 [Cu&t]
 Re&cortar
 [Paste from clipboard]
-Colar da área de transferência
+Colar da área de trabalho
 [&Paste]
 Colar
 [Delete selection]
-Apagar seleção
+Excluir seleção
 [&Delete]
-&Apagar
+&Excluir
 [Undo last operation]
-Anular a última operação
+Desfazer a última operação
 [&Undo]
-&Anular
+&Desfazer
 [Redo last operation]
 Refazer a última operação
 [&Redo]
@@ -45,7 +45,7 @@ Selecionar Tudo
 [&Window]
 &Janela
 [Close All]
-Fechar Todas
+Fechar Tudo
 [&Help]
 &Ajuda
 [&About ...]
@@ -53,11 +53,11 @@ Fechar Todas
 [About]
 Sobre
 [Send feedback or bugreport ...]
-Envie comentários ou relatório de bug...
+Envie comentários ou relatório de problema...
 [Feedback for :]
 Comentários para:
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
-Digite os seus comentários ou relatórios de bug aqui (Em Inglês, ucraniano, russo)
+<< Digite os seus comentários ou relatórios de problemas aqui (Em Inglês, ucraniano, russo). >>
 [Donate ...]
 Doações...
 [Online Help]
@@ -75,15 +75,15 @@ Minimizar
 [Preparing]
 Preparando
 [Check version]
-Checar versão
+Verificar a versão
 [Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
-Baixado {0}Kb de {1}Kb com velocidade {2}Kb/s
+Baixado {0}Kb de {1}Kb com a velocidade de {2}Kb/s
 [Update downloaded]
 Atualização baixada
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
-A nova versão foi baixada. Você deseja interromper o Translate.Net para instalar a nova versão?
+Uma nova versão foi baixada. Você deseja interromper o Translate.Net para instalar a nova versão?
 [Please select where to save installer of new version which you can run later]
-Por favor, selecione onde salvar o instalador da nova versão (você pode executá-lo mais tarde)
+Por favor, selecione onde você deseja salvar o instalador da nova versão que poderá ser executada mais tarde
 [Installer saved to \r\n{0}]
 Instalador salvo em \r\n{0}
 [Update will be run later]
@@ -107,7 +107,7 @@ Erro ao baixar {0}
 [Canceled]
 Cancelado
 [Program is up to date]
-O programa foi atualizado
+O programa está atualizado
 [File {0} already exists]
 O arquivo {0} já existe
 [The server of updates is overloaded. The check of updates will be delayed.]
@@ -121,7 +121,7 @@ O&pções
 [General]
 Geral
 [UI Language]
-Idioma da Interface Usuário
+Idioma
 [Network]
 Rede
 [HTTP-Proxy]
@@ -131,43 +131,43 @@ Proxy
 [Port]
 Porta
 [Enable Authentication]
-
+Ativar autenticação
 [User]
-
+Usuário
 [Password]
-
+Senha
 [Use NTLM Authentication]
-
+Utilize Autenticação NTLM
 [Domain]
-
+Domínio
 [Timeout]
-Intervalo de parada
+Intervalo
 [System]
 Sistema
 [Custom]
-Usual
+Padrão
 [None]
 Nenhum
 [Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
 O formato do HTTP-Proxy ({0}) está errado. Os ajustes do proxy serão restaurados para o ajuste padrão
 [Startup]
-Início
+Inicialização
 [Launch at system startup]
-Auto-rodar ao iniciar
+Auto-executar na inicialização do sistema
 [Minimize to tray]
-Minimizar para a bandeja
+Minimizar para a bandeja do sistema
 [When enabled {0} will run when OS started]
-
+Quando ativado (0) será executado quando o Sistema Operacional inicializar
 [{0} will be minimized to tray when OS started]
-
+(0) será minimizado para a bandeja quando o Sistema Operacional inicializar
 [Single Instance]
-
+Única Instância
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
+Verificar na inicialização e, se uma outra instância de (0) já estiver rodando, neste caso, ativar a nova aplicação e auto-interromper a mais antiga
 [Tray]
-Bandeja
+Bandeja do Sistema
 [Hotkeys]
-Atalhos
+Teclas de Atalhos
 [Activate on Ctrl+C+C hotkey]
 Ativar no atalho Ctrl+C+C
 [Activate on Ctrl+Ins+Ins hotkey]
@@ -175,23 +175,23 @@ Ativar no atalho Ctrl+Ins+Ins
 [Translate when activated by hotkey]
 Traduzir quando ativado por atalho
 [Show query time and other information]
-Mostrar o tempo da pergunta e outras informações
+Exibir o tempo da pesquisa e outras informações
 [Mark by red color untranslated words]
 Marcar em vermelho palavras não traduzidas 
 [Don't show "Nothing found" results]
-Não mostrar resultados "Nada encontrado"
+Não exibir resultados "Nada encontrado"
 [Show direction of translation]
-Mostrar direção da tradução
+Exibir a direção da tradução
 [Show accents]
-Mostrar acentuação
+Exibir acentuação
 [Show names of services]
-Mostrar nomes dos serviços
+Exibir os nomes dos serviços
 [Nothing found]
 Nada encontrado
 [Translation direction is not correct]
 A direção da tradução está errada
 [Only cyrillic characters supported]
-Suportado apenas caracteres cirílicos
+Apenas caracteres cirílicos são suportados
 [Ukrainian characters in russian query]
 Caracteres ucranianos na consulta em russo
 [Parse error, start tags not found]
@@ -203,11 +203,11 @@ Comprimento muito grande
 [Wrong data structure]
 Estrutura de dados errada
 [Query contains extraneous symbols]
-A pergunta contém símbolos estranhos
+A pesquisa contém símbolos estranhos
 [Service version not supported]
 Versão do serviço não suportada
 [Result view]
-Ver o resultado
+Exibir o resultado
 [Include monolingual dictionaries in translation]
 Incluir dicionários monolíngües em tradução
 [Profile]
@@ -233,7 +233,7 @@ O nome do perfil não foi definido. Por favor, digite o nome do perfil
 [Remove user profile]
 Remover o perfil do usuário
 [The profile {0} will be deleted.\r\nAre you sure ?]
-O perfil (0) será removido.\r\Você deseja removê-lo?
+O perfil (0) será removido.\r\Você tem certeza?
 [Move profile up]
 Mover o perfil para cima
 [Move profile down]
@@ -259,11 +259,11 @@ Serviços selecionados
 [View]
 Exibir
 [Show services list]
-Mostrar a lista de serviços
+Exibir a lista de serviços
 [Show languages list]
-Mostrar a lista de idiomas
+Exibir a lista de idiomas
 [Show subjects list]
-Mostrar a lista de assuntos
+Exibir a lista de assuntos
 [Size]
 Tamanho
 [System font]
@@ -273,29 +273,29 @@ Fontes
 [Input text]
 Entrada de texto
 [To default]
-Padrão
+Para o padrão
 [&Translate]
 &Traduzir
 [Translate]
 Traduzir
 [Stop current operation]
-
+Interromper a operação atual
 [Stop]
-
+Interromper
 [Size or format of query don't supported by available translation services]
-Tamanho ou formato da consulta não são suportados pelos serviços de tradução disponíveis
+o tamanho ou o formato da pesquisa não são suportados pelos serviços de tradução disponíveis
 [Reverse translation direction]
 Inverter a direção da tradução
 [Show\\Hide]
-Mostrar\\Ocultar
+Exibir\\Ocultar
 [Show HTML source]
-Mostrar fonte HTML
+Exibir fonte HTML
 [From]
 De
 [To]
 Para
 [Any Language]
-Qualquer idioma
+Qualquer Idioma
 [Afrikaans]
 Africâner
 [Autodetect]
@@ -303,7 +303,7 @@ Detectar automaticamente
 [Arabic]
 Árabe
 [Belarusian]
-Bielo-russo
+Bielo-Russo
 [Bulgarian]
 Búlgaro
 [Chinese]
@@ -381,7 +381,7 @@ Sueco
 [Ukrainian]
 Ucraniano
 [Urdu]
-
+Urdu
 [Languages]
 Idiomas
 [Services]
@@ -507,7 +507,7 @@ EN
 [SE]
 SE
 [BP]
-
+BP
 [BS]
 BS
 [Limit]
@@ -557,13 +557,13 @@ Multitran - sistema para tradutores
 [PROMT - Free Text Translator]
 PROMT - Tradutor de Textos Gratuito
 [LangSoft Translation & Educational Software]
-
+LangSoft Tradução & Software Educacional
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - Dicionário Tcheco orientado 
 [Free Online Urdu-English Dictionary]
-
+Dicionário Online Grátis Urdu-Inglês
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+Dicionário on-line Inglês-para-Urdu e Urdu-para-Inglês
 [Grouped by Service's Url]
 Agrupado por URL de Serviço 
 [Grouped by Language]
