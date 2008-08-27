@@ -175,6 +175,7 @@ namespace Translate
 					tcMain.TabPages.Add(tpServices);
 					tcMain.TabPages.Add(tpLangs);
 					tcMain.TabPages.Add(tpSubject);
+					tcMain.SelectedTab = tpLangs;
 				
 					UserTranslateProfile upf = profile as UserTranslateProfile;
 					if(upf != null)
