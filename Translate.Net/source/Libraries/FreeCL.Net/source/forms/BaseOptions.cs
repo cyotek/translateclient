@@ -89,7 +89,9 @@ namespace FreeCL.Forms
 		
 		void LoadFileName()
 		{
-			OptionsFileName_ =	Application.DataFolder + this.GetType().Name +	".xml";			
+			OptionsFileName_ =	CommandLineHelper.GetCommandSwitchValue("config");
+			if(string.IsNullOrEmpty(OptionsFileName_))
+				OptionsFileName_ =	Application.DataFolder + this.GetType().Name +	".xml";
 		}
 			
 		
