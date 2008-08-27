@@ -298,6 +298,9 @@
     <None Include="lang\Italian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="lang\Japanese.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Original.lng" />
     <None Include="lang\Portuguese.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
