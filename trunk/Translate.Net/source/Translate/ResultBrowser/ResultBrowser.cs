@@ -624,11 +624,17 @@ namespace Translate
 			bool isHeightChanged = false;
 			try
 			{
-				Rectangle scrollRectangle;
+				Rectangle advertScrollRectangle;
 				if(wAdvertBrowser.Document != null && wAdvertBrowser.Document.Body != null)
-					scrollRectangle = wAdvertBrowser.Document.Body.ScrollRectangle;
+					advertScrollRectangle = wAdvertBrowser.Document.Body.ScrollRectangle;
 				else
-					scrollRectangle = new Rectangle(0, 0, 0, 0);
+					advertScrollRectangle = new Rectangle(0, 0, 0, 0);
+
+				Rectangle browserScrollRectangle;
+				if(wBrowser.Document != null && wBrowser.Document.Body != null)
+					browserScrollRectangle = wBrowser.Document.Body.ScrollRectangle;
+				else
+					browserScrollRectangle = new Rectangle(0, 0, 0, 0);
 					
 				
 				int allowedWidth = ClientSize.Width;
@@ -654,11 +660,11 @@ namespace Translate
 						isHeightChanged = true;
 					}
 				}
-				else if(scrollRectangle.Height != 0)
+				else if(advertScrollRectangle.Height != 0)
 				{
-					if(wAdvertBrowser.Height != scrollRectangle.Height + 2)
+					if(wAdvertBrowser.Height != advertScrollRectangle.Height + 2)
 					{
-						wAdvertBrowser.Height = scrollRectangle.Height + 2;
+						wAdvertBrowser.Height = advertScrollRectangle.Height + 2;
 						isHeightChanged = true;
 					}
 				}
@@ -678,9 +684,9 @@ namespace Translate
 					if(wBrowser.Height != allowedHeight - wAdvertBrowser.Height)
 						wBrowser.Height = allowedHeight - wAdvertBrowser.Height;
 				}
-				else if(scrollRectangle.Height != 0)
+				else if(browserScrollRectangle.Height != 0)
 				{
-					int height = scrollRectangle.Height + 2;
+					int height = browserScrollRectangle.Height + 2;
 					if(wAdvertBrowser.Height + height < Height)
 						height = Height - wAdvertBrowser.Height;
 						
