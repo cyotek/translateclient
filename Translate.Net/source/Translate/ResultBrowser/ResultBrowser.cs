@@ -87,7 +87,7 @@ namespace Translate
 			if(isClean)
 				return;
 				
-			if(UpdatesManager.IsNewVersion && !FreeCL.Forms.Application.IsCommandSwitchSet("skipchangelog"))
+			if(UpdatesManager.IsNewVersion && !CommandLineHelper.IsCommandSwitchSet("skipchangelog"))
 			{
 				UpdatesManager.IsNewVersion = false;
 				string url = Constants.ChangeLogPageUrlBase;

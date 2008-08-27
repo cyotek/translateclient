@@ -837,7 +837,7 @@ namespace Translate
 		
 		void TranslateMainFormShown(object sender, EventArgs e)
 		{
-			if(TranslateOptions.Instance.MinimizeToTrayOnStartup && !FreeCL.Forms.Application.IsCommandSwitchSet("nohide"))
+			if(TranslateOptions.Instance.MinimizeToTrayOnStartup && !CommandLineHelper.IsCommandSwitchSet("nohide"))
 			{
 				WindowState = FormWindowState.Minimized;
 			}

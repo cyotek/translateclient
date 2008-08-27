@@ -70,28 +70,9 @@ namespace FreeCL.Forms
 			}
 			catch{}
 			LangPack.TranslateString(""); //init language
-			SkipSplashForm = IsCommandSwitchSet("skipsplash");
+			SkipSplashForm = CommandLineHelper.IsCommandSwitchSet("skipsplash");
 		}
 
-		public static bool IsCommandSwitchSet(string switchName)
-		{
-			bool result = false;
-			string[] args = Environment.GetCommandLineArgs ();
-			foreach(string arg in args)
-			{
-				if(arg.StartsWith("/") || arg.StartsWith("-"))
-				{
-					string argVal = arg.Substring(1);
-					if(string.Compare(argVal, switchName, true, CultureInfo.InvariantCulture) ==0 )
-					{
-						result = true;
-						break;
-					}
-							
-				}
-			}
-			return result;
-		}
 
 		static void GlobalEventsThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
 		{
