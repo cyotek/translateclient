@@ -60,7 +60,7 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="FreeCL.Forms.OptionsControlsManager.RegisterOptionControl(System.Type,System.String,System.Int32,System.String,System.Int32)")]
 		private static void Main(string[] args)
 		{
-			if(Application.IsCommandSwitchSet("gen_list"))
+			if(CommandLineHelper.IsCommandSwitchSet("gen_list"))
 			{
 				try
 				{
