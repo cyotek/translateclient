@@ -51,6 +51,7 @@ namespace Translate
 		static ReadOnlyCollection<string> versionsTxtUrls = new ReadOnlyCollection<string>(
 			new string[] {"http://translateclient.googlepages.com/versions.txt", 
 							"http://translateclient.googlecode.com/svn/trunk/Translate.Net/site/versions.txt"
+			//new string[] {"http://localhost/translate.net/versions.txt"
 			}
 			);
 		public static ReadOnlyCollection<string> VersionsTxtUrls {
@@ -64,6 +65,7 @@ namespace Translate
 		public const string DonateUrl = HomeUrl + "/donations.en.html";
 		public const string HelpUrl = HomeUrl + "/help.index.en.html";
 		public const string OptionsHelpUrl = HomeUrl + "/help.options.en.html";
+		public const string DownloadUrlBase = HomeUrl + "/download.";
 		
 	}
 }

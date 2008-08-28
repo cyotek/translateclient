@@ -112,6 +112,12 @@ Programm ist aktuell
 Datei {0} existiert bereits
 [The server of updates is overloaded. The check of updates will be delayed.]
 Der Update-Server ist überlastet. Die Überprüfung auf Updates wird verschoben.
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 Version
 [&Tools]

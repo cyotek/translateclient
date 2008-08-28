@@ -60,6 +60,7 @@ namespace Translate
 			InitializeComponent();
 			
 			RegisterLanguageEvent(OnLanguageChanged);
+			portable = CommandLineHelper.IsCommandSwitchSet("portable");
 		}
 		
 		void OnLanguageChanged()
@@ -88,11 +89,20 @@ namespace Translate
 		
 		bool initialAutorun;
 		TranslateOptions options;
+		bool portable;
 		public override void Init()
 		{
-			string current = (string)Registry.GetValue(keyName, Constants.AppName, "Not set");
-			initialAutorun = current != null && current != "Not set";
-			cbAutorun.Checked = initialAutorun;
+			if(!portable)	
+			{
+				string current = (string)Registry.GetValue(keyName, Constants.AppName, "Not set");
+				initialAutorun = current != null && current != "Not set";
+				cbAutorun.Checked = initialAutorun;
+			}
+			else
+			{
+				cbAutorun.Checked = false;
+				cbAutorun.Enabled = false;
+			}
 			
 			options = TranslateOptions.Instance;
 			cbMinimizeToTray.Checked = options.MinimizeToTrayOnStartup;
@@ -101,16 +111,19 @@ namespace Translate
 		
 		public override void Apply()
 		{
-			if(cbAutorun.Checked != initialAutorun)
+			if(!portable)	
 			{
-				if(cbAutorun.Checked)
-					Registry.SetValue(keyName, Constants.AppName, System.Windows.Forms.Application.ExecutablePath + " -skipsplash");
-				else
+				if(cbAutorun.Checked != initialAutorun)
 				{
-					RegistryKey rk = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-					rk.DeleteValue(Constants.AppName, false);
-				 }
-			}
+					if(cbAutorun.Checked)
+						Registry.SetValue(keyName, Constants.AppName, System.Windows.Forms.Application.ExecutablePath + " -skipsplash");
+					else
+					{
+						RegistryKey rk = Registry.CurrentUser.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+						rk.DeleteValue(Constants.AppName, false);
+					 }
+				}
+			}	
 			options.MinimizeToTrayOnStartup = cbMinimizeToTray.Checked;
 			options.SingleInstance = cbSingleInstance.Checked;
 		}

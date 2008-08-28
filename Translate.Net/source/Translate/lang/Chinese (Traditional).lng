@@ -113,6 +113,12 @@ smallchoulcc@yahoo.com.tw
 檔案 {0} 已存在
 [The server of updates is overloaded. The check of updates will be delayed.]
 更新伺服器過載，檢查更新的動作將有所延遲。
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 版本
 [&Tools]

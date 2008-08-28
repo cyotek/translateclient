@@ -114,6 +114,12 @@
 Файлът {0} вече съществува
 [The server of updates is overloaded. The check of updates will be delayed.]
 Сървърът за обновяване е претоварен. Проверката ще бъде извършена по-късно.
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 Версия
 [&Tools]
