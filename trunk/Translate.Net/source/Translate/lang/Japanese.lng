@@ -112,6 +112,12 @@
 ファイル {0} は既に存在しています。
 [The server of updates is overloaded. The check of updates will be delayed.]
 更新プログラムは、サーバーの過負荷状態です。更新プログラムのチェックは延期されました。
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 バージョン
 [&Tools]

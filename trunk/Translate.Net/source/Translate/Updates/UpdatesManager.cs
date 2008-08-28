@@ -63,7 +63,8 @@ namespace Translate
 		UpdateDownloaded,
 		Ending,
 		Cancel,
-		Error
+		Error,
+		NewVersionExists
 	}
 	/// <summary>
 	/// Description of UpdatesManager.
@@ -72,10 +73,21 @@ namespace Translate
 	{
 		static System.Threading.Mutex mutex;
 		static bool mutexLocked;
+		static bool portable;
 		public static void Init()
 		{
+			portable = CommandLineHelper.IsCommandSwitchSet("portable");
 			mutex = new System.Threading.Mutex(false, "SAUTRANSLATENET");
+
+			if(Constants.VersionsTxtUrls.Count > 1)			
+			{
+				Random rand = new Random( );
+				versionUrlToCheck = rand.Next(Constants.VersionsTxtUrls.Count);
+			}
 			
+			if(portable)
+				return; 
+				
 			//remove all update files
 			string pathToAppData = FreeCL.Forms.Application.DataFolder + @"\Update";
 			if(!Directory.Exists(pathToAppData))
@@ -94,11 +106,6 @@ namespace Translate
 				}
 			}
 
-			if(Constants.VersionsTxtUrls.Count > 1)			
-			{
-				Random rand = new Random( );
-				versionUrlToCheck = rand.Next(Constants.VersionsTxtUrls.Count);
-			}
 		}
 		
 		static bool isNewVersion;
@@ -320,6 +327,11 @@ namespace Translate
 			ParseVersions(client, e.Result);
 		}
 		
+		static string versionOnSite;
+		public static string VersionOnSite {
+			get { return versionOnSite; }
+		}
+		
 		static void ParseVersions(WebClient client, string versions)
 		{
 			if(versions.IndexOf("<title>Bandwidth or Pageview Quota Exceeded</title>") >= 0)
@@ -332,7 +344,7 @@ namespace Translate
 			}
 			
 			StringReader strReader = new StringReader(versions);
-			string versionOnSite = strReader.ReadLine();
+			versionOnSite = strReader.ReadLine();
 			if(!versionOnSite.StartsWith("Version="))
 			{
 				SetErrorState(string.Format(CultureInfo.InvariantCulture, LangPack.TranslateString("{0} don't contained {1} tag:\r\n{2}"), "versions.txt", "Version", versions));
@@ -433,6 +445,13 @@ namespace Translate
 				return;
 			}
 			
+			if(portable)
+			{
+				state = UpdateState.NewVersionExists;
+				return;
+			}
+				
+				
 			fileName = Path.GetFileName(urlToDownload);
 			state = UpdateState.UpdateDownloading;
 			
@@ -625,6 +644,12 @@ namespace Translate
 		{
 			File.Delete(updateFileName);
 			SetEndingState(LangPack.TranslateString("Update will be run later"));
+		}
+		
+		
+		public static void UpdateCheckDone()
+		{
+			SetEndingState(LangPack.TranslateString("Checking of update done"));
 		}
 		
 	}

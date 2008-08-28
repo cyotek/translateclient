@@ -110,6 +110,12 @@ Le programme est à jour
 Le fichier {0} existe déjà
 [The server of updates is overloaded. The check of updates will be delayed.]
 
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 Version
 [&Tools]

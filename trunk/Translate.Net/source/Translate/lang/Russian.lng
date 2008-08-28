@@ -112,6 +112,12 @@
 Файл {0} уже существует
 [The server of updates is overloaded. The check of updates will be delayed.]
 Сервер обновлений перегружен. Проверка будет проведена позднее.
+[Checking of update done]
+Проверка обновлений завершена
+[New version {0} of portable {1} available at site]
+Новая версия {0} программы {1} для флеш-диска доступна на сайте 
+[Do you want to open site where you can download it ?]
+Открыть сайт для скачивания новой версии ?
 [Version]
 Версия
 [&Tools]

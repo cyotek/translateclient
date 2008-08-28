@@ -1,4 +1,4 @@
-[TranslationComment]
+﻿[TranslationComment]
 
 [TranslatedBy]
 Pix
@@ -112,6 +112,12 @@ O programa está atualizado
 O arquivo {0} já existe
 [The server of updates is overloaded. The check of updates will be delayed.]
 O servidor de atualizações está sobrecarregado. A verificação de atualizações será atrasada.
+[Checking of update done]
+
+[New version {0} of portable {1} available at site]
+
+[Do you want to open site where you can download it ?]
+
 [Version]
 Versão
 [&Tools]

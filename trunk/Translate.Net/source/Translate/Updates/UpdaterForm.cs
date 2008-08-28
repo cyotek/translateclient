@@ -138,6 +138,43 @@ namespace Translate
 					timerClose.Enabled = true;
 					pbMain.Visible = false;
 					break;
+				case UpdateState.NewVersionExists:
+					timerUpdate.Enabled = false;
+					lStatus.Text = string.Format(CultureInfo.InvariantCulture, 
+						TranslateString("New version {0} of portable {1} available at site"), 
+						UpdatesManager.VersionOnSite,
+						Constants.AppName);
+					if(MessageBox.Show(this, 
+						string.Format(CultureInfo.InvariantCulture,
+							TranslateString("New version {0} of portable {1} available at site"), 
+								UpdatesManager.VersionOnSite,
+								Constants.AppName
+								) +
+							".\r\n" + 
+							TranslateString("Do you want to open site where you can download it ?"),
+						Constants.AppName, MessageBoxButtons.YesNo) == DialogResult.Yes
+					)
+					{
+						string url = Constants.DownloadUrlBase;
+						if(FreeCL.RTL.LangPack.CurrentLanguage == "Ukrainian")
+						{
+							url += "uk.html";
+						}
+						else if(FreeCL.RTL.LangPack.CurrentLanguage == "Russian")
+						{
+							url += "ru.html";
+						}
+						else
+						{
+							url += "en.html";				
+						}
+					
+						ProcessStartHelper.Start(url);
+					}	
+					
+					UpdatesManager.UpdateCheckDone();
+					BCancelClick(sender, e); 
+					break;
 			}
 		}
 		
