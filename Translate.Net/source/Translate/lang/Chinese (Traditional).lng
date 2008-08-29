@@ -1,7 +1,7 @@
 ﻿[TranslationComment]
 
 [TranslatedBy]
-Smallchou Lin (Ver.970623)
+Smallchou Lin (Ver.970829)
 [TranslatedByURL]
 smallchoulcc@yahoo.com.tw
 [Translated by]
@@ -62,7 +62,7 @@ smallchoulcc@yahoo.com.tw
 [Donate ...]
 贊助 ...
 [Online Help]
-
+線上說明
 [Options]
 選項
 [Cancel]
@@ -138,15 +138,15 @@ smallchoulcc@yahoo.com.tw
 [Port]
 連接埠
 [Enable Authentication]
-
+啟用驗證
 [User]
-
+使用者名稱
 [Password]
-
+密碼
 [Use NTLM Authentication]
-
+使用 NTLM 驗證
 [Domain]
-
+網域
 [Timeout]
 逾時
 [System]
@@ -156,7 +156,7 @@ smallchoulcc@yahoo.com.tw
 [None]
 無
 [Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
-
+HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Startup]
 啟動
 [Launch at system startup]
@@ -164,13 +164,13 @@ smallchoulcc@yahoo.com.tw
 [Minimize to tray]
 最小化到 Windows 通知區域
 [When enabled {0} will run when OS started]
-
+當啟用 {0} 將隨著系統啟動時執行
 [{0} will be minimized to tray when OS started]
-
+{0} 將會在系統啟動時，最小化到通知區域
 [Single Instance]
-
+單一工作階段
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
+在程式啟動時檢查，如果已有其它 {0} 工作階段正在執行中，勾選此項會使新的工作階段啟用的同時，舊的工作階段將自行關閉。
 [Tray]
 系統列
 [Hotkeys]
@@ -286,9 +286,9 @@ smallchoulcc@yahoo.com.tw
 [Translate]
 翻譯
 [Stop current operation]
-
+停止目前操作
 [Stop]
-
+停止
 [Size or format of query don't supported by available translation services]
 查詢的文字長度或格式不受可用的翻譯服務支援
 [Reverse translation direction]
@@ -304,7 +304,7 @@ smallchoulcc@yahoo.com.tw
 [Any Language]
 任何語言
 [Afrikaans]
-
+南非荷蘭語
 [Autodetect]
 自動偵測
 [Arabic]
@@ -388,7 +388,7 @@ smallchoulcc@yahoo.com.tw
 [Ukrainian]
 烏克蘭語
 [Urdu]
-
+烏爾都語
 [Languages]
 語言
 [Services]
@@ -494,29 +494,29 @@ smallchoulcc@yahoo.com.tw
 [Search Engine]
 搜尋引擎
 [Bilingual phrases dictionary]
-
+雙語片語辭典
 [Bilingual sentenses dictionary]
-
+雙語文句辭典
 [T]
-器
+翻譯
 [MD]
-單
+單語
 [BD]
-雙
+雙語
 [SD]
-同
+同意
 [AD]
-反
+反意
 [PD]
-片
+片語
 [EN]
-百
+百科
 [SE]
-搜
+引擎
 [BP]
-
+雙片
 [BS]
-
+雙句
 [Limit]
 限制
 [characters]
@@ -560,17 +560,17 @@ SYSTRAN 翻譯軟體（使用 Altavista Babel Fish）
 [Yahoo Babel Fish Translator]
 Yahoo Babel Fish 翻譯器
 [Multitran - system for translators]
-
+Multitran - 翻譯系統
 [PROMT - Free Text Translator]
-
+PROMT - 免費文字翻譯器
 [LangSoft Translation & Educational Software]
-
+LangSoft 翻譯與教育軟體
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - 捷克方面的辭典
 [Free Online Urdu-English Dictionary]
-
+免費線上烏爾都語-英語辭典
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+線上　英文-烏爾都語　烏爾都語-英文　辭典
 [Grouped by Service's Url]
 以服務的鏈結分組
 [Grouped by Language]
