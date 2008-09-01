@@ -1,11 +1,12 @@
 Thanks for translations:
 
+To Japanese - 2008-08-20 by poorman
 To German - 2008-08-20 by Kurt Lettmaier
 To Bulgarian - 2008-08-17 by Стефан Стефанов - Wankata
 To Spanish 2008-07-30 by Rafael Pérez Cañadas
-To Brazilian Portuguese - 2008-07-09 by Cláudio Mantovani Vieira (claudio.mantovani@itelefonica.com.br)
-To Brazilian Portuguese - 2008-07-26,2008-08-11 by Pix (pixzinhu@gmail.com)
-To Traditional Chinese - 2008-06-23 by Smallchou Lin (smallchoulcc@yahoo.com.tw)
+To Brazilian Portuguese - 2008-07-09, 2008-08-27 by Cláudio Mantovani Vieira (claudio.mantovani@itelefonica.com.br)
+To Brazilian Portuguese - 2008-07-26, 2008-08-11 by Pix (pixzinhu@gmail.com)
+To Traditional Chinese - 2008-06-23, 2008-08-29 by Smallchou Lin (smallchoulcc@yahoo.com.tw)
 To Italian - 2008-06-06 by Enrico (noto Siberio) (siberio@email.it) 
 To French - 2008-05-01 by Roger (member of http://www.korben.info/)
 To Simplified Chinese - 2008-05-01 by Sun Minghao (minghao.sun@gmail.com)
