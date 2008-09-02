@@ -228,16 +228,32 @@ namespace FreeCL.UI
 		[SuppressMessage("Microsoft.Performance", "CA1810:InitializeReferenceTypeStaticFieldsInline")]		
 		static Application()
 		{
-			dataFolder = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-			dataFolder += @"\";
-			string companyName = ApplicationInfo.CompanyName;
-			if(companyName.IndexOf(",") != -1)
-				companyName = companyName.Substring(0, companyName.IndexOf(","));
-			dataFolder += companyName;
-			dataFolder += @"\";			
-			dataFolder += ApplicationInfo.ProductName;
-			System.IO.Directory.CreateDirectory(dataFolder);
-			dataFolder += @"\";			
+			string configFileName =	CommandLineHelper.GetCommandSwitchValue("config");
+			
+			if(string.IsNullOrEmpty(configFileName))
+			{
+				dataFolder = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+				dataFolder += @"\";
+				string companyName = ApplicationInfo.CompanyName;
+				if(companyName.IndexOf(",") != -1)
+					companyName = companyName.Substring(0, companyName.IndexOf(","));
+				dataFolder += companyName;
+				dataFolder += @"\";			
+				dataFolder += ApplicationInfo.ProductName;
+				System.IO.Directory.CreateDirectory(dataFolder);
+				dataFolder += @"\";			
+			}
+			else
+			{
+				dataFolder = System.IO.Path.GetDirectoryName(configFileName);
+				try 
+				{
+					System.IO.Directory.CreateDirectory(dataFolder);
+					dataFolder += @"\";			
+				} catch {}
+			}
+			
+			
 		}
 		
 		private static string dataFolder;
