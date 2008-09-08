@@ -130,52 +130,69 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			string query = "http://slovnyk.org/fcgi-bin/dic.fcgi?iw={0}&hn=sel&il={1}&ol={2}&ul=en-us";
+			string query = "http://slovnyk.org/fcgi-bin/dic.fcgi?iw={0}&hn=pre&il={1}&ol={2}&ul=en-us";
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase), ConvertLanguage(languagesPair.From), ConvertLanguage(languagesPair.To));
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet);
 		
-			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("<H3>Nothing found</H3>") >= 0)
-			{
-				result.ResultNotFound = true;
-				throw new TranslationException("Nothing found");
-			}
-			else if(responseFromServer.IndexOf("<P>Nothing found</P>") >= 0)
+			string responseFromServer = helper.GetResponse().Trim();
+			if(string.IsNullOrEmpty(responseFromServer))
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
 			else
 			{
-				StringParser parser = new StringParser("<DL>", "</DL>", responseFromServer);
-				bool firstRun = true;
-				while(parser.ExistsTag("<DT lang=\"", "011222333344444"))
+				string translation = StringParser.Parse("<PRE>", "</PRE>",  responseFromServer).Trim();
+				if(string.IsNullOrEmpty(translation))
 				{
-					string subphrase = parser.ReadItem("DT lang=\"", "</DT>");
-					subphrase = subphrase.Substring(4);
-					string[] translations = parser.ReadItemsList("<DD lang=\"", "</DD>", "<DT lang=\"");
-					
-					if(firstRun && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
+					result.ResultNotFound = true;
+					throw new TranslationException("Nothing found");
+				}
+				
+				string subphrase, subtranslation;
+				int startIdx = 0; 
+				int newLineIdx = 0;
+				int tabIdx = translation.IndexOf('\t', startIdx);
+				bool firstRun = true;
+				Result subres = result;
+				
+				while(tabIdx >= 0)
+				{
+					newLineIdx = translation.IndexOf('\n', startIdx);
+					if(newLineIdx < 0)
+						newLineIdx = translation.Length;
+					subphrase = translation.Substring(startIdx, tabIdx - startIdx);
+					subtranslation = translation.Substring(tabIdx + 1, newLineIdx - tabIdx - 1);
+					startIdx = newLineIdx + 1;
+					if(startIdx < translation.Length)
+						tabIdx = translation.IndexOf('\t', startIdx);	
+					else
+						tabIdx = -1;
+					if(firstRun && tabIdx < 0 && string.Compare(subphrase, phrase, true, CultureInfo.InvariantCulture) ==0)
 					{
-						//single answer
-						foreach(string str in translations)
-						{
-							result.Translations.Add(StringParser.Parse("name=\"iw\" size=\"64\" value=\"", "\" " , str));
-						}
+						result.Translations.Add(subtranslation);
 						return;
 					}
 					
+					if(firstRun)
+					{
+						subres = CreateNewResult(subphrase, languagesPair, subject);
+						result.Childs.Add(subres);
+					}	
+						
 					firstRun = false;
 					
-					Result subres = CreateNewResult(subphrase, languagesPair, subject);
-					foreach(string str in translations)
+					if(string.Compare(subphrase, subres.Phrase, true, CultureInfo.InvariantCulture) !=0)
 					{
-						subres.Translations.Add(StringParser.Parse("name=\"iw\" size=\"64\" value=\"", "\">" , str));
-					}
-					result.Childs.Add(subres);
+						subres = CreateNewResult(subphrase, languagesPair, subject);
+						result.Childs.Add(subres);
+					}	
+					
+
+					subres.Translations.Add(subtranslation);
 				}
 			}
 			
