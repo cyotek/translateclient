@@ -37,6 +37,8 @@
 #endregion
 
 using System;
+using System.Windows.Forms;
+using System.Reflection;
 
 namespace FreeCL.UI
 {
@@ -109,8 +111,30 @@ namespace FreeCL.UI
 				bool res = Execute(OnCanUndo);
 				if(!res)
 				{
-					System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;	
+					Control activeControl = Application.ActiveControl;
+					if(activeControl == null)
+					{
+						return false;
+					}
+				
+					System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
 					res = active != null && active.CanUndo;
+					
+					if(!res)
+					{
+						PropertyInfo property = activeControl.GetType().GetProperty("CanUndo", typeof(bool));
+						if(property != null)
+						{
+							MethodInfo method = property.GetGetMethod();
+							if(method != null)
+							{
+								Clipboard.FunctionWithReturn<bool> getMethod = (Clipboard.FunctionWithReturn<bool>) Delegate.CreateDelegate
+		            				(typeof(Clipboard.FunctionWithReturn<bool>), activeControl, method);
+		            				
+		            			res = getMethod();	
+							}
+						}
+					}
 				}
 				return res;
 			}
@@ -123,10 +147,28 @@ namespace FreeCL.UI
 			bool res = Execute(OnUndo);
 			if(!res)
 			{
-				System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;	
+				Control activeControl = Application.ActiveControl;
+				if(activeControl == null)
+				{
+					return false;
+				}
+			
+				System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
 				res = active != null;			
 				if(res)
-				active.Undo();
+					active.Undo();
+				else
+				{
+					MethodInfo method = activeControl.GetType().GetMethod("Undo");
+					if(method != null)
+					{
+						Clipboard.FunctionWithoutReturn getMethod = (Clipboard.FunctionWithoutReturn) Delegate.CreateDelegate
+		            		(typeof(Clipboard.FunctionWithoutReturn), activeControl, method);
+		            				
+		            	getMethod();	
+						res = true;				
+					}
+				}
 			}
 			return res;
 		}
@@ -140,8 +182,33 @@ namespace FreeCL.UI
 				bool res = Execute(OnCanRedo);
 				if(!res)
 				{
-					System.Windows.Forms.RichTextBox active = Application.ActiveControl as System.Windows.Forms.RichTextBox;	
+				}
+				if(!res)
+				{
+					Control activeControl = Application.ActiveControl;
+					if(activeControl == null)
+					{
+						return false;
+					}
+				
+					System.Windows.Forms.RichTextBox active = activeControl as System.Windows.Forms.RichTextBox;	
 					res = active != null && active.CanRedo;
+					
+					if(!res)
+					{
+						PropertyInfo property = activeControl.GetType().GetProperty("CanRedo", typeof(bool));
+						if(property != null)
+						{
+							MethodInfo method = property.GetGetMethod();
+							if(method != null)
+							{
+								Clipboard.FunctionWithReturn<bool> getMethod = (Clipboard.FunctionWithReturn<bool>) Delegate.CreateDelegate
+		            				(typeof(Clipboard.FunctionWithReturn<bool>), activeControl, method);
+		            				
+		            			res = getMethod();	
+							}
+						}
+					}
 				}
 				return res;
 			}
@@ -154,10 +221,29 @@ namespace FreeCL.UI
 			bool res = Execute(OnRedo);
 			if(!res)
 			{
-				System.Windows.Forms.RichTextBox active = Application.ActiveControl as System.Windows.Forms.RichTextBox;	
+				Control activeControl = Application.ActiveControl;
+				if(activeControl == null)
+				{
+					return false;
+				}
+			
+				System.Windows.Forms.RichTextBox active = activeControl as System.Windows.Forms.RichTextBox;	
 				res = active != null;			
 				if(res)
-				active.Redo();
+					active.Redo();
+				else
+				{
+					MethodInfo method = activeControl.GetType().GetMethod("Redo");
+					if(method != null)
+					{
+						Clipboard.FunctionWithoutReturn getMethod = (Clipboard.FunctionWithoutReturn) Delegate.CreateDelegate
+		            		(typeof(Clipboard.FunctionWithoutReturn), activeControl, method);
+		            				
+		            	getMethod();	
+						res = true;				
+					}
+				}
+				
 			}
 			return res;
 		}		
@@ -237,11 +323,50 @@ namespace FreeCL.UI
 				bool res = Execute(OnCanDelete);
 				if(!res)
 				{
-					System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;	
+					Control activeControl = Application.ActiveControl;
+					if(activeControl == null)
+					{
+						return false;
+					}
+				
+					System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
 					res = active != null && !active.ReadOnly;
 					if(res)
 					{
 						res = active.SelectionLength != 0 || (active.TextLength != 0 && active.SelectionStart < active.TextLength);
+					}
+
+					
+					if(!res)
+					{
+						PropertyInfo property = activeControl.GetType().GetProperty("CanDelete", typeof(bool));
+						if(property != null)
+						{
+							MethodInfo method = property.GetGetMethod();
+							if(method != null)
+							{
+								Clipboard.FunctionWithReturn<bool> getMethod = (Clipboard.FunctionWithReturn<bool>) Delegate.CreateDelegate
+		            				(typeof(Clipboard.FunctionWithReturn<bool>), activeControl, method);
+		            				
+		            			res = getMethod();	
+							}
+						}
+
+						if(!res)
+						{
+							property = activeControl.GetType().GetProperty("TextLength", typeof(int));
+							if(property != null)
+							{
+								MethodInfo method = property.GetGetMethod();
+								if(method != null)
+								{
+									Clipboard.FunctionWithReturn<int> getMethod = (Clipboard.FunctionWithReturn<int>) Delegate.CreateDelegate
+			            				(typeof(Clipboard.FunctionWithReturn<int>), activeControl, method);
+			            				
+			            			res = getMethod() > 0;
+								}
+							}
+						}
 					}
 				}
 				return res;
@@ -255,7 +380,13 @@ namespace FreeCL.UI
 			bool res = Execute(OnDelete);
 			if(!res)
 			{
-				System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;				
+				Control activeControl = Application.ActiveControl;
+				if(activeControl == null)
+				{
+					return false;
+				}
+			
+				System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;				
 				res = active != null;						
 				if(res)
 				{
@@ -272,6 +403,18 @@ namespace FreeCL.UI
 	 					active.SelectedText = ""; 
 	 				}
 				}
+				else
+				{
+					MethodInfo method = activeControl.GetType().GetMethod("Delete");
+					if(method != null)
+					{
+						Clipboard.FunctionWithoutReturn getMethod = (Clipboard.FunctionWithoutReturn) Delegate.CreateDelegate
+		            		(typeof(Clipboard.FunctionWithoutReturn), activeControl, method);
+		            				
+		            	getMethod();	
+						res = true;				
+					}
+				}
 			}
 			return res;
 		}		
@@ -283,19 +426,66 @@ namespace FreeCL.UI
 			get
 			{
 				bool res = Execute(OnCanSelectAll);
+
 				if(!res)
 				{
-					System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;	
-					res = active != null && active.SelectionLength != active.Text.Length ;
-				}
-				
-				if(!res)
-				{
-					System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
-					if(webbrowser != null)
-					{  
-						res = true;
+					Control activeControl = Application.ActiveControl;
+					if(activeControl == null)
+					{
+						return false;
 					}
+					
+					if(!res)
+					{
+						System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
+						res = active != null && active.SelectionLength != active.TextLength ;
+					}
+					
+					if(!res)
+					{
+						System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
+						if(webbrowser != null)
+						{  
+							res = true;
+						}
+					}
+					
+					if(!res)
+					{
+						int selectionLength = 0;
+						int controlTextLength = 0;
+						int propCount = 0;
+						PropertyInfo property = activeControl.GetType().GetProperty("SelectionLength", typeof(int));
+						if(property != null)
+						{
+							MethodInfo method = property.GetGetMethod();
+							if(method != null)
+							{
+								Clipboard.FunctionWithReturn<int> getMethod = (Clipboard.FunctionWithReturn<int>) Delegate.CreateDelegate
+		            				(typeof(Clipboard.FunctionWithReturn<int>), activeControl, method);
+		            				
+		            			selectionLength = getMethod();	
+		            			propCount++;
+							}
+						}
+						
+						property = activeControl.GetType().GetProperty("TextLength", typeof(int));
+						if(property != null)
+						{
+							MethodInfo method = property.GetGetMethod();
+							if(method != null)
+							{
+								Clipboard.FunctionWithReturn<int> getMethod = (Clipboard.FunctionWithReturn<int>) Delegate.CreateDelegate
+		            				(typeof(Clipboard.FunctionWithReturn<int>), activeControl, method);
+		            				
+		            			controlTextLength = getMethod();
+		            			propCount++;
+							}
+						}
+						
+						res = propCount > 1 && selectionLength != controlTextLength;
+					}
+					
 				}
 				return res;
 			}
@@ -308,7 +498,13 @@ namespace FreeCL.UI
 			bool res = Execute(OnSelectAll);
 			if(!res)
 			{
-				System.Windows.Forms.TextBoxBase active = Application.ActiveControl as System.Windows.Forms.TextBoxBase;				
+				Control activeControl = Application.ActiveControl;
+				if(activeControl == null)
+				{
+					return false;
+				}
+			
+				System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;				
 				res = active != null;			
 				if(res)
 				{
@@ -317,11 +513,24 @@ namespace FreeCL.UI
 
 				if(!res)				
 				{
-					System.Windows.Forms.WebBrowser webbrowser = Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+					System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 					if(webbrowser != null)
 					{  
 						webbrowser.Document.ExecCommand("SelectAll", false, null);
 						res = true;
+					}
+				}
+				
+				if(!res)
+				{
+					MethodInfo method = activeControl.GetType().GetMethod("SelectAll");
+					if(method != null)
+					{
+						Clipboard.FunctionWithoutReturn getMethod = (Clipboard.FunctionWithoutReturn) Delegate.CreateDelegate
+		            		(typeof(Clipboard.FunctionWithoutReturn), activeControl, method);
+		            				
+		            	getMethod();	
+						res = true;				
 					}
 				}
 			}
