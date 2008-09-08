@@ -43,6 +43,7 @@ using System.Net;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Translate
 {
@@ -61,6 +62,15 @@ namespace Translate
 			get { return textControlFont; }
 			set { textControlFont = value; }
 		}
+		
+		public Font GetTextControlFont()
+		{
+			if(textControlFont == null)
+				return Control.DefaultFont;
+			else
+				return textControlFont.GetFont(); 
+		}
+		
 		
 		FontData resultViewFont = new FontData("Tahoma", 8.25f);
 		public FontData ResultViewFont {
@@ -86,6 +96,12 @@ namespace Translate
 		{
 			this.fontName = fontName;
 			this.fontSize = fontSize;
+		}
+
+		public FontData(Font font)
+		{
+			this.fontName = font.Name;
+			this.fontSize = font.SizeInPoints;
 		}
 				
 		string fontName;
