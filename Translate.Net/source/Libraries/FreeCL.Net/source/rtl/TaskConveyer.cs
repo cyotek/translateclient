@@ -263,7 +263,11 @@ namespace FreeCL.RTL
 			
 			if(ti.Period == Timeout.Infinite)
 			{	//remove because unneeded 
-				StopTimer(ti.Name);
+				try
+				{
+					StopTimer(ti.Name);
+				}
+				catch{}
 				return;
 			}
 			
