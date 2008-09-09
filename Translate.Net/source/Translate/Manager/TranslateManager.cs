@@ -88,19 +88,9 @@ namespace Translate
 			AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(DateTime.Now.Ticks);
 
 			AsyncTranslateState state = new AsyncTranslateState(languagePair, translatorsSettings, phrase, asyncOp, progressChangedHandler, translateCompletedHandler);
-
-			WorkerEventHandler workerDelegate = new WorkerEventHandler(TranslateWorker);
 			
-			foreach(ServiceItemSetting ts in translatorsSettings)
-			{
-    			workerDelegate.BeginInvoke(
-	        		ts,
-	        		state,
-	        		null,
-	        		null);
-        	}
+			state.Run();
 
-			
 			return state;	
 		}
 		
@@ -110,6 +100,8 @@ namespace Translate
 				throw new ArgumentNullException("translateState");
 		
 		    AsyncOperation asyncOp = translateState.AsyncOperation;
+		
+			translateState.RemoveTimers();
 		
 		    TranslateCompletedEventArgs e =
 		        new TranslateCompletedEventArgs(
@@ -128,17 +120,18 @@ namespace Translate
 		    { 
 		    	
 		    }
+		    translateState.Canceled = true;
 		    
 		}
 		
-		delegate void WorkerEventHandler(
-			ServiceItemSetting translatorSetting,
-		    AsyncTranslateState translateState);
 		    
-		static void TranslateWorker(
+		internal static void TranslateWorker(
 			ServiceItemSetting translatorSetting,
 		    AsyncTranslateState translateState)
 		{
+			if(translateState.Canceled) 
+				return;
+			
 			Result tr = translatorSetting.ServiceItem.Translate(translateState.Phrase, translatorSetting.LanguagePair, translatorSetting.Subject, translatorSetting.NetworkSetting);
 			
 			ReportProgressState repState = new ReportProgressState(tr,translateState);
@@ -233,6 +226,12 @@ namespace Translate
 			set { languagePair = value; }
 		}
 		
+		bool canceled = false;
+		public bool Canceled {
+			get { return canceled; }
+			set { canceled = value; }
+		}
+		
 		
 		string phrase;
 		public string Phrase {
@@ -249,13 +248,83 @@ namespace Translate
 			get { return new ReadOnlyResultCollection(results); }
 		}
 		
+		Dictionary<ServiceItem, int> useCount = new Dictionary<ServiceItem, int>();
 		
-		int count;
-		int processed;
+		int GetDelayBeforeRun(ServiceItemSetting ts) 
+		{
+			int cnt = 1;
+			if(useCount.TryGetValue(ts.ServiceItem, out cnt))
+				cnt++;
+				
+			useCount[ts.ServiceItem] = cnt;
+
+			int result = ((cnt-1)*1000);
+
+			int koeff = cnt < 10 ? cnt : 10;
+			if(cnt < 4)
+				koeff = 0;
+				
+			result *= koeff;
+			return result;
+		}
 		
+		void DelayedProcess(object state)
+		{
+			ServiceItemSetting ts = (ServiceItemSetting)state;
+			TranslateManager.TranslateWorker(ts, this);
+		}
+		
+		List<string> timers = new List<string>();
+		
+		public void RemoveTimers()
+		{
+			foreach(string name in timers)
+			{
+				try 
+				{
+					TaskConveyer.StopTimer(name);
+				} catch (Exception) {
+					
+				}
+			}	
+		}
+		
+		delegate void WorkerEventHandler(
+			ServiceItemSetting translatorSetting,
+		    AsyncTranslateState translateState);
+		
+		public void Run()
+		{
+			WorkerEventHandler workerDelegate = new WorkerEventHandler(TranslateManager.TranslateWorker);
+			
+			int cnt = 0;
+			foreach(ServiceItemSetting ts in translatorsSettings)
+			{
+				cnt++;
+				int delay = GetDelayBeforeRun(ts);
+				if(delay == 0)
+				{
+	    			workerDelegate.BeginInvoke(
+		        		ts,
+		        		this,
+		        		null,
+		        		null);
+	        	}	
+	        	else
+	        	{
+	        		string timerName = ts.ServiceItem.FullName + "_" +  
+	        			Environment.TickCount.ToString() + "_" + cnt.ToString();
+	        		TaskConveyer.QueueTimer(timerName, DelayedProcess, ts, delay, Timeout.Infinite);
+	        		timers.Add(timerName);
+	        	}
+        	}
+		
+		}
 		
 		public event EventHandler<TranslateProgressChangedEventArgs> ProgressChanged;
 		
+		int count;
+		int processed;
 		
 		[SuppressMessage("Microsoft.Design", "CA1030:UseEventsWhereAppropriate")]	
 		public void RaiseProgressChanged(Result translateResult)
@@ -275,6 +344,8 @@ namespace Translate
 		        ProgressChanged(this, e);
 		    }
 		    
+		    if(Canceled) return;
+		    
 		    if(processed == count)
 		    {
 			    TranslateCompletedEventArgs args =
@@ -292,6 +363,7 @@ namespace Translate
 			    {
 			    	//ignore exception raised sometime from here
 			    }
+			    Canceled = true;
 		    }
 		}
 	
