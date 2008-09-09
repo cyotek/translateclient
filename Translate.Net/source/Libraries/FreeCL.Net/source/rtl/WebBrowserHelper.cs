@@ -56,7 +56,7 @@ namespace FreeCL.RTL
 			bool isBusy = true;
 			try
 			{
-				isBusy = wBrowser.IsBusy;
+				isBusy = /*wBrowser.IsBusy || */wBrowser.ReadyState != WebBrowserReadyState.Complete;
 			}
 			catch(UnauthorizedAccessException)
 			{
@@ -70,7 +70,7 @@ namespace FreeCL.RTL
 
 				try
 				{
-					isBusy = wBrowser.IsBusy;
+					isBusy = /*wBrowser.IsBusy || */ wBrowser.ReadyState != WebBrowserReadyState.Complete;
 				}
 				catch(UnauthorizedAccessException)
 				{
