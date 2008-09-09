@@ -664,7 +664,7 @@ namespace Translate
 									this.miBrowserSep1,
 									this.miShowSourceToolStripMenuItem});
 			this.msBrowser.Name = "browserMenu";
-			this.msBrowser.Size = new System.Drawing.Size(177, 126);
+			this.msBrowser.Size = new System.Drawing.Size(177, 104);
 			this.msBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.MsBrowserOpening);
 			// 
 			// miBrowserTranslateSel
@@ -767,7 +767,7 @@ namespace Translate
 									this.miSetProfileProperties,
 									this.miEditProfileServices});
 			this.msProfileAdd.Name = "msProfileAdd";
-			this.msProfileAdd.Size = new System.Drawing.Size(200, 170);
+			this.msProfileAdd.Size = new System.Drawing.Size(200, 192);
 			// 
 			// miAddProfile
 			// 

@@ -1042,6 +1042,18 @@ namespace Translate
 			aShowProfileServices.Enabled = aRemoveProfile.Enabled;
 			aShowProfileSubjects.Enabled = aRemoveProfile.Enabled;
 			
+			aRemoveProfile.Visible = aRemoveProfile.Enabled;
+			aSetProfileProperties.Visible = aRemoveProfile.Enabled;
+			aEditProfileServices.Visible = aRemoveProfile.Enabled;
+			aShowProfileLanguages.Visible = aRemoveProfile.Enabled;
+			aShowProfileServices.Visible = aRemoveProfile.Enabled;
+			aShowProfileSubjects.Visible = aRemoveProfile.Enabled;
+			
+			tsSepProfiles.Visible = aRemoveProfile.Enabled;
+			tsSepProfiles3.Visible = aRemoveProfile.Enabled;
+			miProfileView.Visible = aRemoveProfile.Enabled;
+			miProfileView2.Visible = aRemoveProfile.Enabled;
+			
 			UserTranslateProfile upf = currentProfile as UserTranslateProfile;
 			if(upf == null)
 				return;
@@ -1299,6 +1311,7 @@ namespace Translate
 		
 			aIncludeMonolingualDicts.Enabled = pf != null;	
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
+			aIncludeMonolingualDicts.Visible = aIncludeMonolingualDicts.Enabled;
 			
 		}
 		
