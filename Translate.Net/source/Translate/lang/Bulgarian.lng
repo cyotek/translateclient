@@ -292,6 +292,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Прекъсване
 [Size or format of query don't supported by available translation services]
 Размерът или форматът на запитването не се поддържат от достъпните служби за превод
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
 [Reverse translation direction]
 Обръщане на направлението за превод
 [Show\\Hide]

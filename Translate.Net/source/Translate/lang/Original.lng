@@ -290,6 +290,8 @@
 
 [Size or format of query don't supported by available translation services]
 
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
 [Reverse translation direction]
 
 [Show\\Hide]
