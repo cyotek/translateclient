@@ -219,7 +219,7 @@ namespace FreeCL.RTL
 		[SuppressMessage("Microsoft.Reliability", "CA2000:DisposeObjectsBeforeLosingScope")]
 		public static void QueueTimer(string timerName, TimerCallback callback, object state, int dueTime, int period)
 		{
-			Trace("QueueTimer : " + timerName);						
+			Trace("QueueTimer : " + timerName + " , dueTime = " + dueTime.ToString() + " , period=" + period.ToString());						
 			Hashtable syncedTimersHash = Hashtable.Synchronized( TimersHash );
 			if(syncedTimersHash.Contains(timerName))
 			{
@@ -251,7 +251,7 @@ namespace FreeCL.RTL
 		{
 			TimerInfo ti = (TimerInfo) stateInfo;
 			int start = Environment.TickCount;
-			//Trace("TimerStarted : " + ti.Name);
+			Trace("TimerStarted : " + ti.Name);
 			try
 			{
 				ti.DoCallback();
@@ -261,8 +261,13 @@ namespace FreeCL.RTL
 				FreeCL.RTL.Trace.TraceException(E);
 			}
 			
+			if(ti.Period == Timeout.Infinite)
+			{	//remove because unneeded 
+				StopTimer(ti.Name);
+				return;
+			}
 			
-			//Trace("TimerStopped : " + ti.Name);
+			Trace("TimerStopped : " + ti.Name);
 			int end = Environment.TickCount;
 			int process_time = 0;
 			if(end >= start)
@@ -274,6 +279,8 @@ namespace FreeCL.RTL
 			{
 				Trace("TimerOverload : " + ti.Name + " , required time " + ti.Period.ToString(CultureInfo.InvariantCulture) + "msec, executing time " + process_time.ToString(CultureInfo.InvariantCulture) + " msec" );
 			}
+			
+			
 		}
 		
 		
