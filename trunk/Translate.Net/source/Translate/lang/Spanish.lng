@@ -290,6 +290,8 @@ Traducir
 
 [Size or format of query don't supported by available translation services]
 El tamaño o el formato de la consulta ne está soportado por los servicios de traducción disponibles
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
 [Reverse translation direction]
 Revertir la direccion de traducción
 [Show\\Hide]

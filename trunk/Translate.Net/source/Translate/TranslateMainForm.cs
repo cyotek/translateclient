@@ -615,6 +615,21 @@ namespace Translate
 		void ATranslateExecute(object sender, EventArgs e)
 		{
 			StopCurrentTranslation(); 
+			
+			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
+			
+			if(settings.Count > 50)
+			{
+				if(MessageBox.Show(FindForm(), 
+					string.Format(
+						TranslateString("The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?"), 
+							settings.Count) , 
+						Constants.AppName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+				{
+					return;
+				}
+			}
+			
 			if(TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 				startTranslateTicks = DateTime.Now.Ticks;
 		
@@ -632,10 +647,11 @@ namespace Translate
 				TimerRecheckServicesTick(sender, e);
 			}
 			
-			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
+			
 			
 			resBrowser.Stop();
 			resBrowser.Clear();
+			resBrowser.Wait();
 			
 			if(settings.Count > 0)
 			{

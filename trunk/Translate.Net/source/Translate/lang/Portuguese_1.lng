@@ -282,6 +282,8 @@ Parar operação atual
 Parar
 [Size or format of query don't supported by available translation services]
 O tamanho ou o formato da busca não é suportado pelos serviços de tradução disponíveis
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
 [Reverse translation direction]
 Sentido reverso de tradução
 [Show\\Hide]

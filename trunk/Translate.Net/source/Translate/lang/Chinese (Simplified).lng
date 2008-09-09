@@ -290,6 +290,8 @@ HTTP 代理
 
 [Size or format of query don't supported by available translation services]
 可用的翻译服务不支持查询的大小或格式
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
 [Reverse translation direction]
 反向翻译
 [Show\\Hide]
