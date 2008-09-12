@@ -192,12 +192,22 @@ namespace FreeCL.Forms
 		public void LockUpdate(bool lockIt)
 		{
 			if(lockIt && updateLockCount == 0)
+			{
+				Cursor = Cursors.WaitCursor;
+				SuspendFormLayout();
+				Application.DoEvents();
 				NativeMethods.LockWindowUpdate(Handle);
+			}	
 			else if(!lockIt && updateLockCount == 1)	
 			{
+				Application.DoEvents();
+				ResumeFormLayout();
 				NativeMethods.LockWindowUpdate(IntPtr.Zero);
+				Cursor = Cursors.Default;
 				Refresh();
 			}	
+			else if(!lockIt && updateLockCount == 0)
+				throw new ArgumentException("Unlocks count greater of locks count", "lockIt");
 			
 			if(lockIt)
 				updateLockCount++;
