@@ -73,6 +73,10 @@
     <Compile Include="Options\CustomProfileServicesForm.Designer.cs">
       <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\DefaultProfileLanguagesForm.cs" />
+    <Compile Include="Options\DefaultProfileLanguagesForm.Designer.cs">
+      <DependentUpon>DefaultProfileLanguagesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\FontSelectionControl.cs" />
     <Compile Include="Options\FontSelectionControl.Designer.cs">
       <DependentUpon>FontSelectionControl.cs</DependentUpon>
@@ -171,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\CustomProfileServicesForm.resx">
       <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\DefaultProfileLanguagesForm.resx">
+      <DependentUpon>DefaultProfileLanguagesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\FontSelectionControl.resx">
       <DependentUpon>FontSelectionControl.cs</DependentUpon>

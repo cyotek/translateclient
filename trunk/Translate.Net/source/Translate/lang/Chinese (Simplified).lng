@@ -216,6 +216,18 @@ HTTP 代理
 查看结果
 [Include monolingual dictionaries in translation]
 翻译中只包含一种语言字典
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
 [Profile]
 配置文件
 [Profiles]

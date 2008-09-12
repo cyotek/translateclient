@@ -115,6 +115,7 @@ namespace Translate
 			this.aRemoveService = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveServiceUp = new FreeCL.UI.Actions.Action(this.components);
 			this.aMoveServiceDown = new FreeCL.UI.Actions.Action(this.components);
+			this.bLanguageFilter = new System.Windows.Forms.Button();
 			this.pBody.SuspendLayout();
 			this.pProfiles.SuspendLayout();
 			this.pProfilesControl.SuspendLayout();
@@ -450,6 +451,7 @@ namespace Translate
 			// 
 			// tpDefaultOptions
 			// 
+			this.tpDefaultOptions.Controls.Add(this.bLanguageFilter);
 			this.tpDefaultOptions.Controls.Add(this.cbIncludeMonolingualDictionaryInTranslation);
 			this.tpDefaultOptions.Location = new System.Drawing.Point(4, 22);
 			this.tpDefaultOptions.Name = "tpDefaultOptions";
@@ -620,6 +622,16 @@ namespace Translate
 			this.aMoveServiceDown.Execute += new System.EventHandler(this.AMoveServiceDownExecute);
 			this.aMoveServiceDown.Update += new System.EventHandler(this.AMoveServiceDownUpdate);
 			// 
+			// bLanguageFilter
+			// 
+			this.bLanguageFilter.Location = new System.Drawing.Point(6, 36);
+			this.bLanguageFilter.Name = "bLanguageFilter";
+			this.bLanguageFilter.Size = new System.Drawing.Size(141, 23);
+			this.bLanguageFilter.TabIndex = 4;
+			this.bLanguageFilter.Text = "Filter of languages";
+			this.bLanguageFilter.UseVisualStyleBackColor = true;
+			this.bLanguageFilter.Click += new System.EventHandler(this.BLanguageFilterClick);
+			// 
 			// CustomProfilesControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,6 +649,7 @@ namespace Translate
 			this.tpLanguageSelector.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Button bLanguageFilter;
 		private System.Windows.Forms.CheckBox cbShowServices;
 		private System.Windows.Forms.CheckBox cbShowLanguages;
 		private System.Windows.Forms.CheckBox cbShowSubjects;

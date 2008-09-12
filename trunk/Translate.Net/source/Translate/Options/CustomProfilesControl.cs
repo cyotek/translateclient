@@ -90,6 +90,7 @@ namespace Translate
 			cbShowLanguages.Text  = TranslateString("Show languages list");
 			cbShowSubjects.Text  = TranslateString("Show subjects list");
 			
+			bLanguageFilter.Text  = TranslateString("Filter of languages");
 			
 			foreach(ListViewItem lvi in lvProfiles.Items)
 			{
@@ -597,5 +598,43 @@ namespace Translate
 			
 			changed = true;
 		}
+		
+		void BLanguageFilterClick(object sender, EventArgs e)
+		{
+			DefaultTranslateProfile pf = defaultProfile;
+		
+			DefaultProfileLanguagesForm form = new DefaultProfileLanguagesForm(pf);
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				SubjectCollection subjects = pf.GetSupportedSubjects();
+				SubjectCollection subjectsToDelete = new SubjectCollection();
+				
+				foreach(string subject in pf.Subjects)
+				{
+					if(!subjects.Contains(subject))
+						subjectsToDelete.Add(subject);
+				}
+				
+				foreach(string subject in subjectsToDelete)
+					pf.Subjects.Remove(subject);
+				
+				LanguagePairCollection toDelete = new LanguagePairCollection();
+				foreach(LanguagePair lp in pf.History)
+				{
+					if(pf.DisabledSourceLanguages.Contains(lp.From) ||
+						pf.DisabledTargetLanguages.Contains(lp.To))
+					{
+						toDelete.Add(lp);
+					}
+				}
+				
+				foreach(LanguagePair lp in toDelete)
+					pf.History.Remove(lp);
+			}
+			form.Dispose();
+			changed = true;
+		}
+		
+		
 	}
 }

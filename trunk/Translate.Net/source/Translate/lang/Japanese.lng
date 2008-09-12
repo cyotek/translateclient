@@ -216,6 +216,18 @@ Ctrl+Ins+Ins で活性化
 結果表示
 [Include monolingual dictionaries in translation]
 一か国語の辞書を翻訳で使用
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
 [Profile]
 プロファイル(&P)
 [Profiles]
