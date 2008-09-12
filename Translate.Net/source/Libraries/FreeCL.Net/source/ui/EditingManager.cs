@@ -118,7 +118,11 @@ namespace FreeCL.UI
 					}
 				
 					System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
-					res = active != null && active.CanUndo;
+					if(active != null)
+					{
+						res = active.CanUndo;
+						return res;
+					}
 					
 					if(!res)
 					{
@@ -192,7 +196,11 @@ namespace FreeCL.UI
 					}
 				
 					System.Windows.Forms.RichTextBox active = activeControl as System.Windows.Forms.RichTextBox;	
-					res = active != null && active.CanRedo;
+					if(active != null)
+					{
+						res = active.CanRedo;
+						return res;
+					}
 					
 					if(!res)
 					{
@@ -334,6 +342,7 @@ namespace FreeCL.UI
 					if(res)
 					{
 						res = active.SelectionLength != 0 || (active.TextLength != 0 && active.SelectionStart < active.TextLength);
+						return res;
 					}
 
 					
@@ -438,7 +447,12 @@ namespace FreeCL.UI
 					if(!res)
 					{
 						System.Windows.Forms.TextBoxBase active = activeControl as System.Windows.Forms.TextBoxBase;	
-						res = active != null && active.SelectionLength != active.TextLength ;
+						if(active != null)
+						{
+							res = active.SelectionLength != active.TextLength;
+							return res;
+						}
+
 					}
 					
 					if(!res)
@@ -447,6 +461,7 @@ namespace FreeCL.UI
 						if(webbrowser != null)
 						{  
 							res = true;
+							return res;
 						}
 					}
 					
