@@ -114,7 +114,7 @@ namespace Translate
 					if(value == null)
 						return;
 					
-					if(selection == null || selection == value)
+					if((selection == null && !profileChanging) || selection == value)
 						return;
 						
 					//selection = value; 
@@ -147,66 +147,93 @@ namespace Translate
 			}
 		}
 		
+		void LockUpdate(bool lockIt)
+		{
+			TranslateMainForm.Instance.LockUpdate(lockIt);
+			if(lockIt)
+				SuspendLayout();
+			else
+				ResumeLayout();
+		}
+		bool profileChanging;
 		TranslateProfile profile;
 		public TranslateProfile Profile {
 			get { return profile; }
 			set 
 			{ 
-				profile = value;
-				selection = null;
-				lvServicesEnabled.Items.Clear();
-				lvServicesDisabled.Items.Clear();
-				lvServicesDisabledByUser.Items.Clear();
-				serviceStatus.Status = null;
-
-				
-				if(profile != null)
+				try 
 				{
-					pBottom.Visible = true;
-					pBottom.Enabled = true;
-						
-					splitterBottom.Enabled = true;
-					splitterBottom.Visible = true;
+					LockUpdate(true);
+					profile = value;
+					selection = null;
+					lvServicesEnabled.Items.Clear();
+					lvServicesDisabled.Items.Clear();
+					lvServicesDisabledByUser.Items.Clear();
+					serviceStatus.Status = null;
+	
 					
-					tcMain.Visible = true;
-					tcMain.Enabled = true;
-						
-					tcMain.TabPages.Clear();
-					tcMain.TabPages.Add(tpServices);
-					tcMain.TabPages.Add(tpLangs);
-					tcMain.TabPages.Add(tpSubject);
-					tcMain.SelectedTab = tpLangs;
-				
-					UserTranslateProfile upf = profile as UserTranslateProfile;
-					if(upf != null)
+					if(profile != null)
 					{
-						if(!upf.ShowLanguages)
-						{
-							tcMain.TabPages.Remove(tpLangs);
-
-							splitterBottom.Enabled = false;
-							splitterBottom.Visible = false;
+						pBottom.Visible = true;
+						pBottom.Enabled = true;
 							
-							pBottom.Visible = false;
-							pBottom.Enabled = false;
-						}
+						splitterBottom.Enabled = true;
+						splitterBottom.Visible = true;
+						
+						tcMain.Visible = true;
+						tcMain.Enabled = true;
+							
+						tcMain.SuspendLayout();	
+						tcMain.TabPages.Clear();
+						tcMain.TabPages.Add(tpServices);
+						tcMain.TabPages.Add(tpLangs);
+						tcMain.TabPages.Add(tpSubject);
+						tcMain.SelectedTab = tpLangs;
 					
-						if(!upf.ShowServices)
+						UserTranslateProfile upf = profile as UserTranslateProfile;
+						if(upf != null)
 						{
-							tcMain.TabPages.Remove(tpServices);
+							if(!upf.ShowLanguages)
+							{
+								tcMain.TabPages.Remove(tpLangs);
+	
+								splitterBottom.Enabled = false;
+								splitterBottom.Visible = false;
+								
+								pBottom.Visible = false;
+								pBottom.Enabled = false;
+							}
+						
+							if(!upf.ShowServices)
+							{
+								tcMain.TabPages.Remove(tpServices);
+							}
+							
+							if(!upf.ShowSubjects)
+								tcMain.TabPages.Remove(tpSubject);
+						}
+						tcMain.ResumeLayout();
+						
+						lvServicesEnabled.ListViewItemSorter = null;
+						lvServicesDisabled.ListViewItemSorter = null;
+						profileChanging = profile.History.Count > 0;
+						try 
+						{
+							SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
+							Languages = profile.GetLanguagePairs();
+							History = profile.History;
+						} 
+						finally 
+						{
+							profileChanging = false;
 						}
 						
-						if(!upf.ShowSubjects)
-							tcMain.TabPages.Remove(tpSubject);
+						CalcServicesSizes();
 					}
-					
-					lvServicesEnabled.ListViewItemSorter = null;
-					lvServicesDisabled.ListViewItemSorter = null;
-					SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
-					Languages = profile.GetLanguagePairs();
-					History = profile.History;
-					
-					CalcServicesSizes();
+				} 
+				finally
+				{
+					LockUpdate(false);
 				}
 			}
 		}
@@ -239,8 +266,14 @@ namespace Translate
 			
 			public override bool Equals(Object obj)
 			{
+				if(From == null) return false;
+				if(To == null) return false;
+
 				LanguageContainerPair arg = obj as LanguageContainerPair;
 				if(arg == null) return false;
+				if(arg.From == null) return false;
+				if(arg.To == null) return false;
+				
 				return From.Equals(arg.From) && To.Equals(arg.To);
 			}
 			
@@ -275,7 +308,7 @@ namespace Translate
 		
 		void LoadLanguages()
 		{
-			SuspendLayout();
+			LockUpdate(true);
 			lbFrom.Items.Clear();
 			lbTo.Items.Clear();
 			
@@ -304,15 +337,15 @@ namespace Translate
 				lbFrom.Items.Add(new LanguageDataContainer(l, val));
 			}
 
-			if(lbFrom.Items.Count > 0)
+			if(lbFrom.Items.Count > 0 && !profileChanging)
 				lbFrom.SelectedIndex = 0;
-			ResumeLayout(true);
+			LockUpdate(false);
 		}
 		
 
 		void LbFromSelectedIndexChanged(object sender, EventArgs e)
 		{
-			SuspendLayout();
+			LockUpdate(true);
 			if(lbFrom.SelectedIndex == -1)
 				return;
 				
@@ -357,7 +390,7 @@ namespace Translate
 			if(idx == -1)
 				idx = 0;
 			lbTo.SelectedIndex = idx;
-			ResumeLayout(true);
+			LockUpdate(false);
 		}
 		
 		
@@ -514,6 +547,10 @@ namespace Translate
 			loadingSubjects = true;
 			lbSubjects.Items.Clear();
 			string val;
+			
+			val = "+ " + LangPack.TranslateString("Toggle all");
+			lbSubjects.Items.Add(new SubjectContainer("Toggle all", val));
+			
 			foreach(string s in supportedSubjects)
 			{
 				val = LangPack.TranslateString(s);
@@ -521,6 +558,7 @@ namespace Translate
 					val = "+" + val;
 				lbSubjects.Items.Add(new SubjectContainer(s, val), subjects.Contains(s));
 			}		
+			lbSubjects.SetItemChecked(0, lbSubjects.CheckedItems.Count == supportedSubjects.Count);
 			loadingSubjects = false;
 			serviceItemsSettings = null; //reset
 			LoadServices(false);
@@ -540,6 +578,64 @@ namespace Translate
 		void LbSubjectsItemCheck(object sender, ItemCheckEventArgs e)
 		{
 			if(loadingSubjects) return;
+			
+			if(e.Index == 0)
+			{
+				try 
+				{
+					ignoreServicesLoading = true;
+					loadingSubjects = true;
+					LockUpdate(true);
+					if(e.NewValue == CheckState.Checked)
+					{  //all
+						subjects.Clear();
+						subjects.AddRange(supportedSubjects);
+						for(int i = 1; i < lbSubjects.Items.Count; i++)
+							lbSubjects.SetItemCheckState(i, e.NewValue);
+					}
+					else if(e.NewValue == CheckState.Unchecked)
+					{
+						subjects.Clear();
+						subjects.Add((lbSubjects.Items[1] as SubjectContainer).Subject);
+					
+						lbSubjects.SetItemCheckState(1, CheckState.Checked);
+	
+						for(int i = 2; i < lbSubjects.Items.Count; i++)
+							lbSubjects.SetItemCheckState(i, e.NewValue);
+					}
+					
+					Languages = profile.GetLanguagePairs();
+					LanguagePairCollection to_delete = new LanguagePairCollection();
+					foreach(LanguagePair lp in history)
+					{
+						if(!Languages.Contains(lp))
+						{
+							to_delete.Add(lp);
+						}
+					}
+					
+					foreach(LanguagePair lp in to_delete)
+					{
+						history.Remove(lp);
+					}
+					LoadHistory();
+
+				} 
+				finally
+				{
+					LockUpdate(false);
+					ignoreServicesLoading = false;
+					loadingSubjects = false;
+					serviceItemsSettings = null; //reset	
+					LoadServices(false);
+				}
+				
+				if(SubjectsChanged != null)
+					SubjectsChanged(this, new EventArgs()); 
+				
+				return;
+			}
+			
 
 			SubjectContainer sc = (SubjectContainer)lbSubjects.Items[e.Index];	
 			if(e.NewValue == CheckState.Checked)
@@ -552,7 +648,7 @@ namespace Translate
 					new_idx ++;
 					if(new_idx >= lbSubjects.Items.Count)
 					{
-						new_idx = 0;
+						new_idx = 1;
 					}
 					lbSubjects.SetItemChecked(new_idx, true);
 				}
@@ -841,7 +937,7 @@ namespace Translate
 		bool skipselectingservices;
 		void LvServicesEnabledSelectedIndexChanged(object sender, EventArgs e)
 		{
-			SuspendLayout();
+			LockUpdate(true);
 			try 
 			{
 				if(skipselectingservices)
@@ -879,7 +975,7 @@ namespace Translate
 			} 
 			finally
 			{
-				ResumeLayout();
+				LockUpdate(false);
 			}
 		}
 		
