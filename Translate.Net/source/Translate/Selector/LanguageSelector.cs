@@ -757,34 +757,20 @@ namespace Translate
 				}
 			}
 
-			foreach(ServiceSettingsContainer sc in serviceItemsContainers)
-			{
-				AddListViewItem(sc);
-			}
-			CalcServicesSizes();
 			try 
-			{ //try to avoid unrepeatable bug
-				if(lvServicesEnabled.Items.Count > 0)
-				{
-					lvServicesEnabled.Items[0].Focused = true;
-					lvServicesEnabled.Items[0].Selected = true;
-				}
-				else if(lvServicesDisabled.Items.Count > 0)
-				{
-					lvServicesDisabled.Items[0].Focused = true;
-					lvServicesDisabled.Items[0].Selected = true;
-				}
-				else if(lvServicesDisabledByUser.Items.Count > 0)
-				{
-					lvServicesDisabledByUser.Items[0].Focused = true;
-					lvServicesDisabledByUser.Items[0].Selected = true;
-				}
-
-			} 
-			catch
 			{
-				try 
+				tpServices.SuspendLayout();
+				lvServicesEnabled.SuspendLayout();
+				lvServicesDisabled.SuspendLayout();
+				lvServicesDisabledByUser.SuspendLayout();
+				foreach(ServiceSettingsContainer sc in serviceItemsContainers)
 				{
+					AddListViewItem(sc);
+				}
+				
+				CalcServicesSizes();
+				try 
+				{ //try to avoid unrepeatable bug
 					if(lvServicesEnabled.Items.Count > 0)
 					{
 						lvServicesEnabled.Items[0].Focused = true;
@@ -804,9 +790,38 @@ namespace Translate
 				} 
 				catch
 				{
+					try 
+					{
+						if(lvServicesEnabled.Items.Count > 0)
+						{
+							lvServicesEnabled.Items[0].Focused = true;
+							lvServicesEnabled.Items[0].Selected = true;
+						}
+						else if(lvServicesDisabled.Items.Count > 0)
+						{
+							lvServicesDisabled.Items[0].Focused = true;
+							lvServicesDisabled.Items[0].Selected = true;
+						}
+						else if(lvServicesDisabledByUser.Items.Count > 0)
+						{
+							lvServicesDisabledByUser.Items[0].Focused = true;
+							lvServicesDisabledByUser.Items[0].Selected = true;
+						}
+		
+					} 
+					catch
+					{
+						
+					}
 					
 				}
-				
+			} 
+			finally
+			{
+				lvServicesEnabled.ResumeLayout();
+				lvServicesDisabled.ResumeLayout();
+				lvServicesDisabledByUser.ResumeLayout();
+				tpServices.ResumeLayout();
 			}
 		}
 		
