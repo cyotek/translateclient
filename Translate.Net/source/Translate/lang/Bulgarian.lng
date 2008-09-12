@@ -218,6 +218,18 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Вид на резултата
 [Include monolingual dictionaries in translation]
 Включване на тълковни речници при превода
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
 [Profile]
 Профил
 [Profiles]

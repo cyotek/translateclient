@@ -188,6 +188,9 @@ namespace Translate
 			this.timerRecheckServices = new System.Windows.Forms.Timer(this.components);
 			this.aStopTranslate = new FreeCL.UI.Actions.Action(this.components);
 			this.miOnlineHelp2 = new System.Windows.Forms.ToolStripMenuItem();
+			this.aFilterLanguages = new FreeCL.UI.Actions.Action(this.components);
+			this.miFilterLanguages = new System.Windows.Forms.ToolStripMenuItem();
+			this.miFilterLanguages2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -486,6 +489,7 @@ namespace Translate
 			this.al.Actions.Add(this.aDonate);
 			this.al.Actions.Add(this.aOnlineHelp);
 			this.al.Actions.Add(this.aStopTranslate);
+			this.al.Actions.Add(this.aFilterLanguages);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -765,7 +769,8 @@ namespace Translate
 									this.miProfileView,
 									this.miIncludeMonolingualDicts2,
 									this.miSetProfileProperties,
-									this.miEditProfileServices});
+									this.miEditProfileServices,
+									this.miFilterLanguages});
 			this.msProfileAdd.Name = "msProfileAdd";
 			this.msProfileAdd.Size = new System.Drawing.Size(200, 192);
 			// 
@@ -901,7 +906,8 @@ namespace Translate
 									this.miProfileView2,
 									this.miIncludeMonolingualDicts,
 									this.miEditProfileProperties2,
-									this.miEditProfileServices2});
+									this.miEditProfileServices2,
+									this.miFilterLanguages2});
 			this.miProfiles.Name = "miProfiles";
 			this.miProfiles.Size = new System.Drawing.Size(54, 20);
 			this.miProfiles.Text = "Profiles";
@@ -1562,6 +1568,34 @@ namespace Translate
 			this.miOnlineHelp2.Size = new System.Drawing.Size(28, 20);
 			this.miOnlineHelp2.Click += new System.EventHandler(this.AOnlineHelpExecute);
 			// 
+			// aFilterLanguages
+			// 
+			this.aFilterLanguages.Checked = false;
+			this.aFilterLanguages.Enabled = true;
+			this.aFilterLanguages.Hint = "Allow to choose languages for use";
+			this.aFilterLanguages.Tag = null;
+			this.aFilterLanguages.Text = "Filter of languages ...";
+			this.aFilterLanguages.Visible = true;
+			this.aFilterLanguages.Execute += new System.EventHandler(this.AFilterLanguagesExecute);
+			// 
+			// miFilterLanguages
+			// 
+			this.al.SetAction(this.miFilterLanguages, this.aFilterLanguages);
+			this.miFilterLanguages.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miFilterLanguages.Name = "miFilterLanguages";
+			this.miFilterLanguages.Size = new System.Drawing.Size(199, 22);
+			this.miFilterLanguages.Text = "Filter of languages ...";
+			this.miFilterLanguages.ToolTipText = "Allow to choose languages for use";
+			// 
+			// miFilterLanguages2
+			// 
+			this.al.SetAction(this.miFilterLanguages2, this.aFilterLanguages);
+			this.miFilterLanguages2.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miFilterLanguages2.Name = "miFilterLanguages2";
+			this.miFilterLanguages2.Size = new System.Drawing.Size(199, 22);
+			this.miFilterLanguages2.Text = "Filter of languages ...";
+			this.miFilterLanguages2.ToolTipText = "Allow to choose languages for use";
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1618,6 +1652,9 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miFilterLanguages;
+		private System.Windows.Forms.ToolStripMenuItem miFilterLanguages2;
+		private FreeCL.UI.Actions.Action aFilterLanguages;
 		private System.Windows.Forms.ToolStripMenuItem miBrowserTranslateSel;
 		private System.Windows.Forms.ToolStripMenuItem miBrowserSelectAll;
 		private System.Windows.Forms.ToolStripSeparator miBrowserSep1;

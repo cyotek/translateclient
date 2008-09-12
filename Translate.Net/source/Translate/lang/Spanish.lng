@@ -216,6 +216,18 @@ Esta versión del servcio no es compatible
 Vista de resultados
 [Include monolingual dictionaries in translation]
 Incluír diccionarios monolingües en la traducción
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
 [Profile]
 Perfil
 [Profiles]

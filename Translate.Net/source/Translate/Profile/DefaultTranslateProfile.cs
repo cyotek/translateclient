@@ -69,6 +69,9 @@ namespace Translate
 				result.SortData.Add(d);
 			foreach(ServiceItemData d in DisabledServiceItems)
 				result.DisabledServiceItems.Add(d); 
+			result.DisabledSourceLanguages.AddRange(DisabledSourceLanguages); 	
+			result.DisabledTargetLanguages.AddRange(DisabledTargetLanguages);
+			result.DisabledLanguagesAlreadySet = DisabledLanguagesAlreadySet;
 			return result;	
 		}
 		
@@ -78,12 +81,53 @@ namespace Translate
 			set { includeMonolingualDictionaryInTranslation = value; }
 		}
 		
-
+		LanguageCollection disabledSourceLanguages = new LanguageCollection();
+		public LanguageCollection DisabledSourceLanguages {
+			get { return disabledSourceLanguages; }
+			set { disabledSourceLanguages = value; }
+		}
+		
+		LanguageCollection disabledTargetLanguages = new LanguageCollection();
+		public LanguageCollection DisabledTargetLanguages {
+			get { return disabledTargetLanguages; }
+			set { disabledTargetLanguages = value; }
+		}
+		
+		bool disabledLanguagesAlreadySet = false;
+		public bool DisabledLanguagesAlreadySet {
+			get { return disabledLanguagesAlreadySet; }
+			set { disabledLanguagesAlreadySet = value; }
+		}
 				
 		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
 		public override SubjectCollection GetSupportedSubjects()
 		{
-			return Manager.Subjects;
+			if(!disabledLanguagesAlreadySet)
+				return Manager.Subjects;
+			else
+			{
+				SubjectCollection subjects = new SubjectCollection();
+				foreach(ServiceItem item in Manager.ServiceItems)
+				{
+					foreach(LanguagePair lp in item.SupportedTranslations)
+					{
+						if(disabledSourceLanguages.Contains(lp.From))
+							continue;
+		
+						if(disabledTargetLanguages.Contains(lp.To))
+							continue;
+					
+						foreach(string subject in item.SupportedSubjects)
+						{
+							if(!subjects.Contains(subject))
+								subjects.Add(subject);
+						}
+						
+						break;
+					}
+				}
+				return subjects;
+			}
 		}
 
 		public override ReadOnlyLanguagePairCollection GetLanguagePairs()
@@ -99,7 +143,15 @@ namespace Translate
 						foreach(LanguagePair lp in item.SupportedTranslations)
 						{
 							if(!result.Contains(lp))
+							{
+								if(disabledSourceLanguages.Contains(lp.From))
+									continue;
+	
+								if(disabledTargetLanguages.Contains(lp.To))
+									continue;
+							
 								result.Add(lp);
+							}	
 						}
 					}
 				}
@@ -114,6 +166,12 @@ namespace Translate
 			
 			foreach (KeyValuePair<LanguagePair, ServiceItemsCollection> kvp in Manager.LanguagePairServiceItems)
 			{
+				if(disabledSourceLanguages.Contains(kvp.Key.From))
+					continue;
+	
+				if(disabledTargetLanguages.Contains(kvp.Key.To))
+					continue;
+			
 				foreach(ServiceItem si in kvp.Value)
 				{
 					if( 

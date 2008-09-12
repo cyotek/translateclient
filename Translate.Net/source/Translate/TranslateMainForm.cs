@@ -253,6 +253,9 @@ namespace Translate
 			
 			aIncludeMonolingualDicts.Hint = TranslateString("Include monolingual dictionaries in translation");
 			aIncludeMonolingualDicts.Text = aIncludeMonolingualDicts.Hint;
+			
+			aFilterLanguages.Text = TranslateString("Filter of languages") + " ...";
+			aFilterLanguages.Hint = TranslateString("Allow to choose languages for use");
 
 			for(int i = 3; i < tsTranslate.Items.Count; i++)
 			{
@@ -616,6 +619,10 @@ namespace Translate
 		{
 			StopCurrentTranslation(); 
 			
+			//force refresh of services 
+			if(timerRecheckServices.Enabled)
+				TimerRecheckServicesTick(null, null);
+			
 			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
 			if(settings.Count > 50)
@@ -856,6 +863,12 @@ namespace Translate
 			{
 				WindowState = FormWindowState.Minimized;
 			}
+
+			if(!TranslateOptions.Instance.DefaultProfile.DisabledLanguagesAlreadySet)
+			{
+				ActivateProfile(TranslateOptions.Instance.DefaultProfile);
+				AFilterLanguagesExecute(null, null);
+			}
 			
 			if(UpdatesManager.IsNewInstall)
 			{
@@ -962,6 +975,7 @@ namespace Translate
 			LockUpdate(true);
 			try
 			{
+				if(languageSelector.Phrase != tbFrom.Text.Trim())
 				languageSelector.Phrase = tbFrom.Text.Trim();
 			} 
 			finally
@@ -1312,8 +1326,50 @@ namespace Translate
 			aIncludeMonolingualDicts.Enabled = pf != null;	
 			aIncludeMonolingualDicts.Checked = !(pf == null || !pf.IncludeMonolingualDictionaryInTranslation); 
 			aIncludeMonolingualDicts.Visible = aIncludeMonolingualDicts.Enabled;
+			aFilterLanguages.Visible = aIncludeMonolingualDicts.Enabled;
+			aFilterLanguages.Enabled = aIncludeMonolingualDicts.Enabled;
 			
 		}
+		
+		
+		void AFilterLanguagesExecute(object sender, EventArgs e)
+		{
+			DefaultTranslateProfile pf = currentProfile as DefaultTranslateProfile;
+			if(pf == null)
+				return;
+		
+			DefaultProfileLanguagesForm form = new DefaultProfileLanguagesForm(pf);
+			if(form.ShowDialog(this) == DialogResult.OK)
+			{
+				SubjectCollection subjects = pf.GetSupportedSubjects();
+				SubjectCollection subjectsToDelete = new SubjectCollection();
+				
+				foreach(string subject in pf.Subjects)
+				{
+					if(!subjects.Contains(subject))
+						subjectsToDelete.Add(subject);
+				}
+				
+				foreach(string subject in subjectsToDelete)
+					pf.Subjects.Remove(subject);
+				
+				LanguagePairCollection toDelete = new LanguagePairCollection();
+				foreach(LanguagePair lp in pf.History)
+				{
+					if(pf.DisabledSourceLanguages.Contains(lp.From) ||
+						pf.DisabledTargetLanguages.Contains(lp.To))
+					{
+						toDelete.Add(lp);
+					}
+				}
+				
+				foreach(LanguagePair lp in toDelete)
+					pf.History.Remove(lp);
+				languageSelector.Profile = currentProfile;
+			}
+			form.Dispose();
+		}
+
 		
 		
 		
@@ -1507,5 +1563,6 @@ namespace Translate
 				ATranslateExecute(sender, e);
 			}
 		}
+		
 	}
 }
