@@ -300,6 +300,8 @@ HTTP-проксі має помилковий формат - {0}. Будуть �
 Зупинити поточну операцію
 [Stop]
 Зупинити
+[Search in Google]
+Шукати у Google
 [Size or format of query don't supported by available translation services]
 Розмір або формат запиту не підтримується доступними сервісами перекладу
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]

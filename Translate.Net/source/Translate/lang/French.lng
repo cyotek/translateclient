@@ -298,6 +298,8 @@ Traduire
 
 [Stop]
 
+[Search in Google]
+
 [Size or format of query don't supported by available translation services]
 La taille ou le format de la recherche n'est pas supporté par les services de traduction actuels
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]

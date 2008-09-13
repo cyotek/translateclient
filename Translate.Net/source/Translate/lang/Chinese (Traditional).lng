@@ -301,6 +301,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 停止目前操作
 [Stop]
 停止
+[Search in Google]
+
 [Size or format of query don't supported by available translation services]
 查詢的文字長度或格式不受可用的翻譯服務支援
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]

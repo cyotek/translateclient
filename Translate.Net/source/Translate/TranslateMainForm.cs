@@ -120,6 +120,7 @@ namespace Translate
 			
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
+			aSearchInGoogle.Shortcut = Keys.Control | Keys.Shift | Keys.Enter;
 			miFile.DropDownItems.Remove(miTranslate);
 			miFile.DropDownItems.Insert(0, miTranslate);
 			
@@ -180,6 +181,7 @@ namespace Translate
 			resBrowser.Clear();	
 		}
 		
+		int SpecialButtonsCount = 3;
 		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
 		void OnLanguageChanged()
@@ -187,7 +189,12 @@ namespace Translate
 			miFile.Text = TranslateString("&Translate");
 			aShowMainForm.Text = TranslateString("Show\\Hide");
 			aTranslate.Text = TranslateString("Translate");
-			aTranslate.Hint = TranslateString("Translate");
+			aTranslate.Hint = aTranslate.Text;
+			aSearchInGoogle.Text = TranslateString("Search in Google");
+			aSearchInGoogle.Hint = aSearchInGoogle.Text;
+			miSearchInGoogle.Text = aSearchInGoogle.Text;
+			miSearchInGoogle.ToolTipText = aSearchInGoogle.Text;
+			
 			aStopTranslate.Text = TranslateString("Stop");
 			aStopTranslate.Hint = TranslateString("Stop current operation");
 			tsbStop.DisplayStyle = ToolStripItemDisplayStyle.Image;
@@ -257,7 +264,7 @@ namespace Translate
 			aFilterLanguages.Text = TranslateString("Filter of languages") + " ...";
 			aFilterLanguages.Hint = TranslateString("Allow to choose languages for use");
 
-			for(int i = 3; i < tsTranslate.Items.Count; i++)
+			for(int i = SpecialButtonsCount + 1; i < tsTranslate.Items.Count; i++)
 			{
 				UserTranslateProfile pf = tsTranslate.Items[i].Tag as UserTranslateProfile;
 				if(pf == null)
@@ -319,7 +326,7 @@ namespace Translate
 				foreach(FreeCL.UI.Actions.Action a in profileSwitchOnCtrl1Actions)
 					a.Tag = null;
 					
-				while(tsTranslate.Items.Count > 2)
+				while(tsTranslate.Items.Count > SpecialButtonsCount)
 					tsTranslate.Items.RemoveAt(tsTranslate.Items.Count - 1);
 				
 				if(TranslateOptions.Instance.Profiles.Count > 1)
@@ -365,7 +372,7 @@ namespace Translate
 					}
 				}
 				UpdateLanguageSelector();
-				tsTranslate.AllowItemReorder = tsTranslate.Items.Count > 2;
+				tsTranslate.AllowItemReorder = tsTranslate.Items.Count > SpecialButtonsCount;
 				ignoreProfileReposition = false;
 				profilePositionChanged = false;
 			} 
@@ -1162,13 +1169,15 @@ namespace Translate
 		bool profilePositionChanged;
 		void CheckOrderOfProfiles()
 		{
-			if(profilePositionChanged && MouseButtons == MouseButtons.None && tsTranslate.Items.Count > 2)
+			if(profilePositionChanged && MouseButtons == MouseButtons.None 
+				&& tsTranslate.Items.Count > SpecialButtonsCount)
 			{
 				ignoreProfileReposition = true;
 				LockUpdate(true);
 				try 
 				{
 					tsTranslate.Items.Remove(tsbTranslate);
+					tsTranslate.Items.Remove(tsbSearchInGoogle);
 					tsTranslate.Items.Remove(tsbStop);
 					tsTranslate.Items.Remove(tsSeparatorTranslate);
 					
@@ -1180,7 +1189,9 @@ namespace Translate
 					}
 					tsTranslate.Items.Clear();
 					tsTranslate.Items.Insert(0, tsbStop);
+					tsTranslate.Items.Insert(0, tsbSearchInGoogle);
 					tsTranslate.Items.Insert(0, tsbTranslate);
+					
 					
 					UpdateProfiles();
 				} 
@@ -1205,20 +1216,20 @@ namespace Translate
 
 		void ANextProfileUpdate(object sender, EventArgs e)
 		{
-			aNextProfile.Enabled = tsTranslate.Items.Count != 2;
+			aNextProfile.Enabled = tsTranslate.Items.Count != SpecialButtonsCount;
 			aPreviousProfile.Enabled = aNextProfile.Enabled;
 		}
 		
 		void ANextProfileExecute(object sender, EventArgs e)
 		{
 			int idx = 0;
-			for(int i = 3; i < tsTranslate.Items.Count; i++)
+			for(int i = SpecialButtonsCount + 1; i < tsTranslate.Items.Count; i++)
 			{
 				if(tsTranslate.Items[i].Tag == currentProfile)
 				{
 					idx = i + 1;
 					if(idx >= tsTranslate.Items.Count)
-						idx = 3;
+						idx = SpecialButtonsCount + 1;
 						
 					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
 					return;
@@ -1230,12 +1241,12 @@ namespace Translate
 		void APreviousProfileExecute(object sender, EventArgs e)
 		{
 			int idx = 0;
-			for(int i = 3; i < tsTranslate.Items.Count; i++)
+			for(int i = SpecialButtonsCount + 1; i < tsTranslate.Items.Count; i++)
 			{
 				if(tsTranslate.Items[i].Tag == currentProfile)
 				{
 					idx = i - 1;
-					if(idx < 3)
+					if(idx < SpecialButtonsCount + 1)
 						idx = tsTranslate.Items.Count - 1;
 						
 					OnProfileButtonClick(tsTranslate.Items[idx], new EventArgs());
@@ -1411,6 +1422,7 @@ namespace Translate
 			{
 				miBrowserTranslateSel.Visible = false;
 				miBrowserSep2.Visible = false;
+				miSearchInGoogle.Visible = false;
 			}
 			else
 			{
@@ -1418,7 +1430,9 @@ namespace Translate
 				string small_selection = selection;
 				if(small_selection.Length > 25)
 					small_selection = small_selection.Substring(0, 25) + " ...";
-				
+			
+				miSearchInGoogle.Visible = true;
+				miSearchInGoogle.Tag = selection;
 				miBrowserTranslateSel.Visible = true;
 				miBrowserSep2.Visible = true;
 				miBrowserTranslateSel.Text = 
@@ -1564,5 +1578,34 @@ namespace Translate
 			}
 		}
 		
+		
+		void ASearchInGoogleExecute(object sender, EventArgs e)
+		{
+			HtmlHelper.OpenUrl(new Uri("http://www.google.com/search?rls=translateclient&q="  +  
+				tbFrom.Text.Trim()));
+		}
+		
+		void ASearchInGoogleUpdate(object sender, EventArgs e)
+		{
+			aSearchInGoogle.Enabled = !string.IsNullOrEmpty(tbFrom.Text.Trim());
+		}
+		
+		void MiSearchInGoogleClick(object sender, EventArgs e)
+		{
+			ToolStripMenuItem mi = sender as ToolStripMenuItem;
+			if(mi == null)
+				return;
+				
+			object sel = mi.Tag;
+			if(sel == null)
+				return;
+				
+			string selection = sel as string;
+			if(string.IsNullOrEmpty(selection))
+				return;
+				
+			HtmlHelper.OpenUrl(new Uri("http://www.google.com/search?rls=translateclient&q="  +  
+				selection.Trim()));
+		}
 	}
 }
