@@ -300,6 +300,8 @@ Auf Vorgabe
 Aktuellen Vorgang anhalten
 [Stop]
 Anhalten
+[Search in Google]
+
 [Size or format of query don't supported by available translation services]
 Größe oder Format wird von verfügbaren Diensten nicht unterstützt.
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
