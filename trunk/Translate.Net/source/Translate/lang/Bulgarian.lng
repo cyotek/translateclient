@@ -216,6 +216,16 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Версията на службата не се поддържа
 [Result view]
 Вид на резултата
+[Result view placement]
+
+[Top]
+
+[Place result view at top]
+
+[Bottom]
+
+[Place result view at bottom]
+
 [Include monolingual dictionaries in translation]
 Включване на тълковни речници при превода
 [Filter of languages]

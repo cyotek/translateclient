@@ -92,6 +92,14 @@ namespace Translate
 			set { hideWithoutResult = value; }
 		}
 		
+		bool dockAtTop = true;
+		public bool DockAtTop {
+			get { return dockAtTop; }
+			set { dockAtTop = value; }
+		}
+		
+		
+		
 		
 	}
 }

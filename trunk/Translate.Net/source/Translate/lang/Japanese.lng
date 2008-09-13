@@ -214,6 +214,16 @@ Ctrl+Ins+Ins で活性化
 サービスのバージョンがサポート外です
 [Result view]
 結果表示
+[Result view placement]
+
+[Top]
+
+[Place result view at top]
+
+[Bottom]
+
+[Place result view at bottom]
+
 [Include monolingual dictionaries in translation]
 一か国語の辞書を翻訳で使用
 [Filter of languages]

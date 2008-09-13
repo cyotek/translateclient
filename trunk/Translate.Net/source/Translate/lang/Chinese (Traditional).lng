@@ -215,6 +215,16 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 服務版本不支援
 [Result view]
 結果檢視
+[Result view placement]
+
+[Top]
+
+[Place result view at top]
+
+[Bottom]
+
+[Place result view at bottom]
+
 [Include monolingual dictionaries in translation]
 翻譯中只包含一種語言字典
 [Filter of languages]
