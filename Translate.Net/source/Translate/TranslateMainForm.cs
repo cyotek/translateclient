@@ -118,6 +118,7 @@ namespace Translate
 			splitterBottom.Enabled = false;
 			splitterBottom.Visible = false;
 			
+			PlaceResultView(TranslateOptions.Instance.ResultWindowOptions.DockAtTop);
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			aSearchInGoogle.Shortcut = Keys.Control | Keys.Shift | Keys.Enter;
@@ -273,6 +274,12 @@ namespace Translate
 					tsTranslate.Items[i].ToolTipText = GetProfileName(pf);
 			}
 
+			miResultViewPlace.Text = TranslateString("Result view placement");
+			aPlaceResultViewTop.Text = TranslateString("Top");
+			aPlaceResultViewTop.Hint = TranslateString("Place result view at top");
+			aPlaceResultViewBottom.Text = TranslateString("Bottom");
+			aPlaceResultViewBottom.Hint = TranslateString("Place result view at bottom");
+			
 			UpdateCaption();
 		}
 		
@@ -1606,6 +1613,42 @@ namespace Translate
 				
 			HtmlHelper.OpenUrl(new Uri("http://www.google.com/search?rls=translateclient&q="  +  
 				selection.Trim()));
+		}
+
+		void PlaceResultView(bool top)		
+		{
+			DockStyle placeStyle = top ? DockStyle.Bottom : DockStyle.Top;
+			if(tsTranslate.Dock == placeStyle)
+				return;
+			LockUpdate(true);
+			try
+			{
+				tsTranslate.Dock = placeStyle;
+				tbFrom.Dock = placeStyle;
+				splitterTranslate.Dock = placeStyle;
+				TranslateOptions.Instance.ResultWindowOptions.DockAtTop = top;
+			} 
+			finally
+			{
+				LockUpdate(false);
+			}
+		}
+		
+		void APlaceResultViewBottomExecute(object sender, EventArgs e)
+		{
+			PlaceResultView(false);
+			
+		}
+		
+		void APlaceResultViewTopExecute(object sender, EventArgs e)
+		{
+			PlaceResultView(true);
+		}
+		
+		void APlaceResultViewTopUpdate(object sender, EventArgs e)
+		{
+			aPlaceResultViewTop.Checked = TranslateOptions.Instance.ResultWindowOptions.DockAtTop;
+			aPlaceResultViewBottom.Checked = !aPlaceResultViewTop.Checked;			
 		}
 	}
 }
