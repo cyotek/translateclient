@@ -98,6 +98,11 @@ namespace Translate
 			set { dockAtTop = value; }
 		}
 		
+		bool dockAtLeft = true;
+		public bool DockAtLeft {
+			get { return dockAtLeft; }
+			set { dockAtLeft = value; }
+		}
 		
 		
 		

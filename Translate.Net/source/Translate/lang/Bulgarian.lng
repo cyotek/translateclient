@@ -226,6 +226,14 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 
 [Place result view at bottom]
 
+[Left]
+
+[Place result view at left]
+
+[Right]
+
+[Place result view at right]
+
 [Include monolingual dictionaries in translation]
 Включване на тълковни речници при превода
 [Filter of languages]

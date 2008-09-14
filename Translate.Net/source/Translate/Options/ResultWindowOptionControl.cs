@@ -66,6 +66,15 @@ namespace Translate
 			cbShowTranslationDirection.Text = TranslateString("Show direction of translation");
 			cbShowServiceName.Text = TranslateString("Show names of services");
 			cbShowAccents.Text = TranslateString("Show accents");
+			gbPlacement.Text = TranslateString("Result view placement");
+			rbTop.Text = TranslateString("Top");
+			toolTip.SetToolTip(rbTop, TranslateString("Place result view at top"));
+			rbBottom.Text = TranslateString("Bottom");
+			toolTip.SetToolTip(rbBottom, TranslateString("Place result view at bottom"));
+			rbLeft.Text = TranslateString("Left");
+			toolTip.SetToolTip(rbLeft, TranslateString("Place result view at left"));
+			rbRight.Text = TranslateString("Right");
+			toolTip.SetToolTip(rbRight, TranslateString("Place result view at right"));
 		}
 
 		ResultWindowOptions current;
@@ -78,6 +87,10 @@ namespace Translate
 			cbShowTranslationDirection.Checked = current.ShowTranslationDirection;
 			cbShowServiceName.Checked = current.ShowServiceName;
 			cbShowAccents.Checked = current.ShowAccents;
+			rbTop.Checked = current.DockAtTop;
+			rbBottom.Checked = !rbTop.Checked;
+			rbLeft.Checked = current.DockAtLeft;
+			rbRight.Checked =  !rbLeft.Checked;
 		}
 		
 		public override void Apply()
@@ -88,6 +101,10 @@ namespace Translate
 			current.ShowTranslationDirection = cbShowTranslationDirection.Checked;
 			current.ShowServiceName = cbShowServiceName.Checked;
 			current.ShowAccents = cbShowAccents.Checked;
+			current.DockAtTop = rbTop.Checked;
+			current.DockAtLeft = rbLeft.Checked;
+			(TranslateMainForm.Instance as TranslateMainForm).PlaceResultViewVertical(current.DockAtTop);
+			(TranslateMainForm.Instance as TranslateMainForm).PlaceResultViewHorizontal(current.DockAtLeft);
 		}
 		
 		public override bool IsChanged()
@@ -97,7 +114,9 @@ namespace Translate
 				current.HideWithoutResult != cbHideWithoutResult.Checked ||
 				current.ShowTranslationDirection != cbShowTranslationDirection.Checked ||
 				current.ShowServiceName != cbShowServiceName.Checked ||
-				current.ShowAccents != cbShowAccents.Checked;
+				current.ShowAccents != cbShowAccents.Checked ||
+				current.DockAtTop != rbTop.Checked ||
+				current.DockAtLeft != rbLeft.Checked;
 		}
 
 	}
