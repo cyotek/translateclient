@@ -170,6 +170,13 @@ namespace Translate
 			this.aNextProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.aPreviousProfile = new FreeCL.UI.Actions.Action(this.components);
 			this.miView = new System.Windows.Forms.ToolStripMenuItem();
+			this.miResultViewPlace = new System.Windows.Forms.ToolStripMenuItem();
+			this.miResultViewPlaceTop = new System.Windows.Forms.ToolStripMenuItem();
+			this.miResultViewPlaceBottom = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+			this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.miShowAccents = new System.Windows.Forms.ToolStripMenuItem();
 			this.miMarkErrors = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -194,12 +201,10 @@ namespace Translate
 			this.miOnlineHelp2 = new System.Windows.Forms.ToolStripMenuItem();
 			this.aFilterLanguages = new FreeCL.UI.Actions.Action(this.components);
 			this.aSearchInGoogle = new FreeCL.UI.Actions.Action(this.components);
-			this.miResultViewPlace = new System.Windows.Forms.ToolStripMenuItem();
-			this.miResultViewPlaceTop = new System.Windows.Forms.ToolStripMenuItem();
-			this.miResultViewPlaceBottom = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.aPlaceResultViewTop = new FreeCL.UI.Actions.Action(this.components);
 			this.aPlaceResultViewBottom = new FreeCL.UI.Actions.Action(this.components);
+			this.aPlaceResultViewLeft = new FreeCL.UI.Actions.Action(this.components);
+			this.aPlaceResultViewRight = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -430,8 +435,8 @@ namespace Translate
 			// msMain
 			// 
 			this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.miProfiles,
 									this.miView,
+									this.miProfiles,
 									this.miAnimatedIcon,
 									this.miOnlineHelp2});
 			this.msMain.Size = new System.Drawing.Size(615, 24);
@@ -503,6 +508,8 @@ namespace Translate
 			this.al.Actions.Add(this.aSearchInGoogle);
 			this.al.Actions.Add(this.aPlaceResultViewTop);
 			this.al.Actions.Add(this.aPlaceResultViewBottom);
+			this.al.Actions.Add(this.aPlaceResultViewLeft);
+			this.al.Actions.Add(this.aPlaceResultViewRight);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -796,7 +803,6 @@ namespace Translate
 			// miAddProfile
 			// 
 			this.al.SetAction(this.miAddProfile, this.aAddProfile);
-			this.miAddProfile.Image = ((System.Drawing.Image)(resources.GetObject("miAddProfile.Image")));
 			this.miAddProfile.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAddProfile.Name = "miAddProfile";
 			this.miAddProfile.Size = new System.Drawing.Size(199, 22);
@@ -811,7 +817,6 @@ namespace Translate
 			// miRemoveProfile
 			// 
 			this.al.SetAction(this.miRemoveProfile, this.aRemoveProfile);
-			this.miRemoveProfile.Image = ((System.Drawing.Image)(resources.GetObject("miRemoveProfile.Image")));
 			this.miRemoveProfile.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miRemoveProfile.Name = "miRemoveProfile";
 			this.miRemoveProfile.Size = new System.Drawing.Size(199, 22);
@@ -883,7 +888,6 @@ namespace Translate
 			// miEditProfileServices
 			// 
 			this.al.SetAction(this.miEditProfileServices, this.aEditProfileServices);
-			this.miEditProfileServices.Image = ((System.Drawing.Image)(resources.GetObject("miEditProfileServices.Image")));
 			this.miEditProfileServices.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miEditProfileServices.Name = "miEditProfileServices";
 			this.miEditProfileServices.Size = new System.Drawing.Size(199, 22);
@@ -902,10 +906,9 @@ namespace Translate
 			// 
 			this.al.SetAction(this.tsbTranslate, this.aTranslate);
 			this.tsbTranslate.AutoToolTip = false;
-			this.tsbTranslate.Image = ((System.Drawing.Image)(resources.GetObject("tsbTranslate.Image")));
 			this.tsbTranslate.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbTranslate.Name = "tsbTranslate";
-			this.tsbTranslate.Size = new System.Drawing.Size(72, 20);
+			this.tsbTranslate.Size = new System.Drawing.Size(56, 17);
 			this.tsbTranslate.Text = "Translate";
 			this.tsbTranslate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.tsbTranslate.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
@@ -915,10 +918,9 @@ namespace Translate
 			this.al.SetAction(this.tsbSearchInGoogle, this.aSearchInGoogle);
 			this.tsbSearchInGoogle.AutoToolTip = false;
 			this.tsbSearchInGoogle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSearchInGoogle.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchInGoogle.Image")));
 			this.tsbSearchInGoogle.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbSearchInGoogle.Name = "tsbSearchInGoogle";
-			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 20);
+			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 4);
 			this.tsbSearchInGoogle.Text = "Search in Google";
 			this.tsbSearchInGoogle.ToolTipText = "Search in Google";
 			// 
@@ -927,10 +929,9 @@ namespace Translate
 			this.al.SetAction(this.tsbStop, this.aStopTranslate);
 			this.tsbStop.AutoToolTip = false;
 			this.tsbStop.Enabled = false;
-			this.tsbStop.Image = ((System.Drawing.Image)(resources.GetObject("tsbStop.Image")));
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
-			this.tsbStop.Size = new System.Drawing.Size(49, 20);
+			this.tsbStop.Size = new System.Drawing.Size(33, 17);
 			this.tsbStop.Text = "Stop";
 			this.tsbStop.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
@@ -960,7 +961,6 @@ namespace Translate
 			// miAddProfile2
 			// 
 			this.al.SetAction(this.miAddProfile2, this.aAddProfile);
-			this.miAddProfile2.Image = ((System.Drawing.Image)(resources.GetObject("miAddProfile2.Image")));
 			this.miAddProfile2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAddProfile2.Name = "miAddProfile2";
 			this.miAddProfile2.Size = new System.Drawing.Size(199, 22);
@@ -975,7 +975,6 @@ namespace Translate
 			// miRemoveProfile2
 			// 
 			this.al.SetAction(this.miRemoveProfile2, this.aRemoveProfile);
-			this.miRemoveProfile2.Image = ((System.Drawing.Image)(resources.GetObject("miRemoveProfile2.Image")));
 			this.miRemoveProfile2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miRemoveProfile2.Name = "miRemoveProfile2";
 			this.miRemoveProfile2.Size = new System.Drawing.Size(199, 22);
@@ -1040,7 +1039,6 @@ namespace Translate
 			// miEditProfileServices2
 			// 
 			this.al.SetAction(this.miEditProfileServices2, this.aEditProfileServices);
-			this.miEditProfileServices2.Image = ((System.Drawing.Image)(resources.GetObject("miEditProfileServices2.Image")));
 			this.miEditProfileServices2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miEditProfileServices2.Name = "miEditProfileServices2";
 			this.miEditProfileServices2.Size = new System.Drawing.Size(199, 22);
@@ -1111,7 +1109,6 @@ namespace Translate
 			// miTranslate
 			// 
 			this.al.SetAction(this.miTranslate, this.aTranslate);
-			this.miTranslate.Image = ((System.Drawing.Image)(resources.GetObject("miTranslate.Image")));
 			this.miTranslate.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miTranslate.Name = "miTranslate";
 			this.miTranslate.ShortcutKeyDisplayString = "Ctrl+Enter";
@@ -1280,7 +1277,6 @@ namespace Translate
 			// miWebsite
 			// 
 			this.al.SetAction(this.miWebsite, this.aWebsite);
-			this.miWebsite.Image = ((System.Drawing.Image)(resources.GetObject("miWebsite.Image")));
 			this.miWebsite.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miWebsite.Name = "miWebsite";
 			this.miWebsite.Size = new System.Drawing.Size(235, 22);
@@ -1429,6 +1425,62 @@ namespace Translate
 			this.miView.Name = "miView";
 			this.miView.Size = new System.Drawing.Size(41, 20);
 			this.miView.Text = "View";
+			// 
+			// miResultViewPlace
+			// 
+			this.miResultViewPlace.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miResultViewPlaceTop,
+									this.miResultViewPlaceBottom,
+									this.toolStripSeparator4,
+									this.leftToolStripMenuItem,
+									this.rightToolStripMenuItem});
+			this.miResultViewPlace.Name = "miResultViewPlace";
+			this.miResultViewPlace.Size = new System.Drawing.Size(272, 22);
+			this.miResultViewPlace.Text = "Result view placement";
+			// 
+			// miResultViewPlaceTop
+			// 
+			this.al.SetAction(this.miResultViewPlaceTop, this.aPlaceResultViewTop);
+			this.miResultViewPlaceTop.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miResultViewPlaceTop.Name = "miResultViewPlaceTop";
+			this.miResultViewPlaceTop.Size = new System.Drawing.Size(119, 22);
+			this.miResultViewPlaceTop.Text = "Top";
+			this.miResultViewPlaceTop.ToolTipText = "Dock result view at top";
+			// 
+			// miResultViewPlaceBottom
+			// 
+			this.al.SetAction(this.miResultViewPlaceBottom, this.aPlaceResultViewBottom);
+			this.miResultViewPlaceBottom.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miResultViewPlaceBottom.Name = "miResultViewPlaceBottom";
+			this.miResultViewPlaceBottom.Size = new System.Drawing.Size(119, 22);
+			this.miResultViewPlaceBottom.Text = "Bottom";
+			this.miResultViewPlaceBottom.ToolTipText = "Dock result view at bottom";
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(116, 6);
+			// 
+			// leftToolStripMenuItem
+			// 
+			this.al.SetAction(this.leftToolStripMenuItem, this.aPlaceResultViewLeft);
+			this.leftToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
+			this.leftToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.leftToolStripMenuItem.Text = "Left";
+			// 
+			// rightToolStripMenuItem
+			// 
+			this.al.SetAction(this.rightToolStripMenuItem, this.aPlaceResultViewRight);
+			this.rightToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
+			this.rightToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+			this.rightToolStripMenuItem.Text = "Right";
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
 			// 
 			// miShowAccents
 			// 
@@ -1581,7 +1633,6 @@ namespace Translate
 			// miOnlineHelp
 			// 
 			this.al.SetAction(this.miOnlineHelp, this.aOnlineHelp);
-			this.miOnlineHelp.Image = ((System.Drawing.Image)(resources.GetObject("miOnlineHelp.Image")));
 			this.miOnlineHelp.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miOnlineHelp.Name = "miOnlineHelp";
 			this.miOnlineHelp.ShortcutKeyDisplayString = "F1";
@@ -1654,38 +1705,6 @@ namespace Translate
 			this.aSearchInGoogle.Execute += new System.EventHandler(this.ASearchInGoogleExecute);
 			this.aSearchInGoogle.Update += new System.EventHandler(this.ASearchInGoogleUpdate);
 			// 
-			// miResultViewPlace
-			// 
-			this.miResultViewPlace.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-									this.miResultViewPlaceTop,
-									this.miResultViewPlaceBottom});
-			this.miResultViewPlace.Name = "miResultViewPlace";
-			this.miResultViewPlace.Size = new System.Drawing.Size(272, 22);
-			this.miResultViewPlace.Text = "Result view placement";
-			// 
-			// miResultViewPlaceTop
-			// 
-			this.al.SetAction(this.miResultViewPlaceTop, this.aPlaceResultViewTop);
-			this.miResultViewPlaceTop.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miResultViewPlaceTop.Name = "miResultViewPlaceTop";
-			this.miResultViewPlaceTop.Size = new System.Drawing.Size(152, 22);
-			this.miResultViewPlaceTop.Text = "Top";
-			this.miResultViewPlaceTop.ToolTipText = "Dock result view at top";
-			// 
-			// miResultViewPlaceBottom
-			// 
-			this.al.SetAction(this.miResultViewPlaceBottom, this.aPlaceResultViewBottom);
-			this.miResultViewPlaceBottom.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miResultViewPlaceBottom.Name = "miResultViewPlaceBottom";
-			this.miResultViewPlaceBottom.Size = new System.Drawing.Size(152, 22);
-			this.miResultViewPlaceBottom.Text = "Bottom";
-			this.miResultViewPlaceBottom.ToolTipText = "Dock result view at bottom";
-			// 
-			// toolStripSeparator3
-			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
-			// 
 			// aPlaceResultViewTop
 			// 
 			this.aPlaceResultViewTop.Checked = false;
@@ -1706,6 +1725,26 @@ namespace Translate
 			this.aPlaceResultViewBottom.Text = "Bottom";
 			this.aPlaceResultViewBottom.Visible = true;
 			this.aPlaceResultViewBottom.Execute += new System.EventHandler(this.APlaceResultViewBottomExecute);
+			// 
+			// aPlaceResultViewLeft
+			// 
+			this.aPlaceResultViewLeft.Checked = false;
+			this.aPlaceResultViewLeft.Enabled = true;
+			this.aPlaceResultViewLeft.Hint = null;
+			this.aPlaceResultViewLeft.Tag = null;
+			this.aPlaceResultViewLeft.Text = "Left";
+			this.aPlaceResultViewLeft.Visible = true;
+			this.aPlaceResultViewLeft.Execute += new System.EventHandler(this.APlaceResultViewLeftExecute);
+			// 
+			// aPlaceResultViewRight
+			// 
+			this.aPlaceResultViewRight.Checked = false;
+			this.aPlaceResultViewRight.Enabled = true;
+			this.aPlaceResultViewRight.Hint = null;
+			this.aPlaceResultViewRight.Tag = null;
+			this.aPlaceResultViewRight.Text = "Right";
+			this.aPlaceResultViewRight.Visible = true;
+			this.aPlaceResultViewRight.Execute += new System.EventHandler(this.APlaceResultViewRightExecute);
 			// 
 			// TranslateMainForm
 			// 
@@ -1764,6 +1803,11 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private FreeCL.UI.Actions.Action aPlaceResultViewRight;
+		private FreeCL.UI.Actions.Action aPlaceResultViewLeft;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem miResultViewPlaceBottom;
 		private System.Windows.Forms.ToolStripMenuItem miResultViewPlaceTop;

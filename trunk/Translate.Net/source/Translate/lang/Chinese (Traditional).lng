@@ -225,6 +225,14 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 
 [Place result view at bottom]
 
+[Left]
+
+[Place result view at left]
+
+[Right]
+
+[Place result view at right]
+
 [Include monolingual dictionaries in translation]
 翻譯中只包含一種語言字典
 [Filter of languages]

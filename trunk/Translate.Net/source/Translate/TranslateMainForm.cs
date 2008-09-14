@@ -118,7 +118,8 @@ namespace Translate
 			splitterBottom.Enabled = false;
 			splitterBottom.Visible = false;
 			
-			PlaceResultView(TranslateOptions.Instance.ResultWindowOptions.DockAtTop);
+			PlaceResultViewVertical(TranslateOptions.Instance.ResultWindowOptions.DockAtTop);
+			PlaceResultViewHorizontal(TranslateOptions.Instance.ResultWindowOptions.DockAtLeft);
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			aSearchInGoogle.Shortcut = Keys.Control | Keys.Shift | Keys.Enter;
@@ -279,6 +280,10 @@ namespace Translate
 			aPlaceResultViewTop.Hint = TranslateString("Place result view at top");
 			aPlaceResultViewBottom.Text = TranslateString("Bottom");
 			aPlaceResultViewBottom.Hint = TranslateString("Place result view at bottom");
+			aPlaceResultViewLeft.Text = TranslateString("Left");
+			aPlaceResultViewLeft.Hint = TranslateString("Place result view at left");
+			aPlaceResultViewRight.Text = TranslateString("Right");
+			aPlaceResultViewRight.Hint = TranslateString("Place result view at right");
 			
 			UpdateCaption();
 		}
@@ -1615,7 +1620,7 @@ namespace Translate
 				selection.Trim()));
 		}
 
-		void PlaceResultView(bool top)		
+		public void PlaceResultViewVertical(bool top)		
 		{
 			DockStyle placeStyle = top ? DockStyle.Bottom : DockStyle.Top;
 			if(tsTranslate.Dock == placeStyle)
@@ -1636,19 +1641,50 @@ namespace Translate
 		
 		void APlaceResultViewBottomExecute(object sender, EventArgs e)
 		{
-			PlaceResultView(false);
-			
+			PlaceResultViewVertical(false);
 		}
 		
 		void APlaceResultViewTopExecute(object sender, EventArgs e)
 		{
-			PlaceResultView(true);
+			PlaceResultViewVertical(true);
 		}
 		
 		void APlaceResultViewTopUpdate(object sender, EventArgs e)
 		{
 			aPlaceResultViewTop.Checked = TranslateOptions.Instance.ResultWindowOptions.DockAtTop;
 			aPlaceResultViewBottom.Checked = !aPlaceResultViewTop.Checked;			
+			aPlaceResultViewLeft.Checked = TranslateOptions.Instance.ResultWindowOptions.DockAtLeft;
+			aPlaceResultViewRight.Checked = !aPlaceResultViewLeft.Checked;
+			aPlaceResultViewLeft.Enabled = pRight.Visible;
+			aPlaceResultViewRight.Enabled = pRight.Visible;
+		}
+
+		public void PlaceResultViewHorizontal(bool left)		
+		{
+			DockStyle placeStyle = left ? DockStyle.Right : DockStyle.Left;
+			if(pRight.Dock == placeStyle)
+				return;
+			LockUpdate(true);
+			try
+			{
+				pRight.Dock = placeStyle;
+				splitterRight.Dock = placeStyle;
+				TranslateOptions.Instance.ResultWindowOptions.DockAtLeft = left;
+			} 
+			finally
+			{
+				LockUpdate(false);
+			}
+		}
+		
+		void APlaceResultViewLeftExecute(object sender, EventArgs e)
+		{
+			PlaceResultViewHorizontal(true);
+		}
+		
+		void APlaceResultViewRightExecute(object sender, EventArgs e)
+		{
+			PlaceResultViewHorizontal(false);
 		}
 	}
 }

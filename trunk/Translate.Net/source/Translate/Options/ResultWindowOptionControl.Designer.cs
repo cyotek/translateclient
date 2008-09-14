@@ -78,17 +78,29 @@ namespace Translate
 			this.cbShowTranslationDirection = new System.Windows.Forms.CheckBox();
 			this.cbShowAccents = new System.Windows.Forms.CheckBox();
 			this.cbShowServiceName = new System.Windows.Forms.CheckBox();
+			this.gbPlacement = new System.Windows.Forms.GroupBox();
+			this.gbVertical = new System.Windows.Forms.GroupBox();
+			this.rbTop = new System.Windows.Forms.RadioButton();
+			this.rbBottom = new System.Windows.Forms.RadioButton();
+			this.gbHoriz = new System.Windows.Forms.GroupBox();
+			this.rbLeft = new System.Windows.Forms.RadioButton();
+			this.rbRight = new System.Windows.Forms.RadioButton();
 			this.pBody.SuspendLayout();
+			this.gbPlacement.SuspendLayout();
+			this.gbVertical.SuspendLayout();
+			this.gbHoriz.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.gbPlacement);
 			this.pBody.Controls.Add(this.cbShowServiceName);
 			this.pBody.Controls.Add(this.cbShowAccents);
 			this.pBody.Controls.Add(this.cbShowTranslationDirection);
 			this.pBody.Controls.Add(this.cbHideWithoutResult);
 			this.pBody.Controls.Add(this.cbMarkErrors);
 			this.pBody.Controls.Add(this.cbShowStatistics);
+			this.pBody.Size = new System.Drawing.Size(399, 309);
 			// 
 			// cbShowStatistics
 			// 
@@ -144,14 +156,98 @@ namespace Translate
 			this.cbShowServiceName.Text = "Show names of services";
 			this.cbShowServiceName.UseVisualStyleBackColor = true;
 			// 
+			// gbPlacement
+			// 
+			this.gbPlacement.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.gbPlacement.Controls.Add(this.gbHoriz);
+			this.gbPlacement.Controls.Add(this.gbVertical);
+			this.gbPlacement.Location = new System.Drawing.Point(13, 196);
+			this.gbPlacement.Name = "gbPlacement";
+			this.gbPlacement.Size = new System.Drawing.Size(373, 100);
+			this.gbPlacement.TabIndex = 7;
+			this.gbPlacement.TabStop = false;
+			this.gbPlacement.Text = "Result view placement";
+			// 
+			// gbVertical
+			// 
+			this.gbVertical.Controls.Add(this.rbBottom);
+			this.gbVertical.Controls.Add(this.rbTop);
+			this.gbVertical.Location = new System.Drawing.Point(6, 19);
+			this.gbVertical.Name = "gbVertical";
+			this.gbVertical.Size = new System.Drawing.Size(119, 75);
+			this.gbVertical.TabIndex = 0;
+			this.gbVertical.TabStop = false;
+			// 
+			// rbTop
+			// 
+			this.rbTop.Location = new System.Drawing.Point(6, 15);
+			this.rbTop.Name = "rbTop";
+			this.rbTop.Size = new System.Drawing.Size(104, 24);
+			this.rbTop.TabIndex = 6;
+			this.rbTop.TabStop = true;
+			this.rbTop.Text = "Top";
+			this.rbTop.UseVisualStyleBackColor = true;
+			// 
+			// rbBottom
+			// 
+			this.rbBottom.Location = new System.Drawing.Point(6, 45);
+			this.rbBottom.Name = "rbBottom";
+			this.rbBottom.Size = new System.Drawing.Size(104, 24);
+			this.rbBottom.TabIndex = 6;
+			this.rbBottom.TabStop = true;
+			this.rbBottom.Text = "Bottom";
+			this.rbBottom.UseVisualStyleBackColor = true;
+			// 
+			// gbHoriz
+			// 
+			this.gbHoriz.Controls.Add(this.rbRight);
+			this.gbHoriz.Controls.Add(this.rbLeft);
+			this.gbHoriz.Location = new System.Drawing.Point(131, 19);
+			this.gbHoriz.Name = "gbHoriz";
+			this.gbHoriz.Size = new System.Drawing.Size(205, 75);
+			this.gbHoriz.TabIndex = 1;
+			this.gbHoriz.TabStop = false;
+			// 
+			// rbLeft
+			// 
+			this.rbLeft.Location = new System.Drawing.Point(6, 29);
+			this.rbLeft.Name = "rbLeft";
+			this.rbLeft.Size = new System.Drawing.Size(90, 24);
+			this.rbLeft.TabIndex = 7;
+			this.rbLeft.TabStop = true;
+			this.rbLeft.Text = "Left";
+			this.rbLeft.UseVisualStyleBackColor = true;
+			// 
+			// rbRight
+			// 
+			this.rbRight.Location = new System.Drawing.Point(102, 29);
+			this.rbRight.Name = "rbRight";
+			this.rbRight.Size = new System.Drawing.Size(90, 24);
+			this.rbRight.TabIndex = 7;
+			this.rbRight.TabStop = true;
+			this.rbRight.Text = "Right";
+			this.rbRight.UseVisualStyleBackColor = true;
+			// 
 			// ResultWindowOptionControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "ResultWindowOptionControl";
+			this.Size = new System.Drawing.Size(399, 349);
 			this.pBody.ResumeLayout(false);
+			this.gbPlacement.ResumeLayout(false);
+			this.gbVertical.ResumeLayout(false);
+			this.gbHoriz.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.RadioButton rbTop;
+		private System.Windows.Forms.RadioButton rbBottom;
+		private System.Windows.Forms.GroupBox gbVertical;
+		private System.Windows.Forms.RadioButton rbLeft;
+		private System.Windows.Forms.RadioButton rbRight;
+		private System.Windows.Forms.GroupBox gbHoriz;
+		private System.Windows.Forms.GroupBox gbPlacement;
 		private System.Windows.Forms.CheckBox cbShowAccents;
 		private System.Windows.Forms.CheckBox cbShowTranslationDirection;
 		private System.Windows.Forms.CheckBox cbShowServiceName;
