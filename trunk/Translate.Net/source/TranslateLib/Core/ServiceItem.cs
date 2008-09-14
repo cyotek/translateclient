@@ -167,8 +167,11 @@ namespace Translate
 				long start = DateTime.Now.Ticks;			
 				try
 				{
-					CheckPhrase(phrase);
-					DoTranslate(phrase, languagesPair, subject, result, networkSetting);
+					string error;
+					if(CheckPhrase(phrase, out error))
+						DoTranslate(phrase, languagesPair, subject, result, networkSetting);
+					else
+						result.Error = new TranslationException(error);
 				}
 				catch(System.Exception e)
 				{
@@ -181,14 +184,22 @@ namespace Translate
 		
 		protected abstract void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting);
 	
-		public virtual void CheckPhrase(string phrase)
+		public virtual bool CheckPhrase(string phrase, out string error)
 		{
+			error = "";
 			if(string.IsNullOrEmpty(phrase))
-				throw new TranslationException("Nothing to translate");
+			{
+				error = "Nothing to translate";
+				return false;
+			}
 
 			if(chars_limit != -1 && phrase.Length > chars_limit)
-				throw new TranslationException("Length too big");
-		
+			{
+				error = "Length too big";
+				return false;
+			}
+			
+			return true;
 		}
 	}
 	

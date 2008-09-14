@@ -242,9 +242,17 @@ namespace Translate
 			{
 				try
 				{
-					setting.ServiceItem.CheckPhrase(phrase);
-					error = "";
-					enabled = true;
+					string err;
+					if(setting.ServiceItem.CheckPhrase(phrase, out err))
+					{
+						error = "";
+						enabled = true;
+					}
+					else
+					{
+						error = LangPack.TranslateString(err);
+						enabled = false;
+					}
 				}
 				catch(Exception e)
 				{
