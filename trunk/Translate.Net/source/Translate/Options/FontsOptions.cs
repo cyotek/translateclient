@@ -63,25 +63,91 @@ namespace Translate
 			set { textControlFont = value; }
 		}
 		
-		public Font GetTextControlFont()
+		[ XmlIgnore()]
+		public Font TextControlFontProp
 		{
-			if(textControlFont == null)
-				return Control.DefaultFont;
-			else
-				return textControlFont.GetFont(); 
+			get
+			{
+				if(textControlFont == null)
+					return SystemFonts.DefaultFont;
+				else
+					return textControlFont.GetFont(); 
+			}	
+
+			set
+			{
+				if(FontSelectionControl.FontEquals(value,SystemFonts.DefaultFont))
+					textControlFont = null;
+				else
+					textControlFont = new FontData(value);
+			}
 		}
 		
 		
-		FontData resultViewFont = new FontData("Tahoma", 8.25f);
+		FontData resultViewFont = null;
 		public FontData ResultViewFont {
 			get { return resultViewFont; }
 			set { resultViewFont = value; }
 		}
 		
+		[ XmlIgnore()]
+		public Font ResultViewFontProp
+		{
+			get
+			{
+				if(resultViewFont == null)
+					return SystemFonts.MenuFont;
+				else if(resultViewFont.FontName == "Tahoma" && resultViewFont.FontSize == 8.25f)
+				{
+					resultViewFont = null;
+					return SystemFonts.MenuFont;
+				}	
+				else
+					return resultViewFont.GetFont(); 
+			}	
+
+			set
+			{
+				if(FontSelectionControl.FontEquals(value,SystemFonts.MenuFont))
+					resultViewFont = null;
+				else
+					resultViewFont = new FontData(value);
+			}
+		}
+		
+		[ XmlIgnore()]
+		public Font ToolbarsFont
+		{
+			get
+			{
+				if(toolbarsFontData == null)
+					return SystemFonts.MenuFont;
+				else
+					return toolbarsFontData.GetFont();
+			}
+			
+			set
+			{
+				if(FontSelectionControl.FontEquals(value,SystemFonts.MenuFont))
+					toolbarsFontData = null;
+				else
+					toolbarsFontData = new FontData(value);
+			}
+		}
+		
+		FontData toolbarsFontData = null;
+		public FontData ToolbarsFontData {
+			get { return toolbarsFontData; }
+			set { toolbarsFontData = value; }
+		}
+		
+		
 		public void Apply()
 		{
 			//HtmlHelper.DefaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
-			HtmlHelper.DefaultTextFormat = string.Format("font-size: {0}pt; font-family: {1};", resultViewFont.FontSize, resultViewFont.FontName).Replace(",", ".");
+			HtmlHelper.DefaultTextFormat = 
+				string.Format("font-size: {0}pt; font-family: {1};", 
+					ResultViewFontProp.SizeInPoints, ResultViewFontProp.Name).Replace(",", ".");
 		}
 	}
 	

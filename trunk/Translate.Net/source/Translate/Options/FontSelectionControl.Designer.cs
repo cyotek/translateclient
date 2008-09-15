@@ -72,7 +72,6 @@ namespace Translate
 			this.lSize = new System.Windows.Forms.Label();
 			this.lTest = new System.Windows.Forms.Label();
 			this.cbSystem = new System.Windows.Forms.CheckBox();
-			this.tbSystem = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// lName
@@ -135,25 +134,15 @@ namespace Translate
 			this.cbSystem.Name = "cbSystem";
 			this.cbSystem.Size = new System.Drawing.Size(270, 24);
 			this.cbSystem.TabIndex = 5;
-			this.cbSystem.Text = "System font";
+			this.cbSystem.Text = "Default font";
 			this.cbSystem.UseVisualStyleBackColor = true;
 			this.cbSystem.CheckedChanged += new System.EventHandler(this.CbSystemCheckedChanged);
-			// 
-			// tbSystem
-			// 
-			this.tbSystem.Enabled = false;
-			this.tbSystem.Location = new System.Drawing.Point(138, 62);
-			this.tbSystem.Name = "tbSystem";
-			this.tbSystem.Size = new System.Drawing.Size(20, 20);
-			this.tbSystem.TabIndex = 6;
-			this.tbSystem.Visible = false;
 			// 
 			// FontSelectionControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoScroll = true;
-			this.Controls.Add(this.tbSystem);
 			this.Controls.Add(this.cbSystem);
 			this.Controls.Add(this.lTest);
 			this.Controls.Add(this.cbFontSize);
@@ -165,7 +154,6 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
-		private System.Windows.Forms.TextBox tbSystem;
 		private System.Windows.Forms.CheckBox cbSystem;
 		private System.Windows.Forms.Label lName;
 		private System.Windows.Forms.Label lSize;

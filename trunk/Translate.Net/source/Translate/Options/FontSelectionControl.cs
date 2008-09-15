@@ -49,7 +49,7 @@ namespace Translate
 	/// <summary>
 	/// Description of FontSelectionControl.
 	/// </summary>
-	public partial class FontSelectionControl : UserControl
+	public partial class FontSelectionControl : FreeCL.Forms.BaseUserControl
 	{
 		public FontSelectionControl()
 		{
@@ -72,18 +72,21 @@ namespace Translate
 					cbFontName.Items.Add(fontFamily.Name);
 			}
 			
-			FreeCL.RTL.LangPack.RegisterLanguageEvent(OnLanguageChanged);
-			OnLanguageChanged();
+			RegisterLanguageEvent(OnLanguageChanged);
 		}
 		
 		void OnLanguageChanged()
 		{
 			lName.Text = LangPack.TranslateString("Name") + " :";
 			lSize.Text = LangPack.TranslateString("Size") + " :";
-			cbSystem.Text = LangPack.TranslateString("System font");
+			cbSystem.Text = LangPack.TranslateString("Default font");
+			toolTip.SetToolTip(cbSystem, 
+				LangPack.TranslateString("Name") + " :" + defaultFont.Name + ", " +
+				LangPack.TranslateString("Size") + " :" + defaultFont.Size.ToString()
+				);
 		}
 		
-		public Font Current
+		public Font CurrentFont
 		{
 			get
 			{
@@ -96,6 +99,26 @@ namespace Translate
 				cbFontName.SelectedItem = value.Name;
 				cbFontSize.Text = value.Size.ToString();
 			}
+		}
+		
+		Font defaultFont = SystemFonts.DefaultFont;
+		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+		public new Font DefaultFont {
+			get { return defaultFont; }
+			set { 
+					defaultFont = value; 
+					toolTip.SetToolTip(cbSystem, 
+						LangPack.TranslateString("Name") + " :" + defaultFont.Name + ", " +
+						LangPack.TranslateString("Size") + " :" + defaultFont.Size.ToString()
+						);
+				}
+		}
+		
+		public void Init()
+		{
+			updating = true;
+			cbSystem.Checked = FontSelectionControl.FontEquals(defaultFont, CurrentFont);
+			updating = false;
 		}
 		
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -144,6 +167,9 @@ namespace Translate
 		{
 			Font currentFont = GetSelectedFont();
 			lTest.Font = currentFont;
+			updating = true;
+			cbSystem.Checked = FontSelectionControl.FontEquals(defaultFont,currentFont);
+			updating = false;
 		}
 		
 		void CbFontNameTextChanged(object sender, EventArgs e)
@@ -161,13 +187,16 @@ namespace Translate
 			UpdateFont();
 		}
 		
+		bool updating = false;
 		void CbSystemCheckedChanged(object sender, EventArgs e)
 		{
 			if(cbSystem.Checked)
 			{
-				cbFontName.SelectedItem = tbSystem.Font.Name;
+				if(!updating)
+				{
+					CurrentFont = defaultFont;
+				}	
 				cbFontName.Enabled = false;
-				cbFontSize.Text = tbSystem.Font.Size.ToString();
 				cbFontSize.Enabled = false;
 			}
 			else
@@ -175,6 +204,11 @@ namespace Translate
 				cbFontName.Enabled = true;
 				cbFontSize.Enabled = true;
 			}
+		}
+		
+		public static bool FontEquals(Font x, Font y)
+		{
+			return x.Name == y.Name && x.SizeInPoints == y.SizeInPoints;
 		}
 	}
 }

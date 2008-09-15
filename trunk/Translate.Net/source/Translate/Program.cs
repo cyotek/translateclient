@@ -96,6 +96,7 @@ namespace Translate
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(InputFontOptionsControl), "Fonts", 1, "Input text", 0);
 				OptionsControlsManager.RegisterOptionControl(typeof(ResultViewFontOptionsControl), "Fonts", 1, "Result view", 1);
+				OptionsControlsManager.RegisterOptionControl(typeof(ToolbarsFontOptionsControl), "Fonts", 1, "Toolbars", 2);
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(GeneralNetworkOptionsControl), "Network", 2, "Common", 0);
 				

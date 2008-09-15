@@ -70,33 +70,23 @@ namespace Translate
 		public override void Init()
 		{
 			options = TranslateOptions.Instance.FontsOptions;
-			if(options.TextControlFont != null)
-				fscData.Current = options.TextControlFont.GetFont();
-			else
-				fscData.SystemFont = true;
+			fscData.CurrentFont = options.TextControlFontProp;
+			fscData.DefaultFont = SystemFonts.DefaultFont;
+			fscData.Init();
 		}
 		
 		public override void Apply()
 		{
 			if(IsChanged())
 			{
-				if(fscData.SystemFont)
-					options.TextControlFont = null;
-				else
-					options.TextControlFont = new FontData(fscData.Current.Name, fscData.Current.Size);
-				(TranslateMainForm.Instance as TranslateMainForm).tbFrom.Font = fscData.Current;
+				options.TextControlFontProp = fscData.CurrentFont;
+				(TranslateMainForm.Instance as TranslateMainForm).tbFrom.Font = fscData.CurrentFont;
 			}
 		}
 		
 		public override bool IsChanged()
 		{
-			bool res = (options.TextControlFont == null && !fscData.SystemFont) ||
-				(options.TextControlFont != null && fscData.SystemFont) ||
-				(options.TextControlFont != null && !fscData.SystemFont &&
-					(options.TextControlFont.FontName != fscData.Current.Name ||
-					 options.TextControlFont.FontSize != fscData.Current.Size
-					)
-				);
+			bool res = !FontSelectionControl.FontEquals(options.TextControlFontProp,fscData.CurrentFont);
 			return res;
 		}
 		

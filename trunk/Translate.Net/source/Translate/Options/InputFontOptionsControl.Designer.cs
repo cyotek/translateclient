@@ -84,7 +84,7 @@ namespace Translate
 			// 
 			this.fscData.AutoScroll = true;
 			this.fscData.AutoSize = true;
-			this.fscData.Current = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+			this.fscData.CurrentFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
 			this.fscData.Dock = System.Windows.Forms.DockStyle.Top;
 			this.fscData.Location = new System.Drawing.Point(10, 10);
 			this.fscData.Name = "fscData";
