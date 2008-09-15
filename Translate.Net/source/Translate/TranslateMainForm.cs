@@ -101,7 +101,7 @@ namespace Translate
 				tbFrom.Height = TranslateOptions.Instance.SourceHeight;
 			}
 			
-			tbFrom.Font = TranslateOptions.Instance.FontsOptions.GetTextControlFont();
+			tbFrom.Font = TranslateOptions.Instance.FontsOptions.TextControlFontProp;
 			
 			pLeft.Enabled = false;
 			pLeft.Visible = false;
@@ -120,6 +120,7 @@ namespace Translate
 			
 			PlaceResultViewVertical(TranslateOptions.Instance.ResultWindowOptions.DockAtTop);
 			PlaceResultViewHorizontal(TranslateOptions.Instance.ResultWindowOptions.DockAtLeft);
+			ApplyToolbarsOptions();
 			
 			aTranslate.Shortcut = Keys.Control | Keys.Enter;
 			aSearchInGoogle.Shortcut = Keys.Control | Keys.Shift | Keys.Enter;
@@ -1685,6 +1686,13 @@ namespace Translate
 		void APlaceResultViewRightExecute(object sender, EventArgs e)
 		{
 			PlaceResultViewHorizontal(false);
+		}
+		
+		public void ApplyToolbarsOptions()
+		{
+			FontsOptions fontOptions = TranslateOptions.Instance.FontsOptions;
+			tsTranslate.Font = fontOptions.ToolbarsFont;
+			ptEdit.Font = fontOptions.ToolbarsFont;
 		}
 	}
 }

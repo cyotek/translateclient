@@ -116,6 +116,10 @@
     <Compile Include="Options\StartupOptionsControl.Designer.cs">
       <DependentUpon>StartupOptionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\ToolbarsFontOptionsControl.cs" />
+    <Compile Include="Options\ToolbarsFontOptionsControl.Designer.cs">
+      <DependentUpon>ToolbarsFontOptionsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Options\TrayOptionsControl.cs" />
     <Compile Include="Options\TrayOptionsControl.Designer.cs">
       <DependentUpon>TrayOptionsControl.cs</DependentUpon>
@@ -205,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\StartupOptionsControl.resx">
       <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ToolbarsFontOptionsControl.resx">
+      <DependentUpon>ToolbarsFontOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\TrayOptionsControl.resx">
       <DependentUpon>TrayOptionsControl.cs</DependentUpon>

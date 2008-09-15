@@ -918,22 +918,22 @@ namespace Translate
 			this.al.SetAction(this.tsbSearchInGoogle, this.aSearchInGoogle);
 			this.tsbSearchInGoogle.AutoToolTip = false;
 			this.tsbSearchInGoogle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+			this.tsbSearchInGoogle.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchInGoogle.Image")));
 			this.tsbSearchInGoogle.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbSearchInGoogle.Name = "tsbSearchInGoogle";
-			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 4);
-			this.tsbSearchInGoogle.Text = "Search in Google";
+			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 20);
 			this.tsbSearchInGoogle.ToolTipText = "Search in Google";
 			// 
 			// tsbStop
 			// 
 			this.al.SetAction(this.tsbStop, this.aStopTranslate);
 			this.tsbStop.AutoToolTip = false;
+			this.tsbStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.tsbStop.Enabled = false;
+			this.tsbStop.Image = ((System.Drawing.Image)(resources.GetObject("tsbStop.Image")));
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
-			this.tsbStop.Size = new System.Drawing.Size(33, 17);
-			this.tsbStop.Text = "Stop";
-			this.tsbStop.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.tsbStop.Size = new System.Drawing.Size(23, 20);
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsSeparatorTranslate
@@ -1665,7 +1665,7 @@ namespace Translate
 			this.aStopTranslate.ImageIndex = 18;
 			this.aStopTranslate.Shortcut = System.Windows.Forms.Keys.Escape;
 			this.aStopTranslate.Tag = null;
-			this.aStopTranslate.Text = "Stop";
+			this.aStopTranslate.Text = "";
 			this.aStopTranslate.Visible = true;
 			this.aStopTranslate.Execute += new System.EventHandler(this.AStopTranslateExecute);
 			// 
@@ -1700,7 +1700,7 @@ namespace Translate
 			this.aSearchInGoogle.Shortcut = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
 									| System.Windows.Forms.Keys.Return)));
 			this.aSearchInGoogle.Tag = null;
-			this.aSearchInGoogle.Text = "Search in Google";
+			this.aSearchInGoogle.Text = "";
 			this.aSearchInGoogle.Visible = true;
 			this.aSearchInGoogle.Execute += new System.EventHandler(this.ASearchInGoogleExecute);
 			this.aSearchInGoogle.Update += new System.EventHandler(this.ASearchInGoogleUpdate);

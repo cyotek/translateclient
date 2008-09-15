@@ -50,27 +50,23 @@ namespace Translate
 	/// <summary>
 	/// Description of ResultViewOptionsControl.
 	/// </summary>
-	public partial class ResultViewFontOptionsControl : FreeCL.Forms.BaseOptionsControl
+	public partial class ToolbarsFontOptionsControl : FreeCL.Forms.BaseOptionsControl
 	{
-		public ResultViewFontOptionsControl()
+		public ToolbarsFontOptionsControl()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
 			
-			RegisterLanguageEvent(OnLanguageChanged);		
 		}
 		
-		void OnLanguageChanged()
-		{
-		}
-
 		FontsOptions options;
 		public override void Init()
 		{
 			options = TranslateOptions.Instance.FontsOptions;
-			fscData.CurrentFont = options.ResultViewFontProp;
+			
+			fscData.CurrentFont = options.ToolbarsFont;
 			fscData.DefaultFont = SystemFonts.MenuFont;
 			fscData.DemoText = "AaBbCcXxYyZz";
 			fscData.Init();
@@ -80,14 +76,17 @@ namespace Translate
 		{
 			if(IsChanged())
 			{
-				options.ResultViewFontProp = fscData.CurrentFont;
-				options.Apply();
+				options.ToolbarsFont = fscData.CurrentFont;
+				(TranslateMainForm.Instance as TranslateMainForm).ApplyToolbarsOptions();
 			}
 		}
 		
 		public override bool IsChanged()
 		{
-			bool res = !FontSelectionControl.FontEquals(options.ResultViewFontProp,fscData.CurrentFont);
+			bool res = (
+					(!FontSelectionControl.FontEquals(options.ToolbarsFont,fscData.CurrentFont)
+					)
+				);
 			return res;
 		}
 	}

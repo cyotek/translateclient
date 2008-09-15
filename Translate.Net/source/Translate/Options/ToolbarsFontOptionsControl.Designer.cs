@@ -41,7 +41,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
-	partial class ResultViewFontOptionsControl
+	partial class ToolbarsFontOptionsControl
 	{
 		/// <summary>
 		/// Designer variable used to keep track of non-visual components.
@@ -96,11 +96,11 @@ namespace Translate
 			// geMain
 			// 
 			// 
-			// ResultViewFontOptionsControl
+			// ToolbarsFontOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "ResultViewFontOptionsControl";
+			this.Name = "ToolbarsFontOptionsControl";
 			this.Size = new System.Drawing.Size(399, 390);
 			this.pBody.ResumeLayout(false);
 			this.pBody.PerformLayout();
