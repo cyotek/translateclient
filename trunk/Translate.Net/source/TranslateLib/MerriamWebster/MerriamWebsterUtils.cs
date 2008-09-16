@@ -158,6 +158,8 @@ namespace Translate
 			defs = defs.Replace("<span class=\"vi\">", "");
 			defs = defs.Replace("<span class=\"text\">", "");
 			defs = defs.Replace("<span class=\"dxn\">", "");
+			defs = defs.Replace("<span class=\"\n            sense_label", "<span class=\"sense_label");
+			
 			
 			
 			
@@ -281,14 +283,13 @@ namespace Translate
 			}
 			else
 			{
-				StringParser parser = new StringParser("<select name='jump'", "</td>", responseFromServer);
-				string[] items = parser.ReadItemsList("<option", "\n", "345873409587");
+				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
+				string[] items = parser.ReadItemsList("form.action = '/" + bookName.ToLower() + "/", "'");
 				
-				items[0] = items[0].Replace("selected", "");
 				bool first = true;
 				foreach(string item in items)
 				{
-					string part = item.Replace(">", "");
+					string part = item;
 					
 					string part_name = StringParser.RemoveAll("[", "]", part);
 					if(string.Compare(part_name, phrase, true) == 0)
@@ -312,7 +313,7 @@ namespace Translate
 								);
 							
 							helper = 
-								new WebRequestHelper(result, new Uri(host), 
+								new WebRequestHelper(result, new Uri(host + "/" + part), 
 									networkSetting, 
 									WebRequestContentType.UrlEncoded);
 							helper.AddPostData(post_data_value);				
