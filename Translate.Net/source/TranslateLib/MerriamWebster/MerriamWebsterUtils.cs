@@ -159,6 +159,7 @@ namespace Translate
 			defs = defs.Replace("<span class=\"text\">", "");
 			defs = defs.Replace("<span class=\"dxn\">", "");
 			defs = defs.Replace("<span class=\"\n            sense_label", "<span class=\"sense_label");
+			defs = defs.Replace("<span class=\"unicode\">", "");
 			
 			
 			
