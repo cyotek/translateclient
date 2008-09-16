@@ -468,7 +468,7 @@ namespace Translate
 			this.il.Images.SetKeyName(16, "edit.16x16.png");
 			this.il.Images.SetKeyName(17, "Help.16x16.png");
 			this.il.Images.SetKeyName(18, "stop.16x16.png");
-			this.il.Images.SetKeyName(19, "Service.ico");
+			this.il.Images.SetKeyName(19, "Google.png");
 			// 
 			// al
 			// 
