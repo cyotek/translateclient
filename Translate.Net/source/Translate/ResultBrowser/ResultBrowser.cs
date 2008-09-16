@@ -67,6 +67,15 @@ namespace Translate
 			RecalcSizes();
 		}
 
+		static char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|', '\u00A0' };
+		static List<char> delimiterCharsList;
+
+		static ResultBrowser()
+		{
+			delimiterCharsList = new List<char>(delimiterChars);
+			delimiterCharsList.Sort();
+		}
+
 		string statusText;
 		public string StatusText {
 			get { return statusText; }
@@ -146,15 +155,11 @@ namespace Translate
 		}
 		
 
-		char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|' };
-		
 		List<string> SplitResultToParts(string data)
 		{
 			List<string> result = new List<string>();
 			char[] dataChars = data.ToCharArray();
 			
-			List<char> delimiterCharsList = new List<char>(delimiterChars);
-			delimiterCharsList.Sort();
 			
 			StringBuilder sb = new StringBuilder();
 			foreach(char ch in dataChars)
@@ -188,6 +193,25 @@ namespace Translate
 			return GetResultHtml(result, 0);
 		}
 		
+		static string GetParagraphFormat(double indent)
+		{
+			if(indent == 0)
+			{
+				return "<p class='p00'>";
+			}
+			else if(indent == 0.5)
+			{
+				return "<p class='p05'>";
+			}
+			else if(indent == 1)
+			{
+				return "<p class='p10'>";
+			}
+			else 
+				return string.Format("<p style=\"margin-left: {0}em;\">", 
+					indent.ToString("0.##", CultureInfo.InvariantCulture));
+		}
+		
 		string GetResultHtml(Result result, double indent)
 		{
 
@@ -212,12 +236,12 @@ namespace Translate
 				{ 
 					//we has childs list
 					if(result.Translations.Count > 0 && !string.IsNullOrEmpty(result.Translations[0]))
-							htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>  ", 
+							htmlString.AppendFormat("<b>{0}</b>  ", 
 								HttpUtility.HtmlEncode(result.Translations[0]));
 								
 					if(!string.IsNullOrEmpty(result.Abbreviation))
 					{
-						htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
+						htmlString.Append(" " + HttpUtility.HtmlEncode(result.Abbreviation) + " ");
 					}
 						
 					if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
@@ -228,13 +252,12 @@ namespace Translate
 						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(r.Phrase))
 						{
 							if(indent != 0)
-								htmlString.AppendFormat("<p style=\"margin-top: 0pt; margin-bottom: 0em; margin-left: {0}em;\">", 
-									indent.ToString("0.##", CultureInfo.InvariantCulture));
+								htmlString.Append(GetParagraphFormat(indent));
 							
 							if(!r.Phrase.StartsWith("html!"))
 							{
-								htmlString.AppendFormat("<span style=\"" + HtmlHelper.BoldTextStyle + "\">{0}</span>", 
-									HttpUtility.HtmlEncode(r.Phrase));
+								htmlString.AppendFormat("<b>{0}</b>", 
+									HttpUtility.HtmlEncode(r.Phrase.Replace('\u00A0', ' ')));
 							}
 							else
 							{  //append html directly
@@ -247,7 +270,7 @@ namespace Translate
 								
 						if(!string.IsNullOrEmpty(r.Abbreviation) && r.Childs.Count == 0)
 						{
-							htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(r.Abbreviation));
+							htmlString.Append(" " + HttpUtility.HtmlEncode(r.Abbreviation) + " ");
 						}
 						
 						if(/*r.Phrase != result.Phrase && */indent > 0.5 && (!string.IsNullOrEmpty(r.Phrase) || !string.IsNullOrEmpty(r.Abbreviation)))
@@ -263,15 +286,12 @@ namespace Translate
 				{ //abreviations
 					if(!string.IsNullOrEmpty(result.Abbreviation))
 					{
-						htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\"> {0} </span>", HttpUtility.HtmlEncode(result.Abbreviation));
+						htmlString.Append(" " + HttpUtility.HtmlEncode(result.Abbreviation) + " ");
 					}
 						
 					if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
 						htmlString.Append("<br>");
 				}
-				List<char> delimiterCharsList = new List<char>(delimiterChars);
-				delimiterCharsList.Sort();
-			
 				string topPhrase;
 				if(result.Parent != null)
 					topPhrase = result.Parent.Phrase;
@@ -284,8 +304,7 @@ namespace Translate
 					if(indent > 0)
 						htmlString.Append("<li>");
 						
-					htmlString.AppendFormat("<p style=\"margin-top: 0pt; margin-bottom: 0pt; margin-left: {0}em;\">", 
-						indent.ToString("0.##", CultureInfo.InvariantCulture));
+					htmlString.Append(GetParagraphFormat(indent));
 
 					if(!s.StartsWith("html!"))
 					{
@@ -311,8 +330,10 @@ namespace Translate
 								if(IsError)
 									htmlString.AppendFormat("<span style=\"" + HtmlHelper.ErrorTextStyle + "\">{0}</span>", HttpUtility.HtmlEncode(word));
 								else
-									htmlString.AppendFormat("<span style=\""+ HtmlHelper.DefaultTextStyle +"\">{0}</span>", HttpUtility.HtmlEncode(word));
+									htmlString.Append(HttpUtility.HtmlEncode(word));
 							}
+							else if(word[0] == '\u00A0')
+								htmlString.Append(' '); //avoid adding &nbsp;
 							else
 								htmlString.Append(HttpUtility.HtmlEncode(word));
 						}
