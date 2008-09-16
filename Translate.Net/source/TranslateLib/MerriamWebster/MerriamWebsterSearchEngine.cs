@@ -120,13 +120,12 @@ namespace Translate
 			
 			if(responseFromServer.IndexOf("One entry found.<br>") < 0)
 			{
-				StringParser parser = new StringParser("<select name='jump'", "</td>", responseFromServer);
-				string[] items = parser.ReadItemsList("<option", "\n", "345873409587");
+				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
+				string[] items = parser.ReadItemsList("form.action = '/dictionary/", "'");
 				
-				items[0] = items[0].Replace("selected", "");
 				foreach(string item in items)
 				{
-					string part = item.Replace(">", "");
+					string part = item;
 					string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
 					link = string.Format(link,
 						part);
@@ -137,13 +136,12 @@ namespace Translate
 				{ //we has more items
 					//incr=Next+5&jump=dragon%27s+blood&book=Dictionary&quer=blood&list=45%2C31%2C3602592%2C0%3Bdragon%27s+blood%3D2000318535%3Bflesh+and+blood%3D2000400359%3Bfull-blood%5B1%2Cadjective%5D%3D2000425490%3Bfull-blood%5B2%2Cnoun%5D%3D2000425517%3Bhalf-blood%3D2000475964%3Bhalf+blood%3D2000475978%3Bhigh+blood+pressure%3D2000498596%3Blow+blood+pressure%3D2000629024%3Bnew+blood%3D2000712110%3Bpure-blooded%3D2000860991
 					string incr_value = StringParser.Parse("<input type='submit' value='", "'", responseFromServer);
-					string jump_value = StringParser.Parse("<option selected>", "\n", responseFromServer);
 					string quer_value = StringParser.Parse("<input type='hidden' name='quer' value=\"", "\"", responseFromServer);
 					string list_value = StringParser.Parse("<input type='hidden' name='list' value=\"", "\"", responseFromServer);
 					string post_data_value = "incr={0}&jump={1}&book=Dictionary&quer={2}&list={3}";
 					post_data_value = string.Format(post_data_value , 
 						incr_value,
-						HttpUtility.UrlEncode(jump_value),
+						HttpUtility.UrlEncode(items[0]),
 						HttpUtility.UrlEncode(quer_value),
 						HttpUtility.UrlEncode(list_value)
 						);
