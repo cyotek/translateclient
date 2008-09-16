@@ -65,10 +65,8 @@ namespace Translate
 			set { defaultTextFormat = value; }
 		}
 		
-		public const string DefaultTextStyle = "";
 		public const string InfoTextStyle = "color: gray; font-size: 8pt;";
-		public const string ErrorTextStyle = "color: #AA0000; " + DefaultTextStyle;
-		public const string BoldTextStyle = "font-weight: bold; " + DefaultTextStyle;
+		public const string ErrorTextStyle = "color: #AA0000; ";
 		
 		public static string ButtonTextStyle {
 			get { return "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat; }
