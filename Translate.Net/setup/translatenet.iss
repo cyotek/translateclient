@@ -85,6 +85,7 @@ Source: ..\bin\FreeCL.RTL.*; DestDir: {app}; Flags: ignoreversion
 Source: ..\bin\FreeCL.Forms.*; DestDir: {app}; Flags: ignoreversion
 Source: ..\bin\translate.*; DestDir: {app}; Flags: ignoreversion
 Source: ..\bin\translate.net.*; DestDir: {app}; Flags: ignoreversion
+Source: ..\bin\Translate.Net.XmlSerializers.dll; DestDir: {app}; Flags: ignoreversion
 Source: ..\bin\Translate.WebUI.*; DestDir: {app}; Flags: ignoreversion
 Source: ..\bin\WebUI\*; DestDir: {app}\WebUI; Flags: ignoreversion
 Source: ..\bin\WebUI\bin\*; DestDir: {app}\WebUI\bin; Flags: ignoreversion
