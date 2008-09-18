@@ -39,8 +39,9 @@
 
 using System;
 using System.Windows.Forms;
+using FreeCL.RTL;
 
-namespace FreeCL.RTL
+namespace FreeCL.Forms
 {
 	/// <summary>
 	/// Description of MailTo.
@@ -63,7 +64,13 @@ namespace FreeCL.RTL
 			}
 			catch(Exception e)
 			{
-				MessageBox.Show(e.Message, ApplicationInfo.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
+						"Error on sending email to : {0}\r\n" + 
+							"Error message : {1}"),
+							email, e.Message),
+						LangPack.TranslateString("Error on sending email"),
+						e);
+				
 			}
 		}
 	}

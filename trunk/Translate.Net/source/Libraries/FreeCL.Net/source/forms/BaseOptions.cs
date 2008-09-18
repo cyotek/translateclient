@@ -138,7 +138,15 @@ namespace FreeCL.Forms
 			}
 			catch(System.Exception e)
 			{
-				FreeCL.Forms.Application.OnThreadException(e);
+				ErrorMessageBox.Show(
+					string.Format(LangPack.TranslateString(
+						"Error on opening config file from {0}" +  
+						".\r\nPossible reason - error in options file format" +
+						".\r\nThe configuration will be reset to default values."
+						),source.OptionsFileName_),
+					LangPack.TranslateString("Error on opening config file"), 
+					e);
+
 			}
 			if(result == source)
 				result.OnLoaded();
@@ -163,17 +171,18 @@ namespace FreeCL.Forms
 					//error CS2001: Source file 'C:\Windows\Temp\2cehzm2v.0.cs' could not be found
 					//error CS2008: No inputs specified
 					
-					ErrorMessageBox.Show( 
-						"Error on saving config file to " + OptionsFileName_ + Environment.NewLine + 
-						"Possible reason - denyed write access to system TEMP directory.",
-						"Error on saving config file",
+					ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
+						"Error on saving config file to {0}" + 
+						"\r\nPossible reason - denyed write access to system TEMP directory."),
+						OptionsFileName_),
+						LangPack.TranslateString("Error on saving config file"), 
 						e);
 				}
 				else
 				{
-					ErrorMessageBox.Show(
-						"Error on saving config file to " + OptionsFileName_,
-						"Error on saving config file", 
+					ErrorMessageBox.Show(string.Format(LangPack.TranslateString(
+						"Error on saving config file to {0}"), OptionsFileName_),
+						LangPack.TranslateString("Error on saving config file"), 
 						e);
 				}		
 				

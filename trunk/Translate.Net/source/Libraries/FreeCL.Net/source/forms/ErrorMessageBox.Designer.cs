@@ -81,14 +81,14 @@ namespace FreeCL.Forms
 			// 
 			this.lMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.lMessage.BackColor = System.Drawing.SystemColors.Window;
 			this.lMessage.Location = new System.Drawing.Point(84, 8);
+			this.lMessage.Multiline = true;
 			this.lMessage.Name = "lMessage";
-			this.lMessage.Size = new System.Drawing.Size(291, 96);
+			this.lMessage.ReadOnly = true;
+			this.lMessage.Size = new System.Drawing.Size(313, 96);
 			this.lMessage.TabIndex = 11;
 			this.lMessage.Text = "Message";
-			this.lMessage.ReadOnly = true;
-			this.lMessage.Multiline = true;
-			
 			// 
 			// picApp
 			// 
@@ -107,7 +107,7 @@ namespace FreeCL.Forms
 			this.bOptions.Location = new System.Drawing.Point(0, 107);
 			this.bOptions.Name = "bOptions";
 			this.bOptions.Padding = new System.Windows.Forms.Padding(2);
-			this.bOptions.Size = new System.Drawing.Size(387, 32);
+			this.bOptions.Size = new System.Drawing.Size(409, 32);
 			this.bOptions.TabIndex = 18;
 			// 
 			// panel1
@@ -116,17 +116,17 @@ namespace FreeCL.Forms
 			this.panel1.Controls.Add(this.bShowExceptionIfno);
 			this.panel1.Controls.Add(this.bOk);
 			this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-			this.panel1.Location = new System.Drawing.Point(12, 2);
+			this.panel1.Location = new System.Drawing.Point(0, 2);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(373, 28);
+			this.panel1.Size = new System.Drawing.Size(407, 28);
 			this.panel1.TabIndex = 3;
 			// 
 			// bShowExceptionIfno
 			// 
 			this.bShowExceptionIfno.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.bShowExceptionIfno.Location = new System.Drawing.Point(3, 2);
+			this.bShowExceptionIfno.Location = new System.Drawing.Point(12, 2);
 			this.bShowExceptionIfno.Name = "bShowExceptionIfno";
-			this.bShowExceptionIfno.Size = new System.Drawing.Size(206, 23);
+			this.bShowExceptionIfno.Size = new System.Drawing.Size(291, 23);
 			this.bShowExceptionIfno.TabIndex = 1;
 			this.bShowExceptionIfno.Text = "Show information about exception";
 			this.bShowExceptionIfno.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@ namespace FreeCL.Forms
 			// 
 			this.bOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.bOk.Location = new System.Drawing.Point(275, 3);
+			this.bOk.Location = new System.Drawing.Point(309, 3);
 			this.bOk.Name = "bOk";
 			this.bOk.Size = new System.Drawing.Size(88, 23);
 			this.bOk.TabIndex = 0;
@@ -147,10 +147,11 @@ namespace FreeCL.Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(387, 139);
+			this.ClientSize = new System.Drawing.Size(409, 139);
 			this.Controls.Add(this.bOptions);
 			this.Controls.Add(this.lMessage);
 			this.Controls.Add(this.picApp);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "ErrorMessageBox";
@@ -160,6 +161,7 @@ namespace FreeCL.Forms
 			this.bOptions.ResumeLayout(false);
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
 		private System.Windows.Forms.Button bShowExceptionIfno;
 		private System.Windows.Forms.Button bOk;

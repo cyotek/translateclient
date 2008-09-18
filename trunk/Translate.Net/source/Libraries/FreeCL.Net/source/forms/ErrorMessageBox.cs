@@ -63,11 +63,20 @@ namespace FreeCL.Forms
 			InitializeComponent();
 
 			lMessage.Text = text;
+			lMessage.Select(0, 0);
 			Text = caption;
 			this.exception = exception;
 			bShowExceptionIfno.Enabled =  exception != null;
 			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
+			
+			OnLanguageChanged();
 		}
+		
+		void OnLanguageChanged()
+		{
+			bShowExceptionIfno.Text = TranslateString("Show information about exception");
+		}
+		
 		
 		Exception exception;
 

@@ -98,6 +98,7 @@
       <DependentUpon>BaseAboutForm.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="IOptionsForm.cs" />
+    <Compile Include="MailTo.cs" />
     <Compile Include="MainForm.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

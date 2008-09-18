@@ -81,8 +81,24 @@ namespace FreeCL.Forms
 				bTerminate.Visible = false;
 				bContinue.Enabled = false;
 				bContinue.Visible = false;
+				bClose.Visible = true;
+				bClose.Enabled = true;
+				bClose.Location = bTerminate.Location;
+				bCopy.Location = bContinue.Location;
 			}
+			
+			OnLanguageChanged();
 		}
+		
+		void OnLanguageChanged()
+		{
+			bSend.Text = TranslateString("Send by mail");
+			bContinue.Text = TranslateString("Continue");
+			bCopy.Text = TranslateString("Copy");
+			bClose.Text = TranslateString("Close");
+			bTerminate.Text = TranslateString("Terminate");
+		}
+		
 		
 		private static string SingleExceptionText(System.Exception e)
 		{
@@ -201,7 +217,7 @@ namespace FreeCL.Forms
 			// Exits the program when the user clicks Abort.
 			if (result == DialogResult.Abort) 
 				System.Environment.FailFast("\n" + ApplicationInfo.ProductName + 
-					" - Terminated by user on error : \n" +  ExceptionText(exception));
+					" - " + TranslateString("Terminated by user on error") + " : \n" +  ExceptionText(exception));
 			else
 				GlobalEvents.AllowIdleProcessing = true;
 		}
@@ -210,7 +226,7 @@ namespace FreeCL.Forms
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
 		void InitInfo()
 		{
-			this.Text = "Unhandled exception in " + ApplicationInfo.ProductName;			
+			this.Text = TranslateString("Unhandled exception in") + " " + ApplicationInfo.ProductName;
 			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
 			lClass.Text = Current_.GetType().FullName;
 			lMessage.Text = Current_.Message;
@@ -234,6 +250,7 @@ namespace FreeCL.Forms
 			this.bCopy = new System.Windows.Forms.Button();
 			this.bContinue = new System.Windows.Forms.Button();
 			this.lClass = new System.Windows.Forms.Label();
+			this.bClose = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.picApp)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -250,7 +267,7 @@ namespace FreeCL.Forms
 			this.bSend.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bSend.Location = new System.Drawing.Point(76, 371);
 			this.bSend.Name = "bSend";
-			this.bSend.Size = new System.Drawing.Size(88, 23);
+			this.bSend.Size = new System.Drawing.Size(116, 23);
 			this.bSend.TabIndex = 9;
 			this.bSend.Text = "Send by mail";
 			this.bSend.UseCompatibleTextRendering = true;
@@ -261,8 +278,9 @@ namespace FreeCL.Forms
 			this.lInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 									| System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.lInfo.BackColor = System.Drawing.SystemColors.Control;
+			this.lInfo.BackColor = System.Drawing.SystemColors.Window;
 			this.lInfo.Location = new System.Drawing.Point(80, 84);
+			this.lInfo.MaxLength = 0;
 			this.lInfo.Multiline = true;
 			this.lInfo.Name = "lInfo";
 			this.lInfo.ReadOnly = true;
@@ -297,7 +315,7 @@ namespace FreeCL.Forms
 			// bCopy
 			// 
 			this.bCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.bCopy.Location = new System.Drawing.Point(262, 371);
+			this.bCopy.Location = new System.Drawing.Point(284, 371);
 			this.bCopy.Name = "bCopy";
 			this.bCopy.Size = new System.Drawing.Size(88, 23);
 			this.bCopy.TabIndex = 8;
@@ -309,7 +327,7 @@ namespace FreeCL.Forms
 			// 
 			this.bContinue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
 			this.bContinue.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.bContinue.Location = new System.Drawing.Point(172, 371);
+			this.bContinue.Location = new System.Drawing.Point(198, 371);
 			this.bContinue.Name = "bContinue";
 			this.bContinue.Size = new System.Drawing.Size(80, 23);
 			this.bContinue.TabIndex = 6;
@@ -327,11 +345,25 @@ namespace FreeCL.Forms
 			this.lClass.Text = "Class";
 			this.lClass.UseCompatibleTextRendering = true;
 			// 
+			// bClose
+			// 
+			this.bClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.bClose.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.bClose.Enabled = false;
+			this.bClose.Location = new System.Drawing.Point(378, 371);
+			this.bClose.Name = "bClose";
+			this.bClose.Size = new System.Drawing.Size(88, 23);
+			this.bClose.TabIndex = 10;
+			this.bClose.Text = "Close";
+			this.bClose.UseCompatibleTextRendering = true;
+			this.bClose.Visible = false;
+			// 
 			// ExceptionDialog
 			// 
 			this.AcceptButton = this.bContinue;
 			this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
 			this.ClientSize = new System.Drawing.Size(564, 400);
+			this.Controls.Add(this.bClose);
 			this.Controls.Add(this.bSend);
 			this.Controls.Add(this.bCopy);
 			this.Controls.Add(this.bTerminate);
@@ -341,8 +373,8 @@ namespace FreeCL.Forms
 			this.Controls.Add(this.lMessage);
 			this.Controls.Add(this.picApp);
 			this.MaximizeBox = false;
-			this.MaximumSize = new System.Drawing.Size(572, 434);
 			this.MinimizeBox = false;
+			this.MinimumSize = new System.Drawing.Size(572, 434);
 			this.Name = "ExceptionDialog";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ExceptionDialog";
@@ -351,6 +383,7 @@ namespace FreeCL.Forms
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Button bClose;
 		#endregion
 		void BCopyClick(object sender, System.EventArgs e)
 		{
