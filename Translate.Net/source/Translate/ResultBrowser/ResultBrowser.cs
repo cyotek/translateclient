@@ -49,6 +49,7 @@ using System.Web;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using FreeCL.RTL;
+using FreeCL.Forms;
 
 namespace Translate
 {

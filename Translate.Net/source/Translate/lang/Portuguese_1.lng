@@ -614,3 +614,35 @@ Criar artigo
 Artigo aberto
 [{0} phrases translated by {1} calls to translate services]
 {0} frases traduzidas por {1} chamada para os serviços de tradução
+[Send by mail]
+
+[Continue]
+
+[Copy]
+
+[Terminate]
+
+[Terminated by user on error]
+
+[Unhandled exception in]
+
+[Error on opening config file]
+
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+
+[Error on saving config file]
+
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+
+[Error on saving config file to {0}]
+
+[Show information about exception]
+
+[Error on start process : {0}\r\nError message : {1}]
+
+[Error on start process]
+
+[Error on sending email to : {0}\r\nError message : {1}]
+
+[Error on sending email]
+

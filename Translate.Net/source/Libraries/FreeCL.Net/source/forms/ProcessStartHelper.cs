@@ -37,6 +37,7 @@
 #endregion
 
 using System;
+using FreeCL.RTL;
 
 namespace FreeCL.Forms
 {
@@ -57,10 +58,11 @@ namespace FreeCL.Forms
 			} 
 			catch (Exception e)
 			{
-				ErrorMessageBox.Show( 
-						"Error on start process : " + fileName + Environment.NewLine + 
-						"Error message :" + e.Message,
-						"Error on start process",
+				ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
+						"Error on start process : {0}\r\n" + 
+							"Error message : {1}"),
+							fileName, e.Message),
+						LangPack.TranslateString("Error on start process"),
 						e);
 				
 			}
