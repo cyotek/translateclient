@@ -613,6 +613,9 @@ namespace Translate
 		{
 			if(TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 				resBrowser.SetStatistics(DateTime.Now.Ticks - startTranslateTicks);
+			
+			resBrowser.SetEndData(e.TranslateState);
+			
 			ResourceManager resources = new ResourceManager("Translate.Common.Icons", Assembly.GetExecutingAssembly());
 			miAnimatedIcon.Image = (((System.Drawing.Icon)(resources.GetObject("StaticIcon")))).ToBitmap();
 			
