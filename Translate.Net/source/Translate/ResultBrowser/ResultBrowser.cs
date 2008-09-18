@@ -450,6 +450,40 @@ namespace Translate
 			RecalcSizes();
 		}
 		
+		public void SetEndData(AsyncTranslateState state)
+		{
+			bool nothingFound = true;
+			
+			foreach(Result r in state.Results)
+			{
+				if(!r.ResultNotFound)
+				{
+					nothingFound = false;
+					break;
+				}
+			}
+			string htmlString;
+			
+			if(nothingFound && TranslateOptions.Instance.ResultWindowOptions.HideWithoutResult)
+			{
+				htmlString = "<span><br/>" + LangPack.TranslateString("Nothing found")+ "<br/></span>";
+
+				Wait();
+				HtmlHelper.AddTranslationCell(wBrowser, isClean, htmlString);
+			}
+
+			isClean = false;	
+			
+			//force set of proper size - some time don't show bottom lines
+			Size sz = wBrowser.Size;
+			sz.Height++;
+			wBrowser.Size = sz;
+			RealRecalcSizes();
+			sz.Height--;
+			wBrowser.Size = sz;
+			RealRecalcSizes();
+		}
+		
 		private static int CompareStringsByLength(string x, string y)
 		{
 			if (x == null)
