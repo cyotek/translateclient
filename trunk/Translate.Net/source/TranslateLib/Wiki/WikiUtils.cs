@@ -240,6 +240,9 @@ namespace Translate
 			
 			res = StringParser.RemoveAll("<span class=\"editsection\">[<a", "</a>]", res);
 			res = StringParser.RemoveAll("href=\"#", "\"", res);
+			res = StringParser.RemoveAll("<script type=", "</script>", res);
+			res = StringParser.RemoveAll("<button onclick=", "</button>", res);
+			
 			
 			
 			url = string.Format("a href=\"http://{0}.{1}/", lang, searchHost);
