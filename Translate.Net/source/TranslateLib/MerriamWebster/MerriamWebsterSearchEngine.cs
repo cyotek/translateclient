@@ -118,7 +118,7 @@ namespace Translate
 				}
 			}
 			
-			if(responseFromServer.IndexOf("One entry found.<br>") < 0)
+			if(responseFromServer.IndexOf("One entry found.\n<br/>") < 0)
 			{
 				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
 				string[] items = parser.ReadItemsList("form.action = '/dictionary/", "'");
@@ -152,7 +152,7 @@ namespace Translate
 					InternalDoTranslate(phrase, languagesPair, subject, result, networkSetting, post_data_value);
 				}
 			}
-			else
+			else if(responseFromServer.Contains("<span class=\"variant\">"))
 			{
 				string part = StringParser.Parse("<span class=\"variant\">", "</span>", responseFromServer);
 				
