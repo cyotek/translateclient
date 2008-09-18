@@ -160,6 +160,7 @@ namespace Translate
 			defs = defs.Replace("<span class=\"dxn\">", "");
 			defs = defs.Replace("<span class=\"\n            sense_label", "<span class=\"sense_label");
 			defs = defs.Replace("<span class=\"unicode\">", "");
+			defs = defs.Replace("ʼ", "'");
 			
 			
 			
@@ -255,7 +256,7 @@ namespace Translate
 			string responseFromServer = helper.GetResponse();
 			
 			if(responseFromServer.IndexOf("The word you've entered isn't in the dictionary.") >= 0 ||
-				responseFromServer.IndexOf("No entries found.<br>") >= 0)
+				responseFromServer.IndexOf("No entries found.\n<br/>") >= 0)
 			{
 				if(responseFromServer.IndexOf("<PRE>") >= 0)
 				{	//suggestions
@@ -278,7 +279,7 @@ namespace Translate
 				}
 			}
 			
-			if(responseFromServer.IndexOf("One entry found.<br>") > 0)
+			if(responseFromServer.IndexOf("One entry found.\n<br/>") > 0)
 			{
 				SetResult(result, responseFromServer);
 			}
