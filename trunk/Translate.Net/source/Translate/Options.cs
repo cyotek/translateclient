@@ -52,6 +52,7 @@ namespace Translate
 	/// Description of Options.
 	/// </summary>
 	[Serializable()]
+	[XmlSerializerAssemblyAttribute(AssemblyName="Translate.Net.XmlSerializers")]
 	public class TranslateOptions : FreeCL.Forms.BaseOptions
 	{
 		public TranslateOptions()
