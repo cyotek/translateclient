@@ -162,18 +162,43 @@ namespace Translate
 		
 		void BOkClick(object sender, EventArgs e)
 		{
-			profile.DisabledSourceLanguages.Clear();
-			LanguageCollection checkedLanguages = new LanguageCollection();
+			LanguageCollection checkedFromLanguages = new LanguageCollection();
+			LanguageCollection checkedToLanguages = new LanguageCollection();
 			
 			foreach(LanguageDataContainer ldc in lbFrom.CheckedItems)
 			{
 				if(ldc.Language != Language.Any)
-					checkedLanguages.Add(ldc.Language);
+					checkedFromLanguages.Add(ldc.Language);
 			}
 			
+			foreach(LanguageDataContainer ldc in lbTo.CheckedItems)
+			{
+				if(ldc.Language != Language.Any)
+					checkedToLanguages.Add(ldc.Language);
+			}
+			
+			if(checkedFromLanguages.Count == 0)
+			{
+				MessageBox.Show(FindForm(), 
+					TranslateString("Please select at least one source language"), 
+						Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				DialogResult = DialogResult.None;
+				return;
+			}
+
+			if(checkedToLanguages.Count == 0)
+			{
+				MessageBox.Show(FindForm(), 
+					TranslateString("Please select at least one target language"), 
+						Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+				DialogResult = DialogResult.None;
+				return;
+			}
+			
+			profile.DisabledSourceLanguages.Clear();
 			foreach(LanguageDataContainer ldc in lbFrom.Items)
 			{
-				if(ldc.Language != Language.Any && !checkedLanguages.Contains(ldc.Language))
+				if(ldc.Language != Language.Any && !checkedFromLanguages.Contains(ldc.Language))
 				{
 					profile.DisabledSourceLanguages.Add(ldc.Language);
 				}
@@ -182,16 +207,9 @@ namespace Translate
 			
 
 			profile.DisabledTargetLanguages.Clear();
-			checkedLanguages.Clear();
-			foreach(LanguageDataContainer ldc in lbTo.CheckedItems)
-			{
-				if(ldc.Language != Language.Any)
-					checkedLanguages.Add(ldc.Language);
-			}
-
 			foreach(LanguageDataContainer ldc in lbTo.Items)
 			{
-				if(ldc.Language != Language.Any && !checkedLanguages.Contains(ldc.Language))
+				if(ldc.Language != Language.Any && !checkedToLanguages.Contains(ldc.Language))
 					profile.DisabledTargetLanguages.Add(ldc.Language);
 			}
 			
