@@ -194,6 +194,8 @@
 
 [Nothing found]
 
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 
 [Only cyrillic characters supported]
@@ -376,6 +378,8 @@
 
 [Icelandic]
 
+[Filipino]
+
 [Finnish]
 
 [French]
@@ -408,6 +412,8 @@
 
 [Portuguese]
 
+[Portuguese_BR]
+
 [Romanian]
 
 [Russian]
@@ -420,11 +426,17 @@
 
 [Spanish]
 
+[Spanish_LA]
+
 [Swedish]
+
+[Turkish]
 
 [Ukrainian]
 
 [Urdu]
+
+[Welsh]
 
 [Languages]
 
@@ -607,6 +619,8 @@
 [Free Online Urdu-English Dictionary]
 
 [Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
 
 [Grouped by Service's Url]
 

@@ -195,6 +195,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 顯示服務名稱
 [Nothing found]
 未找到
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 翻譯方向不正確
 [Only cyrillic characters supported]
@@ -377,6 +379,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 愛沙尼亞語
 [Icelandic]
 冰島語
+[Filipino]
+菲律賓
 [Finnish]
 芬蘭語
 [French]
@@ -409,6 +413,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 波蘭語
 [Portuguese]
 葡萄牙語
+[Portuguese_BR]
+葡萄牙語-Br
 [Romanian]
 羅馬尼亞語
 [Russian]
@@ -421,12 +427,18 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 斯洛文尼亞語
 [Spanish]
 西班牙語
+[Spanish_LA]
+西班牙語-LA
 [Swedish]
 瑞典語
+[Turkish]
+土耳其
 [Ukrainian]
 烏克蘭語
 [Urdu]
 烏爾都語
+[Welsh]
+威爾士
 [Languages]
 語言
 [Services]
@@ -609,6 +621,8 @@ Tiscali - 捷克方面的辭典
 免費線上烏爾都語-英語辭典
 [Online English-to-Urdu and Urdu-to-English dictionary]
 線上　英文-烏爾都語　烏爾都語-英文　辭典
+[InterTran dictionary]
+
 [Grouped by Service's Url]
 以服務的鏈結分組
 [Grouped by Language]

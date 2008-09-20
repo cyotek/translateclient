@@ -192,6 +192,8 @@ Activer les accents
 Montrer les noms des services
 [Nothing found]
 Aucun résultat
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 L'emplacement de la traduction est incorrect
 [Only cyrillic characters supported]
@@ -374,6 +376,8 @@ Esperanto
 Estonien
 [Icelandic]
 Islandais
+[Filipino]
+Philippin
 [Finnish]
 Finlandais
 [French]
@@ -383,7 +387,7 @@ Allemand
 [Greek]
 Grec
 [Hindi]
-
+Hindî
 [Hungarian]
 Hongrois
 [Italian]
@@ -405,6 +409,8 @@ Norvégien
 Polonais
 [Portuguese]
 Portugais
+[Portuguese_BR]
+Portugais-Brésilien
 [Romanian]
 Roumain
 [Russian]
@@ -417,12 +423,18 @@ Slovaque
 Slovénien
 [Spanish]
 Espagnol
+[Spanish_LA]
+Espagnol-LA
 [Swedish]
 Suédois
+[Turkish]
+Turkic
 [Ukrainian]
 Ukrainien
 [Urdu]
-
+Ourdu
+[Welsh]
+Gallois
 [Languages]
 Langages
 [Services]
@@ -604,6 +616,8 @@ Logiciel de traduction SYSTRAN (utlisé par Babel Fish d'Altavista)
 [Free Online Urdu-English Dictionary]
 
 [Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
 
 [Grouped by Service's Url]
 Rangés par Url des Services

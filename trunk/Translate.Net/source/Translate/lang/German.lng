@@ -194,6 +194,8 @@ Akzente anzeigen
 Die Namen der Dienste anzeigen
 [Nothing found]
 Nichts gefunden
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 Übersetzungsrichtung ist nicht korrekt
 [Only cyrillic characters supported]
@@ -376,6 +378,8 @@ Esperanto
 Estisch
 [Icelandic]
 Isländisch
+[Filipino]
+Philippinisch
 [Finnish]
 Finnisch
 [French]
@@ -408,6 +412,8 @@ Norwegisch
 Polnisch
 [Portuguese]
 Portugiesisch
+[Portuguese_BR]
+Portugiesisch_BR
 [Romanian]
 Rumänisch
 [Russian]
@@ -420,12 +426,18 @@ Slovakisch
 Slovenisch
 [Spanish]
 Spanisch
+[Spanish_LA]
+Spanish_LA
 [Swedish]
 Schwedisch
+[Turkish]
+Türkisch
 [Ukrainian]
 Ukrainisch
 [Urdu]
 Urdu
+[Welsh]
+Walisisch
 [Languages]
 Sprachen
 [Services]
@@ -608,6 +620,8 @@ Tiscali - Tschechisch orientiertes Wörterbuch
 Freies Online-Urdu-Englisch Wörterbuch
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Online Englisch-nach-Urdu und Urdu-nach-Englisch Wörterbuch
+[InterTran dictionary]
+
 [Grouped by Service's Url]
 Gruppiert nach URL des Dienstes
 [Grouped by Language]

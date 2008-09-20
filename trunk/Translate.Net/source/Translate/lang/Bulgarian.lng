@@ -196,6 +196,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Показване на имена на службите
 [Nothing found]
 Нищо не е открито
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 Направление превода не е коректно
 [Only cyrillic characters supported]
@@ -378,6 +380,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Естонски
 [Icelandic]
 Исландски
+[Filipino]
+Тагалог
 [Finnish]
 Фински
 [French]
@@ -410,6 +414,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Полски
 [Portuguese]
 Португалски
+[Portuguese_BR]
+Португалски-Бразилия
 [Romanian]
 Румънски
 [Russian]
@@ -422,12 +428,18 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Словенски
 [Spanish]
 Испански
+[Spanish_LA]
+Испански-ЛА
 [Swedish]
 Шведски
+[Turkish]
+Турски
 [Ukrainian]
 Украински
 [Urdu]
 Урду
+[Welsh]
+Уелски
 [Languages]
 Езици
 [Services]
@@ -610,6 +622,8 @@ Tiscali - речник, ориентиран към чешки език
 Безплатен урду-английски онлайн речник 
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Онлайн английско-урду-английски речник
+[InterTran dictionary]
+
 [Grouped by Service's Url]
 Подреждане по адрес на службата
 [Grouped by Language]
