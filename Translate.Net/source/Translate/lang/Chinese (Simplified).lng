@@ -194,6 +194,8 @@ HTTP 代理
 显示服务名称
 [Nothing found]
 未找到
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 翻译方式不正确
 [Only cyrillic characters supported]
@@ -376,6 +378,8 @@ HTTP 代理
 爱沙尼亚语
 [Icelandic]
 冰岛语
+[Filipino]
+菲律宾
 [Finnish]
 芬兰语
 [French]
@@ -385,7 +389,7 @@ HTTP 代理
 [Greek]
 希腊语
 [Hindi]
-
+印地语
 [Hungarian]
 匈牙利语
 [Italian]
@@ -408,6 +412,8 @@ HTTP 代理
 波兰语
 [Portuguese]
 葡萄牙语
+[Portuguese_BR]
+葡萄牙语-Br
 [Romanian]
 罗马尼亚语
 [Russian]
@@ -420,12 +426,18 @@ HTTP 代理
 斯洛文尼亚语
 [Spanish]
 西班牙语
+[Spanish_LA]
+西班牙语-LA
 [Swedish]
 瑞典语
+[Turkish]
+土耳其
 [Ukrainian]
 乌克兰语
 [Urdu]
-
+乌尔都语
+[Welsh]
+威尔士
 [Languages]
 语言
 [Services]
@@ -607,6 +619,8 @@ SYSTRAN 翻译软件（使用 Altavista Babel Fish）
 [Free Online Urdu-English Dictionary]
 
 [Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
 
 [Grouped by Service's Url]
 Grouped by Service's Url

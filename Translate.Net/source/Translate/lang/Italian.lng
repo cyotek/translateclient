@@ -192,6 +192,8 @@ Mostra gli accenti
 Mostra i nomi dei servizi
 [Nothing found]
 Non trovato
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 La direzione di traduzione non è corretta
 [Only cyrillic characters supported]
@@ -374,6 +376,8 @@ Esperanto
 Estone
 [Icelandic]
 Islandese
+[Filipino]
+Filippino
 [Finnish]
 Finlandese
 [French]
@@ -406,6 +410,8 @@ Norvegese
 Polacco
 [Portuguese]
 Portoghese
+[Portuguese_BR]
+Portoghese-Brasile
 [Romanian]
 Rumeno
 [Russian]
@@ -418,12 +424,18 @@ Slovacco
 Sloveno
 [Spanish]
 Spagnolo
+[Spanish_LA]
+Spagnolo americano
 [Swedish]
 Svedese
+[Turkish]
+Turco
 [Ukrainian]
 Ucraino
 [Urdu]
-
+Urdu
+[Welsh]
+Gallese
 [Languages]
 Lingue
 [Services]
@@ -605,6 +617,8 @@ Traduttore Yahoo Babel Fish
 [Free Online Urdu-English Dictionary]
 
 [Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
 
 [Grouped by Service's Url]
 Raggruppa per Servizi url

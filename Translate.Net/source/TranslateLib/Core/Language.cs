@@ -74,6 +74,7 @@ namespace Translate
 		Esperanto,
 		Estonian,
 		Icelandic,
+		Filipino,
 		Finnish,
 		French,
 		German,
@@ -90,15 +91,21 @@ namespace Translate
 		Norwegian,
 		Polish,
 		Portuguese,
+		
+		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]		
+		Portuguese_BR,
 		Romanian,
 		Russian,
 		Serbian,
 		Slovak,
 		Slovenian,
 		Spanish,
+		Spanish_LA,
 		Swedish,
+		Turkish,
 		Ukrainian,
 		Urdu,
+		Welsh,
 		Last
 	}
 	

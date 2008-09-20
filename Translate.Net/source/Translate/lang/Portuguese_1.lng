@@ -186,6 +186,8 @@ Exibir acentos
 Exibir nomes dos serviços
 [Nothing found]
 Nada encontrado
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 O sentido da tradução não está correto
 [Only cyrillic characters supported]
@@ -368,6 +370,8 @@ Esperanto
 Estoniano
 [Icelandic]
 Islandês
+[Filipino]
+Filipino
 [Finnish]
 Finlandês
 [French]
@@ -400,6 +404,8 @@ Norueguês
 Polonês
 [Portuguese]
 Português
+[Portuguese_BR]
+Português-Brasil
 [Romanian]
 Romeno
 [Russian]
@@ -412,12 +418,18 @@ Eslovaco
 Esloveno
 [Spanish]
 Espanhol
+[Spanish_LA]
+Espanhol-LA
 [Swedish]
 Sueco
+[Turkish]
+Turco
 [Ukrainian]
 Ucraniano
 [Urdu]
-
+Urdu
+[Welsh]
+Galês
 [Languages]
 Idiomas
 [Services]
@@ -600,6 +612,8 @@ Tiscali - Dicionário orientado tcheco
 Dicionário Online Gratuito Urdu-Inglês
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Dicionário Online Inglês-para-Urdu e Urdu-para-Inglês
+[InterTran dictionary]
+
 [Grouped by Service's Url]
 Agrupado por Url do Serviço
 [Grouped by Language]

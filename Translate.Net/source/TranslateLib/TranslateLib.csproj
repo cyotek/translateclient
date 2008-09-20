@@ -80,6 +80,8 @@
     <Compile Include="Google\GoogleService.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
     <Compile Include="Google\GoogleUtils.cs" />
+    <Compile Include="InterTran\InterTranDictionary.cs" />
+    <Compile Include="InterTran\InterTranService.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterDictionary.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterMedicalDictionary.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterSearchEngine.cs" />
@@ -167,6 +169,7 @@
     <EmbeddedResource Include="Promt\Service.ico" />
     <EmbeddedResource Include="SeznamCz\Service.ico" />
     <EmbeddedResource Include="TiscaliCz\Service.ico" />
+    <EmbeddedResource Include="InterTran\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="UrduwordCom\Service.ico" />
@@ -182,6 +185,7 @@
     <Folder Include="DictPl" />
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
+    <Folder Include="InterTran" />
     <Folder Include="UrduwordCom" />
     <Folder Include="UrduenglishdictionaryOrg" />
     <Folder Include="TiscaliCz" />

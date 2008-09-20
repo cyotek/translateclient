@@ -194,6 +194,8 @@ Ctrl+Ins+Ins で活性化
 サービスの名称を表示(&S)
 [Nothing found]
 結果が見つからない
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 翻訳の方向が正しくない
 [Only cyrillic characters supported]
@@ -376,6 +378,8 @@ HTML ソースを表示
 エストニア語
 [Icelandic]
 アイスランド語
+[Filipino]
+フィリピン人
 [Finnish]
 フィンランド語
 [French]
@@ -408,6 +412,8 @@ HTML ソースを表示
 ポーランド語
 [Portuguese]
 ポルトガル語
+[Portuguese_BR]
+ポルトガル語-Br
 [Romanian]
 ルーマニア語
 [Russian]
@@ -420,12 +426,18 @@ HTML ソースを表示
 スロベニア語
 [Spanish]
 スペイン語
+[Spanish_LA]
+スペイン語-LA
 [Swedish]
 スウェーデン語
+[Turkish]
+トルコ
 [Ukrainian]
 ウクライナ語
 [Urdu]
 ウルドゥー語
+[Welsh]
+ウェールズ
 [Languages]
 言語
 [Services]
@@ -608,6 +620,8 @@ Tiscali - チェコ語辞典
 フリーオンライン ウルドゥー語-英語 辞典
 [Online English-to-Urdu and Urdu-to-English dictionary]
 オンライン ウルドゥー語(対、英語)辞典
+[InterTran dictionary]
+
 [Grouped by Service's Url]
 サービスのＵＲＬでグループ化
 [Grouped by Language]

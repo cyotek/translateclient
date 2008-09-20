@@ -194,6 +194,8 @@ Mostrar acentos
 Mostrar el nombre de los servicios
 [Nothing found]
 Sin resultados coincidente
+[An error occurred during translation. Please try again later.]
+
 [Translation direction is not correct]
 La dirección de la traducción no es correcta
 [Only cyrillic characters supported]
@@ -376,6 +378,8 @@ Esperanto
 Estonio
 [Icelandic]
 Islandés
+[Filipino]
+Filipino
 [Finnish]
 Finés
 [French]
@@ -408,6 +412,8 @@ Noruego
 Polaco
 [Portuguese]
 Portugués
+[Portuguese_BR]
+Portugués-Br
 [Romanian]
 Rumano
 [Russian]
@@ -420,12 +426,18 @@ Eslovaco
 Esloveno
 [Spanish]
 Español
+[Spanish_LA]
+Español-LA
 [Swedish]
 Sueco
+[Turkish]
+Turco
 [Ukrainian]
 Ucraniano
 [Urdu]
-
+Urdu
+[Welsh]
+Galés
 [Languages]
 Idiomas
 [Services]
@@ -607,6 +619,8 @@ Traductor libre para texto - PROMPT
 [Free Online Urdu-English Dictionary]
 
 [Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
 
 [Grouped by Service's Url]
 Agrupado por url del servicio
