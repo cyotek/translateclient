@@ -65,7 +65,7 @@ namespace Translate
 			
 			Name = "_pl_de";
 			
-			WordsCount = 5;
+			WordsLimit = 5;
 			SplitToSubQueries = true;
 		}
 		

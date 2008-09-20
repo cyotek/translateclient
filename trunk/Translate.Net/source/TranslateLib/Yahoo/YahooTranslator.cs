@@ -145,7 +145,7 @@ namespace Translate
 			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.French));
 		
 			AddSupportedSubject(SubjectConstants.Common);
-			WordsCount = 150;
+			WordsLimit = 150;
 		}
 		
 		static SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();

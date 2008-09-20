@@ -56,7 +56,7 @@ namespace Translate
 	{
 		public InterTranDictionary()
 		{
-			CharsLimit = 64;
+			WordsLimit = 12;
 			Name = "_dictionary";
 			AddSupportedSubject(SubjectConstants.Common);
 			
@@ -195,6 +195,11 @@ namespace Translate
 				throw new TranslationException("An error occurred during translation. Please try again later.");
 			}
 			else if(responseFromServer.Contains("<center>Warning:<br> Could not open"))
+			{
+				//result.ResultNotFound = true;
+				throw new TranslationException("An error occurred during translation. Please try again later.");
+			}
+			else if(responseFromServer.Contains("<center>Warning:</strong><br> Could not open"))
 			{
 				//result.ResultNotFound = true;
 				throw new TranslationException("An error occurred during translation. Please try again later.");

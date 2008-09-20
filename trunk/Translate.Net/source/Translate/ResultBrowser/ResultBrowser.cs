@@ -68,13 +68,8 @@ namespace Translate
 			RecalcSizes();
 		}
 
-		static char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|', '\u00A0' };
-		static List<char> delimiterCharsList;
-
 		static ResultBrowser()
 		{
-			delimiterCharsList = new List<char>(delimiterChars);
-			delimiterCharsList.Sort();
 		}
 
 		string statusText;
@@ -156,38 +151,6 @@ namespace Translate
 		}
 		
 
-		List<string> SplitResultToParts(string data)
-		{
-			List<string> result = new List<string>();
-			char[] dataChars = data.ToCharArray();
-			
-			
-			StringBuilder sb = new StringBuilder();
-			foreach(char ch in dataChars)
-			{
-				if(delimiterCharsList.BinarySearch(ch) >= 0)	
-				{
-					if(sb.Length >= 0)
-					{
-						result.Add(sb.ToString());
-						sb = new StringBuilder();
-					}
-					
-					result.Add(ch.ToString());
-				}
-				else
-				{
-					sb.Append(ch);
-				}
-			}
-			
-			if(sb.Length >= 0)
-			{
-				result.Add(sb.ToString());
-			}
-			
-			return result;
-		}
 		
 		string GetResultHtml(Result result)
 		{
@@ -309,7 +272,7 @@ namespace Translate
 
 					if(!s.StartsWith("html!"))
 					{
-						List<string> words = SplitResultToParts(s);
+						List<string> words = StringParser.SplitToParts(s);
 						
 						foreach(string word in words)
 						{
@@ -320,7 +283,7 @@ namespace Translate
 							bool IsError = word.Length > 1;
 							if(!IsError && word.Length == 1)
 							{
-								IsError = delimiterCharsList.BinarySearch(word[0]) < 0;
+								IsError = StringParser.DelimiterCharsList.BinarySearch(word[0]) < 0;
 								IsDelimiter = true;
 							}
 							if(IsError)	
@@ -572,7 +535,7 @@ namespace Translate
 					return null;
 					
 				//selecting words from query and result
-				List<string> phrasewords = SplitResultToParts(phrase.Replace("́",""));
+				List<string> phrasewords = StringParser.SplitToParts(phrase.Replace("́",""));
 				int count = ExtractAdWords(phrasewords, 25);
 				
 				string resultstr = "";
@@ -581,7 +544,7 @@ namespace Translate
 					resultstr += GetResultString(r);
 				}
 				
-				List<string> resultwords = SplitResultToParts(resultstr.Replace("́",""));
+				List<string> resultwords = StringParser.SplitToParts(resultstr.Replace("́",""));
 				count = ExtractAdWords(resultwords, 60 - count);
 				
 				if(phrasewords.Count + resultwords.Count == 0 )
