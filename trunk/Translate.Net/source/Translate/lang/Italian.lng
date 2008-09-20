@@ -568,6 +568,10 @@ SE
 Limite
 [characters]
 Caratteri
+[Limit {0} : {1} characters]
+Limite {0} : {1} сaratteri
+[Limit {0} : {1} words]
+
 [Masks]
 Maschere
 [English-Ukrainian technical dictionary]

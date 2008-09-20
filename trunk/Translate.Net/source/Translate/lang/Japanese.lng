@@ -570,6 +570,10 @@ BS
 限界
 [characters]
 文字
+[Limit {0} : {1} characters]
+限界 {0} : {1} 文字
+[Limit {0} : {1} words]
+
 [Masks]
 マスク
 [English-Ukrainian technical dictionary]

@@ -571,6 +571,10 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 限制
 [characters]
 字元
+[Limit {0} : {1} characters]
+限制 {0} : {1} 字元
+[Limit {0} : {1} words]
+
 [Masks]
 遮罩
 [English-Ukrainian technical dictionary]

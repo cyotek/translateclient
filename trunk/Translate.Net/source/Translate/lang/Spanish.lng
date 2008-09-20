@@ -570,6 +570,10 @@ Dr.
 Límite
 [characters]
 Carácteres
+[Limit {0} : {1} characters]
+Límite {0} : {1} сarácteres
+[Limit {0} : {1} words]
+
 [Masks]
 Máscaras
 [English-Ukrainian technical dictionary]

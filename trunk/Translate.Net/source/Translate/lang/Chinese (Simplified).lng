@@ -570,6 +570,10 @@ SE
 限制
 [characters]
 字符
+[Limit {0} : {1} characters]
+限制 {0} : {1} 字符
+[Limit {0} : {1} words]
+
 [Masks]
 掩饰
 [English-Ukrainian technical dictionary]

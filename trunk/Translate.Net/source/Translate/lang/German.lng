@@ -570,6 +570,10 @@ BS
 Limit
 [characters]
 Zeichen
+[Limit {0} : {1} characters]
+Limit {0} : {1} Zeichen
+[Limit {0} : {1} words]
+
 [Masks]
 Masken
 [English-Ukrainian technical dictionary]

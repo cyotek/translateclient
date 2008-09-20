@@ -570,6 +570,10 @@ CC
 Межа 
 [characters]
 символів
+[Limit {0} : {1} characters]
+Межа {0} : {1} символів
+[Limit {0} : {1} words]
+Межа {0} : {1} слів
 [Masks]
 Маски
 [English-Ukrainian technical dictionary]
