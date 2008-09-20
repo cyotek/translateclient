@@ -567,6 +567,10 @@ SE
 Limite 
 [characters]
 caractères
+[Limit {0} : {1} characters]
+Limite {0} : {1} caractères
+[Limit {0} : {1} words]
+
 [Masks]
 Masques
 [English-Ukrainian technical dictionary]

@@ -562,6 +562,10 @@ Dicionário de sentenças bilingue
 Limite
 [characters]
 caracteres
+[Limit {0} : {1} characters]
+Limite {0} : {1} caracteres
+[Limit {0} : {1} words]
+
 [Masks]
 Máscaras
 [English-Ukrainian technical dictionary]

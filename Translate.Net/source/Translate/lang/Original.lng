@@ -570,6 +570,10 @@
 
 [characters]
 
+[Limit {0} : {1} characters]
+
+[Limit {0} : {1} words]
+
 [Masks]
 
 [English-Ukrainian technical dictionary]

@@ -174,9 +174,16 @@ namespace Translate
 			
 			if(status.Setting.ServiceItem.CharsLimit != -1)
 			{
-				htmlString+= "<br>" + "<b>" + LangPack.TranslateString("Limit") + "</b> : ";
-				htmlString+= status.Setting.ServiceItem.CharsLimit.ToString() + " ";
-				htmlString+= LangPack.TranslateString("characters");
+				htmlString+= "<br>" + "<b>";
+				htmlString+= string.Format(LangPack.TranslateString("Limit {0} : {1} characters"), 
+					"</b>", status.Setting.ServiceItem.CharsLimit);
+			}
+
+			if(status.Setting.ServiceItem.WordsLimit != -1)
+			{
+				htmlString+= "<br>" + "<b>";
+				htmlString+= string.Format(LangPack.TranslateString("Limit {0} : {1} words"), 
+					"</b>", status.Setting.ServiceItem.WordsLimit);
 			}
 			
 			if(status.IsAsteriskMaskSupported || status.IsQuestionMaskSupported)

@@ -570,6 +570,10 @@ CC
 Ограничение
 [characters]
 символов
+[Limit {0} : {1} characters]
+Ограничение {0} : {1} символов
+[Limit {0} : {1} words]
+Ограничение {0} : {1} слов
 [Masks]
 Маски
 [English-Ukrainian technical dictionary]

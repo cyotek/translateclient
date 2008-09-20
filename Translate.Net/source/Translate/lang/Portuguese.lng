@@ -570,6 +570,10 @@ BS
 Limite
 [characters]
 Caracteres
+[Limit {0} : {1} characters]
+Limite {0} : {1} сaracteres
+[Limit {0} : {1} words]
+
 [Masks]
 Máscaras
 [English-Ukrainian technical dictionary]
