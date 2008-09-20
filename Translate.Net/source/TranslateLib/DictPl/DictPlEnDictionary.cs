@@ -65,24 +65,24 @@ namespace Translate
 			
 			Name = "_pl_en";
 			
-			WordsCount = 5;
+			WordsLimit = 5;
 			SplitToSubQueries = true;
 		}
 		
 		public override string[] SplitPhraseToSubqueries(string phrase)
 		{
-			List<string> words = StringParser.SplitToWords(phrase);
+			List<string> words = StringParser.SplitToParts(phrase);
 			List<string> result = new List<string>();
 
 			for(int i = 0; i < MaxCountOfSubQueries; i++)			
 			{
-				if(i*WordsCount >= words.Count)
+				if(i*WordsLimit >= words.Count)
 					break;
 			
 				string subres = ""; 
-				for(int sub_idx = 0; sub_idx < WordsCount; sub_idx++)
+				for(int sub_idx = 0; sub_idx < WordsLimit; sub_idx++)
 				{
-					if(i*WordsCount + sub_idx >= words.Count)
+					if(i*WordsLimit + sub_idx >= words.Count)
 					{
 						if(!string.IsNullOrEmpty(subres))
 						{
@@ -90,7 +90,7 @@ namespace Translate
 						}
 						break;
 					}
-					subres += words[i*WordsCount + sub_idx] + " ";
+					subres += words[i*WordsLimit + sub_idx] + " ";
 					
 				}
 			}

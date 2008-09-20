@@ -51,11 +51,18 @@ namespace Translate
 	/// </summary>
 	public abstract class ServiceItem
 	{
-		int chars_limit = -1;
+		int charsLimit = -1;
 		public int CharsLimit {
-			get { return chars_limit; }
-			set { chars_limit = value; }
+			get { return charsLimit; }
+			set { charsLimit = value; }
 		}
+		
+		int wordsLimit = -1;
+		public int WordsLimit {
+			get { return wordsLimit; }
+			set { wordsLimit = value; }
+		}
+		
 		
 		string name;
 		public string Name {
@@ -184,6 +191,21 @@ namespace Translate
 		
 		protected abstract void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting);
 	
+		static object cacheLock = new Object();
+		static string cachedPhrase = "";
+		static int cachedPhraseWordsCount;
+		static int GetWordsCount(string phrase)
+		{
+			lock(cacheLock)
+			{
+				if(cachedPhrase != phrase)
+				{
+					cachedPhrase = phrase;
+					cachedPhraseWordsCount = StringParser.SplitToWords(phrase).Count;
+				}
+				return cachedPhraseWordsCount;
+			}
+		}
 		public virtual bool CheckPhrase(string phrase, out string error)
 		{
 			error = "";
@@ -193,7 +215,13 @@ namespace Translate
 				return false;
 			}
 
-			if(chars_limit != -1 && phrase.Length > chars_limit)
+			if(charsLimit != -1 && phrase.Length > charsLimit)
+			{
+				error = "Length too big";
+				return false;
+			}
+
+			if(wordsLimit != -1 && GetWordsCount(phrase) > wordsLimit)
 			{
 				error = "Length too big";
 				return false;

@@ -52,9 +52,14 @@ namespace Translate
 		static List<char> delimiterCharsList;
 		static StringParser()
 		{
-			char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|' };
+			char[] delimiterChars = { ' ', ',', '.', ':', ';', '\t', '\n', '!', '?', '(', ')', '[', ']', '{', '}', '*', '/', '@', '#', '$', '%', '^', '&', '+', '=', '\\', '|', '\u00A0' };
+
 			delimiterCharsList = new List<char>(delimiterChars);
 			delimiterCharsList.Sort();
+		}
+		
+		public static List<char> DelimiterCharsList {
+			get { return delimiterCharsList; }
 		}
 		
 		
@@ -288,7 +293,7 @@ namespace Translate
 		}
 		
 		
-		public static List<string> SplitToWords(string data)
+		public static List<string> SplitToParts(string data)
 		{
 			List<string> result = new List<string>();
 			char[] dataChars = data.ToCharArray();
@@ -319,7 +324,38 @@ namespace Translate
 			
 			return result;
 		}
-		
+
+		public static List<string> SplitToWords(string data)
+		{
+			List<string> result = new List<string>();
+			char[] dataChars = data.ToCharArray();
+			
+			StringBuilder sb = new StringBuilder();
+			foreach(char ch in dataChars)
+			{
+				if(delimiterCharsList.BinarySearch(ch) >= 0)	
+				{
+					if(sb.Length >= 0)
+					{
+						result.Add(sb.ToString());
+						sb = new StringBuilder();
+					}
+					
+					//result.Add(ch.ToString());
+				}
+				else
+				{
+					sb.Append(ch);
+				}
+			}
+			
+			if(sb.Length >= 0)
+			{
+				result.Add(sb.ToString());
+			}
+			
+			return result;
+		}
 		
 		public static string SafeResizeString(string data, int length)
 		{
