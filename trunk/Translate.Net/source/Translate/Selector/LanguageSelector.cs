@@ -922,6 +922,10 @@ namespace Translate
 					lvServicesDisabled.Items.Add(lvi);
 					disabledLVItems.Add(sc, lvi);
 				}
+				else if(lvi.Selected)
+				{ //reload error
+					serviceStatus.Status = sc;
+				}
 			}
 			return lvi;
 		}
