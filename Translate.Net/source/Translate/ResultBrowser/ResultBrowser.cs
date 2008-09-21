@@ -220,7 +220,7 @@ namespace Translate
 							
 							if(!r.Phrase.StartsWith("html!"))
 							{
-								htmlString.AppendFormat("<b>{0}</b>", 
+								htmlString.AppendFormat("<b>{0}</b> ", 
 									HttpUtility.HtmlEncode(r.Phrase.Replace('\u00A0', ' ')));
 							}
 							else
