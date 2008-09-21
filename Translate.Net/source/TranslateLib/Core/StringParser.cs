@@ -156,6 +156,12 @@ namespace Translate
 			return res.ToArray();
 		}
 		
+		public static string[] ParseItemsList(string startTag, string endTag, string data)
+		{
+			StringParser parser = new StringParser(data);
+			return parser.ReadItemsList(startTag, endTag);
+		}
+		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]	
 		public static string Parse(string startTag, string endTag, string data)
 		{
@@ -177,6 +183,42 @@ namespace Translate
 			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
 			
 			String result_string = HttpUtility.HtmlDecode(data.Substring(resultIdxStart, resultIdxEnd - resultIdxStart));
+			result_string = result_string.Replace("&apos;", "'");
+			result_string = result_string.Replace("<br>", "\n");
+			return result_string.Trim();
+		}
+		
+		public static string ExtractLeft(string endTag, string data)
+		{
+			if(endTag == null)
+				throw new ArgumentNullException("endTag");
+
+			if(data == null)
+				throw new ArgumentNullException("data");
+		
+			int resultIdxEnd = data.IndexOf(endTag);
+			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
+			
+			String result_string = HttpUtility.HtmlDecode(data.Substring(0, resultIdxEnd));
+			result_string = result_string.Replace("&apos;", "'");
+			result_string = result_string.Replace("<br>", "\n");
+			return result_string.Trim();
+		}
+
+		public static string ExtractRight(string startTag, string data)
+		{
+			if(startTag == null)
+				throw new ArgumentNullException("startTag");
+
+			if(data == null)
+				throw new ArgumentNullException("data");
+		
+			int startTagLength = startTag.Length;
+			int resultIdxStart = data.IndexOf(startTag);
+			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag + " in string : " +  data);
+			resultIdxStart += startTagLength;
+
+			String result_string = HttpUtility.HtmlDecode(data.Substring(resultIdxStart));
 			result_string = result_string.Replace("&apos;", "'");
 			result_string = result_string.Replace("<br>", "\n");
 			return result_string.Trim();
