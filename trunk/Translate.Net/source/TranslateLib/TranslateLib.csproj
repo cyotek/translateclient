@@ -146,6 +146,8 @@
     <Compile Include="Wiki\WikiUtils.cs" />
     <Compile Include="Wiki\WiktionarySearchEngine.cs" />
     <Compile Include="Wiki\WiktionaryService.cs" />
+    <Compile Include="WordNet\WordNetDictionary.cs" />
+    <Compile Include="WordNet\WordNetService.cs" />
     <Compile Include="Yahoo\YahooService.cs" />
     <Compile Include="Yahoo\YahooTranslator.cs" />
     <EmbeddedResource Include="Google\Service.ico" />
@@ -175,6 +177,7 @@
     <EmbeddedResource Include="PriberamPt\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
+    <EmbeddedResource Include="WordNet\Service.ico" />
     <EmbeddedResource Include="UrduwordCom\Service.ico" />
     <EmbeddedResource Include="UrduenglishdictionaryOrg\Service.ico" />
   </ItemGroup>
@@ -189,6 +192,7 @@
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
     <Folder Include="InterTran" />
+    <Folder Include="WordNet" />
     <Folder Include="PriberamPt" />
     <Folder Include="UrduwordCom" />
     <Folder Include="UrduenglishdictionaryOrg" />
