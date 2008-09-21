@@ -101,6 +101,8 @@
     <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaTranslator.cs" />
+    <Compile Include="PriberamPt\PriberamPtDictionary.cs" />
+    <Compile Include="PriberamPt\PriberamPtService.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeComService.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeDictionary.cs" />
     <Compile Include="ProlingofficeCom\ProlingofficeSynonymsDictionary.cs" />
@@ -170,6 +172,7 @@
     <EmbeddedResource Include="SeznamCz\Service.ico" />
     <EmbeddedResource Include="TiscaliCz\Service.ico" />
     <EmbeddedResource Include="InterTran\Service.ico" />
+    <EmbeddedResource Include="PriberamPt\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="UrduwordCom\Service.ico" />
@@ -186,6 +189,7 @@
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
     <Folder Include="InterTran" />
+    <Folder Include="PriberamPt" />
     <Folder Include="UrduwordCom" />
     <Folder Include="UrduenglishdictionaryOrg" />
     <Folder Include="TiscaliCz" />
