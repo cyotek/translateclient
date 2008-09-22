@@ -97,6 +97,8 @@
     <Compile Include="Multitran\MultitranSentensesDictionary.cs" />
     <Compile Include="Multitran\MultitranService.cs" />
     <Compile Include="Multitran\MultitranUtils.cs" />
+    <Compile Include="MultiWordNet\MultiWordNetDictionary.cs" />
+    <Compile Include="MultiWordNet\MultiWordNetService.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
     <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
@@ -175,6 +177,7 @@
     <EmbeddedResource Include="TiscaliCz\Service.ico" />
     <EmbeddedResource Include="InterTran\Service.ico" />
     <EmbeddedResource Include="PriberamPt\Service.ico" />
+    <EmbeddedResource Include="MultiWordNet\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -192,6 +195,7 @@
     <Folder Include="MerriamWebster" />
     <Folder Include="Multitran" />
     <Folder Include="InterTran" />
+    <Folder Include="MultiWordNet" />
     <Folder Include="WordNet" />
     <Folder Include="PriberamPt" />
     <Folder Include="UrduwordCom" />
