@@ -157,23 +157,30 @@ namespace Translate
 			return GetResultHtml(result, 0);
 		}
 		
-		static string GetParagraphFormat(double indent)
+		static string GetParagraphFormat(double indent, Result result)
 		{
+			string res;
 			if(indent == 0)
 			{
-				return "<p class='p00'>";
+				res =  "<p class='p00'";
 			}
 			else if(indent == 0.5)
 			{
-				return "<p class='p05'>";
+				res =  "<p class='p05'";
 			}
 			else if(indent == 1)
 			{
-				return "<p class='p10'>";
+				res =  "<p class='p10'";
 			}
 			else 
-				return string.Format("<p style=\"margin-left: {0}em;\">", 
+				res = string.Format("<p style=\"margin-left: {0}em;\"", 
 					indent.ToString("0.##", CultureInfo.InvariantCulture));
+			
+			if(result.LanguagePair.To == Language.Hebrew)
+				res += "dir=\"RTL\" >";
+			else 
+				res += ">";
+			return res;		
 		}
 		
 		string GetResultHtml(Result result, double indent)
@@ -216,7 +223,7 @@ namespace Translate
 						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(r.Phrase))
 						{
 							if(indent != 0)
-								htmlString.Append(GetParagraphFormat(indent));
+								htmlString.Append(GetParagraphFormat(indent, result));
 							
 							if(!r.Phrase.StartsWith("html!"))
 							{
@@ -268,7 +275,7 @@ namespace Translate
 					if(indent > 0)
 						htmlString.Append("<li>");
 						
-					htmlString.Append(GetParagraphFormat(indent));
+					htmlString.Append(GetParagraphFormat(indent, result));
 
 					if(!s.StartsWith("html!"))
 					{

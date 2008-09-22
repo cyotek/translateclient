@@ -79,6 +79,7 @@ namespace Translate
 		French,
 		German,
 		Greek,
+		Hebrew,
 		Hindi,
 		Hungarian,
 		Italian,
