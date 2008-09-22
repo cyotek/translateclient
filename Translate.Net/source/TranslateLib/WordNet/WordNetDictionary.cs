@@ -73,6 +73,12 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 			
+			if(responseFromServer.Contains("<h3>Your search did not return any results.</h3>"))
+			{
+					result.ResultNotFound = true;
+					throw new TranslationException("Nothing found");
+			}
+			
 			string[] nodes =  StringParser.ParseItemsList("<h3>", "</ul>", responseFromServer);
 			
 			bool first = true;
