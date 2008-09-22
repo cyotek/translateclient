@@ -117,6 +117,8 @@
     <Compile Include="r2uOrgUa\R2uOrgUaService.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaDictionary.cs" />
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
+    <Compile Include="SaDirBg\SaDirBgDictionary.cs" />
+    <Compile Include="SaDirBg\SaDirBgService.cs" />
     <Compile Include="SeznamCz\SeznamCzDictionary.cs" />
     <Compile Include="SeznamCz\SeznamCzService.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
@@ -178,6 +180,7 @@
     <EmbeddedResource Include="InterTran\Service.ico" />
     <EmbeddedResource Include="PriberamPt\Service.ico" />
     <EmbeddedResource Include="MultiWordNet\Service.ico" />
+    <EmbeddedResource Include="SaDirBg\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -196,6 +199,7 @@
     <Folder Include="Multitran" />
     <Folder Include="InterTran" />
     <Folder Include="MultiWordNet" />
+    <Folder Include="SaDirBg" />
     <Folder Include="WordNet" />
     <Folder Include="PriberamPt" />
     <Folder Include="UrduwordCom" />
