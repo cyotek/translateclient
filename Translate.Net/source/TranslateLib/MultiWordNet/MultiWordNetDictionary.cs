@@ -81,16 +81,19 @@ namespace Translate
 
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			if(coockieTime < DateTime.Now.AddHours(-1))
+			lock(cookieContainer)
 			{
-				coockieTime = DateTime.Now;
-				WebRequestHelper helper_cookie = 
-					new WebRequestHelper(result, new Uri("http://multiwordnet.itc.it/online/multiwordnet-head.php"), 
-						networkSetting, 
-						WebRequestContentType.UrlEncodedGet);
-			
-				helper_cookie.CookieContainer = cookieContainer;
-				helper_cookie.GetResponse();
+				if(coockieTime < DateTime.Now.AddHours(-1))
+				{
+					coockieTime = DateTime.Now;
+					WebRequestHelper helper_cookie = 
+						new WebRequestHelper(result, new Uri("http://multiwordnet.itc.it/online/multiwordnet-head.php"), 
+							networkSetting, 
+							WebRequestContentType.UrlEncodedGet);
+				
+					helper_cookie.CookieContainer = cookieContainer;
+					helper_cookie.GetResponse();
+				}
 			}
 			
 			string query = "http://multiwordnet.itc.it/online/multiwordnet-main.php?language={0}&field=word&word={1}&wntype=Overview&pos=";
