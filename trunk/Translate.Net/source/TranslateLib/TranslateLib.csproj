@@ -78,6 +78,8 @@
     <Compile Include="DictPl\DictPlDeDictionary.cs" />
     <Compile Include="DictPl\DictPlEnDictionary.cs" />
     <Compile Include="DictPl\DictPlService.cs" />
+    <Compile Include="DictTuChemnitzDe\DictTuChemnitzDeDictionary.cs" />
+    <Compile Include="DictTuChemnitzDe\DictTuChemnitzDeService.cs" />
     <Compile Include="Google\GoogleDictionary.cs" />
     <Compile Include="Google\GoogleService.cs" />
     <Compile Include="Google\GoogleTranslator.cs" />
@@ -184,6 +186,7 @@
     <EmbeddedResource Include="MultiWordNet\Service.ico" />
     <EmbeddedResource Include="SaDirBg\Service.ico" />
     <EmbeddedResource Include="DictCc\Service.ico" />
+    <EmbeddedResource Include="DictTuChemnitzDe\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -203,6 +206,7 @@
     <Folder Include="Multitran" />
     <Folder Include="InterTran" />
     <Folder Include="MultiWordNet" />
+    <Folder Include="DictTuChemnitzDe" />
     <Folder Include="SaDirBg" />
     <Folder Include="WordNet" />
     <Folder Include="PriberamPt" />
