@@ -71,6 +71,8 @@
     <Compile Include="Core\WebRequestHelper.cs" />
     <Compile Include="CybermovaCom\CybermovaComDictionary.cs" />
     <Compile Include="CybermovaCom\CybermovaComService.cs" />
+    <Compile Include="DictCc\DictCcDictionary.cs" />
+    <Compile Include="DictCc\DictCcService.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
     <Compile Include="DictPl\DictPlDeDictionary.cs" />
@@ -181,6 +183,7 @@
     <EmbeddedResource Include="PriberamPt\Service.ico" />
     <EmbeddedResource Include="MultiWordNet\Service.ico" />
     <EmbeddedResource Include="SaDirBg\Service.ico" />
+    <EmbeddedResource Include="DictCc\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -189,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Core" />
+    <Folder Include="DictCc" />
     <Folder Include="Google" />
     <Folder Include="MetaUa" />
     <Folder Include="DictLinuxOrgUa" />
