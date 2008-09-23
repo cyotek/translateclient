@@ -309,6 +309,7 @@ namespace Translate
 		void LoadLanguages()
 		{
 			LockUpdate(true);
+			lbFrom.BeginUpdate();
 			lbFrom.Items.Clear();
 			lbTo.Items.Clear();
 			
@@ -337,6 +338,8 @@ namespace Translate
 				lbFrom.Items.Add(new LanguageDataContainer(l, val));
 			}
 
+			lbFrom.EndUpdate();
+
 			if(lbFrom.Items.Count > 0 && !profileChanging)
 				lbFrom.SelectedIndex = 0;
 			LockUpdate(false);
@@ -354,6 +357,8 @@ namespace Translate
 			if(lbTo.SelectedItem != null)
 				toLanguage = ((LanguageDataContainer)lbTo.SelectedItem);
 			
+			lbTo.BeginUpdate();
+
 			lbTo.Items.Clear();
 			
 			LanguageCollection toLangs = new LanguageCollection();
@@ -379,6 +384,7 @@ namespace Translate
 				val = LangPack.TranslateLanguage(l);
 				lbTo.Items.Add(new LanguageDataContainer(l, val));
 			}
+			lbTo.EndUpdate();
 
 			string caption = LangPack.TranslateLanguage(fromLanguage);
 			lFrom.Text = caption;
@@ -473,6 +479,7 @@ namespace Translate
 		public void LoadHistory()
 		{
 			//int idx = lbHistory.SelectedIndex;
+			lbHistory.BeginUpdate();
 			lbHistory.Items.Clear();
 			foreach(LanguagePair lp in history)
 			{
@@ -482,7 +489,7 @@ namespace Translate
 					);
 				lbHistory.Items.Add(lpc);
 			}
-			
+			lbHistory.EndUpdate();
 			if(history.Count > 0)
 				lbHistory.SelectedIndex = 0;
 		}
@@ -544,6 +551,7 @@ namespace Translate
 		bool loadingSubjects;
 		void LoadSubjects()
 		{
+			lbSubjects.BeginUpdate();
 			loadingSubjects = true;
 			lbSubjects.Items.Clear();
 			string val;
@@ -558,6 +566,7 @@ namespace Translate
 					val = "+" + val;
 				lbSubjects.Items.Add(new SubjectContainer(s, val), subjects.Contains(s));
 			}		
+			lbSubjects.EndUpdate();
 			lbSubjects.SetItemChecked(0, lbSubjects.CheckedItems.Count == supportedSubjects.Count);
 			loadingSubjects = false;
 			serviceItemsSettings = null; //reset
@@ -761,8 +770,11 @@ namespace Translate
 			{
 				tpServices.SuspendLayout();
 				lvServicesEnabled.SuspendLayout();
+				lvServicesEnabled.BeginUpdate();
 				lvServicesDisabled.SuspendLayout();
+				lvServicesDisabled.BeginUpdate();
 				lvServicesDisabledByUser.SuspendLayout();
+				lvServicesDisabledByUser.BeginUpdate();
 				foreach(ServiceSettingsContainer sc in serviceItemsContainers)
 				{
 					AddListViewItem(sc);
@@ -818,8 +830,11 @@ namespace Translate
 			} 
 			finally
 			{
+				lvServicesEnabled.EndUpdate();
 				lvServicesEnabled.ResumeLayout();
+				lvServicesDisabled.EndUpdate();
 				lvServicesDisabled.ResumeLayout();
+				lvServicesDisabledByUser.EndUpdate();
 				lvServicesDisabledByUser.ResumeLayout();
 				tpServices.ResumeLayout();
 			}
