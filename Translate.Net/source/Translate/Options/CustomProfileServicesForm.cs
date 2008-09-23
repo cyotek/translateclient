@@ -255,19 +255,46 @@ namespace Translate
 		
 		void AAddSelectedExecute(object sender, EventArgs e)
 		{
-			ServiceItemsDataCollection services = lvCurrent.Services;
-			services.Add(lvSource.Selected);
-			lvCurrent.Services = services;
-			lvSource.RemoveSelected();
+			UseWaitCursor = true;
+			Application.DoEvents();
+			LockUpdate(true);
+		
+			try
+			{		
+			
+				ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+				services.Add(lvSource.Selected);
+				lvCurrent.AddServices(services);
+				lvSource.RemoveSelected();
+			}
+			finally
+			{
+				UseWaitCursor = false;
+				LockUpdate(false);
+			}
+				
 		}
 		
 		void AAddAllExecute(object sender, EventArgs e)
 		{
-			ServiceItemsDataCollection services = lvCurrent.Services;
-			foreach(ServiceItemData sid in lvSource.Services)
-					services.Add(sid);
-			lvCurrent.Services = services;
-			lvSource.RemoveAll();
+			UseWaitCursor = true;
+			Application.DoEvents();
+			LockUpdate(true);
+		
+			try
+			{		
+				ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+				foreach(ServiceItemData sid in lvSource.Services)
+						services.Add(sid);
+				lvCurrent.AddServices(services);
+				lvSource.RemoveAll();
+			}
+			finally
+			{
+				UseWaitCursor = false;
+				LockUpdate(false);
+			}
+			
 		}
 		
 		void AAddSelectedUpdate(object sender, EventArgs e)
@@ -283,21 +310,37 @@ namespace Translate
 		
 		void ARemoveServiceExecute(object sender, EventArgs e)
 		{
-			Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
-			Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
-			LanguagePair languagePair = new LanguagePair(from, to);
-			string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+			UseWaitCursor = true;
+			Application.DoEvents();
+			LockUpdate(true);
 		
-			if(lvCurrent.Selected.LanguagePair == languagePair &&
-				(lvCurrent.Selected.Subject == subject || subject == SubjectConstants.Any)
-			)
+			try
 			{
-				ServiceItemsDataCollection services = lvSource.Services;
-				services.Add(lvCurrent.Selected);
-				lvSource.Services = services;
+				Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
+				Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
+				LanguagePair languagePair = new LanguagePair(from, to);
+				string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+				LanguagePair selectedLanguagePair = lvCurrent.Selected.LanguagePair;
+				if((selectedLanguagePair == languagePair || 
+					(languagePair.From == Language.Any && selectedLanguagePair.To == languagePair.To) ||
+					(languagePair.To == Language.Any && selectedLanguagePair.From == languagePair.From) ||
+					(languagePair.From == Language.Any && languagePair.To == Language.Any)
+					) &&
+					(lvCurrent.Selected.Subject == subject || subject == SubjectConstants.Any)
+				)
+				{
+					ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+					services.Add(lvCurrent.Selected);
+					lvSource.AddServices(services);
+				}
+						
+				lvCurrent.RemoveSelected();
 			}
-			
-			lvCurrent.RemoveSelected();
+			finally
+			{
+				UseWaitCursor = false;
+				LockUpdate(false);
+			}
 		}
 		
 		void AClearAllUpdate(object sender, EventArgs e)
@@ -307,22 +350,39 @@ namespace Translate
 		
 		void AClearAllExecute(object sender, EventArgs e)
 		{
-			Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
-			Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
-			LanguagePair languagePair = new LanguagePair(from, to);
-			string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+			UseWaitCursor = true;
+			Application.DoEvents();
+			LockUpdate(true);
 		
-			ServiceItemsDataCollection services = lvSource.Services;
-			foreach(ServiceItemData sid in lvCurrent.Services)
+			try
 			{
-				if(sid.LanguagePair == languagePair &&
-					(sid.Subject == subject || subject == SubjectConstants.Any)
-				)
-					services.Add(sid);
-			}
-			lvSource.Services = services;
 		
-			lvCurrent.RemoveAll();
+				Language from = (cbFrom.SelectedItem as LanguageDataContainer).Language;
+				Language to = (cbTo.SelectedItem as LanguageDataContainer).Language;
+				LanguagePair languagePair = new LanguagePair(from, to);
+				string subject = (cbSubject.SelectedItem as SubjectContainer).Subject;
+			
+				ServiceItemsDataCollection services = new ServiceItemsDataCollection();
+				foreach(ServiceItemData sid in lvCurrent.Services)
+				{
+					if((sid.LanguagePair == languagePair ||
+					(languagePair.From == Language.Any && sid.LanguagePair.To == languagePair.To) ||
+					(languagePair.To == Language.Any && sid.LanguagePair.From == languagePair.From) ||
+					(languagePair.From == Language.Any && languagePair.To == Language.Any)
+					) &&
+						(sid.Subject == subject || subject == SubjectConstants.Any)
+					)
+						services.Add(sid);
+				}
+				lvSource.AddServices(services);
+			
+				lvCurrent.RemoveAll();
+			}
+			finally
+			{
+				UseWaitCursor = false;
+				LockUpdate(false);
+			}
 		}
 		
 		void AMoveServiceUpExecute(object sender, EventArgs e)

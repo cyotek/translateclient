@@ -146,11 +146,17 @@ namespace Translate
 		void LoadServices()
 		{
 			SuspendLayout();
+			lvMain.SuspendLayout();
+			lvMain.BeginUpdate();
 			try
 			{
+				bool saveSorted = Sorted;
+				Sorted = false;
+			
 				lvMain.Items.Clear();
 				if(services == null)
 				{
+					Sorted = saveSorted;
 					return;
 				}	
 				foreach(ServiceItemData sd in services)
@@ -166,6 +172,7 @@ namespace Translate
 					lvi.ToolTipText = sid.Name;
 					lvMain.Items.Add(lvi);
 				}
+				Sorted = saveSorted;
 				lvMain.Focus();
 				if(lvMain.Items.Count > 0)
 				{
@@ -192,10 +199,67 @@ namespace Translate
 			}
 			finally
 			{
+				lvMain.EndUpdate();
+				lvMain.ResumeLayout();
 				ResumeLayout();
 			}	
+		}
 
+		public void AddServices(ServiceItemsDataCollection servicesToAdd)
+		{
+			SuspendLayout();
+			lvMain.SuspendLayout();
+			lvMain.BeginUpdate();
+			try
+			{
+				//bool saveSorted = Sorted;
+				//Sorted = false;
 			
+				foreach(ServiceItemData sd in servicesToAdd)
+				{
+					services.Add(sd);
+					ServiceItemDataContainer sid = new ServiceItemDataContainer(sd);
+					ListViewItem lvi = new ListViewItem();
+					lvi.Text = sid.Name;
+					lvi.Tag = sid;
+					lvi.ImageKey = sd.ServiceItem.Service.Name;
+					lvi.SubItems.Add(sid.Type);
+					lvi.SubItems.Add(sid.LanguagePair);
+					lvi.SubItems.Add(sid.Subject);
+					lvi.ToolTipText = sid.Name;
+					lvMain.Items.Add(lvi);
+				}
+				//Sorted = saveSorted;
+				lvMain.Focus();
+				if(lvMain.Items.Count > 0)
+				{
+					lvMain.Items[0].Selected = true;
+					lvMain.Items[0].Focused = true;
+					
+					chName.Width = 200;
+					chType.Width = -1;
+					chLanguagePair.Width = 150;						
+					chSubject.Width = -2;
+					
+				}
+				else
+				{
+					if(ServiceItemChangedEvent != null)
+						ServiceItemChangedEvent(this, new ServiceItemChangedEventArgs(null));
+						
+					chName.Width = 200;
+					chType.Width = -2;
+					chLanguagePair.Width = 150;						
+					chSubject.Width = -2;
+						
+				}
+			}
+			finally
+			{
+				lvMain.EndUpdate();
+				lvMain.ResumeLayout();
+				ResumeLayout();
+			}	
 		}
 		
 		public ServiceItemData Selected
