@@ -51,8 +51,8 @@ namespace Translate
 		{
 			Url = new Uri("http://www.tezaver.si/");
 			Name = "tezaver_si";
-			CompanyName = "http://www.tezaver.si/";
-			Copyright = "GNU LGPL, http://www.tezaver.si/";
+			CompanyName = "Martin Srebotnjak";
+			Copyright = "GNU LGPL, Martin Srebotnjak";
 			IconUrl = new Uri("http://www.openthesaurus.de/favicon.ico");
 			FullName = "OpenThesaurusSI is an Open Source thesaurus for the Slovenian language";
 						
