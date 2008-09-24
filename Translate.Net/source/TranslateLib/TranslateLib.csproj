@@ -139,6 +139,8 @@
     <Compile Include="SlovnykNet\SlovnykNetDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgDictionary.cs" />
     <Compile Include="SlovnykOrg\SlovnykOrgService.cs" />
+    <Compile Include="SozlukteCom\SozlukteComDictionary.cs" />
+    <Compile Include="SozlukteCom\SozlukteComService.cs" />
     <Compile Include="SynonimyPl\SynonimyPlService.cs" />
     <Compile Include="SynonimyPl\SynonimyPlThesaurus.cs" />
     <Compile Include="Systran\SystranService.cs" />
@@ -205,6 +207,7 @@
     <EmbeddedResource Include="OpenthesaurusPt\Service.ico" />
     <EmbeddedResource Include="SynonimyPl\Service.ico" />
     <EmbeddedResource Include="TezaverSi\Service.ico" />
+    <EmbeddedResource Include="SozlukteCom\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -225,6 +228,7 @@
     <Folder Include="InterTran" />
     <Folder Include="MultiWordNet" />
     <Folder Include="DictTuChemnitzDe" />
+    <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
     <Folder Include="SynonimyPl" />
     <Folder Include="OpenthesaurusPt" />
