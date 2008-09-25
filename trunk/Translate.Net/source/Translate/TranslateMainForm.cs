@@ -643,8 +643,7 @@ namespace Translate
 			StopCurrentTranslation(); 
 			
 			//force refresh of services 
-			if(timerRecheckServices.Enabled)
-				TimerRecheckServicesTick(null, null);
+			TimerRecheckServicesTick(null, null);
 			
 			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
@@ -999,7 +998,7 @@ namespace Translate
 			try
 			{
 				if(languageSelector.Phrase != tbFrom.Text.Trim())
-				languageSelector.Phrase = tbFrom.Text.Trim();
+					languageSelector.Phrase = tbFrom.Text.Trim();
 			} 
 			finally
 			{
