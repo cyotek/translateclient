@@ -69,7 +69,10 @@ namespace Translate
 			languageSelector.sbInvert.MouseLeave += sbInvertMouseLeave;
 			RegisterLanguageEvent(OnLanguageChanged);
 			
-			if(TranslateOptions.Instance.MainFormSize.Height == 0)
+			if(TranslateOptions.Instance.MainFormSize.Height == 0 || 
+				TranslateOptions.Instance.MainFormLocation.X <= 0 ||
+				TranslateOptions.Instance.MainFormLocation.Y <= 0
+				)
 			{ //reposition
 				System.Drawing.Rectangle workingRectangle = Screen.PrimaryScreen.WorkingArea;
 
@@ -524,7 +527,8 @@ namespace Translate
 				if(WindowState == FormWindowState.Normal && Size.Height != 0)
 				{
 					TranslateOptions.Instance.MainFormSize = Size;
-					TranslateOptions.Instance.MainFormLocation = Location;
+					if(Location.X >= 0 && Location.Y >= 0)
+						TranslateOptions.Instance.MainFormLocation = Location;
 					TranslateOptions.Instance.LanguageSelectorWidth = pRight.Width;
 					TranslateOptions.Instance.HistoryHeight = languageSelector.pBottom.Height;
 					TranslateOptions.Instance.SourceHeight = tbFrom.Height;
@@ -539,7 +543,8 @@ namespace Translate
 				if(WindowState == FormWindowState.Normal && Size.Height != 0)
 				{
 					TranslateOptions.Instance.MainFormSize = Size;
-					TranslateOptions.Instance.MainFormLocation = Location;
+					if(Location.X >= 0 && Location.Y >= 0)
+						TranslateOptions.Instance.MainFormLocation = Location;
 					TranslateOptions.Instance.LanguageSelectorWidth = pRight.Width;
 					TranslateOptions.Instance.HistoryHeight = languageSelector.pBottom.Height;
 					TranslateOptions.Instance.SourceHeight = tbFrom.Height;
