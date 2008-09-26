@@ -174,6 +174,7 @@ namespace Translate
 				al.Actions.Add(action);				
 			}
 			
+			UpdateTbFromStat();
 			UpdateProfiles();
 			
 			miAnimatedIcon.ToolTipText = aWebsite.Text;
@@ -773,6 +774,8 @@ namespace Translate
 		{
 			CheckOrderOfProfiles();
 			
+			UpdateTbFromStat();
+			
 			if(!InputLanguageManager.IsInputLanguageChanged)
 				return;
 				
@@ -912,7 +915,12 @@ namespace Translate
 		
 		void SbMainResize(object sender, EventArgs e)
 		{
-			lStatus.Width = sbMain.Width - 115 - (pbMain.Visible ? pbMain.Width : 0);
+			lStatus.Width = sbMain.Width - 30 - 
+				lInputLang.Width - 
+				lTextBoxStat.Width - 
+				lSelectedLangsPair.Width - 
+				(pbMain.Visible ? pbMain.Width : 0);
+			//sbMain.Refresh();	
 		}
 		
 		void PbMainVisibleChanged(object sender, EventArgs e)
@@ -1015,7 +1023,19 @@ namespace Translate
 		{
 			timerRecheckServices.Stop();
 			timerRecheckServices.Start();
+			UpdateTbFromStat();
 		}
+		
+		void UpdateTbFromStat()
+		{
+			string stat = tbFrom.SelectionStart.ToString();
+			stat += " : ";
+			stat += tbFrom.Text.Length.ToString();
+			if(stat != lTextBoxStat.Text)
+				lTextBoxStat.Text = stat;
+		}
+		
+		
 		
 		void AWebsiteExecute(object sender, EventArgs e)
 		{
