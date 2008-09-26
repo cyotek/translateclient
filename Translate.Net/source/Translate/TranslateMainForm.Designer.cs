@@ -205,6 +205,7 @@ namespace Translate
 			this.aPlaceResultViewBottom = new FreeCL.UI.Actions.Action(this.components);
 			this.aPlaceResultViewLeft = new FreeCL.UI.Actions.Action(this.components);
 			this.aPlaceResultViewRight = new FreeCL.UI.Actions.Action(this.components);
+			this.lTextBoxStat = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -424,6 +425,7 @@ namespace Translate
 			this.sbMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.lStatus,
 									this.pbMain,
+									this.lTextBoxStat,
 									this.lSelectedLangsPair,
 									this.lInputLang});
 			this.sbMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -918,10 +920,9 @@ namespace Translate
 			this.al.SetAction(this.tsbSearchInGoogle, this.aSearchInGoogle);
 			this.tsbSearchInGoogle.AutoToolTip = false;
 			this.tsbSearchInGoogle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-			this.tsbSearchInGoogle.Image = ((System.Drawing.Image)(resources.GetObject("tsbSearchInGoogle.Image")));
 			this.tsbSearchInGoogle.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbSearchInGoogle.Name = "tsbSearchInGoogle";
-			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 20);
+			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 4);
 			this.tsbSearchInGoogle.ToolTipText = "Search in Google";
 			// 
 			// tsbStop
@@ -930,10 +931,9 @@ namespace Translate
 			this.tsbStop.AutoToolTip = false;
 			this.tsbStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
 			this.tsbStop.Enabled = false;
-			this.tsbStop.Image = ((System.Drawing.Image)(resources.GetObject("tsbStop.Image")));
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
-			this.tsbStop.Size = new System.Drawing.Size(23, 20);
+			this.tsbStop.Size = new System.Drawing.Size(23, 4);
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsSeparatorTranslate
@@ -1142,7 +1142,7 @@ namespace Translate
 			// 
 			this.lStatus.AutoSize = false;
 			this.lStatus.Name = "lStatus";
-			this.lStatus.Size = new System.Drawing.Size(400, 17);
+			this.lStatus.Size = new System.Drawing.Size(300, 17);
 			this.lStatus.Spring = true;
 			this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1198,13 +1198,17 @@ namespace Translate
 			// lSelectedLangsPair
 			// 
 			this.lSelectedLangsPair.Name = "lSelectedLangsPair";
+			this.lSelectedLangsPair.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
 			this.lSelectedLangsPair.Size = new System.Drawing.Size(0, 17);
+			this.lSelectedLangsPair.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
 			// lInputLang
 			// 
 			this.lInputLang.Name = "lInputLang";
+			this.lInputLang.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
 			this.lInputLang.Size = new System.Drawing.Size(20, 17);
 			this.lInputLang.Text = "EN";
+			this.lInputLang.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
 			// aScrollResultDown
 			// 
@@ -1746,6 +1750,14 @@ namespace Translate
 			this.aPlaceResultViewRight.Visible = true;
 			this.aPlaceResultViewRight.Execute += new System.EventHandler(this.APlaceResultViewRightExecute);
 			// 
+			// lTextBoxStat
+			// 
+			this.lTextBoxStat.Name = "lTextBoxStat";
+			this.lTextBoxStat.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+			this.lTextBoxStat.Size = new System.Drawing.Size(29, 17);
+			this.lTextBoxStat.Text = "0 : 0";
+			this.lTextBoxStat.TextChanged += new System.EventHandler(this.SbMainResize);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1803,6 +1815,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripStatusLabel lTextBoxStat;
 		private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
