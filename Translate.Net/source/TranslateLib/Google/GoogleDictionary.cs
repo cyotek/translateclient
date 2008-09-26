@@ -95,7 +95,7 @@ namespace Translate
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			string query = "http://translate.google.com/translate_dict?q={0}&hl=en&langpair={1}";
+			string query = "http://www.google.com/dictionary?aq=f&langpair={1}&q={0}&hl=en";
 			query = string.Format(query, HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ), GoogleUtils.ConvertLanguagesPair(languagesPair));
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 

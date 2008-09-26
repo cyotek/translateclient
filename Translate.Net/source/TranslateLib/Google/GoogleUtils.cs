@@ -54,9 +54,10 @@ namespace Translate
 	
 		static GoogleUtils()
 		{
-			langToKey.Add(Language.Autodetect,"auto");
+			langToKey.Add(Language.Autodetect,"");
 			langToKey.Add(Language.Arabic,"ar");
 			langToKey.Add(Language.Bulgarian,"bg");
+			langToKey.Add(Language.Catalan,"ca");
 			langToKey.Add(Language.Chinese,"zh");
 			langToKey.Add(Language.Chinese_CN,"zh-CN");
 			langToKey.Add(Language.Chinese_TW,"zh-TW");
@@ -67,21 +68,31 @@ namespace Translate
 			langToKey.Add(Language.English,"en");
 			langToKey.Add(Language.English_US,"en");
 			langToKey.Add(Language.English_GB,"en");
+			langToKey.Add(Language.Filipino,"tl");
 			langToKey.Add(Language.Finnish,"fi");
 			langToKey.Add(Language.French,"fr");
 			langToKey.Add(Language.German,"de");
 			langToKey.Add(Language.Greek,"el");
+			langToKey.Add(Language.Hebrew,"iw");
 			langToKey.Add(Language.Hindi,"hi");
+			langToKey.Add(Language.Indonesian,"id");
 			langToKey.Add(Language.Italian,"it");
 			langToKey.Add(Language.Japanese,"ja");
 			langToKey.Add(Language.Korean,"ko");
+			langToKey.Add(Language.Latvian,"lv");
+			langToKey.Add(Language.Lithuanian,"lt");
 			langToKey.Add(Language.Norwegian,"no");
 			langToKey.Add(Language.Polish,"po");
 			langToKey.Add(Language.Portuguese,"pt");
 			langToKey.Add(Language.Romanian,"ro");
 			langToKey.Add(Language.Russian,"ru");
+			langToKey.Add(Language.Serbian,"sr");
+			langToKey.Add(Language.Slovak,"sk");
+			langToKey.Add(Language.Slovenian,"sl");
 			langToKey.Add(Language.Spanish,"es");
 			langToKey.Add(Language.Swedish,"sv");
+			langToKey.Add(Language.Ukrainian,"uk");
+			langToKey.Add(Language.Vietnamese,"vi");
 		}
 
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String,System.String)")]

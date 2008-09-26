@@ -71,24 +71,43 @@ namespace Translate
 			}
 		
 			AddSupportedSubject(SubjectConstants.Common);
+			CharsLimit = 500;
 		}
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
+			string query = "http://ajax.googleapis.com/ajax/services/language/translate?" +
+				"v=1.0&q={0}&langpair={1}&hl=en&" +
+				"key=ABQIAAAA1Xz0dZCPKigOKIhDUJZ6FxQmSA1Htufb6qVqyW_v4yDxIUvb4BRwNjuLUmsgD0bAGP7qnB0dWYfEdg";
+			query = string.Format(query, HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ), GoogleUtils.ConvertLanguagesPair(languagesPair));
+				
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://translate.google.com/translate_t?"), 
+				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
-					WebRequestContentType.UrlEncoded,
+					WebRequestContentType.UrlEncodedGet,
 					true);
+			helper.Referer = "127.0.0.1";		
 			
 			//query
 			//hl=en&ie=UTF8&text=small+test&langpair=en%7Cru			
-			string langpair= GoogleUtils.ConvertTranslatorLanguagesPair(languagesPair);
-			string query = "hl=en&ie=UTF8&text=" + HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ) + "&" + langpair;
-			helper.AddPostData(query);
+			//string langpair= GoogleUtils.ConvertTranslatorLanguagesPair(languagesPair);
+			//string query = "hl=en&ie=UTF8&text=" + HttpUtility.UrlEncode(phrase, System.Text.Encoding.UTF8 ) + "&" + langpair;
+			//helper.AddPostData(query);
 			
 			string responseFromServer = helper.GetResponse();
-			result.Translations.Add(StringParser.Parse(">", "<", StringParser.Parse("<div id=result_box dir=", "/div>", responseFromServer)));
+			
+			if(responseFromServer.Contains(", \"responseStatus\": 200}"))
+			{
+				string translation = StringParser.Parse("\"translatedText\":\"", "\"", responseFromServer);
+				translation = HttpUtility.HtmlDecode(translation);
+				result.Translations.Add(translation);
+			}
+			else
+			{
+				string error = StringParser.Parse("\"responseDetails\": \"", "\"", responseFromServer);
+				string code = StringParser.Parse("\"responseStatus\":", "}", responseFromServer);
+				throw new TranslationException(error + ", error code : " + code);
+			}
 		}
 	}
 }
