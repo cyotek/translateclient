@@ -55,6 +55,7 @@ namespace Translate
 		Arabic,
 		Belarusian,
 		Bulgarian,
+		Catalan,
 		Chinese,
 		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]
 		Chinese_CN, //Chinese_Simplified,
@@ -81,6 +82,7 @@ namespace Translate
 		Greek,
 		Hebrew,
 		Hindi,
+		Indonesian,
 		Hungarian,
 		Italian,
 		Japanese,
@@ -106,6 +108,7 @@ namespace Translate
 		Turkish,
 		Ukrainian,
 		Urdu,
+		Vietnamese,
 		Welsh,
 		Last
 	}
