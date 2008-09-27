@@ -17,7 +17,12 @@
 
 		<link href="WebUI.css" type="text/css" rel="stylesheet" />
 		<script type="text/javascript" src="webui.js"></script>
-		
+		<style>
+		body
+		{	
+			margin: -5px; 
+		}
+		</style>
 	</head>
 	<body id="service_status_body">
 		<form id="Form_ServiceStatus" method="post" runat="server">
