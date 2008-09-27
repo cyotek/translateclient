@@ -243,7 +243,9 @@ namespace Translate
 			while(startTagIdx >= 0)
 			{
 				result.Append(data.Substring(pos, startTagIdx - pos));
-				pos = data.IndexOf(endTag, startTagIdx) + endTagLength;
+				pos = data.IndexOf(endTag, startTagIdx);
+				if (pos < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
+				pos += endTagLength;
 				startTagIdx = data.IndexOf(startTag, pos);
 			}
 			result.Append(data.Substring(pos));
