@@ -71,6 +71,7 @@ namespace Translate
 			Name = "_dictionary";
 			
 			CharsLimit = 70;
+			LinesLimit = 1;
 		}
 		static Encoding encoding = Encoding.GetEncoding("iso-8859-1");
 		

@@ -63,6 +63,12 @@ namespace Translate
 			set { wordsLimit = value; }
 		}
 		
+		int linesLimit = -1;
+		public int LinesLimit {
+			get { return linesLimit; }
+			set { linesLimit = value; }
+		}
+		
 		
 		string name;
 		public string Name {
@@ -206,6 +212,25 @@ namespace Translate
 				return cachedPhraseWordsCount;
 			}
 		}
+		
+		static object cacheLockPhraseLineCount = new Object();
+		static string cachedPhraseLine = "";
+		static int cachedPhraseLineCount;
+		static int GetLinesCount(string phrase)
+		{
+			lock(cacheLockPhraseLineCount)
+			{
+				if(cachedPhraseLine != phrase)
+				{
+					cachedPhraseLine = phrase;
+					string tmp = phrase.Replace("\r\n", "\n");
+					string[] lines = tmp.Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries);
+					cachedPhraseLineCount = lines.Length;
+				}
+				return cachedPhraseLineCount;
+			}
+		}
+		
 		public virtual bool CheckPhrase(string phrase, out string error)
 		{
 			error = "";
@@ -216,6 +241,12 @@ namespace Translate
 			}
 
 			if(charsLimit != -1 && phrase.Length > charsLimit)
+			{
+				error = "Length too big";
+				return false;
+			}
+
+			if(linesLimit != -1 && GetLinesCount(phrase) > linesLimit)
 			{
 				error = "Length too big";
 				return false;

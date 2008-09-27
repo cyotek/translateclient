@@ -109,6 +109,7 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			CharsLimit = 64;
+			LinesLimit = 1;
 		
 			IsQuestionMaskSupported = true;
 			IsAsteriskMaskSupported = true;

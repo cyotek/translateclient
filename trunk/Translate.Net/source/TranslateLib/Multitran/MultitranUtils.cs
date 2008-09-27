@@ -96,6 +96,7 @@ namespace Translate
 			serviceItem.AddSupportedTranslationFromEnglish(Language.Japanese);
 			
 			serviceItem.CharsLimit = 50;
+			serviceItem.LinesLimit = 1;
 		}
 		
 		static MultitranUtils()

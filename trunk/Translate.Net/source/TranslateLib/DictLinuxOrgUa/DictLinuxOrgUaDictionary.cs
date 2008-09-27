@@ -66,7 +66,7 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Electronics);
 			
 			CharsLimit = 50;
-			
+			LinesLimit = 1;			
 			WordsCount = 45000;
 		}
 		
