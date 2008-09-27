@@ -72,7 +72,9 @@ namespace Translate
 			get { return "text-align: center; padding-left: 0px; padding-right: 0px;margin: 0px;" + DefaultTextFormat; }
 		}
 		
-		public const string ServiceNameFormat = "<a href=\"{0}\">{1}</a>";
+		public const string ServiceNameFormat = "<a href=\"{0}\" title=\"{0}\">{1}</a>";
+		
+		public const string IconOfAudioFormat = "<img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}\" src=\"/audio.png\" align=\"top\">";
 
 		public static void InitDocument(WebBrowser wBrowser)
 		{
@@ -87,7 +89,7 @@ namespace Translate
 		}
 		
 		
-		public const string IconFormat = "<a href=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
+		public const string IconFormat = "<a href=\"{0}\" title=\"{0}\"><img style=\"border: 0px solid ; width: 16px; height: 16px;\" alt=\"{0}, {1}, {2}\" src=\"{3}\" align=\"top\"></a>";
 		public static string GetServiceIconCellHtml(ServiceItem serviceItem)
 		{
 			return GetServiceIconCellHtml(serviceItem, false);

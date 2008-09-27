@@ -166,7 +166,7 @@ namespace Translate
 					query = "http://slovnik.tiscali.cz/index.php?od=24&slovnik={0}&dotaz={1}";
 					query = string.Format(CultureInfo.InvariantCulture, query, ConvertLanguagesPair(languagesPair), HttpUtility.UrlEncode(phrase));
 				
-					string link = "html!<a href=\"{0}\">{1}</a>";
+					string link = "html!<a href=\"{0}\" title=\"{0}\">{1}</a>";
 					link = string.Format(link,
 						query,
 						"More phrases ...");

@@ -192,7 +192,7 @@ namespace Translate
 			{
 				if(!string.IsNullOrEmpty(result.EditArticleUrl))
 				{
-					string link_f = "<a href=\"{0}\">{1} \"{2}\"</a><br><br>";
+					string link_f = "<a href=\"{0}\" title=\"{0}\">{1} \"{2}\"</a><br><br>";
 					htmlString.AppendFormat(link_f, result.EditArticleUrl,
 						result.ResultNotFound ? 
 							LangPack.TranslateString("Create article") : 
@@ -218,37 +218,53 @@ namespace Translate
 					if(result.Translations.Count > 0 || !string.IsNullOrEmpty(result.Abbreviation))
 						htmlString.Append("<br>");
 							
-					foreach(Result r in result.Childs)
+					foreach(Result child in result.Childs)
 					{
-						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(r.Phrase))
+						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(child.Phrase))
 						{
 							if(indent != 0)
 								htmlString.Append(GetParagraphFormat(indent, result));
 							
-							if(!r.Phrase.StartsWith("html!"))
+							if(!child.Phrase.StartsWith("html!"))
 							{
-								htmlString.AppendFormat("<b>{0}</b> ", 
-									HttpUtility.HtmlEncode(r.Phrase.Replace('\u00A0', ' ')));
+								if(string.IsNullOrEmpty(child.ArticleUrl))
+								{
+									htmlString.AppendFormat("<b>{0}</b> ", 
+										HttpUtility.HtmlEncode(child.Phrase.Replace('\u00A0', ' ')));
+								}	
+								else
+								{ //integrate url
+									string icon = "";
+									if(child.HasAudio)
+									{
+										icon = " " + string.Format(HtmlHelper.IconOfAudioFormat, 
+											LangPack.TranslateString("Pronunciation"));
+									}
+									htmlString.AppendFormat("<a href=\"{0}\" title=\"{0}\"><b>{1}</b>{2}</a> ", 
+										child.ArticleUrl,
+										HttpUtility.HtmlEncode(child.Phrase.Replace('\u00A0', ' ')),
+										icon);
+								}
 							}
 							else
 							{  //append html directly
-								htmlString.Append(r.Phrase.Substring(5));
+								htmlString.Append(child.Phrase.Substring(5));
 							}
 								
 							if(indent != 0)
 								htmlString.Append("</p>");
 						}
 								
-						if(!string.IsNullOrEmpty(r.Abbreviation) && r.Childs.Count == 0)
+						if(!string.IsNullOrEmpty(child.Abbreviation) && child.Childs.Count == 0)
 						{
-							htmlString.Append(" " + HttpUtility.HtmlEncode(r.Abbreviation) + " ");
+							htmlString.Append(" " + HttpUtility.HtmlEncode(child.Abbreviation) + " ");
 						}
 						
-						if(/*r.Phrase != result.Phrase && */indent > 0.5 && (!string.IsNullOrEmpty(r.Phrase) || !string.IsNullOrEmpty(r.Abbreviation)))
+						if(/*r.Phrase != result.Phrase && */indent > 0.5 && (!string.IsNullOrEmpty(child.Phrase) || !string.IsNullOrEmpty(child.Abbreviation)))
 							htmlString.Append("<br>");
 
 						htmlString.AppendFormat("{0}", 
-							GetResultHtml(r, indent + 0.5 ));
+							GetResultHtml(child, indent + 0.5 ));
 					}
 					return htmlString.ToString();
 				}
@@ -323,6 +339,30 @@ namespace Translate
 						htmlString.Append("</li>");
 				}
 				
+				//Additional links
+				if(result.RelatedLinks.Count > 0)
+				{
+					if(indent > 0)
+							htmlString.Append("<li>");
+							
+					htmlString.Append(GetParagraphFormat(indent, result));
+					htmlString.Append(LangPack.TranslateString("related links") + " : ");
+					bool first = true;
+					foreach(Link lnk in result.RelatedLinks)
+					{
+						if(first)
+							first = false;
+						else
+							htmlString.Append(", ");
+						htmlString.AppendFormat("<a href=\"{0}\" title=\"{0}\">{1}</a>", 
+										lnk.Uri,
+										HttpUtility.HtmlEncode(lnk.Text.Replace('\u00A0', ' ')));
+					}
+
+					htmlString.Append("</p>");
+					if(indent > 0)
+						htmlString.Append("</li>");
+				}
 			}
 			else
 			{
@@ -380,17 +420,39 @@ namespace Translate
 			if(htmlString.Length > 0)
 				htmlString+= "<hr style=\"width: 100%; height: 1px;\">";
 			
+
+			if(!string.IsNullOrEmpty(result.ArticleUrl))
+			{
+				htmlString += GetParagraphFormat(0, result);
+				htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">{0}</a>", result.ArticleUrl);
+				htmlString += "</p>";
+				htmlString += "<br>";
+			}
 			
 			htmlString += GetResultHtml(result);
+			
+			if(!string.IsNullOrEmpty(result.ArticleUrl) && result.MoreEntriesCount != 0)
+			{
+				htmlString += "<br>";
+				htmlString += GetParagraphFormat(0, result);
+				htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">&gt;&gt;&gt; {1}</a>", 
+					result.ArticleUrl, 
+					string.Format(LangPack.TranslateString("{0} more entries found"),
+							result.MoreEntriesCount)
+						);
+				htmlString += "</p>";
+			}
 			
 			if(result.QueryTicks != 0 && TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 			{
 				htmlString+= "<hr style=\"width: 100%; height: 1px;\">";
 				htmlString += "<span style=\"" + HtmlHelper.InfoTextStyle+ "\">";
-				htmlString += string.Format(CultureInfo.InvariantCulture, "Query time : {0} s", new DateTime(result.QueryTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );
-				htmlString += ", Retry count : " + result.RetryCount; 
-				htmlString += ", Bytes sent : " + result.BytesSent; 
-				htmlString += ", Bytes received : " + result.BytesReceived; 
+				htmlString += string.Format(CultureInfo.InvariantCulture, 
+					LangPack.TranslateString("Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}"), 
+					new DateTime(result.QueryTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture),
+					result.RetryCount,
+					result.BytesSent,
+					result.BytesReceived); 
 				htmlString += "</span>";
 			}
 						
@@ -410,7 +472,9 @@ namespace Translate
 			if(!TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 			  return;
 			  
-			string htmlString = string.Format(CultureInfo.InvariantCulture, "Full time : {0} s", new DateTime(translateTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );;
+			string htmlString = string.Format(CultureInfo.InvariantCulture, 
+				LangPack.TranslateString("Full time : {0} s"), 
+				new DateTime(translateTicks).ToString("ss.fffffff", CultureInfo.InvariantCulture) );;
 			htmlString = "<span style=\""+ HtmlHelper.InfoTextStyle+"\">" + htmlString + "</span>";
 			
 			Wait();

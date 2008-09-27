@@ -188,7 +188,7 @@ namespace Translate
 					if(responseFromServer.Contains("&amp;from=31\">2</a></span>"))
 					{ //more phrases
 					
-						string link = "html!<a href=\"{0}\">{1}</a>";
+						string link = "html!<a href=\"{0}\" title=\"{0}\">{1}</a>";
 						link = string.Format(link,
 							query + "&from=31",
 							"More phrases ...");

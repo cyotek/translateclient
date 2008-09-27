@@ -140,7 +140,7 @@ namespace Translate
 					
 					query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase));
 				
-					string link = "html!<a href=\"{0}\">{1}</a>";
+					string link = "html!<a href=\"{0}\" title=\"{0}\">{1}</a>";
 					link = string.Format(link,
 						query,
 						"More ...");
