@@ -94,6 +94,8 @@ minghao.sun@gmail.com
 更新
 [Automatically check updates]
 自动检查更新
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 已更新 - {0}\r\n最后一次检查更新 - {1}，状态 - {2}\r\n下一次检查更新 - {3}
 [Close]
@@ -114,7 +116,7 @@ minghao.sun@gmail.com
 
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

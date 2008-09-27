@@ -94,6 +94,8 @@
 更新
 [Automatically check updates]
 自動的に更新をチェックする。
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 更新 - {0}\r\n更新を最後にチェック - {1}，状態 - {2}\r\n次の更新チェック - {3}
 [Close]
@@ -114,7 +116,7 @@
 更新プログラムは、サーバーの過負荷状態です。更新プログラムのチェックは延期されました。
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

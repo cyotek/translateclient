@@ -445,7 +445,7 @@ namespace Translate
 				return;
 			}
 			
-			if(portable)
+			if(portable || !TranslateOptions.Instance.UpdateOptions.AutoDownloadNewVersion)
 			{
 				state = UpdateState.NewVersionExists;
 				return;

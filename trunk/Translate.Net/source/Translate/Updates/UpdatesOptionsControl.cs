@@ -62,6 +62,7 @@ namespace Translate
 		void OnLanguageChanged()
 		{
 			cbAutomaticUpdates.Text = TranslateString("Automatically check updates");
+			cbAutomaticallyDownload.Text = TranslateString("Automatically download updates");
 			statFormat = TranslateString("Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}");
 			if(current != null)
 			{
@@ -82,6 +83,7 @@ namespace Translate
 		{
 			current = TranslateOptions.Instance.UpdateOptions;
 			cbAutomaticUpdates.Checked = current.EnableAutomaticUpdates;
+			cbAutomaticallyDownload.Checked = current.AutoDownloadNewVersion;
 			
 				lStat.Text = 
 				  string.Format(statFormat, 
@@ -96,11 +98,13 @@ namespace Translate
 		public override void Apply()
 		{
 			current.EnableAutomaticUpdates = cbAutomaticUpdates.Checked;
+			current.AutoDownloadNewVersion = cbAutomaticallyDownload.Checked;
 		}
 		
 		public override bool IsChanged()
 		{
-			return current.EnableAutomaticUpdates != cbAutomaticUpdates.Checked;
+			return current.EnableAutomaticUpdates != cbAutomaticUpdates.Checked || 
+				current.AutoDownloadNewVersion != cbAutomaticallyDownload.Checked;
 		}
 	}
 }

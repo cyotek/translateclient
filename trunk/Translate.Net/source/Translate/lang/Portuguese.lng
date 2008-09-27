@@ -94,6 +94,8 @@ Verificar Atualizações...
 Atualizações
 [Automatically check updates]
 Verificar atualizações automaticamente
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Atualizado - {0}\r\nÚltima verificação de atualizações - {1}, status - {2}\r\nPróxima verificação de atualizações - {3}
 [Close]
@@ -114,7 +116,7 @@ O arquivo {0} já existe
 O servidor de atualizações está sobrecarregado. A verificação de atualizações poderá demorar
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

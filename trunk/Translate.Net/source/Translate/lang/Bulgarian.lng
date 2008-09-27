@@ -96,6 +96,8 @@
 Обновления
 [Automatically check updates]
 Автоматична проверка за обновяване
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Последното обновяване е било на {0}\r\nПоследна проверка за обновления - {1} със статус — {2}\r\nСледваща проверка за обновления - {3}
 [Close]
@@ -116,7 +118,7 @@
 Сървърът за обновяване е претоварен. Проверката ще бъде извършена по-късно.
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

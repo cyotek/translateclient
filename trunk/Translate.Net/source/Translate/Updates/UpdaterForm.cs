@@ -141,12 +141,12 @@ namespace Translate
 				case UpdateState.NewVersionExists:
 					timerUpdate.Enabled = false;
 					lStatus.Text = string.Format(CultureInfo.InvariantCulture, 
-						TranslateString("New version {0} of portable {1} available at site"), 
+						TranslateString("New version {0} of {1} available"), 
 						UpdatesManager.VersionOnSite,
 						Constants.AppName);
 					if(MessageBox.Show(this, 
 						string.Format(CultureInfo.InvariantCulture,
-							TranslateString("New version {0} of portable {1} available at site"), 
+							TranslateString("New version {0} of {1} available"), 
 								UpdatesManager.VersionOnSite,
 								Constants.AppName
 								) +

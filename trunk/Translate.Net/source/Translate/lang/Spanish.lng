@@ -94,6 +94,8 @@ Buscar Actualizaciones ...
 Actualizaciones
 [Automatically check updates]
 Buscar actualizaciones automáticamente
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Actualizado - {0}\r\nÚlitma busqueda de actualizaciones - {1}, Estado - {2}\r\nPróxima búsqueda de actualizaciones - {3}
 [Close]
@@ -114,7 +116,7 @@ El fichero {0} ya existe
 El servidor de actualizaciones esta sobrecargado. La búsqueda de actulizaciones se demorará.
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 
