@@ -358,6 +358,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Белоруски
 [Bulgarian]
 Български
+[Catalan]
+Каталонски
 [Chinese]
 Китайски
 [Chinese_CN]
@@ -398,6 +400,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Иврит
 [Hindi]
 Хинди
+[Indonesian]
+Индонезийски
 [Hungarian]
 Унгарски
 [Italian]
@@ -444,6 +448,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Украински
 [Urdu]
 Урду
+[Vietnamese]
+Виетнамски
 [Welsh]
 Уелски
 [Languages]
@@ -580,6 +586,8 @@ CC
 символи
 [Limit {0} : {1} characters]
 Ограничение {0} : {1} символи
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -672,6 +680,12 @@ Tiscali - речник, ориентиран към чешки език
 Създаване на статия
 [Open article]
 Отваряне на статия
+[Pronunciation]
+Произношение
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 Преведени са {0} фрази с помощта на {1} опита за свързване със службите за превод
 [Send by mail]

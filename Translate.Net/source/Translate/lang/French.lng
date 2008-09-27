@@ -354,6 +354,8 @@ Arabe
 Biélorusse
 [Bulgarian]
 Bulgare
+[Catalan]
+
 [Chinese]
 Chinois
 [Chinese_CN]
@@ -394,6 +396,8 @@ Grec
 Hébreu
 [Hindi]
 Hindî
+[Indonesian]
+
 [Hungarian]
 Hongrois
 [Italian]
@@ -439,6 +443,8 @@ Turkic
 Ukrainien
 [Urdu]
 Ourdu
+[Vietnamese]
+
 [Welsh]
 Gallois
 [Languages]
@@ -575,6 +581,8 @@ Limite
 caractères
 [Limit {0} : {1} characters]
 Limite {0} : {1} caractères
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -667,6 +675,12 @@ Rangés par Langage
 Créer un article
 [Open article]
 Ouvrir un article
+[Pronunciation]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 
 [Send by mail]

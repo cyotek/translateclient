@@ -356,6 +356,8 @@ Arabisch
 Belorussisch
 [Bulgarian]
 Bulgarisch
+[Catalan]
+
 [Chinese]
 Chinesisch
 [Chinese_CN]
@@ -396,6 +398,8 @@ Griechisch
 Hebräisch
 [Hindi]
 Hindi
+[Indonesian]
+
 [Hungarian]
 Ungarisch
 [Italian]
@@ -442,6 +446,8 @@ Türkisch
 Ukrainisch
 [Urdu]
 Urdu
+[Vietnamese]
+
 [Welsh]
 Walisisch
 [Languages]
@@ -578,6 +584,8 @@ Limit
 Zeichen
 [Limit {0} : {1} characters]
 Limit {0} : {1} Zeichen
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -670,6 +678,12 @@ Gruppiert nach Sprache
 Artikel erstellen
 [Open article]
 Artikel öffnen
+[Pronunciation]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 {0} Redewendungen übersetzt von {1} Aufrufen der Übersetzungsdienste
 [Send by mail]
