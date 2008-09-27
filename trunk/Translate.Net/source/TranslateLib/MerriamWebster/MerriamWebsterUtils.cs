@@ -42,6 +42,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Web; 
 using System.Text; 
 using System.Globalization;
+using System.Collections.Generic;
 
 
 namespace Translate
@@ -52,7 +53,7 @@ namespace Translate
 	public static class MerriamWebsterUtils
 	{
 	
-		public static void SetResult(Result result, string data)
+		public static void SetResult(Result result, string data, string host)
 		{
 		
 			if(data.IndexOf("</strong> can be found at Merriam-WebsterUnabridged.com.") > 0)
@@ -66,6 +67,8 @@ namespace Translate
 				result.Translations.Add(result.Phrase);
 				return;
 			}
+			
+			result.HasAudio = data.Contains("/cgi-bin/audio.pl?");
 			
 			if(data.IndexOf("<dd class=\"func\">") > 0)
 			{
@@ -83,6 +86,8 @@ namespace Translate
 				string abbr = StringParser.Parse("<dd class=\"pron\">", "</dd>", data);
 				abbr = StringParser.RemoveAll("<span", ">", abbr);
 				abbr = abbr.Replace("</span>", "");
+				abbr = abbr.Replace("<em>", "");
+				abbr = abbr.Replace("</em>", "");
 				if(!string.IsNullOrEmpty(result.Abbreviation))
 					result.Abbreviation += ", ";
 				result.Abbreviation += abbr;
@@ -124,6 +129,7 @@ namespace Translate
 			if(!data.Contains("<div class=\"defs\">") && data.Contains("<span class=\"variant\">"))
 			{  //variant, like a blew - past of blow
 				string variant = StringParser.Parse("<span class=\"variant\">", "</div>", data);
+				SetAdditionalLinks(result, variant, host);
 				variant = StringParser.RemoveAll("<span", ">", variant);
 				variant = StringParser.RemoveAll("<a href", ">", variant);
 				variant = variant.Replace("</a>", "");
@@ -149,6 +155,8 @@ namespace Translate
 			defs = defs.Replace("</strong>", "");
 			defs = defs.Replace(":�<a", "- <a");
 			
+			defs = defs.Replace("<span class=\"dxn\">", "");
+			SetAdditionalLinks(result, defs, host);
 			defs = StringParser.RemoveAll("<a href", ">", defs);
 			defs = defs.Replace("</a>", "");
 			defs = defs.Replace("<span class=\"sense_content\">", "");
@@ -157,7 +165,7 @@ namespace Translate
 			defs = defs.Replace("�", "");
 			defs = defs.Replace("<span class=\"vi\">", "");
 			defs = defs.Replace("<span class=\"text\">", "");
-			defs = defs.Replace("<span class=\"dxn\">", "");
+			
 			defs = defs.Replace("<span class=\"\n            sense_label", "<span class=\"sense_label");
 			defs = defs.Replace("<span class=\"unicode\">", "");
 			defs = defs.Replace("ʼ", "'");
@@ -173,6 +181,7 @@ namespace Translate
 				   defs.IndexOf("<span class=\"ant\">") < 0
 				)
 				{
+					defs = StringParser.RemoveAll("<", ">", defs);
 					result.Translations.Add(defs.Trim());
 					return;
 				}
@@ -210,7 +219,7 @@ namespace Translate
 					if(translation.IndexOf(subsense_tag) > 0)
 					{ //extract senses
 						string toptranslaton = translation.Substring(0, translation.IndexOf(subsense_tag));
-						toptranslaton = StringParser.RemoveAll("<span", ">", toptranslaton);
+						toptranslaton = StringParser.RemoveAll("<", ">", toptranslaton);
 						if(toptranslaton.StartsWith("a :"))
 							toptranslaton = toptranslaton.Substring(3);
 							
@@ -228,19 +237,49 @@ namespace Translate
 							if(translation.StartsWith(":"))
 								translation = translation.Substring(1); //skip idx
 
-							translation = StringParser.RemoveAll("<span", ">", translation);
+							translation = StringParser.RemoveAll("<", ">", translation);
 							result.Translations.Add(translation.Trim());
 						}
 					}
 					else
 					{
-						translation = StringParser.RemoveAll("<span", ">", translation);
+						translation = StringParser.RemoveAll("<", ">", translation);
 						result.Translations.Add(translation.Trim());
 					}
 				}
 			}	
 		}
 
+		public static void SetAdditionalLinks(Result result, string data, string host)		
+		{
+			string[] urls = StringParser.ParseItemsList("<a href=\"", "</a>", data);
+			string link;
+			string text;
+			List<string> texts = new List<string>();
+			
+			foreach(string url in urls)
+			{
+				link = StringParser.ExtractLeft("\"", url);
+				link = link.Replace(" ", "+");
+				if(link.StartsWith("/"))
+					link = "http://" + (new Uri(host)).Host + link;
+				else
+					link = host + link;
+					
+				text = StringParser.ExtractRight(">", url);
+				if(text.EndsWith(" 1"))
+					text = StringParser.ExtractLeft(" 1", text);
+				else if(text.EndsWith(" 2"))
+					text = StringParser.ExtractLeft(" 2", text);
+				
+				if(!texts.Contains(text))
+				{
+					result.RelatedLinks.Add(text, new Uri(link));
+					texts.Add(text);
+				}	
+			}
+		}
+		
 		public static void DoTranslate(ServiceItem serviceItem, string host, string bookName, string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 		
@@ -265,7 +304,7 @@ namespace Translate
 					foreach(string item in suggestions)
 					{
 						string part = item;
-						string link = "html!<a href=\""+ host + "/{0}\">{0}</a>";
+						string link = "html!<a href=\""+ host + "/{0}\" title=\""+ host + "/{0}\">{0}</a>";
 						link = string.Format(link,
 							part);
 						result.Translations.Add(link);
@@ -279,12 +318,21 @@ namespace Translate
 				}
 			}
 			
+			result.ArticleUrl = host + "/" + phrase;
 			if(responseFromServer.IndexOf("One entry found.\n<br/>") > 0)
 			{
-				SetResult(result, responseFromServer);
+				SetResult(result, responseFromServer, host + "/");
 			}
 			else
 			{
+				if(responseFromServer.Contains("'list' value=\"va:"))
+				{
+					string count_str = StringParser.Parse("'list' value=\"va:", ",", responseFromServer);
+					int count;
+					if(int.TryParse(count_str, out count))
+						result.MoreEntriesCount = count;
+				}
+			
 				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
 				string[] items = parser.ReadItemsList("form.action = '/" + bookName.ToLower() + "/", "'");
 				
@@ -299,8 +347,13 @@ namespace Translate
 						Result subres = serviceItem.CreateNewResult(part_name, languagesPair, subject);
 						result.Childs.Add(subres);
 
+						subres.ArticleUrl = host + "/" + part;
+
 						if(first)
-							SetResult(subres, responseFromServer);
+						{
+							SetResult(subres, responseFromServer, host + "/");
+							first = false;
+						}	
 						else
 						{ //get translation 
 							//jump=blood%5B1%2Cnoun%5D&book=Dictionary&quer=blood&list=45%2C1%2C3602592%2C0%3Bblood%5B1%2Cnoun%5D%3D113554%3Bblood%5B2%2Ctransitive+verb%5D%3D113572%3BABO+blood+group%3D2000002431%3Bbad+blood%3D2000074812%3Bblood-and-guts%3D2000113598%3Bblood-brain+barrier%3D2000113627%3Bblood+brother%3D2000113664%3Bblood+cell%3D2000113685%3Bblood+count%3D2000113697%3Bblood+doping%3D2000113725
@@ -320,11 +373,13 @@ namespace Translate
 									WebRequestContentType.UrlEncoded);
 							helper.AddPostData(post_data_value);				
 							responseFromServer = helper.GetResponse();
-							SetResult(subres, responseFromServer);
+							SetResult(subres, responseFromServer, host + "/");
 						}
 					}
-					first = false;				
 				}
+				
+				if(result.MoreEntriesCount != 0)
+					result.MoreEntriesCount -= result.Childs.Count;
 			}
 		}
 	

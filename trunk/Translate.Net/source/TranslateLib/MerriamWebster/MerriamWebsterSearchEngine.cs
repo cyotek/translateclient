@@ -78,6 +78,7 @@ namespace Translate
 			{
 				string query = "http://www.merriam-webster.com/dictionary/{0}";
 				query = string.Format(query, HttpUtility.UrlEncode(phrase));
+				result.ArticleUrl = query;
 			
 				helper = 
 					new WebRequestHelper(result, new Uri(query), 
@@ -110,7 +111,7 @@ namespace Translate
 					foreach(string item in items)
 					{
 						string part = item;
-						string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
+						string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
 						link = string.Format(link,
 							part);
 						result.Translations.Add(link);
@@ -119,21 +120,32 @@ namespace Translate
 				}
 			}
 			
-			if(responseFromServer.IndexOf("One entry found.\n<br/>") < 0)
+			if(!responseFromServer.Contains("One entry found.\n<br/>"))
 			{
+			
+				if(string.IsNullOrEmpty(post_data) && responseFromServer.Contains("'list' value=\"va:"))
+				{
+					string count_str = StringParser.Parse("'list' value=\"va:", ",", responseFromServer);
+					int count;
+					if(int.TryParse(count_str, out count))
+						result.MoreEntriesCount = count;
+				}
+			
 				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
-				string[] items = parser.ReadItemsList("form.action = '/dictionary/", "'");
+				string[] items = parser.ReadItemsList("href=\"/dictionary/", "</a>");
 				
 				foreach(string item in items)
 				{
-					string part = item;
-					string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
+					string part = StringParser.ExtractLeft("\">", item);
+					string name = StringParser.ExtractRight("\">", item);
+					name = StringParser.RemoveAll("<sup>", "</sup>", name);
+					string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{1}</a>";
 					link = string.Format(link,
-						part);
+						part, name);
 					result.Translations.Add(link);
 				}
 				
-				if(responseFromServer.IndexOf("name='incr'") > 0)
+				if(result.Translations.Count < 50 && responseFromServer.IndexOf("name='incr'") > 0)
 				{ //we has more items
 					//incr=Next+5&jump=dragon%27s+blood&book=Dictionary&quer=blood&list=45%2C31%2C3602592%2C0%3Bdragon%27s+blood%3D2000318535%3Bflesh+and+blood%3D2000400359%3Bfull-blood%5B1%2Cadjective%5D%3D2000425490%3Bfull-blood%5B2%2Cnoun%5D%3D2000425517%3Bhalf-blood%3D2000475964%3Bhalf+blood%3D2000475978%3Bhigh+blood+pressure%3D2000498596%3Blow+blood+pressure%3D2000629024%3Bnew+blood%3D2000712110%3Bpure-blooded%3D2000860991
 					string incr_value = StringParser.Parse("<input type='submit' value='", "'", responseFromServer);
@@ -152,12 +164,15 @@ namespace Translate
 					
 					InternalDoTranslate(phrase, languagesPair, subject, result, networkSetting, post_data_value);
 				}
+				
+				if(result.MoreEntriesCount != 0)
+					result.MoreEntriesCount -= result.Translations.Count;
 			}
 			else if(responseFromServer.Contains("<span class=\"variant\">"))
 			{
 				string part = StringParser.Parse("<span class=\"variant\">", "</span>", responseFromServer);
 				
-				string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
+				string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
 				link = string.Format(link,
 					part);
 				result.Translations.Add(link);
