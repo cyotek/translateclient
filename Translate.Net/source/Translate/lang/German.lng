@@ -94,6 +94,8 @@ Auf Updates prüfen...
 Updates
 [Automatically check updates]
 Automatisch auf Updates prüfen
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Aktualisiert - {0}\r\nLetzte Update-Prüfung - {1}, Status - {2}\r\nNächste Update-Prüfung - {3}
 [Close]
@@ -114,7 +116,7 @@ Datei {0} existiert bereits
 Der Update-Server ist überlastet. Die Überprüfung auf Updates wird verschoben.
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

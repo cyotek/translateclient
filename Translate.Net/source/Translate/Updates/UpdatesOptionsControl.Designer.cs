@@ -72,11 +72,13 @@ namespace Translate
 		{
 			this.cbAutomaticUpdates = new System.Windows.Forms.CheckBox();
 			this.lStat = new System.Windows.Forms.Label();
+			this.cbAutomaticallyDownload = new System.Windows.Forms.CheckBox();
 			this.pBody.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.cbAutomaticallyDownload);
 			this.pBody.Controls.Add(this.lStat);
 			this.pBody.Controls.Add(this.cbAutomaticUpdates);
 			// 
@@ -91,10 +93,19 @@ namespace Translate
 			// 
 			// lStat
 			// 
-			this.lStat.Location = new System.Drawing.Point(13, 57);
+			this.lStat.Location = new System.Drawing.Point(8, 82);
 			this.lStat.Name = "lStat";
 			this.lStat.Size = new System.Drawing.Size(373, 72);
 			this.lStat.TabIndex = 3;
+			// 
+			// cbAutomaticallyDownload
+			// 
+			this.cbAutomaticallyDownload.Location = new System.Drawing.Point(13, 43);
+			this.cbAutomaticallyDownload.Name = "cbAutomaticallyDownload";
+			this.cbAutomaticallyDownload.Size = new System.Drawing.Size(373, 24);
+			this.cbAutomaticallyDownload.TabIndex = 4;
+			this.cbAutomaticallyDownload.Text = "Automatically download updates";
+			this.cbAutomaticallyDownload.UseVisualStyleBackColor = true;
 			// 
 			// UpdatesOptionsControl
 			// 
@@ -104,6 +115,7 @@ namespace Translate
 			this.pBody.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.CheckBox cbAutomaticallyDownload;
 		private System.Windows.Forms.Label lStat;
 		private System.Windows.Forms.CheckBox cbAutomaticUpdates;
 	}

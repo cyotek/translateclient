@@ -94,6 +94,8 @@
 Обновления
 [Automatically check updates]
 Автоматически проверять обновления
+[Automatically download updates]
+Автоматически загружать обновления
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Последнее обновление произошло — {0}\r\nПоследняя проверка наличия обновления - {1} со статусом — {2}\r\nСледующая проверка обновления - {3}
 [Close]
@@ -114,10 +116,10 @@
 Сервер обновлений перегружен. Проверка будет проведена позднее.
 [Checking of update done]
 Проверка обновлений завершена
-[New version {0} of portable {1} available at site]
-Новая версия {0} программы {1} для флеш-диска доступна на сайте 
+[New version {0} of {1} available]
+Доступна новая версия {0} программы {1}
 [Do you want to open site where you can download it ?]
-Открыть сайт для скачивания новой версии ?
+Открыть страницу, откуда можно скачать новую версию ?
 [Version]
 Версия
 [&Tools]

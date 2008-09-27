@@ -92,6 +92,8 @@ Recherche de mises à jour...
 Mises à jour
 [Automatically check updates]
 Rechercher les mises à jour automatiquement
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Mise à jour - {0}\r\nDernière recherche de mises à jour - {1} statut - {2}\r\nProchaine recherche de mises à jour - {3}
 [Close]
@@ -112,7 +114,7 @@ Le fichier {0} existe déjà
 
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

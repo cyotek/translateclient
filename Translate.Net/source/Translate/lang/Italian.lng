@@ -92,6 +92,8 @@ Controlla per aggiornamenti ...
 Aggiornamenti
 [Automatically check updates]
 Ricerca automaicamente gli aggiornamenti
+[Automatically download updates]
+
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Aggiorna - {0}\r\nprecedenti ricerche di aggiornamenti - {1}, stato - {2}\r\nsuccessive ricerche di aggiornamenti - {3}
 [Close]
@@ -112,7 +114,7 @@ Il programma è aggiornato
 Il server è sovracarico. La verifica degli aggiornamenti verrà ritardata.
 [Checking of update done]
 
-[New version {0} of portable {1} available at site]
+[New version {0} of {1} available]
 
 [Do you want to open site where you can download it ?]
 

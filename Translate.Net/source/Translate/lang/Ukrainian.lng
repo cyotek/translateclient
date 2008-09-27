@@ -94,6 +94,8 @@
 Оновлення
 [Automatically check updates]
 Автоматично перевіряти оновлення
+[Automatically download updates]
+Автоматично завантажувати оновлення
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Останнє оновлення відбулося - {0}\r\nОстання перевірка наявності оновлення - {1} із статусом - {2}\r\nНаступна перевірка оновлення - {3}
 [Close]
@@ -114,10 +116,10 @@
 Сервер оновлень перевантажений. Перевірка буде виконана пізніше. 
 [Checking of update done]
 Перевірка оновлень завершена
-[New version {0} of portable {1} available at site]
-Нова версія {0} програми {1} для флеш-диску доступна на сайті  
+[New version {0} of {1} available]
+Доступна нова версія {0} програми {1}
 [Do you want to open site where you can download it ?]
-Відкрити сайт, де Ви будете мати змогу завантажити нову версію ?
+Відкрити сторінку, звідки можна завантажити нову версію ?
 [Version]
 Версія
 [&Tools]
