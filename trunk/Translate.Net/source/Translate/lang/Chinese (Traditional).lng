@@ -357,6 +357,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 白俄羅斯語
 [Bulgarian]
 保加利亞語
+[Catalan]
+
 [Chinese]
 中文
 [Chinese_CN]
@@ -397,6 +399,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 現代以色列語
 [Hindi]
 北印度語
+[Indonesian]
+
 [Hungarian]
 匈牙利語
 [Italian]
@@ -443,6 +447,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 烏克蘭語
 [Urdu]
 烏爾都語
+[Vietnamese]
+
 [Welsh]
 威爾士
 [Languages]
@@ -579,6 +585,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 字元
 [Limit {0} : {1} characters]
 限制 {0} : {1} 字元
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -671,6 +679,12 @@ Tiscali - 捷克方面的辭典
 建立項目
 [Open article]
 開啟項目
+[Pronunciation]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 {0} 個詞組經由 {1} 個翻譯服務所翻譯
 [Send by mail]

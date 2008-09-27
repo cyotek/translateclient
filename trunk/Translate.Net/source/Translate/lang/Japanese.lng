@@ -356,6 +356,8 @@ HTML ソースを表示
 ベラルーシ語
 [Bulgarian]
 ブルガリア語
+[Catalan]
+
 [Chinese]
 中国語
 [Chinese_CN]
@@ -396,6 +398,8 @@ HTML ソースを表示
 ヘブライ
 [Hindi]
 ヒンディー語
+[Indonesian]
+
 [Hungarian]
 ハンガリー語
 [Italian]
@@ -442,6 +446,8 @@ HTML ソースを表示
 ウクライナ語
 [Urdu]
 ウルドゥー語
+[Vietnamese]
+
 [Welsh]
 ウェールズ
 [Languages]
@@ -578,6 +584,8 @@ BS
 文字
 [Limit {0} : {1} characters]
 限界 {0} : {1} 文字
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -670,6 +678,12 @@ Tiscali - チェコ語辞典
 記事を作成
 [Open article]
 記事を開く
+[Pronunciation]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 慣用句 {0} は{1} 翻訳サービスを使用して翻訳されました
 [Send by mail]

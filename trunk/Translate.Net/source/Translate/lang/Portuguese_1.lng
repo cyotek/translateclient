@@ -348,6 +348,8 @@ Autodetectar
 Bielorusso
 [Bulgarian]
 Búlgaro
+[Catalan]
+
 [Chinese]
 Chinês
 [Chinese_CN]
@@ -388,6 +390,8 @@ Grego
 Hebreu
 [Hindi]
 Hindi
+[Indonesian]
+
 [Hungarian]
 Húngaro
 [Italian]
@@ -434,6 +438,8 @@ Turco
 Ucraniano
 [Urdu]
 Urdu
+[Vietnamese]
+
 [Welsh]
 Galês
 [Languages]
@@ -570,6 +576,8 @@ Limite
 caracteres
 [Limit {0} : {1} characters]
 Limite {0} : {1} caracteres
+[Limit {0} : {1} lines]
+
 [Limit {0} : {1} words]
 
 [Masks]
@@ -662,6 +670,12 @@ Agrupado por Idioma
 Criar artigo
 [Open article]
 Artigo aberto
+[Pronunciation]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
 [{0} phrases translated by {1} calls to translate services]
 {0} frases traduzidas por {1} chamada para os serviços de tradução
 [Send by mail]
