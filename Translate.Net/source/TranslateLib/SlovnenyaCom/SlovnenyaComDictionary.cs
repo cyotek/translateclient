@@ -67,6 +67,7 @@ namespace Translate
 			
 			WordsCount = 313917;
 			CharsLimit = 300;
+			LinesLimit = 1;
 		}
 		
 		

@@ -179,6 +179,13 @@ namespace Translate
 					"</b>", status.Setting.ServiceItem.CharsLimit);
 			}
 
+			if(status.Setting.ServiceItem.LinesLimit != -1)
+			{
+				htmlString+= "<br>" + "<b>";
+				htmlString+= string.Format(LangPack.TranslateString("Limit {0} : {1} lines"), 
+					"</b>", status.Setting.ServiceItem.LinesLimit);
+			}
+
 			if(status.Setting.ServiceItem.WordsLimit != -1)
 			{
 				htmlString+= "<br>" + "<b>";

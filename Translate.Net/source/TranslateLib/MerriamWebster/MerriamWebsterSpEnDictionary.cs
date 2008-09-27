@@ -55,6 +55,7 @@ namespace Translate
 		public MerriamWebsterSpEnDictionary()
 		{
 			CharsLimit = 50;
+			LinesLimit = 1;
 			Name = "_sp_en_dictionary";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Spanish));

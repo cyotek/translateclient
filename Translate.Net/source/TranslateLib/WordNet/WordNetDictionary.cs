@@ -54,6 +54,7 @@ namespace Translate
 		public WordNetDictionary()
 		{
 			CharsLimit = 50;
+			LinesLimit = 1;
 			Name = "_dictionary";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
@@ -75,9 +76,16 @@ namespace Translate
 			
 			if(responseFromServer.Contains("<h3>Your search did not return any results.</h3>"))
 			{
-					result.ResultNotFound = true;
-					throw new TranslationException("Nothing found");
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
 			}
+			
+			
+			if(responseFromServer.Contains("<h3>Sorry(?) your search can only contain letters(?)"))
+			{
+				throw new TranslationException("Query contains extraneous symbols");
+			}
+			
 			
 			string[] nodes =  StringParser.ParseItemsList("<h3>", "</ul>", responseFromServer);
 			
