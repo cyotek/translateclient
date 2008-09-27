@@ -72,6 +72,12 @@ namespace Translate
 			set { abbreviation = value; }
 		}
 		
+		LinksCollection relatedLinks = new LinksCollection();
+		public LinksCollection RelatedLinks {
+			get { return relatedLinks; }
+			set { relatedLinks = value; }
+		}
+		
 		Exception error;		
 		public Exception Error {
 			get { return error; }
@@ -130,6 +136,25 @@ namespace Translate
 			get { return editArticleUrl; }
 			set { editArticleUrl = value; }
 		}
+		
+		string articleUrl;
+		public string ArticleUrl {
+			get { return articleUrl; }
+			set { articleUrl = value; }
+		}
+		
+		bool hasAudio;
+		public bool HasAudio {
+			get { return hasAudio; }
+			set { hasAudio = value; }
+		}
+		
+		int moreEntriesCount;
+		public int MoreEntriesCount {
+			get { return moreEntriesCount; }
+			set { moreEntriesCount = value; }
+		}
+		
 		
 		DateTime lastUsed = DateTime.Now;
 		
@@ -191,6 +216,37 @@ namespace Translate
 	public class StringsCollection : Collection<string>
 	{
 	
+	}
+
+	public class Link
+	{
+		
+		public Link(string text, Uri uri)
+		{
+			this.text = text;
+			this.uri = uri;
+		}
+		
+		string text;
+		Uri uri;
+		
+		public string Text {
+			get { return text; }
+			set { text = value; }
+		}
+		
+		public Uri Uri {
+			get { return uri; }
+			set { uri = value; }
+		}
+	}
+	
+	public class LinksCollection : List<Link>
+	{
+		public void Add(string text, Uri uri)
+		{
+			base.Add(new Link(text, uri));
+		}
 	}
 	
 	public class ResultsHashtable : Dictionary<int, Result>

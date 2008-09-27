@@ -147,7 +147,7 @@ namespace Translate
 			foreach(string part in items)
 			{
 				//link = "html!";
-				link = "html!<a href=\"http://{0}.{1}/wiki/{2}\">{3}</a>";
+				link = "html!<a href=\"http://{0}.{1}/wiki/{2}\" title=\"http://{0}.{1}/wiki/{2}\">{3}</a>";
 				link = string.Format(link, lang, 
 					searchHost,
 					part,
