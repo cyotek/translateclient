@@ -689,7 +689,7 @@ namespace Translate
 									this.miBrowserSep1,
 									this.miShowSourceToolStripMenuItem});
 			this.msBrowser.Name = "browserMenu";
-			this.msBrowser.Size = new System.Drawing.Size(177, 126);
+			this.msBrowser.Size = new System.Drawing.Size(177, 148);
 			this.msBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.MsBrowserOpening);
 			// 
 			// miBrowserTranslateSel
@@ -713,6 +713,7 @@ namespace Translate
 			// 
 			// miBrowserCopy
 			// 
+			this.al.SetAction(this.miBrowserCopy, this.aEditCopy);
 			this.miBrowserCopy.Image = ((System.Drawing.Image)(resources.GetObject("miBrowserCopy.Image")));
 			this.miBrowserCopy.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miBrowserCopy.Name = "miBrowserCopy";
@@ -724,6 +725,7 @@ namespace Translate
 			// 
 			// miBrowserSelectAll
 			// 
+			this.al.SetAction(this.miBrowserSelectAll, this.aEditSelectAll);
 			this.miBrowserSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("miBrowserSelectAll.Image")));
 			this.miBrowserSelectAll.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miBrowserSelectAll.Name = "miBrowserSelectAll";
