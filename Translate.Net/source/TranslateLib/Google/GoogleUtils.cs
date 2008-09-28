@@ -69,6 +69,7 @@ namespace Translate
 			langToKey.Add(Language.English_US,"en");
 			langToKey.Add(Language.English_GB,"en");
 			langToKey.Add(Language.Filipino,"tl");
+			langToKey.Add(Language.Tagalog,"tl");
 			langToKey.Add(Language.Finnish,"fi");
 			langToKey.Add(Language.French,"fr");
 			langToKey.Add(Language.German,"de");

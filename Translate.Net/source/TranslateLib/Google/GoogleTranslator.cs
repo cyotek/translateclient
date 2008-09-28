@@ -59,12 +59,15 @@ namespace Translate
 			{
 				foreach(Language to in tmp.Keys)
 				{
-					if( (from != Language.English || (to != Language.English_GB && to != Language.English_US)) &&
+					if( from != to &&
+						(from != Language.English || (to != Language.English_GB && to != Language.English_US)) &&
 						(to != Language.English || (from != Language.English_GB && from != Language.English_US)) &&
 						(to != Language.Autodetect) &&
 						(!(to == Language.English_US && from == Language.English_GB)) &&
 						(!(from == Language.English_US && to == Language.English_GB)) &&
-						from != to
+						(!(from == Language.Filipino && to == Language.Tagalog)) &&
+						(!(from == Language.Tagalog && to == Language.Filipino))
+						
 					  )
 					  AddSupportedTranslation(new LanguagePair(from, to));
 				}
