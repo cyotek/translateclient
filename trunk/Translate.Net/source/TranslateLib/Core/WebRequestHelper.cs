@@ -146,6 +146,18 @@ namespace Translate
 			set { streamConvertor = value; }
 		}
 		
+		CookieContainer cookieContainer = null;
+		public CookieContainer CookieContainer {
+			get { return cookieContainer; }
+			set { cookieContainer = value; }
+		}
+		
+		string referer;
+		public string Referer {
+			get { return referer; }
+			set { referer = value; }
+		}
+		
 		string multiPartBoundary = "-----------------------------325433208117628";
 		
 		MemoryStream postStream;
@@ -257,10 +269,19 @@ namespace Translate
 			
 			//headers
 			webRequest.UserAgent = "Mozilla/5.0, Translate.Net";
-			webRequest.Referer = url.AbsoluteUri;
+			//webRequest.UserAgent = "Mozilla/5.0";
+			
+			if(string.IsNullOrEmpty(referer))
+				webRequest.Referer = url.AbsoluteUri;
+			else	
+				webRequest.Referer = referer;
 			
 			request.Headers.Add(HttpRequestHeader.KeepAlive , "300");
 			request.Credentials = CredentialCache.DefaultCredentials;
+			
+			if(cookieContainer != null)
+				webRequest.CookieContainer = cookieContainer;
+				
 			
 			if(contentType == WebRequestContentType.UrlEncoded)
 			{
