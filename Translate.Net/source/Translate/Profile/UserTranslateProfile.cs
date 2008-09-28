@@ -131,8 +131,13 @@ namespace Translate
 				{
 					MessageBox.Show("Service not found with error : " + 
 							e.Message + System.Environment.NewLine +
-							"Service will be deleted from profile.",
-						"Error on loading services in profile : " + Name,  
+							"Service will be deleted from profile." + 
+							 System.Environment.NewLine +
+							"Profile : " + Name +
+							", ServiceItem : " + sid.Name +
+							", Language pair : " + sid.LanguagePair.ToString() +
+							", Subject : " + sid.Subject,
+							"Error on loading services",
 						MessageBoxButtons.OK, 
 						MessageBoxIcon.Error);
 					sids_to_delete.Add(sid);	
