@@ -99,7 +99,7 @@ namespace Translate
 			if(responseFromServer.Contains(", \"responseStatus\": 200}"))
 			{
 				string translation = StringParser.Parse("\"translatedText\":\"", "\"", responseFromServer);
-				translation = HttpUtility.HtmlDecode(translation);
+				translation = HttpUtilityEx.HtmlDecode(translation);
 				result.Translations.Add(translation);
 			}
 			else
