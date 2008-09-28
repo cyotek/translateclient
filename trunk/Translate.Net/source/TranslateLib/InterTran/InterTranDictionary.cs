@@ -60,9 +60,6 @@ namespace Translate
 			Name = "_dictionary";
 			AddSupportedSubject(SubjectConstants.Common);
 			
-			langToKey.Add(Language.English, "eng");
-			langToKey.Add(Language.English_GB, "eng");
-			langToKey.Add(Language.English_US, "eng");
 			langToKey.Add(Language.Portuguese_BR, "pob");
 			langToKey.Add(Language.Bulgarian, "bul");
 			langToEncoding.Add(Language.Bulgarian, "windows-1251");
@@ -107,18 +104,32 @@ namespace Translate
 			
 			foreach(Language from in langToKey.Keys)
 			{
+				AddSupportedTranslationFromEnglish(from);
+				AddSupportedTranslationToEnglish(from);
 				foreach(Language to in tmp.Keys)
 				{
-					if( (from != Language.English || (to != Language.English_GB && to != Language.English_US)) &&
-						(to != Language.English || (from != Language.English_GB && from != Language.English_US)) &&
-						( 
-							(from != to || from == Language.English || 
-								from == Language.English_GB || from == Language.English_US)
-						)
-					  )
-					  AddSupportedTranslation(new LanguagePair(from, to));
+					if(from != to)
+					{
+					  	AddSupportedTranslation(new LanguagePair(from, to));					
+					  	
+					  	if(from == Language.Filipino)
+					  		AddSupportedTranslation(new LanguagePair(Language.Tagalog, to));
+					  		
+					  	if(to == Language.Filipino)
+					  		AddSupportedTranslation(new LanguagePair(from, Language.Tagalog));
+					}
+
 				}
 			}
+			
+			//synonims 
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
+
+			langToKey.Add(Language.Tagalog, "tag");
+			langToKey.Add(Language.English, "eng");
+			langToKey.Add(Language.English_GB, "eng");
+			langToKey.Add(Language.English_US, "eng");
+			
 			
 		}
 		
