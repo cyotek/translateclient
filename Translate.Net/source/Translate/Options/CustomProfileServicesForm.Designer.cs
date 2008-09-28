@@ -138,7 +138,7 @@ namespace Translate
 			this.pTop.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pTop.Location = new System.Drawing.Point(0, 0);
 			this.pTop.Name = "pTop";
-			this.pTop.Size = new System.Drawing.Size(663, 53);
+			this.pTop.Size = new System.Drawing.Size(704, 53);
 			this.pTop.TabIndex = 0;
 			// 
 			// gbFilter
@@ -152,7 +152,7 @@ namespace Translate
 			this.gbFilter.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbFilter.Location = new System.Drawing.Point(0, 0);
 			this.gbFilter.Name = "gbFilter";
-			this.gbFilter.Size = new System.Drawing.Size(663, 53);
+			this.gbFilter.Size = new System.Drawing.Size(704, 53);
 			this.gbFilter.TabIndex = 11;
 			this.gbFilter.TabStop = false;
 			this.gbFilter.Text = "Services filter";
@@ -160,7 +160,7 @@ namespace Translate
 			// sbInvert
 			// 
 			this.sbInvert.Image = ((System.Drawing.Image)(resources.GetObject("sbInvert.Image")));
-			this.sbInvert.Location = new System.Drawing.Point(260, 21);
+			this.sbInvert.Location = new System.Drawing.Point(303, 20);
 			this.sbInvert.Name = "sbInvert";
 			this.sbInvert.Selectable = false;
 			this.sbInvert.Size = new System.Drawing.Size(24, 21);
@@ -173,16 +173,17 @@ namespace Translate
 			// 
 			this.cbSubject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbSubject.FormattingEnabled = true;
-			this.cbSubject.Location = new System.Drawing.Point(475, 21);
+			this.cbSubject.Location = new System.Drawing.Point(550, 21);
+			this.cbSubject.MaxDropDownItems = 30;
 			this.cbSubject.Name = "cbSubject";
-			this.cbSubject.Size = new System.Drawing.Size(110, 21);
+			this.cbSubject.Size = new System.Drawing.Size(150, 21);
 			this.cbSubject.Sorted = true;
 			this.cbSubject.TabIndex = 15;
 			this.cbSubject.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
 			// 
 			// lSubject
 			// 
-			this.lSubject.Location = new System.Drawing.Point(417, 19);
+			this.lSubject.Location = new System.Drawing.Point(492, 19);
 			this.lSubject.Name = "lSubject";
 			this.lSubject.Size = new System.Drawing.Size(50, 23);
 			this.lSubject.TabIndex = 14;
@@ -193,9 +194,10 @@ namespace Translate
 			// 
 			this.cbTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbTo.FormattingEnabled = true;
-			this.cbTo.Location = new System.Drawing.Point(290, 21);
+			this.cbTo.Location = new System.Drawing.Point(333, 21);
+			this.cbTo.MaxDropDownItems = 30;
 			this.cbTo.Name = "cbTo";
-			this.cbTo.Size = new System.Drawing.Size(110, 21);
+			this.cbTo.Size = new System.Drawing.Size(150, 21);
 			this.cbTo.Sorted = true;
 			this.cbTo.TabIndex = 13;
 			this.cbTo.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
@@ -204,9 +206,10 @@ namespace Translate
 			// 
 			this.cbFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbFrom.FormattingEnabled = true;
-			this.cbFrom.Location = new System.Drawing.Point(144, 21);
+			this.cbFrom.Location = new System.Drawing.Point(147, 21);
+			this.cbFrom.MaxDropDownItems = 30;
 			this.cbFrom.Name = "cbFrom";
-			this.cbFrom.Size = new System.Drawing.Size(110, 21);
+			this.cbFrom.Size = new System.Drawing.Size(150, 21);
 			this.cbFrom.Sorted = true;
 			this.cbFrom.TabIndex = 12;
 			this.cbFrom.SelectedIndexChanged += new System.EventHandler(this.CbFromSelectedIndexChanged);
@@ -269,7 +272,7 @@ namespace Translate
 			this.pRight.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pRight.Location = new System.Drawing.Point(324, 53);
 			this.pRight.Name = "pRight";
-			this.pRight.Size = new System.Drawing.Size(339, 346);
+			this.pRight.Size = new System.Drawing.Size(380, 346);
 			this.pRight.TabIndex = 2;
 			// 
 			// gbCurrent
@@ -279,7 +282,7 @@ namespace Translate
 			this.gbCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.gbCurrent.Location = new System.Drawing.Point(0, 0);
 			this.gbCurrent.Name = "gbCurrent";
-			this.gbCurrent.Size = new System.Drawing.Size(313, 346);
+			this.gbCurrent.Size = new System.Drawing.Size(354, 346);
 			this.gbCurrent.TabIndex = 10;
 			this.gbCurrent.TabStop = false;
 			this.gbCurrent.Text = "Selected services";
@@ -289,7 +292,7 @@ namespace Translate
 			this.lvCurrent.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.lvCurrent.Location = new System.Drawing.Point(3, 142);
 			this.lvCurrent.Name = "lvCurrent";
-			this.lvCurrent.Size = new System.Drawing.Size(307, 201);
+			this.lvCurrent.Size = new System.Drawing.Size(348, 201);
 			this.lvCurrent.Sorted = false;
 			this.lvCurrent.TabIndex = 10;
 			this.lvCurrent.DoubleClick += new System.EventHandler<System.EventArgs>(this.ARemoveServiceExecute);
@@ -302,7 +305,7 @@ namespace Translate
 			this.serviceStatusCurrent.Name = "serviceStatusCurrent";
 			this.serviceStatusCurrent.ShortView = true;
 			this.serviceStatusCurrent.ShowLanguage = false;
-			this.serviceStatusCurrent.Size = new System.Drawing.Size(307, 126);
+			this.serviceStatusCurrent.Size = new System.Drawing.Size(348, 126);
 			this.serviceStatusCurrent.TabIndex = 11;
 			// 
 			// pServiceControl
@@ -312,7 +315,7 @@ namespace Translate
 			this.pServiceControl.Controls.Add(this.sbMoveServiceUp);
 			this.pServiceControl.Controls.Add(this.sbMoveServiceDown);
 			this.pServiceControl.Dock = System.Windows.Forms.DockStyle.Right;
-			this.pServiceControl.Location = new System.Drawing.Point(313, 0);
+			this.pServiceControl.Location = new System.Drawing.Point(354, 0);
 			this.pServiceControl.Name = "pServiceControl";
 			this.pServiceControl.Size = new System.Drawing.Size(26, 346);
 			this.pServiceControl.TabIndex = 8;
@@ -406,14 +409,14 @@ namespace Translate
 			this.pBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.pBottom.Location = new System.Drawing.Point(0, 399);
 			this.pBottom.Name = "pBottom";
-			this.pBottom.Size = new System.Drawing.Size(663, 33);
+			this.pBottom.Size = new System.Drawing.Size(704, 33);
 			this.pBottom.TabIndex = 4;
 			// 
 			// bCancel
 			// 
 			this.bCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.bCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.bCancel.Location = new System.Drawing.Point(563, 7);
+			this.bCancel.Location = new System.Drawing.Point(604, 7);
 			this.bCancel.Name = "bCancel";
 			this.bCancel.Size = new System.Drawing.Size(88, 23);
 			this.bCancel.TabIndex = 5;
@@ -424,7 +427,7 @@ namespace Translate
 			// 
 			this.bOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.bOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.bOk.Location = new System.Drawing.Point(469, 7);
+			this.bOk.Location = new System.Drawing.Point(510, 7);
 			this.bOk.Name = "bOk";
 			this.bOk.Size = new System.Drawing.Size(88, 23);
 			this.bOk.TabIndex = 4;
@@ -509,7 +512,7 @@ namespace Translate
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.bCancel;
-			this.ClientSize = new System.Drawing.Size(663, 432);
+			this.ClientSize = new System.Drawing.Size(704, 432);
 			this.Controls.Add(this.pRight);
 			this.Controls.Add(this.pCenter);
 			this.Controls.Add(this.pLeft);
