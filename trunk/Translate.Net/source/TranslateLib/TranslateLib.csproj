@@ -54,6 +54,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Cache\ResultsCache.cs" />
     <Compile Include="Core\BilingualDictionary.cs" />
+    <Compile Include="Core\HttpUtilityEx.cs" />
     <Compile Include="Core\Language.cs" />
     <Compile Include="Core\Manager.cs" />
     <Compile Include="Core\MonolingualDictionary.cs" />
@@ -78,6 +79,8 @@
     <Compile Include="DictPl\DictPlDeDictionary.cs" />
     <Compile Include="DictPl\DictPlEnDictionary.cs" />
     <Compile Include="DictPl\DictPlService.cs" />
+    <Compile Include="DictsInfo\DictsInfoDictionary.cs" />
+    <Compile Include="DictsInfo\DictsInfoService.cs" />
     <Compile Include="DictTuChemnitzDe\DictTuChemnitzDeDictionary.cs" />
     <Compile Include="DictTuChemnitzDe\DictTuChemnitzDeService.cs" />
     <Compile Include="Google\GoogleDictionary.cs" />
@@ -208,6 +211,7 @@
     <EmbeddedResource Include="SynonimyPl\Service.ico" />
     <EmbeddedResource Include="TezaverSi\Service.ico" />
     <EmbeddedResource Include="SozlukteCom\Service.ico" />
+    <EmbeddedResource Include="DictsInfo\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -228,6 +232,7 @@
     <Folder Include="InterTran" />
     <Folder Include="MultiWordNet" />
     <Folder Include="DictTuChemnitzDe" />
+    <Folder Include="DictsInfo" />
     <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
     <Folder Include="SynonimyPl" />
