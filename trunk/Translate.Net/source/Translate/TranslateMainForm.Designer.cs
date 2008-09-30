@@ -548,6 +548,7 @@ namespace Translate
 			// 
 			// miAbout2
 			// 
+			this.al.SetAction(this.miAbout2, this.aAbout);
 			this.miAbout2.Image = ((System.Drawing.Image)(resources.GetObject("miAbout2.Image")));
 			this.miAbout2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAbout2.Name = "miAbout2";
@@ -582,6 +583,7 @@ namespace Translate
 			// 
 			// miIconExit
 			// 
+			this.al.SetAction(this.miIconExit, this.aExit);
 			this.miIconExit.Image = ((System.Drawing.Image)(resources.GetObject("miIconExit.Image")));
 			this.miIconExit.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miIconExit.Name = "miIconExit";
@@ -690,7 +692,7 @@ namespace Translate
 									this.miBrowserSep1,
 									this.miShowSourceToolStripMenuItem});
 			this.msBrowser.Name = "browserMenu";
-			this.msBrowser.Size = new System.Drawing.Size(177, 148);
+			this.msBrowser.Size = new System.Drawing.Size(177, 126);
 			this.msBrowser.Opening += new System.ComponentModel.CancelEventHandler(this.MsBrowserOpening);
 			// 
 			// miBrowserTranslateSel
