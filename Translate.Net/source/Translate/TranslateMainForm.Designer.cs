@@ -210,6 +210,7 @@ namespace Translate
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
 			this.pToolBars.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.al)).BeginInit();
 			this.msIcon.SuspendLayout();
 			this.pRight.SuspendLayout();
 			this.pMain.SuspendLayout();
@@ -1806,6 +1807,7 @@ namespace Translate
 			this.msMain.PerformLayout();
 			this.pToolBars.ResumeLayout(false);
 			this.pToolBars.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.al)).EndInit();
 			this.msIcon.ResumeLayout(false);
 			this.pRight.ResumeLayout(false);
 			this.pMain.ResumeLayout(false);
