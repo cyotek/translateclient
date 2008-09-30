@@ -83,7 +83,7 @@ namespace Translate
 			langToKey.Add(Language.Latvian,"lv");
 			langToKey.Add(Language.Lithuanian,"lt");
 			langToKey.Add(Language.Norwegian,"no");
-			langToKey.Add(Language.Polish,"po");
+			langToKey.Add(Language.Polish,"pl");
 			langToKey.Add(Language.Portuguese,"pt");
 			langToKey.Add(Language.Romanian,"ro");
 			langToKey.Add(Language.Russian,"ru");
