@@ -55,7 +55,7 @@ namespace Translate
 			CompanyName = "sozlukte.com";
 			Copyright = "Copyright © 2007-2008 sozlukte.com";
 			IconUrl = new Uri("http://www.sozlukte.com/favicon.ico");
-			FullName = "Sozluk(te)* Online Dictionary -  Turkish oriented dictionary";
+			FullName = "Sozluk(te)* Online Dictionary - Turkish oriented dictionary";
 						
 			AddBilingualDictionary(new SozlukteComDictionary());
 		}
