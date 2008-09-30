@@ -38,7 +38,7 @@ namespace FreeCL.UI.Actions
 		DefaultProperty("Actions"),
 		ProvideProperty("Action", typeof(Component))
 	]
-	public class ActionList : System.ComponentModel.Component, IExtenderProvider
+	public class ActionList : System.ComponentModel.Component, IExtenderProvider, System.ComponentModel.ISupportInitialize
 	{
 		#region member variables
 		private ActionCollection	_actions;
@@ -416,6 +416,13 @@ namespace FreeCL.UI.Actions
 		public void SetAction(Component comp, FreeCL.UI.Actions.Action value) 
 		{
 			Debug.Assert(comp != null && value != null);
+			
+			if(inInit)
+			{
+				componentsForInit[comp] = value;
+				return;
+			}
+			
 			Action res = null;
 			if (_components.TryGetValue(comp, out res))
 			{
@@ -434,13 +441,32 @@ namespace FreeCL.UI.Actions
 				_components.Add(comp, value);
 			}
 		}
+		
+		//delayed initialization
+		bool inInit;
+		Dictionary<Component, Action> componentsForInit;
+		public void BeginInit()
+		{
+			inInit = true;
+			componentsForInit = new Dictionary<Component, Action>();
+		}
+		
+		public void EndInit()
+		{
+			inInit = false;
+			foreach(KeyValuePair<Component, Action> kvp in componentsForInit)
+				SetAction(kvp.Key, kvp.Value);
+			componentsForInit.Clear();	
+			componentsForInit = null;
+		}
+		
 		/// <summary>
 		/// We need only to serialize Components wich have associated to an Action
 		/// </summary>
 		public bool ShouldSerializeAction(object component) 
 		{
 			Debug.Assert(component != null);
-			foreach (Action a in Actions)
+			/*foreach (Action a in Actions)
 			{
 				if (a.HandleComponent((Component)component))
 				{
@@ -448,6 +474,8 @@ namespace FreeCL.UI.Actions
 				}
 			}
 			return false;
+			*/
+			return _components.ContainsKey((Component)component);
 		}
 		/// <summary>
 		/// Specifies whether this object can provide its extender properties to the specified object.

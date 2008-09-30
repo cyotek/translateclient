@@ -210,8 +210,11 @@ namespace FreeCL.Forms
 			this.aOptions = new FreeCL.UI.Actions.Action(this.components);
 			this.msMain.SuspendLayout();
 			this.pToolBars.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.al)).BeginInit();
 			this.ptEdit.SuspendLayout();
 			this.SuspendLayout();
+			
+			this.il.ColorDepth = System.Windows.Forms.ColorDepth.Depth24Bit;
 			// 
 			// sbMain
 			// 
@@ -419,7 +422,7 @@ namespace FreeCL.Forms
 			// 
 			// miEditSelectAll
 			// 
-			
+			this.al.SetAction(this.miEditSelectAll, this.aEditSelectAll);
 			this.miEditSelectAll.Image = ((System.Drawing.Image)(resources.GetObject("miEditSelectAll.Image")));
 			this.miEditSelectAll.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miEditSelectAll.MergeIndex = 8;
@@ -429,7 +432,6 @@ namespace FreeCL.Forms
 			this.miEditSelectAll.Size = new System.Drawing.Size(167, 22);
 			this.miEditSelectAll.Text = "&Select All";
 			this.miEditSelectAll.ToolTipText = "Select all";
-			this.al.SetAction(this.miEditSelectAll, this.aEditSelectAll);
 			// 
 			// miFile
 			// 
@@ -444,7 +446,7 @@ namespace FreeCL.Forms
 			// miFileSep1
 			// 
 			this.miFileSep1.Name = "miFileSep1";
-			this.miFileSep1.Size = new System.Drawing.Size(140, 6);
+			this.miFileSep1.Size = new System.Drawing.Size(149, 6);
 			// 
 			// miExit
 			// 
@@ -455,7 +457,7 @@ namespace FreeCL.Forms
 			this.miExit.Name = "miExit";
 			this.miExit.ShortcutKeyDisplayString = "Alt+F4";
 			this.miExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.miExit.Size = new System.Drawing.Size(143, 22);
+			this.miExit.Size = new System.Drawing.Size(152, 22);
 			this.miExit.Text = "E&xit";
 			this.miExit.ToolTipText = "Exit from application";
 			// 
@@ -726,7 +728,7 @@ namespace FreeCL.Forms
 			this.al.SetAction(this.miOptionsToolStripMenuItem, this.aOptions);
 			this.miOptionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miOptionsToolStripMenuItem.Name = "miOptionsToolStripMenuItem";
-			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
 			this.miOptionsToolStripMenuItem.Text = "O&ptions ...";
 			// 
 			// aOptions
@@ -750,6 +752,7 @@ namespace FreeCL.Forms
 			this.msMain.PerformLayout();
 			this.pToolBars.ResumeLayout(false);
 			this.pToolBars.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.al)).EndInit();
 			this.ptEdit.ResumeLayout(false);
 			this.ptEdit.PerformLayout();
 			this.ResumeLayout(false);
