@@ -335,6 +335,8 @@ namespace Translate
 			foreach(Language l in fromLangs)
 			{
 				val = LangPack.TranslateLanguage(l);
+				if(l == Language.Autodetect)
+					val = "÷" + val;
 				lbFrom.Items.Add(new LanguageDataContainer(l, val));
 			}
 
