@@ -1207,8 +1207,15 @@ namespace Translate
 		}
 		
 		bool profilePositionChanged;
+		bool firstCheckOfOrderOfProfiles = true;
 		void CheckOrderOfProfiles()
 		{
+			if(firstCheckOfOrderOfProfiles)
+			{  //initial run
+				profilePositionChanged = false;
+				firstCheckOfOrderOfProfiles = false;
+			}
+			
 			if(profilePositionChanged && MouseButtons == MouseButtons.None 
 				&& tsTranslate.Items.Count > SpecialButtonsCount)
 			{
