@@ -95,7 +95,7 @@ Updates
 [Automatically check updates]
 Automatisch auf Updates prüfen
 [Automatically download updates]
-
+Updates automatisch herunterladen
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Aktualisiert - {0}\r\nLetzte Update-Prüfung - {1}, Status - {2}\r\nNächste Update-Prüfung - {3}
 [Close]
@@ -115,11 +115,11 @@ Datei {0} existiert bereits
 [The server of updates is overloaded. The check of updates will be delayed.]
 Der Update-Server ist überlastet. Die Überprüfung auf Updates wird verschoben.
 [Checking of update done]
-
+Überprüfung auf Updates beendet
 [New version {0} of {1} available]
-
+Neue Version {0} von {1} verfügbar
 [Do you want to open site where you can download it ?]
-
+Wollen Sie die Download-Seite öffnen ?
 [Version]
 Version
 [&Tools]
@@ -177,9 +177,9 @@ Tray
 [Hotkeys]
 Hotkeys
 [Activate on Ctrl+C+C hotkey]
-Mit Hotkey Ctrl+C+C aktivieren
+Mit Hotkey Strg+C+C aktivieren
 [Activate on Ctrl+Ins+Ins hotkey]
-Mit Hotkey Ctrl+Ins+Ins aktivieren
+Mit Hotkey Strg+Einfg+Einfg aktivieren
 [Translate when activated by hotkey]
 Bei Aktivierung durch Hotkey übersetzen
 [Show query time and other information]
@@ -197,7 +197,7 @@ Die Namen der Dienste anzeigen
 [Nothing found]
 Nichts gefunden
 [An error occurred during translation. Please try again later.]
-
+Bei der Übersetzung ist ein Fehler aufgetreten. Bitte versuchen Sie es später nochmal.
 [Translation direction is not correct]
 Übersetzungsrichtung ist nicht korrekt
 [Only cyrillic characters supported]
@@ -219,41 +219,41 @@ Dienstversion nicht unterstützt
 [Result view]
 Ergebnisansicht
 [Result view placement]
-
+Anordnung der Ergebnisansicht
 [Top]
-
+Oben
 [Place result view at top]
-
+Ergebnisansicht oben platzieren
 [Bottom]
-
+Unten
 [Place result view at bottom]
-
+Ergebnisansicht unten platzieren
 [Left]
-
+Links
 [Place result view at left]
-
+Ergebnisansicht links platzieren
 [Right]
-
+Rechts
 [Place result view at right]
-
+Ergebnisansicht rechts platzieren
 [Include monolingual dictionaries in translation]
 Monolinguale Wörterbücher in Übersetzung einbeziehen
 [Filter of languages]
-
+Filter der Sprachen
 [Allow to choose languages for use]
-
+Erlaubt die zu verwendenden Sprachen zu wählen
 [Source languages]
-
+Quellsprache
 [Target languages]
-
+Zielsprache
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+Wählen Sie die Sprachen, von und zu welchen Sie übersetzen lassen wollen. Deaktivierte Sprachen werden aus dem Tab "Sprachen" des Vorgabeprofils entfernt.
 [Toggle all]
-
+Alle vertauschen
 [Please select at least one source language]
-
+Bitte wählen Sie mindestens eine Quellsprache
 [Please select at least one target language]
-
+Bitte wählen Sie mindestens eine Zielsprache
 [Profile]
 Profil
 [Profiles]
@@ -319,9 +319,9 @@ Eingabetext
 [To default]
 Auf Vorgabe
 [Toolbars]
-
+Werkzeugleisten
 [Default font]
-
+Standard-Schrift
 [&Translate]
 &Übersetzen
 [Translate]
@@ -331,11 +331,11 @@ Aktuellen Vorgang anhalten
 [Stop]
 Anhalten
 [Search in Google]
-
+In Google suchen
 [Size or format of query don't supported by available translation services]
 Größe oder Format wird von verfügbaren Diensten nicht unterstützt.
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+Die Übersetzung wird {0} Aufrufe verschiedener Dienste erzeugen, was die Server überlasten kann.\nWollen Sie den Übersetzungsvorgang unterbrechen ?
 [Reverse translation direction]
 Übersetzungsrichtung umkehren
 [Show\\Hide]
@@ -351,27 +351,27 @@ Alle Sprachen
 [Afrikaans]
 Afrikaans
 [Albanian]
-
+Albanisch
 [Autodetect]
 Automatisch erkennen
 [Arabic]
 Arabisch
 [Armenian]
-
+Armenisch
 [Basque]
-
+Baskisch
 [Belarusian]
 Belorussisch
 [Bengali]
-
+Bengalisch
 [Bosnian]
-
+Bosnisch
 [Breton]
-
+Bretonisch
 [Bulgarian]
 Bulgarisch
 [Catalan]
-
+Katalanisch
 [Chinese]
 Chinesisch
 [Chinese_CN]
@@ -399,7 +399,7 @@ Estisch
 [Icelandic]
 Isländisch
 [Faroese]
-
+Färöisch
 [Filipino]
 Philippinisch
 [Finnish]
@@ -407,13 +407,13 @@ Finnisch
 [French]
 Französisch
 [Frisian]
-
+Frisisch
 [Galician]
-
+Galizisch
 [German]
 Deutsch
 [Georgian]
-
+Georgisch
 [Greek]
 Griechisch
 [Hebrew]
@@ -421,11 +421,11 @@ Hebräisch
 [Hindi]
 Hindi
 [Indonesian]
-
+Indonesisch
 [Interlingua]
-
+Interlingua
 [Irish]
-
+Irisch
 [Hungarian]
 Ungarisch
 [Italian]
@@ -433,7 +433,7 @@ Italienisch
 [Japanese]
 Japanisch
 [Japanese_Romaji]
-
+Japanisch_Romaji
 [Korean]
 Koreanisch
 [Latin]
@@ -445,21 +445,21 @@ Litauisch
 [Macedonian]
 Mazedonisch
 [Maltese]
-
+Maltesisch
 [Mongolian]
-
+Mongolisch
 [Nepali]
-
+Nepalesisch
 [Norwegian]
 Norwegisch
 [Norwegian_Bokmal]
-
+Norwegisch_Bokmal
 [Norwegian_Nynorsk]
-
+Norwegisch_Nynorsk
 [Papiamento]
-
+Papiamento
 [Persian]
-
+Persisch
 [Polish]
 Polnisch
 [Portuguese]
@@ -473,25 +473,25 @@ Russisch
 [Serbian]
 Serbisch
 [Slovak]
-Slovakisch
+Slowakisch
 [Slovenian]
-Slovenisch
+Slowenisch
 [Spanish]
 Spanisch
 [Spanish_LA]
 Spanish_LA
 [Swahili]
-
+Suaheli
 [Swedish]
 Schwedisch
 [Tagalog]
-
+Tagalog
 [Tamil]
-
+Tamilisch
 [Telugu]
-
+Telugu
 [Thai]
-
+Thai
 [Turkish]
 Türkisch
 [Ukrainian]
@@ -499,7 +499,7 @@ Ukrainisch
 [Urdu]
 Urdu
 [Vietnamese]
-
+Vietnamesisch
 [Welsh]
 Walisisch
 [Languages]
@@ -637,9 +637,9 @@ Zeichen
 [Limit {0} : {1} characters]
 Limit {0} : {1} Zeichen
 [Limit {0} : {1} lines]
-
+Limit {0} : {1} Zeilen
 [Limit {0} : {1} words]
-
+Limit {0} : {1} Wörter
 [Masks]
 Masken
 [English-Ukrainian technical dictionary]
@@ -655,7 +655,7 @@ Russisch-Ukrainisches akademisches Wörterbuch
 [Large explanatory dictionary of modern Ukrainian]
 Großes erläuterndes Wörterbuch für modernes Ukrainisch
 [Slovnyk - the multilanguage dictionary]
-Slovnyk -  das mehrsprachige Wörterbuch
+Slovnyk - das mehrsprachige Wörterbuch
 [Russian-Ukrainian dictionary of constant expressions]
 Russisch-Ukrainisches Wörterbuch für konstante Ausdrücke
 [Pragma 5.x on-line translation]
@@ -691,35 +691,35 @@ Freies Online-Urdu-Englisch Wörterbuch
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Online Englisch-nach-Urdu und Urdu-nach-Englisch Wörterbuch
 [InterTran dictionary]
-
+InterTran Wörterbuch
 [Priberam Portuguese dictionary]
-
+Priberam Portugiesisch-Wörterbuch
 [WordNet a lexical database for the English language]
-
+WordNet eine lexikalische Datenbank für die Englische Sprache
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet ist eine vielsprachige lexikalische Datenbank
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+Englisch-Bulgarisches Wörterbuch - SA Dictionary Online
 [dict.cc - English-German Dictionary]
-
+dict.cc - Englisch-Deutsch Wörterbuch
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - Deutsch-orientiertes Wörterbuch
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+OpenThesaurus ist ein Open-Source-Thesaurus für die deutsche Sprache
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+OpenThesaurus-es ist ein Open-Source-Thesaurus für die Spanische Sprache
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal - ist ein Open-Source-Thesaurus für die Sprache
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+ ist ein Open-Source-Thesaurus für die Portugiesische Sprache
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+ ist ein Open-Source-Thesaurus für die Polnische Sprache
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
-[Sozluk(te)* Online Dictionary -  Turkish oriented dictionary]
-
+ ist ein Open-Source-Thesaurus für die Slowenische Sprache
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Sozluk(te)* Online Dictionary - Türkisch-orientiertes Wörterbuch
 [Free Dictionaries project]
-
+Free Dictionaries project - Freie Wörterbücher Projekt
 [Grouped by Service's Url]
 Gruppiert nach URL des Dienstes
 [Grouped by Language]
@@ -733,46 +733,46 @@ Artikel erstellen
 [Open article]
 Artikel öffnen
 [Pronunciation]
-
+Aussprache
 [{0} more entries found]
-
+{0} oder mehr Einträge gefunden
 [related links]
-
+Links zum Thema
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+Abfragedauer : {0} s, Anzahl Abfragen : {1}, Bytes gesendet : {2}, Bytes empfangen : {3}
 [Full time : {0} s]
-
+Gesamtdauer : {0} s
 [{0} phrases translated by {1} calls to translate services]
 {0} Redewendungen übersetzt von {1} Aufrufen der Übersetzungsdienste
 [Send by mail]
-
+Per E-Mail senden
 [Continue]
-
+Fortfahren
 [Close]
-
+Schließen
 [Terminate]
-
+Abbrechen
 [Terminated by user on error]
-
+Vom Nutzer wegen Fehler abgebrochen
 [Unhandled exception in]
-
+Unbehandelte Ausnahme in
 [Error on opening config file]
-
+Fehler beim Öffnen der Konfigurationsdatei
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+Fehler beim Öffnen der Konfigurationsdatei von {0}.\r\nMögliche Ursache - Fehler im Optionsdateiformat.\r\nDie Konfiguration wird auf die Vorgabewertew zurückgesetzt.
 [Error on saving config file]
-
+Fehler in Konfigurationsdatei
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+Fehler beim Speichern der Konfigurationsdatei nach {0}\r\nMögliche Ursache - Schreibzugriff auf System-TEMP-Ordner verweigert.
 [Error on saving config file to {0}]
-
+Fehler beim Speichern der Konfigurationsdatei nach {0}
 [Show information about exception]
-
+Informationen zur Ausnahme anzeigen
 [Error on start process : {0}\r\nError message : {1}]
-
+Fehler beim Startvorgang : {0}\r\nFehlermeldung : {1}
 [Error on start process]
-
+Fehler beim Startvorgang
 [Error on sending email to : {0}\r\nError message : {1}]
-
+Fehler beim Senden der E-Mail an : {0}\r\nFehlermeldung : {1}
 [Error on sending email]
-
+Fehler beim E-Mail-Versand
