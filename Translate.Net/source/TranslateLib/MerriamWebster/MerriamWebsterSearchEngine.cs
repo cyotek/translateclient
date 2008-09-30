@@ -165,7 +165,7 @@ namespace Translate
 					InternalDoTranslate(phrase, languagesPair, subject, result, networkSetting, post_data_value);
 				}
 				
-				if(result.MoreEntriesCount != 0)
+				if(result.MoreEntriesCount != 0 && string.IsNullOrEmpty(post_data))
 					result.MoreEntriesCount -= result.Translations.Count;
 			}
 			else if(responseFromServer.Contains("<span class=\"variant\">"))
