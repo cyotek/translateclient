@@ -196,6 +196,25 @@
   <metadata name="msMain.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>502, 17</value>
   </metadata>
+  <data name="miAnimatedIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAMpJREFUOE+dUzsK
+        QjEQNFoJijwrLbyWd/AkHkE7O89mpYi2ujILGyabTR74ICRvdjLZb5oE33QlAvhzWqp1dnjp/n2mFPEV
+        k+tCcNGv434uWIyDWwi1LkeChhUiBr4vg8DQW7fzTobNQz3KXrCAuYzdhBiDgIWkAuwmG4GzgPE8pxBY
+        b+9FwiIBz2lmv+VBVQ284svEmR6zawj/Cmglxmrd8yCXsiUSJZG5VR/42H1D+YeyQNTK3Dx8Dlu5N0xR
+        eNUw+RH1odh/NMo/GI/R6dSR3LAAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="miOnlineHelp2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAJxJREFUOE+dk80N
+        wCAIhd21a/XaEVzDVTz2SAXrD1iI1ISYYN7HEzEEe0E5xnAvEh4JKDwQJmyAHUgXhvOtKnYLAle6q1VF
+        jPkeHz2hw5zzb0inWxDmAh1NToY9xckiHgB6YgbQriN6QH2bh8OEkLhahhgj9UsCVCdSiGKMlpcjyp1M
+        FZvwrWxOJ3tzj3DtSXGwU1H7aeo93V/TEjyDaHdIDtq9zgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="il.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>278, 17</value>
   </metadata>
@@ -550,6 +569,12 @@
   <metadata name="msBrowser.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>326, 54</value>
   </metadata>
+  <metadata name="tsTranslate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>102, 54</value>
+  </metadata>
+  <metadata name="msProfileAdd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>434, 54</value>
+  </metadata>
   <data name="miSearchInGoogle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -592,37 +617,12 @@
         EOMFgjGBL2Dxpn6KEhLMZIqSMt0zJwBv4rBEKXiIfwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="tsTranslate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>102, 54</value>
-  </metadata>
-  <metadata name="msProfileAdd.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>434, 54</value>
-  </metadata>
-  <data name="miAnimatedIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAMpJREFUOE+dUzsK
-        QjEQNFoJijwrLbyWd/AkHkE7O89mpYi2ujILGyabTR74ICRvdjLZb5oE33QlAvhzWqp1dnjp/n2mFPEV
-        k+tCcNGv434uWIyDWwi1LkeChhUiBr4vg8DQW7fzTobNQz3KXrCAuYzdhBiDgIWkAuwmG4GzgPE8pxBY
-        b+9FwiIBz2lmv+VBVQ284svEmR6zawj/Cmglxmrd8yCXsiUSJZG5VR/42H1D+YeyQNTK3Dx8Dlu5N0xR
-        eNUw+RH1odh/NMo/GI/R6dSR3LAAAAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="timerUpdater.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>209, 54</value>
   </metadata>
   <metadata name="timerRecheckServices.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 91</value>
   </metadata>
-  <data name="miOnlineHelp2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAJxJREFUOE+dk80N
-        wCAIhd21a/XaEVzDVTz2SAXrD1iI1ISYYN7HEzEEe0E5xnAvEh4JKDwQJmyAHUgXhvOtKnYLAle6q1VF
-        jPkeHz2hw5zzb0inWxDmAh1NToY9xckiHgB6YgbQriN6QH2bh8OEkLhahhgj9UsCVCdSiGKMlpcjyp1M
-        FZvwrWxOJ3tzj3DtSXGwU1H7aeo93V/TEjyDaHdIDtq9zgAAAABJRU5ErkJggg==
-</value>
-  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAQAICAAAAEAIACoEAAARgAAACAgAAABAAgAqAgAAO4QAAAQEAAAAQAgAGgEAACWGQAAEBAAAAEA
