@@ -187,7 +187,7 @@ namespace Translate
 			string toLanguage = ConvertLanguage(languagesPair.To);
 			
 			int fromLangColumn,  toLangColumn;
-			string lang_query = "lan1={0}&lan2=";
+			string lang_query = "lan1={0}&lan2={1}";
 			if(string.IsNullOrEmpty(fromLanguage))
 			{
 				fromLangColumn = 0;
