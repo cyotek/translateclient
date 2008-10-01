@@ -104,6 +104,18 @@ namespace FreeCL.UI
 				InternalIdle -= value;				 
 			}
 		}
+
+		public static event EventHandler StaticIdle
+		{
+			add
+			{
+				InternalIdle += value;
+			}
+			remove
+			{
+				InternalIdle -= value;				 
+			}
+		}
 		
 		[SuppressMessage("Microsoft.Performance", "CA1822:MarkMembersAsStatic")]
 		public event System.Threading.ThreadExceptionEventHandler ThreadException	
