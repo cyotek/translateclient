@@ -63,10 +63,13 @@ namespace Translate
 			//
 			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			RegisterLanguageEvent(OnLanguageChanged);
 		}
+		
+		void OnLanguageChanged()
+		{
+			Text = LangPack.TranslateString("Options");
+		}	
 		
 		void OptionsFormHelpButtonClicked(object sender, System.ComponentModel.CancelEventArgs e)
 		{
