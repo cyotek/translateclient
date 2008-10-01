@@ -416,7 +416,8 @@ namespace Translate
 		
 		void AMoveProfileUpUpdate(object sender, EventArgs e)
 		{
-			aMoveProfileUp.Enabled = lvProfiles.SelectedIndices[0] != 0;
+			aMoveProfileUp.Enabled = lvProfiles.SelectedIndices.Count > 0 && 
+				lvProfiles.SelectedIndices[0] != 0;
 
 		}
 		
@@ -437,7 +438,8 @@ namespace Translate
 		
 		void AMoveProfileDownUpdate(object sender, EventArgs e)
 		{
-			aMoveProfileDown.Enabled = lvProfiles.SelectedIndices[0] != lvProfiles.Items.Count - 1;
+			aMoveProfileDown.Enabled = lvProfiles.SelectedIndices.Count > 0 &&
+				lvProfiles.SelectedIndices[0] != lvProfiles.Items.Count - 1;
 		}
 		
 		
