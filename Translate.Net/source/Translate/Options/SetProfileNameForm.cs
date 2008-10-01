@@ -119,6 +119,7 @@ namespace Translate
 		
 		void OnLanguageChanged()
 		{
+			bOk.Text = TranslateString("OK");
 			bCancel.Text = LangPack.TranslateString("Cancel");
 			lName.Text = LangPack.TranslateString("Profile name");
 			lLangPair.Text  = TranslateString("Translation direction");

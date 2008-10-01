@@ -132,7 +132,8 @@ namespace Translate
 			gbFilter.Text  = TranslateString("Services filter");
 			gbSource.Text  = TranslateString("Available services");
 			gbCurrent.Text  = TranslateString("Selected services");
-			bCancel.Text = LangPack.TranslateString("Cancel");
+			bCancel.Text = TranslateString("Cancel");
+			bOk.Text = TranslateString("OK");
 			
 		}		
 		

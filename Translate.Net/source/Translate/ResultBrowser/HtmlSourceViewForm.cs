@@ -54,8 +54,13 @@ namespace Translate
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
+			RegisterLanguageEvent(OnLanguageChanged);
 		}
+		
+		void OnLanguageChanged()
+		{
+			bOk.Text = TranslateString("OK");
+		}		
 		
 		public string Source
 		{
