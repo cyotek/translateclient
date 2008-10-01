@@ -81,6 +81,9 @@ namespace Translate
 	    	
 	    	s = HttpUtility.HtmlDecode(s);
 	    	s = s.Replace("#39;", "'");
+			s = s.Replace("&apos;", "'");
+			s = s.Replace("<br>", "\n");
+			s = s.Replace("&nbsp;", " ");
 	    	
 	    	return s;
 	    }
