@@ -5,7 +5,7 @@
 [TranslatedByURL]
 
 [Translated by]
-無職、求職中
+日本語版作成者
 [&File]
 ファイル(&F)
 [Exit from application]
@@ -95,7 +95,7 @@
 [Automatically check updates]
 自動的に更新をチェックする。
 [Automatically download updates]
-
+自動的に更新をダウンロードする。
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 更新 - {0}\r\n更新を最後にチェック - {1}，状態 - {2}\r\n次の更新チェック - {3}
 [Close]
@@ -115,11 +115,11 @@
 [The server of updates is overloaded. The check of updates will be delayed.]
 更新プログラムは、サーバーの過負荷状態です。更新プログラムのチェックは延期されました。
 [Checking of update done]
-
+更新はチェック済みです。
 [New version {0} of {1} available]
-
+{1}の新しいバージョン{0}が適用可能です。
 [Do you want to open site where you can download it ?]
-
+ダウンロード可能なサイトを開きますか？
 [Version]
 バージョン
 [&Tools]
@@ -197,7 +197,7 @@ Ctrl+Ins+Ins で活性化
 [Nothing found]
 結果が見つからない
 [An error occurred during translation. Please try again later.]
-
+翻訳中にエラーが発生しました。時間をおいて再試行してください。
 [Translation direction is not correct]
 翻訳の方向が正しくない
 [Only cyrillic characters supported]
@@ -219,41 +219,41 @@ Ctrl+Ins+Ins で活性化
 [Result view]
 結果表示
 [Result view placement]
-
+結果表示配置
 [Top]
-
+上部
 [Place result view at top]
-
+結果表示を上部にする
 [Bottom]
-
+下部
 [Place result view at bottom]
-
+結果表示を下部にする
 [Left]
-
+左
 [Place result view at left]
-
+結果表示を左にする
 [Right]
-
+右
 [Place result view at right]
-
+結果表示を右にする
 [Include monolingual dictionaries in translation]
 一か国語の辞書を翻訳で使用
 [Filter of languages]
-
+言語のフィルタ
 [Allow to choose languages for use]
-
+使用する言語の選択を許可する
 [Source languages]
-
+翻訳元言語
 [Target languages]
-
+翻訳先言語
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+翻訳したい言語の元と先を選択してください。デフォルトプロファイルの"言語"タブから使用できない言語は取り除かれています。
 [Toggle all]
-
+全てをトグル
 [Please select at least one source language]
-
+少なくとも１つの翻訳元言語を選択してください
 [Please select at least one target language]
-
+少なくとも１つの翻訳先言語を選択してください
 [Profile]
 プロファイル(&P)
 [Profiles]
@@ -319,9 +319,9 @@ Ctrl+Ins+Ins で活性化
 [To default]
 デフォルトに
 [Toolbars]
-
+ツールバー
 [Default font]
-
+デフォルトフォント
 [&Translate]
 翻訳(&R)
 [Translate]
@@ -331,11 +331,11 @@ Ctrl+Ins+Ins で活性化
 [Stop]
 停止
 [Search in Google]
-
+Googleで検索
 [Size or format of query don't supported by available translation services]
 問い合わせのサイズまたは形式が翻訳サービスがサポートしているものではありません
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+翻訳は異なる{0}個のサービスを呼び出します、サーバーに負荷を及ぼすかもしれません。\n翻訳処理を中断しますか？
 [Reverse translation direction]
 翻訳の方向を反転
 [Show\\Hide]
@@ -351,27 +351,27 @@ HTML ソースを表示
 [Afrikaans]
 アフリカーンス語
 [Albanian]
-
+アルバニア語
 [Autodetect]
 *自動*
 [Arabic]
 アラビア語
 [Armenian]
-
+アルメニア語
 [Basque]
-
+バスク語
 [Belarusian]
 ベラルーシ語
 [Bengali]
-
+ベンガル語
 [Bosnian]
-
+ボスニア語
 [Breton]
-
+ブルトン語
 [Bulgarian]
 ブルガリア語
 [Catalan]
-
+カタルニア語
 [Chinese]
 中国語
 [Chinese_CN]
@@ -399,21 +399,21 @@ HTML ソースを表示
 [Icelandic]
 アイスランド語
 [Faroese]
-
+フェロー語
 [Filipino]
-フィリピン人
+フィリピン語
 [Finnish]
 フィンランド語
 [French]
 フランス語
 [Frisian]
-
+フリジア語
 [Galician]
-
+ガリシア語
 [German]
 ドイツ語
 [Georgian]
-
+グルジア語
 [Greek]
 ギリシャ語
 [Hebrew]
@@ -421,11 +421,11 @@ HTML ソースを表示
 [Hindi]
 ヒンディー語
 [Indonesian]
-
+インドネシア語
 [Interlingua]
-
+インテルリングア
 [Irish]
-
+ゲール語
 [Hungarian]
 ハンガリー語
 [Italian]
@@ -433,7 +433,7 @@ HTML ソースを表示
 [Japanese]
 日本語
 [Japanese_Romaji]
-
+ローマ字
 [Korean]
 韓国語
 [Latin]
@@ -445,21 +445,21 @@ HTML ソースを表示
 [Macedonian]
 マケドニア語
 [Maltese]
-
+マルタ語
 [Mongolian]
-
+モンゴル語
 [Nepali]
-
+ネパール語
 [Norwegian]
 ノルウェー語
 [Norwegian_Bokmal]
-
+ノルウェー語(Bokmål)
 [Norwegian_Nynorsk]
-
+ノルウェー語(Nynorsk)
 [Papiamento]
-
+パピアメント語
 [Persian]
-
+ペルシャ語
 [Polish]
 ポーランド語
 [Portuguese]
@@ -481,27 +481,27 @@ HTML ソースを表示
 [Spanish_LA]
 スペイン語-LA
 [Swahili]
-
+スワヒリ語
 [Swedish]
 スウェーデン語
 [Tagalog]
-
+タガログ語
 [Tamil]
-
+タミル語
 [Telugu]
-
+テルグ語
 [Thai]
-
+タイ語
 [Turkish]
-トルコ
+トルコ語
 [Ukrainian]
 ウクライナ語
 [Urdu]
 ウルドゥー語
 [Vietnamese]
-
+ベトナム語
 [Welsh]
-ウェールズ
+ウェールズ語
 [Languages]
 言語
 [Services]
@@ -637,9 +637,9 @@ BS
 [Limit {0} : {1} characters]
 限界 {0} : {1} 文字
 [Limit {0} : {1} lines]
-
+限界 {0} : {1} 行
 [Limit {0} : {1} words]
-
+限界 {0} : {1} 語
 [Masks]
 マスク
 [English-Ukrainian technical dictionary]
@@ -691,35 +691,35 @@ Tiscali - チェコ語辞典
 [Online English-to-Urdu and Urdu-to-English dictionary]
 オンライン ウルドゥー語(対、英語)辞典
 [InterTran dictionary]
-
+InterTran 辞書
 [Priberam Portuguese dictionary]
-
+Priberam ポルトガル語辞典
 [WordNet a lexical database for the English language]
-
+WordNet 英語語彙データベース
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet は 多言語の語彙データベースです
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+英語-ブルガリア語 辞典 - SA Dictionary Online
 [dict.cc - English-German Dictionary]
-
+dict.cc - 英語-ドイツ語 辞典
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - ドイツ語辞典
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open thesaurus はオープンソースのドイツ語のシソーラスです
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+Open thesaurus-es はオープンソースのスペイン語のシソーラスです
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal はOpenThesaurusをもとにしたオープンソースのオランダ語のシソーラスです
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+OpenthesaurusPT はオープンソースのポルトガル語のシソーラスです
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+OpenthesaurusPL はオープンソースのポーランド語のシソーラスです
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+OpenthesaurusSI はオープンソースのスロベニア語のシソーラスです
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(te)* Online Dictionary -  トルコ語辞典
 [Free Dictionaries project]
-
+フリー辞典プロジェクト
 [Grouped by Service's Url]
 サービスのＵＲＬでグループ化
 [Grouped by Language]
@@ -733,46 +733,46 @@ Tiscali - チェコ語辞典
 [Open article]
 記事を開く
 [Pronunciation]
-
+発音
 [{0} more entries found]
-
+{0} 以上のエントリがありました
 [related links]
-
+関連リンク
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+問い合わせ時間 : {0} 秒, 問い合わせ回数 : {1}, 送信バイト数 : {2}, 受信バイト数 : {3}
 [Full time : {0} s]
-
+総計 : {0} 秒
 [{0} phrases translated by {1} calls to translate services]
-慣用句 {0} は{1} 翻訳サービスを使用して翻訳されました
+{0} 個の語句が翻訳サービスを{1}回使用して翻訳されました
 [Send by mail]
-
+メールで送信
 [Continue]
-
+続行
 [Copy]
 コピー
 [Terminate]
-
+終了
 [Terminated by user on error]
-
+エラーでユーザにより終了
 [Unhandled exception in]
-
+未処理の例外が
 [Error on opening config file]
-
+設定ファイルを開く時にエラー
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+{0}からの設定ファイルを開く時にエラー。\r\n主な原因 - オプションファイル形式がおかしい.\r\n設定内容はデフォルト値にリセットされます。
 [Error on saving config file]
-
+設定ファイルへの保存時にエラー
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+{0}への設定ファイルへの保存時にエラー。\r\n主な原因 - システムのTEMPディレクトリに書き込めない。
 [Error on saving config file to {0}]
-
+{0}への設定ファイルへの保存時にエラー。
 [Show information about exception]
-
+例外についての情報を表示
 [Error on start process : {0}\r\nError message : {1}]
-
+処理の開始時にエラー: {0}\r\nエラーメッセージ : {1}
 [Error on start process]
-
+処理の開始時にエラー
 [Error on sending email to : {0}\r\nError message : {1}]
-
+{0}へのメールの送信でエラー\r\nエラーメッセージ : {1}
 [Error on sending email]
-
+メールの送信でエラー
