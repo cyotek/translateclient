@@ -512,7 +512,7 @@ namespace FreeCL.UI.Actions
 			_actions = new ActionCollection(this);
 			if (!DesignMode)
 			{
-				System.Windows.Forms.Application.Idle += new EventHandler(OnIdle);
+				GlobalEvents.StaticIdle += new EventHandler(OnIdle);
 			}
 		}
 		/// <summary>
@@ -581,7 +581,7 @@ namespace FreeCL.UI.Actions
 			{
 				if (!DesignMode)
 				{
-					System.Windows.Forms.Application.Idle -= new EventHandler(OnIdle);
+					GlobalEvents.StaticIdle -= new EventHandler(OnIdle);
 					Menu = null;
 				}
 				if(components != null)
