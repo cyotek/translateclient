@@ -151,7 +151,7 @@ namespace Translate
 				item = ReadItem(startTag, endTag, stopTag);
 				if(string.IsNullOrEmpty(item))
 					break;
-				res.Add(item);
+				res.Add(HttpUtilityEx.HtmlDecode(item));
 			}
 			return res.ToArray();
 		}
@@ -182,9 +182,7 @@ namespace Translate
 			int resultIdxEnd = data.IndexOf(endTag, resultIdxStart);
 			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
 			
-			String result_string = HttpUtility.HtmlDecode(data.Substring(resultIdxStart, resultIdxEnd - resultIdxStart));
-			result_string = result_string.Replace("&apos;", "'");
-			result_string = result_string.Replace("<br>", "\n");
+			String result_string = HttpUtilityEx.HtmlDecode(data.Substring(resultIdxStart, resultIdxEnd - resultIdxStart));
 			return result_string.Trim();
 		}
 		
@@ -199,9 +197,7 @@ namespace Translate
 			int resultIdxEnd = data.IndexOf(endTag);
 			if (resultIdxEnd < 0) throw new TranslationException("Can't found end tag :" + endTag + " in string : " +  data);
 			
-			String result_string = HttpUtility.HtmlDecode(data.Substring(0, resultIdxEnd));
-			result_string = result_string.Replace("&apos;", "'");
-			result_string = result_string.Replace("<br>", "\n");
+			String result_string = HttpUtilityEx.HtmlDecode(data.Substring(0, resultIdxEnd));
 			return result_string.Trim();
 		}
 
@@ -218,9 +214,7 @@ namespace Translate
 			if (resultIdxStart < 0) throw new TranslationException("Can't found start tag :" + startTag + " in string : " +  data);
 			resultIdxStart += startTagLength;
 
-			String result_string = HttpUtility.HtmlDecode(data.Substring(resultIdxStart));
-			result_string = result_string.Replace("&apos;", "'");
-			result_string = result_string.Replace("<br>", "\n");
+			String result_string = HttpUtilityEx.HtmlDecode(data.Substring(resultIdxStart));
 			return result_string.Trim();
 		}
 		
