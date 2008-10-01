@@ -1,7 +1,7 @@
 ﻿[TranslationComment]
 
 [TranslatedBy]
-Smallchou Lin (Ver.970829)
+Smallchou Lin (Ver.970930)
 [TranslatedByURL]
 smallchoulcc@yahoo.com.tw
 [Translated by]
@@ -96,7 +96,7 @@ smallchoulcc@yahoo.com.tw
 [Automatically check updates]
 自動檢查更新
 [Automatically download updates]
-
+自動地下載更新
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 已更新 - {0}\r\n最近一次檢查更新 - {1}，狀態 - {2}\r\n下一次檢查更新 - {3}
 [Close]
@@ -116,11 +116,11 @@ smallchoulcc@yahoo.com.tw
 [The server of updates is overloaded. The check of updates will be delayed.]
 更新伺服器過載，檢查更新的動作將有所延遲。
 [Checking of update done]
-
+更新完成的檢查
 [New version {0} of {1} available]
-
+{1} 的新版本 {0} 已發佈
 [Do you want to open site where you can download it ?]
-
+您希望在可以下載它時開啟網站嗎？
 [Version]
 版本
 [&Tools]
@@ -198,7 +198,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Nothing found]
 未找到
 [An error occurred during translation. Please try again later.]
-
+翻譯過程中發生錯誤，請稍候再試。
 [Translation direction is not correct]
 翻譯方向不正確
 [Only cyrillic characters supported]
@@ -220,41 +220,41 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Result view]
 結果檢視
 [Result view placement]
-
+結果檢視版面配置
 [Top]
-
+上↑
 [Place result view at top]
-
+結果檢視窗格置於上方
 [Bottom]
-
+下↓
 [Place result view at bottom]
-
+結果檢視窗格置於下方
 [Left]
-
+左←
 [Place result view at left]
-
+結果檢視窗格置於左方
 [Right]
-
+右→
 [Place result view at right]
-
+結果檢視窗格置於右方
 [Include monolingual dictionaries in translation]
 翻譯中只包含一種語言字典
 [Filter of languages]
-
+語言過濾器
 [Allow to choose languages for use]
-
+允許您選取即將使用的語言
 [Source languages]
-
+來源語言
 [Target languages]
-
+目標語言
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+選擇您要翻譯的來源與目標語言。取消的語言將會從預設使用者定義的「語言」標籤中移除。
 [Toggle all]
-
+標記全部
 [Please select at least one source language]
-
+請至少選取一個來源語言
 [Please select at least one target language]
-
+請至少選取一個目標語言
 [Profile]
 使用者定義
 [Profiles]
@@ -320,9 +320,9 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [To default]
 回復成預設值
 [Toolbars]
-
+工具列
 [Default font]
-
+預設字型
 [&Translate]
 翻譯(&T)
 [Translate]
@@ -332,11 +332,11 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Stop]
 停止
 [Search in Google]
-
+在 Google 搜尋
 [Size or format of query don't supported by available translation services]
 查詢的文字長度或格式不受可用的翻譯服務支援
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+翻譯將對不同服務產生 {0} 個呼叫，這可能造成伺服器過載。\n您要中斷本次翻譯操作嗎？
 [Reverse translation direction]
 反向翻譯
 [Show\\Hide]
@@ -352,27 +352,27 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Afrikaans]
 南非荷蘭語
 [Albanian]
-
+阿爾巴尼亞語
 [Autodetect]
 自動偵測
 [Arabic]
 阿拉伯語
 [Armenian]
-
+亞美尼亞語
 [Basque]
-
+巴斯克語
 [Belarusian]
 白俄羅斯語
 [Bengali]
-
+孟加拉語
 [Bosnian]
-
+波士尼亞語
 [Breton]
-
+布列塔尼語
 [Bulgarian]
 保加利亞語
 [Catalan]
-
+加泰羅尼亞語
 [Chinese]
 中文
 [Chinese_CN]
@@ -400,7 +400,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Icelandic]
 冰島語
 [Faroese]
-
+法羅語
 [Filipino]
 菲律賓
 [Finnish]
@@ -408,13 +408,13 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [French]
 法語
 [Frisian]
-
+弗里斯蘭語
 [Galician]
-
+加利西亞語
 [German]
 德語
 [Georgian]
-
+格魯吉亞語
 [Greek]
 希臘語
 [Hebrew]
@@ -422,11 +422,11 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Hindi]
 北印度語
 [Indonesian]
-
+印尼語
 [Interlingua]
-
+世界語（人工國際語）
 [Irish]
-
+愛爾蘭語
 [Hungarian]
 匈牙利語
 [Italian]
@@ -434,7 +434,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Japanese]
 日語
 [Japanese_Romaji]
-
+日本羅馬字
 [Korean]
 韓語
 [Latin]
@@ -446,27 +446,27 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Macedonian]
 馬其頓語
 [Maltese]
-
+馬爾他語
 [Mongolian]
-
+蒙古語
 [Nepali]
-
+尼泊爾語
 [Norwegian]
 挪威語
 [Norwegian_Bokmal]
-
+挪威語（Bokmal）
 [Norwegian_Nynorsk]
-
+挪威語（Nynorsk）
 [Papiamento]
-
+帕皮亞內托文
 [Persian]
-
+波斯語
 [Polish]
 波蘭語
 [Portuguese]
 葡萄牙語
 [Portuguese_BR]
-葡萄牙語-Br
+葡萄牙語-BR
 [Romanian]
 羅馬尼亞語
 [Russian]
@@ -482,17 +482,17 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Spanish_LA]
 西班牙語-LA
 [Swahili]
-
+斯華西里語
 [Swedish]
 瑞典語
 [Tagalog]
-
+塔加拉族語
 [Tamil]
-
+坦米爾語
 [Telugu]
-
+泰盧固語
 [Thai]
-
+泰國語
 [Turkish]
 土耳其
 [Ukrainian]
@@ -500,7 +500,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Urdu]
 烏爾都語
 [Vietnamese]
-
+越南語
 [Welsh]
 威爾士
 [Languages]
@@ -638,9 +638,9 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Limit {0} : {1} characters]
 限制 {0} : {1} 字元
 [Limit {0} : {1} lines]
-
+限制 {0} : {1} 行
 [Limit {0} : {1} words]
-
+限制 {0} : {1} 字
 [Masks]
 遮罩
 [English-Ukrainian technical dictionary]
@@ -692,35 +692,35 @@ Tiscali - 捷克方面的辭典
 [Online English-to-Urdu and Urdu-to-English dictionary]
 線上　英文-烏爾都語　烏爾都語-英文　辭典
 [InterTran dictionary]
-
+InterTran 辭典
 [Priberam Portuguese dictionary]
-
+Priberam 葡萄牙語辭典
 [WordNet a lexical database for the English language]
-
+WordNet 英語辭彙資料庫
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet 多語言辭彙資料庫
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+英語-保加利亞語　辭典 - SA 線上辭典
 [dict.cc - English-German Dictionary]
-
+dict.cc - 英德辭典
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - 德語導向的辭典
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open thesaurus 開放源碼的德文辭庫
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+OpenThesaurus-es 開放源碼的西班牙語辭庫
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal 基於 OpenThesaurus 的開放源碼荷蘭語辭庫
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+OpenThesaurusPT 開放源碼的葡萄牙語辭庫
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+OpenThesaurusPL 開放源碼的波蘭語辭庫
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+OpenThesaurusSI 開放源碼的斯洛維尼亞語辭庫
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 [Free Dictionaries project]
-
+自由辭典專案
 [Grouped by Service's Url]
 以服務的鏈結分組
 [Grouped by Language]
@@ -734,46 +734,46 @@ Tiscali - 捷克方面的辭典
 [Open article]
 開啟項目
 [Pronunciation]
-
+發音
 [{0} more entries found]
-
+多於 {0} 項目已找到
 [related links]
-
+相關鏈結
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+查詢時間： {0} 秒。查詢次數： {1} 。傳出位元組： {2} 。收到位元組： {3}
 [Full time : {0} s]
-
+整體時間： {0} 秒。
 [{0} phrases translated by {1} calls to translate services]
 {0} 個詞組經由 {1} 個翻譯服務所翻譯
 [Send by mail]
-
+以電子郵件傳送
 [Continue]
-
+繼續
 [Copy]
-
+複製
 [Terminate]
-
+終止
 [Terminated by user on error]
-
+已由使用者進行錯誤中止
 [Unhandled exception in]
-
+未預期的例外發生
 [Error on opening config file]
-
+開啟設定檔時發生錯誤
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+自 {0} 開啟設定檔時發生錯誤。\r\n可能的原因：可選擇的檔案格式錯誤。\r\n設定檔將重設為預設值。
 [Error on saving config file]
-
+儲存設定檔時發生錯誤
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+儲存設定檔至 {0} 時發生錯誤。可能的原因：系統暫存資料夾拒絕存取。
 [Error on saving config file to {0}]
-
+儲存設定檔至 {0} 時發生錯誤
 [Show information about exception]
-
+顯示例外狀況的相關資訊
 [Error on start process : {0}\r\nError message : {1}]
-
+處理開始時發生錯誤： {0}\r\n錯誤訊息：{1}
 [Error on start process]
-
+處理開始時發生錯誤
 [Error on sending email to : {0}\r\nError message : {1}]
-
+寄送郵件時發生錯誤： {0}\r\n錯誤訊息：{1}
 [Error on sending email]
-
+寄送郵件時發生錯誤
