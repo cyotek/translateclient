@@ -230,6 +230,7 @@ namespace FreeCL.Forms
 		
 		void OnLanguageChanged()
 		{
+			bOk.Text = TranslateString("OK");
 			bCancel.Text = LangPack.TranslateString("Cancel");
 			aApply.Text = LangPack.TranslateString("Apply");
 			Text = LangPack.TranslateString("Options");

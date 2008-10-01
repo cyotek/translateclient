@@ -72,6 +72,7 @@ namespace FreeCL.Forms
 		
 		void OnLanguageChanged()
 		{
+			bOk.Text = TranslateString("OK");
 			lVersion.Text = LangPack.TranslateString("Version")+ " " + ApplicationInfo.ProductVersion;
 			Text = LangPack.TranslateString("About")+ " " + lAppTitle.Text;
 		}

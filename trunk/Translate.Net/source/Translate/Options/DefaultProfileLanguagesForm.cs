@@ -65,6 +65,8 @@ namespace Translate
 			
 
 			bCancel.Text = LangPack.TranslateString("Cancel");
+			bOk.Text = TranslateString("OK");
+			
 			LoadLanguages();
 			
 		}		

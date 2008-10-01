@@ -75,6 +75,7 @@ namespace FreeCL.Forms
 		void OnLanguageChanged()
 		{
 			bShowExceptionIfno.Text = TranslateString("Show information about exception");
+			bOk.Text = TranslateString("OK");
 		}
 		
 		
