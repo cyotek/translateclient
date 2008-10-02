@@ -50,6 +50,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using FreeCL.RTL;
 using FreeCL.Forms;
+using FreeCL.UI;
 
 namespace Translate
 {
@@ -66,10 +67,37 @@ namespace Translate
 			wBrowser.StatusTextChanged += wBrowser_StatusTextChanged;
 			inResize = false;
 			RecalcSizes();
+			EditingManager.OnCopy += OnCopy;
 		}
 
 		static ResultBrowser()
 		{
+			
+		}
+		
+		void OnCopy(object sender, EditingManagerEventArgs e)
+		{
+			System.Windows.Forms.WebBrowser webbrowser = FreeCL.Forms.Application.ActiveControl as System.Windows.Forms.WebBrowser;	
+		
+			if(webbrowser == wBrowser)
+			{
+				wBrowser.Document.ExecCommand("Copy", false, null);
+				e.Handled = true;				
+				//replace rtf with simple text
+				try
+				{
+					string text = System.Windows.Forms.Clipboard.GetText(); 
+					if(!string.IsNullOrEmpty(text))
+					{
+						text = text.Trim().Replace("\r\n\r\n", "\r\n");
+						System.Windows.Forms.Clipboard.SetText(text);
+					}	
+				}
+				catch(System.Runtime.InteropServices.ExternalException)
+				{
+				
+				}
+			}
 		}
 
 		string statusText;
@@ -1068,6 +1096,12 @@ namespace Translate
 		{
 			Wait();			
 			return HtmlHelper.GetSelection(wBrowser);
+		}
+		
+		void WBrowserPreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+		{
+			if(e.KeyData == (Keys.Control | Keys.C))
+				TranslateMainForm.Instance.ActionList.ProcessKey(e.KeyData);
 		}
 	}
 }
