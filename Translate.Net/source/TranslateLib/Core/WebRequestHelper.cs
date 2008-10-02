@@ -158,6 +158,13 @@ namespace Translate
 			set { referer = value; }
 		}
 		
+		bool useGoogleCache;
+		public bool UseGoogleCache {
+			get { return useGoogleCache; }
+			set { useGoogleCache = value; }
+		}
+		
+		
 		string multiPartBoundary = "-----------------------------325433208117628";
 		
 		MemoryStream postStream;
@@ -235,9 +242,16 @@ namespace Translate
 		bool alreadyGenerated;
 		string InternalGetResponse()
 		{
+			Uri realUrl = url;
+			if(useGoogleCache && contentType == WebRequestContentType.UrlEncodedGet)
+			{
+				realUrl = new Uri("http://www.google.com/search?q=cache:" + url.ToString().Substring(7));
+			}
+			
+			
 			//request
-			WebRequest request = WebRequest.Create (url);
-			result.BytesSent += url.OriginalString.Length;
+			WebRequest request = WebRequest.Create (realUrl);
+			result.BytesSent += realUrl.OriginalString.Length;
 			
 			request.Proxy = networkSetting.Proxy;
 			request.Timeout = networkSetting.Timeout;
@@ -272,7 +286,12 @@ namespace Translate
 			//webRequest.UserAgent = "Mozilla/5.0";
 			
 			if(string.IsNullOrEmpty(referer))
-				webRequest.Referer = url.AbsoluteUri;
+			{
+				if(useGoogleCache)
+					webRequest.Referer = "http://www.google.com";
+				else
+					webRequest.Referer = url.AbsoluteUri;
+			}	
 			else	
 				webRequest.Referer = referer;
 			
