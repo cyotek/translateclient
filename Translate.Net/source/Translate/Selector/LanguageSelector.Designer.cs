@@ -154,9 +154,9 @@ namespace Translate
 			// 
 			this.splitterBottom.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.splitterBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitterBottom.Location = new System.Drawing.Point(2, 271);
+			this.splitterBottom.Location = new System.Drawing.Point(2, 269);
 			this.splitterBottom.Name = "splitterBottom";
-			this.splitterBottom.Size = new System.Drawing.Size(247, 5);
+			this.splitterBottom.Size = new System.Drawing.Size(247, 7);
 			this.splitterBottom.TabIndex = 4;
 			this.splitterBottom.TabStop = false;
 			// 
@@ -169,7 +169,7 @@ namespace Translate
 			this.tcMain.Location = new System.Drawing.Point(2, 2);
 			this.tcMain.Name = "tcMain";
 			this.tcMain.SelectedIndex = 0;
-			this.tcMain.Size = new System.Drawing.Size(247, 269);
+			this.tcMain.Size = new System.Drawing.Size(247, 267);
 			this.tcMain.TabIndex = 7;
 			// 
 			// tpServices
@@ -180,7 +180,7 @@ namespace Translate
 			this.tpServices.Location = new System.Drawing.Point(4, 22);
 			this.tpServices.Name = "tpServices";
 			this.tpServices.Padding = new System.Windows.Forms.Padding(3);
-			this.tpServices.Size = new System.Drawing.Size(239, 243);
+			this.tpServices.Size = new System.Drawing.Size(239, 241);
 			this.tpServices.TabIndex = 2;
 			this.tpServices.Text = "Services";
 			this.tpServices.UseVisualStyleBackColor = true;
@@ -198,7 +198,7 @@ namespace Translate
 			this.pServices.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pServices.Location = new System.Drawing.Point(3, 23);
 			this.pServices.Name = "pServices";
-			this.pServices.Size = new System.Drawing.Size(233, 108);
+			this.pServices.Size = new System.Drawing.Size(233, 106);
 			this.pServices.TabIndex = 7;
 			// 
 			// lvServicesDisabledByUser
@@ -362,7 +362,7 @@ namespace Translate
 			this.pServiceData.BevelInner = FreeCL.UI.BevelStyle.Lowered;
 			this.pServiceData.Controls.Add(this.serviceStatus);
 			this.pServiceData.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.pServiceData.Location = new System.Drawing.Point(3, 131);
+			this.pServiceData.Location = new System.Drawing.Point(3, 129);
 			this.pServiceData.Name = "pServiceData";
 			this.pServiceData.Padding = new System.Windows.Forms.Padding(4, 4, 2, 4);
 			this.pServiceData.Size = new System.Drawing.Size(233, 109);

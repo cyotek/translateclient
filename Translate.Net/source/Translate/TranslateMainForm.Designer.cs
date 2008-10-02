@@ -668,7 +668,7 @@ namespace Translate
 			this.pMain.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pMain.Location = new System.Drawing.Point(24, 72);
 			this.pMain.Name = "pMain";
-			this.pMain.Size = new System.Drawing.Size(386, 344);
+			this.pMain.Size = new System.Drawing.Size(384, 344);
 			this.pMain.TabIndex = 9;
 			// 
 			// resBrowser
@@ -677,7 +677,7 @@ namespace Translate
 			this.resBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.resBrowser.Location = new System.Drawing.Point(0, 0);
 			this.resBrowser.Name = "resBrowser";
-			this.resBrowser.Size = new System.Drawing.Size(386, 189);
+			this.resBrowser.Size = new System.Drawing.Size(384, 187);
 			this.resBrowser.TabIndex = 3;
 			this.resBrowser.StatusTextChanged += new System.EventHandler(this.ResBrowserStatusTextChanged);
 			// 
@@ -755,9 +755,9 @@ namespace Translate
 			// 
 			this.splitterTranslate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.splitterTranslate.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.splitterTranslate.Location = new System.Drawing.Point(0, 189);
+			this.splitterTranslate.Location = new System.Drawing.Point(0, 187);
 			this.splitterTranslate.Name = "splitterTranslate";
-			this.splitterTranslate.Size = new System.Drawing.Size(386, 5);
+			this.splitterTranslate.Size = new System.Drawing.Size(384, 7);
 			this.splitterTranslate.TabIndex = 2;
 			this.splitterTranslate.TabStop = false;
 			// 
@@ -770,7 +770,7 @@ namespace Translate
 			this.tbFrom.Multiline = true;
 			this.tbFrom.Name = "tbFrom";
 			this.tbFrom.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.tbFrom.Size = new System.Drawing.Size(386, 127);
+			this.tbFrom.Size = new System.Drawing.Size(384, 127);
 			this.tbFrom.TabIndex = 1;
 			this.tbFrom.TextChanged += new System.EventHandler(this.TbFromTextChanged);
 			// 
@@ -788,7 +788,7 @@ namespace Translate
 			this.tsTranslate.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.tsTranslate.Location = new System.Drawing.Point(0, 321);
 			this.tsTranslate.Name = "tsTranslate";
-			this.tsTranslate.Size = new System.Drawing.Size(386, 23);
+			this.tsTranslate.Size = new System.Drawing.Size(384, 23);
 			this.tsTranslate.TabIndex = 0;
 			// 
 			// msProfileAdd
@@ -1070,13 +1070,13 @@ namespace Translate
 			// 
 			this.splitterRight.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.splitterRight.Dock = System.Windows.Forms.DockStyle.Right;
-			this.splitterRight.Location = new System.Drawing.Point(410, 72);
+			this.splitterRight.Location = new System.Drawing.Point(408, 72);
 			this.splitterRight.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
 			this.splitterRight.MinExtra = 60;
 			this.splitterRight.MinSize = 60;
 			this.splitterRight.Name = "splitterRight";
 			this.splitterRight.Padding = new System.Windows.Forms.Padding(0, 5, 0, 3);
-			this.splitterRight.Size = new System.Drawing.Size(5, 344);
+			this.splitterRight.Size = new System.Drawing.Size(7, 344);
 			this.splitterRight.TabIndex = 11;
 			this.splitterRight.TabStop = false;
 			// 
