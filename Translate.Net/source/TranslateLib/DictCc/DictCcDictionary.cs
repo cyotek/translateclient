@@ -74,7 +74,7 @@ namespace Translate
 		{
 			string query = "http://www.dict.cc/?s={0}";
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, encoding));
-
+			result.ArticleUrl = query;
 			
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
@@ -99,7 +99,18 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 			
-			string en_string, ge_string;  
+			if(responseFromServer.Contains("</b> von&nbsp;<b>"))
+			{
+				string full_count = StringParser.Parse("</b> von&nbsp;<b>", "</b>", responseFromServer);
+				if(!string.IsNullOrEmpty(full_count))
+				{
+					int count;
+					if(int.TryParse(full_count, out count))
+						result.MoreEntriesCount = count - translations.Length;
+				}
+			}
+			
+			string en_string, ge_string, en_url, ge_url;  
 			Result child = result;
 			string subphrase = "";
 			foreach(string translation in translations)
@@ -109,8 +120,19 @@ namespace Translate
 					throw new TranslationException("Can't found translations in string : " + translation);
 				
 				en_string = subtranslations[0];
+				if(en_string.Contains("<a href=\""))
+					en_url = StringParser.Parse("<a href=\"", "\"", en_string);
+				else	
+					en_url = "";
+					
 				en_string = StringParser.RemoveAll("<", ">", en_string);
+				
+				
 				ge_string = subtranslations[1];				
+				if(ge_string.Contains("<a href=\""))
+					ge_url = StringParser.Parse("<a href=\"", "\"", ge_string);
+				else	
+					ge_url = "";
 				ge_string = StringParser.RemoveAll("<", ">", ge_string);
 				
 				if(languagesPair.From == Language.German)
@@ -119,6 +141,8 @@ namespace Translate
 					{
 						child = new Result(result.ServiceItem, ge_string, result.LanguagePair, result.Subject);
 						subphrase = ge_string;
+						if(!string.IsNullOrEmpty(ge_url))
+							child.ArticleUrl = "http://www.dict.cc" + ge_url;
 						result.Childs.Add(child);
 					}
 					child.Translations.Add(en_string);
@@ -129,6 +153,8 @@ namespace Translate
 					{
 						child = new Result(result.ServiceItem, en_string, result.LanguagePair, result.Subject);
 						subphrase = en_string;
+						if(!string.IsNullOrEmpty(en_url))
+							child.ArticleUrl = "http://www.dict.cc" + en_url;
 						result.Childs.Add(child);
 					}
 					
