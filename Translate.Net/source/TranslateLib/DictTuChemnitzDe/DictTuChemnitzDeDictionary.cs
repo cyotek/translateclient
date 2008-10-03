@@ -123,7 +123,19 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 			
-			string en_string, ge_string;  
+			if(responseFromServer.Contains("<td class=\"tip b \" width=\"45%\" align=\"left\" valign=\"top\">"))
+			{
+				string full_count = StringParser.Parse("<td class=\"tip b \" width=\"45%\" align=\"left\" valign=\"top\">", " ", responseFromServer);
+				if(!string.IsNullOrEmpty(full_count))
+				{
+					int count;
+					if(int.TryParse(full_count, out count))
+						result.MoreEntriesCount = count - translations.Length;
+				}
+			}
+			
+			string en_string, ge_string, en_url, ge_url;  
+			bool en_audio, ge_audio;
 			Result child = result;
 			string subphrase = "";
 			foreach(string translation in translations)
@@ -133,8 +145,20 @@ namespace Translate
 					throw new TranslationException("Can't found translations in string : " + translation);
 				
 				en_string = StringParser.ExtractRight(">", subtranslations[1]);
+				if(en_string.Contains("<a href=\""))
+					en_url = StringParser.Parse("<a href=\"", "\"", en_string);
+				else	
+					en_url = "";
+				en_audio = en_string.Contains("href=\"/dings.cgi?speak=");
+				
 				en_string = StringParser.RemoveAll("<", ">", en_string);
+				
 				ge_string = StringParser.ExtractRight(">", subtranslations[0]);				
+				if(ge_string.Contains("<a href=\""))
+					ge_url = StringParser.Parse("<a href=\"", "\"", ge_string);
+				else	
+					ge_url = "";
+				ge_audio = ge_string.Contains("href=\"/dings.cgi?speak=");
 				ge_string = StringParser.RemoveAll("<", ">", ge_string);
 				
 				if(languagesPair.From == Language.German)
@@ -143,6 +167,9 @@ namespace Translate
 					{
 						child = new Result(result.ServiceItem, ge_string, result.LanguagePair, result.Subject);
 						subphrase = ge_string;
+						if(!string.IsNullOrEmpty(ge_url))
+							child.ArticleUrl = "http://dict.tu-chemnitz.de" + ge_url;
+						child.HasAudio = ge_audio;
 						result.Childs.Add(child);
 					}
 					child.Translations.Add(en_string);
@@ -153,6 +180,9 @@ namespace Translate
 					{
 						child = new Result(result.ServiceItem, en_string, result.LanguagePair, result.Subject);
 						subphrase = en_string;
+						if(!string.IsNullOrEmpty(en_url))
+							child.ArticleUrl = "http://dict.tu-chemnitz.de" + en_url;
+						child.HasAudio = en_audio;
 						result.Childs.Add(child);
 					}
 					
