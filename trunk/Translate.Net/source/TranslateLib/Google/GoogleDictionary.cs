@@ -103,6 +103,9 @@ namespace Translate
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet);
 			
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+			
 			string responseFromServer = helper.GetResponse();
 			
 			if(responseFromServer.IndexOf("No dictionary translations were found for: <strong>") >= 0)
