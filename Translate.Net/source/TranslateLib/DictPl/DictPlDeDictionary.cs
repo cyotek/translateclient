@@ -78,6 +78,8 @@ namespace Translate
 			string query = "http://www.dep.pl/dict?word={0}&words=&lang=DE";
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase));
 			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+			
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 

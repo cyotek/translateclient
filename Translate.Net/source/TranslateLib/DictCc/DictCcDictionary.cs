@@ -75,6 +75,7 @@ namespace Translate
 			string query = "http://www.dict.cc/?s={0}";
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase, encoding));
 			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
 			
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
