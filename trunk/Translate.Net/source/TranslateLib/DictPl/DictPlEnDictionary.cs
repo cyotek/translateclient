@@ -106,7 +106,7 @@ namespace Translate
 			//http://www.dict.pl/dict?word=test+tool&words=&lang=EN
 			string query = "http://www.dict.pl/dict?word={0}&words=&lang=EN";
 			query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase));
-			
+			result.ArticleUrl = query;
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
