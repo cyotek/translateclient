@@ -143,6 +143,13 @@ namespace Translate
 			set { articleUrl = value; }
 		}
 		
+		string articleUrlCaption;
+		public string ArticleUrlCaption {
+			get { return articleUrlCaption; }
+			set { articleUrlCaption = value; }
+		}
+		
+		
 		bool hasAudio;
 		public bool HasAudio {
 			get { return hasAudio; }

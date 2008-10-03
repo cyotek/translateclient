@@ -452,7 +452,22 @@ namespace Translate
 			if(!string.IsNullOrEmpty(result.ArticleUrl))
 			{
 				htmlString += GetParagraphFormat(0, result);
-				htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">{0}</a>", result.ArticleUrl);
+				if(string.IsNullOrEmpty(result.ArticleUrlCaption))
+				{
+					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">{0}</a>", 
+						result.ArticleUrl
+						);
+				}	
+				else
+				{
+					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\"><b>{1}</b></a>", 
+						result.ArticleUrl,
+						result.ArticleUrlCaption						
+						);
+				}
+					
+
+				
 				htmlString += "</p>";
 				htmlString += "<br>";
 			}
