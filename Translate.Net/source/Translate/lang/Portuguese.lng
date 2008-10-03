@@ -27,7 +27,7 @@ Colar da área de trabalho
 [&Paste]
 Colar
 [Delete selection]
-Excluir seleção
+Excluir a seleção
 [&Delete]
 &Excluir
 [Undo last operation]
@@ -53,7 +53,7 @@ Fechar Tudo
 [About]
 Sobre
 [Send feedback or bugreport ...]
-Envie comentários ou relatório de problema...
+Envie comentários ou relatórios de problemas...
 [Feedback for :]
 Comentários para:
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
@@ -79,7 +79,7 @@ Preparando
 [Check version]
 Verificar a versão
 [Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
-Baixado {0}Kb de {1}Kb com a velocidade de {2}Kb/s
+Baixado {0}Kb de {1}Kb com velocidade de {2}Kb/s
 [Update downloaded]
 Atualização baixada
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
@@ -97,7 +97,7 @@ Atualizações
 [Automatically check updates]
 Verificar atualizações automaticamente
 [Automatically download updates]
-
+Baixar atualizações automaticamente
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Atualizado - {0}\r\nÚltima verificação de atualizações - {1}, status - {2}\r\nPróxima verificação de atualizações - {3}
 [Close]
@@ -117,11 +117,11 @@ O arquivo {0} já existe
 [The server of updates is overloaded. The check of updates will be delayed.]
 O servidor de atualizações está sobrecarregado. A verificação de atualizações poderá demorar
 [Checking of update done]
-
+A verificação de atualização foi concluída
 [New version {0} of {1} available]
-
+Nova versão {0} de {1} disponível
 [Do you want to open site where you can download it ?]
-
+Você deseja abrir o site onde você poderá baixá-la? 
 [Version]
 Versão
 [&Tools]
@@ -141,7 +141,7 @@ Proxy
 [Port]
 Porta
 [Enable Authentication]
-Ativar autenticação
+Ativar Autenticação
 [User]
 Usuário
 [Password]
@@ -183,7 +183,7 @@ Ativar no atalho Ctrl+C+C
 [Activate on Ctrl+Ins+Ins hotkey]
 Ativar no atalho Ctrl+Ins+Ins
 [Translate when activated by hotkey]
-Traduzir quando ativado por atalho
+Traduzir quando for ativado por atalho
 [Show query time and other information]
 Exibir o tempo da pesquisa e outras informações
 [Mark by red color untranslated words]
@@ -199,7 +199,7 @@ Exibir os nomes dos serviços
 [Nothing found]
 Nada encontrado
 [An error occurred during translation. Please try again later.]
-
+Ocorreu um erro durante a tradução. Por favor, tente novamente mais tarde.
 [Translation direction is not correct]
 A direção da tradução está errada
 [Only cyrillic characters supported]
@@ -221,41 +221,41 @@ Versão do serviço não suportada
 [Result view]
 Exibir o resultado
 [Result view placement]
-
+Visualizar a colocação do resultado
 [Top]
-
+Top	
 [Place result view at top]
-
+Colocação a visualização do resultado no top
 [Bottom]
-
+Botão
 [Place result view at bottom]
-
+Colocar a visualização do resultado no botão
 [Left]
-
+Esquerdo
 [Place result view at left]
-
+Colocar a visualização do resultado no lado esquerdo
 [Right]
-
+Direito
 [Place result view at right]
-
+Colocar a visualização do resultado no lado direito
 [Include monolingual dictionaries in translation]
 Incluir dicionários monolíngües em tradução
 [Filter of languages]
-
+Filtro de Idiomas
 [Allow to choose languages for use]
-
+Permitir escolher idiomas para uso
 [Source languages]
-
+Idiomas de orígem			
 [Target languages]
-
+Idiomas-alvo
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+Escolha os idiomas que você deseja traduzir de e para. Idiomas desabilitados serão removidos da guia "Idiomas" do perfil padrão
 [Toggle all]
-
+Alternar todos
 [Please select at least one source language]
-
+Por favor, selecione pelo menos um idioma de origem
 [Please select at least one target language]
-
+Por favor, selecione pelo menos um idioma-alvo
 [Profile]
 Perfil
 [Profiles]
@@ -321,9 +321,9 @@ Entrada de texto
 [To default]
 Para o padrão
 [Toolbars]
-
+Barras de ferramentas
 [Default font]
-
+Fonte padrão
 [&Translate]
 &Traduzir
 [Translate]
@@ -333,11 +333,11 @@ Interromper a operação atual
 [Stop]
 Interromper
 [Search in Google]
-
+Pesquisar no Google
 [Size or format of query don't supported by available translation services]
 o tamanho ou o formato da pesquisa não são suportados pelos serviços de tradução disponíveis
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+A tradução vai produzir (0) chamadas para serviços diferentes, que podem sobrecarregar os servidores.\nVocê deseja interromper o processo de tradução?
 [Reverse translation direction]
 Inverter a direção da tradução
 [Show\\Hide]
@@ -353,27 +353,27 @@ Qualquer Idioma
 [Afrikaans]
 Africâner
 [Albanian]
-
+Albanês
 [Autodetect]
-Detectar automaticamente
+Auto-detectar
 [Arabic]
 Árabe
 [Armenian]
-
+Armênio
 [Basque]
-
+Basco
 [Belarusian]
 Bielo-Russo
 [Bengali]
-
+Bengali		
 [Bosnian]
-
+Bósnio
 [Breton]
-
+Bretão
 [Bulgarian]
 Búlgaro
 [Catalan]
-
+Catalão
 [Chinese]
 Chinês
 [Chinese_CN]
@@ -401,7 +401,7 @@ Estoniano
 [Icelandic]
 Islandês
 [Faroese]
-
+Faroês
 [Filipino]
 Filipino
 [Finnish]
@@ -409,11 +409,11 @@ Finlandês
 [French]
 Francês
 [Frisian]
-
+Frisão
 [Galician]
-
+Galego
 [Georgian]
-
+Georgiano
 [German]
 Alemão
 [Greek]
@@ -423,11 +423,11 @@ Hebreu
 [Hindi]
 Hindú
 [Indonesian]
-
+Indonésio
 [Interlingua]
-
+Interlíngua
 [Irish]
-
+Irlandês
 [Hungarian]
 Húngaro
 [Italian]
@@ -435,7 +435,7 @@ Italiano
 [Japanese]
 Japonês
 [Japanese_Romaji]
-
+Japonês Romaji
 [Korean]
 Coreano
 [Latin]
@@ -447,21 +447,21 @@ Lituano
 [Macedonian]
 Macedônio
 [Maltese]
-
+Maltês
 [Mongolian]
-
+Mongol
 [Nepali]
-
+Nepalês
 [Norwegian]
 Norueguês
 [Norwegian_Bokmal]
-
+Norueguês Bokmal
 [Norwegian_Nynorsk]
-
+Norueguês Nynorsk
 [Papiamento]
-
+Papiamento
 [Persian]
-
+Persa
 [Polish]
 Polonês
 [Portuguese]
@@ -483,17 +483,17 @@ Espanhol
 [Spanish_LA]
 Espanhol-LA
 [Swahili]
-
+Suaili
 [Swedish]
 Sueco
 [Tagalog]
-
+Tagalog
 [Tamil]
-
+Tâmil
 [Telugu]
-
+télugo
 [Thai]
-
+Tailandês
 [Turkish]
 Turco
 [Ukrainian]
@@ -501,7 +501,7 @@ Ucraniano
 [Urdu]
 Urdu
 [Vietnamese]
-
+Vietnamita
 [Welsh]
 Galês
 [Languages]
@@ -639,9 +639,9 @@ Caracteres
 [Limit {0} : {1} characters]
 Limite {0} : {1} сaracteres
 [Limit {0} : {1} lines]
-
+Limite {0} : {1} linhas
 [Limit {0} : {1} words]
-
+Limite {0} : {1} palavras
 [Masks]
 Máscaras
 [English-Ukrainian technical dictionary]
@@ -693,35 +693,35 @@ Dicionário Online Grátis Urdu-Inglês
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Dicionário on-line Inglês-para-Urdu e Urdu-para-Inglês
 [InterTran dictionary]
-
+Dicionário InterTran
 [Priberam Portuguese dictionary]
-
+Dicionário de Português Priberam
 [WordNet a lexical database for the English language]
-
+WordNet uma base de dados léxica para a língua Inglesa
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet é uma base de dados léxica multilingue
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+Dicionário On-line Inglês-Búlgaro
 [dict.cc - English-German Dictionary]
-
+Dicionário Inglês-Alemão - Dict.cc
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - Dicionário orientado de Alemão
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open thesaurus é uma enciclopédia de Código Aberto para o idioma Alemão 
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+OpenThesaurus-es é uma enciclopéida de Código Aberto para o idioma Espanhol
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal - Enciclopédia de Código Aberto para o idioma Holandês baseada em OpenThesaurus 
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+OpenThesaurusPT é uma enciclopédia de Código Aberto para o idioma Português
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+OpenThesaurusPL é uma enciclopédia de Código Aberto para o idioma Polonês
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+OpenThesaurusSI é uma enciclopédia de Código Aberto para o idioma Eslovênio
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(te)* Dicionário On-line - Dicionário orientado de Turco
 [Free Dictionaries project]
-
+Projeto de Dicionários Grátis
 [Grouped by Service's Url]
 Agrupado por URL de Serviço 
 [Grouped by Language]
@@ -735,46 +735,46 @@ Criar artigo
 [Open article]
 Abrir artigo
 [Pronunciation]
-
+Pronúncia
 [{0} more entries found]
-
+{0} mais entradas encontradas
 [related links]
-
+links relacionados
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+Tempo da pergunta: {0} s, Contagem das perguntas: {1}, Bytes enviados: {2}, Bytes recebidos: {3}] 
 [Full time : {0} s]
-
+Tempo total: {0} s
 [{0} phrases translated by {1} calls to translate services]
 {0} frases traduzidas por {1} convites para traduzir serviços
 [Send by mail]
-
+Enviado por e-mail
 [Continue]
-
+Prosseguir
 [Copy]
-
+Copiar
 [Terminate]
-
+Concluir
 [Terminated by user on error]
-
+Concluído pelo usuário no erro
 [Unhandled exception in]
-
+Exceção não tratada em
 [Error on opening config file]
-
+Erro ao abrir o arquivo config
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+Erro ao abrir o arquivo config de (0).\r\nPossível motivo - erro nas opções de formato do arquivo.\r\nA configuração será restaurada aos valores padrão.
 [Error on saving config file]
-
+Erro ao salvar o arquivo config em
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+Erro ao salvar o arquivo config para (0)\r\nPossível motivo - O acesso para escrever ao diretório de sistema TEMP foi negado.
 [Error on saving config file to {0}]
-
+Erro ao salvar arquivo config para {0}
 [Show information about exception]
-
+Exibir informações sobre a excepção
 [Error on start process : {0}\r\nError message : {1}]
-
+Erro ao iniciar processo: (0)\r\nMensagem de erro: (1)
 [Error on start process]
-
+Erro ao iniciar processo
 [Error on sending email to : {0}\r\nError message : {1}]
-
+Erro ao enviar e-mail para: {0}\r\nMensagem de erro: {1}
 [Error on sending email]
-
+Erro ao enviar e-mail
