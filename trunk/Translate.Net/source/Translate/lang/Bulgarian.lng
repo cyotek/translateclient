@@ -99,7 +99,7 @@
 [Automatically check updates]
 Автоматична проверка за обновяване
 [Automatically download updates]
-
+Автоматично сваляне на обновления
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Последното обновяване е било на {0}\r\nПоследна проверка за обновления - {1} със статус — {2}\r\nСледваща проверка за обновления - {3}
 [Close]
@@ -119,11 +119,11 @@
 [The server of updates is overloaded. The check of updates will be delayed.]
 Сървърът за обновяване е претоварен. Проверката ще бъде извършена по-късно.
 [Checking of update done]
-
+Проверката за обновяване завърши
 [New version {0} of {1} available]
-
+Достъпна е нова версия {0} на програмата {1}
 [Do you want to open site where you can download it ?]
-
+Отваряне на страницата, откъдето можете да свалите нова версия?
 [Version]
 Версия
 [&Tools]
@@ -201,7 +201,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Nothing found]
 Нищо не е открито
 [An error occurred during translation. Please try again later.]
-
+Възникна грешка по време на изпълнение на превода. Моля, опитайте по-късно.
 [Translation direction is not correct]
 Направление превода не е коректно
 [Only cyrillic characters supported]
@@ -223,41 +223,41 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Result view]
 Вид на резултата
 [Result view placement]
-
+Разположение на прозореца с резултат
 [Top]
-
+Отгоре
 [Place result view at top]
-
+Разполагане на прозореца с резултати върху останалите
 [Bottom]
-
+Отдолу
 [Place result view at bottom]
-
+Разполагане на прозореца с резултати най-отдолу
 [Left]
-
+Отляво
 [Place result view at left]
-
+Разполагане на прозореца с резултати отляво
 [Right]
-
+Отдясно
 [Place result view at right]
-
+Разполагане на прозореца с резултати вдясно
 [Include monolingual dictionaries in translation]
 Включване на тълковни речници при превода
 [Filter of languages]
-
+Филтър за езици
 [Allow to choose languages for use]
-
+Позволява да оставите само необходимите езици
 [Source languages]
-
+Езици, от които се изпълнява преводът
 [Target languages]
-
+Езици, на които се изпълнява преводът
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+Изберете езици за използване. Изключените езици няма да бъдат показвани в основния профил
 [Toggle all]
-
+Включване на всички
 [Please select at least one source language]
-
+Трябва да изберете поне един език, от който да се изпълнява преводът 
 [Please select at least one target language]
-
+Трябва да изберете поне един език, на който да се изпълнява преводът 
 [Profile]
 Профил
 [Profiles]
@@ -323,9 +323,9 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [To default]
 По подразбиране
 [Toolbars]
-
+Панели с инструменти
 [Default font]
-
+Шрифт по подразбиране
 [&Translate]
 &Превод
 [Translate]
@@ -335,11 +335,11 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Stop]
 Прекъсване
 [Search in Google]
-
+Търсене в Google
 [Size or format of query don't supported by available translation services]
 Размерът или форматът на запитването не се поддържат от достъпните служби за превод
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+При превода ще бъдат произведени {0} заявки към различни служби, което може да претовари сървъра.\nЖелаете ли да прекъснете процеса на превод?
 [Reverse translation direction]
 Обръщане на направлението за превод
 [Show\\Hide]
@@ -355,27 +355,27 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Afrikaans]
 Африкаанс
 [Albanian]
-
+Албански
 [Autodetect]
 Автоматично откриване
 [Arabic]
 Арабски
 [Armenian]
-
+Арменски
 [Basque]
-
+Баски
 [Belarusian]
 Белоруски
 [Bengali]
-
+Бенгали
 [Bosnian]
-
+Босненски
 [Breton]
-
+Бретонски
 [Bulgarian]
 Български
 [Catalan]
-Каталонски
+Каталански
 [Chinese]
 Китайски
 [Chinese_CN]
@@ -403,21 +403,21 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Icelandic]
 Исландски
 [Faroese]
-
+Фарьорски
 [Filipino]
-Тагалог
+Филипински
 [Finnish]
 Фински
 [French]
 Френски
 [Frisian]
-
+Фризийски
 [Galician]
-
+Галициански
 [German]
 Немски
 [Georgian]
-
+Грузински
 [Greek]
 Гръцки
 [Hebrew]
@@ -427,9 +427,9 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Indonesian]
 Индонезийски
 [Interlingua]
-
+Интерлингва
 [Irish]
-
+Ирландски
 [Hungarian]
 Унгарски
 [Italian]
@@ -437,7 +437,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Japanese]
 Японски
 [Japanese_Romaji]
-
+Японски-Romaji
 [Korean]
 Корейски
 [Latin]
@@ -449,21 +449,21 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Macedonian]
 Македонски
 [Maltese]
-
+Малтийски
 [Mongolian]
-
+Монголски
 [Nepali]
-
+Непалски
 [Norwegian]
 Норвежки
 [Norwegian_Bokmal]
-
+Норвежки Bokmal
 [Norwegian_Nynorsk]
-
+Норвежки Nynorsk
 [Papiamento]
-
+Папиаменто
 [Persian]
-
+Персийски
 [Polish]
 Полски
 [Portuguese]
@@ -485,17 +485,17 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Spanish_LA]
 Испански-ЛА
 [Swahili]
-
+Суахили
 [Swedish]
 Шведски
 [Tagalog]
-
+Тагалог
 [Tamil]
-
+Тамилски
 [Telugu]
-
+Телугу
 [Thai]
-
+Таи
 [Turkish]
 Турски
 [Ukrainian]
@@ -545,7 +545,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Anatomy]
 Анатомия
 [Bank]
-Банк
+Банково дело
 [Bible]
 Библия
 [Business]
@@ -615,9 +615,9 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Bilingual sentenses dictionary]
 База с паралелни предложения
 [T]
-П
+Т
 [MD]
-ТС
+МД
 [BD]
 ДС
 [SD]
@@ -629,7 +629,7 @@ CC
 [EN]
 ЕН
 [SE]
-СП
+ШВ
 [BP]
 ДФ
 [BS]
@@ -641,9 +641,9 @@ CC
 [Limit {0} : {1} characters]
 Ограничение {0} : {1} символи
 [Limit {0} : {1} lines]
-
+Ограничение {0} : {1} реда
 [Limit {0} : {1} words]
-
+Ограничение {0} : {1} думи
 [Masks]
 Маски
 [English-Ukrainian technical dictionary]
@@ -695,35 +695,35 @@ Tiscali - речник, ориентиран към чешки език
 [Online English-to-Urdu and Urdu-to-English dictionary]
 Онлайн английско-урду-английски речник
 [InterTran dictionary]
-
+Речник InterTran
 [Priberam Portuguese dictionary]
-
+Португалски тълковен речник Priberam
 [WordNet a lexical database for the English language]
-
+WordNet - лексичкална база на английския език
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet - многоезична лексикална база
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+Английско-български речник - SA Dictionary Online
 [dict.cc - English-German Dictionary]
 
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - речни, ориентиран към немски език
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open thesaurus - свободен синонимен речник, ориентиран към немски език
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+OpenThesaurus-es - свободен синонимен речник, ориентиран към испански език
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal - свободен синонимен речник, ориентиран към холандски език
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+OpenThesaurusPT - свободен синонимен речник, ориентиран към португалски език
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+OpenThesaurusPL - свободен синонимен речник, ориентиран към полски език
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+OpenThesaurusSI - свободен синонимен речник, ориентиран към словенски език
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(te)* - речник, ориентиран към турски език
 [Free Dictionaries project]
-
+Проект за свободни речници
 [Grouped by Service's Url]
 Подреждане по адрес на службата
 [Grouped by Language]
@@ -739,44 +739,44 @@ Tiscali - речник, ориентиран към чешки език
 [Pronunciation]
 Произношение
 [{0} more entries found]
-
+Открити са още {0} статии 
 [related links]
-
+сходни линкове
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+Време за заявката : {0} s, брой заявки : {1}, изпратени : {2} байта, получени : {3} байта
 [Full time : {0} s]
-
+Време за изпълнение : {0} s
 [{0} phrases translated by {1} calls to translate services]
 Преведени са {0} фрази с помощта на {1} опита за свързване със службите за превод
 [Send by mail]
-
+Изпращане по пощата
 [Continue]
-
+Продължаване
 [Copy]
-
+Копиране
 [Terminate]
-
+Прекъсване
 [Terminated by user on error]
-
+Прекъснато от потребителя заради грешка
 [Unhandled exception in]
-
+Необработена извънредна ситуация в
 [Error on opening config file]
-
+Грешка при отварянето на конфигурационния файл
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+Грешка при отварянето на конфигурационния файл {0}.\r\nВъзможна причина - грешка във формата на файла.\r\nКонфигурацията ще бъде върната до стойностите по подразбиране. 
 [Error on saving config file]
-
+Грешка при запазване на конфигурационния файл
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+Грешка при запазване на конфигурационния файл {0}\r\nВъзможна причина - забранен достъп до системния каталог TEMP
 [Error on saving config file to {0}]
-
+Грешка при запазване на конфигурационния файл {0}
 [Show information about exception]
-
+Показване на информация за извънредната ситуация
 [Error on start process : {0}\r\nError message : {1}]
-
+Грешка при стартиране на процеса: {0}\r\nСъобщение: {1} 
 [Error on start process]
-
+Грешка при стартиране на процеса
 [Error on sending email to : {0}\r\nError message : {1}]
-
+Грешка при изпращането на съобщение до {0}\r\nСъобщение за грешката: {1}  
 [Error on sending email]
-
+Грешка при изпращането на съобщение
