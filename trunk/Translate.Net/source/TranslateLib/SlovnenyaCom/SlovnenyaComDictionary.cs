@@ -96,6 +96,9 @@ namespace Translate
 			}
 			else
 			{
+				result.ArticleUrl = query;
+				result.ArticleUrlCaption = phrase;
+			
 				string translation = StringParser.Parse("<hr style=\"border:0; background-color: grey; height:1px; width:92%; text-align:center\" />", "<hr style=\"border:0; background-color: grey; height:1px; width:92%; text-align:center\" />", responseFromServer);
 				StringsTree tree = StringParser.ParseTreeStructure("<table", "</table>", translation);
 				if(tree.Childs.Count != 1)
