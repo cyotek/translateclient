@@ -449,6 +449,7 @@ namespace Translate
 				htmlString+= "<hr style=\"width: 100%; height: 1px;\">";
 			
 
+			string resultHtml = GetResultHtml(result);
 			if(!string.IsNullOrEmpty(result.ArticleUrl))
 			{
 				htmlString += GetParagraphFormat(0, result);
@@ -469,10 +470,11 @@ namespace Translate
 
 				
 				htmlString += "</p>";
-				htmlString += "<br>";
+				if(!resultHtml.StartsWith("<br>"))
+					htmlString += "<br>";
 			}
 			
-			htmlString += GetResultHtml(result);
+			htmlString += resultHtml;
 			
 			if(!string.IsNullOrEmpty(result.ArticleUrl) && result.MoreEntriesCount != 0)
 			{
