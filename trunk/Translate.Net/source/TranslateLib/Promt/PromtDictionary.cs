@@ -105,6 +105,10 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 			
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+			
+			
 			StringParser parser = new StringParser(responseFromServer);
 			string[] translation_list = parser.ReadItemsList("<span class=\"ref_source\"", "</table>");
 			
