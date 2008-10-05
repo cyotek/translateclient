@@ -83,7 +83,9 @@ namespace Translate
 					WebRequestContentType.UrlEncodedGet);
 			helper.Encoding = encoding;		 
 					
-		
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+
 			string responseFromServer = helper.GetResponse();
 			string translation = StringParser.Parse("<TD valign=\"top\" width=\"95%\">", "</TD>", responseFromServer);
 			translation = StringParser.RemoveAll("<font", "</font>", translation);
