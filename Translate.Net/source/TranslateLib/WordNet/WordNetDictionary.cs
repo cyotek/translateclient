@@ -86,6 +86,8 @@ namespace Translate
 				throw new TranslationException("Query contains extraneous symbols");
 			}
 			
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
 			
 			string[] nodes =  StringParser.ParseItemsList("<h3>", "</ul>", responseFromServer);
 			

@@ -94,6 +94,9 @@ namespace Translate
 			{
 				if(responseFromServer.Contains("<table border=\"0\" width=\"100%\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" >"))
 				{
+					result.ArticleUrl = query;
+					result.ArticleUrlCaption = phrase;
+				
 					string translation = StringParser.Parse("<table border=\"0\" width=\"100%\" align=\"center\" cellpadding=\"3\" cellspacing=\"0\" >", "</table>", responseFromServer);
 					StringParser parser = new StringParser(translation);
 					string[] translations = parser.ReadItemsList("<tr>", "</tr>");
