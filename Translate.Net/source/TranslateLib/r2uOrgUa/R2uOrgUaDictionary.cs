@@ -118,6 +118,9 @@ namespace Translate
 			}
 			else
 			{
+				result.ArticleUrl = "http://r2u.org.ua/krym/krym_search.php?" + query;
+				result.ArticleUrlCaption = phrase;
+			
 				string translation = StringParser.Parse("<table class=\"main_tbl\">", "</table>", responseFromServer);
 				translation = translation.Replace("</span>", "");
 				translation = translation.Replace("<span class=\"KrymUkr\">", "");
