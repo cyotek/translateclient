@@ -76,6 +76,8 @@ namespace Translate
 				HttpUtility.UrlEncode(phrase, encoding)
 				);
 
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
 			
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
