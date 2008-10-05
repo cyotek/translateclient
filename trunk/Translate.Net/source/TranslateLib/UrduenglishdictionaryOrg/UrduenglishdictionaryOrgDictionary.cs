@@ -109,6 +109,9 @@ namespace Translate
 			{
 				if(responseFromServer.Contains("<tr class='head-row'>"))
 				{
+					result.ArticleUrl = query;
+					result.ArticleUrlCaption = phrase;
+				
 					string translation = StringParser.Parse("<tr class='head-row'>", "</table>", responseFromServer);
 					StringParser parser = new StringParser(translation);
 					string[] translations = parser.ReadItemsList("<tr class='data-row'>", "</tr>");
