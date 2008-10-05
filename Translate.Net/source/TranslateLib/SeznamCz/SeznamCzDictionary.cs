@@ -139,6 +139,9 @@ namespace Translate
 			}
 			else
 			{
+				result.ArticleUrl = query;
+				result.ArticleUrlCaption = phrase;
+			
 				//translation by self
 				if(responseFromServer.Contains("<table id=\"words\">"))
 				{
