@@ -472,9 +472,16 @@ namespace Translate
 				htmlString += "</p>";
 				if(!resultHtml.StartsWith("<br>"))
 					htmlString += "<br>";
+					
+				htmlString += resultHtml;	
 			}
-			
-			htmlString += resultHtml;
+			else
+			{
+				if(!resultHtml.StartsWith("<br>"))
+					htmlString += resultHtml;	
+				else
+					htmlString += resultHtml.Substring(4);	
+			}
 			
 			if(!string.IsNullOrEmpty(result.ArticleUrl) && result.MoreEntriesCount != 0)
 			{
