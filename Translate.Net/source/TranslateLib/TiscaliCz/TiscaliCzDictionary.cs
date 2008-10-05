@@ -141,6 +141,9 @@ namespace Translate
 			{
 				if(responseFromServer.Contains("<div class=\"vysledek\">"))
 				{
+					result.ArticleUrl = query;
+					result.ArticleUrlCaption = phrase;
+				
 					string translation = StringParser.Parse("<div class=\"vysledek\">", "</div>", responseFromServer);
 					StringParser parser = new StringParser(translation);
 					string[] translations = parser.ReadItemsList("<a", "<br />");
