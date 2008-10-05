@@ -172,6 +172,7 @@ namespace Translate
 			sb.Append(tmp.Substring(prev_pos));
 			return sb.ToString();			
 		}
+		
 		public static void DoTranslateDictionary(ServiceItem serviceItem, string url, string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			string query = string.Format(url, EncodePhrase(phrase, languagesPair));
@@ -200,9 +201,6 @@ namespace Translate
 			}
 			else
 			{
-
-			
-				result.EditArticleUrl = query;
 				string translation = StringParser.Parse("<div id=\"search_suggest\"></div>", "</table>", responseFromServer);
 				translation = translation.Replace("</TD>", "</td>");
 				translation = translation.Replace("<TD width", "<td width");
@@ -241,6 +239,9 @@ namespace Translate
 							abbreviation = "";
 						subres = serviceItem.CreateNewResult(subphrase, languagesPair, subject);
 						subres.Abbreviation = abbreviation;
+						subres.ArticleUrl = query;
+						//subres.ArticleUrlCaption = phrase;
+						
 						result.Childs.Add(subres);
 					}
 					else
@@ -256,8 +257,10 @@ namespace Translate
 						abbreviation += "("; 
 						abbreviation += StringParser.Parse("<i>", "</i>", subpart);
 						abbreviation += ")";
-						subsubres = serviceItem.CreateNewResult("", languagesPair, subject);
-						subsubres.Abbreviation = abbreviation;
+						//subsubres = serviceItem.CreateNewResult("", languagesPair, subject);
+						//subsubres.Abbreviation = abbreviation;
+						subsubres = serviceItem.CreateNewResult(abbreviation, languagesPair, subject);
+						subsubres.ArticleUrl = "http://www.multitran.ru/c/" + StringParser.Parse("href=\"", "\"", subpart);
 						subres.Childs.Add(subsubres);
 						subtranslation = subpart.Substring(subpart.IndexOf("<td>") + 4);
 						subtranslation = StringParser.RemoveAll("<span", ">", subtranslation);
@@ -298,6 +301,9 @@ namespace Translate
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet, GetEncoding(languagesPair));
 			
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+			
 			if(languagesPair.From == Language.Japanese || languagesPair.To == Language.Japanese)
 				helper.StreamConvertor = new EucJPStreamFixer();
 			
@@ -317,7 +323,6 @@ namespace Translate
 			else
 			{
 			
-				result.EditArticleUrl = query;
 				string translation = StringParser.Parse("<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=100%>", "</TABLE>", responseFromServer);
 				
 				translation = translation.Replace("</TD>", "</td>");
@@ -338,10 +343,13 @@ namespace Translate
 				string subtranslation;
 				string abbreviation;
 				Result subsubres = null;
+				string subres_url;
 				foreach(string part in translations)
 				{
 					subpart = part;
 					subphrase = StringParser.Parse("<td width=\"15%\" >", "</td>", subpart);
+					subres_url = StringParser.Parse("href=\"", "\"", subphrase);
+
 					subphrase = StringParser.RemoveAll("<span", ">", subphrase);
 					subphrase = StringParser.RemoveAll("<a", ">", subphrase);
 					subphrase = subphrase.Replace("</a>", "");
@@ -357,7 +365,11 @@ namespace Translate
 					
 					subsubres = serviceItem.CreateNewResult(subphrase, languagesPair, subject);
 					subsubres.Abbreviation = abbreviation;
+					subsubres.ArticleUrl = "http://www.multitran.ru/c/" + subres_url;
+					
 					result.Childs.Add(subsubres);
+					
+					
 					subtranslation = subpart + "<end>";
 					if(subtranslation.Contains("<td width=\"20%\" >"))
 						subtranslation = StringParser.Parse("<td width=\"20%\" >", "<end>", subtranslation);
