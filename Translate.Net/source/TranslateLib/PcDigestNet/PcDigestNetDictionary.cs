@@ -101,6 +101,9 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 
+			result.ArticleUrl = query;
+			result.ArticleUrlCaption = phrase;
+
 			string 	translation, abrr, data;
 			int idx;
 			foreach(string subtranslation in translations)
