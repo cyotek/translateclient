@@ -87,6 +87,9 @@ namespace Translate
 			}
 			else
 			{
+				result.ArticleUrl = query;
+				result.ArticleUrlCaption = phrase;
+			
 				string translation = StringParser.Parse("<tr><td class= 'art_body' >", "</td></tr>", responseFromServer);
 				
 				translation = translation.Replace("<span style=\"color:red\">", "");
