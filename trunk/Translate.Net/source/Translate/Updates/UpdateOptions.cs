@@ -88,7 +88,7 @@ namespace Translate
 			set { enableAutomaticUpdates = value; }
 		}
 		
-		bool autoDownloadNewVersion = true;
+		bool autoDownloadNewVersion = false;
 		public bool AutoDownloadNewVersion {
 			get { return autoDownloadNewVersion; }
 			set { autoDownloadNewVersion = value; }
