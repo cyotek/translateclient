@@ -344,7 +344,7 @@ namespace Translate
 					if(sb.Length >= 0)
 					{
 						result.Add(sb.ToString());
-						sb = new StringBuilder();
+						sb.Length = 0;
 					}
 					
 					result.Add(ch.ToString());
@@ -376,7 +376,7 @@ namespace Translate
 					if(sb.Length >= 0)
 					{
 						result.Add(sb.ToString());
-						sb = new StringBuilder();
+						sb.Length = 0;
 					}
 					
 					//result.Add(ch.ToString());
