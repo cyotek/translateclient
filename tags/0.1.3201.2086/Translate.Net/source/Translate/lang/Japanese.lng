@@ -1,0 +1,780 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+無職、求職中
+[TranslatedByURL]
+
+[Translated by]
+日本語版作成者
+[&File]
+ファイル(&F)
+[Exit from application]
+アプリケーションの終了
+[E&xit]
+終了(&X)
+[&Edit]
+編集(&E)
+[Copy selection to clipboard]
+選択した部分をクリップボードへコピー
+[&Copy]
+コピー(&C)
+[Cut selection to clipboard]
+選択した部分をクリップボードへ切り取り
+[Cu&t]
+切り取り(&T)
+[Paste from clipboard]
+クリップボードから貼り付け
+[&Paste]
+貼り付け(&P)
+[Delete selection]
+選択した部分を削除
+[&Delete]
+削除(&D)
+[Undo last operation]
+１つ前の動作を取り消し
+[&Undo]
+取り消し(&U)
+[Redo last operation]
+１つ前の動作を再実行
+[&Redo]
+再実行(&R)
+[Select Аll]
+全て選択
+[&Select Аll]
+全て選択(&S)
+[&Window]
+ウィンドウ(&W)
+[Close All]
+全て閉じる
+[&Help]
+ヘルプ(&H)
+[&About ...]
+バージョン情報(&A)...
+[About]
+バージョン情報
+[Send feedback or bugreport ...]
+バグレポートを送信(&B) ...
+[Feedback for :]
+フィードバック先：
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< ここにフィードバックやバグレポートを入力 >>
+[Donate ...]
+登録...
+[Online Help]
+オンラインヘルプ
+[Options]
+オプション(&O)
+[OK]
+
+[Cancel]
+キャンセル
+[Apply]
+適用
+[Minimize]
+最小化
+[{0} Updater]
+{0} 更新
+[Preparing]
+準備中
+[Check version]
+バージョンをチェック
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+{0}Kb から {1}Kb を速度 {2}Kb/s でダウンロード
+[Update downloaded]
+更新がダウンロードされました
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+新しいバージョンがダウンロードされました。Translate.Netを終了して新しいバージョンのインストーラを起動しますか？
+[Please select where to save installer of new version which you can run later]
+新しいバージョンのインストーラを後から実行するために保存する場所を選択してください。
+[Installer saved to \r\n{0}]
+インストーラは保存されました。\r\n{0}
+[Update will be run later]
+更新は後で実行されます。
+[Check Updates ...]
+更新をチェック(&U) ...
+[Updates]
+更新
+[Automatically check updates]
+自動的に更新をチェックする。
+[Automatically download updates]
+自動的に更新をダウンロードする。
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+更新 - {0}\r\n更新を最後にチェック - {1}，状態 - {2}\r\n次の更新チェック - {3}
+[Close]
+閉じる
+[Error on downloading {0}]
+{0} のダウンロードでエラー
+[{0} don't contained {1} tag:\r\n{2}]
+{0} は {1} タグを含んでいません：\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} には不正な形式の {1} タグがあります：\r\n{2}
+[Canceled]
+取り消しました。
+[Program is up to date]
+プログラムは最新です
+[File {0} already exists]
+ファイル {0} は既に存在しています。
+[The server of updates is overloaded. The check of updates will be delayed.]
+更新プログラムは、サーバーの過負荷状態です。更新プログラムのチェックは延期されました。
+[Checking of update done]
+更新はチェック済みです。
+[New version {0} of {1} available]
+{1}の新しいバージョン{0}が適用可能です。
+[Do you want to open site where you can download it ?]
+ダウンロード可能なサイトを開きますか？
+[Version]
+バージョン
+[&Tools]
+ツール(&T)
+[O&ptions...]
+オプション(&P) ...
+[General]
+一般
+[UI Language]
+UI言語
+[Network]
+ネットワーク
+[HTTP-Proxy]
+HTTP-プロキシ
+[Proxy]
+プロキシ
+[Port]
+ポート
+[Enable Authentication]
+認証可能
+[User]
+ユーザ
+[Password]
+パスワード
+[Use NTLM Authentication]
+NTLM認証を使用
+[Domain]
+ドメイン
+[Timeout]
+タイムアウト
+[System]
+システム
+[Custom]
+カスタム
+[None]
+なし
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+HTTPプロクシ({0})の値が不正です。プロクシの設定がデフォルトにリセットされました。
+[Startup]
+スタートアップ
+[Launch at system startup]
+スタートアップでの自動起動
+[Minimize to tray]
+最小化時にトレイに格納
+[When enabled {0} will run when OS started]
+OS起動時に {0} を起動可能にする。
+[{0} will be minimized to tray when OS started]
+OS起動時に {0} をトレイに最小化する。
+[Single Instance]
+多重起動禁止
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+開始時にチェックし、もし、{0} の既に実行中のインスタンスが存在する場合、新しく起動したアプリケーションは古いそれを活性化し、自身は終了します。
+[Tray]
+タスクトレイ
+[Hotkeys]
+ホットキー
+[Activate on Ctrl+C+C hotkey]
+Ctrl+C+C で活性化
+[Activate on Ctrl+Ins+Ins hotkey]
+Ctrl+Ins+Ins で活性化
+[Translate when activated by hotkey]
+ホットキーで起動されたとき翻訳
+[Show query time and other information]
+問い合わせ時間とその他の情報を表示(&Q)
+[Mark by red color untranslated words]
+未翻訳の単語を赤でマーク(&M)
+[Don't show "Nothing found" results]
+見つからない結果を表示しない(&N)
+[Show direction of translation]
+翻訳の方向を表示(&D)
+[Show accents]
+アクセントを表示(&A)
+[Show names of services]
+サービスの名称を表示(&S)
+[Nothing found]
+結果が見つからない
+[An error occurred during translation. Please try again later.]
+翻訳中にエラーが発生しました。時間をおいて再試行してください。
+[Translation direction is not correct]
+翻訳の方向が正しくない
+[Only cyrillic characters supported]
+キリル文字のみサポート済みです
+[Ukrainian characters in russian query]
+ロシア語の問い合わせにウクライナ文字があります
+[Parse error, start tags not found]
+解析エラー、開始タグがありません
+[Nothing to translate]
+翻訳すべき内容がありません。
+[Length too big]
+内容が長過ぎます
+[Wrong data structure]
+不正なデータ構造です
+[Query contains extraneous symbols]
+問い合わせ結果の無関係な記号があります
+[Service version not supported]
+サービスのバージョンがサポート外です
+[Result view]
+結果表示
+[Result view placement]
+結果表示配置
+[Top]
+上部
+[Place result view at top]
+結果表示を上部にする
+[Bottom]
+下部
+[Place result view at bottom]
+結果表示を下部にする
+[Left]
+左
+[Place result view at left]
+結果表示を左にする
+[Right]
+右
+[Place result view at right]
+結果表示を右にする
+[Include monolingual dictionaries in translation]
+一か国語の辞書を翻訳で使用
+[Filter of languages]
+言語のフィルタ
+[Allow to choose languages for use]
+使用する言語の選択を許可する
+[Source languages]
+翻訳元言語
+[Target languages]
+翻訳先言語
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+翻訳したい言語の元と先を選択してください。デフォルトプロファイルの"言語"タブから使用できない言語は取り除かれています。
+[Toggle all]
+全てをトグル
+[Please select at least one source language]
+少なくとも１つの翻訳元言語を選択してください
+[Please select at least one target language]
+少なくとも１つの翻訳先言語を選択してください
+[Profile]
+プロファイル(&P)
+[Profiles]
+プロファイル群
+[Default]
+デフォルト
+[List]
+一覧
+[Add new user profile]
+新しいユーザプロファイルを追加(&A)
+[Set profile properties]
+プロファイルのプロパティを設定(&S)
+[Profile name]
+プロファイル名
+[Translation direction]
+翻訳の方向
+[Name for new profile you enter already used. Please enter unique name.]
+新しいプロファイル名として入力されたものは既に使用されています。別な名前を入力してください。
+[Profile name don't set. Please enter profile name.]
+プロファイルの名称は設定されませんでした。プロファイル名称を入力してください。
+[Remove user profile]
+ユーザプロファイルの削除(&R)
+[The profile {0} will be deleted.\r\nAre you sure ?]
+プロファイル {0} を削除します。\r\nよろしいですか？
+[Move profile up]
+上へ
+[Move profile down]
+下へ
+[Name]
+名称
+[Edit services]
+サービスを編集(&E)
+[Remove service]
+サービスを削除
+[Add selected service]
+選択したサービスを追加
+[Add all services]
+全てのサービスを追加
+[Remove all services]
+全てのサービスを削除
+[Services filter]
+サービスフィルタ
+[Available services]
+使用可能なサービス
+[Selected services]
+選択したサービス
+[View]
+表示(&V)
+[Show services list]
+サービス一覧を表示(&S)
+[Show languages list]
+言語一覧を表示(&L)
+[Show subjects list]
+主題一覧を表示(&B)
+[Size]
+サイズ
+[System font]
+システムフォント
+[Fonts]
+フォント
+[Input text]
+入力文字列
+[To default]
+デフォルトに
+[Toolbars]
+ツールバー
+[Default font]
+デフォルトフォント
+[&Translate]
+翻訳(&R)
+[Translate]
+翻訳する(&T)
+[Stop current operation]
+現在の操作を停止
+[Stop]
+停止
+[Search in Google]
+Googleで検索
+[Size or format of query don't supported by available translation services]
+問い合わせのサイズまたは形式が翻訳サービスがサポートしているものではありません
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+翻訳は異なる{0}個のサービスを呼び出します、サーバーに負荷を及ぼすかもしれません。\n翻訳処理を中断しますか？
+[Reverse translation direction]
+翻訳の方向を反転
+[Show\\Hide]
+表示\\隠す
+[Show HTML source]
+HTML ソースを表示
+[From]
+から
+[To]
+に
+[Any Language]
+言語
+[Afrikaans]
+アフリカーンス語
+[Albanian]
+アルバニア語
+[Autodetect]
+*自動*
+[Arabic]
+アラビア語
+[Armenian]
+アルメニア語
+[Basque]
+バスク語
+[Belarusian]
+ベラルーシ語
+[Bengali]
+ベンガル語
+[Bosnian]
+ボスニア語
+[Breton]
+ブルトン語
+[Bulgarian]
+ブルガリア語
+[Catalan]
+カタルニア語
+[Chinese]
+中国語
+[Chinese_CN]
+中国語(簡体字)
+[Chinese_TW]
+中国語(繁体字)
+[Croatian]
+クロアチア語
+[Czech]
+チェコ語
+[Danish]
+デンマーク語
+[Dutch]
+オランダ語
+[English]
+英語
+[English_GB]
+英語(英国)
+[English_US]
+英語(米国)
+[Esperanto]
+エスペラント語
+[Estonian]
+エストニア語
+[Icelandic]
+アイスランド語
+[Faroese]
+フェロー語
+[Filipino]
+フィリピン語
+[Finnish]
+フィンランド語
+[French]
+フランス語
+[Frisian]
+フリジア語
+[Galician]
+ガリシア語
+[German]
+ドイツ語
+[Georgian]
+グルジア語
+[Greek]
+ギリシャ語
+[Hebrew]
+ヘブライ
+[Hindi]
+ヒンディー語
+[Indonesian]
+インドネシア語
+[Interlingua]
+インテルリングア
+[Irish]
+ゲール語
+[Hungarian]
+ハンガリー語
+[Italian]
+イタリア語
+[Japanese]
+日本語
+[Japanese_Romaji]
+ローマ字
+[Korean]
+韓国語
+[Latin]
+ラテン語
+[Latvian]
+ラトビア語
+[Lithuanian]
+リトアニア語
+[Macedonian]
+マケドニア語
+[Maltese]
+マルタ語
+[Mongolian]
+モンゴル語
+[Nepali]
+ネパール語
+[Norwegian]
+ノルウェー語
+[Norwegian_Bokmal]
+ノルウェー語(Bokmål)
+[Norwegian_Nynorsk]
+ノルウェー語(Nynorsk)
+[Papiamento]
+パピアメント語
+[Persian]
+ペルシャ語
+[Polish]
+ポーランド語
+[Portuguese]
+ポルトガル語
+[Portuguese_BR]
+ポルトガル語-Br
+[Romanian]
+ルーマニア語
+[Russian]
+ロシア語
+[Serbian]
+セルビア語
+[Slovak]
+スロバキア語
+[Slovenian]
+スロベニア語
+[Spanish]
+スペイン語
+[Spanish_LA]
+スペイン語-LA
+[Swahili]
+スワヒリ語
+[Swedish]
+スウェーデン語
+[Tagalog]
+タガログ語
+[Tamil]
+タミル語
+[Telugu]
+テルグ語
+[Thai]
+タイ語
+[Turkish]
+トルコ語
+[Ukrainian]
+ウクライナ語
+[Urdu]
+ウルドゥー語
+[Vietnamese]
+ベトナム語
+[Welsh]
+ウェールズ語
+[Languages]
+言語
+[Services]
+サービス
+[Enabled]
+可能
+[Error]
+エラー
+[Disabled]
+不可能
+[Move service up]
+上へ
+[Move service down]
+下へ
+[<b>Status</b> : Enabled]
+<b>状態</b>：可能
+[<b>Status</b> : Error]
+<b>状態</b>：エラー
+[<b>Status</b> : Disabled]
+<b>状態</b>：不可能
+[Enable]
+可能用
+[Disable]
+不可能
+[Subjects]
+主題
+[Subject]
+主題
+[Any]
+全部
+[Common]
+公共
+[Aviation]
+航空
+[Auto]
+自動車
+[Anatomy]
+解剖学
+[Bank]
+銀行
+[Bible]
+聖書
+[Business]
+商用
+[Military]
+軍事
+[Law]
+法律
+[Informatics]
+情報学
+[Art]
+芸術
+[Space]
+宇宙
+[Socio-political]
+社会/政治
+[Medicine]
+医学
+[Music]
+音楽
+[Sex]
+性
+[Sport]
+スポーツ
+[Tech]
+技術
+[Philosophy]
+哲学
+[Chemistry]
+化学
+[Economy]
+経済
+[Electronics]
+電子
+[Internet]
+インターネット
+[Logistics]
+物流
+[Travel]
+旅行
+[Football]
+サッカー
+[Phrasebook]
+慣用句
+[Perfumery]
+香料
+[Type]
+形式
+[Translator]
+翻訳
+[Monolingual dictionary]
+単一言語辞書
+[Bilingual dictionary]
+複数言語辞書
+[Dictionary of synonyms]
+同意語
+[Dictionary of antonyms]
+反対語
+[Phraseological dictionary]
+専門語時点
+[Encyclopedia]
+百科事典
+[Search Engine]
+検索エンジン
+[Bilingual phrases dictionary]
+２ヶ国語慣用句辞書
+[Bilingual sentenses dictionary]
+２ヶ国語文章辞書
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+BP
+[BS]
+BS
+[Limit]
+限界
+[characters]
+文字
+[Limit {0} : {1} characters]
+限界 {0} : {1} 文字
+[Limit {0} : {1} lines]
+限界 {0} : {1} 行
+[Limit {0} : {1} words]
+限界 {0} : {1} 語
+[Masks]
+マスク
+[English-Ukrainian technical dictionary]
+英語-ウクライナ語 技術辞典
+[Google Translator]
+Google 翻訳
+[<META> Translator]
+<META> 翻訳
+[Free open source machine translation system]
+フリーでオープンソースの機械翻訳システム
+[Russian-Ukrainian academic dictionary (1924–1933)]
+ロシア語-ウクライナ語 学術辞典(1924-1933)
+[Large explanatory dictionary of modern Ukrainian]
+現代ウクライナ語大解説辞典
+[Slovnyk - the multilanguage dictionary]
+スロベニア語 - 多言語辞典
+[Russian-Ukrainian dictionary of constant expressions]
+ロシア語-ウクライナ語 定型表現辞典
+[Pragma 5.x on-line translation]
+Pragma 5.x オンライン翻訳
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+英語-ウクライナ語 双方向辞典オンライン - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+英語-ウクライナ語 双方向辞典 - Slovnenya
+[Dictionary of foreign words]
+外来語辞典
+[Dictionaries of Ukraine]
+ウクライナの辞書
+[The free encyclopedia that anyone can edit]
+フリーの誰もが編集できる百科辞典
+[The free dictionary that anyone can edit]
+フリーの誰もが編集できる辞典
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN 翻訳ソフトウェア(Altavista Babel Fish 使用)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+ポーランド語(対、英語、ドイツ語)辞典
+[Yahoo Babel Fish Translator]
+Yahoo Babel Fish翻訳
+[Multitran - system for translators]
+Multitran - 翻訳家向けシステム
+[PROMT - Free Text Translator]
+PROMT - フリーテキスト翻訳
+[LangSoft Translation & Educational Software]
+LangSoft 翻訳と教育ソフト
+[Tiscali - Czech oriented dictionary]
+Tiscali - チェコ語辞典
+[Free Online Urdu-English Dictionary]
+フリーオンライン ウルドゥー語-英語 辞典
+[Online English-to-Urdu and Urdu-to-English dictionary]
+オンライン ウルドゥー語(対、英語)辞典
+[InterTran dictionary]
+InterTran 辞書
+[Priberam Portuguese dictionary]
+Priberam ポルトガル語辞典
+[WordNet a lexical database for the English language]
+WordNet 英語語彙データベース
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet は 多言語の語彙データベースです
+[English-Bulgarian dictionary - SA Dictionary Online]
+英語-ブルガリア語 辞典 - SA Dictionary Online
+[dict.cc - English-German Dictionary]
+dict.cc - 英語-ドイツ語 辞典
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - ドイツ語辞典
+[Open thesaurus is an Open Source thesaurus for the German language]
+Open thesaurus はオープンソースのドイツ語のシソーラスです
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+Open thesaurus-es はオープンソースのスペイン語のシソーラスです
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal はOpenThesaurusをもとにしたオープンソースのオランダ語のシソーラスです
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenthesaurusPT はオープンソースのポルトガル語のシソーラスです
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+OpenthesaurusPL はオープンソースのポーランド語のシソーラスです
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenthesaurusSI はオープンソースのスロベニア語のシソーラスです
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Sozluk(te)* Online Dictionary -  トルコ語辞典
+[Free Dictionaries project]
+フリー辞典プロジェクト
+[Grouped by Service's Url]
+サービスのＵＲＬでグループ化
+[Grouped by Language]
+言語でグループ化
+[{0} language pairs]
+{0} 言語対
+[{0} services]
+{0} サービス
+[Create article]
+記事を作成
+[Open article]
+記事を開く
+[Pronunciation]
+発音
+[{0} more entries found]
+{0} 以上のエントリがありました
+[related links]
+関連リンク
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+問い合わせ時間 : {0} 秒, 問い合わせ回数 : {1}, 送信バイト数 : {2}, 受信バイト数 : {3}
+[Full time : {0} s]
+総計 : {0} 秒
+[{0} phrases translated by {1} calls to translate services]
+{0} 個の語句が翻訳サービスを{1}回使用して翻訳されました
+[Send by mail]
+メールで送信
+[Continue]
+続行
+[Copy]
+コピー
+[Terminate]
+終了
+[Terminated by user on error]
+エラーでユーザにより終了
+[Unhandled exception in]
+未処理の例外が
+[Error on opening config file]
+設定ファイルを開く時にエラー
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+{0}からの設定ファイルを開く時にエラー。\r\n主な原因 - オプションファイル形式がおかしい.\r\n設定内容はデフォルト値にリセットされます。
+[Error on saving config file]
+設定ファイルへの保存時にエラー
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+{0}への設定ファイルへの保存時にエラー。\r\n主な原因 - システムのTEMPディレクトリに書き込めない。
+[Error on saving config file to {0}]
+{0}への設定ファイルへの保存時にエラー。
+[Show information about exception]
+例外についての情報を表示
+[Error on start process : {0}\r\nError message : {1}]
+処理の開始時にエラー: {0}\r\nエラーメッセージ : {1}
+[Error on start process]
+処理の開始時にエラー
+[Error on sending email to : {0}\r\nError message : {1}]
+{0}へのメールの送信でエラー\r\nエラーメッセージ : {1}
+[Error on sending email]
+メールの送信でエラー

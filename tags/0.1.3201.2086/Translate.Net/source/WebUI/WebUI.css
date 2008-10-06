@@ -1,0 +1,39 @@
+body
+{	
+	margin: -7px; 
+	border-width: 0px;
+}
+
+#service_status_body
+{
+	background-color :ButtonHighlight;
+}
+
+#result_table
+{
+	text-align: left;
+	width: 95%;
+	font-size: 8.25pt; 
+	font-family: Tahoma;
+}
+
+p
+{
+	margin-bottom : 0pt;
+	margin-top : 0pt;
+}
+
+.p00
+{
+	margin-left : 0em;
+}
+
+.p05
+{
+	margin-left : 0.5em;
+}
+
+.p10
+{
+	margin-left : 1em;
+}

@@ -1,0 +1,780 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+
+[TranslatedByURL]
+
+[Translated by]
+
+[&File]
+
+[Exit from application]
+
+[E&xit]
+
+[&Edit]
+
+[Copy selection to clipboard]
+
+[&Copy]
+
+[Cut selection to clipboard]
+
+[Cu&t]
+
+[Paste from clipboard]
+
+[&Paste]
+
+[Delete selection]
+
+[&Delete]
+
+[Undo last operation]
+
+[&Undo]
+
+[Redo last operation]
+
+[&Redo]
+
+[Select Аll]
+
+[&Select Аll]
+
+[&Window]
+
+[Close All]
+
+[&Help]
+
+[&About ...]
+
+[About]
+
+[Send feedback or bugreport ...]
+
+[Feedback for :]
+
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+
+[Donate ...]
+
+[Online Help]
+
+[Options]
+
+[OK]
+
+[Cancel]
+
+[Apply]
+
+[Minimize]
+
+[{0} Updater]
+
+[Preparing]
+
+[Check version]
+
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+
+[Update downloaded]
+
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+
+[Please select where to save installer of new version which you can run later]
+
+[Installer saved to \r\n{0}]
+
+[Update will be run later]
+
+[Check Updates ...]
+
+[Updates]
+
+[Automatically check updates]
+
+[Automatically download updates]
+
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+
+[Close]
+
+[Error on downloading {0}]
+
+[{0} don't contained {1} tag:\r\n{2}]
+
+[{0} has wrong formatted {1} tag:\r\n{2}]
+
+[Canceled]
+
+[Program is up to date]
+
+[File {0} already exists]
+
+[The server of updates is overloaded. The check of updates will be delayed.]
+
+[Checking of update done]
+
+[New version {0} of {1} available]
+
+[Do you want to open site where you can download it ?]
+
+[Version]
+
+[&Tools]
+
+[O&ptions...]
+
+[General]
+
+[UI Language]
+
+[Network]
+
+[HTTP-Proxy]
+
+[Proxy]
+
+[Port]
+
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
+[Timeout]
+
+[System]
+
+[Custom]
+
+[None]
+
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
+[Startup]
+
+[Launch at system startup]
+
+[Minimize to tray]
+
+[When enabled {0} will run when OS started]
+
+[{0} will be minimized to tray when OS started]
+
+[Single Instance]
+
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+
+[Tray]
+
+[Hotkeys]
+
+[Activate on Ctrl+C+C hotkey]
+
+[Activate on Ctrl+Ins+Ins hotkey]
+
+[Translate when activated by hotkey]
+
+[Show query time and other information]
+
+[Mark by red color untranslated words]
+
+[Don't show "Nothing found" results]
+
+[Show direction of translation]
+
+[Show accents]
+
+[Show names of services]
+
+[Nothing found]
+
+[An error occurred during translation. Please try again later.]
+
+[Translation direction is not correct]
+
+[Only cyrillic characters supported]
+
+[Ukrainian characters in russian query]
+
+[Parse error, start tags not found]
+
+[Nothing to translate]
+
+[Length too big]
+
+[Wrong data structure]
+
+[Query contains extraneous symbols]
+
+[Service version not supported]
+
+[Result view]
+
+[Result view placement]
+
+[Top]
+
+[Place result view at top]
+
+[Bottom]
+
+[Place result view at bottom]
+
+[Left]
+
+[Place result view at left]
+
+[Right]
+
+[Place result view at right]
+
+[Include monolingual dictionaries in translation]
+
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
+[Please select at least one source language]
+
+[Please select at least one target language]
+
+[Profile]
+
+[Profiles]
+
+[Default]
+
+[List]
+
+[Add new user profile]
+
+[Set profile properties]
+
+[Profile name]
+
+[Translation direction]
+
+[Name for new profile you enter already used. Please enter unique name.]
+
+[Profile name don't set. Please enter profile name.]
+
+[Remove user profile]
+
+[The profile {0} will be deleted.\r\nAre you sure ?]
+
+[Move profile up]
+
+[Move profile down]
+
+[Name]
+
+[Edit services]
+
+[Remove service]
+
+[Add selected service]
+
+[Add all services]
+
+[Remove all services]
+
+[Services filter]
+
+[Available services]
+
+[Selected services]
+
+[View]
+
+[Show services list]
+
+[Show languages list]
+
+[Show subjects list]
+
+[Size]
+
+[System font]
+
+[Fonts]
+
+[Input text]
+
+[To default]
+
+[Toolbars]
+
+[Default font]
+
+[&Translate]
+
+[Translate]
+
+[Stop current operation]
+
+[Stop]
+
+[Search in Google]
+
+[Size or format of query don't supported by available translation services]
+
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
+[Reverse translation direction]
+
+[Show\\Hide]
+
+[Show HTML source]
+
+[From]
+
+[To]
+
+[Any Language]
+
+[Afrikaans]
+
+[Albanian]
+
+[Autodetect]
+
+[Arabic]
+
+[Armenian]
+
+[Basque]
+
+[Belarusian]
+
+[Bengali]
+
+[Bosnian]
+
+[Breton]
+
+[Bulgarian]
+
+[Catalan]
+
+[Chinese]
+
+[Chinese_CN]
+
+[Chinese_TW]
+
+[Croatian]
+
+[Czech]
+
+[Danish]
+
+[Dutch]
+
+[English]
+
+[English_GB]
+
+[English_US]
+
+[Esperanto]
+
+[Estonian]
+
+[Icelandic]
+
+[Faroese]
+
+[Filipino]
+
+[Finnish]
+
+[French]
+
+[Frisian]
+
+[Galician]
+
+[Georgian]
+
+[German]
+
+[Greek]
+
+[Hebrew]
+
+[Hindi]
+
+[Indonesian]
+
+[Interlingua]
+
+[Irish]
+
+[Hungarian]
+
+[Italian]
+
+[Japanese]
+
+[Japanese_Romaji]
+
+[Korean]
+
+[Latin]
+
+[Latvian]
+
+[Lithuanian]
+
+[Macedonian]
+
+[Maltese]
+
+[Mongolian]
+
+[Nepali]
+
+[Norwegian]
+
+[Norwegian_Bokmal]
+
+[Norwegian_Nynorsk]
+
+[Papiamento]
+
+[Persian]
+
+[Polish]
+
+[Portuguese]
+
+[Portuguese_BR]
+
+[Romanian]
+
+[Russian]
+
+[Serbian]
+
+[Slovak]
+
+[Slovenian]
+
+[Spanish]
+
+[Spanish_LA]
+
+[Swahili]
+
+[Swedish]
+
+[Tagalog]
+
+[Tamil]
+
+[Telugu]
+
+[Thai]
+
+[Turkish]
+
+[Ukrainian]
+
+[Urdu]
+
+[Vietnamese]
+
+[Welsh]
+
+[Languages]
+
+[Services]
+
+[Enabled]
+
+[Error]
+
+[Disabled]
+
+[Move service up]
+
+[Move service down]
+
+[<b>Status</b> : Enabled]
+
+[<b>Status</b> : Error]
+
+[<b>Status</b> : Disabled]
+
+[Enable]
+
+[Disable]
+
+[Subjects]
+
+[Subject]
+
+[Any]
+
+[Common]
+
+[Aviation]
+
+[Auto]
+
+[Anatomy]
+
+[Bank]
+
+[Bible]
+
+[Business]
+
+[Military]
+
+[Law]
+
+[Informatics]
+
+[Art]
+
+[Space]
+
+[Socio-political]
+
+[Medicine]
+
+[Music]
+
+[Sex]
+
+[Sport]
+
+[Tech]
+
+[Philosophy]
+
+[Chemistry]
+
+[Economy]
+
+[Electronics]
+
+[Internet]
+
+[Logistics]
+
+[Travel]
+
+[Football]
+
+[Phrasebook]
+
+[Perfumery]
+
+[Type]
+
+[Translator]
+
+[Monolingual dictionary]
+
+[Bilingual dictionary]
+
+[Dictionary of synonyms]
+
+[Dictionary of antonyms]
+
+[Phraseological dictionary]
+
+[Encyclopedia]
+
+[Search Engine]
+
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
+[T]
+
+[MD]
+
+[BD]
+
+[SD]
+
+[AD]
+
+[PD]
+
+[EN]
+
+[SE]
+
+[BP]
+
+[BS]
+
+[Limit]
+
+[characters]
+
+[Limit {0} : {1} characters]
+
+[Limit {0} : {1} lines]
+
+[Limit {0} : {1} words]
+
+[Masks]
+
+[English-Ukrainian technical dictionary]
+
+[Google Translator]
+
+[<META> Translator]
+
+[Free open source machine translation system]
+
+[Russian-Ukrainian academic dictionary (1924–1933)]
+
+[Large explanatory dictionary of modern Ukrainian]
+
+[Slovnyk - the multilanguage dictionary]
+
+[Russian-Ukrainian dictionary of constant expressions]
+
+[Pragma 5.x on-line translation]
+
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+
+[Dictionary of foreign words]
+
+[Dictionaries of Ukraine]
+
+[The free encyclopedia that anyone can edit]
+
+[The free dictionary that anyone can edit]
+
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+
+[Yahoo Babel Fish Translator]
+
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
+
+[LangSoft Translation & Educational Software]
+
+[Tiscali - Czech oriented dictionary]
+
+[Free Online Urdu-English Dictionary]
+
+[Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
+
+[Priberam Portuguese dictionary]
+
+[WordNet a lexical database for the English language]
+
+[MultiWordNet is a multilingual lexical database]
+
+[English-Bulgarian dictionary - SA Dictionary Online]
+
+[dict.cc - English-German Dictionary]
+
+[BEOLINGUS - German oriented dictionary]
+
+[Open thesaurus is an Open Source thesaurus for the German language]
+
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+
+[Free Dictionaries project]
+
+[Grouped by Service's Url]
+
+[Grouped by Language]
+
+[{0} language pairs]
+
+[{0} services]
+
+[Create article]
+
+[Open article]
+
+[Pronunciation]
+
+[{0} more entries found]
+
+[related links]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
+[{0} phrases translated by {1} calls to translate services]
+
+[Send by mail]
+
+[Continue]
+
+[Copy]
+
+[Terminate]
+
+[Terminated by user on error]
+
+[Unhandled exception in]
+
+[Error on opening config file]
+
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+
+[Error on saving config file]
+
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+
+[Error on saving config file to {0}]
+
+[Show information about exception]
+
+[Error on start process : {0}\r\nError message : {1}]
+
+[Error on start process]
+
+[Error on sending email to : {0}\r\nError message : {1}]
+
+[Error on sending email]
+
