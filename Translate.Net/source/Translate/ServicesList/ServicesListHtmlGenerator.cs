@@ -116,24 +116,24 @@ namespace Translate
 			int var_num = 0;
 			while(i < result.Length)
 			{
-				cnt = 1024;
+				cnt = 16384;
 				if(i + cnt > result.Length)
 					cnt = result.Length - i;
 				substr = new StringBuilder(result.Substring(i, cnt));
 				substr.Replace("\"", "\\\"");
 				substr.Replace("\r", "\\r");
 				substr.Replace("\n", "\\n");
-				sw.Write("String s_");
+				sw.Write("String s");
 				sw.Write(var_num.ToString());
 					var_num++;
 				sw.Write(" = ");	
 				sw.Write("\"" + substr.ToString() + "\";\r\n");
-				i += 1024;
+				i += 16384;
 			}
 			sw.Write("return ");	
 			for(i = 0; i < var_num; i++)
 			{
-				sw.Write("s_");
+				sw.Write("s");
 				sw.Write(i.ToString());
 				if(i + 1 < var_num)
 					sw.Write("+");
@@ -255,6 +255,7 @@ namespace Translate
 				foreach(KeyValuePair<string, SortedDictionary<string, string>> kvp_langs in langs)	
 				{
 					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
+					nodeName = nodeName.Replace("'", "_");
 					htmlString.Append(GenerateTopNode(nodeName, kvp_langs.Key + "->" + GetLangsPairsCount(kvp_langs.Value.Count) , 1));
 				}
 				HtmlHelper.SetNodeInnerHtml(wBrowser, langNodeName, htmlString.ToString());
@@ -263,6 +264,7 @@ namespace Translate
 				foreach(KeyValuePair<string, SortedDictionary<string, string>> kvp_langs in langs)	
 				{
 					string nodeName = si.FullName + "_lang_" + kvp_langs.Key;
+					nodeName = nodeName.Replace("'", "_");
 					htmlString = new StringBuilder();
 					foreach(KeyValuePair<string, string> kvp_to_langs in kvp_langs.Value)
 					{
@@ -360,6 +362,7 @@ namespace Translate
 				string htmlString = "";
 			
 				string childnodeName = "by_lang_" + kvp.Key;
+				childnodeName = childnodeName.Replace("'", "_");
 				htmlString += GenerateTopNode(childnodeName, "-" + kvp.Key + " ->" + GetLangsPairsCount(kvp.Value.Count));
 				HtmlHelper.AddTranslationCell(wBrowser, nodeName + "_table_body", true, htmlString, null);
 				
@@ -373,6 +376,7 @@ namespace Translate
 				
 					
 					childnodeName = "by_lang_" + kvp.Key + "_" + kvpToLangs.Key;
+					childnodeName = childnodeName.Replace("'", "_");
 					htmlString += GenerateTopNode(childnodeName, kvp.Key + "->" + kvpToLangs.Key + " -" + GetServicesCount(kvpToLangs.Value.Count) , 1);
 					HtmlHelper.AddTranslationCell(wBrowser, topchildnodeName, true, htmlString, null);
 					
