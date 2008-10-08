@@ -118,27 +118,20 @@ namespace Translate
 						return;
 						
 					//selection = value; 
-					ListViewItem lvi = FindItem(fromLVItems, value.From);
-					if(lvi != null && lbFrom.Handle != IntPtr.Zero)
-					{
-						lvi.Selected = true;
-						lvi.Focused = true;
-						lvi.EnsureVisible();
-						LbFromSelectedIndexChanged(null, null);
-					}	
+					LanguageDataContainer from = new LanguageDataContainer(value.From, "");
+					LanguageDataContainer to = new LanguageDataContainer(value.To, "");
+					int idx = lbFrom.Items.IndexOf(from);
+					if(idx != -1)
+						lbFrom.SelectedIndex = idx;
+					else
+						throw new ArgumentOutOfRangeException("value", "Can't select LanguagePair : " + value.ToString());
+
+					idx = lbTo.Items.IndexOf(to);
+					if(idx != -1)
+						lbTo.SelectedIndex = idx;
 					else
 						throw new ArgumentOutOfRangeException("value", "Can't select LanguagePair : " + value.ToString());
 					
-					
-					lvi = FindItem(toLVItems, value.To);
-					if(lvi != null && lbTo.Handle != IntPtr.Zero)
-					{
-						lvi.Selected = true;
-						lvi.Focused = true;
-						lvi.EnsureVisible();
-					}	
-					else
-						throw new ArgumentOutOfRangeException("value", "Can't select LanguagePair : " + value.ToString());
 				}
 		}
 		
@@ -146,10 +139,10 @@ namespace Translate
 		{
 			get
 			{
-				if(lbFrom.SelectedIndices.Count == 0 || lbTo.SelectedIndices.Count == 0)
+				if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 					return "";
 				
-				LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItems[0].Tag, (LanguageDataContainer)lbTo.SelectedItems[0].Tag);
+				LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);	
 				return currSel.ToString();
 			}
 		}
@@ -312,28 +305,13 @@ namespace Translate
 			
 		}
 		
-		Dictionary<Language, ListViewItem> fromLVItems = new Dictionary<Language, ListViewItem>();
-		Dictionary<Language, ListViewItem> toLVItems = new Dictionary<Language, ListViewItem>();
-		
-		ListViewItem FindItem(Dictionary<Language, ListViewItem> itemsDictionary, Language language)
-		{
-			ListViewItem result = null;
-			itemsDictionary.TryGetValue(language, out result);
-			return result;
-		}
-		
 		
 		void LoadLanguages()
 		{
 			LockUpdate(true);
 			lbFrom.BeginUpdate();
-			lbFrom.Sorting = SortOrder.None;
-			
-			lbTo.BeginUpdate();
 			lbFrom.Items.Clear();
 			lbTo.Items.Clear();
-			fromLVItems.Clear();
-			toLVItems.Clear();
 			
 			LanguageCollection fromLangs = new LanguageCollection();
 			
@@ -348,93 +326,42 @@ namespace Translate
 			
 			string val = "";
 			
-			ListViewItem lvi;
-			
 			if(fromLangs.Count > 1)
 			{
 				val = "+" + LangPack.TranslateLanguage(Language.Any);
-				LanguageDataContainer ldc = new LanguageDataContainer(Language.Any, val);
-				lvi = new ListViewItem(val);
-				lvi.Tag = ldc;
-				lvi.ToolTipText = val.Substring(1);
-				lbFrom.Items.Add(lvi);
-				fromLVItems.Add(Language.Any, lvi);
+				lbFrom.Items.Add(new LanguageDataContainer(Language.Any, val));
 			}
 			
 			foreach(Language l in fromLangs)
 			{
 				val = LangPack.TranslateLanguage(l);
 				if(l == Language.Autodetect)
-				{
 					val = "÷" + val;
-					lvi = new ListViewItem(val);
-					lvi.ToolTipText = val.Substring(1);
-				}	
-				else
-				{
-					lvi = new ListViewItem(val);
-					lvi.ToolTipText = val;
-				}	
-					
-				LanguageDataContainer ldc = new LanguageDataContainer(l, val);
-				lvi.Tag = ldc;
-				lbFrom.Items.Add(lvi);
-				fromLVItems.Add(l, lvi);
+				lbFrom.Items.Add(new LanguageDataContainer(l, val));
 			}
 
-			lbFrom.Sorting = SortOrder.Ascending;
-			lbTo.EndUpdate();
 			lbFrom.EndUpdate();
 
-			try //avoiding urepetative bug 
-			{
-				if(lbFrom.Items.Count > 0 && !profileChanging)
-				{
-					lbFrom.Items[0].Selected = true;
-					lbFrom.Items[0].Focused = true;
-					lbFrom.Items[0].EnsureVisible();
-					LbFromSelectedIndexChanged(null, null);
-				}	
-			}
-			catch
-			{
-				try
-				{
-					if(lbFrom.Items.Count > 0 && !profileChanging)
-					{
-						lbFrom.Items[0].Selected = true;
-						lbFrom.Items[0].Focused = true;
-						lbFrom.Items[0].EnsureVisible();
-						LbFromSelectedIndexChanged(null, null);
-					}	
-				}
-				catch
-				{
-				
-				}
-			}
-			
+			if(lbFrom.Items.Count > 0 && !profileChanging)
+				lbFrom.SelectedIndex = 0;
 			LockUpdate(false);
 		}
 		
 
 		void LbFromSelectedIndexChanged(object sender, EventArgs e)
 		{
-			if(lbFrom.SelectedItems.Count == 0)
-				return;
-		
 			LockUpdate(true);
+			if(lbFrom.SelectedIndex == -1)
+				return;
 				
-			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItems[0].Tag).Language;	
+			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItem).Language;	
 			LanguageDataContainer toLanguage = null;
-			if(lbTo.SelectedItems.Count != 0)
-				toLanguage = ((LanguageDataContainer)lbTo.SelectedItems[0].Tag);
+			if(lbTo.SelectedItem != null)
+				toLanguage = ((LanguageDataContainer)lbTo.SelectedItem);
 			
 			lbTo.BeginUpdate();
-			lbTo.Sorting = SortOrder.None;
 
 			lbTo.Items.Clear();
-			toLVItems.Clear();
 			
 			LanguageCollection toLangs = new LanguageCollection();
 			
@@ -448,96 +375,29 @@ namespace Translate
 			
 			string val = "";
 			
-			ListViewItem lvi;
-			
 			if(toLangs.Count > 1)
 			{
 				val = "+" + LangPack.TranslateLanguage(Language.Any);
-				LanguageDataContainer ldc = new LanguageDataContainer(Language.Any, val);
-				lvi = new ListViewItem(val);
-				lvi.Tag = ldc;
-				lvi.ToolTipText = val.Substring(1);
-				lbTo.Items.Add(lvi);
-				toLVItems.Add(Language.Any, lvi);
+				lbTo.Items.Add(new LanguageDataContainer(Language.Any, val));
 			}
 			
 			foreach(Language l in toLangs)
 			{
 				val = LangPack.TranslateLanguage(l);
-				LanguageDataContainer ldc = new LanguageDataContainer(l, val);
-				lvi = new ListViewItem(val);
-				lvi.Tag = ldc;
-				lvi.ToolTipText = val;
-				lbTo.Items.Add(lvi);
-				toLVItems.Add(l, lvi);
+				lbTo.Items.Add(new LanguageDataContainer(l, val));
 			}
-			
-			lbTo.Sorting = SortOrder.Ascending;
 			lbTo.EndUpdate();
 
 			string caption = LangPack.TranslateLanguage(fromLanguage);
 			lFrom.Text = caption;
 			
+			int idx = -1;
 			if(toLanguage != null)
-			{
-				lvi = FindItem(toLVItems, toLanguage.Language);
-				if(lvi != null && lbTo.Handle != IntPtr.Zero)
-				{
-					try
-					{
-						lvi.Selected = true;
-						lvi.Focused = true;
-						lvi.EnsureVisible();
-						LbToSelectedIndexChanged(null, null);
-					}
-					catch
-					{
-						try
-						{
-							lvi.Selected = true;
-							lvi.Focused = true;
-							lvi.EnsureVisible();
-							LbToSelectedIndexChanged(null, null);
-						}
-						catch
-						{
-						
-						}
-					}
-				}
-				else
-				{
-					try //avoiding urepetative bug 
-					{
-						if(lbTo.Items.Count > 0 && !profileChanging)
-						{
-							lbTo.Items[0].Selected = true;
-							lbTo.Items[0].Focused = true;
-							lbTo.Items[0].EnsureVisible(); 
-							LbToSelectedIndexChanged(null, null);
-						}	
-					}
-					catch
-					{
-						try
-						{
-							if(lbTo.Items.Count > 0 && !profileChanging)
-							{
-								lbTo.Items[0].Selected = true;
-								lbTo.Items[0].Focused = true;
-								lbTo.Items[0].EnsureVisible(); 
-								LbToSelectedIndexChanged(null, null);
-								
-							}	
-						}
-						catch
-						{
-						
-						}
-					}
-				}
-			}
+				idx = lbTo.Items.IndexOf(toLanguage);
 
+			if(idx == -1)
+				idx = 0;
+			lbTo.SelectedIndex = idx;
 			LockUpdate(false);
 		}
 		
@@ -551,11 +411,11 @@ namespace Translate
 		
 		void LbToSelectedIndexChanged(object sender, EventArgs e)
 		{
-			if(lbFrom.SelectedIndices.Count == 0 || lbTo.SelectedIndices.Count == 0)
+			if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 				return;
 
-			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItems[0].Tag).Language;
-			Language toLanguage = ((LanguageDataContainer)lbTo.SelectedItems[0].Tag).Language;
+			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItem).Language;	
+			Language toLanguage = ((LanguageDataContainer)lbTo.SelectedItem).Language;				
 			selection = new LanguagePair(fromLanguage, toLanguage);
 			lvServicesEnabled.ListViewItemSorter = null;
 			lvServicesDisabled.ListViewItemSorter = null;
@@ -594,29 +454,16 @@ namespace Translate
 		
 		public void Invert()
 		{
-			if(lbFrom.SelectedIndices.Count == 0 || lbTo.SelectedIndices.Count == 0)
-				return;
-		
-			Language fromLanguage = ((LanguageDataContainer)lbFrom.SelectedItems[0].Tag).Language;
-			Language toLanguage = ((LanguageDataContainer)lbTo.SelectedItems[0].Tag).Language;
+			LanguageDataContainer fromLanguage = (LanguageDataContainer)lbFrom.SelectedItem;
 			
-			ListViewItem lvi = FindItem(fromLVItems, toLanguage);
-			if(lvi != null && lbFrom.Handle != IntPtr.Zero)
-			{
-				lvi.Selected = true;
-				lvi.Focused = true;
-				lvi.EnsureVisible();
-				LbFromSelectedIndexChanged(null, null);
-			}	
+			int idx = lbFrom.Items.IndexOf(lbTo.SelectedItem);
+			if(idx == -1) return;
+			lbFrom.SelectedIndex = idx;
 			
-			lvi = FindItem(toLVItems, fromLanguage);
-			if(lvi != null && lbTo.Handle != IntPtr.Zero)
-			{
-				lvi.Selected = true;
-				lvi.Focused = true;
-				lvi.EnsureVisible();
-				LbToSelectedIndexChanged(null, null);
-			}	
+			idx = lbTo.Items.IndexOf(fromLanguage);
+			if(idx == -1) return;
+			lbTo.SelectedIndex = idx;			
+			
 		}
 		
 		LanguagePairCollection history = new LanguagePairCollection();
@@ -651,10 +498,10 @@ namespace Translate
 		
 		public void AddSelectionToHistory()
 		{
-			if(lbFrom.SelectedIndices.Count == 0 || lbTo.SelectedIndices.Count == 0)
+			if(lbFrom.SelectedIndex == -1 || lbTo.SelectedIndex == -1)
 				return;
 				
-			LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItems[0].Tag, (LanguageDataContainer)lbTo.SelectedItems[0].Tag);	
+			LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);	
 			int idx = lbHistory.Items.IndexOf(currSel);
 			if(idx != -1)
 			{
@@ -678,13 +525,8 @@ namespace Translate
 		{
 			if(lbHistory.SelectedIndex == -1)
 				return;
-			
-			LanguageContainerPair currSel;
-			if(lbFrom.SelectedIndices.Count == 0 || lbTo.SelectedIndices.Count == 0)
-				currSel = new LanguageContainerPair(null, null);
-			else	
-				currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItems[0].Tag, (LanguageDataContainer)lbTo.SelectedItems[0].Tag);
-			
+				
+			LanguageContainerPair currSel = new LanguageContainerPair((LanguageDataContainer)lbFrom.SelectedItem, (LanguageDataContainer)lbTo.SelectedItem);
 			LanguageContainerPair currHistorySel = (LanguageContainerPair)lbHistory.SelectedItem;
 			if(currSel != currHistorySel)
 			{
@@ -1279,14 +1121,48 @@ namespace Translate
 				LvServicesEnabledSelectedIndexChanged(lvi.ListView, new EventArgs());
 		}
 		
-		void LbFromResize(object sender, EventArgs e)
+		void LbFromMouseMove(object sender, MouseEventArgs e)
 		{
-			lbFrom.Columns[0].Width = lbFrom.Width;
+			ListBox lb = sender as ListBox;
+			if(lb == null)
+				return;
+				
+			Point p = lb.PointToClient(Cursor.Position);
+			int idx = lb.IndexFromPoint(p);
+			if(idx >= 0)
+			{
+				string text = lb.Items[idx].ToString();
+				if(ttMain.GetToolTip(lb) != text)
+				{
+					int width = 0;
+					using(Graphics g = base.CreateGraphics())
+					{
+						width = (int)g.MeasureString(text, lb.Font, 0, StringFormat.GenericTypographic).Width;
+						g.Dispose();
+						width += SystemInformation.VerticalScrollBarWidth;
+					}
+	
+					if(width > lb.ClientRectangle.Width)
+						ttMain.SetToolTip(lb, text);
+					else
+						ttMain.SetToolTip(lb, null);
+					
+				}
+			}
+			else
+			{
+				ttMain.SetToolTip(lb, null);
+			}
+			
 		}
 		
-		void LbToResize(object sender, EventArgs e)
+		void LbFromMouseLeave(object sender, EventArgs e)
 		{
-			lbTo.Columns[0].Width = lbTo.Width;
+			ListBox lb = sender as ListBox;
+			if(lb == null)
+				return;
+		
+			ttMain.SetToolTip(lb, null);
 		}
 	}
 	
