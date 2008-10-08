@@ -1396,6 +1396,7 @@ namespace Translate
 			if(pf == null)
 				return;
 		
+			pf.DisabledLanguagesAlreadySet = true;
 			DefaultProfileLanguagesForm form = new DefaultProfileLanguagesForm(pf);
 			if(form.ShowDialog(this) == DialogResult.OK)
 			{
