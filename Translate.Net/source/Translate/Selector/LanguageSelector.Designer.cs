@@ -74,13 +74,13 @@ namespace Translate
 			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Test");
 			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Test 2");
 			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Test 3");
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Test");
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Test 2");
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Test 3");
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Test");
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Test 2");
-			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Test 3");
+			System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("");
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Test");
+			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Test 2");
+			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Test 3");
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Test");
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Test 2");
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Test 3");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageSelector));
 			this.pBottom = new FreeCL.UI.Panel();
 			this.lbHistory = new System.Windows.Forms.ListBox();
@@ -106,9 +106,11 @@ namespace Translate
 			this.tpLangs = new System.Windows.Forms.TabPage();
 			this.pMain = new FreeCL.UI.Panel();
 			this.pTo = new FreeCL.UI.Panel();
-			this.lbTo = new System.Windows.Forms.ListBox();
+			this.lbTo = new System.Windows.Forms.ListView();
+			this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
 			this.pFrom = new FreeCL.UI.Panel();
-			this.lbFrom = new System.Windows.Forms.ListBox();
+			this.lbFrom = new System.Windows.Forms.ListView();
+			this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
 			this.pColumns = new FreeCL.UI.Panel();
 			this.lTo = new System.Windows.Forms.Label();
 			this.sbInvert = new FreeCL.UI.SpeedButton();
@@ -212,12 +214,12 @@ namespace Translate
 			listViewItem1.ToolTipText = "Test";
 			listViewItem2.StateImageIndex = 0;
 			listViewItem3.StateImageIndex = 0;
-			listViewItem4.StateImageIndex = 0;
+			listViewItem13.StateImageIndex = 0;
 			this.lvServicesDisabledByUser.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
 									listViewItem1,
 									listViewItem2,
 									listViewItem3,
-									listViewItem4});
+									listViewItem13});
 			this.lvServicesDisabledByUser.Location = new System.Drawing.Point(0, 152);
 			this.lvServicesDisabledByUser.MultiSelect = false;
 			this.lvServicesDisabledByUser.Name = "lvServicesDisabledByUser";
@@ -265,14 +267,14 @@ namespace Translate
 			this.lvServicesDisabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesDisabled.GridLines = true;
 			this.lvServicesDisabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			listViewItem4.StateImageIndex = 0;
+			listViewItem4.ToolTipText = "Test";
 			listViewItem5.StateImageIndex = 0;
-			listViewItem5.ToolTipText = "Test";
 			listViewItem6.StateImageIndex = 0;
-			listViewItem7.StateImageIndex = 0;
 			this.lvServicesDisabled.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+									listViewItem4,
 									listViewItem5,
-									listViewItem6,
-									listViewItem7});
+									listViewItem6});
 			this.lvServicesDisabled.Location = new System.Drawing.Point(0, 84);
 			this.lvServicesDisabled.MultiSelect = false;
 			this.lvServicesDisabled.Name = "lvServicesDisabled";
@@ -314,14 +316,14 @@ namespace Translate
 			this.lvServicesEnabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesEnabled.GridLines = true;
 			this.lvServicesEnabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			listViewItem7.StateImageIndex = 0;
+			listViewItem7.ToolTipText = "Test";
 			listViewItem8.StateImageIndex = 0;
-			listViewItem8.ToolTipText = "Test";
 			listViewItem9.StateImageIndex = 0;
-			listViewItem10.StateImageIndex = 0;
 			this.lvServicesEnabled.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+									listViewItem7,
 									listViewItem8,
-									listViewItem9,
-									listViewItem10});
+									listViewItem9});
 			this.lvServicesEnabled.Location = new System.Drawing.Point(0, 16);
 			this.lvServicesEnabled.MultiSelect = false;
 			this.lvServicesEnabled.Name = "lvServicesEnabled";
@@ -423,7 +425,7 @@ namespace Translate
 			this.tpLangs.Location = new System.Drawing.Point(4, 22);
 			this.tpLangs.Name = "tpLangs";
 			this.tpLangs.Padding = new System.Windows.Forms.Padding(3);
-			this.tpLangs.Size = new System.Drawing.Size(239, 243);
+			this.tpLangs.Size = new System.Drawing.Size(239, 241);
 			this.tpLangs.TabIndex = 0;
 			this.tpLangs.Text = "Languages";
 			this.tpLangs.UseVisualStyleBackColor = true;
@@ -437,7 +439,7 @@ namespace Translate
 			this.pMain.Location = new System.Drawing.Point(3, 59);
 			this.pMain.Name = "pMain";
 			this.pMain.Padding = new System.Windows.Forms.Padding(2);
-			this.pMain.Size = new System.Drawing.Size(233, 181);
+			this.pMain.Size = new System.Drawing.Size(233, 179);
 			this.pMain.TabIndex = 8;
 			this.pMain.SizeChanged += new System.EventHandler(this.PMainResize);
 			// 
@@ -448,20 +450,33 @@ namespace Translate
 			this.pTo.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pTo.Location = new System.Drawing.Point(92, 2);
 			this.pTo.Name = "pTo";
-			this.pTo.Size = new System.Drawing.Size(139, 177);
+			this.pTo.Size = new System.Drawing.Size(139, 175);
 			this.pTo.TabIndex = 5;
 			// 
 			// lbTo
 			// 
+			this.lbTo.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+									this.columnHeader4});
 			this.lbTo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbTo.FormattingEnabled = true;
-			this.lbTo.HorizontalScrollbar = true;
+			this.lbTo.FullRowSelect = true;
+			this.lbTo.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			this.lbTo.HideSelection = false;
 			this.lbTo.Location = new System.Drawing.Point(0, 0);
+			this.lbTo.MultiSelect = false;
 			this.lbTo.Name = "lbTo";
-			this.lbTo.Size = new System.Drawing.Size(139, 173);
-			this.lbTo.Sorted = true;
+			this.lbTo.ShowGroups = false;
+			this.lbTo.ShowItemToolTips = true;
+			this.lbTo.Size = new System.Drawing.Size(139, 175);
+			this.lbTo.Sorting = System.Windows.Forms.SortOrder.Ascending;
 			this.lbTo.TabIndex = 2;
+			this.lbTo.UseCompatibleStateImageBehavior = false;
+			this.lbTo.View = System.Windows.Forms.View.Details;
+			this.lbTo.Resize += new System.EventHandler(this.LbToResize);
 			this.lbTo.SelectedIndexChanged += new System.EventHandler(this.LbToSelectedIndexChanged);
+			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Width = 135;
 			// 
 			// pFrom
 			// 
@@ -470,20 +485,33 @@ namespace Translate
 			this.pFrom.Dock = System.Windows.Forms.DockStyle.Left;
 			this.pFrom.Location = new System.Drawing.Point(2, 2);
 			this.pFrom.Name = "pFrom";
-			this.pFrom.Size = new System.Drawing.Size(90, 177);
+			this.pFrom.Size = new System.Drawing.Size(90, 175);
 			this.pFrom.TabIndex = 4;
 			// 
 			// lbFrom
 			// 
+			this.lbFrom.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+									this.columnHeader5});
 			this.lbFrom.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.lbFrom.FormattingEnabled = true;
-			this.lbFrom.HorizontalScrollbar = true;
+			this.lbFrom.FullRowSelect = true;
+			this.lbFrom.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			this.lbFrom.HideSelection = false;
 			this.lbFrom.Location = new System.Drawing.Point(0, 0);
+			this.lbFrom.MultiSelect = false;
 			this.lbFrom.Name = "lbFrom";
-			this.lbFrom.Size = new System.Drawing.Size(90, 173);
-			this.lbFrom.Sorted = true;
+			this.lbFrom.ShowGroups = false;
+			this.lbFrom.ShowItemToolTips = true;
+			this.lbFrom.Size = new System.Drawing.Size(90, 175);
+			this.lbFrom.Sorting = System.Windows.Forms.SortOrder.Ascending;
 			this.lbFrom.TabIndex = 1;
+			this.lbFrom.UseCompatibleStateImageBehavior = false;
+			this.lbFrom.View = System.Windows.Forms.View.Details;
+			this.lbFrom.Resize += new System.EventHandler(this.LbFromResize);
 			this.lbFrom.SelectedIndexChanged += new System.EventHandler(this.LbFromSelectedIndexChanged);
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Width = 86;
 			// 
 			// pColumns
 			// 
@@ -541,7 +569,7 @@ namespace Translate
 			this.tpSubject.Location = new System.Drawing.Point(4, 22);
 			this.tpSubject.Name = "tpSubject";
 			this.tpSubject.Padding = new System.Windows.Forms.Padding(3);
-			this.tpSubject.Size = new System.Drawing.Size(239, 243);
+			this.tpSubject.Size = new System.Drawing.Size(239, 241);
 			this.tpSubject.TabIndex = 1;
 			this.tpSubject.Text = "Subjects";
 			this.tpSubject.UseVisualStyleBackColor = true;
@@ -583,6 +611,8 @@ namespace Translate
 			this.tpSubject.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ToolTip ttMain;
 		private FreeCL.UI.SpeedButton sbServiceDown;
 		private FreeCL.UI.SpeedButton sbServiceUp;
@@ -610,9 +640,9 @@ namespace Translate
 		public FreeCL.UI.SpeedButton sbInvert;
 		private FreeCL.UI.Panel pColumns;
 		private System.Windows.Forms.Label lFrom;
-		private System.Windows.Forms.ListBox lbFrom;
+		private System.Windows.Forms.ListView lbFrom;
 		private System.Windows.Forms.Label lTo;
-		private System.Windows.Forms.ListBox lbTo;
+		private System.Windows.Forms.ListView lbTo;
 		private System.Windows.Forms.ListBox lbHistory;
 		private System.Windows.Forms.Splitter splitterBottom;
 		private FreeCL.UI.Panel pFrom;
