@@ -52,7 +52,6 @@ namespace Translate
 			InitializeComponent();
 			this.profile = profile;
 			RegisterLanguageEvent(OnLanguageChanged);
-			profile.DisabledLanguagesAlreadySet = true;
 		}
 		
 		void OnLanguageChanged()
