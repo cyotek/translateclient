@@ -52,7 +52,7 @@ namespace Translate
 	/// <summary>
 	/// Description of MainForm.
 	/// </summary>
-	public partial class TranslateMainForm : MainForm
+	public partial class TranslateMainForm : FreeCL.Forms.MainForm
 	{
 		public TranslateMainForm()
 		{
@@ -470,6 +470,7 @@ namespace Translate
 					if(!pRight.Visible)
 					{
 						splitterRight.Enabled = true;
+						splitterRight.Visible = true;
 						pRight.Visible = true;
 						pRight.Enabled = true;
 					}
@@ -479,12 +480,14 @@ namespace Translate
 					if(!upf.ShowLanguages && !upf.ShowServices && !upf.ShowSubjects)
 					{
 						splitterRight.Enabled = false;
+						splitterRight.Visible = false;
 						pRight.Visible = false;
 						pRight.Enabled = false;
 					}
 					else if(!pRight.Visible)
 					{
 						splitterRight.Enabled = true;
+						splitterRight.Visible = true;
 						pRight.Visible = true;
 						pRight.Enabled = true;
 					}
