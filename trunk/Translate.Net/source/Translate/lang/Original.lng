@@ -354,11 +354,15 @@
 
 [Albanian]
 
+[Amharic]
+
 [Autodetect]
 
 [Arabic]
 
 [Armenian]
+
+[Azerbaijani]
 
 [Basque]
 
@@ -366,13 +370,19 @@
 
 [Bengali]
 
+[Bihari]
+
 [Bosnian]
 
 [Breton]
 
 [Bulgarian]
 
+[Burmese]
+
 [Catalan]
+
+[Cherokee]
 
 [Chinese]
 
@@ -385,6 +395,8 @@
 [Czech]
 
 [Danish]
+
+[Dhivehi]
 
 [Dutch]
 
@@ -418,11 +430,17 @@
 
 [Greek]
 
+[Guarani]
+
+[Gujarati]
+
 [Hebrew]
 
 [Hindi]
 
 [Indonesian]
+
+[Inuktitut]
 
 [Interlingua]
 
@@ -436,7 +454,17 @@
 
 [Japanese_Romaji]
 
+[Kazakh]
+
+[Khmer]
+
 [Korean]
+
+[Kurdish]
+
+[Kyrgyz]
+
+[Laothian]
 
 [Latin]
 
@@ -446,7 +474,13 @@
 
 [Macedonian]
 
+[Malay]
+
+[Malayalam]
+
 [Maltese]
+
+[Marathi]
 
 [Mongolian]
 
@@ -458,6 +492,10 @@
 
 [Norwegian_Nynorsk]
 
+[Oriya]
+
+[Pashto]
+
 [Papiamento]
 
 [Persian]
@@ -468,11 +506,19 @@
 
 [Portuguese_BR]
 
+[Punjabi]
+
 [Romanian]
 
 [Russian]
 
+[Sanskrit]
+
 [Serbian]
+
+[Sindhi]
+
+[Sinhalese]
 
 [Slovak]
 
@@ -486,6 +532,8 @@
 
 [Swedish]
 
+[Tajik]
+
 [Tagalog]
 
 [Tamil]
@@ -494,11 +542,17 @@
 
 [Thai]
 
+[Tibetan]
+
 [Turkish]
 
 [Ukrainian]
 
 [Urdu]
+
+[Uzbek]
+
+[Uighur]
 
 [Vietnamese]
 
