@@ -354,11 +354,15 @@ Cualquier idioma
 Afrikaans
 [Albanian]
 
+[Amharic]
+
 [Autodetect]
 Autodetectar
 [Arabic]
 Arábico
 [Armenian]
+
+[Azerbaijani]
 
 [Basque]
 
@@ -366,13 +370,19 @@ Arábico
 Bieloruso
 [Bengali]
 
+[Bihari]
+
 [Bosnian]
 
 [Breton]
 
 [Bulgarian]
 Búlgaro
+[Burmese]
+
 [Catalan]
+
+[Cherokee]
 
 [Chinese]
 Chino
@@ -386,6 +396,8 @@ Croata
 Checo
 [Danish]
 Danés
+[Dhivehi]
+
 [Dutch]
 Suizo
 [English]
@@ -418,11 +430,17 @@ Francés
 Alemán
 [Greek]
 Griego
+[Guarani]
+
+[Gujarati]
+
 [Hebrew]
 Hebreo
 [Hindi]
 Hindi
 [Indonesian]
+
+[Inuktitut]
 
 [Interlingua]
 
@@ -436,8 +454,18 @@ Italiano
 Japonés
 [Japanese_Romaji]
 
+[Kazakh]
+
+[Khmer]
+
 [Korean]
 Coreano
+[Kurdish]
+
+[Kyrgyz]
+
+[Laothian]
+
 [Latin]
 Latin
 [Latvian]
@@ -446,7 +474,13 @@ Latvio
 Lituano
 [Macedonian]
 Macedonio
+[Malay]
+
+[Malayalam]
+
 [Maltese]
+
+[Marathi]
 
 [Mongolian]
 
@@ -458,6 +492,10 @@ Noruego
 
 [Norwegian_Nynorsk]
 
+[Oriya]
+
+[Pashto]
+
 [Papiamento]
 
 [Persian]
@@ -468,12 +506,20 @@ Polaco
 Portugués
 [Portuguese_BR]
 Portugués-Br
+[Punjabi]
+
 [Romanian]
 Rumano
 [Russian]
 Ruso
+[Sanskrit]
+
 [Serbian]
 Serbio
+[Sindhi]
+
+[Sinhalese]
+
 [Slovak]
 Eslovaco
 [Slovenian]
@@ -486,6 +532,8 @@ Español-LA
 
 [Swedish]
 Sueco
+[Tajik]
+
 [Tagalog]
 
 [Tamil]
@@ -494,12 +542,18 @@ Sueco
 
 [Thai]
 
+[Tibetan]
+
 [Turkish]
 Turco
 [Ukrainian]
 Ucraniano
 [Urdu]
 Urdu
+[Uzbek]
+
+[Uighur]
+
 [Vietnamese]
 
 [Welsh]

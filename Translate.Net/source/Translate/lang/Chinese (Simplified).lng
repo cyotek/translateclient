@@ -354,11 +354,15 @@ HTTP 代理
 
 [Albanian]
 
+[Amharic]
+
 [Autodetect]
 
 [Arabic]
 阿拉伯语
 [Armenian]
+
+[Azerbaijani]
 
 [Basque]
 
@@ -366,13 +370,19 @@ HTTP 代理
 白俄罗斯语
 [Bengali]
 
+[Bihari]
+
 [Bosnian]
 
 [Breton]
 
 [Bulgarian]
 保加利亚语
+[Burmese]
+
 [Catalan]
+
+[Cherokee]
 
 [Chinese]
 中文
@@ -386,6 +396,8 @@ HTTP 代理
 捷克语
 [Danish]
 丹麦语
+[Dhivehi]
+
 [Dutch]
 荷兰语
 [English]
@@ -418,11 +430,17 @@ HTTP 代理
 
 [Greek]
 希腊语
+[Guarani]
+
+[Gujarati]
+
 [Hebrew]
 希伯来语
 [Hindi]
 印地语
 [Indonesian]
+
+[Inuktitut]
 
 [Interlingua]
 
@@ -436,8 +454,18 @@ HTTP 代理
 日语
 [Japanese_Romaji]
 
+[Kazakh]
+
+[Khmer]
+
 [Korean]
 韩语
+[Kurdish]
+
+[Kyrgyz]
+
+[Laothian]
+
 [Latin]
 拉丁语
 [Latvian]
@@ -446,7 +474,13 @@ HTTP 代理
 立陶宛语
 [Macedonian]
 马其顿语
+[Malay]
+
+[Malayalam]
+
 [Maltese]
+
+[Marathi]
 
 [Mongolian]
 
@@ -458,6 +492,10 @@ HTTP 代理
 
 [Norwegian_Nynorsk]
 
+[Oriya]
+
+[Pashto]
+
 [Papiamento]
 
 [Persian]
@@ -468,12 +506,20 @@ HTTP 代理
 葡萄牙语
 [Portuguese_BR]
 葡萄牙语-Br
+[Punjabi]
+
 [Romanian]
 罗马尼亚语
 [Russian]
 俄语
+[Sanskrit]
+
 [Serbian]
 塞尔维亚语
+[Sindhi]
+
+[Sinhalese]
+
 [Slovak]
 斯洛伐克语
 [Slovenian]
@@ -486,6 +532,8 @@ HTTP 代理
 
 [Swedish]
 瑞典语
+[Tajik]
+
 [Tagalog]
 
 [Tamil]
@@ -494,12 +542,18 @@ HTTP 代理
 
 [Thai]
 
+[Tibetan]
+
 [Turkish]
 土耳其
 [Ukrainian]
 乌克兰语
 [Urdu]
 乌尔都语
+[Uzbek]
+
+[Uighur]
+
 [Vietnamese]
 
 [Welsh]

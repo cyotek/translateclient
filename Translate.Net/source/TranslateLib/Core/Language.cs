@@ -52,16 +52,21 @@ namespace Translate
 		Any,
 		Afrikaans,
 		Albanian,
+		Amharic,
 		Autodetect,
 		Arabic,
 		Armenian,
+		Azerbaijani,
 		Basque,
 		Belarusian,
 		Bengali,
+		Bihari,
 		Bosnian,
 		Breton,
 		Bulgarian,
+		Burmese,
 		Catalan,
+		Cherokee,
 		Chinese,
 		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]
 		Chinese_CN, //Chinese_Simplified,
@@ -70,6 +75,7 @@ namespace Translate
 		Croatian,
 		Czech,
 		Danish,
+		Dhivehi,
 		Dutch,
 		English,
 		
@@ -90,52 +96,74 @@ namespace Translate
 		Georgian,
 		German,
 		Greek,
+		Guarani,
+		Gujarati,
 		Hebrew,
 		Hindi,
 		Hungarian,
 		Indonesian,
+		Inuktitut,
 		Interlingua,
 		Irish,
 		Italian,
 		Japanese,
 		Japanese_Romaji,
+		Kazakh,
+		Khmer,
 		Korean,
+		Kurdish,
+		Kyrgyz,
+		Laothian,
 		Latin,
 		Latvian,
 		Lithuanian,
 		Macedonian,
+		Malay,
+		Malayalam,
 		Maltese,
+		Marathi,
 		Mongolian,
 		Nepali,
 		Norwegian,
 		Norwegian_Bokmal,
 		Norwegian_Nynorsk,
+		Oriya,
 		Papiamento,
+		Pashto,
 		Persian,
 		Polish,
 		Portuguese,
 		
 		[SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", MessageId="Member")]		
 		Portuguese_BR,
+		Punjabi,
 		Romanian,
 		Russian,
+		Sanskrit,
 		Serbian,
+		Sindhi,
+		Sinhalese,
 		Slovak,
 		Slovenian,
 		Spanish,
 		Spanish_LA,
 		Swahili,
 		Swedish,
+		Tajik,
 		Tagalog,
 		Tamil,
 		Telugu,
 		Thai,
+		Tibetan,
 		Turkish,
 		Ukrainian,
 		Urdu,
+		Uzbek,
+		Uighur,
 		Vietnamese,
 		Welsh,
-		Last
+		Last,
+		Unknown
 	}
 	
 	public class LanguagePair
@@ -205,7 +233,24 @@ namespace Translate
 	
 	public class LanguageCollection : List<Language>
 	{
+		public LanguageCollection(LanguageCollection list):base(list)
+		{
+		
+		}
+		
+		public LanguageCollection():base()
+		{
+		
+		}
+		
+	}
 	
+	public class ReadOnlyLanguageCollection : ReadOnlyCollection<Language>
+	{
+		public ReadOnlyLanguageCollection(LanguageCollection list):base(list)
+		{
+		
+		}
 	}
 	
 	public class LanguagePairCollection: List<LanguagePair>
