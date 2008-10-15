@@ -69,7 +69,24 @@ namespace WebUI
 			string serverPath = basePath + "\\WebUI";
 			string serverBinPath = serverPath + "\\bin\\";
 			WebAppServer.AddApplication("",-1,"/", serverPath);
-			WebAppServer.Start(true);
+			
+			try 
+			{
+				WebAppServer.Start(true);
+			} 
+			catch (System.Net.Sockets.SocketException e)
+			{
+				if(e.ErrorCode == 10049)
+				{  
+					//strange error on bind, probably network still not started
+					//try to rerun server
+					System.Threading.Thread.Sleep(2000); 	
+					WebAppServer.Start(true);
+				}
+				else
+					throw;
+			}
+			
 			
 			//copy Mono.WebServer2.dll
 			/*try
