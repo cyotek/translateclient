@@ -49,14 +49,8 @@ namespace Translate
 	/// <summary>
 	/// Description of ServiceItem.
 	/// </summary>
-	public abstract class ServiceItem
+	public abstract class ServiceItem : BaseServiceItem
 	{
-		int charsLimit = -1;
-		public int CharsLimit {
-			get { return charsLimit; }
-			set { charsLimit = value; }
-		}
-		
 		int wordsLimit = -1;
 		public int WordsLimit {
 			get { return wordsLimit; }
@@ -67,24 +61,6 @@ namespace Translate
 		public int LinesLimit {
 			get { return linesLimit; }
 			set { linesLimit = value; }
-		}
-		
-		
-		string name;
-		public string Name {
-			get { return name; }
-			set { name = value; }
-		}
-		
-		public string FullName
-		{
-			get
-			{
-				if(service != null)
-					return service.Name + Name;
-				else
-					return Name;
-			}
 		}
 		
 		int wordsCount = -1;
@@ -108,12 +84,6 @@ namespace Translate
 		public virtual string[] SplitPhraseToSubqueries(string phrase)
 		{
 			return new string[]{phrase};
-		}
-		
-		Service service;
-		public Service Service {
-			get { return service; }
-			set { service = value; }
 		}
 		
 		LanguagePairCollection supportedTranslations = new LanguagePairCollection();
@@ -231,21 +201,15 @@ namespace Translate
 			}
 		}
 		
-		public virtual bool CheckPhrase(string phrase, out string error)
+		public override bool CheckPhrase(string phrase, out string error)
 		{
 			error = "";
-			if(string.IsNullOrEmpty(phrase))
+			
+			if(!base.CheckPhrase(phrase, out error))
 			{
-				error = "Nothing to translate";
 				return false;
 			}
-
-			if(charsLimit != -1 && phrase.Length > charsLimit)
-			{
-				error = "Length too big";
-				return false;
-			}
-
+			
 			if(linesLimit != -1 && GetLinesCount(phrase) > linesLimit)
 			{
 				error = "Length too big";
