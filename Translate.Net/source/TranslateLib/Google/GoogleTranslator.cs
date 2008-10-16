@@ -51,25 +51,90 @@ namespace Translate
 	/// </summary>
 	public class GoogleTranslator : Translator
 	{
+	
+		static LanguageCollection languages;
+		static List<char> delimiterCharsList;
+
+		static GoogleTranslator()
+		{
+			languages = new LanguageCollection();
+			languages.Add(Language.Autodetect);
+			languages.Add(Language.Arabic);
+			languages.Add(Language.Bulgarian);
+			languages.Add(Language.Catalan);
+			languages.Add(Language.Chinese);
+			languages.Add(Language.Chinese_CN);
+			languages.Add(Language.Chinese_TW);
+			languages.Add(Language.Croatian);
+			languages.Add(Language.Czech);
+			languages.Add(Language.Danish);
+			languages.Add(Language.Dutch);
+			languages.Add(Language.English);
+			languages.Add(Language.Filipino);
+			languages.Add(Language.Finnish);
+			languages.Add(Language.French);
+			languages.Add(Language.German);
+			languages.Add(Language.Greek);
+			languages.Add(Language.Hebrew);
+			languages.Add(Language.Hindi);
+			languages.Add(Language.Indonesian);
+			languages.Add(Language.Italian);
+			languages.Add(Language.Japanese);
+			languages.Add(Language.Korean);
+			languages.Add(Language.Latvian);
+			languages.Add(Language.Lithuanian);
+			languages.Add(Language.Norwegian);
+			languages.Add(Language.Polish);
+			languages.Add(Language.Portuguese);
+			languages.Add(Language.Romanian);
+			languages.Add(Language.Russian);
+			languages.Add(Language.Serbian);
+			languages.Add(Language.Slovak);
+			languages.Add(Language.Slovenian);
+			languages.Add(Language.Spanish);
+			languages.Add(Language.Swedish);
+			languages.Add(Language.Ukrainian);
+			languages.Add(Language.Vietnamese);
+
+			char[] delimiterChars = { ',', '.', ';', '\n', '!', '?'};
+
+			delimiterCharsList = new List<char>(delimiterChars);
+			delimiterCharsList.Sort();
+			
+		}
+		
+		
 		public GoogleTranslator()
 		{
-			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(GoogleUtils.LangToKey);
+			LanguageCollection tmp = new LanguageCollection(languages);
 			
-			foreach(Language from in GoogleUtils.LangToKey.Keys)
+			foreach(Language from in languages)
 			{
-				foreach(Language to in tmp.Keys)
+				foreach(Language to in tmp)
 				{
-					if( from != to &&
-						(from != Language.English || (to != Language.English_GB && to != Language.English_US)) &&
-						(to != Language.English || (from != Language.English_GB && from != Language.English_US)) &&
-						(to != Language.Autodetect) &&
-						(!(to == Language.English_US && from == Language.English_GB)) &&
-						(!(from == Language.English_US && to == Language.English_GB)) &&
-						(!(from == Language.Filipino && to == Language.Tagalog)) &&
-						(!(from == Language.Tagalog && to == Language.Filipino))
-						
-					  )
-					  AddSupportedTranslation(new LanguagePair(from, to));
+					if(from != to && to != Language.Autodetect)
+					{
+						if(from == Language.English)
+						{
+							AddSupportedTranslationFromEnglish(to);
+							if(to == Language.Filipino)	
+								AddSupportedTranslationFromEnglish(Language.Tagalog);
+						}
+						else if(to == Language.English)
+						{
+							AddSupportedTranslationToEnglish(from);
+							if(from == Language.Filipino)
+								AddSupportedTranslationToEnglish(Language.Tagalog);
+						}
+						else
+						{
+							AddSupportedTranslation(from, to);
+							if(from == Language.Filipino)
+								AddSupportedTranslation(Language.Tagalog, to);
+							else if(to == Language.Filipino)	
+								AddSupportedTranslation(from, Language.Tagalog);
+						}	
+					}
 				}
 			}
 		
@@ -289,15 +354,6 @@ namespace Translate
 			}
 		}
 		
-		static List<char> delimiterCharsList;
-		
-		static GoogleTranslator()
-		{
-			char[] delimiterChars = { ',', '.', ';', '\n', '!', '?'};
-
-			delimiterCharsList = new List<char>(delimiterChars);
-			delimiterCharsList.Sort();
-		}
 		
 		static List<string> SplitToParts(string data)
 		{ //"some, string. here !" -> "some," " string." " here !"
