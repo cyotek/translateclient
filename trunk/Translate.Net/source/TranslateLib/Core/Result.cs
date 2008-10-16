@@ -47,7 +47,7 @@ namespace Translate
 	/// <summary>
 	/// Description of BaseTranslateResult.
 	/// </summary>
-	public class Result : ServiceItemData
+	public class Result : ServiceItemData, IServiceItemResult
 	{
 		public Result(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject):base(serviceItem, languagesPair, subject)
 		{
