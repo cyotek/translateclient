@@ -36,7 +36,6 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
-
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -45,11 +44,11 @@ using System.Threading;
 namespace Translate
 {
 	/// <summary>
-	/// Description of ResultsCache.
+	/// Description of GuessResultsCache.
 	/// </summary>
-	public static class ResultsCache
+	public static class GuessResultsCache
 	{
-		static ResultsCache()
+		static  GuessResultsCache()
 		{
 			collectGarbageTimer = new Timer(new TimerCallback(OnTimer), null, 60000, 60000);
 		}
@@ -67,36 +66,36 @@ namespace Translate
 				}
 		}
 		
-		static Dictionary<string, ResultsHashtable> cache = new Dictionary<string, ResultsHashtable>();
+		static Dictionary<string, GuessResultsHashtable> cache = new Dictionary<string, GuessResultsHashtable>();
 		
-		static List<Result> results_history = new List<Result>();
+		static List<GuessResult> results_history = new List<GuessResult>();
 		
-		public static Result GetCachedResult(ServiceItem serviceItem, string phrase, LanguagePair languagesPair, string subject)
+		public static GuessResult GetCachedGuessResult(LanguageGuesser serviceItem, string phrase)
 		{
 			if(!useCache)
-				return new Result(serviceItem, phrase, languagesPair, subject);
+				return new GuessResult(serviceItem, phrase);
 				
 			string key = phrase.Trim().ToLowerInvariant();
-			if(key.Length > 500)
-				key = key.Substring(0, 500);
+			if(key.Length > 300)
+				key = key.Substring(0, 300);
 			
-			ResultsHashtable collection;
+			GuessResultsHashtable collection;
 			bool collection_exists = true;
 			
 			lock(cache)
 			{
 				if(!cache.TryGetValue(key, out collection))
 				{
-					collection = new ResultsHashtable();
+					collection = new GuessResultsHashtable();
 					cache.Add(key, collection);
 					collection_exists = false;
 				}	
 			}
 			
-			int hash = Result.GetHashCode(serviceItem.FullName, languagesPair, subject);
+			int hash = serviceItem.FullName.GetHashCode();
 			bool needed_new_result = !collection_exists;
 
-			Result res = null;
+			GuessResult res = null;
 			
 			lock(collection)
 			{
@@ -112,7 +111,7 @@ namespace Translate
 	
 				if(needed_new_result)
 				{
-					res = new Result(serviceItem, phrase, languagesPair, subject);
+					res = new GuessResult(serviceItem, phrase);
 					collection[hash] = res;
 					lock(results_history)
 					{
@@ -134,7 +133,7 @@ namespace Translate
 		
 		static void OnTimer(Object stateInfo)
 		{
-			List<Result> results_to_delete = new List<Result>();
+			List<GuessResult> results_to_delete = new List<GuessResult>();
 
 			lock(results_history)
 			{
@@ -149,12 +148,12 @@ namespace Translate
 			
 			List<string> collections_to_delete = new List<string>();
 			
-			ResultsHashtable collection;
-			foreach(Result r in results_to_delete)
+			GuessResultsHashtable collection;
+			foreach(GuessResult r in results_to_delete)
 			{
 				string key = r.Phrase.Trim().ToLowerInvariant();
-				if(key.Length > 500)
-					key = key.Substring(0, 500);
+				if(key.Length > 300)
+					key = key.Substring(0, 300);
 				
 				lock(cache)
 				{
@@ -164,11 +163,11 @@ namespace Translate
 					}	
 				}
 				
-				int hash = Result.GetHashCode(r.ServiceItem.FullName, r.LanguagePair, r.Subject);
+				int hash = r.DetectorItem.FullName.GetHashCode();
 				
 				lock(collection)
 				{
-					Result res;
+					GuessResult res;
 					if(!collection.TryGetValue(hash, out res))
 					{
 						continue;
@@ -202,5 +201,6 @@ namespace Translate
 			}
 
 		}
+		
 	}
 }
