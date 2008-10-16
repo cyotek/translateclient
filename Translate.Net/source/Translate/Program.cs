@@ -80,6 +80,7 @@ namespace Translate
 			{
 			
 				ResultsCache.UseCache = true;
+				GuessResultsCache.UseCache = true;
 				
 				UpdatesManager.Init();
 				Application.ShowSplashForm(null);
