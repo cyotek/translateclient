@@ -441,6 +441,7 @@ namespace Translate
 									this.lInputLang});
 			this.sbMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
 			this.sbMain.Location = new System.Drawing.Point(0, 442);
+			this.sbMain.ShowItemToolTips = true;
 			this.sbMain.Size = new System.Drawing.Size(615, 22);
 			this.sbMain.Text = "";
 			this.sbMain.Resize += new System.EventHandler(this.SbMainResize);
@@ -1214,17 +1215,22 @@ namespace Translate
 			// 
 			// lSelectedLangsPair
 			// 
+			this.lSelectedLangsPair.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.lSelectedLangsPair.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
 			this.lSelectedLangsPair.Name = "lSelectedLangsPair";
 			this.lSelectedLangsPair.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-			this.lSelectedLangsPair.Size = new System.Drawing.Size(0, 17);
+			this.lSelectedLangsPair.Size = new System.Drawing.Size(55, 17);
+			this.lSelectedLangsPair.Text = "Lang pair";
 			this.lSelectedLangsPair.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
 			// lInputLang
 			// 
+			this.lInputLang.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.lInputLang.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
 			this.lInputLang.Name = "lInputLang";
 			this.lInputLang.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-			this.lInputLang.Size = new System.Drawing.Size(20, 17);
-			this.lInputLang.Text = "EN";
+			this.lInputLang.Size = new System.Drawing.Size(23, 17);
+			this.lInputLang.Text = "ZZ";
 			this.lInputLang.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
 			// aScrollResultDown
@@ -1769,9 +1775,11 @@ namespace Translate
 			// 
 			// lTextBoxStat
 			// 
+			this.lTextBoxStat.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.lTextBoxStat.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
 			this.lTextBoxStat.Name = "lTextBoxStat";
 			this.lTextBoxStat.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-			this.lTextBoxStat.Size = new System.Drawing.Size(29, 17);
+			this.lTextBoxStat.Size = new System.Drawing.Size(33, 17);
 			this.lTextBoxStat.Text = "0 : 0";
 			this.lTextBoxStat.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
