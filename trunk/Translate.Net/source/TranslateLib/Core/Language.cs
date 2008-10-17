@@ -284,6 +284,12 @@ namespace Translate
 				
 			if(lang == Language.Chinese_CN || lang == Language.Chinese_TW)
 				lang = Language.Chinese;
+
+			if(lang == Language.Portuguese_BR)
+				lang = Language.Portuguese;
+
+			if(lang == Language.Tagalog)
+				lang = Language.Filipino;
 			
 			string name = Enum.GetName(typeof(Language), lang);
 			
