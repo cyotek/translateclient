@@ -264,5 +264,19 @@ namespace Translate
 			set { statOptions = value; }
 		}
 		
+		GuessingOptions guessingOptions = new GuessingOptions();
+		public GuessingOptions GuessingOptions
+		{
+			get { return guessingOptions; }
+			set { guessingOptions = value; }
+		}
+		
+		ProfilesHistory profilesHistory = new ProfilesHistory();
+		public ProfilesHistory ProfilesHistory
+		{
+			get { return profilesHistory; }
+			set { profilesHistory = value; }
+		}
+		
 	}
 }

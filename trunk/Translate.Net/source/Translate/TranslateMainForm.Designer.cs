@@ -206,6 +206,11 @@ namespace Translate
 			this.aPlaceResultViewLeft = new FreeCL.UI.Actions.Action(this.components);
 			this.aPlaceResultViewRight = new FreeCL.UI.Actions.Action(this.components);
 			this.lTextBoxStat = new System.Windows.Forms.ToolStripStatusLabel();
+			this.miToolsSeparator = new System.Windows.Forms.ToolStripSeparator();
+			this.miGuessLanguage = new System.Windows.Forms.ToolStripMenuItem();
+			this.miAutoDetectLanguage = new System.Windows.Forms.ToolStripMenuItem();
+			this.aGuessLanguage = new FreeCL.UI.Actions.Action(this.components);
+			this.aAutoDetectLanguage = new FreeCL.UI.Actions.Action(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -329,10 +334,15 @@ namespace Translate
 			// 
 			// miOptionsToolStripMenuItem
 			// 
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
 			this.miOptionsToolStripMenuItem.Visible = true;
 			// 
 			// miService
 			// 
+			this.miService.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miToolsSeparator,
+									this.miAutoDetectLanguage,
+									this.miGuessLanguage});
 			this.miService.Visible = true;
 			// 
 			// aAbout
@@ -513,6 +523,8 @@ namespace Translate
 			this.al.Actions.Add(this.aPlaceResultViewBottom);
 			this.al.Actions.Add(this.aPlaceResultViewLeft);
 			this.al.Actions.Add(this.aPlaceResultViewRight);
+			this.al.Actions.Add(this.aGuessLanguage);
+			this.al.Actions.Add(this.aAutoDetectLanguage);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1763,6 +1775,50 @@ namespace Translate
 			this.lTextBoxStat.Text = "0 : 0";
 			this.lTextBoxStat.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
+			// miToolsSeparator
+			// 
+			this.miToolsSeparator.Name = "miToolsSeparator";
+			this.miToolsSeparator.Size = new System.Drawing.Size(254, 6);
+			// 
+			// miGuessLanguage
+			// 
+			this.al.SetAction(this.miGuessLanguage, this.aGuessLanguage);
+			this.miGuessLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miGuessLanguage.Name = "miGuessLanguage";
+			this.miGuessLanguage.ShortcutKeyDisplayString = "";
+			this.miGuessLanguage.Size = new System.Drawing.Size(257, 22);
+			this.miGuessLanguage.Text = "Guess input language";
+			// 
+			// miAutoDetectLanguage
+			// 
+			this.al.SetAction(this.miAutoDetectLanguage, this.aAutoDetectLanguage);
+			this.miAutoDetectLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miAutoDetectLanguage.Name = "miAutoDetectLanguage";
+			this.miAutoDetectLanguage.Size = new System.Drawing.Size(257, 22);
+			this.miAutoDetectLanguage.Text = "Automatically detect input language";
+			// 
+			// aGuessLanguage
+			// 
+			this.aGuessLanguage.Checked = false;
+			this.aGuessLanguage.Enabled = true;
+			this.aGuessLanguage.Hint = null;
+			this.aGuessLanguage.Tag = null;
+			this.aGuessLanguage.Text = "Guess input language";
+			this.aGuessLanguage.Visible = true;
+			this.aGuessLanguage.Execute += new System.EventHandler(this.AGuessLanguageExecute);
+			this.aGuessLanguage.Update += new System.EventHandler(this.AGuessLanguageUpdate);
+			// 
+			// aAutoDetectLanguage
+			// 
+			this.aAutoDetectLanguage.Checked = false;
+			this.aAutoDetectLanguage.Enabled = true;
+			this.aAutoDetectLanguage.Hint = null;
+			this.aAutoDetectLanguage.Tag = null;
+			this.aAutoDetectLanguage.Text = "Automatically detect input language";
+			this.aAutoDetectLanguage.Visible = true;
+			this.aAutoDetectLanguage.Execute += new System.EventHandler(this.AAutoDetectLanguageExecute);
+			this.aAutoDetectLanguage.Update += new System.EventHandler(this.AAutoDetectLanguageUpdate);
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1821,6 +1877,11 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miGuessLanguage;
+		private System.Windows.Forms.ToolStripMenuItem miAutoDetectLanguage;
+		private System.Windows.Forms.ToolStripSeparator miToolsSeparator;
+		private FreeCL.UI.Actions.Action aAutoDetectLanguage;
+		private FreeCL.UI.Actions.Action aGuessLanguage;
 		private System.Windows.Forms.ToolStripStatusLabel lTextBoxStat;
 		private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;

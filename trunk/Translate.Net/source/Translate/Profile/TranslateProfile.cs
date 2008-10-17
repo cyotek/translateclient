@@ -244,6 +244,14 @@ namespace Translate
 	
 	public class TranslateProfilesCollection :  List<TranslateProfile>
 	{
-	
+		public TranslateProfile GetByName(string profileName)
+		{
+			foreach(TranslateProfile pf in this)
+			{
+				if(pf.Name == profileName)
+					return pf;
+			}
+			return null;
+		}
 	}
 }
