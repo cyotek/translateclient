@@ -60,6 +60,8 @@
     <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\InputLanguageManager.cs" />
     <Compile Include="Common\LangPack.cs" />
+    <Compile Include="Guessing\Guesser.cs" />
+    <Compile Include="Guessing\GuessingOptions.cs" />
     <Compile Include="Hooks\HookOptions.cs" />
     <Compile Include="Hooks\HotkeysOptionsControl.cs" />
     <Compile Include="Hooks\HotkeysOptionsControl.Designer.cs">
@@ -126,6 +128,7 @@
       <DependentUpon>TrayOptionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\DefaultTranslateProfile.cs" />
+    <Compile Include="Profile\ProfilesHistory.cs" />
     <Compile Include="Profile\TranslateProfile.cs" />
     <Compile Include="Profile\UserTranslateProfile.cs" />
     <Compile Include="ResultBrowser\HtmlHelper.cs" />
@@ -348,6 +351,7 @@
     <Folder Include="Common" />
     <Folder Include="lang" />
     <Folder Include="Hooks" />
+    <Folder Include="Guessing" />
     <Folder Include="Statistics" />
     <Folder Include="ServicesList" />
     <Folder Include="site" />

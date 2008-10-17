@@ -123,6 +123,7 @@ namespace Translate
 		TranslateProfilesCollection profiles = new TranslateProfilesCollection();
 		DefaultTranslateProfile defaultProfile; 
 		string currentProfileName;
+		ProfilesHistory profilesHistory = new ProfilesHistory();
 		
 		public override void Init()
 		{
@@ -141,6 +142,13 @@ namespace Translate
 				else 
 					profiles.Add((TranslateProfile)pf.Clone());
 			}
+			
+			profilesHistory.Clear();
+			foreach(ProfilesHistoryData phd in TranslateOptions.Instance.ProfilesHistory)
+			{
+				profilesHistory.Add((ProfilesHistoryData)phd.Clone());
+			}
+
 			
 			lvProfiles.Items.Clear();
 			foreach(TranslateProfile pf in profiles)
@@ -227,6 +235,9 @@ namespace Translate
 					pf.SortData.Clear();
 				}
 			}
+			
+			TranslateOptions.Instance.ProfilesHistory.Clear();
+			TranslateOptions.Instance.ProfilesHistory.AddRange(profilesHistory);
 			
 			(TranslateMainForm.Instance as TranslateMainForm).UpdateProfiles();
 			changed = false;
@@ -359,6 +370,9 @@ namespace Translate
 				pf.Name = oldName;
 				return;
 			}	
+			else
+				profilesHistory.RenameProfile(oldName, pf.Name);
+			
 				
 			lvi.Text = pf.Name;
 			lProfileName.Text = pf.Name;
@@ -385,6 +399,7 @@ namespace Translate
 				lvProfiles.Items.Remove(lvi);
 				lvProfiles.Items[0].Selected = true;
 				lvProfiles.Items[0].Focused = true;
+				profilesHistory.DeleteProfile(pf.Name);
 			}
 		}
 		

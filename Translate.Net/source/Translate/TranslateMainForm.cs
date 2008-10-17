@@ -52,7 +52,7 @@ namespace Translate
 	/// <summary>
 	/// Description of MainForm.
 	/// </summary>
-	public partial class TranslateMainForm : FreeCL.Forms.MainForm
+	public partial class TranslateMainForm : MainForm
 	{
 		public TranslateMainForm()
 		{
@@ -318,7 +318,6 @@ namespace Translate
 			else 		
 				lSelectedLangsPair.Text = "";
 					
-			lInputLang.Text = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);		
 			if(currentProfile != null)
 			{
 				if(pf == null)
@@ -697,6 +696,7 @@ namespace Translate
 				pbMain.Value = 7;
 				pbMain.Visible = true;
 				languageSelector.AddSelectionToHistory();
+				TranslateOptions.Instance.ProfilesHistory.AddProfile(currentProfile.Name, languageSelector.Selection.From);
 			}
 			else
 			{
@@ -778,8 +778,12 @@ namespace Translate
 			CheckOrderOfProfiles();
 			
 			UpdateTbFromStat();
-			
-			if(!InputLanguageManager.IsInputLanguageChanged)
+
+			string langCode = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);			
+			if(lInputLang.Text != langCode)
+				lInputLang.Text = langCode;
+
+			if(Guesser.Enabled || !InputLanguageManager.IsInputLanguageChanged)
 				return;
 				
 			if(languageSelector.Selection == null)	
@@ -789,9 +793,10 @@ namespace Translate
 			{
 
 				bool default_selected = currentProfile == TranslateOptions.Instance.DefaultProfile;
+				UserTranslateProfile upf;
 				
-				//step 1. seek in current if not default
-				UserTranslateProfile upf = currentProfile as UserTranslateProfile;
+				//step 0. seek in current if not default
+				upf = currentProfile as UserTranslateProfile;
 				if(upf != null)
 				{
 					if(upf.TranslationDirection.From == Language.Any || InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From))
@@ -819,6 +824,66 @@ namespace Translate
 						}
 					}
 				}
+				
+				//step 1. seek in history
+				ProfilesHistory ph_to_delete = new ProfilesHistory();
+				bool found = false;
+				foreach(ProfilesHistoryData phd in TranslateOptions.Instance.ProfilesHistory)
+				{
+					if(InputLanguageManager.IsLanguageSupported(phd.Language))	
+					{
+						TranslateProfile pf = TranslateOptions.Instance.Profiles.GetByName(phd.Name);
+						if(pf == null)
+						{	//here we should not to be, but 
+							ph_to_delete.Add(phd);
+							continue;
+						}
+						
+						upf = pf as UserTranslateProfile;
+						if(upf != null && (upf.TranslationDirection.From == Language.Any || InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From)))
+						{
+							skipChangeInput = true;
+							ActivateProfile(upf);
+							tbFrom.Focus();
+							found = true;
+							break;
+						}
+						
+						foreach(LanguagePair lp in pf.History)
+						{
+							if(InputLanguageManager.IsLanguageSupported(lp.From))
+							{
+								try
+								{
+									skipChangeInput = true;
+									ActivateProfile(pf);
+									languageSelector.Selection = lp;
+									UpdateCaption();
+								}
+								finally
+								{
+									skipChangeInput = false;
+								}
+								tbFrom.Focus();
+								found = true;
+								break;
+							}
+						}
+						
+						if(!found)
+							ph_to_delete.Add(phd);
+						else
+							break;
+					}
+				}
+				
+				//remove unsupported profiles from history
+				foreach(ProfilesHistoryData phd in ph_to_delete)
+					TranslateOptions.Instance.ProfilesHistory.DeleteProfile(phd.Name);
+				
+				if(found)
+					return;
+				
 				
 				//step 2. Generate list of profiles. default - last
 				TranslateProfilesCollection profiles = new TranslateProfilesCollection();
@@ -1092,6 +1157,7 @@ namespace Translate
 			if(MessageBox.Show(FindForm(), string.Format(TranslateString("The profile {0} will be deleted.\r\nAre you sure ?"), currentProfile.Name) , Constants.AppName, MessageBoxButtons.YesNo) == DialogResult.Yes)
 			{
 				TranslateOptions.Instance.Profiles.Remove(currentProfile);
+				TranslateOptions.Instance.ProfilesHistory.DeleteProfile(currentProfile.Name);
 				TranslateOptions.Instance.CurrentProfile = TranslateOptions.Instance.DefaultProfile;
 				UpdateProfiles();
 			}
@@ -1141,7 +1207,9 @@ namespace Translate
 			{
 				pf.Name = oldName;
 				return;
-			}	
+			}
+			else
+				TranslateOptions.Instance.ProfilesHistory.RenameProfile(oldName, pf.Name);
 			
 			int actionIdx = 0;
 			foreach(ToolStripItem tsi in tsTranslate.Items)
@@ -1731,6 +1799,48 @@ namespace Translate
 			FontsOptions fontOptions = TranslateOptions.Instance.FontsOptions;
 			tsTranslate.Font = fontOptions.ToolbarsFont;
 			ptEdit.Font = fontOptions.ToolbarsFont;
+		}
+		
+		void AGuessLanguageExecute(object sender, EventArgs e)
+		{
+			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);			
+			GoogleLanguageGuesser guesser = new GoogleLanguageGuesser();
+			DateTime curr = DateTime.Now;
+			GuessResult result = guesser.Guess(tbFrom.Text, ns);
+			TimeSpan span = DateTime.Now-curr;
+			curr = new DateTime(span.Ticks);
+			string message = curr.ToShortTimeString() + ":"+ curr.Millisecond + Environment.NewLine;
+			if(result.ResultNotFound)
+				message += "Nothing found";
+			else if(result.Error != null)	
+				message += "Error" + result.Error.Message;
+			else if(result.Scores.Count == 0)	
+				message += "Nothing found";
+			else
+			{
+				message += "Language : " + result.Language.ToString() + Environment.NewLine +
+					"isReliable : " + result.IsReliable.ToString() + Environment.NewLine +
+					"Score : " + result.Score + Environment.NewLine +
+					"Confidence : " + result.Confidence.ToString();
+			}
+			
+			MessageBox.Show(message);
+		}
+		
+		void AGuessLanguageUpdate(object sender, EventArgs e)
+		{
+			
+		}
+
+		void AAutoDetectLanguageExecute(object sender, EventArgs e)
+		{
+			Guesser.Enabled = !aAutoDetectLanguage.Checked;
+		}
+		
+		void AAutoDetectLanguageUpdate(object sender, EventArgs e)
+		{
+			if(aAutoDetectLanguage.Checked != Guesser.Enabled)	
+				aAutoDetectLanguage.Checked = Guesser.Enabled;
 		}
 	}
 }
