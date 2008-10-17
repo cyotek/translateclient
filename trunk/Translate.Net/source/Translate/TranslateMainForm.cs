@@ -314,9 +314,15 @@ namespace Translate
 			
 		
 			if(!string.IsNullOrEmpty(selectionName))
+			{
 				lSelectedLangsPair.Text = ServiceSettingsContainer.GetShortNameOfTranslateDirection(languageSelector.Selection);
+				lSelectedLangsPair.ToolTipText = languageSelector.SelectionName;
+			}	
 			else 		
+			{
 				lSelectedLangsPair.Text = "";
+				lSelectedLangsPair.ToolTipText = "";
+			}	
 					
 			if(currentProfile != null)
 			{
@@ -781,7 +787,10 @@ namespace Translate
 
 			string langCode = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);			
 			if(lInputLang.Text != langCode)
+			{
 				lInputLang.Text = langCode;
+				lInputLang.ToolTipText = TranslateString(InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName);
+			}	
 
 			if(Guesser.Enabled || !InputLanguageManager.IsInputLanguageChanged)
 				return;
