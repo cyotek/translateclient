@@ -559,6 +559,8 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 越南語
 [Welsh]
 威爾士
+[Unknown]
+
 [Languages]
 語言
 [Services]
@@ -833,3 +835,29 @@ Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 寄送郵件時發生錯誤： {0}\r\n錯誤訊息：{1}
 [Error on sending email]
 寄送郵件時發生錯誤
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+

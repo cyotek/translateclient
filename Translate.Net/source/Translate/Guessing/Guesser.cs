@@ -37,6 +37,12 @@
 #endregion
 
 using System;
+using System.Reflection;
+using FreeCL.RTL;
+using System.Collections.Generic;
+using System.Threading;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Translate
 {
@@ -56,5 +62,170 @@ namespace Translate
 			set { enabled = value; }
 		}
 		
+		public static AsyncGuessState TranslateAsync(string phrase, NetworkSetting networkSetting, EventHandler<GuessCompletedEventArgs> guessCompletedHandler)
+		{
+			AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(DateTime.Now.Ticks);
+
+			AsyncGuessState state = new AsyncGuessState(phrase, networkSetting, asyncOp, guessCompletedHandler);
+			
+			WorkerEventHandler workerDelegate = new WorkerEventHandler(GuessWorker);
+   			workerDelegate.BeginInvoke(
+		        		state,
+		        		null,
+		        		null);
+
+			return state;	
+		}
+		
+		
+		public static void CancelAsync(AsyncGuessState guessState)
+		{
+			if(guessState == null)
+				throw new ArgumentNullException("guessState");
+		
+		    AsyncOperation asyncOp = guessState.AsyncOperation;
+		
+		    GuessCompletedEventArgs e =
+		        new GuessCompletedEventArgs(
+		        guessState,
+		        null,
+		        true,
+		        guessState);
+		
+		    try 
+		    {
+				asyncOp.PostOperationCompleted(GuessCompleted, e);
+		    } 
+		    catch (InvalidOperationException) 
+		    { 
+		    	
+		    }
+		    guessState.Canceled = true;
+		}
+		
+		delegate void WorkerEventHandler(AsyncGuessState guessState);
+		    
+		static GoogleLanguageGuesser googleGuesser = new GoogleLanguageGuesser();
+			
+		internal static void GuessWorker(
+		    AsyncGuessState guessState)
+		{
+			if(guessState.Canceled) 
+				return;
+			
+
+			guessState.Result = googleGuesser.Guess(guessState.Phrase, guessState.NetworkSetting);
+			
+		    GuessCompletedEventArgs e =
+		        new GuessCompletedEventArgs(
+		        guessState,
+		        null,
+		        false,
+		        guessState);
+		
+		    try 
+		    {	
+				guessState.AsyncOperation.PostOperationCompleted(GuessCompleted, e);
+		    } 
+		    catch (InvalidOperationException) 
+		    { 
+		    	
+		    }
+		    guessState.Canceled = true;
+		}
+		
+		static void GuessCompleted(object operationState)
+		{
+		    GuessCompletedEventArgs e =
+		        operationState as GuessCompletedEventArgs;
+		
+		    e.GuessState.OnGuessCompleted(e);
+		}
+		
+		
 	}
+	
+	public class AsyncGuessState
+	{
+		public AsyncGuessState(
+			string phrase, 
+			NetworkSetting networkSetting,
+			AsyncOperation asyncOperation, 
+			EventHandler<GuessCompletedEventArgs> guessCompletedHandler)
+		{
+			this.asyncOperation = asyncOperation;
+			this.phrase = phrase;
+			this.networkSetting = networkSetting;
+			GuessCompleted += guessCompletedHandler;
+		}
+		
+		AsyncOperation asyncOperation;
+		public AsyncOperation AsyncOperation {
+			get { return asyncOperation; }
+		}
+		
+		string phrase;
+		public string Phrase {
+			get { return phrase; }
+		}
+
+		NetworkSetting networkSetting;
+		public NetworkSetting NetworkSetting
+		{
+			get { return networkSetting; }
+		}
+		
+		
+		public event EventHandler<GuessCompletedEventArgs> GuessCompleted;
+		
+		bool canceled = false;
+		public bool Canceled {
+			get { return canceled; }
+			set { canceled = value; }
+		}
+		
+		GuessResult result;
+		public GuessResult Result
+		{
+			get { return result; }
+			set { result = value; }
+		}
+		
+		public void OnGuessCompleted(
+		    GuessCompletedEventArgs e)
+		{
+		    if (GuessCompleted != null)
+		    {
+		        GuessCompleted(this, e);
+		    }
+		}
+		
+	}
+	
+	public class GuessCompletedEventArgs : AsyncCompletedEventArgs
+	{
+		internal GuessCompletedEventArgs(
+			AsyncGuessState guessState,
+			Exception e,
+        	bool canceled,
+        	object state) : base(e, canceled, state)
+		{
+			this.guessState = guessState;
+			this.result = guessState.Result;
+		}
+		
+       	AsyncGuessState guessState;
+		public AsyncGuessState GuessState {
+			get { return guessState; }
+		}
+		
+		GuessResult result;
+		public GuessResult Result
+		{
+			get { return result; }
+		}
+		
+		
+	}
+	
 }

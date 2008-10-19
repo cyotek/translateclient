@@ -556,6 +556,8 @@ Urdu
 
 [Welsh]
 Gallese
+[Unknown]
+
 [Languages]
 Lingue
 [Services]
@@ -829,4 +831,30 @@ Aprire un articolo
 [Error on sending email to : {0}\r\nError message : {1}]
 
 [Error on sending email]
+
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
 

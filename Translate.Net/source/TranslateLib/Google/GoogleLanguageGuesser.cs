@@ -58,6 +58,8 @@ namespace Translate
 		{
 			foreach(KeyValuePair<Language, string> key in GoogleUtils.LangToKey)
 			{
+				if(key.Key == Language.English_GB || key.Key == Language.English_US)
+					continue;
 				keyToLang[key.Value] = key.Key;
 			}
 		}

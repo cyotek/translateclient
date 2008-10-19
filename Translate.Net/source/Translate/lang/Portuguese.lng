@@ -558,6 +558,8 @@ Urdu
 Vietnamita
 [Welsh]
 Galês
+[Unknown]
+
 [Languages]
 Idiomas
 [Services]
@@ -832,3 +834,29 @@ Erro ao iniciar processo
 Erro ao enviar e-mail para: {0}\r\nMensagem de erro: {1}
 [Error on sending email]
 Erro ao enviar e-mail
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+
