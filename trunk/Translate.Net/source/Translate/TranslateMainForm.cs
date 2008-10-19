@@ -323,7 +323,8 @@ namespace Translate
 			if(!string.IsNullOrEmpty(selectionName))
 			{
 				lSelectedLangsPair.Text = ServiceSettingsContainer.GetShortNameOfTranslateDirection(languageSelector.Selection);
-				lSelectedLangsPair.ToolTipText = languageSelector.SelectionName;
+				lSelectedLangsPair.ToolTipText = TranslateString("Translation direction") + " : " +
+					languageSelector.SelectionName;
 			}	
 			else 		
 			{
@@ -796,7 +797,9 @@ namespace Translate
 			if(lInputLang.Text != langCode)
 			{
 				lInputLang.Text = langCode;
-				lInputLang.ToolTipText = TranslateString(InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName);
+				string tmp = TranslateString("Keyboard layout : {0}");
+				lInputLang.ToolTipText = string.Format(tmp, 
+					TranslateString(InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName));
 			}	
 
 			if(Guesser.Enabled || !InputLanguageManager.IsInputLanguageChanged)
