@@ -1847,7 +1847,7 @@ namespace Translate
 			}	
 			else
 			{
-				detectedStatus = TranslateString("{0}, {1},  Score - {2}, Confidence - {3}");
+				detectedStatus = TranslateString("{0}, {1},  Score - {2}%, Confidence - {3}");
 				detectedStatus = string.Format(detectedStatus, 
 					LangPack.TranslateLanguage(e.Result.Language), 
 					TranslateString(e.Result.IsReliable ? "Reliable" : "Not reliable"),
@@ -1932,7 +1932,7 @@ namespace Translate
 			else
 			{
 				detectedLanguage = e.Result.Language;
-				detectedStatus = TranslateString("{0}, {1},  Score - {2}, Confidence - {3}");
+				detectedStatus = TranslateString("{0}, {1},  Score - {2}%, Confidence - {3}");
 				detectedStatus = string.Format(detectedStatus, 
 					LangPack.TranslateLanguage(e.Result.Language), 
 					TranslateString(e.Result.IsReliable ? "Reliable" : "Not reliable"),
