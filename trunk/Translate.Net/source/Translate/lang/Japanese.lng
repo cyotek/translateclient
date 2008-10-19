@@ -558,6 +558,8 @@ HTML ソースを表示
 ベトナム語
 [Welsh]
 ウェールズ語
+[Unknown]
+
 [Languages]
 言語
 [Services]
@@ -832,3 +834,29 @@ Sozluk(te)* Online Dictionary -  トルコ語辞典
 {0}へのメールの送信でエラー\r\nエラーメッセージ : {1}
 [Error on sending email]
 メールの送信でエラー
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+

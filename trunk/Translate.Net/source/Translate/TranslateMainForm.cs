@@ -176,6 +176,7 @@ namespace Translate
 			
 			UpdateTbFromStat();
 			UpdateProfiles();
+			UpdateDetectionStatus();
 			
 			miAnimatedIcon.ToolTipText = aWebsite.Text;
 		}
@@ -290,7 +291,13 @@ namespace Translate
 			aPlaceResultViewRight.Text = TranslateString("Right");
 			aPlaceResultViewRight.Hint = TranslateString("Place result view at right");
 			
+			aAutoDetectLanguage.Text = TranslateString("Language detection");
+			aAutoDetectLanguage.Hint = TranslateString("Detect language of source text and automatically select translation direction");
+			aGuessLanguage.Text = TranslateString("Guess language ...");
+			aGuessLanguage.Hint = TranslateString("Guess language of source text and show info about");
+			
 			UpdateCaption();
+			UpdateDetectionStatus();
 		}
 		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
@@ -996,6 +1003,7 @@ namespace Translate
 				lInputLang.Width - 
 				lTextBoxStat.Width - 
 				lSelectedLangsPair.Width - 
+				lDetectedLanguage.Width - 
 				(pbMain.Visible ? pbMain.Width : 0);
 			//sbMain.Refresh();	
 		}
@@ -1087,8 +1095,12 @@ namespace Translate
 			LockUpdate(true);
 			try
 			{
-				if(languageSelector.Phrase != tbFrom.Text.Trim())
-					languageSelector.Phrase = tbFrom.Text.Trim();
+				string text = tbFrom.Text.Trim();
+				if(languageSelector.Phrase != text)
+				{
+					StartLanguageGuessing(text);
+					languageSelector.Phrase = text;
+				}	
 			} 
 			finally
 			{
@@ -1812,28 +1824,38 @@ namespace Translate
 		
 		void AGuessLanguageExecute(object sender, EventArgs e)
 		{
-			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);			
-			GoogleLanguageGuesser guesser = new GoogleLanguageGuesser();
-			DateTime curr = DateTime.Now;
-			GuessResult result = guesser.Guess(tbFrom.Text, ns);
-			TimeSpan span = DateTime.Now-curr;
-			curr = new DateTime(span.Ticks);
-			string message = curr.ToShortTimeString() + ":"+ curr.Millisecond + Environment.NewLine;
-			if(result.ResultNotFound)
-				message += "Nothing found";
-			else if(result.Error != null)	
-				message += "Error" + result.Error.Message;
-			else if(result.Scores.Count == 0)	
-				message += "Nothing found";
+			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
+			Guesser.TranslateAsync(tbFrom.Text, ns, OnForcedGuessCompleted); 
+		}
+		
+		void OnForcedGuessCompleted(object sender, GuessCompletedEventArgs e)
+		{
+			string detectedStatus = "";
+			if(e.Cancelled)
+			{
+			}
+			else if(e.Result.Error != null)	
+			{
+				detectedStatus = e.Result.Error.Message;
+			}
+			else if(e.Result.ResultNotFound || e.Result.Scores.Count == 0)
+			{
+				detectedStatus = "Failed";
+			}	
 			else
 			{
-				message += "Language : " + result.Language.ToString() + Environment.NewLine +
-					"isReliable : " + result.IsReliable.ToString() + Environment.NewLine +
-					"Score : " + result.Score + Environment.NewLine +
-					"Confidence : " + result.Confidence.ToString();
+				detectedStatus = TranslateString("{0}, {1},  Score - {2}, Confidence - {3}");
+				detectedStatus = string.Format(detectedStatus, 
+					LangPack.TranslateLanguage(e.Result.Language), 
+					TranslateString(e.Result.IsReliable ? "Reliable" : "Not reliable"),
+					e.Result.Score,
+					TranslateString(e.Result.Confidence.ToString()));
 			}
 			
-			MessageBox.Show(message);
+			string tmp = TranslateString("Language detection : {0}");
+			tmp = string.Format(tmp, TranslateString(detectedStatus));
+			
+			MessageBox.Show(FindForm(),  tmp, TranslateString("Language detection"));
 		}
 		
 		void AGuessLanguageUpdate(object sender, EventArgs e)
@@ -1844,12 +1866,77 @@ namespace Translate
 		void AAutoDetectLanguageExecute(object sender, EventArgs e)
 		{
 			Guesser.Enabled = !aAutoDetectLanguage.Checked;
+			if(Guesser.Enabled)
+			{
+				StartLanguageGuessing(tbFrom.Text.Trim());
+			}
 		}
 		
 		void AAutoDetectLanguageUpdate(object sender, EventArgs e)
 		{
 			if(aAutoDetectLanguage.Checked != Guesser.Enabled)	
+			{
 				aAutoDetectLanguage.Checked = Guesser.Enabled;
+				lDetectedLanguage.Visible = Guesser.Enabled;
+				lDetectedLanguage.Enabled = Guesser.Enabled;
+			}	
+		}
+		
+		Language detectedLanguage = Language.Unknown;
+		string detectedStatus = "";
+		
+		void UpdateDetectionStatus()
+		{
+			string tmp = LangPack.TranslateLanguage(detectedLanguage);
+			if(lDetectedLanguage.Text != tmp)
+				lDetectedLanguage.Text = tmp;
+			
+			if(string.IsNullOrEmpty(detectedStatus))
+				detectedStatus = tmp;
+			
+			tmp = TranslateString("Language detection : {0}");
+			tmp = string.Format(tmp, TranslateString(detectedStatus));
+
+			if(lDetectedLanguage.ToolTipText != tmp)
+				lDetectedLanguage.ToolTipText = tmp;
+		}
+		
+		void StartLanguageGuessing(string text)
+		{
+			detectedLanguage = Language.Unknown;
+			detectedStatus = "Started";
+			UpdateDetectionStatus();
+			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
+			Guesser.TranslateAsync(text, ns, OnGuessCompleted); 
+			
+		}
+		
+		void OnGuessCompleted(object sender, GuessCompletedEventArgs e)
+		{
+			if(e.Cancelled)
+			{
+			}
+			else if(e.Result.Error != null)	
+			{
+				detectedLanguage = Language.Unknown;
+				detectedStatus = e.Result.Error.Message;
+			}
+			else if(e.Result.ResultNotFound || e.Result.Scores.Count == 0)
+			{
+				detectedLanguage = Language.Unknown;
+				detectedStatus = "Failed";
+			}	
+			else
+			{
+				detectedLanguage = e.Result.Language;
+				detectedStatus = TranslateString("{0}, {1},  Score - {2}, Confidence - {3}");
+				detectedStatus = string.Format(detectedStatus, 
+					LangPack.TranslateLanguage(e.Result.Language), 
+					TranslateString(e.Result.IsReliable ? "Reliable" : "Not reliable"),
+					e.Result.Score,
+					TranslateString(e.Result.Confidence.ToString()));
+			}
+			UpdateDetectionStatus();
 		}
 	}
 }

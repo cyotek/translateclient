@@ -560,6 +560,8 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 Виетнамски
 [Welsh]
 Уелски
+[Unknown]
+
 [Languages]
 Езици
 [Services]
@@ -834,3 +836,29 @@ Sozluk(te)* - речник, ориентиран към турски език
 Грешка при изпращането на съобщение до {0}\r\nСъобщение за грешката: {1}  
 [Error on sending email]
 Грешка при изпращането на съобщение
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+

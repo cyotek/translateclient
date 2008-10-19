@@ -558,6 +558,8 @@ Urdu
 Vietnamesisch
 [Welsh]
 Walisisch
+[Unknown]
+
 [Languages]
 Sprachen
 [Services]
@@ -832,3 +834,29 @@ Fehler beim Startvorgang
 Fehler beim Senden der E-Mail an : {0}\r\nFehlermeldung : {1}
 [Error on sending email]
 Fehler beim E-Mail-Versand
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text and automatically select translation direction]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+

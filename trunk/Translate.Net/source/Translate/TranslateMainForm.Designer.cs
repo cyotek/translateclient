@@ -211,6 +211,7 @@ namespace Translate
 			this.miAutoDetectLanguage = new System.Windows.Forms.ToolStripMenuItem();
 			this.aGuessLanguage = new FreeCL.UI.Actions.Action(this.components);
 			this.aAutoDetectLanguage = new FreeCL.UI.Actions.Action(this.components);
+			this.lDetectedLanguage = new System.Windows.Forms.ToolStripStatusLabel();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -334,7 +335,7 @@ namespace Translate
 			// 
 			// miOptionsToolStripMenuItem
 			// 
-			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.miOptionsToolStripMenuItem.Visible = true;
 			// 
 			// miService
@@ -437,6 +438,7 @@ namespace Translate
 									this.lStatus,
 									this.pbMain,
 									this.lTextBoxStat,
+									this.lDetectedLanguage,
 									this.lSelectedLangsPair,
 									this.lInputLang});
 			this.sbMain.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -1160,7 +1162,7 @@ namespace Translate
 			// 
 			this.lStatus.AutoSize = false;
 			this.lStatus.Name = "lStatus";
-			this.lStatus.Size = new System.Drawing.Size(300, 17);
+			this.lStatus.Size = new System.Drawing.Size(200, 17);
 			this.lStatus.Spring = true;
 			this.lStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1786,7 +1788,7 @@ namespace Translate
 			// miToolsSeparator
 			// 
 			this.miToolsSeparator.Name = "miToolsSeparator";
-			this.miToolsSeparator.Size = new System.Drawing.Size(254, 6);
+			this.miToolsSeparator.Size = new System.Drawing.Size(177, 6);
 			// 
 			// miGuessLanguage
 			// 
@@ -1794,16 +1796,16 @@ namespace Translate
 			this.miGuessLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miGuessLanguage.Name = "miGuessLanguage";
 			this.miGuessLanguage.ShortcutKeyDisplayString = "";
-			this.miGuessLanguage.Size = new System.Drawing.Size(257, 22);
-			this.miGuessLanguage.Text = "Guess input language";
+			this.miGuessLanguage.Size = new System.Drawing.Size(180, 22);
+			this.miGuessLanguage.Text = "Guess language ...";
 			// 
 			// miAutoDetectLanguage
 			// 
 			this.al.SetAction(this.miAutoDetectLanguage, this.aAutoDetectLanguage);
 			this.miAutoDetectLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAutoDetectLanguage.Name = "miAutoDetectLanguage";
-			this.miAutoDetectLanguage.Size = new System.Drawing.Size(257, 22);
-			this.miAutoDetectLanguage.Text = "Automatically detect input language";
+			this.miAutoDetectLanguage.Size = new System.Drawing.Size(180, 22);
+			this.miAutoDetectLanguage.Text = "Language detection";
 			// 
 			// aGuessLanguage
 			// 
@@ -1826,6 +1828,17 @@ namespace Translate
 			this.aAutoDetectLanguage.Visible = true;
 			this.aAutoDetectLanguage.Execute += new System.EventHandler(this.AAutoDetectLanguageExecute);
 			this.aAutoDetectLanguage.Update += new System.EventHandler(this.AAutoDetectLanguageUpdate);
+			// 
+			// lDetectedLanguage
+			// 
+			this.lDetectedLanguage.BorderSides = System.Windows.Forms.ToolStripStatusLabelBorderSides.Left;
+			this.lDetectedLanguage.BorderStyle = System.Windows.Forms.Border3DStyle.Etched;
+			this.lDetectedLanguage.Name = "lDetectedLanguage";
+			this.lDetectedLanguage.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+			this.lDetectedLanguage.Size = new System.Drawing.Size(54, 17);
+			this.lDetectedLanguage.Text = "detected";
+			this.lDetectedLanguage.Visible = false;
+			this.lDetectedLanguage.TextChanged += new System.EventHandler(this.SbMainResize);
 			// 
 			// TranslateMainForm
 			// 
@@ -1885,6 +1898,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripStatusLabel lDetectedLanguage;
 		private System.Windows.Forms.ToolStripMenuItem miGuessLanguage;
 		private System.Windows.Forms.ToolStripMenuItem miAutoDetectLanguage;
 		private System.Windows.Forms.ToolStripSeparator miToolsSeparator;
