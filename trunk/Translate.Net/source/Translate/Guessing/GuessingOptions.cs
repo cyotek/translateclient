@@ -55,11 +55,26 @@ namespace Translate
 		{
 		}
 		
-		public static bool Enabled
+		public bool Enabled
 		{
 			get { return Guesser.Enabled; }
 			set { Guesser.Enabled = value; }
 		}
+		
+		bool switchDirectionBasedOnLayout = true;
+		public bool SwitchDirectionBasedOnLayout
+		{
+			get { return switchDirectionBasedOnLayout; }
+			set { switchDirectionBasedOnLayout = value; }
+		}
+		
+		bool switchDirectionBasedOnLanguage = true;
+		public bool SwitchDirectionBasedOnLanguage
+		{
+			get { return switchDirectionBasedOnLanguage; }
+			set { switchDirectionBasedOnLanguage = value; }
+		}
+		
 		
 	}
 }

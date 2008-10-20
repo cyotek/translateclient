@@ -292,9 +292,19 @@ namespace Translate
 			aPlaceResultViewRight.Hint = TranslateString("Place result view at right");
 			
 			aAutoDetectLanguage.Text = TranslateString("Language detection");
-			aAutoDetectLanguage.Hint = TranslateString("Detect language of source text and automatically select translation direction");
+			aAutoDetectLanguage.Hint = TranslateString("Detect language of source text");
 			aGuessLanguage.Text = TranslateString("Guess language ...");
 			aGuessLanguage.Hint = TranslateString("Guess language of source text and show info about");
+			
+			miIntillegentSwitching.Text = TranslateString("Intelligent switching of profiles and directions");
+			miIntillegentSwitching.ToolTipText = miIntillegentSwitching.Text;
+
+			aSwitchDirectionBasedOnLayout.Text = TranslateString("Based on keyboard layout");
+			aSwitchDirectionBasedOnLayout.Hint = TranslateString("Intelligent switching of profiles and translation directions based on keyboard layout");
+			
+			aSwitchDirectionBasedOnLanguage.Text = TranslateString("Based on detected language");
+			aSwitchDirectionBasedOnLanguage.Hint = TranslateString("Intelligent switching of profiles and translation directions based on detected language");
+			
 			
 			UpdateCaption();
 			UpdateDetectionStatus();
@@ -802,7 +812,7 @@ namespace Translate
 					TranslateString(InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName));
 			}	
 
-			if(Guesser.Enabled || !InputLanguageManager.IsInputLanguageChanged)
+			if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout || !InputLanguageManager.IsInputLanguageChanged)
 				return;
 				
 			if(languageSelector.Selection == null)	
@@ -1831,7 +1841,7 @@ namespace Translate
 		void AGuessLanguageExecute(object sender, EventArgs e)
 		{
 			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
-			Guesser.TranslateAsync(tbFrom.Text, ns, OnForcedGuessCompleted); 
+			Guesser.GuessAsync(tbFrom.Text, ns, OnForcedGuessCompleted); 
 		}
 		
 		void OnForcedGuessCompleted(object sender, GuessCompletedEventArgs e)
@@ -1876,6 +1886,10 @@ namespace Translate
 			{
 				StartLanguageGuessing(tbFrom.Text.Trim());
 			}
+			else
+			{
+				detectedLanguage = Language.Unknown;
+			}
 		}
 		
 		void AAutoDetectLanguageUpdate(object sender, EventArgs e)
@@ -1909,11 +1923,13 @@ namespace Translate
 		
 		void StartLanguageGuessing(string text)
 		{
+			if(!Guesser.Enabled)
+				return;
 			detectedLanguage = Language.Unknown;
 			detectedStatus = "Started";
 			UpdateDetectionStatus();
 			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
-			Guesser.TranslateAsync(text, ns, OnGuessCompleted); 
+			Guesser.GuessAsync(text, ns, OnGuessCompleted); 
 			
 		}
 		
@@ -1943,6 +1959,9 @@ namespace Translate
 					TranslateString(e.Result.Confidence.ToString()));
 			}
 			UpdateDetectionStatus();
+			
+			if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage)
+				return;
 			
 			if(detectedLanguage != Language.Unknown)
 			{
@@ -2098,6 +2117,29 @@ namespace Translate
 					}
 				}			
 			}
+		}
+		
+		void ASwitchDirectionBasedOnLanguageExecute(object sender, EventArgs e)
+		{
+			TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage = 
+				!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage;
+		}
+		
+		void ASwitchDirectionBasedOnLanguageUpdate(object sender, EventArgs e)
+		{
+			aSwitchDirectionBasedOnLanguage.Enabled = TranslateOptions.Instance.GuessingOptions.Enabled;
+			aSwitchDirectionBasedOnLanguage.Checked = TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage;
+		}
+		
+		void ASwitchDirectionBasedOnLayoutExecute(object sender, EventArgs e)
+		{
+			TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout = 
+				!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout;
+		}
+		
+		void ASwitchDirectionBasedOnLayoutUpdate(object sender, EventArgs e)
+		{
+			aSwitchDirectionBasedOnLayout.Checked = TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout;
 		}
 	}
 }
