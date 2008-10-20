@@ -212,6 +212,12 @@ namespace Translate
 			this.aGuessLanguage = new FreeCL.UI.Actions.Action(this.components);
 			this.aAutoDetectLanguage = new FreeCL.UI.Actions.Action(this.components);
 			this.lDetectedLanguage = new System.Windows.Forms.ToolStripStatusLabel();
+			this.miIntillegentSwitching = new System.Windows.Forms.ToolStripMenuItem();
+			this.miSwitchByKeyboard = new System.Windows.Forms.ToolStripMenuItem();
+			this.aSwitchDirectionBasedOnLayout = new FreeCL.UI.Actions.Action(this.components);
+			this.aSwitchDirectionBasedOnLanguage = new FreeCL.UI.Actions.Action(this.components);
+			this.miSwitchByLAnguage = new System.Windows.Forms.ToolStripMenuItem();
+			this.miToolsSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -335,13 +341,15 @@ namespace Translate
 			// 
 			// miOptionsToolStripMenuItem
 			// 
-			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
 			this.miOptionsToolStripMenuItem.Visible = true;
 			// 
 			// miService
 			// 
 			this.miService.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 									this.miToolsSeparator,
+									this.miIntillegentSwitching,
+									this.miToolsSeparator1,
 									this.miAutoDetectLanguage,
 									this.miGuessLanguage});
 			this.miService.Visible = true;
@@ -528,6 +536,8 @@ namespace Translate
 			this.al.Actions.Add(this.aPlaceResultViewRight);
 			this.al.Actions.Add(this.aGuessLanguage);
 			this.al.Actions.Add(this.aAutoDetectLanguage);
+			this.al.Actions.Add(this.aSwitchDirectionBasedOnLayout);
+			this.al.Actions.Add(this.aSwitchDirectionBasedOnLanguage);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -1788,7 +1798,7 @@ namespace Translate
 			// miToolsSeparator
 			// 
 			this.miToolsSeparator.Name = "miToolsSeparator";
-			this.miToolsSeparator.Size = new System.Drawing.Size(177, 6);
+			this.miToolsSeparator.Size = new System.Drawing.Size(298, 6);
 			// 
 			// miGuessLanguage
 			// 
@@ -1796,16 +1806,16 @@ namespace Translate
 			this.miGuessLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miGuessLanguage.Name = "miGuessLanguage";
 			this.miGuessLanguage.ShortcutKeyDisplayString = "";
-			this.miGuessLanguage.Size = new System.Drawing.Size(180, 22);
-			this.miGuessLanguage.Text = "Guess language ...";
+			this.miGuessLanguage.Size = new System.Drawing.Size(301, 22);
+			this.miGuessLanguage.Text = "Guess input language";
 			// 
 			// miAutoDetectLanguage
 			// 
 			this.al.SetAction(this.miAutoDetectLanguage, this.aAutoDetectLanguage);
 			this.miAutoDetectLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAutoDetectLanguage.Name = "miAutoDetectLanguage";
-			this.miAutoDetectLanguage.Size = new System.Drawing.Size(180, 22);
-			this.miAutoDetectLanguage.Text = "Language detection";
+			this.miAutoDetectLanguage.Size = new System.Drawing.Size(301, 22);
+			this.miAutoDetectLanguage.Text = "Automatically detect input language";
 			// 
 			// aGuessLanguage
 			// 
@@ -1839,6 +1849,58 @@ namespace Translate
 			this.lDetectedLanguage.Text = "detected";
 			this.lDetectedLanguage.Visible = false;
 			this.lDetectedLanguage.TextChanged += new System.EventHandler(this.SbMainResize);
+			// 
+			// miIntillegentSwitching
+			// 
+			this.miIntillegentSwitching.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miSwitchByKeyboard,
+									this.miSwitchByLAnguage});
+			this.miIntillegentSwitching.Name = "miIntillegentSwitching";
+			this.miIntillegentSwitching.Size = new System.Drawing.Size(301, 22);
+			this.miIntillegentSwitching.Text = "Intelligent switching of profiles and directions";
+			// 
+			// miSwitchByKeyboard
+			// 
+			this.al.SetAction(this.miSwitchByKeyboard, this.aSwitchDirectionBasedOnLayout);
+			this.miSwitchByKeyboard.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miSwitchByKeyboard.Name = "miSwitchByKeyboard";
+			this.miSwitchByKeyboard.Size = new System.Drawing.Size(222, 22);
+			this.miSwitchByKeyboard.Text = "Based on keyboard layout";
+			// 
+			// aSwitchDirectionBasedOnLayout
+			// 
+			this.aSwitchDirectionBasedOnLayout.Checked = false;
+			this.aSwitchDirectionBasedOnLayout.Enabled = true;
+			this.aSwitchDirectionBasedOnLayout.Hint = null;
+			this.aSwitchDirectionBasedOnLayout.Tag = null;
+			this.aSwitchDirectionBasedOnLayout.Text = "Based on keyboard layout";
+			this.aSwitchDirectionBasedOnLayout.Visible = true;
+			this.aSwitchDirectionBasedOnLayout.Execute += new System.EventHandler(this.ASwitchDirectionBasedOnLayoutExecute);
+			this.aSwitchDirectionBasedOnLayout.Update += new System.EventHandler(this.ASwitchDirectionBasedOnLayoutUpdate);
+			// 
+			// aSwitchDirectionBasedOnLanguage
+			// 
+			this.aSwitchDirectionBasedOnLanguage.Checked = false;
+			this.aSwitchDirectionBasedOnLanguage.Enabled = true;
+			this.aSwitchDirectionBasedOnLanguage.Hint = null;
+			this.aSwitchDirectionBasedOnLanguage.Tag = null;
+			this.aSwitchDirectionBasedOnLanguage.Text = "Based on detected language";
+			this.aSwitchDirectionBasedOnLanguage.Visible = true;
+			this.aSwitchDirectionBasedOnLanguage.Execute += new System.EventHandler(this.ASwitchDirectionBasedOnLanguageExecute);
+			this.aSwitchDirectionBasedOnLanguage.Update += new System.EventHandler(this.ASwitchDirectionBasedOnLanguageUpdate);
+			// 
+			// miSwitchByLAnguage
+			// 
+			this.al.SetAction(this.miSwitchByLAnguage, this.aSwitchDirectionBasedOnLanguage);
+			this.miSwitchByLAnguage.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miSwitchByLAnguage.Name = "miSwitchByLAnguage";
+			this.miSwitchByLAnguage.Size = new System.Drawing.Size(222, 22);
+			this.miSwitchByLAnguage.Text = "Based on detected language";
+			// 
+			// miToolsSeparator1
+			// 
+			this.miToolsSeparator1.Name = "miToolsSeparator1";
+			this.miToolsSeparator1.Size = new System.Drawing.Size(298, 6);
 			// 
 			// TranslateMainForm
 			// 
@@ -1898,6 +1960,12 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripSeparator miToolsSeparator1;
+		private System.Windows.Forms.ToolStripMenuItem miSwitchByLAnguage;
+		private System.Windows.Forms.ToolStripMenuItem miSwitchByKeyboard;
+		private System.Windows.Forms.ToolStripMenuItem miIntillegentSwitching;
+		private FreeCL.UI.Actions.Action aSwitchDirectionBasedOnLanguage;
+		private FreeCL.UI.Actions.Action aSwitchDirectionBasedOnLayout;
 		private System.Windows.Forms.ToolStripStatusLabel lDetectedLanguage;
 		private System.Windows.Forms.ToolStripMenuItem miGuessLanguage;
 		private System.Windows.Forms.ToolStripMenuItem miAutoDetectLanguage;

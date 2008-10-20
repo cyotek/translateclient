@@ -62,7 +62,7 @@ namespace Translate
 			set { enabled = value; }
 		}
 		
-		public static AsyncGuessState TranslateAsync(string phrase, NetworkSetting networkSetting, EventHandler<GuessCompletedEventArgs> guessCompletedHandler)
+		public static AsyncGuessState GuessAsync(string phrase, NetworkSetting networkSetting, EventHandler<GuessCompletedEventArgs> guessCompletedHandler)
 		{
 			AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(DateTime.Now.Ticks);
 

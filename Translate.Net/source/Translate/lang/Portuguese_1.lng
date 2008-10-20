@@ -830,7 +830,7 @@ Artigo aberto
 
 [Guess language ...]
 
-[Detect language of source text and automatically select translation direction]
+[Detect language of source text]
 
 [Guess language of source text and show info about]
 
@@ -854,3 +854,12 @@ Artigo aberto
 
 [Keyboard layout : {0}]
 
+[Intelligent switching of profiles and directions]
+
+[Based on keyboard layout]
+
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+
+[Based on detected language]
+
+[Intelligent switching of profiles and translation directions based on detected language]

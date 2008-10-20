@@ -835,11 +835,11 @@ cсылки по теме
 [Error on sending email]
 Ошибка при отправлении сообщения
 [Language detection]
-Распознование языка
+Распознавание языка
 [Guess language ...]
 Распознать язык ...
-[Detect language of source text and automatically select translation direction]
-Распознование языка введенного текста и автоматическое переключение направления перевода
+[Detect language of source text]
+Распознавание языка введенного текста
 [Guess language of source text and show info about]
 Распознавание языка введенного текста и показ информации о языке
 [Language detection : {0}]
@@ -862,3 +862,13 @@ cсылки по теме
 Ненадежно
 [Keyboard layout : {0}]
 Раскладка клавиатуры : {0}
+[Intelligent switching of profiles and directions]
+Интеллектуальное переключение профилей и направлений
+[Based on keyboard layout]
+согласно раскладке клавиатуры
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+Интеллектуальное переключение профилей и направлений перевода согласно раскладке клавиатуры 
+[Based on detected language]
+согласно распознанному языку
+[Intelligent switching of profiles and translation directions based on detected language]
+Интеллектуальное переключение профилей и направлений перевода согласно распознанному языку
