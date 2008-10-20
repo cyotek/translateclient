@@ -270,13 +270,18 @@ namespace Translate
 	
 	public static class LanguageHelper
 	{
-		public static bool IsLanguageSupported(CultureInfo culture, Language language)
+		public static bool IntelligentCompare(Language language1, Language language2)
 		{
-			// TODO: support of Chinese etc
-		
-			if(culture == null)
-				throw new ArgumentNullException("culture");
+			if(language1 == Language.Any || language2 == Language.Any)
+				return true;
 				
+			language1 = ParentLanguage(language1);
+			language2 = ParentLanguage(language2);
+			return language1 == language2;
+		}
+		
+		public static Language ParentLanguage(Language language)
+		{
 			Language lang = language;	 
 			
 			if(lang == Language.English_US || lang == Language.English_GB)
@@ -290,6 +295,18 @@ namespace Translate
 
 			if(lang == Language.Tagalog)
 				lang = Language.Filipino;
+				
+			return lang;	
+		}
+		
+		public static bool IsLanguageSupported(CultureInfo culture, Language language)
+		{
+			// TODO: support of Chinese etc
+		
+			if(culture == null)
+				throw new ArgumentNullException("culture");
+				
+			Language lang = ParentLanguage(language);	 
 			
 			string name = Enum.GetName(typeof(Language), lang);
 			
