@@ -859,7 +859,10 @@ namespace Translate
 						}
 						
 						upf = pf as UserTranslateProfile;
-						if(upf != null && (upf.TranslationDirection.From == Language.Any || InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From)))
+						if(upf != null && 
+							(upf.TranslationDirection.From == Language.Any || InputLanguageManager.IsLanguageSupported(upf.TranslationDirection.From)) &&
+							!upf.ShowLanguages
+						)
 						{
 							skipChangeInput = true;
 							ActivateProfile(upf);
@@ -1940,6 +1943,161 @@ namespace Translate
 					TranslateString(e.Result.Confidence.ToString()));
 			}
 			UpdateDetectionStatus();
+			
+			if(detectedLanguage != Language.Unknown)
+			{
+				bool default_selected = currentProfile == TranslateOptions.Instance.DefaultProfile;
+				UserTranslateProfile upf;
+				
+				//step 0. seek in history
+				ProfilesHistory ph_to_delete = new ProfilesHistory();
+				bool found = false;
+				foreach(ProfilesHistoryData phd in TranslateOptions.Instance.ProfilesHistory)
+				{
+					if(LanguageHelper.IntelligentCompare(phd.Language, detectedLanguage))	
+					{
+						TranslateProfile pf = TranslateOptions.Instance.Profiles.GetByName(phd.Name);
+						if(pf == null)
+						{	//here we should not to be, but 
+							ph_to_delete.Add(phd);
+							continue;
+						}
+						
+						upf = pf as UserTranslateProfile;
+						if(upf != null && 
+							LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) &&
+							!upf.ShowLanguages
+							)
+						{
+							skipChangeInput = true;
+							ActivateProfile(upf);
+							tbFrom.Focus();
+							found = true;
+							break;
+						}
+						
+						foreach(LanguagePair lp in pf.History)
+						{
+							if(LanguageHelper.IntelligentCompare(lp.From, detectedLanguage))
+							{
+								try
+								{
+									skipChangeInput = true;
+									ActivateProfile(pf);
+									languageSelector.Selection = lp;
+									UpdateCaption();
+								}
+								finally
+								{
+									skipChangeInput = false;
+								}
+								tbFrom.Focus();
+								found = true;
+								break;
+							}
+						}
+						
+						if(!found)
+							ph_to_delete.Add(phd);
+						else
+							break;
+					}
+				}
+				
+				//remove unsupported profiles from history
+				foreach(ProfilesHistoryData phd in ph_to_delete)
+					TranslateOptions.Instance.ProfilesHistory.DeleteProfile(phd.Name);
+				
+				if(found)
+					return;
+				
+				
+				
+				//step 1. seek in current if not default
+				upf = currentProfile as UserTranslateProfile;
+				if(upf != null)
+				{
+					if(LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) &&
+							!upf.ShowLanguages
+					)
+					{
+						tbFrom.Focus();
+						return;
+					}
+					
+					foreach(LanguagePair lp in languageSelector.History)
+					{
+						if(LanguageHelper.IntelligentCompare(lp.From, detectedLanguage))
+						{
+							try
+							{
+								skipChangeInput = true;
+								languageSelector.Selection = lp;
+								UpdateCaption();
+							}
+							finally
+							{
+								skipChangeInput = false;
+							}
+							tbFrom.Focus();
+							return;
+						}
+					}
+				}
+				
+				
+				
+				//step 2. Generate list of profiles. default - last
+				TranslateProfilesCollection profiles = new TranslateProfilesCollection();
+				foreach(TranslateProfile pf in TranslateOptions.Instance.Profiles)
+				{
+					if(pf == TranslateOptions.Instance.DefaultProfile)
+							continue;
+
+					if(pf == currentProfile)
+							continue;
+							
+					profiles.Add(pf);		
+				}	
+				profiles.Add(TranslateOptions.Instance.DefaultProfile);
+
+				
+				//step 2. seek in other not default profiles
+				foreach(TranslateProfile pf in profiles)
+				{
+					foreach(LanguagePair lp in pf.History)
+					{
+						if(LanguageHelper.IntelligentCompare(lp.From, detectedLanguage))
+						{
+							try
+							{
+								skipChangeInput = true;
+								ActivateProfile(pf);
+								languageSelector.Selection = lp;
+								UpdateCaption();
+							}
+							finally
+							{
+								skipChangeInput = false;
+							}
+							tbFrom.Focus();
+							return;
+						}
+					}
+				
+					upf = pf as UserTranslateProfile;
+					if(upf != null)
+					{
+						if(LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage))
+						{
+							skipChangeInput = true;
+							ActivateProfile(upf);
+							tbFrom.Focus();
+							return;
+						}
+					}
+				}			
+			}
 		}
 	}
 }
