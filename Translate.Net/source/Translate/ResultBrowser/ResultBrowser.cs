@@ -450,20 +450,27 @@ namespace Translate
 			
 
 			string resultHtml = GetResultHtml(result);
-			if(!string.IsNullOrEmpty(result.ArticleUrl))
+			if(!string.IsNullOrEmpty(result.ArticleUrl) && result.Error == null)
 			{
+				string icon = "";
+				if(result.HasAudio)
+				{
+					icon = " " + string.Format(HtmlHelper.IconOfAudioFormat, 
+									LangPack.TranslateString("Pronunciation"));
+				}
+			
 				htmlString += GetParagraphFormat(0, result);
 				if(string.IsNullOrEmpty(result.ArticleUrlCaption))
 				{
-					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">{0}</a>", 
-						result.ArticleUrl
+					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\">{0}{1}</a>", 
+						result.ArticleUrl, icon
 						);
 				}	
 				else
 				{
-					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\"><b>{1}</b></a>", 
+					htmlString += string.Format("<a href=\"{0}\" title=\"{0}\"><b>{1}</b>{2}</a>", 
 						result.ArticleUrl,
-						result.ArticleUrlCaption						
+						result.ArticleUrlCaption, icon						
 						);
 				}
 					
