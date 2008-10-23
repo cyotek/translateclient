@@ -114,10 +114,11 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 			
-			responseFromServer = StringParser.Parse("<div id=\"dictionary-search-outer\">", "<div id=\"dictionary-right-section\">", responseFromServer);
+			result.HasAudio = responseFromServer.Contains("<object data=\"/dictionary/flash");
+			responseFromServer = StringParser.Parse("<div id=\"dct-srch-otr\">", "<div id=\"dct-rt-sct\">", responseFromServer);
 			
 			//translations
-			string translations = StringParser.Parse("<ul id=\"definition\">", "</ul>", responseFromServer);
+			string translations = StringParser.Parse("<ul id=\"dfnt\">", "</ul>", responseFromServer);
 			translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
 			
 			StringParser parser = new StringParser(translations);
@@ -137,7 +138,7 @@ namespace Translate
 			//related words
 			if(responseFromServer.Contains("<h3>Related phrases</h3>"))
 			{
-				string related = StringParser.Parse("<ul id=\"related-sentence\">", "</ul>", responseFromServer);
+				string related = StringParser.Parse("<ul id=\"rlt-snt\">", "</ul>", responseFromServer);
 				if(!string.IsNullOrEmpty(related))
 				{				
 					parser = new StringParser(related);
@@ -169,7 +170,7 @@ namespace Translate
 			//Web definitions
 			if(responseFromServer.Contains("<h3>Web definitions</h3>"))
 			{
-				string related = StringParser.Parse("<ul id=\"glossary\">", "</div>", responseFromServer);
+				string related = StringParser.Parse("<ul id=\"gls\">", "</div>", responseFromServer);
 				if(!string.IsNullOrEmpty(related))
 				{				
 					related = StringParser.Parse("<ul>", "<div>", related);
