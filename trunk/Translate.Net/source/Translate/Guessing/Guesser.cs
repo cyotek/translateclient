@@ -110,6 +110,7 @@ namespace Translate
 				{
 					try
 					{
+						FreeCL.Forms.Application.EndGuiLockingTask();
 						if(guessCompletedHandler != null)
 							guessCompletedHandler.Invoke(state, e);
 					}
@@ -118,6 +119,8 @@ namespace Translate
 						done = true;	
 					}
 				};
+				
+			FreeCL.Forms.Application.StartGuiLockingTask(LangPack.TranslateString("Language detection"));
 			state = GuessAsync(phrase, networkSetting, myHandler);
 			
 			while(!done)
