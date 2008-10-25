@@ -37,6 +37,7 @@
 #endregion
 
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
@@ -56,15 +57,16 @@ namespace Translate
 		{
 		}
 		
-		public ProfilesHistoryData(string name, Language language)
+		public ProfilesHistoryData(string name, Language language, Language detectedLanguage)
 		{
 			this.name = name;
 			this.language = language;
+			this.detectedLanguage = detectedLanguage;
 		}
 		
 		public virtual object Clone()
 		{
-			ProfilesHistoryData result = new ProfilesHistoryData(name, language);
+			ProfilesHistoryData result = new ProfilesHistoryData(name, language, detectedLanguage);
 			return result;
 		}
 		
@@ -81,29 +83,41 @@ namespace Translate
 			get { return language; }
 			set { language = value; }
 		}
+		
+		Language detectedLanguage = Language.Unknown;
+		[DefaultValue(Language.Unknown)]
+		public Language DetectedLanguage
+		{
+			get { return detectedLanguage; }
+			set { detectedLanguage = value; }
+		}
+		
 	}
 	
 	public class ProfilesHistory: List<ProfilesHistoryData>
 	{
-		public void AddProfile(string profileName, Language language)
+		public void AddProfile(string profileName, Language language, Language detectedLanguage)
 		{
 			ProfilesHistoryData data = null;
 			int i = 0;
 			while(i < base.Count)
 			{
-				if(base[i].Name == profileName && base[i].Language == language && data == null)
+				if(base[i].Name == profileName && 
+					base[i].Language == language && 
+					data == null && 
+					base[i].DetectedLanguage == detectedLanguage)
 				{
 					data = base[i];
 					base.RemoveAt(i);
 				}	
-				else if(base[i].Language == language)
+				else if(base[i].Language == language && base[i].DetectedLanguage == detectedLanguage)
 					base.RemoveAt(i);
 				else	
 					i++;
 			}
 			
 			if(data == null)
-				data = new ProfilesHistoryData(profileName, language);
+				data = new ProfilesHistoryData(profileName, language, detectedLanguage);
 			
 			base.Insert(0, data);
 		}

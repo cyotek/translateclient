@@ -676,6 +676,15 @@ namespace Translate
 			
 			//force refresh of services 
 			TimerRecheckServicesTick(null, null);
+
+			tbFrom.Text = tbFrom.Text.Trim();
+			
+			if(Guesser.Enabled && TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage &&
+				detectedText != tbFrom.Text)
+			{
+				NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
+				Guesser.Guess(tbFrom.Text, ns, OnGuessCompleted); 
+			}
 			
 			ReadOnlyServiceSettingCollection settings = languageSelector.GetServiceSettings();//currentProfile.GetServiceSettings(tbFrom.Text, languageSelector.Selection);
 			
@@ -694,7 +703,6 @@ namespace Translate
 			if(TranslateOptions.Instance.ResultWindowOptions.ShowQueryStatistics)
 				startTranslateTicks = DateTime.Now.Ticks;
 		
-			tbFrom.Text = tbFrom.Text.Trim();
 			ResourceManager resources = new ResourceManager("Translate.Common.Icons", Assembly.GetExecutingAssembly());
 			miAnimatedIcon.Image = ((System.Drawing.Image)(resources.GetObject("AnimatedIcon")));
 			
@@ -720,7 +728,7 @@ namespace Translate
 				pbMain.Value = 7;
 				pbMain.Visible = true;
 				languageSelector.AddSelectionToHistory();
-				TranslateOptions.Instance.ProfilesHistory.AddProfile(currentProfile.Name, languageSelector.Selection.From);
+				TranslateOptions.Instance.ProfilesHistory.AddProfile(currentProfile.Name, languageSelector.Selection.From, detectedLanguage);
 			}
 			else
 			{
@@ -1904,6 +1912,7 @@ namespace Translate
 		
 		Language detectedLanguage = Language.Unknown;
 		string detectedStatus = "";
+		string detectedText = "";
 		
 		void UpdateDetectionStatus()
 		{
@@ -1925,16 +1934,21 @@ namespace Translate
 		{
 			if(!Guesser.Enabled)
 				return;
+			if(detectedText == text)	
+				return;
 			detectedLanguage = Language.Unknown;
 			detectedStatus = "Started";
 			UpdateDetectionStatus();
 			NetworkSetting ns = TranslateOptions.Instance.GetNetworkSetting(null);
 			Guesser.GuessAsync(text, ns, OnGuessCompleted); 
-			
 		}
 		
 		void OnGuessCompleted(object sender, GuessCompletedEventArgs e)
 		{
+			if(e.Result != null)
+				detectedText = e.Result.Phrase;
+				
+				
 			if(e.Cancelled)
 			{
 			}
@@ -1973,7 +1987,8 @@ namespace Translate
 				bool found = false;
 				foreach(ProfilesHistoryData phd in TranslateOptions.Instance.ProfilesHistory)
 				{
-					if(LanguageHelper.IntelligentCompare(phd.Language, detectedLanguage))	
+					if(LanguageHelper.IntelligentCompare(phd.Language, detectedLanguage) ||
+						phd.DetectedLanguage == detectedLanguage)
 					{
 						TranslateProfile pf = TranslateOptions.Instance.Profiles.GetByName(phd.Name);
 						if(pf == null)
@@ -1984,7 +1999,9 @@ namespace Translate
 						
 						upf = pf as UserTranslateProfile;
 						if(upf != null && 
-							LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) &&
+							(LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) ||
+							(phd.DetectedLanguage == detectedLanguage && LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, phd.Language))
+							) &&
 							!upf.ShowLanguages
 							)
 						{
@@ -1997,7 +2014,9 @@ namespace Translate
 						
 						foreach(LanguagePair lp in pf.History)
 						{
-							if(LanguageHelper.IntelligentCompare(lp.From, detectedLanguage))
+							if(LanguageHelper.IntelligentCompare(lp.From, detectedLanguage) || 
+								(phd.DetectedLanguage == detectedLanguage && LanguageHelper.IntelligentCompare(lp.From, phd.Language))
+							)
 							{
 								try
 								{
@@ -2036,8 +2055,8 @@ namespace Translate
 				upf = currentProfile as UserTranslateProfile;
 				if(upf != null)
 				{
-					if(LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) &&
-							!upf.ShowLanguages
+					if(LanguageHelper.IntelligentCompare(upf.TranslationDirection.From, detectedLanguage) 
+						&& !upf.ShowLanguages
 					)
 					{
 						tbFrom.Focus();
