@@ -77,7 +77,6 @@ namespace Translate
 			return state;	
 		}
 		
-		
 		public static void CancelAsync(AsyncGuessState guessState)
 		{
 			if(guessState == null)
@@ -101,6 +100,32 @@ namespace Translate
 		    	
 		    }
 		    guessState.Canceled = true;
+		}
+		
+		public static GuessResult Guess(string phrase, NetworkSetting networkSetting, EventHandler<GuessCompletedEventArgs> guessCompletedHandler)
+		{
+			AsyncGuessState state = null;
+			bool done = false;
+			EventHandler<GuessCompletedEventArgs> myHandler = delegate(object sender, GuessCompletedEventArgs e)
+				{
+					try
+					{
+						if(guessCompletedHandler != null)
+							guessCompletedHandler.Invoke(state, e);
+					}
+					finally
+					{
+						done = true;	
+					}
+				};
+			state = GuessAsync(phrase, networkSetting, myHandler);
+			
+			while(!done)
+			{
+				System.Windows.Forms.Application.DoEvents();
+				Thread.Sleep(50);
+			}
+			return state.Result;
 		}
 		
 		delegate void WorkerEventHandler(AsyncGuessState guessState);
