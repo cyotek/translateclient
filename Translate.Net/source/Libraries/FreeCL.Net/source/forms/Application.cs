@@ -119,6 +119,18 @@ namespace FreeCL.Forms
 			 );
 		}
 		
+		public static void StartGuiLockingTask(string waitMess)
+		{
+			if(LockedGUIForm == null)
+			{
+				LockedGUIForm = new FreeCL.Forms.LockedGuiForm();
+				LockedGUIForm.Init();
+			}
+			
+			waitMessage = waitMess;
+			OnStartGuiLockingTask(null);
+		}
+		
 		static int LockCounter;
 		static Cursor savedCursor; 
 		static void OnStartGuiLockingTask(Object stateInfo)
@@ -148,6 +160,11 @@ namespace FreeCL.Forms
 				LockedGUIForm = null;
 			}
 			LockCounter--;							
+		}
+		
+		public static void EndGuiLockingTask()
+		{
+			OnEndGuiLockingTask(null);
 		}
 
 		static void OnExceptionInGuiLockingTask(Object stateInfo)
