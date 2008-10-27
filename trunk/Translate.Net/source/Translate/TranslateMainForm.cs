@@ -1887,9 +1887,8 @@ namespace Translate
 			
 		}
 
-		void AAutoDetectLanguageExecute(object sender, EventArgs e)
+		internal void OnGuessingOptionChanhing()
 		{
-			Guesser.Enabled = !aAutoDetectLanguage.Checked;
 			if(Guesser.Enabled)
 			{
 				StartLanguageGuessing(tbFrom.Text.Trim());
@@ -1898,6 +1897,12 @@ namespace Translate
 			{
 				detectedLanguage = Language.Unknown;
 			}
+		}
+		
+		void AAutoDetectLanguageExecute(object sender, EventArgs e)
+		{
+			Guesser.Enabled = !aAutoDetectLanguage.Checked;
+			OnGuessingOptionChanhing();
 		}
 		
 		void AAutoDetectLanguageUpdate(object sender, EventArgs e)
