@@ -872,3 +872,5 @@ Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 [Based on detected language]
 
 [Intelligent switching of profiles and translation directions based on detected language]
+
+[Switch by detected language only when text length greater of]

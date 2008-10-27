@@ -37,6 +37,7 @@
 #endregion
 
 using System;
+using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Net;
@@ -62,6 +63,8 @@ namespace Translate
 		}
 		
 		bool switchDirectionBasedOnLayout = true;
+		
+		[DefaultValue(true)]
 		public bool SwitchDirectionBasedOnLayout
 		{
 			get { return switchDirectionBasedOnLayout; }
@@ -69,11 +72,21 @@ namespace Translate
 		}
 		
 		bool switchDirectionBasedOnLanguage = true;
+		[DefaultValue(true)]
 		public bool SwitchDirectionBasedOnLanguage
 		{
 			get { return switchDirectionBasedOnLanguage; }
 			set { switchDirectionBasedOnLanguage = value; }
 		}
+		
+		int minimalTextLengthForSwitchByLanguage = 20;
+		[DefaultValue(20)]
+		public int MinimalTextLengthForSwitchByLanguage
+		{
+			get { return minimalTextLengthForSwitchByLanguage; }
+			set { minimalTextLengthForSwitchByLanguage = value; }
+		}
+		
 		
 		
 	}
