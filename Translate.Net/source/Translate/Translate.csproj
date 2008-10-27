@@ -61,6 +61,10 @@
     <Compile Include="Common\InputLanguageManager.cs" />
     <Compile Include="Common\LangPack.cs" />
     <Compile Include="Guessing\Guesser.cs" />
+    <Compile Include="Guessing\GuesserOptionsControl.cs" />
+    <Compile Include="Guessing\GuesserOptionsControl.Designer.cs">
+      <DependentUpon>GuesserOptionsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Guessing\GuessingOptions.cs" />
     <Compile Include="Hooks\HookOptions.cs" />
     <Compile Include="Hooks\HotkeysOptionsControl.cs" />
@@ -175,6 +179,9 @@
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\Icons.resx" />
+    <EmbeddedResource Include="Guessing\GuesserOptionsControl.resx">
+      <DependentUpon>GuesserOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
       <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
     </EmbeddedResource>
