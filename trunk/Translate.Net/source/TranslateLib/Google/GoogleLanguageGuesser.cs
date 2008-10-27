@@ -117,8 +117,8 @@ namespace Translate
 				}	
 					
 				bool isReliable = isReliableString == "true";
-				if(phrase.Length < 30)
-					isReliable = false;
+				//if(phrase.Length < 30)
+				//	isReliable = false;
 				
 				NumberFormatInfo num = NumberFormatInfo.InvariantInfo;
 				confidenceString = confidenceString.Replace(",", num.NumberDecimalSeparator);
