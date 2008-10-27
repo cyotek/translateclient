@@ -68,8 +68,11 @@ namespace Translate
 		{
 			this.cbLanguageDetection = new System.Windows.Forms.CheckBox();
 			this.gbIntillegentSwitching = new System.Windows.Forms.GroupBox();
-			this.cbSwitchDirectionBasedOnLayout = new System.Windows.Forms.CheckBox();
+			this.tbMinLength = new System.Windows.Forms.MaskedTextBox();
+			this.lMinLength = new System.Windows.Forms.Label();
 			this.cbSwitchDirectionBasedOnLanguage = new System.Windows.Forms.CheckBox();
+			this.cbSwitchDirectionBasedOnLayout = new System.Windows.Forms.CheckBox();
+			this.lCharacters = new System.Windows.Forms.Label();
 			this.pBody.SuspendLayout();
 			this.gbIntillegentSwitching.SuspendLayout();
 			this.SuspendLayout();
@@ -92,24 +95,39 @@ namespace Translate
 			// 
 			this.gbIntillegentSwitching.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
+			this.gbIntillegentSwitching.Controls.Add(this.lCharacters);
+			this.gbIntillegentSwitching.Controls.Add(this.tbMinLength);
+			this.gbIntillegentSwitching.Controls.Add(this.lMinLength);
 			this.gbIntillegentSwitching.Controls.Add(this.cbSwitchDirectionBasedOnLanguage);
 			this.gbIntillegentSwitching.Controls.Add(this.cbSwitchDirectionBasedOnLayout);
 			this.gbIntillegentSwitching.Location = new System.Drawing.Point(8, 43);
 			this.gbIntillegentSwitching.Name = "gbIntillegentSwitching";
-			this.gbIntillegentSwitching.Size = new System.Drawing.Size(383, 72);
+			this.gbIntillegentSwitching.Size = new System.Drawing.Size(383, 120);
 			this.gbIntillegentSwitching.TabIndex = 7;
 			this.gbIntillegentSwitching.TabStop = false;
 			this.gbIntillegentSwitching.Text = "Intelligent switching of profiles and directions";
 			// 
-			// cbSwitchDirectionBasedOnLayout
+			// tbMinLength
 			// 
-			this.cbSwitchDirectionBasedOnLayout.Dock = System.Windows.Forms.DockStyle.Top;
-			this.cbSwitchDirectionBasedOnLayout.Location = new System.Drawing.Point(3, 16);
-			this.cbSwitchDirectionBasedOnLayout.Name = "cbSwitchDirectionBasedOnLayout";
-			this.cbSwitchDirectionBasedOnLayout.Size = new System.Drawing.Size(377, 24);
-			this.cbSwitchDirectionBasedOnLayout.TabIndex = 0;
-			this.cbSwitchDirectionBasedOnLayout.Text = "Based on keyboard layout";
-			this.cbSwitchDirectionBasedOnLayout.UseVisualStyleBackColor = true;
+			this.tbMinLength.AsciiOnly = true;
+			this.tbMinLength.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+			this.tbMinLength.Location = new System.Drawing.Point(57, 88);
+			this.tbMinLength.Mask = "9999999";
+			this.tbMinLength.Name = "tbMinLength";
+			this.tbMinLength.PromptChar = ' ';
+			this.tbMinLength.Size = new System.Drawing.Size(51, 20);
+			this.tbMinLength.TabIndex = 9;
+			// 
+			// lMinLength
+			// 
+			this.lMinLength.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.lMinLength.Location = new System.Drawing.Point(19, 62);
+			this.lMinLength.Name = "lMinLength";
+			this.lMinLength.Size = new System.Drawing.Size(354, 23);
+			this.lMinLength.TabIndex = 8;
+			this.lMinLength.Text = "Switch by detected language only when text length greater of ";
+			this.lMinLength.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cbSwitchDirectionBasedOnLanguage
 			// 
@@ -121,6 +139,25 @@ namespace Translate
 			this.cbSwitchDirectionBasedOnLanguage.Text = "Based on detected language";
 			this.cbSwitchDirectionBasedOnLanguage.UseVisualStyleBackColor = true;
 			// 
+			// cbSwitchDirectionBasedOnLayout
+			// 
+			this.cbSwitchDirectionBasedOnLayout.Dock = System.Windows.Forms.DockStyle.Top;
+			this.cbSwitchDirectionBasedOnLayout.Location = new System.Drawing.Point(3, 16);
+			this.cbSwitchDirectionBasedOnLayout.Name = "cbSwitchDirectionBasedOnLayout";
+			this.cbSwitchDirectionBasedOnLayout.Size = new System.Drawing.Size(377, 24);
+			this.cbSwitchDirectionBasedOnLayout.TabIndex = 0;
+			this.cbSwitchDirectionBasedOnLayout.Text = "Based on keyboard layout";
+			this.cbSwitchDirectionBasedOnLayout.UseVisualStyleBackColor = true;
+			// 
+			// lCharacters
+			// 
+			this.lCharacters.Location = new System.Drawing.Point(114, 85);
+			this.lCharacters.Name = "lCharacters";
+			this.lCharacters.Size = new System.Drawing.Size(100, 23);
+			this.lCharacters.TabIndex = 10;
+			this.lCharacters.Text = "characters";
+			this.lCharacters.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
 			// GuesserOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,8 +165,12 @@ namespace Translate
 			this.Name = "GuesserOptionsControl";
 			this.pBody.ResumeLayout(false);
 			this.gbIntillegentSwitching.ResumeLayout(false);
+			this.gbIntillegentSwitching.PerformLayout();
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.Label lCharacters;
+		private System.Windows.Forms.MaskedTextBox tbMinLength;
+		private System.Windows.Forms.Label lMinLength;
 		private System.Windows.Forms.CheckBox cbSwitchDirectionBasedOnLanguage;
 		private System.Windows.Forms.CheckBox cbSwitchDirectionBasedOnLayout;
 		private System.Windows.Forms.GroupBox gbIntillegentSwitching;

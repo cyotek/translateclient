@@ -872,3 +872,5 @@ cсылки по теме
 согласно распознанному языку
 [Intelligent switching of profiles and translation directions based on detected language]
 Интеллектуальное переключение профилей и направлений перевода, согласно распознанному языку
+[Switch by detected language only when text length greater of]
+Переключать направления только для текста, который длинее чем 

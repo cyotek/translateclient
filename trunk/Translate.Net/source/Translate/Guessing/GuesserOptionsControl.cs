@@ -40,6 +40,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace Translate
 {
@@ -69,6 +70,9 @@ namespace Translate
 			
 			cbSwitchDirectionBasedOnLanguage.Text = TranslateString("Based on detected language");
 			toolTip.SetToolTip(cbSwitchDirectionBasedOnLanguage, TranslateString("Intelligent switching of profiles and translation directions based on detected language"));
+			
+			lMinLength.Text = TranslateString("Switch by detected language only when text length greater of");
+			lCharacters.Text = TranslateString("characters");
 		}
 		
 		GuessingOptions current;
@@ -78,10 +82,13 @@ namespace Translate
 			cbLanguageDetection.Checked = current.Enabled;
 			cbSwitchDirectionBasedOnLayout.Checked = current.SwitchDirectionBasedOnLayout;
 			cbSwitchDirectionBasedOnLanguage.Checked = current.SwitchDirectionBasedOnLanguage;
+			tbMinLength.Text = current.MinimalTextLengthForSwitchByLanguage.ToString(CultureInfo.InvariantCulture);
 		}
 		
 		public override void Apply()
 		{
+			current.MinimalTextLengthForSwitchByLanguage = int.Parse(tbMinLength.Text, CultureInfo.InvariantCulture);
+		
 			current.Enabled = cbLanguageDetection.Checked;
 			current.SwitchDirectionBasedOnLayout = cbSwitchDirectionBasedOnLayout.Checked;
 			current.SwitchDirectionBasedOnLanguage = cbSwitchDirectionBasedOnLanguage.Checked;
@@ -91,6 +98,11 @@ namespace Translate
 		
 		public override bool IsChanged()
 		{
+			if(tbMinLength.Text != current.MinimalTextLengthForSwitchByLanguage.ToString(CultureInfo.InvariantCulture))
+			{
+				return true;
+			}
+		
 			return current.Enabled != cbLanguageDetection.Checked || 
 				current.SwitchDirectionBasedOnLayout != cbSwitchDirectionBasedOnLayout.Checked ||
 				current.SwitchDirectionBasedOnLanguage != cbSwitchDirectionBasedOnLanguage.Checked;
