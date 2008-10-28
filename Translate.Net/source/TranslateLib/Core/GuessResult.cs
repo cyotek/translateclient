@@ -205,5 +205,10 @@ namespace Translate
 	{
 	
 	}
+
+	public class GuessResultsCollection : List<GuessResult>
+	{
+	
+	}
 	
 }

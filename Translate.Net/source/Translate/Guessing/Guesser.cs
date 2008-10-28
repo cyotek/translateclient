@@ -134,6 +134,85 @@ namespace Translate
 		delegate void WorkerEventHandler(AsyncGuessState guessState);
 		    
 		static GoogleLanguageGuesser googleGuesser = new GoogleLanguageGuesser();
+		
+		static GuessResultsCollection cache = new GuessResultsCollection(); 
+		
+		
+		static GuessResult GetFromCache(string phrase)
+		{
+			int minimalCacheLength = TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage;
+			if(phrase.Length < minimalCacheLength)
+				return null;
+				
+			lock(cache)
+			{
+				GuessResultsCollection to_delete = null; 
+				GuessResult result = null;
+				foreach(GuessResult r in cache)
+				{
+					if(r.Phrase.Length < minimalCacheLength)
+					{
+						if(to_delete == null)
+							to_delete = new GuessResultsCollection();
+						to_delete.Add(r);	
+					}
+					else
+					{
+						if(phrase.Length > r.Phrase.Length)
+						{
+							if(phrase.StartsWith(r.Phrase))
+								result =  r;
+						}
+						else
+						{
+							if(r.Phrase.StartsWith(phrase))
+								result = r;
+						}
+
+						if(result != null)
+							break;
+					}
+				}
+				
+				if(result != null)
+				{
+					cache.Remove(result);
+				}
+				
+				if(to_delete != null && to_delete.Count > 0)
+				{
+					foreach(GuessResult r in to_delete)
+						cache.Remove(r);
+				}
+				
+				if(result != null)
+				{
+					cache.Insert(0, result);
+				}
+			
+				return result;
+			}
+		}
+		
+		static void AddToCache(GuessResult result)
+		{
+			int minimalCacheLength = TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage;
+			if(result.Phrase.Length < minimalCacheLength || !result.IsReliable)
+				return;
+		
+			lock(cache)
+			{
+				if(cache.Count > 0 && cache[0] == result)
+					return;
+					
+				cache.Remove(result);
+				cache.Insert(0, result);
+				
+				if(cache.Count > 10)
+					cache.RemoveAt(10);
+			}
+		}
+		
 			
 		internal static void GuessWorker(
 		    AsyncGuessState guessState)
@@ -142,7 +221,14 @@ namespace Translate
 				return;
 			
 
-			guessState.Result = googleGuesser.Guess(guessState.Phrase, guessState.NetworkSetting);
+			guessState.Result = null;
+			guessState.Result = GetFromCache(guessState.Phrase);
+			if(guessState.Result == null)
+			{
+				guessState.Result = googleGuesser.Guess(guessState.Phrase, guessState.NetworkSetting);
+			}
+			AddToCache(guessState.Result);
+			
 			
 		    GuessCompletedEventArgs e =
 		        new GuessCompletedEventArgs(

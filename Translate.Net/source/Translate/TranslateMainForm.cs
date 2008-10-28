@@ -729,7 +729,7 @@ namespace Translate
 				pbMain.Visible = true;
 				languageSelector.AddSelectionToHistory();
 				if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage || 
-					tbFrom.Text.Length > TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage
+					tbFrom.Text.Length >= TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage
 				)
 					TranslateOptions.Instance.ProfilesHistory.AddProfile(currentProfile.Name, languageSelector.Selection.From, detectedLanguage);
 			}
@@ -1985,7 +1985,7 @@ namespace Translate
 			if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLanguage)
 				return;
 			
-			if(detectedLanguage != Language.Unknown && detectedText.Length > TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage)
+			if(detectedLanguage != Language.Unknown && detectedText.Length >= TranslateOptions.Instance.GuessingOptions.MinimalTextLengthForSwitchByLanguage)
 			{
 				bool default_selected = currentProfile == TranslateOptions.Instance.DefaultProfile;
 				UserTranslateProfile upf;
