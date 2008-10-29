@@ -1,0 +1,880 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Hasse
+[TranslatedByURL]
+
+[Translated by]
+
+[&File]
+&File
+[Exit from application]
+Avsluta Translate.net
+[E&xit]
+&Avsluta
+[&Edit]
+&Redigera
+[Copy selection to clipboard]
+Kopiera till urklipp
+[&Copy]
+&Kopiera
+[Cut selection to clipboard]
+Klipp till Urklipp
+[Cu&t]
+Klipp ut
+[Paste from clipboard]
+Klistra in från urklipp
+[&Paste]
+Klistar in
+[Delete selection]
+Radera markerade
+[&Delete]
+&Ta bort
+[Undo last operation]
+Ångra den senaste åtgärden
+[&Undo]
+&Avbryt
+[Redo last operation]
+Gör om den senaste åtgärden
+[&Redo]
+&Upprepa
+[Select Аll]
+Markera alla
+[&Select Аll]
+&Markera alla
+[&Window]
+&Fönster
+[Close All]
+Stäng alla
+[&Help]
+&Hjälp
+[&About ...]
+&Om...
+[About]
+Om
+[Send feedback or bugreport ...]
+Sänd feedback eller bugg rapport...
+[Feedback for :]
+Feedback för:
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Skriv in dina kommentarer eller felrapport här (engelska, ukrainska, ryska) >>
+[Donate ...]
+Donera ...
+[Online Help]
+Online hjälp
+[Options]
+Alternativ
+[OK]
+OK
+[Cancel]
+Ångra
+[Apply]
+Tillämpa
+[Minimize]
+Minimera
+[{0} Updater]
+{0} uppdatera
+[Preparing]
+Förbereda
+[Check version]
+Kontrollera version
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Nedladdat {0}Kb från {1}Kb med hastighet {2}Kb/s
+[Update downloaded]
+Uppdateringen nedladdade
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Ny version är hämtat. Vill du sluta Translate.Net och kör installationsprogrammet i ny version?
+[Please select where to save installer of new version which you can run later]
+Välj var du vill spara installatör av nya version som du kan köra senare
+[Installer saved to \r\n{0}]
+Installer sparad till: \r\n{0}
+[Update will be run later]
+Uppdateringen kommer att köras senare
+[Check Updates ...]
+Kontrollera uppdateringar...
+[Updates]
+Uppdateringar
+[Automatically check updates]
+Kontrollera automatiskt uppdateringar
+[Automatically download updates]
+Automatiskt hämta uppdateringar
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Uppdaterat - {0}\r\nSenaste kontroll av uppdatering - {1} status - {2}\r\nNästa kontroll av uppdatering - {3}
+[Close]
+Stäng
+[Error on downloading {0}]
+Fel på nedladdning {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} inehöll inte {1} tagg:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0}: har felaktigt formaterad {1}:\r\n{2}
+[Canceled]
+Avbrutet
+[Program is up to date]
+Programet är aktuellt
+[File {0} already exists]
+Fil {0} existerar redan
+[The server of updates is overloaded. The check of updates will be delayed.]
+Servern om uppdateringar är överbelastad. Kontrollen av uppdateringar kommer att försenas.
+[Checking of update done]
+Kontroll av uppdatering gjord
+[New version {0} of {1} available]
+Ny version {0} av {1} tillgänglig
+[Do you want to open site where you can download it ?]
+Vill du öppna plats där du kan ladda ner det
+[Version]
+Version
+[&Tools]
+Verktyg
+[O&ptions...]
+Val
+[General]
+Allmänt
+[UI Language]
+UI Språk
+[Network]
+Nätverk
+[HTTP-Proxy]
+HTTP Proxy
+[Proxy]
+Proxy
+[Port]
+Port
+[Enable Authentication]
+Möjliggöra verifiering
+[User]
+Användare
+[Password]
+Lösenord
+[Use NTLM Authentication]
+Använd NTLM-autentisering
+[Domain]
+Domän
+[Timeout]
+Avbrott
+[System]
+System
+[Custom]
+Anpassad
+[None]
+Ingen
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+Formatet för HTTP-Proxy ({0} är fel. Proxy-inställningar kommer att återställas till standard
+[Startup]
+Autostart
+[Launch at system startup]
+Starta vid systemstart
+[Minimize to tray]
+Minimera till systemfältet
+[When enabled {0} will run when OS started]
+När funktionen är aktiverad {0} kommer att köras när OS börjar
+[{0} will be minimized to tray when OS started]
+{0} skall minimeras till systemfältet när OS startar
+[Single Instance]
+Enda instans
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Kontrollera vid starten, om någon annan kör instans av {0} är redan igång, i detta fall, den nya ansökan aktivera gamla och stoppa genom att själv
+[Tray]
+System fält
+[Hotkeys]
+Snabbtangenter
+[Activate on Ctrl+C+C hotkey]
+Aktivera på Ctrl+C+C Snabbtangenter
+[Activate on Ctrl+Ins+Ins hotkey]
+Aktivera på Ctrl+Ins+Ins Snabbtangenter
+[Translate when activated by hotkey]
+Översätta när den aktiveras av snabbtangent
+[Show query time and other information]
+Visa sökfrågans tid och annan information
+[Mark by red color untranslated words]
+Markera med röd färg oöversatta ord
+[Don't show "Nothing found" results]
+Visa inte ”ingenting funnet” resultat
+[Show direction of translation]
+Visa riktningen av översättningen
+[Show accents]
+Visa accenter
+[Show names of services]
+Visa namnen på tjänster
+[Nothing found]
+Inget hittades
+[An error occurred during translation. Please try again later.]
+Ett fel uppstod vid översättning. Försök igen senare.
+[Translation direction is not correct]
+Översättningsriktningen är inte korrekt
+[Only cyrillic characters supported]
+Endast kyrilliska tecken som stöds
+[Ukrainian characters in russian query]
+Ukrainska tecken i rysk fråga
+[Parse error, start tags not found]
+Bearbetningsfel, börja taggar hittades inte
+[Nothing to translate]
+Inget att översätta 
+[Length too big]
+För stor längd
+[Wrong data structure]
+Fel datastruktur
+[Query contains extraneous symbols]
+Fråga innehåller främmande symboler
+[Service version not supported]
+Service-versionen stöds inte
+[Result view]
+Resultat vy
+[Result view placement]
+Resultat inför placering
+[Top]
+Överst
+[Place result view at top]
+Förlägga resultatet på överst
+[Bottom]
+Botten
+[Place result view at bottom]
+Förlägga resultatet på botten
+[Left]
+Vänster
+[Place result view at left]
+Förlägga resultatet till vänster
+[Right]
+Höger
+[Place result view at right]
+Förlägga resultatet till höger
+[Include monolingual dictionaries in translation]
+Inkludera enspråkiga ordböcker i översättning
+[Filter of languages]
+Filtrera språk
+[Allow to choose languages for use]
+Göra det möjligt att välja språk för användning
+[Source languages]
+Källspråk
+[Target languages]
+Målspråk
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+Välj språk du vill översätta från och till. Funktionshindrade språk kommer att tas bort från "Språk"-fliken i standardprofilen
+[Toggle all]
+Växla alla
+[Please select at least one source language]
+Välj minst ett källspråk
+[Please select at least one target language]
+Välj minst ett målspråk
+[Profile]
+Profil
+[Profiles]
+Profiler
+[Default]
+Standard
+[List]
+Lista
+[Add new user profile]
+Lägg till ny användarprofil
+[Set profile properties]
+Ställ profil egenskaper
+[Profile name]
+Profil namn
+[Translation direction]
+Översättningsriktning
+[Name for new profile you enter already used. Please enter unique name.]
+Namn på ny profil som du anger används redan. Ange unikt namn.
+[Profile name don't set. Please enter profile name.]
+Profilnamn inte fastställts. Ange profilnamn.
+[Remove user profile]
+Ta bort användarprofil
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Profilen {0} kommer att tas bort. \r\nÄr du säker?
+[Move profile up]
+Flytta profil upp
+[Move profile down]
+Flytta profil ned
+[Name]
+Namn
+[Edit services]
+Redigera tjänster
+[Remove service]
+Ta bort tjänst
+[Add selected service]
+Lägg till valda tjänsten
+[Add all services]
+Lägg till alla tjänster
+[Remove all services]
+Ta bort alla tjänster
+[Services filter]
+Filtrera tjänster
+[Available services]
+Tillgängliga tjänster
+[Selected services]
+Valda tjänster
+[View]
+Visa
+[Show services list]
+Visa tjänster listan
+[Show languages list]
+Visa språk lista
+[Show subjects list]
+Visa ämnen lista
+[Size]
+Storlek
+[System font]
+System Teckensnitt
+[Fonts]
+Teckensnitt
+[Input text]
+Mata in text
+[To default]
+Som standard
+[Toolbars]
+Verktygsfält
+[Default font]
+Standardstil på teckensnitt
+[&Translate]
+Översätt
+[Translate]
+Översätt
+[Stop current operation]
+Sluta nuvarande drift
+[Stop]
+Sluta
+[Search in Google]
+Sök på Google
+[Size or format of query don't supported by available translation services]
+Storlek eller form av fråga stöds inte av tillgängliga översättningstjänster
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+Översättningen kommer att producera {0} samtal till olika tjänster, som kan överbelasta servrar. \nVill du avbryta den översättning ?
+[Reverse translation direction]
+Omvänd översättningsriktning
+[Show\\Hide]
+Visa\\Göm
+[Show HTML source]
+Visa käll HTML
+[From]
+Från
+[To]
+Till 
+[Any Language]
+Alla språk
+[Afrikaans]
+Afrikanska
+[Albanian]
+Albanska
+[Amharic]
+
+[Autodetect]
+Autodetektera
+[Arabic]
+Arabiska
+[Armenian]
+Armeniska
+[Azerbaijani]
+
+[Basque]
+Baskiska
+[Belarusian]
+Vitryska
+[Bengali]
+Bengali
+[Bihari]
+
+[Bosnian]
+Bosniska
+[Breton]
+Bretonska
+[Bulgarian]
+Bulgariska
+[Burmese]
+
+[Catalan]
+Katalanska
+[Cherokee]
+
+[Chinese]
+Kinesiska
+[Chinese_CN]
+Kinesisk_CN
+[Chinese_TW]
+Kinesisk_TW
+[Croatian]
+Kroatiska
+[Czech]
+Tjeckiska
+[Danish]
+Danska
+[Dhivehi]
+
+[Dutch]
+Holländska
+[English]
+Engelska
+[English_GB]
+Engelska_GB
+[English_US]
+Engelska_US
+[Esperanto]
+Spanska
+[Estonian]
+Estniska
+[Icelandic]
+Isländska
+[Faroese]
+Färöiska
+[Filipino]
+Filipinska
+[Finnish]
+Finska
+[French]
+Franska
+[Frisian]
+Frisiska
+[Galician]
+Galiciska
+[Georgian]
+Georgiska
+[German]
+Tyska
+[Greek]
+Grekiska
+[Guarani]
+
+[Gujarati]
+
+[Hebrew]
+Hebreiska
+[Hindi]
+Hinduiska
+[Indonesian]
+Indonesiska
+[Inuktitut]
+
+[Interlingua]
+
+[Irish]
+Irländska
+[Hungarian]
+Ungerska
+[Italian]
+Italienska
+[Japanese]
+Japanska
+[Japanese_Romaji]
+Japansk_romersk
+[Kazakh]
+
+[Khmer]
+
+[Korean]
+Koreanska
+[Kurdish]
+
+[Kyrgyz]
+
+[Laothian]
+
+[Latin]
+Latinska
+[Latvian]
+Lettiska
+[Lithuanian]
+
+[Macedonian]
+Makedonska
+[Malay]
+
+[Malayalam]
+
+[Maltese]
+Maltesiska
+[Marathi]
+
+[Mongolian]
+Mongoliska
+[Nepali]
+
+[Norwegian]
+Norska
+[Norwegian_Bokmal]
+Norsk_Bokmal
+[Norwegian_Nynorsk]
+Norsk_Nynorsk
+[Oriya]
+
+[Pashto]
+
+[Papiamento]
+
+[Persian]
+Persiska
+[Polish]
+Polska
+[Portuguese]
+Portugisiska
+[Portuguese_BR]
+Portugisiska-BR
+[Punjabi]
+
+[Romanian]
+Rumänska
+[Russian]
+Ryska
+[Sanskrit]
+
+[Serbian]
+Serbiska
+[Sindhi]
+
+[Sinhalese]
+
+[Slovak]
+Slovakiska
+[Slovenian]
+Slovenska
+[Spanish]
+Spanska
+[Spanish_LA]
+Spansk-LA
+[Swahili]
+Swahili
+[Swedish]
+Svenska
+[Tajik]
+
+[Tagalog]
+Fillipinska-Tagalog
+[Tamil]
+Indisk-Tamil
+[Telugu]
+Indisk-Telugu
+[Thai]
+Thailändska
+[Tibetan]
+
+[Turkish]
+Turkiska
+[Ukrainian]
+Ukrainska
+[Urdu]
+indo-europeiska
+[Uzbek]
+
+[Uighur]
+
+[Vietnamese]
+Vietnamesiska
+[Welsh]
+Walesiska
+[Unknown]
+
+[Languages]
+Språk
+[Services]
+Tjänster
+[Enabled]
+Aktiverad
+[Error]
+Fel
+[Disabled]
+Inaktiverad
+[Move service up]
+Flytta tjänst uppåt
+[Move service down]
+Flytta tjänst neråt
+[<b>Status</b> : Enabled]
+<b>Status</b> : Aktiverat
+[<b>Status</b> : Error]
+<b>Status</b> : Fel
+[<b>Status</b> : Disabled]
+<b>Status</b> : Inaktiverad
+[Enable]
+Aktivera
+[Disable]
+Inaktivera
+[Subjects]
+Ämnen
+[Subject]
+Ämne
+[Any]
+Alla
+[Common]
+Vanlig
+[Aviation]
+Luftfart
+[Auto]
+Auto
+[Anatomy]
+Anatomi
+[Bank]
+Bank
+[Bible]
+Bibeln
+[Business]
+Företag
+[Military]
+Militär
+[Law]
+Lag
+[Informatics]
+Informatik
+[Art]
+Art
+[Space]
+Utrymme
+[Socio-political]
+Socio-politiska
+[Medicine]
+Medicin
+[Music]
+Musik
+[Sex]
+Sex
+[Sport]
+Sport
+[Tech]
+teknisk
+[Philosophy]
+Filosofi
+[Chemistry]
+Kemi
+[Economy]
+Ekonomi
+[Electronics]
+Elektronik
+[Internet]
+Internet
+[Logistics]
+Logistik
+[Travel]
+Resa
+[Football]
+Fotboll
+[Phrasebook]
+Fras bok
+[Perfumery]
+Parfymeria
+[Type]
+Typ
+[Translator]
+Översättare
+[Monolingual dictionary]
+Enspråkig ordbok
+[Bilingual dictionary]
+Tvåspråkig ordbok
+[Dictionary of synonyms]
+Ordbok över synonymer
+[Dictionary of antonyms]
+Ordbok av antonymer
+[Phraseological dictionary]
+FRASEOLOGISK ordbok
+[Encyclopedia]
+Uppslagsverk
+[Search Engine]
+Sökmotor
+[Bilingual phrases dictionary]
+Tvåspråkig fras ordbok
+[Bilingual sentenses dictionary]
+Tvåspråkig ordspråks ordbok
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+BP
+[BS]
+BS
+[Limit]
+Begränsa
+[characters]
+tecken
+[Limit {0} : {1} characters]
+Begränsa {0} : {1} tecken
+[Limit {0} : {1} lines]
+Begränsa {0} : {1} rader
+[Limit {0} : {1} words]
+Begränsa {0} : {1} ord
+[Masks]
+Masker
+[English-Ukrainian technical dictionary]
+English-ukrainska teknisk ordbok
+[Google Translator]
+Google översättare
+[<META> Translator]
+<META> Översättare
+[Free open source machine translation system]
+Gratis open source maskinöversättnings system
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Rysk-ukrainska akademiska ordlistan (1924–1933)
+[Large explanatory dictionary of modern Ukrainian]
+Stor förklarande ordbok av den moderna ukrainaren
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - den flerspråkiga lexikon
+[Russian-Ukrainian dictionary of constant expressions]
+Rysk-ukrainska ordbok av konstant uttryck
+[Pragma 5.x on-line translation]
+Pragmatik 5.x on-line översättning
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+English-ukrainska och ukrainsk-engelska lexikon på Internet - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Ukrainsk-engelska-ukrainska ordbok - Slovnenya
+[Dictionary of foreign words]
+Ordboken av utländska uttryck
+[Dictionaries of Ukraine]
+Lexikon i Ukraina
+[The free encyclopedia that anyone can edit]
+Den fria encyklopedin som alla kan redigera
+[The free dictionary that anyone can edit]
+Den fria ordlistan som alla kan redigera
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+Programvara för SYSTRAN översättning (som används av Altavista Babelfish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Polska-svenska-polska och polsk-tysk-polska ordböcker
+[Yahoo Babel Fish Translator]
+Yahoo Babel Fish översättare
+[Multitran - system for translators]
+Multitran - system för översättare
+[PROMT - Free Text Translator]
+PROMT - Fritext Translator
+[LangSoft Translation & Educational Software]
+LangSoft översättning och pedagogisk programvara
+[Tiscali - Czech oriented dictionary]
+Tiscali - Tjeckiska orienterade ordbok
+[Free Online Urdu-English Dictionary]
+Fri on-line Urdu-Engelsk ordbok
+[Online English-to-Urdu and Urdu-to-English dictionary]
+On-line Engelsk-till-Urdu och Urdu-till-Engelsk ordbok
+[InterTran dictionary]
+InterTran ordbok
+[Priberam Portuguese dictionary]
+Priberam portugisiska ordbok
+[WordNet a lexical database for the English language]
+WordNet en lexikalisk databas för det engelska språket
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet är en flerspråkig lexikalisk databas
+[English-Bulgarian dictionary - SA Dictionary Online]
+English-bulgariska ordbok - SA Online Ordbok
+[dict.cc - English-German Dictionary]
+dict.cc - engelsk-tysk ordbok
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - tyska orienterad ordbok
+[Open thesaurus is an Open Source thesaurus for the German language]
+Den öppna ordboken är en ordbok för öppen källa för det tyska språket
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+OpenThesaurus-es är en ordbok för öppen källa för det spanska språket
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal - ordbok för öppen källa för det holländska språket som baseras på OpenThesaurus
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenThesaurusPT är en ordbok för öppen källa för det portugisiska språket
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+OpenThesaurusPL är en ordbok för öppen källa för det polska språket
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenThesaurusSI är en ordbok för öppen källa för det slovenska språket
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Sozluk (te) * on-line ordbok - turkisk orienterad ordboken
+[Free Dictionaries project]
+Fria Lexikon projektet
+[Grouped by Service's Url]
+Grupperade efter Tjänst URL
+[Grouped by Language]
+Grupperade efter språk
+[{0} language pairs]
+{0} språkpar
+[{0} services]
+{0} tjänster
+[Create article]
+Skapa artikel
+[Open article]
+Öppna artikeln
+[Pronunciation]
+Uttal
+[{0} more entries found]
+{0} mer poster funna
+[related links]
+relaterade länkar
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+Fråge tid : {0} s, Fråge räknare : {1}, Bytes skickas : {2} Byte mottog: {3}
+[Full time : {0} s]
+Heltid : {0} s
+[{0} phrases translated by {1} calls to translate services]
+{0} fraser översatta av {1} kräver att översätta tjänster
+[Send by mail]
+Skicka med E-post
+[Continue]
+Fortsätt
+[Copy]
+Kopiera
+[Terminate]
+Avsluta
+[Terminated by user on error]
+Avslutat av användaren fel
+[Unhandled exception in]
+Ej hanterat undantag i
+[Error on opening config file]
+Fel vid öppnandet av konfigurationsfilen
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+Fel vid öppnandet av konfigurationsfilen från {0}.\r\nMöjlig orsak - fel i alternativ filformat.\r\nKonfigurationen kommer att återställas till standardvärden.
+[Error on saving config file]
+Fel vid sparandet av konfigurationsfilen
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+Fel på spara konfigurationsfilen till {0}\r\nMöjlig orsak - nekad skriva tillgång till systemet TEMP-katalogen.
+[Error on saving config file to {0}]
+Fel på spara konfigurationsfilen till {0}
+[Show information about exception]
+Visa information om undantag
+[Error on start process : {0}\r\nError message : {1}]
+Fel på börja processen : {0}\r\nFelmeddelande : {1}
+[Error on start process]
+Fel på börja processen
+[Error on sending email to : {0}\r\nError message : {1}]
+Fel på skicka e-post till : {0}\r\nFelmeddelande : {1}
+[Error on sending email]
+Fel på överföring av e-post
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+
+[Keyboard layout : {0}]
+
+[Intelligent switching of profiles and directions]
+
+[Based on keyboard layout]
+
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+
+[Based on detected language]
+
+[Intelligent switching of profiles and translation directions based on detected language]
+
+[Switch by detected language only when text length greater of]
+
+[Break translation when application deactivated]
+
+[Break translation on switching to other application]
+
