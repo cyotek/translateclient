@@ -874,3 +874,7 @@ cсылки по теме
 Интеллектуальное переключение профилей и направлений перевода, согласно распознанному языку
 [Switch by detected language only when text length greater of]
 Переключать направления только для текста, который длинее чем 
+[Break translation when application deactivated]
+Прервать перевод при деактивации приложения
+[Break translation on switching to other application]
+Прервать процесс перевода при переключении на другое приложение
