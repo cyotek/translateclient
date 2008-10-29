@@ -873,3 +873,7 @@ Erro ao enviar e-mail
 [Intelligent switching of profiles and translation directions based on detected language]
 
 [Switch by detected language only when text length greater of]
+
+[Break translation when application deactivated]
+
+[Break translation on switching to other application]

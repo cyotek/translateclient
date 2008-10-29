@@ -305,6 +305,8 @@ namespace Translate
 			aSwitchDirectionBasedOnLanguage.Text = TranslateString("Based on detected language");
 			aSwitchDirectionBasedOnLanguage.Hint = TranslateString("Intelligent switching of profiles and translation directions based on detected language");
 			
+			aBreakTranslationOnDeactivate.Text = TranslateString("Break translation when application deactivated");
+			aBreakTranslationOnDeactivate.Hint = TranslateString("Break translation on switching to other application");
 			
 			UpdateCaption();
 			UpdateDetectionStatus();
@@ -2167,6 +2169,25 @@ namespace Translate
 		void ASwitchDirectionBasedOnLayoutUpdate(object sender, EventArgs e)
 		{
 			aSwitchDirectionBasedOnLayout.Checked = TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout;
+		}
+		
+		void ABreakTranslationOnDeactivateExecute(object sender, EventArgs e)
+		{
+			TranslateOptions.Instance.BreakTranslationOnDeactivation = 
+				!TranslateOptions.Instance.BreakTranslationOnDeactivation;
+		}
+		
+		void ABreakTranslationOnDeactivateUpdate(object sender, EventArgs e)
+		{
+			aBreakTranslationOnDeactivate.Checked = TranslateOptions.Instance.BreakTranslationOnDeactivation;
+		}
+		
+		void TranslateMainFormDeactivate(object sender, EventArgs e)
+		{
+			if(TranslateOptions.Instance.BreakTranslationOnDeactivation)
+			{
+				StopCurrentTranslation();			
+			}
 		}
 	}
 }

@@ -44,6 +44,7 @@ using System.Drawing;
 using Application = FreeCL.Forms.Application;
 using System.Security;
 using System.Security.Permissions;
+using System.ComponentModel;
 
 
 namespace Translate
@@ -113,18 +114,21 @@ namespace Translate
 		}
 		
 		bool minimizeToTray = true;
+		[DefaultValue(true)]
 		public bool MinimizeToTray {
 			get { return minimizeToTray; }
 			set { minimizeToTray = value; }
 		}
 		
 		bool minimizeToTrayOnStartup = true;
+		[DefaultValue(true)]
 		public bool MinimizeToTrayOnStartup {
 			get { return minimizeToTrayOnStartup; }
 			set { minimizeToTrayOnStartup = value; }
 		}
 		
 		bool singleInstance = true;
+		[DefaultValue(true)]
 		public bool SingleInstance {
 			get { return singleInstance; }
 			set { singleInstance = value; }
@@ -155,7 +159,7 @@ namespace Translate
 		}
 		
 		string currentProfileName = "Default";
-		[System.ComponentModel.DefaultValueAttribute("Default")]
+		[DefaultValue("Default")]
 		public string CurrentProfileName {
 			get { return currentProfileName; }
 			set { currentProfileName = value; }
@@ -277,6 +281,15 @@ namespace Translate
 			get { return profilesHistory; }
 			set { profilesHistory = value; }
 		}
+		
+		bool breakTranslationOnDeactivation = false;
+		[DefaultValue(false)]
+		public bool BreakTranslationOnDeactivation
+		{
+			get { return breakTranslationOnDeactivation; }
+			set { breakTranslationOnDeactivation = value; }
+		}
+		
 		
 	}
 }

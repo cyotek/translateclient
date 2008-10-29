@@ -874,3 +874,7 @@ Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 [Intelligent switching of profiles and translation directions based on detected language]
 
 [Switch by detected language only when text length greater of]
+
+[Break translation when application deactivated]
+
+[Break translation on switching to other application]
