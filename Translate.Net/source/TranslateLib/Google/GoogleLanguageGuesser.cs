@@ -125,7 +125,7 @@ namespace Translate
 				confidenceString = confidenceString.Replace(".", num.NumberDecimalSeparator);
 				
 				double confidence;
-				if(!double.TryParse(confidenceString,NumberStyles.Number, num, out confidence))
+				if(!double.TryParse(confidenceString,NumberStyles.Number | NumberStyles.AllowExponent, num, out confidence))
 					throw new TranslationException("Can't parse string : " + confidenceString + " to float");
 					
 				result.AddScore(language, confidence*100, isReliable);
