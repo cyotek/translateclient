@@ -743,6 +743,16 @@ namespace Translate
 			Wait();
 			string clean = wBrowser.DocumentText;
 			int bodyidx = clean.IndexOf("<body>");
+			if(bodyidx < 0)
+				bodyidx = clean.IndexOf("<BODY>");
+				
+			if(bodyidx < 0)
+			{
+				MessageBox.Show(FindForm(), 
+					LangPack.TranslateString("Nothing found"),
+					Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
 			clean = clean.Substring(0, bodyidx);
 			HtmlSourceViewForm form = new HtmlSourceViewForm();
 			form.Source = clean + wBrowser.Document.Body.OuterHtml + "\r\n</html>";
