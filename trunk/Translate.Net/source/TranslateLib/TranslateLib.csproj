@@ -74,6 +74,8 @@
     <Compile Include="Core\ServiceItemSortData.cs" />
     <Compile Include="Core\StringParser.cs" />
     <Compile Include="Core\Subject.cs" />
+    <Compile Include="Core\TranslationState.cs" />
+    <Compile Include="Core\TranslationTerminatedException.cs" />
     <Compile Include="Core\TranslationException.cs" />
     <Compile Include="Core\Translator.cs" />
     <Compile Include="Core\WebRequestHelper.cs" />

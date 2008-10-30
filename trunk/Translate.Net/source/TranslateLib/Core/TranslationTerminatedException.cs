@@ -37,95 +37,36 @@
 #endregion
 
 using System;
-using System.Threading;
+using System.Runtime.Serialization; 
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of BaseServiceItem.
+	/// Description of TranslationAbortedException.
 	/// </summary>
-	public abstract class BaseServiceItem
+	[Serializable] 
+	public class TranslationTerminatedException : Exception
 	{
-		int charsLimit = -1;
-		public int CharsLimit {
-			get { return charsLimit; }
-			set { charsLimit = value; }
-		}
-
-		string name;
-		public string Name {
-			get { return name; }
-			set { name = value; }
+		public TranslationTerminatedException()
+		{
 		}
 		
-		public string FullName
+		public TranslationTerminatedException(string message)
+		: base(message)
 		{
-			get
-			{
-				if(service != null)
-					return service.Name + Name;
-				else
-					return Name;
-			}
-		}
-
-		Service service;
-		public Service Service {
-			get { return service; }
-			set { service = value; }
-		}
-
-		public virtual bool CheckPhrase(string phrase, out string error)
-		{
-			error = "";
-			if(string.IsNullOrEmpty(phrase))
-			{
-				error = "Nothing to translate";
-				return false;
-			}
-
-			if(charsLimit != -1 && phrase.Length > charsLimit)
-			{
-				error = "Length too big";
-				return false;
-			}
-
-			return true;
 		}
 		
-		protected static void RegisterState(TranslationState state)
+		public TranslationTerminatedException(string message, Exception innerException):base(message, innerException)
 		{
-			Thread.SetData(
-	            Thread.GetNamedDataSlot("TranslationState"), 
-            	state);
 		}
 		
-		protected static void UnregisterState()
-		{
-			RegisterState(null);
-		}
 		
-		public static bool IsTerminated
+	
+		protected TranslationTerminatedException(SerializationInfo info, StreamingContext context):base(info, context)
 		{
-			get
-			{
-				object o = Thread.GetData(Thread.GetNamedDataSlot("TranslationState"));
-				if(o == null) 
-					return false;
-					
-				TranslationState state = o as TranslationState;	
-				if(state == null) 
-					return false;
-
-				return state.IsTerminated;				
-			}
-		}
 		
-		public static void CheckIsTerminated()
-		{
-			if(IsTerminated)
-				throw new TranslationTerminatedException();
 		}
+	
 	}
 	
 }
