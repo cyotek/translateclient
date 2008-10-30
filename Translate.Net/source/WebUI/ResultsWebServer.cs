@@ -80,7 +80,7 @@ namespace WebUI
 				{  
 					//strange error on bind, probably network still not started
 					//try to rerun server
-					System.Threading.Thread.Sleep(2000); 	
+					System.Threading.Thread.Sleep(10000); 	
 					WebAppServer.Start(true);
 				}
 				else
