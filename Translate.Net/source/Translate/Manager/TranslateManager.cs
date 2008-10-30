@@ -120,7 +120,7 @@ namespace Translate
 		    { 
 		    	
 		    }
-		    translateState.Canceled = true;
+		    translateState.IsTerminated = true;
 		    
 		}
 		
@@ -129,10 +129,10 @@ namespace Translate
 			ServiceItemSetting translatorSetting,
 		    AsyncTranslateState translateState)
 		{
-			if(translateState.Canceled) 
+			if(translateState.IsTerminated) 
 				return;
 			
-			Result tr = translatorSetting.ServiceItem.Translate(translateState.Phrase, translatorSetting.LanguagePair, translatorSetting.Subject, translatorSetting.NetworkSetting);
+			Result tr = translatorSetting.ServiceItem.Translate(translateState.Phrase, translatorSetting.LanguagePair, translatorSetting.Subject, translatorSetting.NetworkSetting, translateState);
 			
 			ReportProgressState repState = new ReportProgressState(tr,translateState);
 
@@ -190,7 +190,7 @@ namespace Translate
 		
 	}
 	
-	public class AsyncTranslateState
+	public class AsyncTranslateState : TranslationState
 	{
 	
 		[SuppressMessage("Microsoft.Design", "CA1002:DoNotExposeGenericLists")]
@@ -225,13 +225,6 @@ namespace Translate
 			get { return languagePair; }
 			set { languagePair = value; }
 		}
-		
-		bool canceled = false;
-		public bool Canceled {
-			get { return canceled; }
-			set { canceled = value; }
-		}
-		
 		
 		string phrase;
 		public string Phrase {
@@ -344,7 +337,7 @@ namespace Translate
 		        ProgressChanged(this, e);
 		    }
 		    
-		    if(Canceled) return;
+		    if(IsTerminated) return;
 		    
 		    if(processed == count)
 		    {
@@ -363,7 +356,7 @@ namespace Translate
 			    {
 			    	//ignore exception raised sometime from here
 			    }
-			    Canceled = true;
+			    IsTerminated = true;
 		    }
 		}
 	

@@ -133,23 +133,36 @@ namespace Translate
 			return res;
 		}
 		
-		
+
 		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String)")]
 		public Result Translate(string phrase, LanguagePair languagesPair, string subject, NetworkSetting networkSetting)
 		{
+			return Translate(phrase, languagesPair, subject, networkSetting, null);
+		}
+		
+		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String)")]
+		public Result Translate(string phrase, LanguagePair languagesPair, string subject, NetworkSetting networkSetting, TranslationState state)
+		{
 			if(!SupportedSubjects.Contains(subject))
 				throw new ArgumentException("Subject : " + subject + " not supported");
+			
+			RegisterState(state);
 			
 			Result result = ResultsCache.GetCachedResult(this, phrase, languagesPair, subject);
 			lock(result)
 			{
 				if(result.IsHasData())
+				{
+					UnregisterState();
 					return result;
+				}	
 					
 				long start = DateTime.Now.Ticks;			
 				try
 				{
+					CheckIsTerminated();
 					string error;
 					if(CheckPhrase(phrase, out error))
 						DoTranslate(phrase, languagesPair, subject, result, networkSetting);
@@ -162,6 +175,7 @@ namespace Translate
 				}
 				result.QueryTicks = DateTime.Now.Ticks - start;
 			}
+			UnregisterState();
 			return result;
 		}
 		

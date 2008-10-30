@@ -66,6 +66,7 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String)")]
 		public GuessResult Guess(string phrase, NetworkSetting networkSetting)
 		{
+			RegisterState(null);
 			GuessResult result = GuessResultsCache.GetCachedGuessResult(this, phrase);
 			lock(result)
 			{

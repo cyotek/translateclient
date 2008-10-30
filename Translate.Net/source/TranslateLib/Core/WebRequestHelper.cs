@@ -223,6 +223,7 @@ namespace Translate
 			result.RetryCount ++;
 			while(true)
 			{
+				BaseServiceItem.CheckIsTerminated();
 				try
 				{
 					return InternalGetResponse();
@@ -336,6 +337,7 @@ namespace Translate
 
 		
 			WebResponse response = request.GetResponse ();
+			BaseServiceItem.CheckIsTerminated();
 			
 			result.BytesSent += request.Headers.ToByteArray().Length;
 			if(request.ContentLength != -1)
@@ -350,19 +352,38 @@ namespace Translate
 				responseStream = streamConvertor.ConvertStream(responseStream);
 				
 			StreamReader reader = new StreamReader (responseStream, encoding);
-			string resultStr = reader.ReadToEnd ();
-			if(response.ContentLength != -1)
-				result.BytesReceived += response.ContentLength;
-			else if(!string.IsNullOrEmpty(response.Headers[HttpResponseHeader.ContentLength]))
-				result.BytesReceived += int.Parse(response.Headers[HttpResponseHeader.ContentLength], CultureInfo.InvariantCulture);
-			else
-				result.BytesReceived += resultStr.Length;
+			string resultStr = "";
+			try
+			{
+				StringBuilder sb = new StringBuilder();
+				char[] buffer = new char[4096];
+				int readed_cnt = reader.Read(buffer, 0, 4096);
+				do
+				{
+					sb.Append(buffer, 0, readed_cnt);
+					readed_cnt = reader.Read(buffer, 0, 4096);
+					BaseServiceItem.CheckIsTerminated();
+				}
+				while(readed_cnt > 0);
 				
-			result.BytesReceived += 21; //system data	
-
-			reader.Close ();
-			responseStream.Close();
-			response.Close();			   
+				//string resultStr = reader.ReadToEnd ();
+				resultStr = sb.ToString();
+				
+				if(response.ContentLength != -1)
+					result.BytesReceived += response.ContentLength;
+				else if(!string.IsNullOrEmpty(response.Headers[HttpResponseHeader.ContentLength]))
+					result.BytesReceived += int.Parse(response.Headers[HttpResponseHeader.ContentLength], CultureInfo.InvariantCulture);
+				else
+					result.BytesReceived += resultStr.Length;
+					
+				result.BytesReceived += 21; //system data	
+			}
+			finally
+			{
+				reader.Close ();
+				responseStream.Close();
+				response.Close();			   
+			}
 			return resultStr;
 		}
 		

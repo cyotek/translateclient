@@ -37,95 +37,24 @@
 #endregion
 
 using System;
-using System.Threading;
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of BaseServiceItem.
+	/// Description of TranslationState.
 	/// </summary>
-	public abstract class BaseServiceItem
+	public class TranslationState
 	{
-		int charsLimit = -1;
-		public int CharsLimit {
-			get { return charsLimit; }
-			set { charsLimit = value; }
-		}
-
-		string name;
-		public string Name {
-			get { return name; }
-			set { name = value; }
+		public TranslationState()
+		{
 		}
 		
-		public string FullName
+		bool isTerminated = false;
+		public bool IsTerminated
 		{
-			get
-			{
-				if(service != null)
-					return service.Name + Name;
-				else
-					return Name;
-			}
-		}
-
-		Service service;
-		public Service Service {
-			get { return service; }
-			set { service = value; }
-		}
-
-		public virtual bool CheckPhrase(string phrase, out string error)
-		{
-			error = "";
-			if(string.IsNullOrEmpty(phrase))
-			{
-				error = "Nothing to translate";
-				return false;
-			}
-
-			if(charsLimit != -1 && phrase.Length > charsLimit)
-			{
-				error = "Length too big";
-				return false;
-			}
-
-			return true;
+			get { return isTerminated; }
+			set { isTerminated = value; }
 		}
 		
-		protected static void RegisterState(TranslationState state)
-		{
-			Thread.SetData(
-	            Thread.GetNamedDataSlot("TranslationState"), 
-            	state);
-		}
-		
-		protected static void UnregisterState()
-		{
-			RegisterState(null);
-		}
-		
-		public static bool IsTerminated
-		{
-			get
-			{
-				object o = Thread.GetData(Thread.GetNamedDataSlot("TranslationState"));
-				if(o == null) 
-					return false;
-					
-				TranslationState state = o as TranslationState;	
-				if(state == null) 
-					return false;
-
-				return state.IsTerminated;				
-			}
-		}
-		
-		public static void CheckIsTerminated()
-		{
-			if(IsTerminated)
-				throw new TranslationTerminatedException();
-		}
 	}
-	
 }
