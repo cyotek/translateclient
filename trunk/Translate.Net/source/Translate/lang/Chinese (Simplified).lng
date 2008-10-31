@@ -1,11 +1,11 @@
 ﻿[TranslationComment]
 
 [TranslatedBy]
-Sun Minghao
+刘馨
 [TranslatedByURL]
-minghao.sun@gmail.com
+shaliuxin@msn.com
 [Translated by]
-
+简体中文翻译
 [&File]
 文件(&F)
 [Exit from application]
@@ -59,13 +59,13 @@ minghao.sun@gmail.com
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
 << 请在这里输入您的反馈或错误报告（只限英语、乌克兰语或俄语）。 >>
 [Donate ...]
-
+捐赠...
 [Online Help]
-
+在线帮助
 [Options]
 选项
 [OK]
-
+确认
 [Cancel]
 取消
 [Apply]
@@ -97,7 +97,7 @@ minghao.sun@gmail.com
 [Automatically check updates]
 自动检查更新
 [Automatically download updates]
-
+自动下载更新
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 已更新 - {0}\r\n最后一次检查更新 - {1}，状态 - {2}\r\n下一次检查更新 - {3}
 [Close]
@@ -115,13 +115,13 @@ minghao.sun@gmail.com
 [File {0} already exists]
 文件 {0} 已存在
 [The server of updates is overloaded. The check of updates will be delayed.]
-
+升级服务器忙，更新检查将在稍后执行。
 [Checking of update done]
-
+更新检查完毕。
 [New version {0} of {1} available]
-
+{1} 的新版本 {0} 已发布
 [Do you want to open site where you can download it ?]
-
+您是否想要访问网站下载新版本？
 [Version]
 版本
 [&Tools]
@@ -141,15 +141,15 @@ HTTP 代理
 [Port]
 端口
 [Enable Authentication]
-
+启用验证
 [User]
-
+用户
 [Password]
-
+密码
 [Use NTLM Authentication]
-
+使用 NTLM 验证
 [Domain]
-
+域
 [Timeout]
 超时
 [System]
@@ -159,7 +159,7 @@ HTTP 代理
 [None]
 无
 [Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
-
+HTTP 代理 ({0}) 格式错误。代理设置将恢复为默认值。
 [Startup]
 启动
 [Launch at system startup]
@@ -167,13 +167,13 @@ HTTP 代理
 [Minimize to tray]
 最小化到系统托盘
 [When enabled {0} will run when OS started]
-
+当启用 {0} 时将随系统启动
 [{0} will be minimized to tray when OS started]
-
+{0} 将在系统启动后最小化到系统托盘
 [Single Instance]
-
+单一实例
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
+启动时进行检查，如果已经有另一个 {0} 实例在运行，则激活该实例而不启动新的实例。
 [Tray]
 系统托盘
 [Hotkeys]
@@ -199,7 +199,7 @@ HTTP 代理
 [Nothing found]
 未找到
 [An error occurred during translation. Please try again later.]
-
+翻译时发生错误，请稍候重试。
 [Translation direction is not correct]
 翻译方式不正确
 [Only cyrillic characters supported]
@@ -221,41 +221,41 @@ HTTP 代理
 [Result view]
 查看结果
 [Result view placement]
-
+查看布局结果
 [Top]
-
+顶端
 [Place result view at top]
-
+查看结果置于顶部
 [Bottom]
-
+底部
 [Place result view at bottom]
-
+查看结果置于底部
 [Left]
-
+左侧
 [Place result view at left]
-
+查看结果置于左侧
 [Right]
-
+右侧
 [Place result view at right]
-
+查看结果置于右侧
 [Include monolingual dictionaries in translation]
 翻译中只包含一种语言字典
 [Filter of languages]
-
+语言过滤器
 [Allow to choose languages for use]
-
+允许您选择要使用的语言
 [Source languages]
-
+源语言
 [Target languages]
-
+目标语言
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+选择您需要的翻译的源语言和目标语言。被禁用的语言将被从用户配置文件的语言标签中删除。
 [Toggle all]
-
+标记全部
 [Please select at least one source language]
-
+请选择至少一种源语言
 [Please select at least one target language]
-
+清选择至少一种目标语言
 [Profile]
 配置文件
 [Profiles]
@@ -321,23 +321,23 @@ HTTP 代理
 [To default]
 恢复默认
 [Toolbars]
-
+工具栏
 [Default font]
-
+默认字体
 [&Translate]
 翻译(&T)
 [Translate]
 翻译
 [Stop current operation]
-
+停止当前操作
 [Stop]
-
+停止
 [Search in Google]
-
+使用Google进行搜索
 [Size or format of query don't supported by available translation services]
 可用的翻译服务不支持查询的大小或格式
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+翻译将为不同的服务产生 {0} 个访问，将会导致服务器负担过重。\n您是否想要中止当前正在处理的翻译？
 [Reverse translation direction]
 反向翻译
 [Show\\Hide]
@@ -351,39 +351,39 @@ HTTP 代理
 [Any Language]
 所有语言
 [Afrikaans]
-
+南非荷兰语
 [Albanian]
-
+阿尔巴尼亚语
 [Amharic]
-
+阿姆哈拉语
 [Autodetect]
-
+自动识别
 [Arabic]
 阿拉伯语
 [Armenian]
-
+亚美尼亚语
 [Azerbaijani]
-
+阿塞拜疆语
 [Basque]
-
+巴斯克语
 [Belarusian]
 白俄罗斯语
 [Bengali]
-
+孟加拉语
 [Bihari]
-
+比哈里语
 [Bosnian]
-
+波斯尼亚语
 [Breton]
-
+不里多尼语
 [Bulgarian]
 保加利亚语
 [Burmese]
-
+缅甸语
 [Catalan]
-
+加泰罗尼亚语
 [Cherokee]
-
+切罗基语
 [Chinese]
 中文
 [Chinese_CN]
@@ -397,7 +397,7 @@ HTTP 代理
 [Danish]
 丹麦语
 [Dhivehi]
-
+迪贝喜语
 [Dutch]
 荷兰语
 [English]
@@ -413,7 +413,7 @@ HTTP 代理
 [Icelandic]
 冰岛语
 [Faroese]
-
+法罗语
 [Filipino]
 菲律宾
 [Finnish]
@@ -421,31 +421,31 @@ HTTP 代理
 [French]
 法语 
 [Frisian]
-
+弗里斯兰语
 [Galician]
-
+加利西亚语
 [German]
 德语
 [Georgian]
-
+乔治亚语
 [Greek]
 希腊语
 [Guarani]
-
+瓜拉尼语
 [Gujarati]
-
+吉吉拉特语
 [Hebrew]
 希伯来语
 [Hindi]
 印地语
 [Indonesian]
-
+印地尼西亚语
 [Inuktitut]
-
+伊努伊特语
 [Interlingua]
-
+拉丁国际语
 [Irish]
-
+爱尔兰语
 [Hungarian]
 匈牙利语
 [Italian]
@@ -453,19 +453,19 @@ HTTP 代理
 [Japanese]
 日语
 [Japanese_Romaji]
-
+日语（罗马字符）
 [Kazakh]
-
+哈萨克语
 [Khmer]
-
+高棉语
 [Korean]
 韩语
 [Kurdish]
-
+库尔德语
 [Kyrgyz]
-
+柯尔克孜语
 [Laothian]
-
+老挝语
 [Latin]
 拉丁语
 [Latvian]
@@ -475,31 +475,31 @@ HTTP 代理
 [Macedonian]
 马其顿语
 [Malay]
-
+马来语
 [Malayalam]
-
+马拉雅拉姆语
 [Maltese]
-
+马耳他语
 [Marathi]
-
+马拉地语
 [Mongolian]
-
+蒙古语
 [Nepali]
-
+尼泊尔语
 [Norwegian]
 挪威语
 [Norwegian_Bokmal]
-
+挪威语（博克马尔语）
 [Norwegian_Nynorsk]
-
+挪威语（尼诺斯克语）
 [Oriya]
-
+奥里亚语
 [Pashto]
-
+普什图语
 [Papiamento]
-
+帕皮阿门托语
 [Persian]
-
+波斯语
 [Polish]
 波兰语
 [Portuguese]
@@ -507,19 +507,19 @@ HTTP 代理
 [Portuguese_BR]
 葡萄牙语-Br
 [Punjabi]
-
+旁遮普语
 [Romanian]
 罗马尼亚语
 [Russian]
 俄语
 [Sanskrit]
-
+梵语
 [Serbian]
 塞尔维亚语
 [Sindhi]
-
+信德语
 [Sinhalese]
-
+僧伽罗语
 [Slovak]
 斯洛伐克语
 [Slovenian]
@@ -529,21 +529,21 @@ HTTP 代理
 [Spanish_LA]
 西班牙语-LA
 [Swahili]
-
+斯瓦希里语
 [Swedish]
 瑞典语
 [Tajik]
-
+塔吉克语
 [Tagalog]
-
+塔加路语
 [Tamil]
-
+泰米尔语
 [Telugu]
-
+泰卢固语
 [Thai]
-
+泰语
 [Tibetan]
-
+藏语
 [Turkish]
 土耳其
 [Ukrainian]
@@ -551,15 +551,15 @@ HTTP 代理
 [Urdu]
 乌尔都语
 [Uzbek]
-
+乌兹别克语
 [Uighur]
-
+维吾尔语
 [Vietnamese]
-
+越南语
 [Welsh]
 威尔士
 [Unknown]
-
+未知
 [Languages]
 语言
 [Services]
@@ -665,29 +665,29 @@ HTTP 代理
 [Search Engine]
 搜索引擎
 [Bilingual phrases dictionary]
-
+双语语法词典
 [Bilingual sentenses dictionary]
-
+双语文句词典
 [T]
-T
+翻译
 [MD]
-MD
+单语
 [BD]
-BD
+双语
 [SD]
-SD
+同意
 [AD]
-AD
+反意
 [PD]
-PD
+片语
 [EN]
-EN
+百科
 [SE]
-SE
+引擎
 [BP]
-
+双片
 [BS]
-
+双语
 [Limit]
 限制
 [characters]
@@ -695,9 +695,9 @@ SE
 [Limit {0} : {1} characters]
 限制 {0} : {1} 字符
 [Limit {0} : {1} lines]
-
+限制 {0} : {1} 行
 [Limit {0} : {1} words]
-
+限制 {0} : {1} 词
 [Masks]
 掩饰
 [English-Ukrainian technical dictionary]
@@ -733,57 +733,57 @@ Pragma 5.x 在线翻译
 [SYSTRAN translation software (used by Altavista Babel Fish)]
 SYSTRAN 翻译软件（使用 Altavista Babel Fish）
 [Polish-English-Polish and Polish-German-Polish dictionaries]
-
+波兰语-英语 和 波兰语-德语 双向词典
 [Yahoo Babel Fish Translator]
-
+Yahoo Babel Fish 翻译
 [Multitran - system for translators]
-
+Multitran - 翻译系统
 [PROMT - Free Text Translator]
-
+PROMT - 免费文字翻译
 [LangSoft Translation & Educational Software]
-
+Langsoft 翻译 & 教育软件
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - 捷克辞典
 [Free Online Urdu-English Dictionary]
-
+乌尔都语-英语 免费在线词典
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+乌尔都语-英语 双向在线词典
 [InterTran dictionary]
-
+InterTran 词典
 [Priberam Portuguese dictionary]
-
+Priberam 葡萄牙语词典
 [WordNet a lexical database for the English language]
-
+WordNet 英语词典数据库
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet 多语言词典数据库
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+英语-保加利亚语 词典 - SA 在线词典
 [dict.cc - English-German Dictionary]
-
+dict.cc - 英语-德语 词典
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS- 德语辞典
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open thesaurus 开源的德语同义词词典
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+OpenThesaurus-es 开源的西班牙语同义词词典
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal - 基于 OpenThesaurus 的开源荷兰语同义词词典
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+OpenThesaurusPT 开源的葡萄牙语同义词词典
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+OpenThesaurusPL 开源的波兰语同义词词典
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+OpenThesaurusSI 开源的斯洛文尼亚语同义词词典
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(td)* 在线词典 - 土耳其语辞典
 [Free Dictionaries project]
-
+免费辞典项目
 [Grouped by Service's Url]
-Grouped by Service's Url
+按服务链接分组
 [Grouped by Language]
-Grouped by Language
+按语言分组
 [{0} language pairs]
-{0} language pairs
+{0} 语言比对
 [{0} services]
 {0} 服务
 [Create article]
@@ -791,89 +791,90 @@ Grouped by Language
 [Open article]
 开放项目
 [Pronunciation]
-
+发音
 [{0} more entries found]
-
+找到大于 {0} 个条目
 [related links]
-
+相关链接
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+查询时间：{0} 秒，查询次数：{1}，已发送：{2} 字节，已接收：{3} 字节
 [Full time : {0} s]
-
+全部时间：{0} 秒
 [{0} phrases translated by {1} calls to translate services]
-
+已由 {1} 个翻译服务翻译了 {0} 个词组
 [Send by mail]
-
+通过电子邮件发送
 [Continue]
-
+继续
 [Copy]
-
+复制
 [Terminate]
-
+终止
 [Terminated by user on error]
-
+已被用户在错误时终止
 [Unhandled exception in]
-
+未处理的意外
 [Error on opening config file]
-
+打开配置文件时出错
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+从 {0} 打开配置文件时出错。\r\n可能因为选择的文件格式错误。\r\n设置将恢复为默认值。
 [Error on saving config file]
-
+保存文件时出错
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+保存配置文件到 {0} 时出错\r\n可能因为没有系统临时文件目录的写入权限。
 [Error on saving config file to {0}]
-
+保存配置文件到 {0} 时出错
 [Show information about exception]
-
+显示额外信息
 [Error on start process : {0}\r\nError message : {1}]
-
+开始处理时发生错误：{0}\r\n错误信息：{1}
 [Error on start process]
-
+开始处理时发生错误
 [Error on sending email to : {0}\r\nError message : {1}]
-
+发送邮件到 {0} 时发生错误\r\n错误信息：{1}
 [Error on sending email]
-
+发送邮件时发生错误
 [Language detection]
-
+语言识别
 [Guess language ...]
-
+猜测语言...
 [Detect language of source text]
-
+识别原文语言
 [Guess language of source text and show info about]
-
+猜测原文语言并显示相关信息
 [Language detection : {0}]
-
+语言识别：{0}
 [Started]
-
+已开始
 [Failed]
-
+失败
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}，{1}，完成 - {2}%，信任度 - {3}]
 [Strong]
-
+强
 [Intermediate]
-
+中
 [Poor]
-
+弱
 [Reliable]
-
+准确
 [Not reliable]
-
+不准确
 [Keyboard layout : {0}]
-
+键盘布局：{0}
 [Intelligent switching of profiles and directions]
-
+智能切换配置文件和词典
 [Based on keyboard layout]
-
+在键盘布局基础上
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+在键盘布局的基础上智能切换配置文件和翻译词典
 [Based on detected language]
-
+在识别语言的基础上
 [Intelligent switching of profiles and translation directions based on detected language]
-
+在识别语言的基础上智能切换配置文件和翻译词典
 [Switch by detected language only when text length greater of]
-
+只有在文本长度过长时才切换为已识别语言
 [Break translation when application deactivated]
-
+当应用程序失去焦点时中止翻译
 [Break translation on switching to other application]
+切换到其它应用程序时中止翻译
