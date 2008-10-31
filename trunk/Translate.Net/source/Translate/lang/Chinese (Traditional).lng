@@ -1,7 +1,7 @@
 ﻿[TranslationComment]
 
 [TranslatedBy]
-Smallchou Lin (Ver.971001)
+Smallchou Lin (Ver.971031)
 [TranslatedByURL]
 smallchoulcc@yahoo.com.tw
 [Translated by]
@@ -356,7 +356,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Albanian]
 阿爾巴尼亞語
 [Amharic]
-
+阿姆哈拉語
 [Autodetect]
 自動偵測
 [Arabic]
@@ -364,7 +364,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Armenian]
 亞美尼亞語
 [Azerbaijani]
-
+阿塞拜疆語
 [Basque]
 巴斯克語
 [Belarusian]
@@ -372,7 +372,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Bengali]
 孟加拉語
 [Bihari]
-
+比哈里語
 [Bosnian]
 波士尼亞語
 [Breton]
@@ -380,11 +380,11 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Bulgarian]
 保加利亞語
 [Burmese]
-
+緬甸語
 [Catalan]
 加泰羅尼亞語
 [Cherokee]
-
+切羅基文
 [Chinese]
 中文
 [Chinese_CN]
@@ -398,7 +398,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Danish]
 丹麥語
 [Dhivehi]
-
+迪維希語
 [Dutch]
 荷蘭語
 [English]
@@ -432,9 +432,9 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Greek]
 希臘語
 [Guarani]
-
+瓜拉尼文
 [Gujarati]
-
+古吉特拉語
 [Hebrew]
 現代以色列語
 [Hindi]
@@ -442,7 +442,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Indonesian]
 印尼語
 [Inuktitut]
-
+愛斯基摩語
 [Interlingua]
 世界語（人工國際語）
 [Irish]
@@ -456,17 +456,17 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Japanese_Romaji]
 日本羅馬字
 [Kazakh]
-
+哈薩克語
 [Khmer]
-
+高棉文
 [Korean]
 韓語
 [Kurdish]
-
+庫爾德語
 [Kyrgyz]
-
+吉爾吉斯語
 [Laothian]
-
+老撾語
 [Latin]
 拉丁語
 [Latvian]
@@ -476,13 +476,13 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Macedonian]
 馬其頓語
 [Malay]
-
+馬來語
 [Malayalam]
-
+馬拉雅拉姆語(德拉威語)
 [Maltese]
 馬爾他語
 [Marathi]
-
+馬拉地語
 [Mongolian]
 蒙古語
 [Nepali]
@@ -494,9 +494,9 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Norwegian_Nynorsk]
 挪威語（Nynorsk）
 [Oriya]
-
+奧里亞語
 [Pashto]
-
+普什圖語
 [Papiamento]
 帕皮亞內托文
 [Persian]
@@ -508,19 +508,19 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Portuguese_BR]
 葡萄牙語-BR
 [Punjabi]
-
+旁遮普語
 [Romanian]
 羅馬尼亞語
 [Russian]
 俄語
 [Sanskrit]
-
+梵語
 [Serbian]
 塞爾維亞語
 [Sindhi]
-
+信德語
 [Sinhalese]
-
+僧伽羅語
 [Slovak]
 斯洛伐克語
 [Slovenian]
@@ -534,7 +534,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Swedish]
 瑞典語
 [Tajik]
-
+塔吉克語
 [Tagalog]
 塔加拉族語
 [Tamil]
@@ -544,7 +544,7 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Thai]
 泰國語
 [Tibetan]
-
+西藏語
 [Turkish]
 土耳其
 [Ukrainian]
@@ -552,15 +552,15 @@ HTTP-Proxy ({0}) 格式錯誤，代理伺服器設定將重設為預設值
 [Urdu]
 烏爾都語
 [Uzbek]
-
+烏茲別克語
 [Uighur]
-
+維吾爾族
 [Vietnamese]
 越南語
 [Welsh]
 威爾士
 [Unknown]
-
+未知
 [Languages]
 語言
 [Services]
@@ -836,45 +836,46 @@ Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 [Error on sending email]
 寄送郵件時發生錯誤
 [Language detection]
-
+語言偵測
 [Guess language ...]
-
+猜測語言……
 [Detect language of source text]
-
+偵測來源文字的語言
 [Guess language of source text and show info about]
-
+猜測來源文字的語言並顯示相關資訊
 [Language detection : {0}]
-
+語言偵測： {0}
 [Started]
-
+已開始
 [Failed]
-
+失敗
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1},  分數 - {2}%, 信度 - {3}
 [Strong]
-
+強力
 [Intermediate]
-
+中等
 [Poor]
-
+貧弱
 [Reliable]
-
+可靠的
 [Not reliable]
-
+不可靠的
 [Keyboard layout : {0}]
-
+鍵盤設置：{0}
 [Intelligent switching of profiles and directions]
-
+智慧地切換使用者定義與翻譯方向
 [Based on keyboard layout]
-
+基於鍵盤設置
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+基於鍵盤設置智慧地切換使用者定義與翻譯方向
 [Based on detected language]
-
+基於偵測的語言
 [Intelligent switching of profiles and translation directions based on detected language]
-
+基於偵測的語言智慧地切換使用者定義與翻譯方向
 [Switch by detected language only when text length greater of]
-
+當翻譯文字量大時依偵測的語言切換
 [Break translation when application deactivated]
-
+當軟體非作用中時中斷翻譯
 [Break translation on switching to other application]
+使用其它軟體令 Translate.Net 的視窗非使用中時中斷翻譯動作
