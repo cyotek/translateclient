@@ -355,7 +355,7 @@ HTML ソースを表示
 [Albanian]
 アルバニア語
 [Amharic]
-
+アムハラ語
 [Autodetect]
 *自動*
 [Arabic]
@@ -363,7 +363,7 @@ HTML ソースを表示
 [Armenian]
 アルメニア語
 [Azerbaijani]
-
+アゼルバイジャン語
 [Basque]
 バスク語
 [Belarusian]
@@ -371,7 +371,7 @@ HTML ソースを表示
 [Bengali]
 ベンガル語
 [Bihari]
-
+ビハール語
 [Bosnian]
 ボスニア語
 [Breton]
@@ -379,11 +379,11 @@ HTML ソースを表示
 [Bulgarian]
 ブルガリア語
 [Burmese]
-
+ビルマ語
 [Catalan]
 カタルニア語
 [Cherokee]
-
+チェロキー語
 [Chinese]
 中国語
 [Chinese_CN]
@@ -397,7 +397,7 @@ HTML ソースを表示
 [Danish]
 デンマーク語
 [Dhivehi]
-
+ディベヒ語
 [Dutch]
 オランダ語
 [English]
@@ -431,9 +431,9 @@ HTML ソースを表示
 [Greek]
 ギリシャ語
 [Guarani]
-
+ワラニー語
 [Gujarati]
-
+グジャラーティー語
 [Hebrew]
 ヘブライ
 [Hindi]
@@ -441,7 +441,7 @@ HTML ソースを表示
 [Indonesian]
 インドネシア語
 [Inuktitut]
-
+イヌクティトゥット語
 [Interlingua]
 インテルリングア
 [Irish]
@@ -455,17 +455,17 @@ HTML ソースを表示
 [Japanese_Romaji]
 ローマ字
 [Kazakh]
-
+カザフ語
 [Khmer]
-
+カンボジア語
 [Korean]
 韓国語
 [Kurdish]
-
+クルド語
 [Kyrgyz]
-
+キルギス語
 [Laothian]
-
+ラオス語
 [Latin]
 ラテン語
 [Latvian]
@@ -475,13 +475,13 @@ HTML ソースを表示
 [Macedonian]
 マケドニア語
 [Malay]
-
+マレー語
 [Malayalam]
-
+マラヤーラム語
 [Maltese]
 マルタ語
 [Marathi]
-
+マラーティー語
 [Mongolian]
 モンゴル語
 [Nepali]
@@ -493,9 +493,9 @@ HTML ソースを表示
 [Norwegian_Nynorsk]
 ノルウェー語(Nynorsk)
 [Oriya]
-
+オリヤ語
 [Pashto]
-
+パシュトウ語
 [Papiamento]
 パピアメント語
 [Persian]
@@ -507,19 +507,19 @@ HTML ソースを表示
 [Portuguese_BR]
 ポルトガル語-Br
 [Punjabi]
-
+パンジャブ語
 [Romanian]
 ルーマニア語
 [Russian]
 ロシア語
 [Sanskrit]
-
+サンスクリット語
 [Serbian]
 セルビア語
 [Sindhi]
-
+シンド語
 [Sinhalese]
-
+シンハラ語
 [Slovak]
 スロバキア語
 [Slovenian]
@@ -533,7 +533,7 @@ HTML ソースを表示
 [Swedish]
 スウェーデン語
 [Tajik]
-
+タジク語
 [Tagalog]
 タガログ語
 [Tamil]
@@ -543,7 +543,7 @@ HTML ソースを表示
 [Thai]
 タイ語
 [Tibetan]
-
+チベット語
 [Turkish]
 トルコ語
 [Ukrainian]
@@ -551,9 +551,9 @@ HTML ソースを表示
 [Urdu]
 ウルドゥー語
 [Uzbek]
-
+ウズベク語
 [Uighur]
-
+ウイグル語
 [Vietnamese]
 ベトナム語
 [Welsh]
@@ -835,45 +835,46 @@ Sozluk(te)* Online Dictionary -  トルコ語辞典
 [Error on sending email]
 メールの送信でエラー
 [Language detection]
-
+言語の検出
 [Guess language ...]
-
+言語の推測 ...
 [Detect language of source text]
-
+元文章から言語を検出
 [Guess language of source text and show info about]
-
+元文章と情報から言語を推測
 [Language detection : {0}]
-
+検出した言語 : {0}
 [Started]
-
+開始しました
 [Failed]
-
+失敗しました
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1},  スコア - {2}%, 信頼度 - {3}
 [Strong]
-
+強い
 [Intermediate]
-
+中間
 [Poor]
-
+貧弱
 [Reliable]
-
+信頼できる
 [Not reliable]
-
+信頼できない
 [Keyboard layout : {0}]
-
+キー配置 : {0}
 [Intelligent switching of profiles and directions]
-
+プロファイルと方向を推定で切替
 [Based on keyboard layout]
-
+キー配置に基く
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+プロファイルと翻訳方向をキー配置に基き推定で切替
 [Based on detected language]
-
+検出した言語に基く
 [Intelligent switching of profiles and translation directions based on detected language]
-
+プロファイルと翻訳方向を検出した言語に基き推定で切替
 [Switch by detected language only when text length greater of]
-
+テキストの長さが以下のサイズを超えた時だけ検出した言語を切り替え
 [Break translation when application deactivated]
-
+アプリが非活性になったら翻訳を中断
 [Break translation on switching to other application]
+他のアプリに切り替えられたら翻訳を中断
