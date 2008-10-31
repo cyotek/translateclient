@@ -65,7 +65,7 @@ Online-Hilfe
 [Options]
 Optionen
 [OK]
-
+OK
 [Cancel]
 Abbrechen
 [Apply]
@@ -185,7 +185,7 @@ Mit Hotkey Strg+Einfg+Einfg aktivieren
 [Translate when activated by hotkey]
 Bei Aktivierung durch Hotkey übersetzen
 [Show query time and other information]
-Abfragezeit und andere Informationen anzeigen
+Abfragezeit und weitere Informationen anzeigen
 [Mark by red color untranslated words]
 Unübersetzte Wörter Rot markieren
 [Don't show "Nothing found" results]
@@ -195,7 +195,7 @@ Keine "Nichts gefunden"-Ergebnisse anzeigen
 [Show accents]
 Akzente anzeigen
 [Show names of services]
-Die Namen der Dienste anzeigen
+Namen der Dienste anzeigen
 [Nothing found]
 Nichts gefunden
 [An error occurred during translation. Please try again later.]
@@ -355,7 +355,7 @@ Afrikaans
 [Albanian]
 Albanisch
 [Amharic]
-
+Amharisch
 [Autodetect]
 Automatisch erkennen
 [Arabic]
@@ -363,7 +363,7 @@ Arabisch
 [Armenian]
 Armenisch
 [Azerbaijani]
-
+Aserbaidsch
 [Basque]
 Baskisch
 [Belarusian]
@@ -371,7 +371,7 @@ Belorussisch
 [Bengali]
 Bengalisch
 [Bihari]
-
+Bihari
 [Bosnian]
 Bosnisch
 [Breton]
@@ -379,11 +379,11 @@ Bretonisch
 [Bulgarian]
 Bulgarisch
 [Burmese]
-
+Burmesisch
 [Catalan]
 Katalanisch
 [Cherokee]
-
+Cherokee
 [Chinese]
 Chinesisch
 [Chinese_CN]
@@ -397,7 +397,7 @@ Tschechisch
 [Danish]
 Dänisch
 [Dhivehi]
-
+Dhivehi
 [Dutch]
 Niederländisch
 [English]
@@ -431,9 +431,9 @@ Georgisch
 [Greek]
 Griechisch
 [Guarani]
-
+Guarani
 [Gujarati]
-
+Gujarati
 [Hebrew]
 Hebräisch
 [Hindi]
@@ -441,7 +441,7 @@ Hindi
 [Indonesian]
 Indonesisch
 [Inuktitut]
-
+Inuktitut
 [Interlingua]
 Interlingua
 [Irish]
@@ -455,17 +455,17 @@ Japanisch
 [Japanese_Romaji]
 Japanisch_Romaji
 [Kazakh]
-
+Kasachisch
 [Khmer]
-
+Khmer
 [Korean]
 Koreanisch
 [Kurdish]
-
+Kurdisch
 [Kyrgyz]
-
+Kirgisisch
 [Laothian]
-
+Laotisch
 [Latin]
 Latein
 [Latvian]
@@ -475,13 +475,13 @@ Litauisch
 [Macedonian]
 Mazedonisch
 [Malay]
-
+Malaiisch
 [Malayalam]
-
+Malayalam
 [Maltese]
 Maltesisch
 [Marathi]
-
+Marathi
 [Mongolian]
 Mongolisch
 [Nepali]
@@ -493,9 +493,9 @@ Norwegisch_Bokmal
 [Norwegian_Nynorsk]
 Norwegisch_Nynorsk
 [Oriya]
-
+Oriya
 [Pashto]
-
+Pashto
 [Papiamento]
 Papiamento
 [Persian]
@@ -507,19 +507,19 @@ Portugiesisch
 [Portuguese_BR]
 Portugiesisch_BR
 [Punjabi]
-
+Pandschabi
 [Romanian]
 Rumänisch
 [Russian]
 Russisch
 [Sanskrit]
-
+Sanskrit
 [Serbian]
 Serbisch
 [Sindhi]
-
+Sindhi
 [Sinhalese]
-
+Singhalesisch
 [Slovak]
 Slowakisch
 [Slovenian]
@@ -533,7 +533,7 @@ Suaheli
 [Swedish]
 Schwedisch
 [Tajik]
-
+Tadschikisch
 [Tagalog]
 Tagalog
 [Tamil]
@@ -543,7 +543,7 @@ Telugu
 [Thai]
 Thai
 [Tibetan]
-
+Tibetisch
 [Turkish]
 Türkisch
 [Ukrainian]
@@ -551,15 +551,15 @@ Ukrainisch
 [Urdu]
 Urdu
 [Uzbek]
-
+Uzbekisch
 [Uighur]
-
+Uigurisch
 [Vietnamese]
 Vietnamesisch
 [Welsh]
 Walisisch
 [Unknown]
-
+Unbekannt
 [Languages]
 Sprachen
 [Services]
@@ -718,7 +718,7 @@ Slovnyk - das mehrsprachige Wörterbuch
 Russisch-Ukrainisches Wörterbuch für konstante Ausdrücke
 [Pragma 5.x on-line translation]
 Pragma 5.x Online-Übersetzung
-[English-Ukrainian und Ukrainian-English Dictionaries On-Line - LingResUa]
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
 Englisch-Ukrainianische und Ukrainianisch-Englische Online-Wörterbücher - LingResUa
 [Ukrainian-English-Ukrainian dictionary - Slovnenya]
 Ukrainianisch-Englisch-Ukrainianisches Wörterbuch - Slovenya
@@ -806,8 +806,8 @@ Gesamtdauer : {0} s
 Per E-Mail senden
 [Continue]
 Fortfahren
-[Close]
-Schließen
+[Copy]
+Kopieren
 [Terminate]
 Abbrechen
 [Terminated by user on error]
@@ -835,45 +835,47 @@ Fehler beim Senden der E-Mail an : {0}\r\nFehlermeldung : {1}
 [Error on sending email]
 Fehler beim E-Mail-Versand
 [Language detection]
-
+Spracherkennung
 [Guess language ...]
-
+Sprache erraten ...
 [Detect language of source text]
-
+Erkenne Sprache des Ausgangstextes
 [Guess language of source text and show info about]
-
+Errate Sprache des Ausgangstextes und zeige Info darüber an
 [Language detection : {0}]
-
+Spracherkennung : {0}
 [Started]
-
+Gestartet
 [Failed]
-
+Fehlgeschlagen
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1},  Wertung - {2}%, Sicherheit - {3}
 [Strong]
-
+Stark
 [Intermediate]
-
+Dazwischen
 [Poor]
-
+Schwach
 [Reliable]
-
+Verlässlich
 [Not reliable]
-
+Unzuverlässig
 [Keyboard layout : {0}]
-
+Keyboard-Layout : {0}
 [Intelligent switching of profiles and directions]
-
+Intelligenter Wechsel von Profilen und Richtungen
 [Based on keyboard layout]
-
+Auf Keyboard-Layout basierend
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+Intelligenter Wechsel von Profilen und Sprachrichtungen basierend auf Keyboard-Layout
 [Based on detected language]
-
+Auf erkannter Sprache basierend
 [Intelligent switching of profiles and translation directions based on detected language]
-
+Intelligenter Wechsel von Profilen und Sprachrichtungen basierend auf erkannter Sprache
 [Switch by detected language only when text length greater of]
-
+Wechsel auf erkannte Sprache nur venn Text länger als
 [Break translation when application deactivated]
-
+Übersetzung bei deaktivierter Anwendung unterbrechen
 [Break translation on switching to other application]
+Übersetzung bei Wechsel zu anderer Anwendung unterbrechen
+
