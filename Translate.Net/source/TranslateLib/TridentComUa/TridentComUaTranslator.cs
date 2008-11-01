@@ -76,13 +76,17 @@ namespace Translate
 			}
 			
 			AddSupportedSubject(SubjectConstants.Common, "**");
+			AddSupportedSubject(SubjectConstants.Auto,"AU" );
+			AddSupportedSubject(SubjectConstants.Bank,"BN" );
 			AddSupportedSubject(SubjectConstants.Business,"BZ" );
 			AddSupportedSubject(SubjectConstants.Informatics, "IN");
 			AddSupportedSubject(SubjectConstants.Tech, "EG");
 			AddSupportedSubject(SubjectConstants.Law, "LW");
+			AddSupportedSubject(SubjectConstants.Sex, "SX");
 			AddSupportedSubject(SubjectConstants.Sport, "SO");
+			AddSupportedSubject(SubjectConstants.Travel, "TI");
 			
-			CharsLimit = 1000;
+			CharsLimit = 155;
 		}
 		
 		SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
@@ -125,7 +129,7 @@ namespace Translate
 			//query
 			//?Adr=62.149.17.70&DlgLang=Rus&TranTo=Rus&Subject=**&SrcTxt=%D0%B1%D0
 			string lang_to = ConvertLanguage(languagesPair.To);
-			string query = "Adr=62.149.17.70&DlgLang=Eng&TranTo={0}&Subject={1}&SrcTxt={2}";
+			string query = "AddCount=1&Adr=123.123.123.123&DlgLang=Eng&TranTo={0}&Subject={1}&SrcTxt={2}";
 			query = string.Format(CultureInfo.InvariantCulture, 
 				query, 
 				lang_to,
