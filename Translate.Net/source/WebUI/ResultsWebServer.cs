@@ -66,7 +66,10 @@ namespace WebUI
 			ApplicationServer WebAppServer=new ApplicationServer(websource);
 
 			string basePath = Directory.GetParent(Assembly.GetExecutingAssembly().Location).ToString();
-			string serverPath = basePath + "\\WebUI";
+			string serverPath = basePath;
+			if(serverPath[serverPath.Length - 1] != '\\')
+				serverPath += "\\";
+			serverPath += "WebUI";
 			string serverBinPath = serverPath + "\\bin\\";
 			WebAppServer.AddApplication("",-1,"/", serverPath);
 			
