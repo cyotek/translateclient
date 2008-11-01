@@ -38,6 +38,7 @@
 
 
 using System;
+using System.Text;
 
 namespace Translate
 {
@@ -107,6 +108,74 @@ namespace Translate
 			public bool IsAsteriskMaskSupported {
 				get { return isAsteriskMaskSupported; }
 				set { isAsteriskMaskSupported = value; }
+			}
+			
+			public string GetServiceTooltipText()
+			{
+				StringBuilder sb = new StringBuilder();
+				
+				sb.AppendLine(LangPack.TranslateString(setting.ServiceItem.Service.FullName));
+				sb.AppendLine(GetServiceItemType(setting.ServiceItem));
+				
+				string languagePair = LangPack.TranslateLanguage(Setting.LanguagePair.From) +
+						"->" + 
+						LangPack.TranslateLanguage(Setting.LanguagePair.To);
+				
+				sb.AppendLine(languagePair);
+				
+				if(setting.Subject != SubjectConstants.Common)
+				{
+					sb.AppendLine(LangPack.TranslateString(setting.Subject));
+				}
+
+				if(setting.ServiceItem.CharsLimit != -1)
+				{
+					sb.AppendLine(string.Format(LangPack.TranslateString("Limit {0} : {1} characters"), 
+						"", setting.ServiceItem.CharsLimit));
+				}
+	
+				if(setting.ServiceItem.LinesLimit != -1)
+				{
+					sb.AppendLine(string.Format(LangPack.TranslateString("Limit {0} : {1} lines"), 
+						"", setting.ServiceItem.LinesLimit));
+				}
+	
+				if(setting.ServiceItem.WordsLimit != -1)
+				{
+					sb.AppendLine(string.Format(LangPack.TranslateString("Limit {0} : {1} words"), 
+						"", setting.ServiceItem.WordsLimit));
+				}
+				
+				if(IsAsteriskMaskSupported || IsQuestionMaskSupported)
+				{
+					sb.Append(LangPack.TranslateString("Masks") + " : ");
+					if(IsAsteriskMaskSupported)
+						sb.Append("'*'"); 
+					
+					if(IsAsteriskMaskSupported && IsQuestionMaskSupported)
+						sb.Append(","); 
+						
+					if(IsQuestionMaskSupported)
+						sb.Append("'?'"); 
+					sb.AppendLine();	
+				}
+				
+				sb.AppendLine("---");
+				if(DisabledByUser)
+				{
+					sb.AppendLine(StringParser.RemoveAll("<", ">", LangPack.TranslateString("<b>Status</b> : Disabled")));
+				}
+				else if(Enabled)
+				{
+					sb.AppendLine(StringParser.RemoveAll("<", ">", LangPack.TranslateString("<b>Status</b> : Enabled")));
+				}
+				else
+				{
+					sb.Append(StringParser.RemoveAll("<", ">", LangPack.TranslateString("<b>Status</b> : Error")));
+					sb.AppendLine(" - " + Error);
+				}
+				
+				return sb.ToString().Trim();	
 			}
 			
 			public static string GetServiceItemType(ServiceItem serviceItem)
