@@ -117,7 +117,21 @@ namespace Translate
 				UpdatesManager.CheckNewVersion();
 				
 				WebUI.ResultsWebServer.UnhandledException += OnUnhandledExceptionEvent; 
-				WebUI.ResultsWebServer.Start();
+				try
+				{
+					WebUI.ResultsWebServer.Start();
+				}
+				catch(System.Reflection.TargetInvocationException e)
+				{
+					if(e.InnerException != null && e.InnerException.GetType() == typeof(System.Security.VerificationException))
+					{
+						MessageBox.Show(LangPack.TranslateString("Running from network share not supported.\nTool can work only when started from local drive under appropriate user's rights."),
+							Constants.AppName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+						return;
+					}
+					else 
+						throw;
+				}
 				
 				Application.Run(new TranslateMainForm());
 			}
