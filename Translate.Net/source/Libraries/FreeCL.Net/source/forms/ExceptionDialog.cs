@@ -47,6 +47,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using FreeCL.UI;
 using FreeCL.RTL;
+using System.Security;
 
 namespace FreeCL.Forms
 {
@@ -116,6 +117,37 @@ namespace FreeCL.Forms
 			if(fileNotFoundException != null)
 			{
 				exceptionText.Append("Fusion Log \r\n" + fileNotFoundException.FusionLog + "\r\n");			
+			}
+			
+			SecurityException securityException = e as SecurityException;
+			if(securityException != null)
+			{
+				exceptionText.AppendLine("Action : " + securityException.Action);
+				exceptionText.AppendLine("PermissionType    : " + securityException.PermissionType);
+				try
+				{
+					exceptionText.AppendLine("Demanded    : " + securityException.Demanded);
+				}catch{}
+				try
+				{
+					exceptionText.AppendLine("FirstPermissionThatFailed    : " + securityException.FirstPermissionThatFailed);
+				}catch{}
+				try
+				{
+					exceptionText.AppendLine("GrantedSet    : " + securityException.GrantedSet);
+				}catch{}
+				try
+				{
+					exceptionText.AppendLine("RefusedSet    : " + securityException.RefusedSet);
+				}catch{}
+				try
+				{
+					exceptionText.AppendLine("Url    : " + securityException.Url);
+				}catch{}
+				try
+				{
+					exceptionText.AppendLine("Zone    : " + securityException.Zone);
+				}catch{}
 			}
 			
 			exceptionText.Append("Stack Trace \r\n" + e.StackTrace + "\r\n");			
