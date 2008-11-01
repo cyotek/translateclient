@@ -226,48 +226,48 @@ namespace Translate
 			
 			public void GenerateName()
 			{
-				name = setting.ServiceItem.Service.Url.Host;
-				name += "-";
+				StringBuilder sb = new StringBuilder(setting.ServiceItem.Service.Url.Host);
+				sb.Append("-");
 				
 				if(setting.ServiceItem is Translator)
 				{
-					name += LangPack.TranslateString("T");
+					sb.Append(LangPack.TranslateString("T"));
 				}
 				else if(setting.ServiceItem is AntonymsDictionary)
 				{
-					name += LangPack.TranslateString("AD");
+					sb.Append(LangPack.TranslateString("AD"));
 				}
 				else if(setting.ServiceItem is SynonymsDictionary)
 				{
-					name += LangPack.TranslateString("SD");
+					sb.Append(LangPack.TranslateString("SD"));
 				}
 				else if(setting.ServiceItem is PhraseologicalDictionary)
 				{
-					name += LangPack.TranslateString("PD");
+					sb.Append(LangPack.TranslateString("PD"));
 				}
 				else if(setting.ServiceItem is Encyclopedia)
 				{
-					name += LangPack.TranslateString("EN");
+					sb.Append(LangPack.TranslateString("EN"));
 				}
 				else if(setting.ServiceItem is MonolingualSearchEngine || setting.ServiceItem is BilingualSearchEngine)
 				{
-					name += LangPack.TranslateString("SE");
+					sb.Append(LangPack.TranslateString("SE"));
 				}
 				else if(setting.ServiceItem is MonolingualDictionary)
 				{
-					name += LangPack.TranslateString("MD");
+					sb.Append(LangPack.TranslateString("MD"));
 				}
 				else if(setting.ServiceItem is BilingualPhrasesDictionary)
 				{
-					name += LangPack.TranslateString("BP");
+					sb.Append(LangPack.TranslateString("BP"));
 				}
 				else if(setting.ServiceItem is BilingualSentensesDictionary)
 				{
-					name += LangPack.TranslateString("BS");
+					sb.Append(LangPack.TranslateString("BS"));
 				}
 				else
 				{
-					name += LangPack.TranslateString("BD");
+					sb.Append(LangPack.TranslateString("BD"));
 				}
 				type = GetServiceItemType(setting.ServiceItem);
 				
@@ -280,26 +280,27 @@ namespace Translate
 				
 				if(showLanguage)
 				{
-					name += "-";
-					name += GetShortNameOfTranslateDirection(Setting.LanguagePair);
+					sb.Append("-");
+					sb.Append(GetShortNameOfTranslateDirection(Setting.LanguagePair));
 				}
 				
 				if(setting.Subject != SubjectConstants.Common)
 				{
-					name += "-";
-					name += LangPack.TranslateString(setting.Subject);
+					sb.Append("-");
+					sb.Append(LangPack.TranslateString(setting.Subject));
 				}
+				name = sb.ToString();
 			}
 			
 			public static string GetShortNameOfTranslateDirection(LanguagePair languagePair)
 			{
-				string result = "";
+				StringBuilder sb = new StringBuilder();
 				
-				result += StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.From), 3);
-				result += "->";
-				result += StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.To), 3);
+				sb.Append(StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.From), 3));
+				sb.Append("->");
+				sb.Append(StringParser.SafeResizeString(LangPack.TranslateLanguage(languagePair.To), 3));
 				
-				return result;
+				return sb.ToString();
 			}
 			
 			public override string ToString()
