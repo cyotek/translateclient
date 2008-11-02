@@ -19,6 +19,7 @@
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <NoWarn>0649,0618,0169,0675</NoWarn>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Папа\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,7 +30,7 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
-    <DebugType>None</DebugType>
+    <DebugType>PdbOnly</DebugType>
     <Optimize>True</Optimize>
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
