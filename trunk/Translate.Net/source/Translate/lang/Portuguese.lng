@@ -65,7 +65,7 @@ Ajuda On-line
 [Options]
 Opções
 [OK]
-
+OK
 [Cancel]
 Cancelar
 [Apply]
@@ -355,7 +355,7 @@ Africâner
 [Albanian]
 Albanês
 [Amharic]
-
+Amárico
 [Autodetect]
 Auto-detectar
 [Arabic]
@@ -363,7 +363,7 @@ Auto-detectar
 [Armenian]
 Armênio
 [Azerbaijani]
-
+Azerbaijano
 [Basque]
 Basco
 [Belarusian]
@@ -371,7 +371,7 @@ Bielo-Russo
 [Bengali]
 Bengali		
 [Bihari]
-
+Bihari
 [Bosnian]
 Bósnio
 [Breton]
@@ -379,17 +379,17 @@ Bretão
 [Bulgarian]
 Búlgaro
 [Burmese]
-
+Birmanês
 [Catalan]
 Catalão
 [Cherokee]
-
+Cherokee
 [Chinese]
 Chinês
 [Chinese_CN]
-Chinês - CN
+Chinês-CN
 [Chinese_TW]
-Chinês - Taiwan
+Chinês-Taiwan
 [Croatian]
 Croata
 [Czech]
@@ -397,15 +397,15 @@ Tcheco
 [Danish]
 Dinamarquês
 [Dhivehi]
-
+Dhivehi
 [Dutch]
 Holandês
 [English]
 Inglês
 [English_GB]
-Inglês - Inglaterra
+Inglês-Inglaterra
 [English_US]
-Inglês - Estados Unidos
+Inglês-Estados Unidos
 [Esperanto]
 Esperanto
 [Estonian]
@@ -431,9 +431,9 @@ Alemão
 [Greek]
 Grego
 [Guarani]
-
+Guarani
 [Gujarati]
-
+Gujarati
 [Hebrew]
 Hebreu
 [Hindi]
@@ -441,7 +441,7 @@ Hindú
 [Indonesian]
 Indonésio
 [Inuktitut]
-
+Inuktitut
 [Interlingua]
 Interlíngua
 [Irish]
@@ -453,19 +453,19 @@ Italiano
 [Japanese]
 Japonês
 [Japanese_Romaji]
-Japonês Romaji
+Japonês-Romaji
 [Kazakh]
-
+Casaque
 [Khmer]
-
+Cambojano
 [Korean]
 Coreano
 [Kurdish]
-
+Curdo
 [Kyrgyz]
-
+Kirguiz
 [Laothian]
-
+Laosiano
 [Latin]
 Latim
 [Latvian]
@@ -475,13 +475,13 @@ Lituano
 [Macedonian]
 Macedônio
 [Malay]
-
+Malaio
 [Malayalam]
-
+Malaiala
 [Maltese]
 Maltês
 [Marathi]
-
+Marati
 [Mongolian]
 Mongol
 [Nepali]
@@ -489,13 +489,13 @@ Nepalês
 [Norwegian]
 Norueguês
 [Norwegian_Bokmal]
-Norueguês Bokmal
+Norueguês-Bokmal
 [Norwegian_Nynorsk]
-Norueguês Nynorsk
+Norueguês-Nynorsk
 [Oriya]
-
+Oriá
 [Pashto]
-
+Pashto
 [Papiamento]
 Papiamento
 [Persian]
@@ -505,21 +505,21 @@ Polonês
 [Portuguese]
 Português
 [Portuguese_BR]
-Português-Brasil
+Português-BR
 [Punjabi]
-
+Punjabi
 [Romanian]
 Romeno
 [Russian]
 Russo
 [Sanskrit]
-
+Sânscrito
 [Serbian]
 Sérvio
 [Sindhi]
-
+Sindhi
 [Sinhalese]
-
+Cingalês
 [Slovak]
 Eslovaco
 [Slovenian]
@@ -533,7 +533,7 @@ Suaili
 [Swedish]
 Sueco
 [Tajik]
-
+Tadjique
 [Tagalog]
 Tagalog
 [Tamil]
@@ -543,7 +543,7 @@ télugo
 [Thai]
 Tailandês
 [Tibetan]
-
+Tibetano
 [Turkish]
 Turco
 [Ukrainian]
@@ -551,15 +551,15 @@ Ucraniano
 [Urdu]
 Urdu
 [Uzbek]
-
+Uzbeque
 [Uighur]
-
+Uigur
 [Vietnamese]
 Vietnamita
 [Welsh]
 Galês
 [Unknown]
-
+Desconhecido
 [Languages]
 Idiomas
 [Services]
@@ -835,45 +835,46 @@ Erro ao enviar e-mail para: {0}\r\nMensagem de erro: {1}
 [Error on sending email]
 Erro ao enviar e-mail
 [Language detection]
-
+Detecção de Idioma
 [Guess language ...]
-
+Adivinhar Idioma
 [Detect language of source text]
-
+Detectar o idioma do texto fonte
 [Guess language of source text and show info about]
-
+Adivinhar idioma do texto fonte e exibir informações sobre
 [Language detection : {0}]
-
+Detecção de idioma : {0}]
 [Started]
-
+Iniciado
 [Failed]
-
+Falhou
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1}, Pontuação - (2)%, Confiança - {3}
 [Strong]
-
+Forte
 [Intermediate]
-
+Intermediário
 [Poor]
-
+Pobre
 [Reliable]
-
+Confiável
 [Not reliable]
-
+Não confiável
 [Keyboard layout : {0}]
-
+Layout de teclado : {0}
 [Intelligent switching of profiles and directions]
-
+Comutação inteligente de perfis e direções
 [Based on keyboard layout]
-
+Baseado no layout de teclado
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+Comutação inteligente de perfis e direções de tradução baseadas em layout de teclado
 [Based on detected language]
-
+Baseado no idioma detectado
 [Intelligent switching of profiles and translation directions based on detected language]
-
+Comutação inteligente de perfis e direções de tradução baseadas em idioma detectado
 [Switch by detected language only when text length greater of]
-
+Comutar pelo idioma detectado somente quando o comprimento do texto for maior do que
 [Break translation when application deactivated]
-
+Quebrar a tradução quando a aplicação for desativada
 [Break translation on switching to other application]
+Quebrar a tradução na comutação para outra aplicação
