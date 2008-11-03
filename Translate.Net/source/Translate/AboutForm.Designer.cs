@@ -68,6 +68,7 @@ namespace Translate
 		{
 			this.lStats = new System.Windows.Forms.Label();
 			this.bDonate = new System.Windows.Forms.Button();
+			((System.ComponentModel.ISupportInitialize)(this.al)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// bOk
@@ -79,7 +80,7 @@ namespace Translate
 			this.lStats.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.lStats.Location = new System.Drawing.Point(12, 141);
 			this.lStats.Name = "lStats";
-			this.lStats.Size = new System.Drawing.Size(327, 22);
+			this.lStats.Size = new System.Drawing.Size(327, 35);
 			this.lStats.TabIndex = 8;
 			this.lStats.Text = "label1";
 			this.lStats.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -108,6 +109,7 @@ namespace Translate
 			this.Controls.SetChildIndex(this.bOk, 0);
 			this.Controls.SetChildIndex(this.lStats, 0);
 			this.Controls.SetChildIndex(this.bDonate, 0);
+			((System.ComponentModel.ISupportInitialize)(this.al)).EndInit();
 			this.ResumeLayout(false);
 		}
 		private System.Windows.Forms.Button bDonate;
