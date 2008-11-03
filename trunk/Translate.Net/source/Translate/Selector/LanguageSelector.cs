@@ -90,8 +90,13 @@ namespace Translate
 				lEnabled.Text = LangPack.TranslateString("Enabled"); 
 				lDisabled.Text = LangPack.TranslateString("Error"); 
 				lDisabledByUser.Text = LangPack.TranslateString("Disabled"); 
-				ttMain.SetToolTip(sbServiceUp, LangPack.TranslateString("Move service up"));
-				ttMain.SetToolTip(sbServiceDown, LangPack.TranslateString("Move service down"));
+				miMoveServiceUp.Text = LangPack.TranslateString("Move service up");
+				miMoveServiceUp.ToolTipText = miMoveServiceUp.Text;
+				ttMain.SetToolTip(sbServiceUp, miMoveServiceUp.Text);
+				
+				miMoveServiceDown.Text = LangPack.TranslateString("Move service down");
+				miMoveServiceDown.ToolTipText = miMoveServiceDown.Text;
+				ttMain.SetToolTip(sbServiceDown, miMoveServiceDown.Text);
 				//TODO:ttMain.SetToolTip(sbEnableService, LangPack.TranslateString(""));
 				
 				
@@ -1002,6 +1007,7 @@ namespace Translate
 				{
 					sbEnableService.Text = LangPack.TranslateString("Disable");
 				}
+				miEnableService.Text = sbEnableService.Text; 
 				//ttMain.SetToolTip(sbEnableService, sbEnableService.Text);
 				
 				if((lvServicesEnabled == lv || lv == lvServicesDisabled) && 
@@ -1016,6 +1022,9 @@ namespace Translate
 					sbServiceUp.Enabled = false;
 					sbServiceDown.Enabled = false;
 				}	
+				
+				miMoveServiceDown.Enabled = sbServiceDown.Enabled;
+				miMoveServiceUp.Enabled = sbServiceUp.Enabled;
 			} 
 			finally
 			{

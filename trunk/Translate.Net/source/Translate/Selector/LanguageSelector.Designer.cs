@@ -101,6 +101,7 @@ namespace Translate
 			this.pServiceData = new FreeCL.UI.Panel();
 			this.serviceStatus = new Translate.ServiceStatusControl();
 			this.pEnabled = new System.Windows.Forms.Panel();
+			this.sbEnableService = new FreeCL.UI.SpeedButton();
 			this.sbServiceUp = new FreeCL.UI.SpeedButton();
 			this.sbServiceDown = new FreeCL.UI.SpeedButton();
 			this.tpLangs = new System.Windows.Forms.TabPage();
@@ -116,7 +117,11 @@ namespace Translate
 			this.tpSubject = new System.Windows.Forms.TabPage();
 			this.lbSubjects = new System.Windows.Forms.CheckedListBox();
 			this.ttMain = new System.Windows.Forms.ToolTip(this.components);
-			this.sbEnableService = new FreeCL.UI.SpeedButton();
+			this.msServices = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.miMoveServiceDown = new System.Windows.Forms.ToolStripMenuItem();
+			this.miMoveServiceUp = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsServicesSeparator = new System.Windows.Forms.ToolStripSeparator();
+			this.miEnableService = new System.Windows.Forms.ToolStripMenuItem();
 			this.pBottom.SuspendLayout();
 			this.tcMain.SuspendLayout();
 			this.tpServices.SuspendLayout();
@@ -129,6 +134,7 @@ namespace Translate
 			this.pFrom.SuspendLayout();
 			this.pColumns.SuspendLayout();
 			this.tpSubject.SuspendLayout();
+			this.msServices.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBottom
@@ -206,6 +212,7 @@ namespace Translate
 			// 
 			this.lvServicesDisabledByUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader3});
+			this.lvServicesDisabledByUser.ContextMenuStrip = this.msServices;
 			this.lvServicesDisabledByUser.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesDisabledByUser.GridLines = true;
 			this.lvServicesDisabledByUser.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -263,6 +270,7 @@ namespace Translate
 			// 
 			this.lvServicesDisabled.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader1});
+			this.lvServicesDisabled.ContextMenuStrip = this.msServices;
 			this.lvServicesDisabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesDisabled.GridLines = true;
 			this.lvServicesDisabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -312,6 +320,7 @@ namespace Translate
 			// 
 			this.lvServicesEnabled.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
 									this.columnHeader2});
+			this.lvServicesEnabled.ContextMenuStrip = this.msServices;
 			this.lvServicesEnabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesEnabled.GridLines = true;
 			this.lvServicesEnabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -385,19 +394,32 @@ namespace Translate
 			// pEnabled
 			// 
 			this.pEnabled.Controls.Add(this.sbEnableService);
-			this.pEnabled.Controls.Add(this.sbServiceUp);
 			this.pEnabled.Controls.Add(this.sbServiceDown);
+			this.pEnabled.Controls.Add(this.sbServiceUp);
 			this.pEnabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.pEnabled.Location = new System.Drawing.Point(3, 3);
 			this.pEnabled.Name = "pEnabled";
 			this.pEnabled.Size = new System.Drawing.Size(233, 20);
 			this.pEnabled.TabIndex = 8;
 			// 
+			// sbEnableService
+			// 
+			this.sbEnableService.AutoSize = true;
+			this.sbEnableService.Dock = System.Windows.Forms.DockStyle.Left;
+			this.sbEnableService.Location = new System.Drawing.Point(40, 0);
+			this.sbEnableService.Name = "sbEnableService";
+			this.sbEnableService.Selectable = false;
+			this.sbEnableService.Size = new System.Drawing.Size(50, 20);
+			this.sbEnableService.TabIndex = 4;
+			this.sbEnableService.Text = "Enable";
+			this.sbEnableService.UseVisualStyleBackColor = true;
+			this.sbEnableService.Click += new System.EventHandler(this.ServiceStatusButtonClick);
+			// 
 			// sbServiceUp
 			// 
 			this.sbServiceUp.Dock = System.Windows.Forms.DockStyle.Left;
 			this.sbServiceUp.Image = ((System.Drawing.Image)(resources.GetObject("sbServiceUp.Image")));
-			this.sbServiceUp.Location = new System.Drawing.Point(20, 0);
+			this.sbServiceUp.Location = new System.Drawing.Point(0, 0);
 			this.sbServiceUp.Name = "sbServiceUp";
 			this.sbServiceUp.Selectable = false;
 			this.sbServiceUp.Size = new System.Drawing.Size(20, 20);
@@ -409,7 +431,7 @@ namespace Translate
 			// 
 			this.sbServiceDown.Dock = System.Windows.Forms.DockStyle.Left;
 			this.sbServiceDown.Image = ((System.Drawing.Image)(resources.GetObject("sbServiceDown.Image")));
-			this.sbServiceDown.Location = new System.Drawing.Point(0, 0);
+			this.sbServiceDown.Location = new System.Drawing.Point(20, 0);
 			this.sbServiceDown.Name = "sbServiceDown";
 			this.sbServiceDown.Selectable = false;
 			this.sbServiceDown.Size = new System.Drawing.Size(20, 20);
@@ -564,18 +586,43 @@ namespace Translate
 			this.lbSubjects.TabIndex = 0;
 			this.lbSubjects.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LbSubjectsItemCheck);
 			// 
-			// sbEnableService
+			// msServices
 			// 
-			this.sbEnableService.AutoSize = true;
-			this.sbEnableService.Dock = System.Windows.Forms.DockStyle.Left;
-			this.sbEnableService.Location = new System.Drawing.Point(40, 0);
-			this.sbEnableService.Name = "sbEnableService";
-			this.sbEnableService.Selectable = false;
-			this.sbEnableService.Size = new System.Drawing.Size(50, 20);
-			this.sbEnableService.TabIndex = 4;
-			this.sbEnableService.Text = "Enable";
-			this.sbEnableService.UseVisualStyleBackColor = true;
-			this.sbEnableService.Click += new System.EventHandler(this.ServiceStatusButtonClick);
+			this.msServices.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miMoveServiceUp,
+									this.miMoveServiceDown,
+									this.tsServicesSeparator,
+									this.miEnableService});
+			this.msServices.Name = "msServices";
+			this.msServices.Size = new System.Drawing.Size(118, 76);
+			// 
+			// miMoveServiceDown
+			// 
+			this.miMoveServiceDown.Image = ((System.Drawing.Image)(resources.GetObject("miMoveServiceDown.Image")));
+			this.miMoveServiceDown.Name = "miMoveServiceDown";
+			this.miMoveServiceDown.Size = new System.Drawing.Size(117, 22);
+			this.miMoveServiceDown.Text = "Down";
+			this.miMoveServiceDown.Click += new System.EventHandler(this.SbServiceDownClick);
+			// 
+			// miMoveServiceUp
+			// 
+			this.miMoveServiceUp.Image = ((System.Drawing.Image)(resources.GetObject("miMoveServiceUp.Image")));
+			this.miMoveServiceUp.Name = "miMoveServiceUp";
+			this.miMoveServiceUp.Size = new System.Drawing.Size(117, 22);
+			this.miMoveServiceUp.Text = "Up";
+			this.miMoveServiceUp.Click += new System.EventHandler(this.SbServiceUpClick);
+			// 
+			// tsServicesSeparator
+			// 
+			this.tsServicesSeparator.Name = "tsServicesSeparator";
+			this.tsServicesSeparator.Size = new System.Drawing.Size(114, 6);
+			// 
+			// miEnableService
+			// 
+			this.miEnableService.Name = "miEnableService";
+			this.miEnableService.Size = new System.Drawing.Size(117, 22);
+			this.miEnableService.Text = "Enable";
+			this.miEnableService.Click += new System.EventHandler(this.ServiceStatusButtonClick);
 			// 
 			// LanguageSelector
 			// 
@@ -601,8 +648,14 @@ namespace Translate
 			this.pFrom.ResumeLayout(false);
 			this.pColumns.ResumeLayout(false);
 			this.tpSubject.ResumeLayout(false);
+			this.msServices.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private System.Windows.Forms.ToolStripMenuItem miEnableService;
+		private System.Windows.Forms.ToolStripSeparator tsServicesSeparator;
+		private System.Windows.Forms.ToolStripMenuItem miMoveServiceUp;
+		private System.Windows.Forms.ToolStripMenuItem miMoveServiceDown;
+		private System.Windows.Forms.ContextMenuStrip msServices;
 		private FreeCL.UI.SpeedButton sbEnableService;
 		private System.Windows.Forms.ToolTip ttMain;
 		private FreeCL.UI.SpeedButton sbServiceDown;
