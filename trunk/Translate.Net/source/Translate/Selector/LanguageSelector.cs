@@ -92,6 +92,9 @@ namespace Translate
 				lDisabledByUser.Text = LangPack.TranslateString("Disabled"); 
 				ttMain.SetToolTip(sbServiceUp, LangPack.TranslateString("Move service up"));
 				ttMain.SetToolTip(sbServiceDown, LangPack.TranslateString("Move service down"));
+				//TODO:ttMain.SetToolTip(sbEnableService, LangPack.TranslateString(""));
+				
+				
 				LvServicesResize(this, new EventArgs());
 			}
 			finally
@@ -978,8 +981,6 @@ namespace Translate
 			{
 				if(skipselectingservices)
 				{
-					pEnabled.Enabled = false;
-					pEnabled.Visible = false;
 					return;
 				}	
 				ListView lv = sender as ListView;
@@ -993,20 +994,27 @@ namespace Translate
 				serviceStatus.ShowLanguage = selection.From == Language.Any || selection.To == Language.Any;
 				serviceStatus.Status = sc;
 				
+				if(sc.DisabledByUser)
+				{
+					sbEnableService.Text = LangPack.TranslateString("Enable");
+				}
+				else
+				{
+					sbEnableService.Text = LangPack.TranslateString("Disable");
+				}
+				//ttMain.SetToolTip(sbEnableService, sbEnableService.Text);
+				
 				if((lvServicesEnabled == lv || lv == lvServicesDisabled) && 
 					lv.Items.Count > 1 &&
 					(selection.From != Language.Any && selection.To != Language.Any))
 				{
-					pEnabled.Enabled = true;
-					pEnabled.Visible = true;
-				
 					sbServiceUp.Enabled = lv.SelectedIndices[0] != 0;
 					sbServiceDown.Enabled = lv.SelectedIndices[0] != lv.Items.Count - 1;
 				}
 				else
 				{
-					pEnabled.Enabled = false;
-					pEnabled.Visible = false;
+					sbServiceUp.Enabled = false;
+					sbServiceDown.Enabled = false;
 				}	
 			} 
 			finally
@@ -1023,10 +1031,11 @@ namespace Translate
 		void ServiceStatusButtonClick(object sender, EventArgs e)
 		{
 			skipselectingservices = true;
+			ListViewItem lvi;
 			try
 			{
 				ServiceSettingsContainer sc = serviceStatus.Status;
-				ListViewItem lvi = FindItem(disabledByUserLVItems, sc);
+				lvi = FindItem(disabledByUserLVItems, sc);
 				if(lvi != null)
 				{
 					lvServicesDisabledByUser.Items.Remove(lvi);
@@ -1062,11 +1071,14 @@ namespace Translate
 				lvi.Selected = true;
 				serviceStatus.Status = sc;
 				pServices.ScrollControlIntoView(lvi.ListView);
+				Rectangle pos = lvi.Bounds;
+				pServices.VerticalScroll.Value  += pos.Top;
 			}
 			finally
 			{
 				skipselectingservices = false;
 			}
+			LvServicesEnabledSelectedIndexChanged(lvi.ListView, e);
 		}
 		
 		void SbServiceUpClick(object sender, EventArgs e)

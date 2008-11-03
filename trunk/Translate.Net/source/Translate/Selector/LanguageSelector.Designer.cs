@@ -71,16 +71,16 @@ namespace Translate
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Test");
-			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Test 2");
-			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Test 3");
-			System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("");
-			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Test");
-			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Test 2");
-			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Test 3");
-			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Test");
-			System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Test 2");
-			System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Test 3");
+			System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Test");
+			System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Test 2");
+			System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Test 3");
+			System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+			System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Test");
+			System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Test 2");
+			System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Test 3");
+			System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Test");
+			System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Test 2");
+			System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Test 3");
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageSelector));
 			this.pBottom = new FreeCL.UI.Panel();
 			this.lbHistory = new System.Windows.Forms.ListBox();
@@ -116,6 +116,7 @@ namespace Translate
 			this.tpSubject = new System.Windows.Forms.TabPage();
 			this.lbSubjects = new System.Windows.Forms.CheckedListBox();
 			this.ttMain = new System.Windows.Forms.ToolTip(this.components);
+			this.sbEnableService = new FreeCL.UI.SpeedButton();
 			this.pBottom.SuspendLayout();
 			this.tcMain.SuspendLayout();
 			this.tpServices.SuspendLayout();
@@ -208,16 +209,16 @@ namespace Translate
 			this.lvServicesDisabledByUser.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesDisabledByUser.GridLines = true;
 			this.lvServicesDisabledByUser.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			listViewItem1.StateImageIndex = 0;
+			listViewItem1.ToolTipText = "Test";
+			listViewItem2.StateImageIndex = 0;
+			listViewItem3.StateImageIndex = 0;
 			listViewItem4.StateImageIndex = 0;
-			listViewItem4.ToolTipText = "Test";
-			listViewItem5.StateImageIndex = 0;
-			listViewItem6.StateImageIndex = 0;
-			listViewItem14.StateImageIndex = 0;
 			this.lvServicesDisabledByUser.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-									listViewItem4,
-									listViewItem5,
-									listViewItem6,
-									listViewItem14});
+									listViewItem1,
+									listViewItem2,
+									listViewItem3,
+									listViewItem4});
 			this.lvServicesDisabledByUser.Location = new System.Drawing.Point(0, 152);
 			this.lvServicesDisabledByUser.MultiSelect = false;
 			this.lvServicesDisabledByUser.Name = "lvServicesDisabledByUser";
@@ -265,14 +266,14 @@ namespace Translate
 			this.lvServicesDisabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesDisabled.GridLines = true;
 			this.lvServicesDisabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			listViewItem5.StateImageIndex = 0;
+			listViewItem5.ToolTipText = "Test";
+			listViewItem6.StateImageIndex = 0;
 			listViewItem7.StateImageIndex = 0;
-			listViewItem7.ToolTipText = "Test";
-			listViewItem8.StateImageIndex = 0;
-			listViewItem9.StateImageIndex = 0;
 			this.lvServicesDisabled.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-									listViewItem7,
-									listViewItem8,
-									listViewItem9});
+									listViewItem5,
+									listViewItem6,
+									listViewItem7});
 			this.lvServicesDisabled.Location = new System.Drawing.Point(0, 84);
 			this.lvServicesDisabled.MultiSelect = false;
 			this.lvServicesDisabled.Name = "lvServicesDisabled";
@@ -314,14 +315,14 @@ namespace Translate
 			this.lvServicesEnabled.Dock = System.Windows.Forms.DockStyle.Top;
 			this.lvServicesEnabled.GridLines = true;
 			this.lvServicesEnabled.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+			listViewItem8.StateImageIndex = 0;
+			listViewItem8.ToolTipText = "Test";
+			listViewItem9.StateImageIndex = 0;
 			listViewItem10.StateImageIndex = 0;
-			listViewItem10.ToolTipText = "Test";
-			listViewItem11.StateImageIndex = 0;
-			listViewItem12.StateImageIndex = 0;
 			this.lvServicesEnabled.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-									listViewItem10,
-									listViewItem11,
-									listViewItem12});
+									listViewItem8,
+									listViewItem9,
+									listViewItem10});
 			this.lvServicesEnabled.Location = new System.Drawing.Point(0, 16);
 			this.lvServicesEnabled.MultiSelect = false;
 			this.lvServicesEnabled.Name = "lvServicesEnabled";
@@ -383,6 +384,7 @@ namespace Translate
 			// 
 			// pEnabled
 			// 
+			this.pEnabled.Controls.Add(this.sbEnableService);
 			this.pEnabled.Controls.Add(this.sbServiceUp);
 			this.pEnabled.Controls.Add(this.sbServiceDown);
 			this.pEnabled.Dock = System.Windows.Forms.DockStyle.Top;
@@ -562,6 +564,19 @@ namespace Translate
 			this.lbSubjects.TabIndex = 0;
 			this.lbSubjects.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.LbSubjectsItemCheck);
 			// 
+			// sbEnableService
+			// 
+			this.sbEnableService.AutoSize = true;
+			this.sbEnableService.Dock = System.Windows.Forms.DockStyle.Left;
+			this.sbEnableService.Location = new System.Drawing.Point(40, 0);
+			this.sbEnableService.Name = "sbEnableService";
+			this.sbEnableService.Selectable = false;
+			this.sbEnableService.Size = new System.Drawing.Size(50, 20);
+			this.sbEnableService.TabIndex = 4;
+			this.sbEnableService.Text = "Enable";
+			this.sbEnableService.UseVisualStyleBackColor = true;
+			this.sbEnableService.Click += new System.EventHandler(this.ServiceStatusButtonClick);
+			// 
 			// LanguageSelector
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,6 +594,7 @@ namespace Translate
 			this.pServices.ResumeLayout(false);
 			this.pServiceData.ResumeLayout(false);
 			this.pEnabled.ResumeLayout(false);
+			this.pEnabled.PerformLayout();
 			this.tpLangs.ResumeLayout(false);
 			this.pMain.ResumeLayout(false);
 			this.pTo.ResumeLayout(false);
@@ -587,6 +603,7 @@ namespace Translate
 			this.tpSubject.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private FreeCL.UI.SpeedButton sbEnableService;
 		private System.Windows.Forms.ToolTip ttMain;
 		private FreeCL.UI.SpeedButton sbServiceDown;
 		private FreeCL.UI.SpeedButton sbServiceUp;
