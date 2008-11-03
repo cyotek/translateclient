@@ -56,27 +56,12 @@ namespace Translate
 				{
 					if(InputLanguage.CurrentInputLanguage.Equals(il))
 					{
-						previous = InputLanguage.CurrentInputLanguage;
 						return;
 					}
 						
-					previous = il;
 					InputLanguage.CurrentInputLanguage = il;
 					return;
 				}
-			}
-			previous = InputLanguage.CurrentInputLanguage;
-		}
-		
-		static InputLanguage previous = InputLanguage.CurrentInputLanguage;
-		public static bool IsInputLanguageChanged
-		{
-			get
-			{
-				bool res = !InputLanguage.CurrentInputLanguage.Equals(previous);
-				if(res)
-					previous = InputLanguage.CurrentInputLanguage;
-				return res;
 			}
 		}
 		
