@@ -310,6 +310,7 @@ namespace Translate
 			
 			UpdateCaption();
 			UpdateDetectionStatus();
+			UpdateCurrentInputLanguage();
 		}
 		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.Windows.Forms.Control.set_Text(System.String)")]
@@ -1978,6 +1979,62 @@ namespace Translate
 							return;
 						}
 					}
+					
+					//switch auto
+					upf = currentProfile as UserTranslateProfile;
+					if((default_selected || (upf != null && upf.ShowLanguages)) &&
+					(currentProfile.SelectedLanguagePair.From != Language.Autodetect)
+					)
+					{
+						CultureInfo systemCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
+						if(LanguageHelper.IsLanguageSupported(systemCulture, detectedLanguage))
+						{  
+							Language targetLanguage = Language.English;
+							foreach(InputLanguage il in InputLanguage.InstalledInputLanguages)
+							{
+								if(!InputLanguageManager.IsLanguageSupported(il, detectedLanguage))
+								{
+									for(int i = 0; i < (int)Language.Last; i++)
+									{
+										if(InputLanguageManager.IsLanguageSupported(il, (Language)i))
+										{
+											targetLanguage = (Language)i;
+											goto EndDetect;
+										}
+									}
+								}
+							}
+							
+							EndDetect:
+							
+							foreach(LanguagePair lp in currentProfile.GetLanguagePairs())
+							{
+								if(lp.From == detectedLanguage &&
+									lp.To == targetLanguage
+								)
+								{
+									languageSelector.Selection = lp;
+									tbFrom.Focus();
+									return;
+								}
+							}
+						}
+						else
+						{
+							foreach(LanguagePair lp in currentProfile.GetLanguagePairs())
+							{
+								if(lp.From == detectedLanguage &&
+									LanguageHelper.IsLanguageSupported(systemCulture, lp.To)
+								)
+								{
+									languageSelector.Selection = lp;
+									tbFrom.Focus();
+									return;
+								}
+							}
+						}
+					}
+					
 				}			
 			}
 		}
@@ -2023,17 +2080,23 @@ namespace Translate
 				StopCurrentTranslation();			
 			}
 		}
-		
-		void TranslateMainFormInputLanguageChanged(object sender, InputLanguageChangedEventArgs e)
+
+		void UpdateCurrentInputLanguage()
 		{
-			string langCode = e.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);			
+			string langCode = InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName.Substring(0,2).ToUpper(CultureInfo.InvariantCulture);			
 			if(lInputLang.Text != langCode)
 			{
 				lInputLang.Text = langCode;
 				string tmp = TranslateString("Keyboard layout : {0}");
 				lInputLang.ToolTipText = string.Format(tmp, 
-					TranslateString(e.Culture.Parent.EnglishName));
+					TranslateString(InputLanguage.CurrentInputLanguage.Culture.Parent.EnglishName));
 			}	
+		}
+		
+		void TranslateMainFormInputLanguageChanged(object sender, InputLanguageChangedEventArgs e)
+		{
+
+			UpdateCurrentInputLanguage();
 
 			if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout)
 				return;
@@ -2192,6 +2255,64 @@ namespace Translate
 				}
 				
 				//switch auto
+				upf = currentProfile as UserTranslateProfile;
+				if((default_selected || (upf != null && upf.ShowLanguages)) &&
+				(currentProfile.SelectedLanguagePair.From != Language.Autodetect)
+				)
+				{
+					CultureInfo inputCulture = e.Culture;
+					CultureInfo systemCulture = System.Threading.Thread.CurrentThread.CurrentUICulture;
+					if(inputCulture.EnglishName == systemCulture.EnglishName || 
+						inputCulture.Parent.EnglishName == systemCulture.Parent.EnglishName
+					)
+					{  
+						Language targetLanguage = Language.English;
+						foreach(InputLanguage il in InputLanguage.InstalledInputLanguages)
+						{
+							if(inputCulture.EnglishName != il.Culture.EnglishName &&
+								inputCulture.Parent.EnglishName != il.Culture.Parent.EnglishName)
+							{
+								for(int i = 0; i < (int)Language.Last; i++)
+								{
+									if(InputLanguageManager.IsLanguageSupported(il, (Language)i))
+									{
+										targetLanguage = (Language)i;
+										goto EndDetect;
+									}
+								}
+							}
+						}
+						
+						EndDetect:
+						
+						foreach(LanguagePair lp in currentProfile.GetLanguagePairs())
+						{
+							if(LanguageHelper.IsLanguageSupported(inputCulture, lp.From) &&
+								lp.To == targetLanguage
+							)
+							{
+								languageSelector.Selection = lp;
+								tbFrom.Focus();
+								return;
+							}
+						}
+					}
+					else
+					{
+						foreach(LanguagePair lp in currentProfile.GetLanguagePairs())
+						{
+							if(lp.From != Language.Any && 
+								LanguageHelper.IsLanguageSupported(inputCulture, lp.From) &&
+								LanguageHelper.IsLanguageSupported(systemCulture, lp.To)
+							)
+							{
+								languageSelector.Selection = lp;
+								tbFrom.Focus();
+								return;
+							}
+						}
+					}
+				}
 			}
 			tbFrom.Focus();
 			
