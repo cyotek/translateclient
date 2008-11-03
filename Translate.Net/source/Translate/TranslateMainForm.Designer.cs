@@ -344,7 +344,7 @@ namespace Translate
 			// 
 			// miOptionsToolStripMenuItem
 			// 
-			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(301, 22);
+			this.miOptionsToolStripMenuItem.Size = new System.Drawing.Size(312, 22);
 			this.miOptionsToolStripMenuItem.Visible = true;
 			// 
 			// miService
@@ -1804,7 +1804,7 @@ namespace Translate
 			// miToolsSeparator
 			// 
 			this.miToolsSeparator.Name = "miToolsSeparator";
-			this.miToolsSeparator.Size = new System.Drawing.Size(298, 6);
+			this.miToolsSeparator.Size = new System.Drawing.Size(309, 6);
 			// 
 			// miGuessLanguage
 			// 
@@ -1812,7 +1812,7 @@ namespace Translate
 			this.miGuessLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miGuessLanguage.Name = "miGuessLanguage";
 			this.miGuessLanguage.ShortcutKeyDisplayString = "";
-			this.miGuessLanguage.Size = new System.Drawing.Size(301, 22);
+			this.miGuessLanguage.Size = new System.Drawing.Size(312, 22);
 			this.miGuessLanguage.Text = "Guess input language";
 			// 
 			// miAutoDetectLanguage
@@ -1820,7 +1820,7 @@ namespace Translate
 			this.al.SetAction(this.miAutoDetectLanguage, this.aAutoDetectLanguage);
 			this.miAutoDetectLanguage.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAutoDetectLanguage.Name = "miAutoDetectLanguage";
-			this.miAutoDetectLanguage.Size = new System.Drawing.Size(301, 22);
+			this.miAutoDetectLanguage.Size = new System.Drawing.Size(312, 22);
 			this.miAutoDetectLanguage.Text = "Automatically detect input language";
 			// 
 			// aGuessLanguage
@@ -1862,7 +1862,7 @@ namespace Translate
 									this.miSwitchByKeyboard,
 									this.miSwitchByLAnguage});
 			this.miIntillegentSwitching.Name = "miIntillegentSwitching";
-			this.miIntillegentSwitching.Size = new System.Drawing.Size(301, 22);
+			this.miIntillegentSwitching.Size = new System.Drawing.Size(312, 22);
 			this.miIntillegentSwitching.Text = "Intelligent switching of profiles and directions";
 			// 
 			// miSwitchByKeyboard
@@ -1906,7 +1906,7 @@ namespace Translate
 			// miToolsSeparator1
 			// 
 			this.miToolsSeparator1.Name = "miToolsSeparator1";
-			this.miToolsSeparator1.Size = new System.Drawing.Size(298, 6);
+			this.miToolsSeparator1.Size = new System.Drawing.Size(309, 6);
 			// 
 			// aBreakTranslationOnDeactivate
 			// 
@@ -1922,14 +1922,14 @@ namespace Translate
 			// miToolsSeparator2
 			// 
 			this.miToolsSeparator2.Name = "miToolsSeparator2";
-			this.miToolsSeparator2.Size = new System.Drawing.Size(298, 6);
+			this.miToolsSeparator2.Size = new System.Drawing.Size(309, 6);
 			// 
 			// miBreakTranslationOnDeactivation
 			// 
 			this.al.SetAction(this.miBreakTranslationOnDeactivation, this.aBreakTranslationOnDeactivate);
 			this.miBreakTranslationOnDeactivation.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miBreakTranslationOnDeactivation.Name = "miBreakTranslationOnDeactivation";
-			this.miBreakTranslationOnDeactivation.Size = new System.Drawing.Size(301, 22);
+			this.miBreakTranslationOnDeactivation.Size = new System.Drawing.Size(312, 22);
 			this.miBreakTranslationOnDeactivation.Text = "Break translation when application deactivated ";
 			// 
 			// TranslateMainForm
@@ -1955,6 +1955,7 @@ namespace Translate
 			this.Text = "";
 			this.Deactivate += new System.EventHandler(this.TranslateMainFormDeactivate);
 			this.Load += new System.EventHandler(this.TranslateMainFormLoad);
+			this.InputLanguageChanged += new System.Windows.Forms.InputLanguageChangedEventHandler(this.TranslateMainFormInputLanguageChanged);
 			this.Shown += new System.EventHandler(this.TranslateMainFormShown);
 			this.Activated += new System.EventHandler(this.TranslateMainFormActivated);
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TranslateMainFormFormClosing);
