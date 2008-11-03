@@ -1,9 +1,9 @@
 ﻿[TranslationComment]
-
+Edited on Friday, the 31st of October, because some translations were imprecise.
 [TranslatedBy]
-Roger (member of http://www.korben.info/)
+Roger alias Arvil (member of http://www.korben.info/) Arvil@k3v1n5 OR cocacolapin@yahoo.fr
 [TranslatedByURL]
-
+http://www.k3v1n5.eu/
 [&File]
 &Fichier
 [Exit from application]
@@ -29,13 +29,13 @@ Supprimer la sélection
 [&Delete]
 &Supprimer
 [Undo last operation]
-Annuler la dernière opération
+Annuler
 [&Undo]
 &Annuler
 [Redo last operation]
-Refaire la dernière opération
+Rétablir
 [&Redo]
-&Refaire
+&Rétablir
 [Select Аll]
 Sélectionner tout
 [&Select Аll]
@@ -43,27 +43,27 @@ Sélectionner tout
 [&Window]
 &Fenêtre
 [Close All]
-Tout fermer
+Fermer Tout
 [&Help]
-&Aide
+&Aide de Translate.NET
 [&About ...]
-&A propos...
+&A propos de...
 [About]
 A propos
 [Send feedback or bugreport ...]
-Signaler un beugue...
+Envoyer un commentaire ou signaler un bug...
 [Feedback for :]
-Message pour:
+Commentaire pour:
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
 << Votre message ou rapport de beugue ici (en Anglais, Ukrainien ou Russe) >>
 [Donate ...]
-
+Supporter Transate.NET
 [Online Help]
-
+Aide en ligne
 [Options]
 Options
 [OK]
-
+Ok
 [Cancel]
 Annuler
 [Apply]
@@ -81,9 +81,9 @@ Vérification de la version
 [Update downloaded]
 Mettre à jour
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
-Une nouvelle version est téléchargée. Voulez vous fermer Translate.Net et lancer l'installation de la nouvelle version?
+Une nouvelle version a été téléchargée. Voulez-vous fermer Translate.Net et lancer l'installation de la nouvelle version?
 [Please select where to save installer of new version which you can run later]
-Veuillez sélectionner l'emplacement de l'installeur de la nouvelle version de T.Net
+Veuillez indiquer où sauvegarder l'installeur de la nouvelle version, afin que vous puissiez le lancer plus tard
 [Installer saved to \r\n{0}]
 Installeur enregistré sous: \r\n{0}
 [Update will be run later]
@@ -95,17 +95,17 @@ Mises à jour
 [Automatically check updates]
 Rechercher les mises à jour automatiquement
 [Automatically download updates]
-
+Télécharger automatiquement les mises à jour
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Mise à jour - {0}\r\nDernière recherche de mises à jour - {1} statut - {2}\r\nProchaine recherche de mises à jour - {3}
 [Close]
 Fermer
 [Error on downloading {0}]
-Il y a eu une erreur durant le téléchargement {0}
+Erreur de téléchargement {0}
 [{0} don't contained {1} tag:\r\n{2}]
 {0} ne contenait pas {1} tag:\r\n{2}
 [{0} has wrong formatted {1} tag:\r\n{2}]
-{0}: mauvais format {1}:\r\n{2}
+{0}: mauvais format {1} tag:\r\n{2}
 [Canceled]
 Annulé
 [Program is up to date]
@@ -113,23 +113,23 @@ Le programme est à jour
 [File {0} already exists]
 Le fichier {0} existe déjà
 [The server of updates is overloaded. The check of updates will be delayed.]
-
+Le serveur de mise à jour est surchargé. La recherche de mises à jour va être repoussée
 [Checking of update done]
-
+Fin de la vérification des mises à jour
 [New version {0} of {1} available]
-
+La nouvelle version {0} de {1} est disponible
 [Do you want to open site where you can download it ?]
-
+Voulez-vous ouvrir l'URL du site où vous pourrez le télécharger?
 [Version]
 Version
 [&Tools]
-Outils
+&Outils
 [O&ptions...]
-Options
+O&ptions
 [General]
 Général
 [UI Language]
-Langage de l'UI
+Langage de l'Interface
 [Network]
 Réseau
 [HTTP-Proxy]
@@ -139,15 +139,15 @@ Proxy
 [Port]
 Port
 [Enable Authentication]
-
+Activer l'authentification
 [User]
-
+Utilisateur
 [Password]
-
+Mot de passe
 [Use NTLM Authentication]
-
+Utiliser l'authentification NTLM (NT Lan Manager)
 [Domain]
-
+Domaine
 [Timeout]
 Expiration du délai
 [System]
@@ -157,7 +157,7 @@ Personnalisé
 [None]
 Null
 [Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
-
+Le format du Proxy HTTP ({0}) est incorrect. Les paramètres de Proxy vont être restaurés
 [Startup]
 Démarrage
 [Launch at system startup]
@@ -165,13 +165,13 @@ Lancement automatique au démarrage
 [Minimize to tray]
 Réduire dans la barre des tâches
 [When enabled {0} will run when OS started]
-
+Si l'option est activée, {0} sera lancé au démarrage
 [{0} will be minimized to tray when OS started]
-
+{0} sera minimisé au démarrage
 [Single Instance]
-
+Instance unique
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
+Vérification au démarrage, si une autre instance de {0} est déjà en fonctionnement, alors l'ancienne application sera activée et la nouvelle se stoppera elle-même
 [Tray]
 Barre des tâches
 [Hotkeys]
@@ -185,11 +185,11 @@ Traduire avec le raccourci
 [Show query time and other information]
 Montrer le temps de requête et d'autres informations
 [Mark by red color untranslated words]
-Montrer les mots non traduits en rouge
+Marquer les mots non traduits en rouge
 [Don't show "Nothing found" results]
-Ne pas montrer quand il n'y a pas de résultats
+Ne pas montrer lorsqu'il n'y a pas de résultats
 [Show direction of translation]
-Montrer l'emplacement de la traduction
+Montrer la nature de la traduction
 [Show accents]
 Activer les accents
 [Show names of services]
@@ -197,9 +197,9 @@ Montrer les noms des services
 [Nothing found]
 Aucun résultat
 [An error occurred during translation. Please try again later.]
-
+Une erreur est survenue lors de la traduction. Veuillez réessayer ultérieurement.
 [Translation direction is not correct]
-L'emplacement de la traduction est incorrect
+Les paramètres de traduction sont incorrects
 [Only cyrillic characters supported]
 Seuls les caractères de l'alphabet cyrillique sont supportés
 [Ukrainian characters in russian query]
@@ -213,47 +213,47 @@ Trop long
 [Wrong data structure]
 Mauvaise structure de données
 [Query contains extraneous symbols]
-La requête contient des symbols étranges
+La requête contient des symboles étranges
 [Service version not supported]
 La version du service n'est pas supportée
 [Result view]
-Vue des résultats
+Résultats
 [Result view placement]
-
+Disposition des résultats
 [Top]
-
+Haut
 [Place result view at top]
-
+Placer les résultats en haut
 [Bottom]
-
+Bas
 [Place result view at bottom]
-
+Placer les résultats en bas
 [Left]
-
+Gauche
 [Place result view at left]
-
+Placer les résultats à gauche
 [Right]
-
+Droite
 [Place result view at right]
-
+Placer les résultats à droite
 [Include monolingual dictionaries in translation]
 Inclure les dictionnaires dans les traductions
 [Filter of languages]
-
+Filtre de langue
 [Allow to choose languages for use]
-
+Autoriser le choix des langues
 [Source languages]
-
+Langue d'origine
 [Target languages]
-
+Langue cible
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+Choisissez la nature de la traduction. Les langues désactivées seront retirées du panneau de langues
 [Toggle all]
-
+Activer/Désactiver tout
 [Please select at least one source language]
-
+Veuillez sélectionner au moins une langue d'origine
 [Please select at least one target language]
-
+Veuillez sélectionner au moins une langue cible
 [Profile]
 Profil
 [Profiles]
@@ -269,31 +269,31 @@ Configurer le profil
 [Profile name]
 Nom du profil
 [Translation direction]
-Emplacement de la traduction
+Nature de la traduction
 [Name for new profile you enter already used. Please enter unique name.]
-Le nom de profil demandé existe déjà. Veuillez réessayer.
+Le nom de profil existe déjà. Veuillez réessayer.
 [Profile name don't set. Please enter profile name.]
 Le nom du profil n'est pas renseigné. Veuillez le faire.
 [Remove user profile]
 Supprimer le profil
 [The profile {0} will be deleted.\r\nAre you sure ?]
-Le profil {0} sera supprimé. \r\Êtes vous sûr?
+Le profil {0} sera supprimé. \r\nÊtes vous sûr?
 [Move profile up]
-Vers le haut
+Monter
 [Move profile down]
-Vers le bas
+Descendre
 [Name]
 Nom
 [Edit services]
-Editer les services
+Editer
 [Remove service]
-Enlever les services
+Retirer
 [Add selected service]
-Ajouter ce service
+Ajouter
 [Add all services]
-Ajouter tous les services
+Ajouter tout
 [Remove all services]
-Retirer tous les services
+Retirer tout
 [Services filter]
 Filtre de services
 [Available services]
@@ -315,29 +315,29 @@ Police système
 [Fonts]
 Police de caractères
 [Input text]
-Ajouter du texte
+Entrer du texte
 [To default]
 Par défaut
 [Toolbars]
-
+Barres d'outils
 [Default font]
-
+Police par défaut
 [&Translate]
-Traduire
+&Traduire
 [Translate]
 Traduire
 [Stop current operation]
-
+Arrêter
 [Stop]
-
+Arrêter
 [Search in Google]
-
+Rechercher dans Google
 [Size or format of query don't supported by available translation services]
-La taille ou le format de la recherche n'est pas supporté par les services de traduction actuels
+La taille ou le format de la requête n'est pas supporté par les services de traduction actuels
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+La traduction nécessite {0} requêtes. Cela peut surcharcher les serveurs.\n Voulez-vous arrêter la traduction?
 [Reverse translation direction]
-Emplacement de la traduction inverse
+Inverser le sens de la traduction
 [Show\\Hide]
 Montrer\\Cacher
 [Show HTML source]
@@ -347,47 +347,47 @@ De
 [To]
 A 
 [Any Language]
-Langage quelconque
+Langue Quelconque
 [Afrikaans]
-
+Afriquain
 [Albanian]
-
+Albanais
 [Amharic]
 
 [Autodetect]
-
+Détection auto.
 [Arabic]
 Arabe
 [Armenian]
-
+Arménien
 [Azerbaijani]
 
 [Basque]
-
+Basque
 [Belarusian]
 Biélorusse
 [Bengali]
-
+Bengalais
 [Bihari]
 
 [Bosnian]
-
+Bosnaique
 [Breton]
-
+Breton
 [Bulgarian]
 Bulgare
 [Burmese]
 
 [Catalan]
-
+Catalan
 [Cherokee]
 
 [Chinese]
 Chinois
 [Chinese_CN]
-Chinois_CN
+Chinois (CN)
 [Chinese_TW]
-Chinois_TW
+Chinois (TW)
 [Croatian]
 Croate
 [Czech]
@@ -411,7 +411,7 @@ Estonien
 [Icelandic]
 Islandais
 [Faroese]
-
+Féringien
 [Filipino]
 Philippin
 [Finnish]
@@ -419,13 +419,13 @@ Finlandais
 [French]
 Français
 [Frisian]
-
+Frison
 [Galician]
-
+Galicien
 [German]
 Allemand
 [Georgian]
-
+Géorgien
 [Greek]
 Grec
 [Guarani]
@@ -437,13 +437,13 @@ Hébreu
 [Hindi]
 Hindî
 [Indonesian]
-
+Indonésien
 [Inuktitut]
 
 [Interlingua]
-
+Interlingue
 [Irish]
-
+Irlandais
 [Hungarian]
 Hongrois
 [Italian]
@@ -451,7 +451,7 @@ Italien
 [Japanese]
 Japonais
 [Japanese_Romaji]
-
+Japonais (Romaji)
 [Kazakh]
 
 [Khmer]
@@ -476,27 +476,27 @@ Macédonien
 [Malayalam]
 
 [Maltese]
-
+Maltais
 [Marathi]
 
 [Mongolian]
-
+Mongol
 [Nepali]
-
+Népalais
 [Norwegian]
 Norvégien
 [Norwegian_Bokmal]
-
+Norvégien (Bokmal)
 [Norwegian_Nynorsk]
-
+Norvégien (Nynorsk)
 [Oriya]
 
 [Pashto]
 
 [Papiamento]
-
+Papiamento
 [Persian]
-
+Perse
 [Polish]
 Polonais
 [Portuguese]
@@ -524,21 +524,21 @@ Slovénien
 [Spanish]
 Espagnol
 [Spanish_LA]
-Espagnol-LA
+Espagnol (LA)
 [Swahili]
-
+Sovahéli
 [Swedish]
 Suédois
 [Tajik]
 
 [Tagalog]
-
+Tagalog
 [Tamil]
-
+Tamoul
 [Telugu]
-
+Télougou
 [Thai]
-
+Thaï
 [Tibetan]
 
 [Turkish]
@@ -552,7 +552,7 @@ Ourdu
 [Uighur]
 
 [Vietnamese]
-
+Vietnâmien
 [Welsh]
 Gallois
 [Unknown]
@@ -568,9 +568,9 @@ Erreur
 [Disabled]
 Désactivé(e)
 [Move service up]
-Vers le haut
+Monter
 [Move service down]
-Vers le bas
+Descendre
 [<b>Status</b> : Enabled]
 <b>Statut</b> : Activé(e)
 [<b>Status</b> : Error]
@@ -586,7 +586,7 @@ Sujets
 [Subject]
 Sujet
 [Any]
-N'importe lequel
+Quelconque
 [Common]
 Commun
 [Aviation]
@@ -600,7 +600,7 @@ Banque
 [Bible]
 Bible
 [Business]
-Economie de marché
+Economie
 [Military]
 Militaire
 [Law]
@@ -632,17 +632,17 @@ Economie
 [Electronics]
 Electronique
 [Internet]
-
+Internet
 [Logistics]
 Logistique
 [Travel]
 Voyage
 [Football]
-
+Football
 [Phrasebook]
 Conversation
 [Perfumery]
-Parfumerie
+Parfums
 [Type]
 Type
 [Translator]
@@ -662,9 +662,9 @@ Encyclopédie
 [Search Engine]
 Moteur de recherche
 [Bilingual phrases dictionary]
-
+Dictionnaire bilingue
 [Bilingual sentenses dictionary]
-
+Dictionnaire bilingue d'expressions
 [T]
 T
 [MD]
@@ -682,9 +682,9 @@ EN
 [SE]
 SE
 [BP]
-
+BP
 [BS]
-
+BS
 [Limit]
 Limite 
 [characters]
@@ -692,9 +692,9 @@ caractères
 [Limit {0} : {1} characters]
 Limite {0} : {1} caractères
 [Limit {0} : {1} lines]
-
+Limite {0} : {1} lignes
 [Limit {0} : {1} words]
-
+Limite {0} : {1} mots
 [Masks]
 Masques
 [English-Ukrainian technical dictionary]
@@ -704,7 +704,7 @@ Traducteur Google
 [<META> Translator]
 Traducteur de balises <META>
 [Free open source machine translation system]
-Système de traduction libre (et gratuit)
+Système de traduction libre
 [Russian-Ukrainian academic dictionary (1924–1933)]
 Dictionnaire académique Russe-Ukrainien (1924–1933)
 [Large explanatory dictionary of modern Ukrainian]
@@ -728,53 +728,53 @@ L'encyclopédie libre que tout le monde peut éditer
 [The free dictionary that anyone can edit]
 Le dictionnaire libre que tout le monde peut éditer
 [SYSTRAN translation software (used by Altavista Babel Fish)]
-Logiciel de traduction SYSTRAN (utlisé par Babel Fish d'Altavista)
+Logiciel de traduction SYSTRAN (utlisé par Altavista Babel Fish)
 [Polish-English-Polish and Polish-German-Polish dictionaries]
-
+Dictionnaires Polonais-Anglais-Polonais et Polonais-Allemand-Polonais
 [Yahoo Babel Fish Translator]
-
+Traducteur Yahoo Babel Fish
 [Multitran - system for translators]
-
+Multitran - Système pour traducteurs
 [PROMT - Free Text Translator]
-
+PROMT - Traducteur Gratuit
 [LangSoft Translation & Educational Software]
-
+LangSoft - Logiciels de Traduction & Education
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - Dictionnaire orienté Tchèque
 [Free Online Urdu-English Dictionary]
-
+Dictionnaire Ourdou-Anglais gratuit en ligne
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+Dictionnaire Ourdou-Anglais et Anglais-Ourdou gratuit en ligne
 [InterTran dictionary]
-
+Dictionnaire InterTran
 [Priberam Portuguese dictionary]
-
+Dictionnaire Priberam (Portuguais)
 [WordNet a lexical database for the English language]
-
+WordNet - Une base de données lexicale pour l'Anglais
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet - Base de données lexicale multilingue
 [English-Bulgarian dictionary - SA Dictionary Online]
-
+SA Dictionary Online - Dictionnaire Anglais-Bulgare
 [dict.cc - English-German Dictionary]
-
+Dict.cc - Dictionnaire Anglais-Allemand
 [BEOLINGUS - German oriented dictionary]
-
+BEOLINGUS - Dictionnaire orienté Allemand
 [Open thesaurus is an Open Source thesaurus for the German language]
-
+Open Thesaurus est un thésaurus libre pour l'Allemand
 [OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
-
+Open Thesaurus-es est un thésaurus libre pour l'Espagnol
 [OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
-
+OpenTaal est un thésaurus libre pour le Néerlandais basé sur OpenThesaurus
 [OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
-
+Open Thesaurus-PT est un thésaurus libre pour le Portuguais
 [OpenThesaurusPL is an Open Source thesaurus for the Polish language]
-
+Open Thesaurus-PL est un thésaurus libre pour le Polonais
 [OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
-
+Open Thesaurus-SI est un thésaurus libre pour le Slovène
 [Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
-
+Sozluk(te)* Online Dictionary - Dictionnaire orienté Turque
 [Free Dictionaries project]
-
+Projet de dictionnaires gratuits
 [Grouped by Service's Url]
 Rangés par Url des Services
 [Grouped by Language]
@@ -788,49 +788,49 @@ Créer un article
 [Open article]
 Ouvrir un article
 [Pronunciation]
-
+Prononciation
 [{0} more entries found]
-
+{0} résultats supplémentaires
 [related links]
-
+liens
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+Temps de requête : {0} s, Nombre de requêtes : {1}, Bits envoyés : {2}, Bits reçus : {3}
 [Full time : {0} s]
-
+Temps total : {0} s
 [{0} phrases translated by {1} calls to translate services]
-
+{0} phrases traduites avec {1} requête
 [Send by mail]
-
+Envoyer par mail
 [Continue]
-
+Continuer
 [Copy]
-
+Copier
 [Terminate]
-
+Annuler
 [Terminated by user on error]
-
+Annuler par l'utilisateur
 [Unhandled exception in]
-
+Erreur inconnue
 [Error on opening config file]
-
+Erreur à l'ouverture du fichier de configuration
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+Erreur à l'ouverture du fichier de configuration depuis {0} .\r\nOrigine possible : erreur dans le format du fichier.\r\nLa configuration sera réinitialisée.
 [Error on saving config file]
-
+Erreur à l'enregistrement du fichier de configuration
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+Erreur à l'enregistrement du fichier d'enregistrement vers {0} .\r\nOrigine possible : Accès refusé en écriture vers le répertoire temporaire.
 [Error on saving config file to {0}]
-
+Erreur à l'enregistrement du fichier d'enregistrement vers {0}
 [Show information about exception]
-
+Informations sur l'erreur
 [Error on start process : {0}\r\nError message : {1}]
-
+Erreur au démarrage : {0}\r\nMessage d'erreur : {1}
 [Error on start process]
-
+Erreur au démarrage
 [Error on sending email to : {0}\r\nError message : {1}]
-
+Erreur à l'envoi du mail à : {0}\r\nMessage d'erreur : {1}
 [Error on sending email]
-
+Erreur à l'envoi du mail
 [Language detection]
 
 [Guess language ...]
