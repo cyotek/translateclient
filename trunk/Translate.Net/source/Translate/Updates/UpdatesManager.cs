@@ -285,7 +285,7 @@ namespace Translate
 			message = Message;
 			state = UpdateState.Ending;
 			versionUrlToCheck = 0;
-			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Days(1).Ticks); //next day
+			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Days(5).Ticks); //next five days
 			TranslateOptions.Instance.UpdateOptions.LastCheckResult = Message;
 			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
 		}
@@ -295,7 +295,7 @@ namespace Translate
 			message = LangPack.TranslateString("Canceled");
 			state = UpdateState.None;
 			versionUrlToCheck = 0;
-			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Hours(2).Ticks); //next 2 hours
+			TranslateOptions.Instance.UpdateOptions.NextCheck = new DateTime(DateTime.Now.Ticks + DateTimeUtils.Days(1).Ticks); //next day
 			TranslateOptions.Instance.UpdateOptions.LastCheckResult = message;
 			TranslateOptions.Instance.UpdateOptions.LastCheck = DateTime.Now;
 		}
