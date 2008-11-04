@@ -130,8 +130,7 @@ namespace Translate
 			foreach(string subtrans_s in subtranslation_list)
 			{
 				string subtrans_str = subtrans_s;
-				subtrans_str = StringParser.RemoveAll("<span", ">", subtrans_str);
-				subtrans_str = subtrans_str.Replace("</span>", "");
+				subtrans_str = StringParser.RemoveAll("<", ">", subtrans_str);
 				subres_tr.Translations.Add(subtrans_str.Trim());
 			}
 			
@@ -160,6 +159,9 @@ namespace Translate
 							
 						string subphrase = related_str.Substring(0, translationIdx); 
 						string subphrasetrans = related_str.Substring(translationIdx + 5); 
+						subphrasetrans = StringParser.RemoveAll("<", ">", subphrasetrans);
+						subphrasetrans = subphrasetrans.Replace("&nbsp", " ");
+						
 						Result subres = CreateNewResult(subphrase, languagesPair, subject);
 						subres.Translations.Add(subphrasetrans);
 						result.Childs.Add(subres);
