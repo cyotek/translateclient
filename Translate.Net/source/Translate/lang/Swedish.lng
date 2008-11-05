@@ -835,46 +835,46 @@ Fel på skicka e-post till : {0}\r\nFelmeddelande : {1}
 [Error on sending email]
 Fel på överföring av e-post
 [Language detection]
-
+Språk upptäckning
 [Guess language ...]
-
+Gissa språk ...
 [Detect language of source text]
-
+Upptäck språket i källtexten
 [Guess language of source text and show info about]
-
+Gissa språket i källtexten och visa information om
 [Language detection : {0}]
-
+Språk upptäckt : {0}
 [Started]
-
+Startat
 [Failed]
-
+Misslyckades
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1}, Värdering - {2}% Förtroende - {3}
 [Strong]
-
+Stark
 [Intermediate]
-
+Mellanliggande
 [Poor]
-
+Fattig
 [Reliable]
-
+Pålitlig
 [Not reliable]
-
+Ej pålitlig
 [Keyboard layout : {0}]
-
+Tangentbordslayout : {0}
 [Intelligent switching of profiles and directions]
-
+Intelligent koppling av profiler och vägbeskrivningar
 [Based on keyboard layout]
-
+Baserat på tangentbordslayout
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+Intelligent växling av profiler och översättningsriktningar som baseras på, skrivar orienteringen
 [Based on detected language]
-
+Baserat på upptäckt språk
 [Intelligent switching of profiles and translation directions based on detected language]
-
+Intelligent växling av profiler och översättningsriktningar som baseras på avkänt språk
 [Switch by detected language only when text length greater of]
-
+Byte av upptäckt språk först när textens längd ärstörre än
 [Break translation when application deactivated]
-
+Bryt översättning när sökning inaktiveras
 [Break translation on switching to other application]
-
+Bryt översättning vid byte till andra program
