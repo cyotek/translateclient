@@ -106,21 +106,24 @@ namespace Translate
 				return Manager.Subjects;
 			else
 			{
+				PrepareProcessing();
 				SubjectCollection subjects = new SubjectCollection();
+				int index;
 				foreach(ServiceItem item in Manager.ServiceItems)
 				{
 					foreach(LanguagePair lp in item.SupportedTranslations)
 					{
-						if(disabledSourceLanguages.Contains(lp.From))
+						if(disabledSourceLanguages.BinarySearch(lp.From) >= 0)
 							continue;
-		
-						if(disabledTargetLanguages.Contains(lp.To))
+	
+						if(disabledTargetLanguages.BinarySearch(lp.To) >= 0)
 							continue;
 					
 						foreach(string subject in item.SupportedSubjects)
 						{
-							if(!subjects.Contains(subject))
-								subjects.Add(subject);
+							index = subjects.BinarySearch(subject);
+							if(index < 0)
+								subjects.Insert(~index,subject);
 						}
 						
 						break;
@@ -130,27 +133,37 @@ namespace Translate
 			}
 		}
 
+		void PrepareProcessing()
+		{
+			Subjects.Sort();
+			disabledSourceLanguages.Sort();
+			disabledTargetLanguages.Sort();
+		}
+		
 		public override ReadOnlyLanguagePairCollection GetLanguagePairs()
 		{
+			PrepareProcessing();
 			LanguagePairCollection result = new LanguagePairCollection();
 			
+			int index;
 			foreach(ServiceItem item in Manager.ServiceItems)
 			{
 				foreach(string subject in item.SupportedSubjects)
 				{
-					if(Subjects.Contains(subject))
+					if(Subjects.BinarySearch(subject) >= 0)
 					{
 						foreach(LanguagePair lp in item.SupportedTranslations)
 						{
-							if(!result.Contains(lp))
-							{
-								if(disabledSourceLanguages.Contains(lp.From))
-									continue;
+							if(disabledSourceLanguages.BinarySearch(lp.From) >= 0)
+								continue;
 	
-								if(disabledTargetLanguages.Contains(lp.To))
-									continue;
-							
-								result.Add(lp);
+							if(disabledTargetLanguages.BinarySearch(lp.To) >= 0)
+								continue;
+						
+							index = result.BinarySearch(lp);
+							if(index < 0)
+							{
+								result.Insert(~index,lp);
 							}	
 						}
 					}
@@ -163,13 +176,13 @@ namespace Translate
 		public override ReadOnlyServiceSettingCollection GetServiceSettings(string phrase, LanguagePair languagePair)
 		{
 			ServiceSettingCollection result = new ServiceSettingCollection();
-			
+			PrepareProcessing();
 			foreach (KeyValuePair<LanguagePair, ServiceItemsCollection> kvp in Manager.LanguagePairServiceItems)
 			{
-				if(disabledSourceLanguages.Contains(kvp.Key.From))
+				if(disabledSourceLanguages.BinarySearch(kvp.Key.From) >= 0)
 					continue;
 	
-				if(disabledTargetLanguages.Contains(kvp.Key.To))
+				if(disabledTargetLanguages.BinarySearch(kvp.Key.To) >= 0)
 					continue;
 			
 				foreach(ServiceItem si in kvp.Value)
@@ -184,7 +197,7 @@ namespace Translate
 						
 						foreach(string subject in si.SupportedSubjects)
 						{
-							if(Subjects.Contains(subject))
+							if(Subjects.BinarySearch(subject) >= 0)
 							{
 								ServiceItemSetting tsetting = new ServiceItemSetting(kvp.Key, subject, si, TranslateOptions.Instance.GetNetworkSetting(si.Service));
 								result.Add(tsetting);

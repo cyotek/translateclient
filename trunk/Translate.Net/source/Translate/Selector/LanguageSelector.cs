@@ -228,7 +228,7 @@ namespace Translate
 						try 
 						{
 							SetSubjects(profile.GetSupportedSubjects(), profile.Subjects);
-							Languages = profile.GetLanguagePairs();
+							SetLanguages(profile.GetLanguagePairs());
 							History = profile.History;
 						} 
 						finally 
@@ -247,17 +247,21 @@ namespace Translate
 		}
 		
 		
-		ReadOnlyLanguagePairCollection languages;
+		LanguagePairCollection languages;
 		
 		[Browsable(false)]
 		[DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
 		[SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-		public ReadOnlyLanguagePairCollection Languages {
+		public LanguagePairCollection Languages {
 			get { return languages; }
-			set { 
-					languages = value; 
-					LoadLanguages();
-				}
+		}
+		
+		void SetLanguages(ReadOnlyLanguagePairCollection collection)
+		{
+			languages = new LanguagePairCollection();
+			languages.AddRange(collection);
+			languages.Sort();
+			LoadLanguages();
 		}
 
 		
@@ -322,15 +326,14 @@ namespace Translate
 			lbTo.Items.Clear();
 			
 			LanguageCollection fromLangs = new LanguageCollection();
-			
+			int index;
 			foreach(LanguagePair lp in languages)
 			{
-				if(!fromLangs.Contains(lp.From))
-					fromLangs.Add(lp.From);
-					
+				index = fromLangs.BinarySearch(lp.From);
+				if(index < 0)
+					fromLangs.Insert(~index, lp.From);
 			}
 			
-			fromLangs.Sort();
 			
 			string val = "";
 			
@@ -372,14 +375,16 @@ namespace Translate
 			lbTo.Items.Clear();
 			
 			LanguageCollection toLangs = new LanguageCollection();
-			
+			int index;
 			foreach(LanguagePair lp in languages)
 			{
-				if((lp.From == fromLanguage || fromLanguage == Language.Any) && !toLangs.Contains(lp.To))
-					toLangs.Add(lp.To);
+				if((lp.From == fromLanguage || fromLanguage == Language.Any))
+				{
+					index = toLangs.BinarySearch(lp.To);
+					if(index < 0)
+						toLangs.Insert(~index, lp.To);
+				}	
 			}
-			
-			toLangs.Sort();
 			
 			string val = "";
 			
@@ -623,11 +628,14 @@ namespace Translate
 							lbSubjects.SetItemCheckState(i, e.NewValue);
 					}
 					
-					Languages = profile.GetLanguagePairs();
+					SetLanguages(profile.GetLanguagePairs());
+					
 					LanguagePairCollection to_delete = new LanguagePairCollection();
+					int index;
 					foreach(LanguagePair lp in history)
 					{
-						if(!Languages.Contains(lp))
+						index = Languages.BinarySearch(lp);
+						if(index < 0)
 						{
 							to_delete.Add(lp);
 						}
@@ -677,11 +685,13 @@ namespace Translate
 			try
 			{
 				ignoreServicesLoading = true;
-				Languages = profile.GetLanguagePairs();
+				SetLanguages(profile.GetLanguagePairs());
 				LanguagePairCollection to_delete = new LanguagePairCollection();
+				int index;
 				foreach(LanguagePair lp in history)
 				{
-					if(!Languages.Contains(lp))
+					index = Languages.BinarySearch(lp);
+					if(index < 0)
 					{
 						to_delete.Add(lp);
 					}

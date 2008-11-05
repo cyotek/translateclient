@@ -44,7 +44,7 @@ namespace Translate
 	/// <summary>
 	/// Description of LanguageDataContainer.
 	/// </summary>
-	public class LanguageDataContainer
+	public class LanguageDataContainer : IComparable<LanguageDataContainer>
 	{
 		public LanguageDataContainer(Language language, string text)
 		{
@@ -80,7 +80,7 @@ namespace Translate
 			bnull = Object.ReferenceEquals(b,null);
 			if (anull && bnull) return true;
 			if (anull || bnull) return false;
-			return a.Equals(b);
+			return a.Language ==  b.Language;
 		}
 	
 		public static bool operator !=(LanguageDataContainer a, LanguageDataContainer b)
@@ -88,6 +88,10 @@ namespace Translate
 			return !(a == b);
 		}
    			
+		public int CompareTo(LanguageDataContainer other)
+		{
+			return Language - other.Language;
+		}
 			
 	}
 }

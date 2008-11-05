@@ -152,23 +152,34 @@ namespace Translate
 		public override SubjectCollection GetSupportedSubjects()
 		{
 			SubjectCollection subjects = new SubjectCollection();
+			int index;
 			foreach(ServiceItemData sid in services)
 			{
-				if(!subjects.Contains(sid.Subject))
-					subjects.Add(sid.Subject);
+				index = subjects.BinarySearch(sid.Subject);
+				if(index < 0)
+					subjects.Insert(~index, sid.Subject);
 			}
 			return subjects;
 		}
 
+		void PrepareProcessing()
+		{
+			Subjects.Sort();
+		}
+
 		public override ReadOnlyLanguagePairCollection GetLanguagePairs()
 		{
+			PrepareProcessing();
 			LanguagePairCollection result = new LanguagePairCollection();
 			
+			int index;
 			foreach(ServiceItemData sid in services)
 			{
-				if(Subjects.Contains(sid.Subject) && !result.Contains(sid.LanguagePair))
+				if(Subjects.BinarySearch(sid.Subject) >= 0)
 				{
-					result.Add(sid.LanguagePair);
+					index = result.BinarySearch(sid.LanguagePair);
+					if(index < 0)
+						result.Insert(~index, sid.LanguagePair);
 				}
 			}
 			
@@ -177,8 +188,10 @@ namespace Translate
 		
 		public override ReadOnlyServiceSettingCollection GetServiceSettings(string phrase, LanguagePair languagePair)
 		{
+			PrepareProcessing();
 			ServiceSettingCollection result = new ServiceSettingCollection();
 			
+			int index;
 			foreach(ServiceItemData sid in services)
 			{
 				if( 
@@ -186,8 +199,9 @@ namespace Translate
 					(sid.LanguagePair.To == languagePair.To || languagePair.To == Language.Any)
 					  )
 				{				
-						
-					if(Subjects.Contains(sid.Subject))
+					
+					index = Subjects.BinarySearch(sid.Subject);
+					if(index >= 0)
 					{
 						ServiceItemSetting tsetting = new ServiceItemSetting(sid.LanguagePair, sid.Subject, sid.ServiceItem, TranslateOptions.Instance.GetNetworkSetting(sid.ServiceItem.Service));
 						result.Add(tsetting);
