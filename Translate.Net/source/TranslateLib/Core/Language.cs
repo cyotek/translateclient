@@ -166,7 +166,7 @@ namespace Translate
 		Unknown
 	}
 	
-	public class LanguagePair
+	public class LanguagePair : System.IEquatable<LanguagePair>, IComparable<LanguagePair>
 	{
 		public LanguagePair()
 		{
@@ -192,17 +192,26 @@ namespace Translate
 			set { to = value; }
 		}
 		
+		public bool Equals(LanguagePair obj)
+		{
+			if(Object.ReferenceEquals(obj,null))
+				return false;
+			if(Object.ReferenceEquals(obj,this))
+				return true;
+			return this.from == obj.from && this.to == obj.to;	
+		}
 		
 		public override bool Equals(Object obj)
 		{
 			LanguagePair arg = obj as LanguagePair;
-			if(arg == null) return false;
-			return From == arg.From && To == arg.To;
+			if(!Object.ReferenceEquals(obj,null))
+				return this.Equals(arg);
+			return false;	
 		}
 
 		public override int GetHashCode() 
 		{
-   			return From.GetHashCode() * 100 + To.GetHashCode();
+   			return (int)from * ((int)Language.Unknown + 1) + (int)to;
 		}	
 			
 		public override string ToString()
@@ -221,7 +230,7 @@ namespace Translate
 			bnull = Object.ReferenceEquals(right,null);
 			if (anull && bnull) return true;
 			if (anull || bnull) return false;
-			return left.Equals(right); 
+			return left.from == right.from && left.to == right.to;	
 		}
 
 		public static bool operator !=(LanguagePair left, LanguagePair right)
@@ -229,6 +238,14 @@ namespace Translate
 			return !(left == right);
 		}
 		
+		public int CompareTo(LanguagePair other)
+		{
+			int result = from - other.from;
+			if(result == 0)
+				result = to - other.to;
+			return result;	
+		}
+
 	}
 	
 	public class LanguageCollection : List<Language>

@@ -149,11 +149,12 @@ namespace Translate
 		static void AddServiceItem(ServiceItem serviceItem)
 		{
 			serviceItems.Add(serviceItem);
-			
+			int index;
 			foreach(string subject in serviceItem.SupportedSubjects)
 			{
-				if(!subjects.Contains(subject))
-					subjects.Add(subject);
+				index = subjects.BinarySearch(subject);
+				if(index < 0)
+					subjects.Insert(~index, subject);
 			}
 			
 		}

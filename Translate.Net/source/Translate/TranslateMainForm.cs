@@ -1454,7 +1454,7 @@ namespace Translate
 					if(current_dir.To != current_dir.From)
 					{
 						LanguagePair inverted_dir = new LanguagePair(current_dir.To, current_dir.From);
-						if(currentProfile.GetLanguagePairs().Contains(inverted_dir) )
+						if(languageSelector.Languages.BinarySearch(inverted_dir) >=0 )
 						{
 							mi = new ToolStripMenuItem();
 							miBrowserTranslateSel.DropDownItems.Add(mi);
