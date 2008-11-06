@@ -2,12 +2,12 @@
 <html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Localization Tutorial</title>
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - "Use of language detection feature in Translate.Net"</title>
 
 <meta name="author" content="Oleksii Prudkyi">
 <meta name="robots" content="FOLLOW,INDEX">
-<meta name="description" content="Localization Tutorial for Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
-<meta name="keywords" content="Localization, Tutorial,introduction, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
+<meta name="description" content="Described how automatic language detection work and how to configure it for benefit">
+<meta name="keywords" content="automatic language detection, Language Identifier">
 <link rel="stylesheet" type="text/css" href="main.css">
 <meta name="Default" content="Default">
 </head>
@@ -102,44 +102,109 @@
 </td>
 
 <td valign="top" style="margin-left: 10px" >
-
 <!--  help body -->
-<h2><b>Localization Tutorial</b></h2>
+<h2><b>Using of "language detection" and "intelligent switching of translation directions" in Translate.Net</b></h2>
 
-<p>You can create a localization for Translate.Net in your language. I am will be pleased to have localization of GUI to Portuguese, Spanish, Swedish, Korean and many others.
-<br><br>
-<img align="middle" src="http://lh3.ggpht.com/Oleksii.Prudkyi/SG9LSzrwF8I/AAAAAAAAAHQ/T9njGebAy4M/s800/screen4.eng.png" />
-<br><br>
+<p>Language detection feature created for speedup and simplify switching among different translation directions.
+This is powerful feature but it has pitfalls which can add more troubles instead of easy use. So, in some scenarios
+you probably will needed to disable automatic switching of translation directions.</p>
 
-<p>Here a few simple steps:
+<p>Current implementation based on
+<a target="_blank" href="http://code.google.com/apis/ajaxlanguage/">Google AJAX Language API</a>.
+This is very smart engine, but as any others has some "leaks" based on nature of languages -
+here sometime not possible to accurately detect language for single word (or small sentence) - the word can exists in
+few languages or engine don't know this word or exists mathematical inaccuracy of statistical methods used.
+Tests show - the optimal length of text for detecting 15-25 characters for European languages.
+</p>
+
+<div style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x60, created 6/7/08 */
+google_ad_slot = "9765415464";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<p>To reduce drawbacks of such problems <b>Translate.Net</b> include two intelligent methods:
+<ul>
+<li>minimal length of sentence needed to automatically switch translation direction - allow to
+reduce count of "false switching"</li>
+<li>history of detected language and language used for translation (selected by user), so
+next time in case of wrong detection tool will "fix" this.</li>
+</ul>
+
+<br>
+<div  style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x15, created 6/7/08 */
+google_ad_slot = "5672949848";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+<p>Full process of "intelligent switching" of translation directions include next steps :
 <ol>
-<li>Copy and rename "c:\Program Files\SAU KP\Translate.Net\lang\Original.lng" or other .lng file from directory<br>
-"c:\Program Files\SAU KP\Translate.Net\lang\" to some file named like mylanguage.lng
+<li>When user switch input language (keyboard layout) - tool will seek the most appropriate
+profile and translation direction. This process based on history of used translations directions and
+translation directions of profiles. If nothing found - tool will try to set translation direction based on
+installed input languages (language layouts).
 </li>
-<li>Open .lng file in any text editor (like Notepad) or even in MS Word (as utf-8 txt)
+<li>When user type some text (or paste text from clipboard or call tool from other application
+by <a href="help.othertools.en.html">system-wide hotkeys</a>) - <b>Translate.Net</b> query
+<a target="_blank" href="http://code.google.com/apis/ajaxlanguage/">Google AJAX Language API</a>
+for language of text and then show detected language in status bar. If text length greater of "minimal limit",
+tool will select translation direction based on detected language, history of "fixes" of detected languages,
+history of used translations directions
+and installed input languages (language layouts).
 </li>
-<li>Add/Edit translations strings. Format of .lng file described below.
-</li>
-<li>Send new .lng file to <a href="mailto:translate.net@gmail.com">me</a>
 </ol>
 
-<p><b>.lng file format:</b>
-<p>.lng file format very simple - each translation contains two lines - one with English text, second with localized.
-First one with square brackets (<i>[]</i>) as English text, second - with translation<br>
-Sample of French translation of two lines:<br><br>
-<i>[&Select Аll]<br>
-&Sélectionner tout<br>
-[&Window]<br>
-&Fenêtre<br></i>
-<p>Localization file also contains special symbols. You can move them in line, but please don't remove them:
-<ul>
-<li><b>&</b> - Accelerator of menu, underlined letter shortcut (when Alt pressed)</li>
-<li><b>\r\n</b> - newline string, by ex. : <i>[The profile {0} will be deleted.\r\nAre you sure ?]</i>
-</li>
-<li><b>{0},{1},{2},{3}</b> - format placeholders, marks where other data will be inserted by tool, by example :
-<i>[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]</i> </li>
-<li><b>\\</b> - backslash, by ex. <i>[Show\\Hide]</i> </li>
-</ul>
+<h4>Management of intelligent switching of translation directions</h4>
+<p>When tool used for translating very different languages, (by ex. English-Chinese), then "minimal length" can be reduced
+to "0". After some time of using, tool will "learn" all "fixes" user made (by ex. Maltese-&gt;English) and after learning
+tool will perfectly switch directions.<br />
+<b>Please note, if tool has selected wrong translation direction you should select correct direction and rerun translation process.
+After this, tool will memorize correct direction.</b>   
+ 
+
+<p>When used similar languages, (by ex. European languages) the "minimal limit" should be default (20 characters).
+Lesser value - 5-15 characters can be used too, but in this case please be prepared for "false switching".
+In some cases needed to increase limit or disable automatic switching for detected language at all.
+
+
+<h4>Configuration</h4>
+
+<p>You can change setting of language detection\intelligent switching  by use "Options" dialog
+
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh5.ggpht.com/_-9V3zqX1VKw/SQ_PDSRgDMI/AAAAAAAAAME/WOU80y8iUhk/s800/detection.options.eng.png" />
+	<br></div>
+<br />
+or via "Tools" menu
+
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh6.ggpht.com/_-9V3zqX1VKw/SQ_PDftp8jI/AAAAAAAAAMM/JMIihB89-hA/s800/detection.menu.eng.png" />
+	<br></div>
+<br />
+
+You can disable language detection at all, or disable one of "intelligent switching" modes.
+Additionally "Options" dialog allow to setup "minimal limit" of text length for automatic switching
+of profiles by changing "Switch by detected language only when text length greater of" text box value.
+
+
 <!--  end help body -->
 
 </td>

@@ -85,12 +85,14 @@
 <p>&nbsp;&nbsp;&nbsp;<a href="help.languages.en.html">Languages</a></p>
 <p>&nbsp;&nbsp;&nbsp;<a href="help.services.en.html">Services</a></p>
 <p>&nbsp;&nbsp;&nbsp;<a href="help.subjects.en.html">Subjects</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.language-detection.en.html">Language detection</a></p>
 <p>&nbsp;&nbsp;&nbsp;<a href="help.othertools.en.html">Use from other tools</a></p>
 <p><b><a href="help.options.en.html">Settings</a></b></p>
 <p><b><a href="help.shortcuts.en.html">Keyboard shortcuts</a></b></p>
 <p><b><a href="help.commandline.en.html">Command Line Usage</a></b></p>
 <p><b><a href="help.localization.en.html">Localization Tutorial</a></b></p>
 <p><b><a href="help.troubleshooting.en.html">Troubleshooting</a></b></p>
+<p><b><a href="help.portable.en.html">Portable version</a></b></p>
 <!--  end help menu -->
 </div>
 </td>
@@ -100,15 +102,17 @@
 </td>
 
 <td valign="top" style="margin-left: 10px" >
-<br>
 <!--  help body -->
-<b>Command Line Usage</b>
+<h2><b>Command Line Usage</b></h2>
 <p>Next few command line parameters supported :
 <ul>
 <li><b>-nohide</b> - don't hide tool to tray when started. Overwrite startup setting from "Options" dialog</li>
 <li><b>-skipsplash</b> - allow to skip "Splash Screen" when tool starting</li>
 <li><b>-skipchangelog</b> - skip loading of changelog at start (useful only at development time) </li>
-
+<li><b>-config PATH_TO_OPTIONS_FILE</b> - run tool with use options file by specific path, instead of use of "c:\Documents and Settings\{USER_NAME}\Application Data\SAU KP\Translate.Net\TranslateOptions.xml"
+<li><b>-portable</b> - enable special "portable" mode. When started with this switch tool disable 
+non-portable features which write to registry or local folders. Disabled at least 
+"Launch at system startup" option and automatic downloading of updates.    
 
 </ul>
 <!--  end help body -->

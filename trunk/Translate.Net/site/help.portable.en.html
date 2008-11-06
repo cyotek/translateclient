@@ -2,12 +2,12 @@
 <html><head>
 <meta http-equiv="Content-Language" content="en-us">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Localization Tutorial</title>
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - Portable version</title>
 
 <meta name="author" content="Oleksii Prudkyi">
 <meta name="robots" content="FOLLOW,INDEX">
-<meta name="description" content="Localization Tutorial for Translate.Net - freeware client to many translating services available online (translators, monolingual and bilingual dictionaries).">
-<meta name="keywords" content="Localization, Tutorial,introduction, documentation, help, Translate.Net, translate, translator, dictionary, monolingual, bilingual, translate.google.com, translate.meta.ua, pere.org.ua, r2u.org.ua, www.slovnyk.net, slovnyk.org">
+<meta name="description" content="Description about use of portable version">
+<meta name="keywords" content="portable dictionary, portable translator, portable, flash-drive">
 <link rel="stylesheet" type="text/css" href="main.css">
 <meta name="Default" content="Default">
 </head>
@@ -104,41 +104,61 @@
 <td valign="top" style="margin-left: 10px" >
 
 <!--  help body -->
-<h2><b>Localization Tutorial</b></h2>
+<h2><b>Portable version</b></h2>
 
-<p>You can create a localization for Translate.Net in your language. I am will be pleased to have localization of GUI to Portuguese, Spanish, Swedish, Korean and many others.
-<br><br>
-<img align="middle" src="http://lh3.ggpht.com/Oleksii.Prudkyi/SG9LSzrwF8I/AAAAAAAAAHQ/T9njGebAy4M/s800/screen4.eng.png" />
-<br><br>
+<p>Portable version is special package of <b>Translate.Net</b> with additional tool (X-Translate.Net.exe) 
+which manage settings and allow to run <b>Translate.Net</b> from any place. 
+This package was originally created as part of big collection of free portable software -
+<a href="http://www.winpenpack.com/">winPenPack</a> by Danilo Leggieri.
+<br />
+Alternatively you can run tool in portable mode from command line by use of special 
+<a href="help.commandline.en.html">command line switches</a>.  
 
-<p>Here a few simple steps:
+
+<h4>Steps to run portable <b>Translate.Net</b>:</h4>
 <ol>
-<li>Copy and rename "c:\Program Files\SAU KP\Translate.Net\lang\Original.lng" or other .lng file from directory<br>
-"c:\Program Files\SAU KP\Translate.Net\lang\" to some file named like mylanguage.lng
-</li>
-<li>Open .lng file in any text editor (like Notepad) or even in MS Word (as utf-8 txt)
-</li>
-<li>Add/Edit translations strings. Format of .lng file described below.
-</li>
-<li>Send new .lng file to <a href="mailto:translate.net@gmail.com">me</a>
-</ol>
+<li>Download <b>X-Translate.Net_X.X.XXXX.XXXX_revX.zip</b> file from <a href="download.en.html">Download page</a></li>
+<li>Unpack content of .zip file to some folder</li>
+<li>Run <b>X-Translate.Net.exe file</b></li>
+</ol> 
 
-<p><b>.lng file format:</b>
-<p>.lng file format very simple - each translation contains two lines - one with English text, second with localized.
-First one with square brackets (<i>[]</i>) as English text, second - with translation<br>
-Sample of French translation of two lines:<br><br>
-<i>[&Select Аll]<br>
-&Sélectionner tout<br>
-[&Window]<br>
-&Fenêtre<br></i>
-<p>Localization file also contains special symbols. You can move them in line, but please don't remove them:
+<br>
+<div style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x60, created 6/7/08 */
+google_ad_slot = "9765415464";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<div  style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x15, created 6/7/08 */
+google_ad_slot = "5672949848";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+
+<h4>Portable version has next limitations : </h4>
 <ul>
-<li><b>&</b> - Accelerator of menu, underlined letter shortcut (when Alt pressed)</li>
-<li><b>\r\n</b> - newline string, by ex. : <i>[The profile {0} will be deleted.\r\nAre you sure ?]</i>
-</li>
-<li><b>{0},{1},{2},{3}</b> - format placeholders, marks where other data will be inserted by tool, by example :
-<i>[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]</i> </li>
-<li><b>\\</b> - backslash, by ex. <i>[Show\\Hide]</i> </li>
+<li>Here not possible to use "Launch at system startup" option as it require writing to registry what not a case for portable tool</li>
+<li>Automatic downloads of updates is disabled, they still can be checked but if found - dialog which redirect to <a href="download.en.html">Download page</a> page is shown
+<li>Due limitations of used features of .Net framework here not possible to run tool from shared drives (network shares)</li>
+<li>Some users report about problems with running tool with very-restrictive user's rights, like a "Guest" with additional restrictions.
+I can't repeat this, so if you can repeat this and can spend some time on testing "debug-builds" please contact me
 </ul>
 <!--  end help body -->
 
