@@ -60,6 +60,7 @@
     <Compile Include="AssemblySupportEmailAttribute.cs" />
     <Compile Include="CommandLineHelper.cs" />
     <Compile Include="CryptoTools.cs" />
+    <Compile Include="DynamicMethodsHelper.cs" />
     <Compile Include="Memory.cs" />
     <Compile Include="MonoHelper.cs" />
     <Compile Include="ProcessHelper.cs" />

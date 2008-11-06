@@ -53,6 +53,7 @@
     <Reference Include="System.Design" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionData.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="MenuItem.cs" />
