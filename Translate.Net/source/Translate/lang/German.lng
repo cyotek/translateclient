@@ -15,11 +15,11 @@ Anwendung beenden
 [&Edit]
 &Bearbeiten
 [Copy selection to clipboard]
-Auswahl in die Zwischenablage kopieren
+Auswahl in Zwischenablage kopieren
 [&Copy]
 &Kopieren
 [Cut selection to clipboard]
-Auswahl in die Zwischenablage ausschneiden
+Auswahl in Zwischenablage ausschneiden
 [Cu&t]
 &Ausschneiden
 [Paste from clipboard]
@@ -107,7 +107,7 @@ Fehler beim Herunterladen
 [{0} don't contained {1} tag:\r\n{2}]
 {0} enthielt kein Tag {1}:\r\n{2}
 [{0} has wrong formatted {1} tag:\r\n{2}]
-{0} hat falsch formatierten Tag {1}:\r\n{2}
+{0} hat falsch formatiertes Tag {1}:\r\n{2}
 [Canceled]
 Abgebrochen
 [Program is up to date]
@@ -203,11 +203,11 @@ Bei der Übersetzung ist ein Fehler aufgetreten. Bitte versuchen Sie es später 
 [Translation direction is not correct]
 Übersetzungsrichtung ist nicht korrekt
 [Only cyrillic characters supported]
-Nur kyrillischen Zeichen unterstützt
+Nur kyrillische Zeichen unterstützt
 [Ukrainian characters in russian query]
 Ukrainische Zeichen in russischer Anfrage
 [Parse error, start tags not found]
-Parse-Fehler, Start-Tags nicht gefunden
+Syntaxanalyse-Fehler, Start-Tags nicht gefunden
 [Nothing to translate]
 Nichts zu übersetzen
 [Length too big]
@@ -217,7 +217,7 @@ Falsche Datenstruktur
 [Query contains extraneous symbols]
 Anfrage enthält fremde Symbole
 [Service version not supported]
-Dienstversion nicht unterstützt
+Dienst-Version nicht unterstützt
 [Result view]
 Ergebnisansicht
 [Result view placement]
@@ -225,25 +225,25 @@ Anordnung der Ergebnisansicht
 [Top]
 Oben
 [Place result view at top]
-Ergebnisansicht oben platzieren
+Ergebnisansicht oben anordnen
 [Bottom]
 Unten
 [Place result view at bottom]
-Ergebnisansicht unten platzieren
+Ergebnisansicht unten anordnen
 [Left]
 Links
 [Place result view at left]
-Ergebnisansicht links platzieren
+Ergebnisansicht links anordnen
 [Right]
 Rechts
 [Place result view at right]
-Ergebnisansicht rechts platzieren
+Ergebnisansicht rechts anordnen
 [Include monolingual dictionaries in translation]
 Monolinguale Wörterbücher in Übersetzung einbeziehen
 [Filter of languages]
 Filter der Sprachen
 [Allow to choose languages for use]
-Erlaubt die zu verwendenden Sprachen zu wählen
+Erlaubt die Wahl der zu verwendenden Sprachen
 [Source languages]
 Quellsprache
 [Target languages]
@@ -265,7 +265,7 @@ Vorgabe
 [List]
 Liste
 [Add new user profile]
-Neue Benutzerprofil hinzufügen
+Neues Benutzerprofil hinzufügen
 [Set profile properties]
 Profil-Eigenschaften setzen
 [Profile name]
@@ -335,7 +335,7 @@ Anhalten
 [Search in Google]
 In Google suchen
 [Size or format of query don't supported by available translation services]
-Größe oder Format wird von verfügbaren Diensten nicht unterstützt.
+Größe oder Format wird von den verfügbaren Übersetzungsdiensten nicht unterstützt.
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
 Die Übersetzung wird {0} Aufrufe verschiedener Dienste erzeugen, was die Server überlasten kann.\nWollen Sie den Übersetzungsvorgang unterbrechen ?
 [Reverse translation direction]
@@ -633,7 +633,7 @@ Chemie
 [Economy]
 Wirtschaft
 [Electronics]
-Electronik
+Elektronik
 [Internet]
 Internet
 [Logistics]
@@ -821,7 +821,7 @@ Fehler beim Öffnen der Konfigurationsdatei von {0}.\r\nMögliche Ursache - Fehl
 [Error on saving config file]
 Fehler in Konfigurationsdatei
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-Fehler beim Speichern der Konfigurationsdatei nach {0}\r\nMögliche Ursache - Schreibzugriff auf System-TEMP-Ordner verweigert.
+Fehler beim Speichern der Konfigurationsdatei nach {0}.\r\nMögliche Ursache - Schreibzugriff auf System-TEMP-Ordner verweigert.
 [Error on saving config file to {0}]
 Fehler beim Speichern der Konfigurationsdatei nach {0}
 [Show information about exception]
@@ -833,7 +833,7 @@ Fehler beim Startvorgang
 [Error on sending email to : {0}\r\nError message : {1}]
 Fehler beim Senden der E-Mail an : {0}\r\nFehlermeldung : {1}
 [Error on sending email]
-Fehler beim E-Mail-Versand
+Fehler beim Senden der E-Mail
 [Language detection]
 Spracherkennung
 [Guess language ...]
@@ -873,7 +873,7 @@ Auf erkannter Sprache basierend
 [Intelligent switching of profiles and translation directions based on detected language]
 Intelligenter Wechsel von Profilen und Sprachrichtungen basierend auf erkannter Sprache
 [Switch by detected language only when text length greater of]
-Wechsel auf erkannte Sprache nur venn Text länger als
+Wechsel auf erkannte Sprache nur wenn Text länger als
 [Break translation when application deactivated]
 Übersetzung bei deaktivierter Anwendung unterbrechen
 [Break translation on switching to other application]
