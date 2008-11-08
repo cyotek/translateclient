@@ -1,0 +1,106 @@
+Thanks for translations:
+
+To Japanese - 2008-10-31 by poorman
+To German - 2008-10-31 by Kurt Lettmaier (http://www.famlehm.de/deleteme/tychobarfy/)
+To Bulgarian - 2008-10-02 by Стефан Стефанов - Wankata
+To Spanish 2008-10-30 by Rafael Pérez Cañadas
+To Brazilian Portuguese - 2008-11-03 by Cláudio Mantovani Vieira (claudio.mantovani@itelefonica.com.br)
+To Brazilian Portuguese - 2008-08-11 by Pix (pixzinhu@gmail.com)
+To Traditional Chinese - 2008-10-31 by Smallchou Lin (smallchoulcc@yahoo.com.tw)
+To Italian - 2008-06-06 by Enrico (noto Siberio) (siberio@email.it) 
+To French - 2008-11-03 by Roger alias Arvil  (member of http://www.korben.info/)
+To Simplified Chinese - 2008-10-31 by Sun Minghao (minghao.sun@gmail.com)
+To Arabic - 2008-10-31 by Awadh A Al-Ghaamdi (http://www.alsayra.com/vb/forumdisplay.php?f=118)
+To Swedish - 2008-11-05 by Hasse Svensson 
+
+Big thanks Danilo Leggieri for his http://www.winpenpack.com/ project and initial development of portable version.
+
+Thanks to bug reporters:
+
+2008-10-29
+murat7034
+
+2008-10-15
+Nika-2
+
+2008-10-09
+alex.marillo 
+
+2008-09-24
+Claudia Viegas
+
+2008-09-18
+peppino
+
+2008-09-17
+Wilhelm Suhr
+
+2008-09-11
+Cynthia
+
+2008-09-10
+Andrea Iachini
+
+2008-08-31
+M.Mintscheff
+
+2008-08-29
+peppino
+Sandro Osci 
+
+2008-08-28
+zberro samy
+
+2008-08-21
+Holger Hoffmann
+
+2008-08-20
+Kurt Lettmaier
+
+2008-08-19
+Serge Menard
+Jorge Zavalla
+Nuray VATAN
+
+2008-08-15
+Cláudio
+
+2008-08-12
+Cynthia
+Monica Pinto
+
+2008-08-06
+Coultas Nik
+
+2008-07-30
+Renk Jacques
+Peter Aschbacher
+
+2008-07-29
+Nuno Fonseca
+
+2008-07-27
+Allan.Événementiel
+
+2008-07-18
+Junior
+
+2008-07-06
+Rodrigo Xible
+
+2008-07-03:
+Philippe Zufferey
+unreal_spam
+
+2008-05-01:
+Stefan Daugaard Poulsen
+Keith Sheasley
+Julian Fisher, MD
+Charles Wm. Stewart
+Kevin Johnson
+Stephen Korsman
+Jeff Ayers
+henri-pierre.chavaz
+
+
+

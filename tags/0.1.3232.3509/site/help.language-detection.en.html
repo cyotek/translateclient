@@ -1,0 +1,297 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Documentation - "Use of language detection feature in Translate.Net"</title>
+
+<meta name="author" content="Oleksii Prudkyi">
+<meta name="robots" content="FOLLOW,INDEX">
+<meta name="description" content="Described how automatic language detection work and how to configure it for benefit">
+<meta name="keywords" content="automatic language detection, Language Identifier">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta name="Default" content="Default">
+</head>
+<body>
+<div style="text-align: center;">
+<div style="text-align: center;">
+<table style="text-align: left; width: 80%;" align="center">
+<tbody>
+<tr>
+<td style="text-align: center;width: 90%">
+<h1><img style="width: 32px; height: 32px;" alt="" src="translate.png">&nbsp;Translate.Net&nbsp;
+</h1>
+</td>
+<!--<td style="width: 30%; text-align: center;">
+<a href="index.uk.html">Українською</a><br />
+<a href="index.ru.html">Русский</a>
+ </td>
+ -->
+<td style="width: 10%; text-align: right;">
+<script src="http://www.gmodules.com/ig/ifr?url=http://www.google.com/ig/modules/translatemypage.xml&up_source_language=en&w=160&h=60&title=&border=&output=js"></script>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!--  menu start -->
+<div style="text-align: center;">
+<table style="text-align: center;" align="center">
+<tr valign="middle">
+<td>
+<a style="font-size: 12pt;" href="index.en.html">Home</a>&nbsp;
+<a style="font-size: 12pt;" href="help.index.en.html">Documentation</a>&nbsp;
+<a style="font-size: 12pt;" href="features.en.html">Features</a>&nbsp;
+<a style="font-size: 12pt;" href="services.en.html">Translators</a>&nbsp;
+<a style="font-size: 12pt;" href="download.en.html">Download</a>&nbsp;
+<a style="font-size: 12pt;" href="screenshots.en.html">Screenshots</a>&nbsp;
+<a style="font-size: 12pt;" href="changelog.en.html">Changelog</a>&nbsp;
+<a style="font-size: 12pt;" href="donations.en.html">Donations</a>&nbsp;
+<a style="font-size: 12pt;" href="support.en.html">Support</a>&nbsp;
+<a href="links.en.html" style="font-size: 12pt;">Links</a>&nbsp;
+</td>
+<td>
+<form action="http://www.google.com/cse" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-6613665871869376:oyed4-2mr2y" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="20" />
+    <input type="submit" name="sa" value="Search" />
+  </div>
+</form>
+<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+</td>
+</tr>
+</table>
+</div>
+<!--  menu end -->
+
+<table style="text-align: left; width: 90%;" align="center">
+<tbody>
+<tr>
+<td valign="top">
+<hr style="width: 100%; height: 2px;">
+<table style="text-align: left; width: 100%;height:100%" align="center">
+<tbody>
+<tr>
+<td valign="top" style="width: 150px;border: 1px black solid;">
+<div style="margin-left:10px; width: 170px">
+
+
+<!--  help menu -->
+<p><b><a href="help.index.en.html">Introduction</a></b></p>
+<p><b><a href="help.beginner.en.html">Beginner's Tutorial</a></b></p>
+<p><b><a href="help.userguide.en.html">User's Guide</a></b></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.resultview.en.html">Results View</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.languages.en.html">Languages</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.services.en.html">Services</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.subjects.en.html">Subjects</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.language-detection.en.html">Language detection</a></p>
+<p>&nbsp;&nbsp;&nbsp;<a href="help.othertools.en.html">Use from other tools</a></p>
+<p><b><a href="help.options.en.html">Settings</a></b></p>
+<p><b><a href="help.shortcuts.en.html">Keyboard shortcuts</a></b></p>
+<p><b><a href="help.commandline.en.html">Command Line Usage</a></b></p>
+<p><b><a href="help.localization.en.html">Localization Tutorial</a></b></p>
+<p><b><a href="help.troubleshooting.en.html">Troubleshooting</a></b></p>
+<p><b><a href="help.portable.en.html">Portable version</a></b></p>
+<!--  end help menu -->
+</div>
+</td>
+
+<td style="width: 20px">
+&nbsp;
+</td>
+
+<td valign="top" style="margin-left: 10px" >
+<!--  help body -->
+<h2><b>Using of "language detection" and "intelligent switching of translation directions" in Translate.Net</b></h2>
+
+<p>Language detection feature created for speedup and simplify switching among different translation directions.
+This is powerful feature but it has pitfalls which can add more troubles instead of easy use. So, in some scenarios
+you probably will needed to disable automatic switching of translation directions.</p>
+
+<p>Current implementation based on
+<a target="_blank" href="http://code.google.com/apis/ajaxlanguage/">Google AJAX Language API</a>.
+This is very smart engine, but as any others has some "leaks" based on nature of languages -
+here sometime not possible to accurately detect language for single word (or small sentence) - the word can exists in
+few languages or engine don't know this word or exists mathematical inaccuracy of statistical methods used.
+Tests show - the optimal length of text for detecting 15-25 characters for European languages.
+</p>
+
+<div style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x60, created 6/7/08 */
+google_ad_slot = "9765415464";
+google_ad_width = 468;
+google_ad_height = 60;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<p>To reduce drawbacks of such problems <b>Translate.Net</b> include two intelligent methods:
+<ul>
+<li>minimal length of sentence needed to automatically switch translation direction - allow to
+reduce count of "false switching"</li>
+<li>history of detected language and language used for translation (selected by user), so
+next time in case of wrong detection tool will "fix" this.</li>
+</ul>
+
+<br>
+<div  style="text-align: center;" align="center">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 468x15, created 6/7/08 */
+google_ad_slot = "5672949848";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</div>
+
+<p>Full process of "intelligent switching" of translation directions include next steps :
+<ol>
+<li>When user switch input language (keyboard layout) - tool will seek the most appropriate
+profile and translation direction. This process based on history of used translations directions and
+translation directions of profiles. If nothing found - tool will try to set translation direction based on
+installed input languages (language layouts).
+</li>
+<li>When user type some text (or paste text from clipboard or call tool from other application
+by <a href="help.othertools.en.html">system-wide hotkeys</a>) - <b>Translate.Net</b> query
+<a target="_blank" href="http://code.google.com/apis/ajaxlanguage/">Google AJAX Language API</a>
+for language of text and then show detected language in status bar. If text length greater of "minimal limit",
+tool will select translation direction based on detected language, history of "fixes" of detected languages,
+history of used translations directions
+and installed input languages (language layouts).
+</li>
+</ol>
+
+<h4>Management of intelligent switching of translation directions</h4>
+<p>When tool used for translating very different languages, (by ex. English-Chinese), then "minimal length" can be reduced
+to "0". After some time of using, tool will "learn" all "fixes" user made (by ex. Maltese-&gt;English) and after learning
+tool will perfectly switch directions.<br />
+<b>Please note, if tool has selected wrong translation direction you should select correct direction and rerun translation process.
+After this, tool will memorize correct direction.</b>   
+ 
+
+<p>When used similar languages, (by ex. European languages) the "minimal limit" should be default (20 characters).
+Lesser value - 5-15 characters can be used too, but in this case please be prepared for "false switching".
+In some cases needed to increase limit or disable automatic switching for detected language at all.
+
+
+<h4>Configuration</h4>
+
+<p>You can change setting of language detection\intelligent switching  by use "Options" dialog
+
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh5.ggpht.com/_-9V3zqX1VKw/SQ_PDSRgDMI/AAAAAAAAAME/WOU80y8iUhk/s800/detection.options.eng.png" />
+	<br></div>
+<br />
+or via "Tools" menu
+
+	<div style="text-align: center;"><br>
+	<img style="border-width: 0" src="http://lh6.ggpht.com/_-9V3zqX1VKw/SQ_PDftp8jI/AAAAAAAAAMM/JMIihB89-hA/s800/detection.menu.eng.png" />
+	<br></div>
+<br />
+
+You can disable language detection at all, or disable one of "intelligent switching" modes.
+Additionally "Options" dialog allow to setup "minimal limit" of text length for automatic switching
+of profiles by changing "Switch by detected language only when text length greater of" text box value.
+
+
+<!--  end help body -->
+
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+<!--  ads column -->
+
+<td valign="top" align="center">
+<hr style="width: 100%; height: 2px;">
+
+<br>
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 120x90, created 6/26/08 */
+google_ad_slot = "7050506050";
+google_ad_width = 120;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<br>
+<br>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 120x600, created 5/2/08 */
+google_ad_slot = "4816998954";
+google_ad_width = 120;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+</td>
+<!--  end ads column -->
+
+</tr>
+<tr>
+<td>
+<div style="text-align: center;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6613665871869376";
+/* 728x90, created 2/12/08 */
+google_ad_slot = "8582317208";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<br>
+<hr style="width: 100%; height: 2px;">
+<div style="text-align: center; font-size: 8pt; color: rgb(153, 153, 153);">Site
+contents
+Copyright&nbsp;© 2008 Oleksii Prudkyi. All rights reserved.
+</div>
+</td>
+</tr>
+<tr>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text/javascript"
+src="ga.js">
+</script>
+<script type="text/javascript">
+if(_gat != undefined)
+{
+  var pageTracker = _gat._getTracker("UA-3495794-1");
+  if(pageTracker != undefined)
+  {
+    pageTracker._initData();
+    pageTracker._trackPageview();
+  }
+}
+</script>
+<script type="text/javascript">
+var woopra_id = '1046809932';
+</script>
+<script src="http://static.woopra.com/js/woopra.js"></script>
+</body></html>

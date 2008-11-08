@@ -1,0 +1,880 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+ترجمة الأستاذ عوض الغامدي
+[TranslatedByURL]
+http://www.alsayra.com/vb/forumdisplay.php?f=118
+[Translated by]
+ترجمة : 
+[&File]
+&ملف
+[Exit from application]
+الخروج من التطبيق
+[E&xit]
+&خروج
+[&Edit]
+ت&حرير
+[Copy selection to clipboard]
+نسخ التحديد إلى الحافظة
+[&Copy]
+&نسخ
+[Cut selection to clipboard]
+قص التحديد إلى الحافظة
+[Cu&t]
+&قص
+[Paste from clipboard]
+لصق التحديد من الحافظة
+[&Paste]
+&لصق
+[Delete selection]
+حذف التحديد
+[&Delete]
+&حذف
+[Undo last operation]
+التراجع عن آخر عملية
+[&Undo]
+ت&راجع
+[Redo last operation]
+تكرار آخر عملية
+[&Redo]
+ت&كرار
+[Select Аll]
+تحديد الكل
+[&Select Аll]
+تحديد ال&كل
+[&Window]
+&نافذة
+[Close All]
+إغلاق الكل
+[&Help]
+تعل&يمات
+[&About ...]
+&حول...
+[About]
+حول
+[Send feedback or bugreport ...]
+إرسال تعليق أو تبليغ عن خطأ...
+[Feedback for :]
+تعليق عن :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< ضع تعليقاتك أو التبليغ عن الخطأ هنا (عربي , إنجليزي ، روسي) ـ >>
+[Donate ...]
+تبرع ...
+[Online Help]
+تعليمات مباشرة
+[Options]
+خيارات
+[OK]
+حسنا
+[Cancel]
+إلغاء الأمر
+[Apply]
+تطبيق
+[Minimize]
+تصغير
+[{0} Updater]
+ {0} وحدة تحديث
+[Preparing]
+تحضير
+[Check version]
+تدقيق النسخة
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+تم تحميل {0} كب من {1} كب بسرعة {2} كب/ث
+[Update downloaded]
+تم تحميل التحديث
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+تم تحميل النسخة الجديدة . هل تريد إيقاف Translate.Net و تشغيل ملف التثبيت لتركيب النسخة الجديدة ؟
+[Please select where to save installer of new version which you can run later]
+الرجاء تحديد مكان الحفظ لملف تثبيت النسخة الجديدة بحيث يمكنك الإستفادة منه لاحقا
+[Installer saved to \r\n{0}]
+تم حفظ ملف التثبيت في\r\n{0}
+[Update will be run later]
+سيتم تشغيل التحديث لاحقا
+[Check Updates ...]
+التدقيق بحثا عن تحديثات...
+[Updates]
+التحديثات
+[Automatically check updates]
+التدقيق آليا بحثا عن تحديثات...
+[Automatically download updates]
+التحميل آليا للتحديثات
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+المحدث - {0}\r\nآخر بحث عن تحديث - {1} ، الحالة - {2}\r\nالبحث القادم عن التحديث - {3}
+[Close]
+إغلاق
+[Error on downloading {0}]
+خطأ في التحميل {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} لا يحتوى على علامة {1} :\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} فيه علامة {1} بتنسيق خطأ :\r\n{2}
+[Canceled]
+ملغي
+[Program is up to date]
+ البرنامج حديث 
+[File {0} already exists]
+الملف {0} موجود مسبقا
+[The server of updates is overloaded. The check of updates will be delayed.]
+خادم التحديثات مزدحم . سيتم تأجيل البحث عن التحديثات
+[Checking of update done]
+تم التدقيق بحثا عن التحديث
+[New version {0} of {1} available]
+تتوفر النسخة الجديدة {0} من {1}
+[Do you want to open site where you can download it ?]
+هل تريد زيارة الموقع بحيث يمكنك التحميل ؟
+[Version]
+النسخة
+[&Tools]
+&أدوات
+[O&ptions...]
+&خيارات...
+[General]
+عام
+[UI Language]
+لغة الواجهة
+[Network]
+الشبكة
+[HTTP-Proxy]
+HTTP ملقم وكيل
+[Proxy]
+ملقم الوكيل
+[Port]
+منفذ
+[Enable Authentication]
+تمكين المصادقة
+[User]
+المستخدم
+[Password]
+كلمة المرور
+[Use NTLM Authentication]
+NTLM إستخدام مصادقة
+[Domain]
+النطاق
+[Timeout]
+نفاذ المهلة
+[System]
+النظام
+[Custom]
+مخصص
+[None]
+بدون
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+تنسيق ملقم الوكيل ({0}) خطأ . سيتم إرجاع الإعدادات الإفتراضية للملقم الوكيل
+[Startup]
+بدء التشغيل
+[Launch at system startup]
+تشغيل مع بدء الكمبيوتر
+[Minimize to tray]
+تصغير إلى جوار الساعة
+[When enabled {0} will run when OS started]
+سيعمل مع بدء النظام {0} عندما تمكين
+[{0} will be minimized to tray when OS started]
+إلى جوار الساعة مع بدء النظام {0} سيتم تصغير
+[Single Instance]
+واجهة واحدة
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+و إغلاقه {0} البحث عند بدء التشغيل عن وجود آخر لـ
+[Tray]
+جوار الساعة
+[Hotkeys]
+المفاتيح الساخنة
+[Activate on Ctrl+C+C hotkey]
+Ctrl+C+C تنشيط مع المفاتيح
+[Activate on Ctrl+Ins+Ins hotkey]
+Ctrl+Ins+Ins تنشيط مع المفاتيح
+[Translate when activated by hotkey]
+الترجمة عند التنشيط بواسطة المفتاح الساخن
+[Show query time and other information]
+إظهار وقت الإستعلام و المعلومات الأخرى
+[Mark by red color untranslated words]
+وضع اللون الأحمر على الكلمات الغير المترجمة
+[Don't show "Nothing found" results]
+عدم إظهار "لم يتم العثور على شيء" للنتائج
+[Show direction of translation]
+إظهار إتجاه الترجمة
+[Show accents]
+إظهار علامات التأكيد
+[Show names of services]
+إظهار أسماء الخدمات
+[Nothing found]
+لم يتم العثور على شيء
+[An error occurred during translation. Please try again later.]
+حدوث خطأ أثناء الترجمة . الرجاء حاول مرة ثانية لاحقا
+[Translation direction is not correct]
+إتجاه الترجمة غير صحيح
+[Only cyrillic characters supported]
+فقط الحروف السريالية مدعومة
+[Ukrainian characters in russian query]
+الحروف الأوكرانية في الإستعلام الروسي
+[Parse error, start tags not found]
+خطأ في التجزئة ، علامات البداية غير موجودة
+[Nothing to translate]
+لا يوجد شيء لترجمته
+[Length too big]
+الطول كبير جدا
+[Wrong data structure]
+بنية البيانات غير صحيحة
+[Query contains extraneous symbols]
+الإستعلام يحتوي على رموز غريبة
+[Service version not supported]
+نسخة الخدمة غير مدعومة
+[Result view]
+عرض النتيجة
+[Result view placement]
+إستبدال عرض النتيجة
+[Top]
+أعلى
+[Place result view at top]
+وضع عرض النتيجة في الأعلى
+[Bottom]
+أسفل
+[Place result view at bottom]
+وضع عرض النتيجة في الأسفل
+[Left]
+يسار
+[Place result view at left]
+وضع عرض النتيجة في اليسار
+[Right]
+يمين
+[Place result view at right]
+وضع عرض النتيجة في اليمين
+[Include monolingual dictionaries in translation]
+تضمين القواميس الأحادية اللغة في الترجمة
+[Filter of languages]
+مرشح اللغات
+[Allow to choose languages for use]
+السماح باختيار لغات للإستخدام
+[Source languages]
+اللغات المصدر
+[Target languages]
+اللغات الهدف
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+إختر اللغات المراد الترجمة منها و إليها . و عطل اللغات المراد إزالتها من تبويب "اللغات" للوضعية الإفتراضية
+[Toggle all]
+تشغيل الكل
+[Please select at least one source language]
+الرجاء تحديد لغة واحدة على الأقل كمصدر
+[Please select at least one target language]
+الرجاء تحديد لغة واحدة على الأقل كهدف
+[Profile]
+الوضعية
+[Profiles]
+الوضعيات
+[Default]
+الإفتراضي
+[List]
+القائمة
+[Add new user profile]
+إضافة وضعية جديدة للمستخدم
+[Set profile properties]
+وضع خصائص الوضعية
+[Profile name]
+إسم الوضعية
+[Translation direction]
+إتجاه الترجمة
+[Name for new profile you enter already used. Please enter unique name.]
+الإسم للوضعية الجديدة موجود مسبقا . الرجاء إدخال إسم آخر
+[Profile name don't set. Please enter profile name.]
+لم يتم وضع إسم للوضعية . الرجاء إدخال إسم للوضعية
+[Remove user profile]
+إزالة وضعية المستخدم
+[The profile {0} will be deleted.\r\nAre you sure ?]
+سيتم حذف الوضعية {0} ـ\r\nهل أنت متأكد ؟
+[Move profile up]
+نقل الوضعية لأعلى
+[Move profile down]
+نقل الوضعية لأسفل
+[Name]
+الإسم
+[Edit services]
+تحرير الخدمات
+[Remove service]
+إزالة الخدمة
+[Add selected service]
+إضافة الخدمة المحددة
+[Add all services]
+إضافة كافة الخدمات
+[Remove all services]
+إزالة كافة الخدمات
+[Services filter]
+مرشح الخدمات
+[Available services]
+الخدمات المتوفرة
+[Selected services]
+الخدمات المحددة
+[View]
+عرض
+[Show services list]
+إظهار قائمة الخدمات
+[Show languages list]
+إظهار قائمة اللغات
+[Show subjects list]
+إظهار قائمة المواضيع
+[Size]
+الحجم
+[System font]
+خط النظام
+[Fonts]
+الخطوط
+[Input text]
+نص الإدخال
+[To default]
+إلى الإفتراضي
+[Toolbars]
+أشرطة الأدوات
+[Default font]
+الخط الإفتراضي
+[&Translate]
+ت&رجمة
+[Translate]
+ترجمة
+[Stop current operation]
+إيقاف العملية الحالية
+[Stop]
+إيقاف
+[Search in Google]
+Google بحث في
+[Size or format of query don't supported by available translation services]
+الحجم أو التنسيق للإستعلام غير مدعوم من قبل خدمات الترجمة المتوفرة
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+ستؤدي الترجمة إلى إنتاج {0} إستدعاء إلى خدمات مختلفة مما يزيد الحمل على الخادمات\nهل تريد مقاطعة عملية الترجمة ؟
+[Reverse translation direction]
+عكس إتجاه الترجمة
+[Show\\Hide]
+إظهار\\إخفاء
+[Show HTML source]
+HTML إظهار مصدر
+[From]
+من
+[To]
+إلى
+[Any Language]
+أي لغة
+[Afrikaans]
+الأفريكانية
+[Albanian]
+الألبانية
+[Amharic]
+الأمهرية
+[Autodetect]
+إكتشاف آلي
+[Arabic]
+العربية
+[Armenian]
+الأرمانية
+[Azerbaijani]
+الأذربيجانية
+[Basque]
+الباسيكية
+[Belarusian]
+البيلاروسية
+[Bengali]
+البنغالية
+[Bihari]
+البيهارية
+[Bosnian]
+البوسنية
+[Breton]
+البريتونية
+[Bulgarian]
+البلغارية
+[Burmese]
+البورمية
+[Catalan]
+الكتلانية
+[Cherokee]
+الشيروكية
+[Chinese]
+الصينية
+[Chinese_CN]
+الصينية-صين
+[Chinese_TW]
+الصينية-تايوان
+[Croatian]
+الكرواتية
+[Czech]
+التشيكية
+[Danish]
+الدنمركية
+[Dhivehi]
+الديفهية
+[Dutch]
+الهولندية
+[English]
+الإنجليزية
+[English_GB]
+الإنجليزية-بريطانيا
+[English_US]
+الإنجليزية-أمريكا
+[Esperanto]
+الإسبرنتية
+[Estonian]
+الأستونية
+[Icelandic]
+الإزلندية
+[Faroese]
+الفارويزية
+[Filipino]
+الفلبينية
+[Finnish]
+الفنلندية
+[French]
+الفرنسية
+[Frisian]
+الفريزنية
+[Galician]
+الغالية
+[Georgian]
+الجورجية
+[German]
+الألمانية
+[Greek]
+اليونانية
+[Guarani]
+الجورانية
+[Gujarati]
+الغوجوراتية
+[Hebrew]
+العبرية
+[Hindi]
+الهندية
+[Indonesian]
+الأندونيسية
+[Inuktitut]
+الإنكتيتيوتية
+[Interlingua]
+الإنترلونجوالية
+[Irish]
+الإيرلندية
+[Hungarian]
+الهنغارية
+[Italian]
+الإيطالية
+[Japanese]
+اليابانية
+[Japanese_Romaji]
+اليابانية_روماجي
+[Kazakh]
+الكازاخستانية
+[Khmer]
+الخميرية
+[Korean]
+الكورية
+[Kurdish]
+الكردية
+[Kyrgyz]
+القرغيزية
+[Laothian]
+اللتوانية
+[Latin]
+اللاتينية
+[Latvian]
+اللاتفية
+[Lithuanian]
+اللتوانية
+[Macedonian]
+المقدونية
+[Malay]
+المالية
+[Malayalam]
+الملايلمية
+[Maltese]
+المالطية
+[Marathi]
+الماراثية
+[Mongolian]
+المنغولية
+[Nepali]
+النيبالية
+[Norwegian]
+النرويجية
+[Norwegian_Bokmal]
+النرويجية_بوكمال
+[Norwegian_Nynorsk]
+النرويجية_ناينورسك
+[Oriya]
+الأورية
+[Pashto]
+البوشتية
+[Papiamento]
+البابيامنتوية
+[Persian]
+الفارسية
+[Polish]
+البولندية
+[Portuguese]
+البرتغالية
+[Portuguese_BR]
+البرتغالية_برازيل
+[Punjabi]
+البنجابية
+[Romanian]
+الرومانية
+[Russian]
+الروسية
+[Sanskrit]
+السنسكريتية
+[Serbian]
+الصربية
+[Sindhi]
+السندية
+[Sinhalese]
+السنهالية
+[Slovak]
+السلوفاكية
+[Slovenian]
+السلوفانية
+[Spanish]
+الأسبانية
+[Spanish_LA]
+الأسبانية_أمريكا اللاتينية
+[Swahili]
+السواحلية
+[Swedish]
+السويدية
+[Tajik]
+الطاجيكية
+[Tagalog]
+التغالوغ
+[Tamil]
+التاميلية
+[Telugu]
+التلوغوية
+[Thai]
+التايلاندية
+[Tibetan]
+التبتية
+[Turkish]
+التركية
+[Ukrainian]
+الأكرانية
+[Urdu]
+الأوردية
+[Uzbek]
+الأزبكية
+[Uighur]
+اليوغرية
+[Vietnamese]
+الفيتنامية
+[Welsh]
+الولزية
+[Unknown]
+غير معروفة
+[Languages]
+اللغات
+[Services]
+الخدمات
+[Enabled]
+الممكنة
+[Error]
+خطأ
+[Disabled]
+المعطلة
+[Move service up]
+تحريك الخدمة إلى أعلى
+[Move service down]
+تحريك الخدمة إلى أسفل
+[<b>Status</b> : Enabled]
+<b>الحالة</b> : ممكنة
+[<b>Status</b> : Error]
+<b>الحالة</b> : خطأ
+[<b>Status</b> : Disabled]
+<b>الحالة</b> : معطلة
+[Enable]
+تمكين
+[Disable]
+تعطيل
+[Subjects]
+المواضيع
+[Subject]
+الموضوع
+[Any]
+الكل
+[Common]
+مشترك
+[Aviation]
+طيران
+[Auto]
+تلقائي
+[Anatomy]
+تشريح
+[Bank]
+بنك
+[Bible]
+كتاب مقدس
+[Business]
+تجارة
+[Military]
+عسكرية
+[Law]
+قانون
+[Informatics]
+معلوماتية
+[Art]
+فنون
+[Space]
+فضاء
+[Socio-political]
+سياسة إجتماعية
+[Medicine]
+طب
+[Music]
+موسيقى
+[Sex]
+جنس
+[Sport]
+رياضة
+[Tech]
+تقنية
+[Philosophy]
+فلسفة
+[Chemistry]
+كيماويات
+[Economy]
+إقتصاد
+[Electronics]
+كهرباء
+[Internet]
+إنترنت
+[Logistics]
+حربيات
+[Travel]
+رحلات
+[Football]
+كرة قدم
+[Phrasebook]
+كتاب لغوي
+[Perfumery]
+عطور
+[Type]
+النوع
+[Translator]
+ترجمة
+[Monolingual dictionary]
+قاموس أحادي اللغة
+[Bilingual dictionary]
+قاموس ثنائي اللغة
+[Dictionary of synonyms]
+قاموس المترادفات
+[Dictionary of antonyms]
+قاموس المتعاكسات
+[Phraseological dictionary]
+قاموس أسلوبي
+[Encyclopedia]
+موسوعة
+[Search Engine]
+محرك بحث
+[Bilingual phrases dictionary]
+قاموس أسلوبي ثنائي اللغة
+[Bilingual sentenses dictionary]
+قاموس جمل ثنائي اللغة
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+BP
+[BS]
+BS
+[Limit]
+الحد
+[characters]
+الحروف
+[Limit {0} : {1} characters]
+الحد {0} : {1} حرف
+[Limit {0} : {1} lines]
+الحد {0} : {1} سطر
+[Limit {0} : {1} words]
+الحد {0} : {1} كلمة
+[Masks]
+أقنعة
+[English-Ukrainian technical dictionary]
+القاموس التقني الإنجليزي الأوكراني
+[Google Translator]
+Google مترجم
+[<META> Translator]
+<META> مترجم
+[Free open source machine translation system]
+النظام الإلكتروني للترجمة المجانية المفتوحة المصدر
+[Russian-Ukrainian academic dictionary (1924–1933)]
+القاموس الأكاديمي الروسي الأوكراني (1924 -1933)ـ
+[Large explanatory dictionary of modern Ukrainian]
+القاموس التوضيحي الكبير للأوكرانية الحديثة
+[Slovnyk - the multilanguage dictionary]
+سلوفينيك - القاموس المتعدد اللغة
+[Russian-Ukrainian dictionary of constant expressions]
+القاموس الروسي الأوكراني للتعابير الثابتة
+[Pragma 5.x on-line translation]
+على الإنترنت Pragma 5.x ترجمة
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+LingResUa - القواميس الأوكرانية-الإنجليزية و الإنجليزية-الأوكرانية على الإنترنت
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Slovnenya - القاموس الأوكرانية-الإنجليزية-الأوكراني
+[Dictionary of foreign words]
+قاموس الكلمات الأجنبية
+[Dictionaries of Ukraine]
+قواميس أوكرانيا
+[The free encyclopedia that anyone can edit]
+الموسوعة المجانية التي يمكن لأي شخص تحريرها
+[The free dictionary that anyone can edit]
+القاموس المجاني التي يمكن لأي شخص تحريره
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+(Altavista Babel Fish المستعمل من) SYSTRAN برنامج الترجمة
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+القواميس البولندية-الإنجليزية-البولندية و البولندية-الألمانية-البولندية
+[Yahoo Babel Fish Translator]
+Yahoo Babel Fish مترجم
+[Multitran - system for translators]
+Multitran - نظام للمترجمين
+[PROMT - Free Text Translator]
+PROMT - مترجم نصي مجاني
+[LangSoft Translation & Educational Software]
+و برامج تعليمية LangSoft مترجم
+[Tiscali - Czech oriented dictionary]
+Tiscali - القاموس التشيكي الموجه
+[Free Online Urdu-English Dictionary]
+قاموس الأوردية-الإنجليزية على الإنترنت المجاني
+[Online English-to-Urdu and Urdu-to-English dictionary]
+قاموس الإنجليزية إلى الأوردية و الأوردية إلى الإنجليزية على الإنترنت
+[InterTran dictionary]
+InterTran قاموس
+[Priberam Portuguese dictionary]
+البرتغالي Priberam قاموس
+[WordNet a lexical database for the English language]
+للغة الإنجليزية WordNet قاعدة البيانات المعجمية
+[MultiWordNet is a multilingual lexical database]
+هي قاعدة بيانات معجمية متعددة اللغات MultiWordNet
+[English-Bulgarian dictionary - SA Dictionary Online]
+على الإنترنت SA قاموس الإنجليزية-البلغارية - قاموس
+[dict.cc - English-German Dictionary]
+dict.cc - قاموس الإنجليزية-الألمانية
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - القاموس الألماني الموجه
+[Open thesaurus is an Open Source thesaurus for the German language]
+قاموس المعاني المفتوح المصدر للغة الألمانية Open thesaurus
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+قاموس المعاني المفتوح المصدر للغة الأسبانية OpenThesaurus-es
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenThesaurus قاموس المعاني المفتوح المصدر للغة الهولندية يعتمد على OpenTaa
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+قاموس المعاني المفتوح المصدر للغة البرتغالية OpenThesaurusPT
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+قاموس المعاني المفتوح المصدر للغة البولندية OpenThesaurusPL
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+قاموس المعاني المفتوح المصدر للغة السلوفانية OpenThesaurusSI
+[Sozluk(te)* Online Dictionary -  Turkish oriented dictionary]
+على الإنترنت - قاموس تركي موجه Sozluk(te)* قاموس
+[Free Dictionaries project]
+مشروع القواميس المجانية
+[Grouped by Service's Url]
+مجمعة حسب رابط الخدمة
+[Grouped by Language]
+مجمعة حسب رابط اللغة
+[{0} language pairs]
+{0} زوج لغة
+[{0} services]
+{0} خدمة
+[Create article]
+إنشاء مقالة
+[Open article]
+فتح مقالة
+[Pronunciation]
+طريقة النطق
+[{0} more entries found]
+العثور على {0} مدخلة أخرى
+[related links]
+روابط ذات علاقة
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+وقت الإستعلام : {0} ث ، مرات الإستعلام : {1} ، البايتات المرسلة : {2} ، البايتات المستلمة : {3}
+[Full time : {0} s]
+كامل الوقت : {0} ث
+[{0} phrases translated by {1} calls to translate services]
+تم ترجمة {0} عبارة عن طريق {1} إستدعاء لخدمات الترجمة
+[Send by mail]
+إرسال بالبريد
+[Continue]
+متابعة
+[Copy]
+نسخ
+[Terminate]
+مقاطعة
+[Terminated by user on error]
+منهي من قبل المستخدم على خطأ
+[Unhandled exception in]
+إستثناء غير معالج في
+[Error on opening config file]
+خطأ في فتح ملف التكوين
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+خطأ في فتح ملف التكوين من {0}\r\nالسبب المحتمل - خطأ في تنسيق ملف الخيارات\r\nسيتم إرجاع التكوين إلى القيم الإفتراضية
+[Error on saving config file]
+خطأ في حفظ ملف التكوين
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+خطأ في حفظ ملف التكوين من {0}\r\nالسبب المحتمل - رفض وصول الكتابة إلى دليل النظام المؤقت
+[Error on saving config file to {0}]
+خطأ في حفظ ملف التكوين إلى {0}
+[Show information about exception]
+إظهار معلومات حول الإستثناء
+[Error on start process : {0}\r\nError message : {1}]
+خطأ عند بدء العملية : {0}\r\nرسالة الخطأ : {1}
+[Error on start process]
+خطأ عند بدء العملية
+[Error on sending email to : {0}\r\nError message : {1}]
+خطأ مع إرسال البريد الإلكتروني إلى : {0}r\nرسالة الخطأ : {1}
+[Error on sending email]
+خطأ مع إرسال البريد الإلكتروني
+[Language detection]
+إكتشاف اللغة
+[Guess language ...]
+تخمين اللغة ...
+[Detect language of source text]
+إكتشاف اللغة للنص المصدر
+[Guess language of source text and show info about]
+تخمين اللغة للنص المصدر و إظهار معلومات عنه
+[Language detection : {0}]
+إكتشاف اللغة : {0} ـ
+[Started]
+البداية
+[Failed]
+فشل
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+ـ {0} ، {1} ، نقطة - {2}% ، الموثوقية - {3} ـ
+[Strong]
+قويـة
+[Intermediate]
+متوسطة
+[Poor]
+ضعيفة
+[Reliable]
+موثوقة
+[Not reliable]
+غير موثوقة
+[Keyboard layout : {0}]
+تخطيط لوحة المفاتيح : {0} ـ
+[Intelligent switching of profiles and directions]
+التحويل الذكي للوضعيات و الإتجاهات
+[Based on keyboard layout]
+حسب تخطيط لوحة المفاتيح
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+التحويل الذكي لإتجاهات الترجمة و الوضعيات حسب تخطيط لوحة المفاتيح
+[Based on detected language]
+حسب اللغة المكتشفة
+[Intelligent switching of profiles and translation directions based on detected language]
+التحويل الذكي لإتجاهات الترجمة و الوضعيات حسب اللغة المكتشفة
+[Switch by detected language only when text length greater of]
+التحويل حسب اللغة المكتشفة فقط عندما يكون النص أطول من
+[Break translation when application deactivated]
+قطع الترجمة عند عدم تنشيط البرنامج
+[Break translation on switching to other application]
+قطع الترجمة عند التحويل إلى برنامج آخر

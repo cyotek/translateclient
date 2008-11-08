@@ -1,0 +1,880 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+
+[TranslatedByURL]
+
+[Translated by]
+Перевод осуществлен
+[&File]
+&Файл
+[Exit from application]
+Выйти из программы
+[E&xit]
+Вы&йти
+[&Edit]
+&Правка
+[Copy selection to clipboard]
+Копирование выделенного фрагмента в буфер обмена
+[&Copy]
+Ко&пировать
+[Cut selection to clipboard]
+Удаление выделенного фрагмента и копирование его в буфер обмена
+[Cu&t]
+В&ырезать
+[Paste from clipboard]
+Вставка из буфера обмена
+[&Paste]
+Вс&тавить
+[Delete selection]
+Удалить выделенное 
+[&Delete]
+&Удалить
+[Undo last operation]
+Отмена предыдущей операции
+[&Undo]
+&Отменить
+[Redo last operation]
+Повторение предыдущей операции
+[&Redo]
+По&вторить
+[Select Аll]
+Выделить всё
+[&Select Аll]
+Выделить в&сё
+[&Window]
+&Окно
+[Close All]
+Закрыть все окна
+[&Help]
+&Справка
+[&About ...]
+О пр&ограмме ...
+[About]
+О программе
+[Send feedback or bugreport ...]
+Отправить предложения или информацию об ошибках ...  
+[Feedback for :]
+Обратная связь для :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Напечатайте Ваши предложения или информацию об ошибках тут >>
+[Donate ...]
+
+[Online Help]
+Он-лайн справка : Translate.Net
+[Options]
+Настройки
+[OK]
+
+[Cancel]
+Отменить
+[Apply]
+Применить
+[Minimize]
+Свернуть
+[{0} Updater]
+Обновление {0}
+[Preparing]
+Подготовка к обновлению
+[Check version]
+Проверка версии
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Загружено {0}Kb из {1}Kb со скоростью {2}Kb/s
+[Update downloaded]
+Обновление загружено
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Новая версия загружена. Остановить  Translate.Net и запустить программу установки новой версии ?
+[Please select where to save installer of new version which you can run later]
+Выберите куда сохранить программу установки новой версии, которую Вы можете запустить позже
+[Installer saved to \r\n{0}]
+Программа установки сохранена \r\n{0}
+[Update will be run later]
+Проверка обновлений будет запущена позже
+[Check Updates ...]
+Проверить обновления ...
+[Updates]
+Обновления
+[Automatically check updates]
+Автоматически проверять обновления
+[Automatically download updates]
+Автоматически загружать обновления
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Последнее обновление произошло — {0}\r\nПоследняя проверка наличия обновления - {1} со статусом — {2}\r\nСледующая проверка обновления - {3}
+[Close]
+Закрыть
+[Error on downloading {0}]
+Ошибка при загрузке {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} не содержит тег {1}:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} содержит плохо форматированный тег {1}:\r\n{2}
+[Canceled]
+Прервано
+[Program is up to date]
+Обновление не найдено
+[File {0} already exists]
+Файл {0} уже существует
+[The server of updates is overloaded. The check of updates will be delayed.]
+Сервер обновлений перегружен. Проверка будет проведена позднее.
+[Checking of update done]
+Проверка обновлений завершена
+[New version {0} of {1} available]
+Доступна новая версия {0} программы {1}
+[Do you want to open site where you can download it ?]
+Открыть страницу, откуда можно скачать новую версию ?
+[Version]
+Версия
+[&Tools]
+&Инструменты
+[O&ptions...]
+&Настройки...
+[General]
+Главные
+[UI Language]
+Язык
+[Network]
+Сеть
+[HTTP-Proxy]
+HTTP-прокси
+[Proxy]
+Прокси
+[Port]
+Порт
+[Enable Authentication]
+Использовать аутентификацию
+[User]
+Пользователь
+[Password]
+Пароль
+[Use NTLM Authentication]
+Использовать NTLM-аутентификацию
+[Domain]
+Домен
+[Timeout]
+Таймаут
+[System]
+Системный
+[Custom]
+В ручную
+[None]
+Прямое соединение
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+HTTP-прокси имеет ошибочный формат - {0}. Будут использованы системные настройки прокси.
+[Startup]
+Запуск программы
+[Launch at system startup]
+Автостарт при запуске системы
+[Minimize to tray]
+Сворачивать в трей
+[When enabled {0} will run when OS started]
+Если включено, то {0} будет запускатся вместе с запуском системы
+[{0} will be minimized to tray when OS started]
+Окно {0} будет минимизировано после запуска вместе с запуском системы
+[Single Instance]
+Единичный экземпляр программы
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Проверять при запуске, если копия {0} уже запущена, то активизировать старую копию и остановить новую
+[Tray]
+Трей
+[Hotkeys]
+Глобальные быстрые клавиши
+[Activate on Ctrl+C+C hotkey]
+Активизировать по Ctrl+C+C 
+[Activate on Ctrl+Ins+Ins hotkey]
+Активизировать по Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Запускать перевод после активации
+[Show query time and other information]
+Показывать длительность запроса и прочую информацию
+[Mark by red color untranslated words]
+Отмечать красным цветом слова, которые не переведены
+[Don't show "Nothing found" results]
+Не показывать результаты сервисов, которые ничего не нашли
+[Show direction of translation]
+Показывать направление перевода
+[Show accents]
+Показывать ударения
+[Show names of services]
+Показывать названия сервисов
+[Nothing found]
+Ничего не найдено
+[An error occurred during translation. Please try again later.]
+Во время выполнения перевода возникла ошибка. Попробуйте позже.
+[Translation direction is not correct]
+Неверное направление перевода
+[Only cyrillic characters supported]
+Разрешены только кириллические символы
+[Ukrainian characters in russian query]
+Украинские буквы в русском запросе
+[Parse error, start tags not found]
+Ошибка анализа полученных данных, начальный тег не найден
+[Nothing to translate]
+Нечего переводить
+[Length too big]
+Очень большая длина 
+[Wrong data structure]
+Неправильна структура данных
+[Query contains extraneous symbols]
+Запрос содержит сторонние символы
+[Service version not supported]
+Версия сервиса не поддерживается
+[Result view]
+Вид результата
+[Result view placement]
+Расположение окна результата
+[Top]
+Вверху
+[Place result view at top]
+Расположить окно результатов вверху
+[Bottom]
+Снизу
+[Place result view at bottom]
+Расположить окно результатов снизу
+[Left]
+Слева
+[Place result view at left]
+Расположить окно результатов слева
+[Right]
+Справа
+[Place result view at right]
+Расположить окно результатов справа
+[Include monolingual dictionaries in translation]
+Вызывать толковые словари при переводе
+[Filter of languages]
+Фильтр языков
+[Allow to choose languages for use]
+Позволяет оставить только необходимые языки
+[Source languages]
+Языки, с которых выполняется перевод
+[Target languages]
+Языки, на которые выполняется перевод
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+Выберите языки для использования. Выключенные языки не будут показаны в основном профиле
+[Toggle all]
+Переключить все
+[Please select at least one source language]
+Необходимо выбрать как минимум один язык, с которого будет выполняться перевод 
+[Please select at least one target language]
+Необходимо выбрать как минимум один язык, на который будет выполняться перевод 
+[Profile]
+Профиль
+[Profiles]
+Профили
+[Default]
+Основной
+[List]
+Список
+[Add new user profile]
+Добавить пользовательский профиль
+[Set profile properties]
+Установить свойства профиля
+[Profile name]
+Название профиля
+[Translation direction]
+Направление перевода
+[Name for new profile you enter already used. Please enter unique name.]
+Название, выбранное для нового профиля уже используется. Пожалуйста, введите уникальное имя
+[Profile name don't set. Please enter profile name.]
+Название профиля не выбрано. Пожалуйста, задайте имя профиля
+[Remove user profile]
+Удалить пользовательский профиль
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Профиль {0} будет удален. \r\nВы согласны ?
+[Move profile up]
+Передвинуть профиль выше
+[Move profile down]
+Передвинуть профиль ниже
+[Name]
+Название
+[Edit services]
+Редактировать сервисы
+[Remove service]
+Удалить сервис
+[Add selected service]
+Добавить выбранный сервис
+[Add all services]
+Добавить все сервисы
+[Remove all services]
+Удалить все сервисы
+[Services filter]
+Фильтр сервисов
+[Available services]
+Доступные сервисы
+[Selected services]
+Выбранные сервисы
+[View]
+Вид
+[Show services list]
+Показывать список сервисов
+[Show languages list]
+Показывать список языков
+[Show subjects list]
+Показывать список тем
+[Size]
+Размер
+[System font]
+Системный шрифт
+[Fonts]
+Шрифты
+[Input text]
+Переводимый текст
+[To default]
+Начальное значение
+[Toolbars]
+Панели инструментов
+[Default font]
+Шрифт по умолчанию
+[&Translate]
+&Перевод
+[Translate]
+Перевести
+[Stop current operation]
+Остановить текущую операцию
+[Stop]
+Остановить
+[Search in Google]
+Искать в Google
+[Size or format of query don't supported by available translation services]
+Размер или формат запроса не поддерживаются доступными сервисами перевода
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+При переводе будет произведено {0} вызовов разных сервисов, это может перегрузить сервера.\nВы хотите прервать процесс перевода ?
+[Reverse translation direction]
+Инвертировать направление перевода
+[Show\\Hide]
+Показать\\Спрятать
+[Show HTML source]
+Показать HTML-код
+[From]
+с
+[To]
+на 
+[Any Language]
+Любой
+[Afrikaans]
+Африкаанс
+[Albanian]
+Албанский
+[Amharic]
+Амхарский
+[Autodetect]
+Автоопределение
+[Arabic]
+Арабский
+[Armenian]
+Армянский
+[Azerbaijani]
+Азербайджанский
+[Basque]
+Баскский
+[Belarusian]
+Белорусский
+[Bengali]
+Бенгальский
+[Bihari]
+Бихари
+[Bosnian]
+Боснийский
+[Breton]
+Бретонский
+[Bulgarian]
+Болгарский
+[Burmese]
+Бирманский
+[Catalan]
+Каталонский
+[Cherokee]
+Чероки
+[Chinese]
+Китайский
+[Chinese_CN]
+Китайский упрощенный
+[Chinese_TW]
+Китайский традиционный
+[Croatian]
+Хорватский
+[Czech]
+Чешский
+[Danish]
+Датский
+[Dhivehi]
+Дивехи
+[Dutch]
+Голландский
+[English]
+Английский
+[English_GB]
+Английский-Англия
+[English_US]
+Английский-США
+[Esperanto]
+Эсперанто
+[Estonian]
+Эстонский
+[Icelandic]
+Исландский
+[Faroese]
+Фарерский
+[Filipino]
+Филиппинский
+[Finnish]
+Финский
+[French]
+Французский
+[Frisian]
+Фризский
+[Galician]
+Галисийский
+[Georgian]
+Грузинский
+[German]
+Немецкий
+[Greek]
+Греческий
+[Guarani]
+Гуарани
+[Gujarati]
+Гуджарати
+[Hebrew]
+Иврит
+[Hindi]
+Хинди
+[Indonesian]
+Индонезийский
+[Inuktitut]
+Инуктитут
+[Interlingua]
+Интерлингва
+[Irish]
+Ирландский
+[Hungarian]
+Венгерский
+[Italian]
+Итальянский
+[Japanese]
+Японский
+[Japanese_Romaji]
+Японский-Romaji 
+[Kazakh]
+Казахский
+[Khmer]
+Кхмерский
+[Korean]
+Корейский
+[Kurdish]
+Курдский
+[Kyrgyz]
+Киргизский
+[Laothian]
+Лаосский
+[Latin]
+Латынь
+[Latvian]
+Латвийский
+[Lithuanian]
+Литовский
+[Macedonian]
+Македонский
+[Malay]
+Малайский
+[Malayalam]
+Малайялам
+[Maltese]
+Мальтийский
+[Marathi]
+Маратхи
+[Mongolian]
+Монгольский
+[Nepali]
+Непальский
+[Norwegian]
+Норвежский
+[Norwegian_Bokmal]
+Норвежский Bokmal
+[Norwegian_Nynorsk]
+Норвежский Nynorsk
+[Oriya]
+Ория
+[Pashto]
+Пушту
+[Papiamento]
+Папьяменто
+[Persian]
+Персидский
+[Polish]
+Польский
+[Portuguese]
+Португальский
+[Portuguese_BR]
+Португальский-Бразилия
+[Punjabi]
+Панджаби
+[Romanian]
+Румынский
+[Russian]
+Русский
+[Sanskrit]
+Санскрит
+[Serbian]
+Сербский
+[Sindhi]
+Синдхи
+[Sinhalese]
+Сингальский
+[Slovak]
+Словацкий
+[Slovenian]
+Словенский
+[Spanish]
+Испанский
+[Spanish_LA]
+Испанский-Америка
+[Swahili]
+Суахили
+[Swedish]
+Шведский
+[Tajik]
+Таджикский
+[Tagalog]
+Тагалог
+[Tamil]
+Тамильский
+[Telugu]
+Телугу
+[Thai]
+Тайский
+[Tibetan]
+Тибетский
+[Turkish]
+Турецкий
+[Ukrainian]
+Украинский
+[Urdu]
+Урду
+[Uzbek]
+Узбекский
+[Uighur]
+Уйгурский
+[Vietnamese]
+Вьетнамский
+[Welsh]
+Валлийский
+[Unknown]
+Неизвестный
+[Languages]
+Языки
+[Services]
+Сервисы
+[Enabled]
+Включенные
+[Error]
+Ошибка
+[Disabled]
+Отключенные
+[Move service up]
+Передвинуть сервис выше
+[Move service down]
+Передвинуть сервис ниже
+[<b>Status</b> : Enabled]
+<b>Статус</b> : Включен
+[<b>Status</b> : Error]
+<b>Статус</b> : Ошибка
+[<b>Status</b> : Disabled]
+<b>Статус</b> : Отключен
+[Enable]
+Включить
+[Disable]
+Отключить
+[Subjects]
+Темы
+[Subject]
+Тема
+[Any]
+Любая
+[Common]
+Общая
+[Aviation]
+Авиация
+[Auto]
+Авто
+[Anatomy]
+Анатомия
+[Bank]
+Банк
+[Bible]
+Библия
+[Business]
+Бизнес
+[Military]
+Военная
+[Law]
+Закон
+[Informatics]
+Информатика
+[Art]
+Искусство
+[Space]
+Космос
+[Socio-political]
+Социально-политическая
+[Medicine]
+Медицина
+[Music]
+Музыка
+[Sex]
+Секс
+[Sport]
+Спорт
+[Tech]
+Техника
+[Philosophy]
+Философия
+[Chemistry]
+Химия
+[Economy]
+Экономика
+[Electronics]
+Электроника
+[Internet]
+Интернет
+[Logistics]
+Логистика
+[Travel]
+Путешествия
+[Football]
+Футбол
+[Phrasebook]
+Разговорник
+[Perfumery]
+Парфюмерия
+[Type]
+Тип
+[Translator]
+Переводчик
+[Monolingual dictionary]
+Толковый словарь
+[Bilingual dictionary]
+Двуязычный словарь
+[Dictionary of synonyms]
+Словарь синонимов
+[Dictionary of antonyms]
+Словарь антонимов
+[Phraseological dictionary]
+Фразеологический словарь
+[Encyclopedia]
+Энциклопедия
+[Search Engine]
+Сервис поиска
+[Bilingual phrases dictionary]
+Двуязычный фразеологический словарь
+[Bilingual sentenses dictionary]
+База параллельных предложений
+[T]
+П
+[MD]
+ТС
+[BD]
+ДС
+[SD]
+CC
+[AD]
+СА
+[PD]
+ФС
+[EN]
+ЭН
+[SE]
+СП
+[BP]
+ДФ
+[BS]
+ПП
+[Limit]
+Ограничение
+[characters]
+символов
+[Limit {0} : {1} characters]
+Ограничение {0} : {1} символов
+[Limit {0} : {1} lines]
+Ограничение {0} : {1} строк
+[Limit {0} : {1} words]
+Ограничение {0} : {1} слов
+[Masks]
+Маски
+[English-Ukrainian technical dictionary]
+Англо-украинский словарь технических терминов
+[Google Translator]
+Переводчик Google
+[<META> Translator]
+Переводчик <META>
+[Free open source machine translation system]
+Свободная многоязычная система автоматизированного перевода
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Русско-украинский (академический) словарь (1924–1933)
+[Large explanatory dictionary of modern Ukrainian]
+Большой толковый словарь современного украинского языка
+[Slovnyk - the multilanguage dictionary]
+Многоязычный словарь slovnyk.org
+[Russian-Ukrainian dictionary of constant expressions]
+Русско-украинский словарь устоявшихся выражений
+[Pragma 5.x on-line translation]
+Pragma 5.x он-лайн перевод
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Англо-украинский и украинско-английский онлайновые словари - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Украинско-английско-украинский словарь  - Slovnenya
+[Dictionary of foreign words]
+Словарь иностранных слов
+[Dictionaries of Ukraine]
+Словари Украины
+[The free encyclopedia that anyone can edit]
+Свободная энциклопедия, которую может редактировать каждый
+[The free dictionary that anyone can edit]
+Свободный словарь, который может редактировать каждый
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN переводчик (используется в  Altavista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Польско-английско-польский и польско-немецко-польский словари
+[Yahoo Babel Fish Translator]
+Переводчик Yahoo Babel Fish
+[Multitran - system for translators]
+Мультитран - система для переводчиков
+[PROMT - Free Text Translator]
+Онлайн-переводчик текста компании ПРОМТ
+[LangSoft Translation & Educational Software]
+LangSoft - програмное обеспечение для перевода и образования
+[Tiscali - Czech oriented dictionary]
+Tiscali - словарь, ориентированный на чешский язык
+[Free Online Urdu-English Dictionary]
+Бесплатный урду-английский онлайновый словарь 
+[Online English-to-Urdu and Urdu-to-English dictionary]
+Онлайновый английско-урду-английский словарь
+[InterTran dictionary]
+Словарь InterTran
+[Priberam Portuguese dictionary]
+Португальский толковый словарь Priberam
+[WordNet a lexical database for the English language]
+WordNet - лексическая база английского языка
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet - мультиязычная лексическая база
+[English-Bulgarian dictionary - SA Dictionary Online]
+Английско-болгарский словарь - SA Dictionary Online
+[dict.cc - English-German Dictionary]
+Английско-немецкий словарь - dict.cc 
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - словарь, ориентированный на немецкий язык
+[Open thesaurus is an Open Source thesaurus for the German language]
+Open thesaurus - свободный словарь синонимов, ориентированный на немецкий язык
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+OpenThesaurus-es - свободный словарь синонимов, ориентированный на испанский язык
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal - свободный словарь синонимов, ориентированный на голландский язык
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenThesaurusPT - свободный словарь синонимов, ориентированный на португальский язык
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+OpenThesaurusPL - свободный словарь синонимов, ориентированный на польский язык
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenThesaurusSI - свободный словарь синонимов, ориентированный на словенский язык
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Sozluk(te)* - словарь, ориентированный на турецкий язык
+[Free Dictionaries project]
+Проект свободных словарей
+[Grouped by Service's Url]
+Группировка по адресу сервисов
+[Grouped by Language]
+Группировка по языку
+[{0} language pairs]
+языковых пар - {0}
+[{0} services]
+сервисов - {0}
+[Create article]
+Создать статью
+[Open article]
+Открыть статью
+[Pronunciation]
+Произношение
+[{0} more entries found]
+Ещё {0} статей 
+[related links]
+cсылки по теме
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+Время запроса : {0} s, количество запросов : {1}, отправлено : {2} байт, получено : {3} байт
+[Full time : {0} s]
+Время выполнения : {0} s
+[{0} phrases translated by {1} calls to translate services]
+Переведено {0} фраз с помощью {1} вызовов сервисов перевода
+[Send by mail]
+Переслать почтой
+[Continue]
+Продолжить
+[Copy]
+Копировать
+[Terminate]
+Прервать
+[Terminated by user on error]
+Прервано пользователем в связи с ошибкой
+[Unhandled exception in]
+Необработанная исключительная ситуация в
+[Error on opening config file]
+Ошибка при открытии конфигурационного файла
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+Ошибка при открытии конфигурационного файла {0}.\r\nВозможная причина - ошибка формата файла.\r\nКонфигурация будет сброшена до значений по умолчанию. 
+[Error on saving config file]
+Ошибка при сохранении конфигурационного файла
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+Ошибка при сохранении конфигурационного файла {0}\r\nВозможная причина - запрещен доступ к системному каталогу TEMP
+[Error on saving config file to {0}]
+Ошибка при сохранении конфигурационного файла {0}
+[Show information about exception]
+Показать информацию об исключительной ситуации
+[Error on start process : {0}\r\nError message : {1}]
+Ошибка при запуске процесса : {0}\r\nСообщение : {1} 
+[Error on start process]
+Ошибка при запуске процесса
+[Error on sending email to : {0}\r\nError message : {1}]
+Ошибка при отправлении сообщения к {0}\r\nСообщение об ошибке : {1}  
+[Error on sending email]
+Ошибка при отправлении сообщения
+[Language detection]
+Распознавание языка
+[Guess language ...]
+Распознать язык ...
+[Detect language of source text]
+Распознавание языка введенного текста
+[Guess language of source text and show info about]
+Распознавание языка введенного текста и показ информации о языке
+[Language detection : {0}]
+Распознавание языка : {0}
+[Started]
+Запущено
+[Failed]
+Ошибка
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+{0}, {1},  Оценка - {2}%, Доверие - {3}
+[Strong]
+Высокое 
+[Intermediate]
+Среднее
+[Poor]
+Низкое
+[Reliable]
+Надежно
+[Not reliable]
+Ненадежно
+[Keyboard layout : {0}]
+Раскладка клавиатуры : {0}
+[Intelligent switching of profiles and directions]
+Интеллектуальное переключение профилей и направлений
+[Based on keyboard layout]
+согласно раскладке клавиатуры
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+Интеллектуальное переключение профилей и направлений перевода, согласно раскладке клавиатуры 
+[Based on detected language]
+согласно распознанному языку
+[Intelligent switching of profiles and translation directions based on detected language]
+Интеллектуальное переключение профилей и направлений перевода, согласно распознанному языку
+[Switch by detected language only when text length greater of]
+Переключать направления только для текста, который длинее чем 
+[Break translation when application deactivated]
+Прервать перевод при деактивации приложения
+[Break translation on switching to other application]
+Прервать процесс перевода при переключении на другое приложение

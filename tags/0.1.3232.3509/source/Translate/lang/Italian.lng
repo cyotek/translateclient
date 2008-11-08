@@ -1,0 +1,877 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Enrico (noto Siberio)
+[TranslatedByURL]
+siberio@email.it
+[&File]
+&File
+[Exit from application]
+Esci dall'applicazione
+[E&xit]
+&Esci
+[&Edit]
+&Modifica
+[Copy selection to clipboard]
+Copia la selezione negli appunti
+[&Copy]
+&Copia
+[Cut selection to clipboard]
+Taglia la seleziona negli appunti
+[Cu&t]
+&Taglia
+[Paste from clipboard]
+Incolla dalgli appunti
+[&Paste]
+&Incolla
+[Delete selection]
+Cancella la selezione
+[&Delete]
+&Cancella
+[Undo last operation]
+Annulla l'ultima operazione
+[&Undo]
+&Annulla
+[Redo last operation]
+Ripristina l'ultima operazione
+[&Redo]
+&Ripristina
+[Select Аll]
+Seleziona tutto
+[&Select Аll]
+&Seleziona tutto
+[&Window]
+windows
+[Close All]
+Chiudi tutto
+[&Help]
+&Aiuto
+[&About ...]
+&A proposito di
+[About]
+A proposito di
+[Send feedback or bugreport ...]
+Invia un feedback o segnala un errore...
+[Feedback for :]
+Messaggio per
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Inserisci qui il tuo messaggio o riporta l'errore (in Inglese, Russo o Ucraino). >>
+[Donate ...]
+Donazione
+[Online Help]
+
+[Options]
+Opzioni
+[OK]
+
+[Cancel]
+Cancella
+[Apply]
+Applica modifiche
+[Minimize]
+Minimizza
+[{0} Updater]
+[{0} Aggiorna]
+[Preparing]
+Prepara
+[Check version]
+Verifica la versione
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Downloaded {0}Kb da {1}Kb con velocità {2}Kb/s
+[Update downloaded]
+Aggiorna il download
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Una nuova versione è disponibile per il download: Vuoi bloccare Transale.Net e avviare l'installazione della nuova versione?
+[Please select where to save installer of new version which you can run later]
+Per favore seleziona dove vuoi salvare l'installazione della nuova versione per poterla avviare più tardi
+[Installer saved to \r\n{0}]
+Installazione salvata in \r\n{0}
+[Update will be run later]
+L'aggiornamento sarà avviato più tardi
+[Check Updates ...]
+Controlla per aggiornamenti ...
+[Updates]
+Aggiornamenti
+[Automatically check updates]
+Ricerca automaicamente gli aggiornamenti
+[Automatically download updates]
+
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Aggiorna - {0}\r\nprecedenti ricerche di aggiornamenti - {1}, stato - {2}\r\nsuccessive ricerche di aggiornamenti - {3}
+[Close]
+Chiudi
+[Error on downloading {0}]
+[Errore durante il download {0}]
+[{0} don't contained {1} tag:\r\n{2}]
+{0} non contiene {1} tag:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} formattazione errata {1} tag:\r\n{2}
+[Canceled]
+Annulla
+[Program is up to date]
+Il programma è aggiornato
+[File {0} already exists]
+[Il File {0} già esiste]
+[The server of updates is overloaded. The check of updates will be delayed.]
+Il server è sovracarico. La verifica degli aggiornamenti verrà ritardata.
+[Checking of update done]
+
+[New version {0} of {1} available]
+
+[Do you want to open site where you can download it ?]
+
+[Version]
+Versione
+[&Tools]
+Strumenti
+[O&ptions...]
+Opzioni
+[General]
+Generale
+[UI Language]
+Lingua Interfaccia
+[Network]
+Rete
+[HTTP-Proxy]
+Proxi-HTTP
+[Proxy]
+Proxi
+[Port]
+Porta
+[Enable Authentication]
+
+[User]
+
+[Password]
+
+[Use NTLM Authentication]
+
+[Domain]
+
+[Timeout]
+Timeout
+[System]
+Sistema
+[Custom]
+Personalizza
+[None]
+No
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+
+[Startup]
+Avvio
+[Launch at system startup]
+Autorun all'avvio di windows
+[Minimize to tray]
+Minimizza nella barra di stato
+[When enabled {0} will run when OS started]
+
+[{0} will be minimized to tray when OS started]
+
+[Single Instance]
+
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+
+[Tray]
+Barra di stato
+[Hotkeys]
+Tasti di scelta rapida 
+[Activate on Ctrl+C+C hotkey]
+Attiva in Ctrl+C+C hotkey
+[Activate on Ctrl+Ins+Ins hotkey]
+Attiva in Ctrl+Ins+Ins hotkey
+[Translate when activated by hotkey]
+Tradurre con i tasti di scelta rapida
+[Show query time and other information]
+Mostra i tempi della frase e le altre informazioni
+[Mark by red color untranslated words]
+Evidenzia in rosso le parole non tradotte
+[Don't show "Nothing found" results]
+Non mostrare i risultati non trovati
+[Show direction of translation]
+Mostra la direzione di traduzione
+[Show accents]
+Mostra gli accenti
+[Show names of services]
+Mostra i nomi dei servizi
+[Nothing found]
+Non trovato
+[An error occurred during translation. Please try again later.]
+
+[Translation direction is not correct]
+La direzione di traduzione non è corretta
+[Only cyrillic characters supported]
+Sono supportati solo caratteri cirillici
+[Ukrainian characters in russian query]
+Caratteri Ucraini in una frase Russa
+[Parse error, start tags not found]
+Errore nella ricerca, tags di avvio non trovati
+[Nothing to translate]
+Nulla da tradurre
+[Length too big]
+Troppo lungo
+[Wrong data structure]
+Struttura dei dati errata
+[Query contains extraneous symbols]
+La frase contiene simboli estranei
+[Service version not supported]
+La versione del servizio non è supportata
+[Result view]
+Vedi i risultati
+[Result view placement]
+
+[Top]
+
+[Place result view at top]
+
+[Bottom]
+
+[Place result view at bottom]
+
+[Left]
+
+[Place result view at left]
+
+[Right]
+
+[Place result view at right]
+
+[Include monolingual dictionaries in translation]
+Includi i dizionari monolingua nella traduzione
+[Filter of languages]
+
+[Allow to choose languages for use]
+
+[Source languages]
+
+[Target languages]
+
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+
+[Toggle all]
+
+[Please select at least one source language]
+
+[Please select at least one target language]
+
+[Profile]
+Profilo
+[Profiles]
+Profili
+[Default]
+Default
+[List]
+Lista
+[Add new user profile]
+Aggiungi un nuovo profilo
+[Set profile properties]
+Configura il profilo
+[Profile name]
+Nome del profilo
+[Translation direction]
+Direzione della traduzione
+[Name for new profile you enter already used. Please enter unique name.]
+Il nome del profilo è gia esistente. Prova un altro nome.
+[Profile name don't set. Please enter profile name.]
+Il nome del profilo non è assegnato. Inseriscine uno.
+[Remove user profile]
+Elimina il profilo
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Il profilo {0} verrà cancellato. \r\sei sicuro?
+[Move profile up]
+Muovi il profilo in alto
+[Move profile down]
+Muovi il profilo in basso
+[Name]
+Nome
+[Edit services]
+Modifica i servizi
+[Remove service]
+Elimina i servizi
+[Add selected service]
+Aggiungi questo servizio
+[Add all services]
+Aggiungi tutti i servizi
+[Remove all services]
+Elimina tutti servizi
+[Services filter]
+Filtra i servizi
+[Available services]
+Servizi disponibili
+[Selected services]
+Servizi selezionati
+[View]
+Vista
+[Show services list]
+Mostra l'elenco dei servizi
+[Show languages list]
+Mostra l'elenco delle lingue
+[Show subjects list]
+Mostra la l'elenco dei soggetti
+[Size]
+Dimensione
+[System font]
+Font di sistema
+[Fonts]
+Caratteri
+[Input text]
+Inserisci il testo
+[To default]
+Per default
+[Toolbars]
+
+[Default font]
+
+[&Translate]
+Tradurre
+[Translate]
+Tradurre
+[Stop current operation]
+
+[Stop]
+
+[Search in Google]
+
+[Size or format of query don't supported by available translation services]
+La dimensione o il formato della frase non sono supportati dai servizi di traduzione disponibili
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+
+[Reverse translation direction]
+Invertire la direzione di traduzione
+[Show\\Hide]
+Mostra\\Nascondi
+[Show HTML source]
+Mostra HTML sorgente
+[From]
+Da
+[To]
+A
+[Any Language]
+Qualunque lingua
+[Afrikaans]
+
+[Albanian]
+
+[Amharic]
+
+[Autodetect]
+Determina automaticamente
+[Arabic]
+Arabo
+[Armenian]
+
+[Azerbaijani]
+
+[Basque]
+
+[Belarusian]
+Bielorusso
+[Bengali]
+
+[Bihari]
+
+[Bosnian]
+
+[Breton]
+
+[Bulgarian]
+Bulgaro
+[Burmese]
+
+[Catalan]
+
+[Cherokee]
+
+[Chinese]
+Cinese
+[Chinese_CN]
+Cinese_CN
+[Chinese_TW]
+Cinese_TW
+[Croatian]
+Croato
+[Czech]
+Ceco
+[Danish]
+Danese
+[Dhivehi]
+
+[Dutch]
+Olandese
+[English]
+Inglese
+[English_GB]
+Inglese_GB
+[English_US]
+Inglese americano
+[Esperanto]
+Esperanto
+[Estonian]
+Estone
+[Icelandic]
+Islandese
+[Faroese]
+
+[Filipino]
+Filippino
+[Finnish]
+Finlandese
+[French]
+Francese
+[Frisian]
+
+[Galician]
+
+[German]
+Tedesco
+[Georgian]
+
+[Greek]
+Greco
+[Guarani]
+
+[Gujarati]
+
+[Hebrew]
+Ebraico
+[Hindi]
+Indiano
+[Indonesian]
+
+[Inuktitut]
+
+[Interlingua]
+
+[Irish]
+
+[Hungarian]
+Ungherese
+[Italian]
+Italiano
+[Japanese]
+Giapponese
+[Japanese_Romaji]
+
+[Kazakh]
+
+[Khmer]
+
+[Korean]
+Coreano
+[Kurdish]
+
+[Kyrgyz]
+
+[Laothian]
+
+[Latin]
+Latino
+[Latvian]
+Lettone
+[Lithuanian]
+Lituano
+[Macedonian]
+Macedone
+[Malay]
+
+[Malayalam]
+
+[Maltese]
+
+[Marathi]
+
+[Mongolian]
+
+[Nepali]
+
+[Norwegian]
+Norvegese
+[Norwegian_Bokmal]
+
+[Norwegian_Nynorsk]
+
+[Oriya]
+
+[Pashto]
+
+[Papiamento]
+
+[Persian]
+
+[Polish]
+Polacco
+[Portuguese]
+Portoghese
+[Portuguese_BR]
+Portoghese-Brasile
+[Punjabi]
+
+[Romanian]
+Rumeno
+[Russian]
+Russo
+[Sanskrit]
+
+[Serbian]
+Sebo
+[Sindhi]
+
+[Sinhalese]
+
+[Slovak]
+Slovacco
+[Slovenian]
+Sloveno
+[Spanish]
+Spagnolo
+[Spanish_LA]
+Spagnolo americano
+[Swahili]
+
+[Swedish]
+Svedese
+[Tajik]
+
+[Tagalog]
+
+[Tamil]
+
+[Telugu]
+
+[Thai]
+
+[Tibetan]
+
+[Turkish]
+Turco
+[Ukrainian]
+Ucraino
+[Urdu]
+Urdu
+[Uzbek]
+
+[Uighur]
+
+[Vietnamese]
+
+[Welsh]
+Gallese
+[Unknown]
+
+[Languages]
+Lingue
+[Services]
+Servizi
+[Enabled]
+Abilita
+[Error]
+Errore
+[Disabled]
+Disabilita
+[Move service up]
+Muovi il servizio in alto
+[Move service down]
+Muovi il servizio in basso
+[<b>Status</b> : Enabled]
+<b>Status</b> : abilitato
+[<b>Status</b> : Error]
+<b>Status</b> : errore
+[<b>Status</b> : Disabled]
+<b>Status</b> : disabilitato
+[Enable]
+Abilitato
+[Disable]
+Disabilitato
+[Subjects]
+Soggetti
+[Subject]
+Soggetto
+[Any]
+Qualunque
+[Common]
+Dizionario comune
+[Aviation]
+Aviazione
+[Auto]
+Automobilistico
+[Anatomy]
+Anatomico
+[Bank]
+Finanziario
+[Bible]
+Religioso
+[Business]
+Affari
+[Military]
+Militare
+[Law]
+Legale
+[Informatics]
+Informatica
+[Art]
+arte
+[Space]
+Astronomico
+[Socio-political]
+Socio-politico
+[Medicine]
+Medico
+[Music]
+Musicale
+[Sex]
+Sesso
+[Sport]
+Sport
+[Tech]
+Tecnologico
+[Philosophy]
+Filosofia
+[Chemistry]
+Chimico
+[Economy]
+Economico
+[Electronics]
+Elettronico
+[Internet]
+
+[Logistics]
+Logistica
+[Travel]
+Corsa
+[Football]
+Calcio
+[Phrasebook]
+Frasario
+[Perfumery]
+Profumeria
+[Type]
+Digita
+[Translator]
+Traduttore
+[Monolingual dictionary]
+Dizionario monolingue
+[Bilingual dictionary]
+Dizionario bilingue
+[Dictionary of synonyms]
+Dizionario dei sinonimi
+[Dictionary of antonyms]
+Dizionario dei contrari
+[Phraseological dictionary]
+Dizionario fraseologico
+[Encyclopedia]
+Enciclopedia
+[Search Engine]
+Motore di ricerca
+[Bilingual phrases dictionary]
+
+[Bilingual sentenses dictionary]
+
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+
+[BS]
+
+[Limit]
+Limite
+[characters]
+Caratteri
+[Limit {0} : {1} characters]
+Limite {0} : {1} сaratteri
+[Limit {0} : {1} lines]
+
+[Limit {0} : {1} words]
+
+[Masks]
+Maschere
+[English-Ukrainian technical dictionary]
+Dizionario tecnico Inglese-Ucraino
+[Google Translator]
+Traduttore Google
+[<META> Translator]
+Traduttore di etichette <META>
+[Free open source machine translation system]
+Sistema di traduzione open source
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Dizionario accademico Russo- Ucraino (1924-1933)
+[Large explanatory dictionary of modern Ukrainian]
+Grande dizionario esplicativo dell'Ucraina moderna
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - il dizionario multilingue
+[Russian-Ukrainian dictionary of constant expressions]
+Dizionario di espressioni Russo-Ucraino
+[Pragma 5.x on-line translation]
+Pragma 5.x traduzioni on-line
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Dizionario Inglese-ucraino e Ucraino-Inglese online - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+dizionario - Slovnenya Ucraino-Inglese-Ucraino
+[Dictionary of foreign words]
+Dizionario di parole straniere
+[Dictionaries of Ukraine]
+Dizionario Ucraino
+[The free encyclopedia that anyone can edit]
+L'enciclopedia libera che tutti possono editare
+[The free dictionary that anyone can edit]
+Il dizionario libero che tutti possono editare
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN translation software (usato da Altavista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Dizionario Polacco-Inglese-Polacco e Polacco-Tedesco-Polacco
+[Yahoo Babel Fish Translator]
+Traduttore Yahoo Babel Fish
+[Multitran - system for translators]
+
+[PROMT - Free Text Translator]
+
+[LangSoft Translation & Educational Software]
+
+[Tiscali - Czech oriented dictionary]
+
+[Free Online Urdu-English Dictionary]
+
+[Online English-to-Urdu and Urdu-to-English dictionary]
+
+[InterTran dictionary]
+
+[Priberam Portuguese dictionary]
+
+[WordNet a lexical database for the English language]
+
+[MultiWordNet is a multilingual lexical database]
+
+[English-Bulgarian dictionary - SA Dictionary Online]
+
+[dict.cc - English-German Dictionary]
+
+[BEOLINGUS - German oriented dictionary]
+
+[Open thesaurus is an Open Source thesaurus for the German language]
+
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+
+[Free Dictionaries project]
+
+[Grouped by Service's Url]
+Raggruppa per Servizi url
+[Grouped by Language]
+Raggruppa per lingua
+[{0} language pairs]
+{0} coppia di lingue
+[{0} services]
+{0} servizi
+[Create article]
+Creare un articolo
+[Open article]
+Aprire un articolo
+[Pronunciation]
+
+[{0} more entries found]
+
+[related links]
+
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+
+[Full time : {0} s]
+
+[{0} phrases translated by {1} calls to translate services]
+
+[Send by mail]
+
+[Continue]
+
+[Copy]
+
+[Terminate]
+
+[Terminated by user on error]
+
+[Unhandled exception in]
+
+[Error on opening config file]
+
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+
+[Error on saving config file]
+
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+
+[Error on saving config file to {0}]
+
+[Show information about exception]
+
+[Error on start process : {0}\r\nError message : {1}]
+
+[Error on start process]
+
+[Error on sending email to : {0}\r\nError message : {1}]
+
+[Error on sending email]
+
+[Language detection]
+
+[Guess language ...]
+
+[Detect language of source text]
+
+[Guess language of source text and show info about]
+
+[Language detection : {0}]
+
+[Started]
+
+[Failed]
+
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+
+[Strong]
+
+[Intermediate]
+
+[Poor]
+
+[Reliable]
+
+[Not reliable]
+
+[Keyboard layout : {0}]
+
+[Intelligent switching of profiles and directions]
+
+[Based on keyboard layout]
+
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+
+[Based on detected language]
+
+[Intelligent switching of profiles and translation directions based on detected language]
+
+[Switch by detected language only when text length greater of]
+
+[Break translation when application deactivated]
+
+[Break translation on switching to other application]
