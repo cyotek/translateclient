@@ -1,0 +1,878 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Σπύρος -Βόλος
+[TranslatedByURL]
+userak48@gmail.com
+[&File]
+&Αρχείο
+[Exit from application]
+Έξοδος από την εφαρμογή
+[E&xit]
+&Έξοδος
+[&Edit]
+&Επεξεργασία
+[Copy selection to clipboard]
+Αντιγραφή επιλεγμένου στο πρόχειρο
+[&Copy]
+&Αντιγραφή
+[Cut selection to clipboard]
+Αποκοπή επιλεγμένου στο πρόχειρο
+[Cu&t]
+&Αποκοπή
+[Paste from clipboard]
+Επικόλληση από το πρόχειρο
+[&Paste]
+&Επικόλληση
+[Delete selection]
+Διαγραφή επιλογής
+[&Delete]
+&Διαγραφή
+[Undo last operation]
+Αναίρεση τελευταίας ενέργειας
+[&Undo]
+&Αναίρεση
+[Redo last operation]
+Επανάληψη τελευταίας ενέργειας
+[&Redo]
+&Επανάληψη
+[Select Аll]
+Επιλογή όλων
+[&Select Аll]
+&Επιλογή όλων
+[&Window]
+Παράθυρο
+[Close All]
+Κλείσιμο όλων
+[&Help]
+&Βοήθεια
+[&About ...]
+&Σχετικά...
+[About]
+Σχετικά...
+[Send feedback or bugreport ...]
+Στείλτε μας σχόλια ή αναφορά σφάλματος...
+[Feedback for :]
+Σχόλια για :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<< Εισάγετε τα σχόλιά σας ή την αναφορά σφάλματος εδώ (στα Αγγλικά, Ρωσσικά ή Ουκρανικά). >>
+[Donate ...]
+Δωρεά...
+[Online Help]
+Βοήθεια με σύνδεση
+[Options]
+Επιλογές
+[OK]
+ΟΚ
+[Cancel]
+Άκυρο
+[Apply]
+Εφαρμογή
+[Minimize]
+Ελαχιστοποίηση
+[{0} Updater]
+[{0} Ενημέρωση]
+[Preparing]
+Προετοιμασία
+[Check version]
+Έλεγχος έκδοσης
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Ελήφθησαν {0}Kb από {1}Kb με ταχύτητα {2}Kb/s
+[Update downloaded]
+Η ενημέρωση ελήφθη
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Η νέα έκδοση ελήφθη. Θέλετε να σταματήσετε το Transale.Net και να εγκαταστήστε τη νέα έκδοση;
+[Please select where to save installer of new version which you can run later]
+Παρακαλώ επιλέξτε που θα αποθηκευτεί η νέα έκδοση την οποία μπορείτε να τρέξετε αργότερα
+[Installer saved to \r\n{0}]
+Το αρχείο εγκατάστασης αποθηκεύτηκε σε\r\n{0}
+[Update will be run later]
+Η ενημέρωση θα εκτελεστεί αργότερα
+[Check Updates ...]
+Έλεγχος για ενημερώσεις ...
+[Updates]
+Ενημερώσεις
+[Automatically check updates]
+Αυτόματος έλεγχος για ενημερώσεις
+[Automatically download updates]
+Αυτόματη λήψη ενημερώδεων
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Ενημερώθηκε - {0}\rΤελευταίος έλεγχος για ενημερώσεις - {1}, Κατάσταση - {2}\rΕπόμενος έλεγχος για ενημερώσεις - {3}
+[Close]
+Κλείσιμο
+[Error on downloading {0}]
+[Σφάλμα λήψης {0}]
+[{0} don't contained {1} tag:\r\n{2}]
+{0} Δεν περιλαμβάνεται {1} tag:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} Υπάρχει λάθος μορφοποίησης {1} tag:\r\n{2}
+[Canceled]
+Ακυρώθηκε
+[Program is up to date]
+Το πρόγραμμα είναι ενημερωμένο
+[File {0} already exists]
+[Il File {0} Υπάρχει ήδη]
+[The server of updates is overloaded. The check of updates will be delayed.]
+Ο κεντρικός υπολογιστής ενημερώσεων είναι υπερφορτωμένος. Ο έλεγχος θα καθυστερήσει.
+[Checking of update done]
+Έλεγχος αν έγινε ενημέρωση
+[New version {0} of {1} available]
+Νέα έκδοση είναι διαθέσιμη
+[Do you want to open site where you can download it ?]
+Θέλετε να επισκεφτείτε τη σελίδα από όπου μπορείτε να την κατεβάσετε;
+[Version]
+Έκδοση
+[&Tools]
+Εργαλεία
+[O&ptions...]
+Επιλογές
+[General]
+Γενικά
+[UI Language]
+Εμφανιζόμενη γλώσσα
+[Network]
+Δίκτυο
+[HTTP-Proxy]
+Πληρεξούσιος-HTTP
+[Proxy]
+Πληρεξούσιος
+[Port]
+Πόρτα
+[Enable Authentication]
+Ενεργοποίηση αυθεντικότητας
+[User]
+Χρήστης
+[Password]
+Κωδικός
+[Use NTLM Authentication]
+Χρήση NTLM αυθεντικότητας
+[Domain]
+Τομέας
+[Timeout]
+Διάλειμμα
+[System]
+Σύστημα
+[Custom]
+Τυπική
+[None]
+Τίποτα
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+Η μορφοποίηση του πληρεξούσιου HTTP είναι εσφαλμένη. Οι ρυθμίσεις θα επανέλθουν στις προεπιλεγμένες
+[Startup]
+Εκκίνηση
+[Launch at system startup]
+Εκκίνηση με τα Windows
+[Minimize to tray]
+Ελαχιστοποίηση στο tray
+[When enabled {0} will run when OS started]
+Αν ενεργοποιηθεί {0} θα τρέξει όταν ξεκίνησουν τα Windows
+[{0} will be minimized to tray when OS started]
+Ελαχιστοποίηση στο tray κατα την εκκίνηση
+[Single Instance]
+Μεμονωμένη εμφάνιση
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Έλεγχος στην εκκίνηση, αν τρέχει ήδη άλλη περίοδος λειτουργίας, σε αυτήν την περίπτωση, η νέα εφαρμογή ενεργοποιείται την παλιά και σταματά από μόνη της.
+[Tray]
+Γραμμή κατάστασης
+[Hotkeys]
+Συντομεύσεις πληκτρολογίου
+[Activate on Ctrl+C+C hotkey]
+Ένεργοποιείται με Ctrl+C+C πλήκτρα
+[Activate on Ctrl+Ins+Ins hotkey]
+Ένεργοποιείται με Ctrl+Ins+Ins πλήκτρα
+[Translate when activated by hotkey]
+Μετάφραση όταν ενεργοποιείται από συντόμευση πληκτρολογίου
+[Show query time and other information]
+Εμφάνιση χρόνου ερώτησης και άλλες πληροφορίες
+[Mark by red color untranslated words]
+Σημάδεμα με κόκκινο χρώμα αμετάφραστων λέξεων
+[Don't show "Nothing found" results]
+Να μην εμφανίζονται αποτελέσματα "Τίποτα δεν βρέθηκε"
+[Show direction of translation]
+Εμφάνιση διεύθυνσης μετάφρασης
+[Show accents]
+Εμφάνιση τόνων
+[Show names of services]
+Εμφάνιση ονόματος υπηρεσίας
+[Nothing found]
+Δεν βρέθηκε τίποτα
+[An error occurred during translation. Please try again later.]
+Παρουσιάστηκε σφάλμα κατά τη διάρκεια της μετάφρασης. Παρακαλώ δοκιμάστε αργότερα.
+[Translation direction is not correct]
+Η κατεύθυνση μεταφράσεων δεν είναι σωστή
+[Only cyrillic characters supported]
+Υποστηρίζονται μόνο χαρακτήρες κυριλλικής γραφής
+[Ukrainian characters in russian query]
+Ουκρανοί χαρακτήρες σε μια ρωσσική φράση
+[Parse error, start tags not found]
+Σφάλμα στην έρευνα, δεν βρέθηκαν ετικέτες εκκίνησης
+[Nothing to translate]
+Τίποτα για μετάφραση
+[Length too big]
+Πολύ μεγάλο μήκος
+[Wrong data structure]
+Λανθασμένη δομή δεδομένων
+[Query contains extraneous symbols]
+Η πρόταση περιέχει ξένα σύμβολα
+[Service version not supported]
+Η υπηρεσία έκδοσης δεν υποστηρίζεται
+[Result view]
+Εμφάνιση αποτελέσματος
+[Result view placement]
+Θέση εμφάνισης παραθύρου μετάφρασης
+[Top]
+Επάνω
+[Place result view at top]
+Θέση προβολής αποτελέσματος πάνω
+[Bottom]
+Κάτω
+[Place result view at bottom]
+Θέση προβολής αποτελέσματος κάτω
+[Left]
+Αριστερά
+[Place result view at left]
+Θέση προβολής αποτελέσματος αριστερά
+[Right]
+Δεξιά
+[Place result view at right]
+Θέση προβολής αποτελέσματος δεξιά
+[Include monolingual dictionaries in translation]
+Περιλαμβάνονται μονόγλωσσα λεξικά στη μετάφραση
+[Filter of languages]
+Φιλτράρισμα γλωσσών
+[Allow to choose languages for use]
+Επιτρέπει να επιλέξετε γλώσσες για χρήση
+[Source languages]
+Πηγή γλωσσών
+[Target languages]
+Στόχος γλωσσών
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+Επιλέξτε τις γλώσσες που θέλετε να μεταφράσετε από και προς. Οι εκτός λειτουργίας γλώσσες θα αφαιρεθούν από τη «γλωσσική» ετικέττα του σχεδιαγράμματος προεπιλογής.
+[Toggle all]
+Ενεργοποίηση / Απενεργοποίηση όλων
+[Please select at least one source language]
+Επιλέξτε τουλάχιστον μία γλώσσα προέλευσης
+[Please select at least one target language]
+Επιλέξτε τουλάχιστον μία γλώσσα-στόχο
+[Profile]
+Προφίλ
+[Profiles]
+Προφίλ
+[Default]
+Προεπιλογή
+[List]
+Κατάλογος
+[Add new user profile]
+Προσθέστε νέες παραμέτρους χρήστη
+[Set profile properties]
+Ρύθμιση ιδιοτήτων προφίλ 
+[Profile name]
+Όνομα προφίλ
+[Translation direction]
+Κατεύθυνση μετάφρασης
+[Name for new profile you enter already used. Please enter unique name.]
+Το όνομα για νέο προφίλ σας έχει  ήδη χρησιμοποιηθεί. Πληκτρολογήστε μοναδικό όνομα.
+[Profile name don't set. Please enter profile name.]
+Το όνομα του προφίλ σας δεν έχει εκχωρηθεί. Εισάγετε ένα.
+[Remove user profile]
+Απομάκρυση προφίλ χρήστη
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Το προφίλ {0} θα διαγραφεί. \r\nΕίστε σίγουροι ?
+[Move profile up]
+Μετακίνηση προφίλ πάνω
+[Move profile down]
+Μετακίνηση προφίλ κάτω
+[Name]
+Όνομα
+[Edit services]
+Επεξεργασία υπηρεσίας
+[Remove service]
+Απομάκρυνση υπηρεσίας
+[Add selected service]
+Προσθήκη επιλεγμένων υπηρεσιών
+[Add all services]
+Προσθήκη όλων των υπηρεσιών
+[Remove all services]
+Απομάκρυνση όλων των υπηρεσιών
+[Services filter]
+Φιλτράρισμα υπηρεσιών
+[Available services]
+Διαθέσιμες υπηρεσίες
+[Selected services]
+Επιλεγμένες υπηρεσίες
+[View]
+Προβολή
+[Show services list]
+Παρουσίαση καταλόγου υπηρεσιών
+[Show languages list]
+Παρουσίαση καταλόγου γλωσσών
+[Show subjects list]
+Παρουσίαση καταλόγου θεμάτων
+[Size]
+Μέγεθος
+[System font]
+Γραμματοσειρά συστήματος
+[Fonts]
+Γραμματοσειρές
+[Input text]
+Εισαγωγή κειμένου
+[To default]
+Ορισμός προεπιλογής
+[Toolbars]
+Μπάρες εργαλείων
+[Default font]
+Προεπιλεγμένη γραμματοσειρά
+[&Translate]
+&Μετάφραση
+[Translate]
+Μετάφραση
+[Stop current operation]
+Σταμάτημα τρέχουσας λειτουργίας
+[Stop]
+Σταμάτημα
+[Search in Google]
+Αναζήτηση στο Google
+[Size or format of query don't supported by available translation services]
+Το μέγεθος ή το σχήμα του ερωτήματος δεν υποστηρίζεται από τις διαθέσιμες υπηρεσίες μετάφρασης
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+Η μετάφραση θα απευθύνει {0} κλήσεις σε διαφορετικές υπηρεσίες, αυτό μπορεί το υπερφορτώσει τους κεντρικούς υπολογιστές.\nΘέλετε να διακόψετε τη διαδικασία της μετάφρασης;
+[Reverse translation direction]
+Αντιστροφή κατεύθυνση μετάφρασης
+[Show\\Hide]
+Εμφάνιση\\Απόκρυψη
+[Show HTML source]
+Εμφάνιση πηγαίου κώδικα HTML
+[From]
+Από
+[To]
+Σε
+[Any Language]
+Οποιαδήποτε γλώσσα
+[Afrikaans]
+Αφρικανικά
+[Albanian]
+Αλβανικά
+[Amharic]
+Αμαρικά
+[Autodetect]
+Αυτόματος εντοπισμός
+[Arabic]
+Αραβικά
+[Armenian]
+Αρμένικα
+[Azerbaijani]
+Του Αζερμπαϊτζάν
+[Basque]
+Βασκικά
+[Belarusian]
+Λευκορωσικά
+[Bengali]
+Βεγγαλικά
+[Bihari]
+Μπιχάρι
+[Bosnian]
+Βοσνιακά
+[Breton]
+Βρετονικά
+[Bulgarian]
+Βουλγαρικά
+[Burmese]
+Βιρμανικά
+[Catalan]
+Καταλανικά
+[Cherokee]
+Τσερόκι
+[Chinese]
+Κινέζικα
+[Chinese_CN]
+Κινέζικα_CN
+[Chinese_TW]
+Κινέζικα_TW
+[Croatian]
+Κροατικά
+[Czech]
+Τσέχικα
+[Danish]
+Δανέζικα
+[Dhivehi]
+Dhivehi
+[Dutch]
+Ολλανδικά
+[English]
+Αγγλικά
+[English_GB]
+Αγγλικά_Ην. Β.
+[English_US]
+Αγγλικά_ΗΠΑ
+[Esperanto]
+Εσπεράντο
+[Estonian]
+Εσθονικά
+[Icelandic]
+Ισλανδικά
+[Faroese]
+Φαρόε
+[Filipino]
+Φιλιππινέζικα
+[Finnish]
+Φιλανδικά
+[French]
+Γαλλικά
+[Frisian]
+Φρίσιαν
+[Galician]
+Γαλικικά
+[German]
+Γερμανικά
+[Georgian]
+Γεωργιανά
+[Greek]
+Ελληνικά
+[Guarani]
+Γκουαρανί
+[Gujarati]
+Γκουτζαράτι
+[Hebrew]
+Εβραϊκά
+[Hindi]
+Ινδικά
+[Indonesian]
+Ινδονησιακά
+[Inuktitut]
+Ινουκτινούτ
+[Interlingua]
+Ιντερλίνγκουα
+[Irish]
+Ιρλανδικά
+[Hungarian]
+Ουγγρικά
+[Italian]
+Ιταλικά
+[Japanese]
+Ιαπωνικά
+[Japanese_Romaji]
+Ιαπωνικά_Romaji
+[Kazakh]
+Καζακστάν
+[Khmer]
+Χμερ
+[Korean]
+Κορεάτικα
+[Kurdish]
+Κουρδικά
+[Kyrgyz]
+Κιργιζίας
+[Laothian]
+Λαοθιανά
+[Latin]
+Λατινικά
+[Latvian]
+Λετονικά
+[Lithuanian]
+Λιθουανικά
+[Macedonian]
+Σλαβομακεδονικά
+[Malay]
+Μαλαισίας
+[Malayalam]
+Μαλαϋαλάμ
+[Maltese]
+Μαλτεζικά
+[Marathi]
+Μαραθικά
+[Mongolian]
+Μογγολικά
+[Nepali]
+Νεπάλ
+[Norwegian]
+Νορβηγικά
+[Norwegian_Bokmal]
+Νορβηγικά (Μπόκμαλ)
+[Norwegian_Nynorsk]
+Νορβηγικά (Νάινορσκ)
+[Oriya]
+Ορίγια
+[Pashto]
+Πάστο
+[Papiamento]
+Papiamento
+[Persian]
+Περσικά
+[Polish]
+Πολωνικά
+[Portuguese]
+Πορτογαλικά
+[Portuguese_BR]
+Πορτογαλικά (Βραζιλίας)
+[Punjabi]
+Πουντζάμπι
+[Romanian]
+Ρουμάνικα
+[Russian]
+Ρωσσικά
+[Sanskrit]
+Σανσκριτικά
+[Serbian]
+Σέρβικα
+[Sindhi]
+Σίντι
+[Sinhalese]
+Σινχαλέζικα
+[Slovak]
+Σλοβάκικα
+[Slovenian]
+Σλοβενικά
+[Spanish]
+Ισπανικά
+[Spanish_LA]
+Ισπανικά (ΗΠΑ)
+[Swahili]
+Σουαχίλι
+[Swedish]
+Σουηδικά
+[Tajik]
+Τατζικιστάν
+[Tagalog]
+Ταγκαλόγκ
+[Tamil]
+Ταμίλ
+[Telugu]
+Τελούγκου
+[Thai]
+Ταϊλανδικά
+[Tibetan]
+Θιβετιανά
+[Turkish]
+Τουρκικά
+[Ukrainian]
+Ουκρανικά
+[Urdu]
+Ουρντού
+[Uzbek]
+Ουζμπέκικα
+[Uighur]
+Ουιγκούρ
+[Vietnamese]
+Βιετναμέζικα
+[Welsh]
+Ουαλικά
+[Unknown]
+Άγνωστος
+[Languages]
+Γλώσσες
+[Services]
+Υπηρεσίες
+[Enabled]
+Ενεργοποιημένο
+[Error]
+Σφάλμα
+[Disabled]
+Απενεργοποιημένο
+[Move service up]
+Μετακίνηση υπηρεσίας προς τα πάνω
+[Move service down]
+Μετακίνηση υπηρεσίας προς τα κάτω
+[<b>Status</b> : Enabled]
+<b>Status</b> : Ενεργοποιημένο
+[<b>Status</b> : Error]
+<b>Status</b> : Σφάλμα
+[<b>Status</b> : Disabled]
+<b>Status</b> : Απενεργοποιημένο
+[Enable]
+Ενεργοποιημένο
+[Disable]
+Απενεργοποιημένο
+[Subjects]
+Θέματα
+[Subject]
+Θέμα
+[Any]
+Οποιαδήποτε
+[Common]
+Κοινό λεξικό
+[Aviation]
+Αεροπορία
+[Auto]
+Αυτόματα
+[Anatomy]
+Ανατομία
+[Bank]
+Τράπεζα
+[Bible]
+Βίβλος
+[Business]
+Επιχείρηση
+[Military]
+Στρατιωτικά
+[Law]
+Δίκαιο
+[Informatics]
+Πληροφορική
+[Art]
+Τέχνη
+[Space]
+Διάστημα
+[Socio-political]
+Κοινωνικο-πολιτικά
+[Medicine]
+Ιατρική
+[Music]
+Μουσική
+[Sex]
+Συνουσία
+[Sport]
+Σπορ
+[Tech]
+Τεχνολογία
+[Philosophy]
+Φιλοσοφία
+[Chemistry]
+Χημεία
+[Economy]
+Οικονομία
+[Electronics]
+Ηλεκτρονικά
+[Internet]
+Διαδίκτυο
+[Logistics]
+Λογιστικά
+[Travel]
+Ταξίδια
+[Football]
+Ποδόσφαιρο
+[Phrasebook]
+Γλωσσάριο
+[Perfumery]
+Αρωματοποιία
+[Type]
+Τύπος
+[Translator]
+Μετάφραση
+[Monolingual dictionary]
+Μονολεκτικό λεξικό
+[Bilingual dictionary]
+Δίγλωσσο λεξικό
+[Dictionary of synonyms]
+Λεξικό συνωνύμων
+[Dictionary of antonyms]
+Λεξικό αντωνύμων
+[Phraseological dictionary]
+Φρασεολογικό λεξικό
+[Encyclopedia]
+Εγκυκλοπαίδεια
+[Search Engine]
+Μηχανή αναζήτησης
+[Bilingual phrases dictionary]
+Δίγλωσσο λεξικό φράσεων
+[Bilingual sentenses dictionary]
+Δίγλωσσο λεξικό εκφράσεων
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+
+[BS]
+
+[Limit]
+Όριο
+[characters]
+χαρακτήρες
+[Limit {0} : {1} characters]
+Όριο{0} : {1} χαρακτήρες
+[Limit {0} : {1} lines]
+Όριο{0} : {1} γραμμές
+[Limit {0} : {1} words]
+Όριο {0} : {1} λέξεις
+[Masks]
+Μάσκες
+[English-Ukrainian technical dictionary]
+Αγγλο-ουκρανικό τεχνικό λεξικό
+[Google Translator]
+Μετάφραση Google
+[<META> Translator]
+Μετάφραση<META>
+[Free open source machine translation system]
+Ελεύθερο σύστημα της μετάφρασης
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Ρωσσο-Ουκρανικό Ακαδημαϊκό λεξικό (1924-1933)
+[Large explanatory dictionary of modern Ukrainian]
+Μεγάλο σύγχρονο επεξηγηματικό Ουκρανικό λεξικό
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - το πολύγλωσσο λεξικό
+[Russian-Ukrainian dictionary of constant expressions]
+Ρωσσο-Ουκρανικό λεξικό εκφράσεων ακριβείας
+[Pragma 5.x on-line translation]
+Pragma 5.x μετάφραση με σύνδεση
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Αγγλο-Ουκρανικό και Ουκρανο-Αγγλικό λεξικό με σύνδεση - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Slovnenya : Ουκρανο-Αγγλο-Ουκρανικό λεξικό
+[Dictionary of foreign words]
+Λεξικό ξένων λέξεων
+[Dictionaries of Ukraine]
+Ουκρανικά λεξικά
+[The free encyclopedia that anyone can edit]
+Η ελεύθερη εγκυκλοπαίδεια που ο καθένας μπορεί να επεξεργαστεί
+[The free dictionary that anyone can edit]
+Το ελεύθερο λεξικό που ο καθένας μπορεί να επεξεργαστεί
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN λογισμικό μετάφρασης (χρησιμοποιείται από AltaVista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Πολωνο-Αγγλο-Πολωνικό και Πολωνο-Γερμανο-Πολωνικό λεξικό
+[Yahoo Babel Fish Translator]
+Μετάφραση Yahoo Babel Fish
+[Multitran - system for translators]
+Multitran - σύστημα για μεταφραστές
+[PROMT - Free Text Translator]
+PROMT - Ελεύθερος Μεταφραστής
+[LangSoft Translation & Educational Software]
+LangSoft μετάφραση & Εκπαιδευτικό λογισμικό
+[Tiscali - Czech oriented dictionary]
+Τσέχικα προσανατολισμένο λεξικό
+[Free Online Urdu-English Dictionary]
+Ελεύθερο σε σύνδεση Ουρντού-αγγλικό λεξικό
+[Online English-to-Urdu and Urdu-to-English dictionary]
+Σε απευθείας σύνδεση Αγγλο-Ουρντού και Ουρντού-αγγλικό λεξικό
+[InterTran dictionary]
+InterTran λεξικό
+[Priberam Portuguese dictionary]
+Πορτογαλικό λεξικό Priberam
+[WordNet a lexical database for the English language]
+WordNet : μια λεξικολογική βάση δεδομένων για τη αγγλική γλώσσα
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet : είναι μια πολύγλωσση λεξικολογική βάση δεδομένων
+[English-Bulgarian dictionary - SA Dictionary Online]
+Αγγλο-βουλγαρικό λεξικό - SA λεξικό σε σύνδεση
+[dict.cc - English-German Dictionary]
+dict.cc - Αγγλο-γερμανικό λεξικό
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - Γερμανικά προσανατολισμένο λεξικό
+[Open thesaurus is an Open Source thesaurus for the German language]
+OpenThesaurus : Είναι ένα λεξικό ανοιχτού κώδικα για την γερμανική γλώσσα]
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+OpenThesaurus : Είναι ένα λεξικό ανοιχτού κώδικα για την ισπανική γλώσσα
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal - Θησαυρός ανοιχτού κώδικα για την ολλανδική γλώσσα βασισμένο στο OpenThesaurus
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenThesaurusPT : Είναι ένα λεξικό ανοιχτού κώδικα για την Πορτογαλική γλώσσα
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+[OpenThesaurusPL : Είναι ένα λεξικό ανοιχτού κώδικα για την Πολωνική γλώσσα
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenThesaurusSI : Είναι ένα λεξικό ανοιχτού κώδικα για την Σλοβένικη γλώσσα
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+[Sozluk(te)* : Σε απευθείας σύνδεση λεξικό -Τουρκικά προσανατολισμένο λεξικό
+[Free Dictionaries project]
+Λεξικό ελεύθερης απόδοσης
+[Grouped by Service's Url]
+Ομαδοποίηση Υπηρεσιών κατά URL
+[Grouped by Language]
+Ομαδοποίηση κατά Γλώσσα
+[{0} language pairs]
+{0} ζεύγη γλωσσών
+[{0} services]
+{0} Υπηρεσίες
+[Create article]
+Δημιουργία άρθρου
+[Open article]
+Άνοιγμα άρθρου
+[Pronunciation]
+Προφορά
+[{0} more entries found]
+Βρέθηκαν {0} περισσότερες καταχωρήσεις 
+[related links]
+σχετικές συνδέσεις
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+Χρόνος εξέτασης : {0} δευτ. , Μέτρηση ερωτημάτων : {1}, Bytes που στάλθηκαν : {2}, Bytes που λήφθηκαν : {3}
+[Full time : {0} s]
+ Πλήρωση χρόνου : {0} δευτ.
+[{0} phrases translated by {1} calls to translate services]
+{0} φράσεις μεταφράστηκαν από  {1} κλήσεις στις Υπηρεσίες Μετάφρασης
+[Send by mail]
+Αποστολή με E-Mail
+[Continue]
+Συνέχιση
+[Copy]
+Αντιγραφή
+[Terminate]
+Τερματισμός
+[Terminated by user on error]
+Τερματίστηκε από το χρήστη λόγω λάθους
+[Unhandled exception in]
+Μη αντιμετωπίσιμη εξαίρεση σε
+[Error on opening config file]
+Σφάλμα κατά το άνοιγμα αρχείου ρυθμίσεων
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+Σφάλμα κατά το άνοιγμα αρχείου ρυθμίσεων {0}.\r\nΠιθανή αιτία - σφάλμα στο αρχείο επιλογών.\r\nΗ ρύθμιση θα επανέλθει στις προεπιλεγμένες τιμές.
+[Error on saving config file]
+Σφάλμα κατά την αποθήκευση αρχείου ρυθμίσεων
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+Σφάλμα κατά την αποθήκευση αρχείου ρυθμίσεων σε {0}\r\nΠιθανή αιτία - αποκλεισμός εγγραφής στον προσωρινό κατάλογο του συστήματος
+[Error on saving config file to {0}]
+Σφάλμα κατά την αποθήκευση αρχείου ρυθμίσεων σε  {0}
+[Show information about exception]
+Εμφάνιση πληροφοριών σχετικά με την εξαίρεση
+[Error on start process : {0}\r\nError message : {1}]
+Σφάλμα στην έναρξη της διαδικασίας : {0}\r\nΣφάλμα μηνύματος  : {1}
+[Error on start process]
+Σφάλμα στην έναρξη της διαδικασίας
+[Error on sending email to : {0}\r\nError message : {1}]
+Σφάλμα κατά την αποστολή E-Mail σε: {0}\r\nΣφάλμα μηνύματος  : {1}
+[Error on sending email]
+Σφάλμα κατά την αποστολή E-Mail
+[Language detection]
+Ανίχνευση γλώσσας
+[Guess language ...]
+Γλώσσα εικασίας
+[Detect language of source text]
+Εντοπισμός γλώσσας του πρωτοτύπου
+[Guess language of source text and show info about]
+Γλώσσα εικασίας του πρωτοτύπου και εμφάνιση πληροφοριών στο πεδίο περί...
+[Language detection : {0}]
+Ανίχνευση γλώσσας  : {0}
+[Started]
+Λειτουργεί
+[Failed]
+Απέτυχε
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+{0}, {1},  Αποτέλεσμα- {2}%, Έμπιστο κατά- {3}
+[Strong]
+Ισχυρή
+[Intermediate]
+Ενδιάμεση
+[Poor]
+Φτωχή
+[Reliable]
+Αξιόπιστη
+[Not reliable]
+Μη αξιόπιστη
+[Keyboard layout : {0}]
+Διάταξη πληκτρολογίου : {0}
+[Intelligent switching of profiles and directions]
+Ευφυής μετατροπή προφίλ και κατευθύνσεων
+[Based on keyboard layout]
+Βασισμένο στην διάταξη του πληκτρολογίου
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+Ευφυής μετατροπή προφίλ και κατευθύνσεων μεταφράσεων βασισμένων στην διάταξη του πληκτρολογίου
+[Based on detected language]
+Βασισμένο στην ανιχνευμένη γλώσσα
+[Intelligent switching of profiles and translation directions based on detected language]
+Ευφυής μετατροπή προφίλ και κατευθύνσεων μεταφράσεων βασισμένων στην ανιχνευμένη γλώσσα
+[Switch by detected language only when text length greater of]
+Διακοπή από την ανιχνευμένη γλώσσα μόνο όταν μήκος κειμένων μεγαλύτερο από...
+[Break translation when application deactivated]
+Διάλειμμα μετάφρασης όταν απενεργοποιηθεί η εφαρμογή
+[Break translation on switching to other application]
+Διάλειμμα μετάφρασης για τη μετάβαση σε άλλη εφαρμογή

@@ -1,0 +1,880 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Marius Măruşteri
+[TranslatedByURL]
+http://www.umftgm.ro/roslims/
+[Translated by]
+Marius Măruşteri
+[&File]
+&Fişier
+[Exit from application]
+Ieşire din aplicaţie
+[E&xit]
+&Ieşire
+[&Edit]
+&Editare
+[Copy selection to clipboard]
+Copiază selecţia în clipboard
+[&Copy]
+&Copiere
+[Cut selection to clipboard]
+Taie selecţia în clipboard
+[Cu&t]
+&Tăiere
+[Paste from clipboard]
+Lipire din clipboard
+[&Paste]
+&Lipire
+[Delete selection]
+Şterge selecţia
+[&Delete]
+&Şterge
+[Undo last operation]
+Anulează ultima operaţie
+[&Undo]
+An&ulează(Undo)
+[Redo last operation]
+Refă ultima operaţie
+[&Redo]
+&Refă (redo)
+[Select Аll]
+Selectează tot
+[&Select Аll]
+&Selectează tot
+[&Window]
+&Fereastră
+[Close All]
+Închide tot
+[&Help]
+&Ajutor
+[&About ...]
+&Despre...
+[About]
+Despre
+[Send feedback or bugreport ...]
+Trimiteţi comentarii sau raportaţi erori...
+[Feedback for :]
+Comentarii despre :
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<<Introduceţi aici un comentariu sau raportaţi o eroare (Engleză, Ucrainiană sau Rusă). >>
+[Donate ...]
+Donaţi...
+[Online Help]
+Ajutor online
+[Options]
+Opţiuni
+[OK]
+Acceptare
+[Cancel]
+Anulare
+[Apply]
+Aplică
+[Minimize]
+Minimizează
+[{0} Updater]
+Actualizare {0}
+[Preparing]
+Pregătire
+[Check version]
+Verificare versiune
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+Am descărcat {0}Kb din {1}kb cu {2}kb/s 
+[Update downloaded]
+Actualizarea a fost descărcată.
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Noua versiune a fost descărcată. Doriţi să opriţi Translate.Net şi să rulaţi programul de instalare a noii versiuni?
+[Please select where to save installer of new version which you can run later]
+V[ rug[m selectaţi unde doriţi salvarea programului oii versiuni, pentru a-l rula mai târziu.
+[Installer saved to \r\n{0}]
+Programul de instalare a fost salvat în \r\n{0}
+[Update will be run later]
+Actualizarea va fi efectuată mai târziu.
+[Check Updates ...]
+Caută actualizări...
+[Updates]
+Actualizări
+[Automatically check updates]
+Caută automat actualizări
+[Automatically download updates]
+Descarcă automat actualizările
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Actualizat - {0}\r\nUltima verificare a actualizării - {1}, Status - {2}\r\nUrmătoarea verificare a actualizării - {3}
+[Close]
+Închide
+[Error on downloading {0}]
+Eroare la descărcare {0}
+[{0} don't contained {1} tag:\r\n{2}]
+{0} nu conţine  {1} eticheta:\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} conţine eticheta {1} greşit formatată:\r\n{2}
+[Canceled]
+Anulare
+[Program is up to date]
+Progamul este actualizat la ultima versiune
+[File {0} already exists]
+Şişierul {0} există deja
+[The server of updates is overloaded. The check of updates will be delayed.]
+Serverul de actualizări este supraîncărcat. Verificarea acualizării va fi amânată.
+[Checking of update done]
+Verificarea actualizărilor a fost efectuată
+[New version {0} of {1} available]
+Este disponibilă noua versiune {0} din {1}
+[Do you want to open site where you can download it ?]
+Doriţi să accesaţi situl de descărcare?
+[Version]
+Versiune
+[&Tools]
+&Unelte
+[O&ptions...]
+&Opţiuni...
+[General]
+General
+[UI Language]
+Limba interfeţei utilizator
+[Network]
+Reţea
+[HTTP-Proxy]
+HTTP-Proxy
+[Proxy]
+Proxy
+[Port]
+Port
+[Enable Authentication]
+Activează autentificarea
+[User]
+Utilizator
+[Password]
+Parola
+[Use NTLM Authentication]
+Foloseşte auternificare NTLM
+[Domain]
+Domeniu
+[Timeout]
+Timp de aşteptare
+[System]
+Sistem
+[Custom]
+Personalizare
+[None]
+Nimic
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+Formatul HTTP-Proxy ({0}) este incorect. Setarile pt. proxy vor fi resetare la valorile iniţiale.
+[Startup]
+Iniţializare
+[Launch at system startup]
+Autoexecutare la iniţializarea sistemului
+[Minimize to tray]
+Minimizare în bara de stare
+[When enabled {0} will run when OS started]
+Când este activat {0} rulează la pornirea SO
+[{0} will be minimized to tray when OS started]
+{0} va fi minimizat în bara de stare  la pornirea SO 
+[Single Instance]
+Instanţă unică
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Verifică la pornire dacă o altă instanţă a {0} rulează deja,atunci noua aplicaţie o va activa pe cea veche şi si va autoopri pe ea insăşi.
+[Tray]
+Bara de stare
+[Hotkeys]
+Scurtături(combinaţii de taste)
+[Activate on Ctrl+C+C hotkey]
+Activare la apăsarea combinaţiei de taste Ctrl+C+C
+[Activate on Ctrl+Ins+Ins hotkey]
+Activare la apăsarea combinaţiei de taste Ctrl+Ins+Ins
+[Translate when activated by hotkey]
+Traduce la activarea combinaţiei de taste
+[Show query time and other information]
+Afişează ora interogării şi alte informaţii
+[Mark by red color untranslated words]
+Marchează cu roşu cuvintele netraduse
+[Don't show "Nothing found" results]
+Nu afişa rezultatele "Nu am găsit nimic"
+[Show direction of translation]
+Afişează direcţia de traducere
+[Show accents]
+Afişează diacritice
+[Show names of services]
+Afişează numele serviciilor de traducere
+[Nothing found]
+Nu am găsit nimic
+[An error occurred during translation. Please try again later.]
+A apărut o eroare în timpul traducerii.
+[Translation direction is not correct]
+direcţia traducerii nu este corectă
+[Only cyrillic characters supported]
+Sunt acceptate doar caractere chirilice
+[Ukrainian characters in russian query]
+Caractere ucrainiene în interogări pentru rusă
+[Parse error, start tags not found]
+Eroare de procesare,etichetele de pornire lipsesc.
+[Nothing to translate]
+Nimic de tradus
+[Length too big]
+Lungime prea mare a textului
+[Wrong data structure]
+Structura datelor este incorectă
+[Query contains extraneous symbols]
+Interogarea conţine simboluri străine
+[Service version not supported]
+Această versiune de serviciu este incompatibilă
+[Result view]
+Vizualizare rezultate
+[Result view placement]
+Poziţia vizualizării rezultatelor
+[Top]
+Sus
+[Place result view at top]
+Poziţionaţi vizualizarea rezultatelor sus
+[Bottom]
+Jos
+[Place result view at bottom]
+Poziţionaţi vizualizarea rezultatelor jos
+[Left]
+Stânga
+[Place result view at left]
+Poziţionaţi vizualizare rezultatelor la stânga
+[Right]
+Dreapta
+[Place result view at right]
+Poziţionaţi vizualizare rezultatelor la dreapta
+[Include monolingual dictionaries in translation]
+Includeţi dicţionare monolinguale în traducere
+[Filter of languages]
+Filtru de limbi şi dialecte
+[Allow to choose languages for use]
+Permiteţi alegerea limbilor folosite
+[Source languages]
+Limbi "sursă" 
+[Target languages]
+Limbi "destinaţie"
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+Selectaţi limbile din/pentru care dori'i traduceri.Limbile neselectate vor fi înlăturate din tabul "Limbi" al profilului implicit
+[Toggle all]
+Selectaţi tot
+[Please select at least one source language]
+Vă rugăm selectaţi cel puţin o limbă "sursă"
+[Please select at least one target language]
+Vă rugăm selectaţi cel puţin o limbă "destinaţie"
+[Profile]
+Profil
+[Profiles]
+Profile
+[Default]
+Implicit
+[List]
+Lista
+[Add new user profile]
+Adaugă un nou profil utilizator
+[Set profile properties]
+Setează proprietăţile profilului
+[Profile name]
+Numele profilului
+[Translation direction]
+Direcţia de traducere
+[Name for new profile you enter already used. Please enter unique name.]
+Numele profilui introdus este deja utilizat.Introduceţi un nume nou (unic).
+[Profile name don't set. Please enter profile name.]
+Nu aţi setat numele profilului. Vă rugăm introduceţi un nume pt. profil.
+[Remove user profile]
+Şterge profil utilizator
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Profilul {0} va fi şters\r\nSunteţi sigur?
+[Move profile up]
+Mută profilul sus
+[Move profile down]
+Mută profilul jos
+[Name]
+Nume
+[Edit services]
+Editare servicii
+[Remove service]
+Ştergere servicii
+[Add selected service]
+Adăugă serviciu selectat
+[Add all services]
+Adaugă toate serviciile
+[Remove all services]
+Şterge toate serviciile
+[Services filter]
+Filtrază serviciile
+[Available services]
+Servicii disponibile
+[Selected services]
+Servicii selectate
+[View]
+Vizualizare
+[Show services list]
+Afişează lista serviciilor
+[Show languages list]
+Afişează lista limbilor
+[Show subjects list]
+Afişează lista subiectelor
+[Size]
+Mărime
+[System font]
+Fontul sistemului
+[Fonts]
+Fonturi
+[Input text]
+Introducere text
+[To default]
+Implicit
+[Toolbars]
+Bare de unelte
+[Default font]
+Font implicit
+[&Translate]
+&Tradu
+[Translate]
+Tradu
+[Stop current operation]
+Opreşte operaţiunea curentă
+[Stop]
+Oprire
+[Search in Google]
+Caută în Google
+[Size or format of query don't supported by available translation services]
+Mărimea sau formatul interogării nu este suportat de către serviciile de traducere disponibile.
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+Traducerea va produce {0} o serie de apeluri către diferite servicii, ce poate supraîncărca acele servere.\nDoriţi întreruperea procesului de traducere?
+[Reverse translation direction]
+Inversează direcţia de traducere
+[Show\\Hide]
+Afişează\\Ascunde
+[Show HTML source]
+Afişează codul HTML
+[From]
+De la
+[To]
+La
+[Any Language]
+Orice limbă
+[Afrikaans]
+Afrikaans
+[Albanian]
+Albaneză
+[Amharic]
+
+[Autodetect]
+Autodetectează
+[Arabic]
+Arabă
+[Armenian]
+Armeană
+[Azerbaijani]
+Azerbaijană
+[Basque]
+Bască
+[Belarusian]
+Belarusă
+[Bengali]
+Bengali
+[Bihari]
+
+[Bosnian]
+Bosniacă
+[Breton]
+Bretonă
+[Bulgarian]
+Bulgară
+[Burmese]
+Birmaneză
+[Catalan]
+Catalană
+[Cherokee]
+
+[Chinese]
+Chineză
+[Chinese_CN]
+Chineză_CN
+[Chinese_TW]
+Chineză_TW
+[Croatian]
+Croată
+[Czech]
+Cehă
+[Danish]
+Daneză
+[Dhivehi]
+
+[Dutch]
+Olandeză
+[English]
+Engleză
+[English_GB]
+Engleză Britanică
+[English_US]
+Engleză USA
+[Esperanto]
+Esperanto
+[Estonian]
+Estoniană
+[Icelandic]
+Islandeză
+[Faroese]
+Faroeză
+[Filipino]
+Filipineză
+[Finnish]
+Finlandeză
+[French]
+Franceză
+[Frisian]
+
+[Galician]
+Galiţiană
+[Georgian]
+Georgiană
+[German]
+Germană
+[Greek]
+Greacă
+[Guarani]
+
+[Gujarati]
+
+[Hebrew]
+Ebraică
+[Hindi]
+Hindi
+[Indonesian]
+Indoneziană
+[Inuktitut]
+
+[Interlingua]
+
+[Irish]
+Irlandeză
+[Hungarian]
+Maghiară
+[Italian]
+Italiană
+[Japanese]
+Japoneză
+[Japanese_Romaji]
+Japoneză Romaji
+[Kazakh]
+Kazacă
+[Khmer]
+Cambodgiană
+[Korean]
+Coreană
+[Kurdish]
+Kurdă
+[Kyrgyz]
+Kirguistană
+[Laothian]
+Laotiană
+[Latin]
+Latină
+[Latvian]
+Letonă
+[Lithuanian]
+Lituaniană
+[Macedonian]
+Macedoniană
+[Malay]
+Malaeză
+[Malayalam]
+
+[Maltese]
+Malteză
+[Marathi]
+
+[Mongolian]
+Mongolă
+[Nepali]
+Nepaleză
+[Norwegian]
+Norvegiană
+[Norwegian_Bokmal]
+Norvegiană Bokmal
+[Norwegian_Nynorsk]
+Norvegiană Nynorsk
+[Oriya]
+
+[Pashto]
+
+[Papiamento]
+
+[Persian]
+Persană
+[Polish]
+Poloneză
+[Portuguese]
+Portugheză
+[Portuguese_BR]
+Portugheză-Br
+[Punjabi]
+
+[Romanian]
+Română
+[Russian]
+Rusă
+[Sanskrit]
+Sanscrită
+[Serbian]
+Sârbă
+[Sindhi]
+Sindi
+[Sinhalese]
+
+[Slovak]
+Slovacă
+[Slovenian]
+Slovenă
+[Spanish]
+Spaniolă
+[Spanish_LA]
+Spaniolă_LA
+[Swahili]
+
+[Swedish]
+Suedeză
+[Tajik]
+
+[Tagalog]
+
+[Tamil]
+
+[Telugu]
+
+[Thai]
+Tailandeză
+[Tibetan]
+Tibetană
+[Turkish]
+Turcă
+[Ukrainian]
+Ucraniană
+[Urdu]
+Urdu
+[Uzbek]
+Uzbekă
+[Uighur]
+
+[Vietnamese]
+Vietnameză
+[Welsh]
+Galeză
+[Unknown]
+Necunoscută
+[Languages]
+Limbi
+[Services]
+Servicii
+[Enabled]
+Activat
+[Error]
+Eroare
+[Disabled]
+Dezactivat
+[Move service up]
+Mută serviciul sus
+[Move service down]
+Mută serviciul jos
+[<b>Status</b> : Enabled]
+<b>Status</b> : Activat
+[<b>Status</b> : Error]
+<b>Status</b> : Eroare
+[<b>Status</b> : Disabled]
+<b>Status</b> : Dezactivat
+[Enable]
+Activează
+[Disable]
+Dezactivează
+[Subjects]
+Subiecte
+[Subject]
+Subiect
+[Any]
+Oricare
+[Common]
+Comun
+[Aviation]
+Aviaţie
+[Auto]
+Auto
+[Anatomy]
+Anatomie
+[Bank]
+Bancar
+[Bible]
+Biblic
+[Business]
+Afaceri
+[Military]
+Militar
+[Law]
+Legal
+[Informatics]
+Informatică
+[Art]
+Arte
+[Space]
+Spaţiu
+[Socio-political]
+Socio-politic
+[Medicine]
+Medicină
+[Music]
+Muzică
+[Sex]
+Sex
+[Sport]
+Sport
+[Tech]
+Tehnologie
+[Philosophy]
+Filosofie
+[Chemistry]
+Chimie
+[Economy]
+Economie
+[Electronics]
+Electronică
+[Internet]
+Internet
+[Logistics]
+Logistică
+[Travel]
+Călătorii
+[Football]
+fotbal
+[Phrasebook]
+Dicţionar de fraze
+[Perfumery]
+Parfumerie
+[Type]
+Scrie
+[Translator]
+Traducător
+[Monolingual dictionary]
+Dicţionar monolingual
+[Bilingual dictionary]
+Dicţionar bilingv
+[Dictionary of synonyms]
+Dicţionar de sinonime
+[Dictionary of antonyms]
+Dicţionar de antonime
+[Phraseological dictionary]
+Dicţionar frazeologic
+[Encyclopedia]
+Enciclopedie
+[Search Engine]
+Motor de căutare
+[Bilingual phrases dictionary]
+Dicţionar frazeologic bilingv
+[Bilingual sentenses dictionary]
+Dicţionar de propoyiţii bilingv
+[T]
+T
+[MD]
+Dr.
+[BD]
+
+[SD]
+
+[AD]
+
+[PD]
+
+[EN]
+
+[SE]
+
+[BP]
+
+[BS]
+
+[Limit]
+Limită
+[characters]
+Caractere
+[Limit {0} : {1} characters]
+Limită {0} : {1} сaractere
+[Limit {0} : {1} lines]
+Limită {0} : {1} linii
+[Limit {0} : {1} words]
+Limită {0} : {1} cuvinte
+[Masks]
+Mască
+[English-Ukrainian technical dictionary]
+Dicţionar tehnic Englez-Ucrainian
+[Google Translator]
+Traducător Google
+[<META> Translator]
+Traducător <META>
+[Free open source machine translation system]
+Sistem automat de traducere Liber/Open Source
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Dicţionar academic  Ruso-Ucrainian (1924-1933)
+[Large explanatory dictionary of modern Ukrainian]
+Dicţionar de definiţii a limbii Ucrainiene moderne
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - Dicţionar multilingv
+[Russian-Ukrainian dictionary of constant expressions]
+Dicţionar de expresii constante Ruso-Ucrainian
+[Pragma 5.x on-line translation]
+Traducător online Pragma 5.x
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Dicţionar online Englez-Ucrainian şi Ucrainiano-Englez - LingReSUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+DIccionario Ucinian-Englez-Ucrainian - Slovnenya
+[Dictionary of foreign words]
+Dicţionar de neologisme
+[Dictionaries of Ukraine]
+Dicţionarul Ucrainei
+[The free encyclopedia that anyone can edit]
+Enciclopedia Liberă
+[The free dictionary that anyone can edit]
+Dicţionarul Liber
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+Programul de traducere SYSTRAN (utilizat de Altavista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Dicţionarele Polonez-Englez-Polonez şi Polonez-German-Polonez
+[Yahoo Babel Fish Translator]
+Traducătorul Yahoo Babel Fish
+[Multitran - system for translators]
+Sistemul de traducere - Multitran
+[PROMT - Free Text Translator]
+Traducătorul Liber pt. text - PROMPT
+[LangSoft Translation & Educational Software]
+Software de traducere educaţional Langsoft
+[Tiscali - Czech oriented dictionary]
+Tiscali - dicţionar ver. Cehă
+[Free Online Urdu-English Dictionary]
+Dicţionarul liber online Urdu-Englez
+[Online English-to-Urdu and Urdu-to-English dictionary]
+Dicţionarul  online Englez-Urdu şi Urdu-Englez
+[InterTran dictionary]
+Dicţionarul InterTran
+[Priberam Portuguese dictionary]
+Dicţionarul Portughey Priberam
+[WordNet a lexical database for the English language]
+WordNet - bază de date  lexicală pt. limba engleză
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet - bază de date lexicală multilingvă
+[English-Bulgarian dictionary - SA Dictionary Online]
+Dicţionar Englez-Bulgar - SA Dicţionare Online
+[dict.cc - English-German Dictionary]
+dict.cc - Diccionario Englez-German
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - Dicţionar German orientat
+[Open thesaurus is an Open Source thesaurus for the German language]
+Open thesaurus este un vocabular Open Source pentru limba germană
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+OpenThesaurus-es este un vocabular Open Source pentru limba spaniolă
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal - un vocabular Open Source pentru limba olandeză, bazat pe OpenThesaurus
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenThesaurus-PT este un vocabular Open Source pentru limba portugheză
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+OpenThesaurus-PL este un vocabular Open Source pentru limba poloneză
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenThesaurusSI este un vocabular Open Source pentru limba slovenă
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Dicţionar online Sozluk(te)* - Dicţionar pt. limba turcă
+[Free Dictionaries project]
+Proiectul Dicţionarele Libere (Free Dictionaries project)
+[Grouped by Service's Url]
+Grupate pe baza URL al serviciului
+[Grouped by Language]
+Grupate pe limbi
+[{0} language pairs]
+{0} perechi de limbi
+[{0} services]
+{0} servicii
+[Create article]
+Creare articol
+[Open article]
+Deschidere articol
+[Pronunciation]
+Pronunţie
+[{0} more entries found]
+SAu mai fost găsite {0} intrări
+[related links]
+legături relaţionate
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+Timp de interogare: {0} s, Traduceri realizate: {1}, Bytes trimişi: {2}, Bytes recepţionaţi: {3}
+[Full time : {0} s]
+Timp total: {0} s
+[{0} phrases translated by {1} calls to translate services]
+{0} fraze traduse de către {1} apeluri către serviciile de traducere
+[Send by mail]
+Trimite prin email
+[Continue]
+Continuă
+[Copy]
+Copiază
+[Terminate]
+Termină
+[Terminated by user on error]
+Terminat de către utilizator, cu eroare
+[Unhandled exception in]
+Excepţie necontrolată
+[Error on opening config file]
+Eroare de deschidere a fişierului de configurare
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+Eroare de deschidere a fişierului de configurare din {0}.\r\nExplicaţie posibilă - erori în formatul fişierului Opţiuni.\r\nConfiguraţia va fi resetată la valorile implicite.
+[Error on saving config file]
+Eroare apărută la salvarea fişierului de configurare
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+Eroare apărută la salvarea fişierului de configurare în {0}\r\nExplicaţie posibilă - imposibilitatea de a scrie în directorul TEMP al sistemului.
+[Error on saving config file to {0}]
+Eroare apărută la salvarea fişierului de configurare în {0}
+[Show information about exception]
+Afişează informaţia despre excepţie
+[Error on start process : {0}\r\nError message : {1}]
+Eroare la iniţializarea procesului: {0}\r\nMesaj de eroare: {1}
+[Error on start process]
+Eroare la iniţializarea procesului
+[Error on sending email to : {0}\r\nError message : {1}]
+Eroare la trimiterea emailului către: {0}\r\nMesaj de eroare: {1}
+[Error on sending email]
+Eroare la trimiterea emailului
+[Language detection]
+Detectare limbă
+[Guess language ...]
+Limba sugerată...
+[Detect language of source text]
+Detectarea limbii textului sursă
+[Guess language of source text and show info about]
+sugerează limba textului sursă şi afişează informaţii despre el.
+[Language detection : {0}]
+Detectare limbă: {0}
+[Started]
+Initializare
+[Failed]
+Insucces
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+{0}, {1}, Scor - {2}, încredere - {3}
+[Strong]
+Puternică
+[Intermediate]
+Medie
+[Poor]
+slabă
+[Reliable]
+Fiabil
+[Not reliable]
+Lipsă fiabilitate
+[Keyboard layout : {0}]
+Mapare tastatură: {0}
+[Intelligent switching of profiles and directions]
+Schimbarea inteligentă a profilelor şi direcţiilor de traducere
+[Based on keyboard layout]
+Bazată pe maparea tastaturii
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+Schimbarea inteligentă a profilelor şi direcţiilor de traducere bazată pe maparea tastaturii 
+[Based on detected language]
+Bazată pe limba detectată
+[Intelligent switching of profiles and translation directions based on detected language]
+Schimbarea inteligentă a profilelor şi direcţiilor de traducere bazată pe limba detectată
+[Switch by detected language only when text length greater of]
+Schimbare bazată pe limba detectată numai când textul are o lungime mai mare de
+[Break translation when application deactivated]
+Intrerupe traducerea când aplcaţia este dezactivată
+[Break translation on switching to other application]
+Întrerupe traducerea cînd se trece la utilizareaaltei aplicaţii

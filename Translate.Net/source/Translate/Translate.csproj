@@ -327,6 +327,9 @@
     <None Include="lang\German.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="lang\Greek.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="lang\Italian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -338,6 +341,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="lang\Portuguese_1.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Romanian.lng">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="lang\Russian.lng">
