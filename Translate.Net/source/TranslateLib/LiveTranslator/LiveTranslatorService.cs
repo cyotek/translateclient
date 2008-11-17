@@ -50,11 +50,11 @@ namespace Translate
 		{
 			Url = new Uri("http://www.windowslivetranslator.com/");
 			Name = "windowslivetranslator";
-			CompanyName = "Microsoft corp.";
-			Copyright = "Copyright © 2008 Microsoft";
+			CompanyName = "Microsoft Corporation";
+			Copyright = "Copyright © 2008 Microsoft Corporation";
 
 			IconUrl = new Uri("http://www.windowslivetranslator.com/icon.ico");
-			FullName = "Free online translation service for a truly world-wide web";
+			FullName = "Microsoft Translator";
 			
 			AddTranslator(new LiveTranslator());
 		}
