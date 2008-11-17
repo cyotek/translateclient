@@ -1,4 +1,4 @@
-#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -51,7 +51,7 @@ namespace Translate
 			Url = new Uri("http://www.online-translator.com/");
 			Name = "promt";
 			CompanyName = "PROMT, Ltd.";
-			Copyright = "Copyright � PROMT, Ltd., 2003-2008. For private noncommercial use only";
+			Copyright = "Copyright © PROMT, Ltd., 2003-2008. For private noncommercial use only";
 			Restrictions = "For private noncommercial use only";
 
 			IconUrl = new Uri("http://translateclient.googlepages.com/promt.png");
