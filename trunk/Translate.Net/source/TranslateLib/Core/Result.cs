@@ -254,6 +254,12 @@ namespace Translate
 		{
 			base.Add(new Link(text, uri));
 		}
+		
+		public void Add(string text, string uriText)
+		{
+			base.Add(new Link(text, new Uri(uriText)));
+		}
+		
 	}
 	
 	public class ResultsHashtable : Dictionary<int, Result>
