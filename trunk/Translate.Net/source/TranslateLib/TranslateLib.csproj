@@ -103,6 +103,10 @@
     <Compile Include="InterTran\InterTranService.cs" />
     <Compile Include="LiveTranslator\LiveTranslator.cs" />
     <Compile Include="LiveTranslator\LiveTranslatorService.cs" />
+    <Compile Include="MegaslownikPl\MegaslownikPlDictionary.cs" />
+    <Compile Include="MegaslownikPl\MegaslownikPlService.cs" />
+    <Compile Include="MegaslownikPl\MegaslownikSynonymsDictionary.cs" />
+    <Compile Include="MegaslownikPl\MegaslownikTools.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterDictionary.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterMedicalDictionary.cs" />
     <Compile Include="MerriamWebster\MerriamWebsterSearchEngine.cs" />
@@ -227,6 +231,7 @@
     <EmbeddedResource Include="SozlukteCom\Service.ico" />
     <EmbeddedResource Include="DictsInfo\Service.ico" />
     <EmbeddedResource Include="LiveTranslator\Service.ico" />
+    <EmbeddedResource Include="MegaslownikPl\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -249,6 +254,7 @@
     <Folder Include="DictTuChemnitzDe" />
     <Folder Include="DictsInfo" />
     <Folder Include="LiveTranslator" />
+    <Folder Include="MegaslownikPl" />
     <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
     <Folder Include="SynonimyPl" />
