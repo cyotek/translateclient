@@ -290,7 +290,7 @@ namespace Translate
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet);
-			//helper.Encoding = System.Text.Encoding.		
+			//helper.UseGoogleCache = true;
 			
 			string responseFromServer = helper.GetResponse();
 			
@@ -358,7 +358,7 @@ namespace Translate
 						{ //get translation 
 							//jump=blood%5B1%2Cnoun%5D&book=Dictionary&quer=blood&list=45%2C1%2C3602592%2C0%3Bblood%5B1%2Cnoun%5D%3D113554%3Bblood%5B2%2Ctransitive+verb%5D%3D113572%3BABO+blood+group%3D2000002431%3Bbad+blood%3D2000074812%3Bblood-and-guts%3D2000113598%3Bblood-brain+barrier%3D2000113627%3Bblood+brother%3D2000113664%3Bblood+cell%3D2000113685%3Bblood+count%3D2000113697%3Bblood+doping%3D2000113725
 							
-							string quer_value = StringParser.Parse("<input type='hidden' name='quer' value=\"", "\"", responseFromServer);
+							/*string quer_value = StringParser.Parse("<input type='hidden' name='quer' value=\"", "\"", responseFromServer);
 							string list_value = StringParser.Parse("<input type='hidden' name='list' value=\"", "\"", responseFromServer);
 							string post_data_value = "jump={0}&book=" + bookName + "&quer={1}&list={2}";
 							post_data_value = string.Format(post_data_value , 
@@ -366,12 +366,14 @@ namespace Translate
 								HttpUtility.UrlEncode(quer_value),
 								HttpUtility.UrlEncode(list_value)
 								);
+							*/	
 							
 							helper = 
-								new WebRequestHelper(result, new Uri(host + "/" + part), 
+								new WebRequestHelper(result, new Uri(subres.ArticleUrl), 
 									networkSetting, 
-									WebRequestContentType.UrlEncoded);
-							helper.AddPostData(post_data_value);				
+									WebRequestContentType.UrlEncodedGet);
+							//helper.AddPostData(post_data_value);				
+							//helper.UseGoogleCache = true;
 							responseFromServer = helper.GetResponse();
 							SetResult(subres, responseFromServer, host + "/");
 						}

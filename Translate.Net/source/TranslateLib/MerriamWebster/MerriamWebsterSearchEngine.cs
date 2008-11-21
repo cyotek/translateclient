@@ -84,6 +84,7 @@ namespace Translate
 					new WebRequestHelper(result, new Uri(query), 
 						networkSetting, 
 						WebRequestContentType.UrlEncodedGet);
+				//helper.UseGoogleCache = true;		
 			}
 			else
 			{

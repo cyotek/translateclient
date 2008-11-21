@@ -1,4 +1,4 @@
-#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -50,7 +50,7 @@ namespace Translate
 			Url = new Uri("http://www.merriam-webster.com");
 			Name = "merriam_webster";
 			CompanyName = "Merriam-Webster, Inc.";
-			Copyright = "Copyright � 2007 Merriam-Webster, Incorporated";
+			Copyright = "Copyright © 2007 Merriam-Webster, Incorporated";
 			IconUrl = new Uri("http://translateclient.googlepages.com/merriamwebster.png");
 			FullName = "Merriam-Webster dictionary";
 			
