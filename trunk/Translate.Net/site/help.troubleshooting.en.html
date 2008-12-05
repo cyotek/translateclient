@@ -111,6 +111,60 @@ Please don't hesitate and send descriptions of them to <a href="mailto:translate
 <p>Below is more information about possible errors and solutions:
 
 <ol>
+<li>When you run translation first time the "results" window show error about loading <b>System.EnterpriseServices</b>, like:
+<div style="border: 1px solid black;">
+<p>"Server Error in '/' Application."</p>
+<h2><i>Configuration Error</i> </h2>
+<font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+<b>Description: </b>An error occurred during the processing of a configuration file required to 
+service this request. Please review the specific error details below and modify your 
+configuration file appropriately. 
+<br><br>
+<b>Parser Error Message: </b>
+Could not load file or assembly '<b>System.EnterpriseServices</b>, Version=2.0.0.0, Culture=neutral, 
+PublicKeyToken=b03f5f7f11d50a3a' or one of its dependencies. The system cannot find the file specified.
+<br><br>
+<b>Source Error:</b></font>
+<font face="Arial, Helvetica, Geneva, SunSans-Regular, sans-serif ">
+<table class="" bgcolor="#ffffcc">
+<tbody><tr>
+<td class=""><code></code><pre>Line 50:&lt;add assembly="System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"/&gt;
+Line 51:&lt;add assembly="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"/&gt;
+<font color="red">Line 52:&lt;add assembly="<b>System.EnterpriseServices</b>, Version=2.0.0.0, Culture=neutral, 
+    PublicKeyToken=b03f5f7f11d50a3a"/&gt;
+</font>Line 53:&lt;add assembly="System.Web.Mobile, Version=2.0.0.0, Culture=neutral, 
+    PublicKeyToken=b03f5f7f11d50a3a"/&gt;
+Line 54:&lt;add assembly="*"/&gt;</pre></td></tr></tbody>
+</table>
+<p><b><font face="Verdana">Source File: </font></b>
+c:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\Config\web.config<b>
+<font face="Verdana"> &nbsp;&nbsp; Line: </font></b>52 
+<br><br><b><font face="Verdana">Assembly Load Trace:</font></b> 
+The following information can be helpful to determine why the assembly 
+'System.EnterpriseServices, Version=2.0.0.0, Culture=neutral, 
+PublicKeyToken=b03f5f7f11d50a3a' could not be loaded.
+</p>
+</div>
+<br />
+Unfortunately, I don't sure in nature of this error, but probably here some misconfiguration in .Net 
+framework (probably this happen when .net 3.0 BETA installed ).
+
+Here possible solutions :
+<ul>
+<li>reinstall\install latest .net framework, by ex. 3.5</li>
+<li>also exist suggestion to <a href="http://www.velocityreviews.com/forums/t112790-build-broken-no-idea-why-systementerpriseservices-gone.html">running .net 2.0. install in "repair" mode</a> 
+<li>or <a href="http://msmvps.com/blogs/theproblemsolver/archive/2006/10/11/Could-not-load-file-or-assembly-System.EnterpriseServices-compile-error-in-ASP.NET.aspx">edit web.config file</a>
+</ul>
+<br />
+Really editing C:\WINDOWS\Microsoft.NET\Framework\v2.0.50727\Config\web.config is most "dangerous" thing (don't forget to backup it before editing),
+but it helped when other options don't help.<br />
+Open web.config in notepad or other text editor and remove line 54, i.e.<br />
+<font color="red">Line 52:&lt;add assembly="<b>System.EnterpriseServices</b>, Version=2.0.0.0, Culture=neutral, 
+    PublicKeyToken=b03f5f7f11d50a3a"/&gt;
+</font>
+<br /><br />
+</li>
+
 <li>If results view contained some strings like "Parse error ..." or html symbols like "&lt;span&gt;", "&lt;br&gt;" etc. -
 here a errors in parsing. This can happen when site changed design or bugs in tool.<br>
 Please copy this string and send for fixing to <a href="mailto:translate.net@gmail.com">translate.net@gmail.com</a> with information about
