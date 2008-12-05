@@ -187,6 +187,7 @@ namespace Translate
 			if(proxyMode == ProxyMode.System)
 			{
 				networkSetting.Proxy = WebRequest.DefaultWebProxy;
+				networkSetting.Proxy.Credentials = CredentialCache.DefaultCredentials;
 			}
 			else if(proxyMode == ProxyMode.None)
 			{
@@ -197,6 +198,7 @@ namespace Translate
 				try 
 				{
 					WebProxy proxyObject = new WebProxy("http://" + proxyHost + ":" + proxyPort.ToString(CultureInfo.InvariantCulture) +  "/", true);
+					proxyObject.Credentials = CredentialCache.DefaultCredentials;
 					if(proxyAuthentication)
 					{
 						if(!proxyNtlmAuthentication)
