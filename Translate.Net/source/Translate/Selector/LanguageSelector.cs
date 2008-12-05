@@ -1091,7 +1091,10 @@ namespace Translate
 				serviceStatus.Status = sc;
 				pServices.ScrollControlIntoView(lvi.ListView);
 				Rectangle pos = lvi.Bounds;
-				pServices.VerticalScroll.Value  += pos.Top;
+				if(pServices.VerticalScroll.Value + pos.Top > pServices.VerticalScroll.Maximum)
+					pServices.VerticalScroll.Value  = pServices.VerticalScroll.Maximum;
+				else
+					pServices.VerticalScroll.Value  += pos.Top;
 			}
 			finally
 			{
