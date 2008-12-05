@@ -882,3 +882,31 @@ Byte av upptäckt språk först när textens längd ärstörre än
 Bryt översättning när sökning inaktiveras
 [Break translation on switching to other application]
 Bryt översättning vid byte till andra program
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]
+

@@ -290,6 +290,13 @@ namespace Translate
 			set { breakTranslationOnDeactivation = value; }
 		}
 		
+		KeyboardLayoutOptions keyboardLayoutsOptions = new KeyboardLayoutOptions();
+		public KeyboardLayoutOptions KeyboardLayoutsOptions
+		{
+			get { return keyboardLayoutsOptions; }
+			set { keyboardLayoutsOptions = value; }
+		}
+		
 		
 	}
 }

@@ -882,3 +882,30 @@ Sozluk(te)* Online Dictionary -  トルコ語辞典
 アプリが非活性になったら翻訳を中断
 [Break translation on switching to other application]
 他のアプリに切り替えられたら翻訳を中断
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]

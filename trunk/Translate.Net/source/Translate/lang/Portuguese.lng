@@ -882,3 +882,30 @@ Comutar pelo idioma detectado somente quando o comprimento do texto for maior do
 Quebrar a tradução quando a aplicação for desativada
 [Break translation on switching to other application]
 Quebrar a tradução na comutação para outra aplicação
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]

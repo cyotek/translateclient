@@ -882,3 +882,31 @@ cсылки по теме
 Прервать перевод при деактивации приложения
 [Break translation on switching to other application]
 Прервать процесс перевода при переключении на другое приложение
+[Don't change]
+Не менять
+[Switch keyboard layout based on selected language]
+Переключать раскладку клавиатуры, согласно выбранному языку
+[Language]
+Язык
+[Selected language]
+Выбранный язык
+[Change keyboard layout to]
+Переключать раскладку клавиатуры на
+[When source language changes switch keyboard layout to]
+Переключать раскладку клавиатуры, согласно языку, с которого выполняется перевод
+[Changed]
+Изменено
+[Modified by user]
+Изменено пользователем
+[Assigned automatically]
+Выбрано автоматически
+[Selected language to keyboard layout mapping]
+Соответствие языков и раскладок клавиатуры
+[Selected\t :]
+Выбрано\t :
+[Auto\t\t :]
+Авто\t\t :
+[Saved\t\t :]
+Сохранено\t :
+[Keyboard layouts]
+Раскладки клавиатуры

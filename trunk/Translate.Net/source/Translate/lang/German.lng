@@ -882,4 +882,31 @@ Wechsel auf erkannte Sprache nur wenn Text länger als
 Übersetzung bei deaktivierter Anwendung unterbrechen
 [Break translation on switching to other application]
 Übersetzung bei Wechsel zu anderer Anwendung unterbrechen
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]
 
