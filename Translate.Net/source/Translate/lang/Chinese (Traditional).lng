@@ -883,3 +883,30 @@ Sozluk(te)* 線上辭典 - 土耳其語導向的辭典
 當軟體非作用中時中斷翻譯
 [Break translation on switching to other application]
 使用其它軟體令 Translate.Net 的視窗非使用中時中斷翻譯動作
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]

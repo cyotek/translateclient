@@ -880,3 +880,30 @@ OpenThesaurusSI : Είναι ένα λεξικό ανοιχτού κώδικα �
 Διάλειμμα μετάφρασης όταν απενεργοποιηθεί η εφαρμογή
 [Break translation on switching to other application]
 Διάλειμμα μετάφρασης για τη μετάβαση σε άλλη εφαρμογή
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]

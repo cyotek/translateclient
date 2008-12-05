@@ -882,3 +882,31 @@ Sozluk(td)* 在线词典 - 土耳其语辞典
 当应用程序失去焦点时中止翻译
 [Break translation on switching to other application]
 切换到其它应用程序时中止翻译
+[Don't change]
+
+[Switch keyboard layout based on selected language]
+
+[Language]
+
+[Selected language]
+
+[Change keyboard layout to]
+
+[When source language changes switch keyboard layout to]
+
+[Changed]
+
+[Modified by user]
+
+[Assigned automatically]
+
+[Selected language to keyboard layout mapping]
+
+[Selected\t :]
+
+[Auto\t\t :]
+
+[Saved\t\t :]
+
+[Keyboard layouts]
+

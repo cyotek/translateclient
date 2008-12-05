@@ -801,13 +801,20 @@ namespace Translate
 			lStatus.Text = resBrowser.StatusText;
 		}
 		
+		bool skipChangeLayout = false;
 		void LanguageSelectorSelectionChanged(object sender, EventArgs e)
 		{
+			UpdateCaption();
+			
 			if(skipChangeInput)
 				return;
 				
+			if(!TranslateOptions.Instance.KeyboardLayoutsOptions.SwitchLayoutsBasedOnLanguage)	
+				return;
+			
+			skipChangeLayout = true;
 			InputLanguageManager.SetInputLanguage(languageSelector.Selection.From);
-			UpdateCaption();
+			skipChangeLayout = false;
 		}
 		
 		bool skipChangeInput;
@@ -2097,8 +2104,11 @@ namespace Translate
 		{
 
 			UpdateCurrentInputLanguage();
-
+			
 			if(!TranslateOptions.Instance.GuessingOptions.SwitchDirectionBasedOnLayout)
+				return;
+
+			if(skipChangeLayout)
 				return;
 				
 			if(languageSelector.Selection == null)	

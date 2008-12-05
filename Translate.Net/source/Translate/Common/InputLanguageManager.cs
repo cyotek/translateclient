@@ -50,6 +50,27 @@ namespace Translate
 	{
 		public static void SetInputLanguage(Language language)
 		{
+			foreach(KeyboardLayoutLanguage kll in TranslateOptions.Instance.KeyboardLayoutsOptions.CustomLayouts)
+			{
+				if(kll.Language == language)
+				{
+					foreach(InputLanguage il in InputLanguage.InstalledInputLanguages)
+					{
+						if(il.LayoutName + il.Culture.EnglishName == kll.LayoutName)
+						{
+							if(InputLanguage.CurrentInputLanguage.Equals(il))
+							{
+								return;
+							}
+								
+							InputLanguage.CurrentInputLanguage = il;
+							return;
+						}
+					}
+					return;
+				}
+			}
+			
 			foreach(InputLanguage il in InputLanguage.InstalledInputLanguages)
 			{
 				if(IsLanguageSupported(il, language))

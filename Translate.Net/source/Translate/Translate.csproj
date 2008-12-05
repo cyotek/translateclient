@@ -101,6 +101,11 @@
     <Compile Include="Options\GeneralNetworkOptionsControl.Designer.cs">
       <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Options\KeyboardLayoutControl.cs" />
+    <Compile Include="Options\KeyboardLayoutControl.Designer.cs">
+      <DependentUpon>KeyboardLayoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\KeyboardLayoutOptions.cs" />
     <Compile Include="Options\NetworkOptions.cs" />
     <Compile Include="Options\OptionsForm.cs" />
     <Compile Include="Options\OptionsForm.Designer.cs">
@@ -206,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Options\InputFontOptionsControl.resx">
       <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\KeyboardLayoutControl.resx">
+      <DependentUpon>KeyboardLayoutControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\OptionsForm.resx">
       <DependentUpon>OptionsForm.cs</DependentUpon>
