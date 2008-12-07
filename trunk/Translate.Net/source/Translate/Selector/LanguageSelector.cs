@@ -468,7 +468,12 @@ namespace Translate
 		public void Invert()
 		{
 			LanguageDataContainer fromLanguage = (LanguageDataContainer)lbFrom.SelectedItem;
+			if(fromLanguage == null)
+				return;
 			
+			if(lbTo.SelectedItem == null)
+				return;
+				
 			int idx = lbFrom.Items.IndexOf(lbTo.SelectedItem);
 			if(idx == -1) return;
 			lbFrom.SelectedIndex = idx;
