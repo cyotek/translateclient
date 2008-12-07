@@ -2,9 +2,8 @@
 
 [TranslatedBy]
 Стефан Стефанов - Wankata
-
 [TranslatedByURL]
-
+Автоматичен превод през
 [Translated by]
 Превод:
 [&File]
@@ -61,13 +60,12 @@
 << Въведете Вашето предложение или Вашата информация за грешки тук >>
 [Donate ...]
 Дарение
-
 [Online Help]
 Онлайн помощ: Translate.Net
 [Options]
 Настройки
 [OK]
-
+Добре
 [Cancel]
 Отмяна
 [Apply]
@@ -357,7 +355,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Albanian]
 Албански
 [Amharic]
-
+Амхарик
 [Autodetect]
 Автоматично откриване
 [Arabic]
@@ -365,7 +363,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Armenian]
 Арменски
 [Azerbaijani]
-
+Азърбайджански
 [Basque]
 Баски
 [Belarusian]
@@ -373,7 +371,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Bengali]
 Бенгали
 [Bihari]
-
+Бихари
 [Bosnian]
 Босненски
 [Breton]
@@ -381,11 +379,11 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Bulgarian]
 Български
 [Burmese]
-
+Бурмански
 [Catalan]
 Каталански
 [Cherokee]
-
+Чероки
 [Chinese]
 Китайски
 [Chinese_CN]
@@ -399,7 +397,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Danish]
 Датски
 [Dhivehi]
-
+Дхивехи
 [Dutch]
 Холандски
 [English]
@@ -433,9 +431,9 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Greek]
 Гръцки
 [Guarani]
-
+Гуарани
 [Gujarati]
-
+Гуджарати
 [Hebrew]
 Иврит
 [Hindi]
@@ -443,7 +441,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Indonesian]
 Индонезийски
 [Inuktitut]
-
+Инуктитут
 [Interlingua]
 Интерлингва
 [Irish]
@@ -457,17 +455,17 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Japanese_Romaji]
 Японски-Romaji
 [Kazakh]
-
+Казахски
 [Khmer]
-
+Кхмерски
 [Korean]
 Корейски
 [Kurdish]
-
+Кюрдски
 [Kyrgyz]
-
+Киргизки
 [Laothian]
-
+Лаотиян
 [Latin]
 Латински
 [Latvian]
@@ -477,13 +475,13 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Macedonian]
 Македонски
 [Malay]
-
+Малайски
 [Malayalam]
-
+Малайалам
 [Maltese]
 Малтийски
 [Marathi]
-
+Маратхи
 [Mongolian]
 Монголски
 [Nepali]
@@ -495,9 +493,9 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Norwegian_Nynorsk]
 Норвежки Nynorsk
 [Oriya]
-
+Ория
 [Pashto]
-
+Пащо
 [Papiamento]
 Папиаменто
 [Persian]
@@ -509,19 +507,19 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Portuguese_BR]
 Португалски-Бразилия
 [Punjabi]
-
+Пунджаби
 [Romanian]
 Румънски
 [Russian]
 Руски
 [Sanskrit]
-
+Санскритски
 [Serbian]
 Сръбски
 [Sindhi]
-
+Синдхи
 [Sinhalese]
-
+Синхалезе
 [Slovak]
 Словашки
 [Slovenian]
@@ -535,7 +533,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Swedish]
 Шведски
 [Tajik]
-
+Таджикски
 [Tagalog]
 Тагалог
 [Tamil]
@@ -545,7 +543,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Thai]
 Таи
 [Tibetan]
-
+Тибетски
 [Turkish]
 Турски
 [Ukrainian]
@@ -553,15 +551,15 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Urdu]
 Урду
 [Uzbek]
-
+Узкекски
 [Uighur]
-
+Уйгхур
 [Vietnamese]
 Виетнамски
 [Welsh]
 Уелски
 [Unknown]
-
+Неизвестен
 [Languages]
 Езици
 [Services]
@@ -607,7 +605,7 @@ HTTP-проксито има грешен формат - {0}. Ще бъдат и
 [Business]
 Бизнес
 [Military]
-Военна
+Военно дело
 [Law]
 Закон
 [Informatics]
@@ -761,7 +759,7 @@ MultiWordNet - многоезична лексикална база
 [English-Bulgarian dictionary - SA Dictionary Online]
 Английско-български речник - SA Dictionary Online
 [dict.cc - English-German Dictionary]
-
+dict.cc - Английско-немски речник
 [BEOLINGUS - German oriented dictionary]
 BEOLINGUS - речни, ориентиран към немски език
 [Open thesaurus is an Open Source thesaurus for the German language]
@@ -781,9 +779,9 @@ Sozluk(te)* - речник, ориентиран към турски език
 [Free Dictionaries project]
 Проект за свободни речници
 [Microsoft Translator]
-
+Microsoft Translator
 [Megaslownik - Polish oriented free online dictionary]
-
+Megaslownik - Ориентиран към полски език онлайн речник
 [Grouped by Service's Url]
 Подреждане по адрес на службата
 [Grouped by Language]
@@ -841,73 +839,74 @@ Sozluk(te)* - речник, ориентиран към турски език
 [Error on sending email]
 Грешка при изпращането на съобщение
 [Language detection]
-
+Откриване на езици
 [Guess language ...]
-
+Разпознаване на езика
 [Detect language of source text]
-
+Разпознаване езика на изходния текст
 [Guess language of source text and show info about]
-
+Разпознаване езика на изходния текст и показване на информация за него
 [Language detection : {0}]
-
+Разпознаване езика: {0}
 [Started]
-
+Започнало
 [Failed]
-
+Пропадна
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1},  Резултат - {2}%, Конфиденциалност - {3}
 [Strong]
-
+Строго
 [Intermediate]
-
+Средно
 [Poor]
-
+Слаб
 [Reliable]
-
+Надежден
 [Not reliable]
-
+Ненадежден
 [Keyboard layout : {0}]
-
+Клавиатурна подредба: {0}
 [Intelligent switching of profiles and directions]
-
+Интелигентно превключване на профили и направления
 [Based on keyboard layout]
-
+Базирано на клавиатурната подредба
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+Интелигентно превключване на профили и направления за превод, базирано на клавиатурната подредба
 [Based on detected language]
-
+Базирано на разпознатия език
 [Intelligent switching of profiles and translation directions based on detected language]
-
+Интелигентно превключване на профили и направления за превод, базирано на разпознаването на езици
 [Switch by detected language only when text length greater of]
-
+Превключване към разпознатия език, ако текстът е по-голям от
 [Break translation when application deactivated]
-
+Прекъсване на превода при деактивиране на приложението
 [Break translation on switching to other application]
-
+Прекъсване на превода при преминаване към друго приложение
 [Don't change]
-
+Не променяй
 [Switch keyboard layout based on selected language]
-
+Превключване на клавиатурата, базирано на избрания език
 [Language]
-
+Език
 [Selected language]
-
+Избран език
 [Change keyboard layout to]
-
+Промяна на клавиатурата на:
 [When source language changes switch keyboard layout to]
-
+Превключване на клавиатурата при промяна на изходния език на:
 [Changed]
-
+Променен
 [Modified by user]
-
+Модифициран от потребителя
 [Assigned automatically]
-
+Назначен автоматично
 [Selected language to keyboard layout mapping]
-
+Избран език за картографиране разположението на знаците по клавиатурата
 [Selected\t :]
-
+Избран\t:
 [Auto\t\t :]
-
+Авто\t\t:
 [Saved\t\t :]
-
+Запазен\t\t:
 [Keyboard layouts]
+Клавиатурни подредби
