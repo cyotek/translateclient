@@ -1,3 +1,3 @@
-Version=0.1.3232.3509
-UrlList="http://translateclient.googlecode.com/files/translate.net.0.1.3232.3509.exe"
+Version=0.1.3249.6795
+UrlList="http://translateclient.googlecode.com/files/translate.net.0.1.3249.6795.exe"
 
