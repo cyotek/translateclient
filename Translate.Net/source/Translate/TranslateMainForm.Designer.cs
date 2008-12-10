@@ -949,6 +949,7 @@ namespace Translate
 			this.tsbTranslate.Size = new System.Drawing.Size(56, 17);
 			this.tsbTranslate.Text = "Translate";
 			this.tsbTranslate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.tsbTranslate.ToolTipText = " (Ctrl+Enter)";
 			this.tsbTranslate.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsbSearchInGoogle
@@ -959,7 +960,7 @@ namespace Translate
 			this.tsbSearchInGoogle.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbSearchInGoogle.Name = "tsbSearchInGoogle";
 			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 4);
-			this.tsbSearchInGoogle.ToolTipText = "Search in Google";
+			this.tsbSearchInGoogle.ToolTipText = "Search in Google (Ctrl+Shift+Enter)";
 			// 
 			// tsbStop
 			// 
@@ -970,6 +971,7 @@ namespace Translate
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
 			this.tsbStop.Size = new System.Drawing.Size(23, 4);
+			this.tsbStop.ToolTipText = " (Escape)";
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsSeparatorTranslate
@@ -1151,6 +1153,7 @@ namespace Translate
 			this.miTranslate.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return)));
 			this.miTranslate.Size = new System.Drawing.Size(188, 22);
 			this.miTranslate.Text = "Translate";
+			this.miTranslate.ToolTipText = " (Ctrl+Enter)";
 			// 
 			// aInvertTranslationDirection
 			// 
@@ -1684,6 +1687,7 @@ namespace Translate
 			this.miOnlineHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.miOnlineHelp.Size = new System.Drawing.Size(235, 22);
 			this.miOnlineHelp.Text = "Online Help";
+			this.miOnlineHelp.ToolTipText = " (F1)";
 			// 
 			// aOnlineHelp
 			// 

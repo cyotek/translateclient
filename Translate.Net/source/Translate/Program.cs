@@ -115,7 +115,6 @@ namespace Translate
 					return;
 				}	
 				
-				KeyboardHook.Init();
 				UpdatesManager.CheckNewVersion();
 				
 				WebUI.ResultsWebServer.UnhandledException += OnUnhandledExceptionEvent; 
@@ -134,7 +133,7 @@ namespace Translate
 					else 
 						throw;
 				}
-				
+
 				Application.Run(new TranslateMainForm());
 			}
 			catch(Exception e)

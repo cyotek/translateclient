@@ -59,6 +59,60 @@ namespace Translate
 			InitializeComponent();
 			
 			RegisterLanguageEvent(OnLanguageChanged);
+			
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "None"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Custom"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right, "Alt + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle, "Middle Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right, "Ctrl + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Shift, MouseButtons.Right, "Shift + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Left | MouseButtons.Right, "Left Mouse Button + Right Mouse Button"));
+		}
+		
+		internal class HotkeyData
+		{
+			public HotkeyData(Keys keys, MouseButtons mouseButtons, string name)
+			{
+				this.keys = keys;
+				this.mouseButtons = mouseButtons;
+				this.name = name;
+				this.caption = name;
+			}
+		
+			Keys keys;
+			public Keys Keys
+			{
+				get { return keys; }
+				set { keys = value; }
+			}
+			
+			MouseButtons mouseButtons;
+			public MouseButtons MouseButtons
+			{
+				get { return mouseButtons; }
+				set { mouseButtons = value; }
+			}
+			
+			string name;
+			public string Name
+			{
+				get { return name; }
+				set { name = value; }
+			}
+			
+			string caption;
+			public string Caption
+			{
+				get { return caption; }
+				set { caption = value; }
+			}
+			
+			public override string ToString()
+			{
+				return caption;
+			}
+			
+			
 		}
 		
 		void OnLanguageChanged()
@@ -66,15 +120,46 @@ namespace Translate
 			cbControlCC.Text = TranslateString("Activate on Ctrl+C+C hotkey");
 			cbControlInsIns.Text = TranslateString("Activate on Ctrl+Ins+Ins hotkey");
 			cbTranslateOnHotkey.Text = TranslateString("Translate when activated by hotkey");
+			gbAdvanced.Text = TranslateString("Advanced Hotkeys");
+
+			foreach(object o in cbHotkeys.Items)
+			{
+				HotkeyData hd = o as HotkeyData;
+				if(hd != null)
+					hd.Caption = TranslateString(hd.Name);
+			}	
+			
 		}
 		
 		HookOptions current;
+		MouseButtons selectedMouseShortcut = MouseButtons.None;
+		Keys selectedKeysShortcut = Keys.None;		
+		
 		public override void Init()
 		{
 			current = TranslateOptions.Instance.HookOptions;
 			cbControlCC.Checked = current.ControlCC;
 			cbControlInsIns.Checked = current.ControlInsIns;
 			cbTranslateOnHotkey.Checked = current.TranslateOnHotkey;
+			
+			if(current.Shortcut == Keys.None && current.MouseShortcut == MouseButtons.None)
+				cbHotkeys.SelectedIndex = 0;
+			else 
+			{
+				selectedMouseShortcut = current.MouseShortcut;
+				selectedKeysShortcut = current.Shortcut;
+				cbHotkeys.SelectedIndex = 1;
+				
+				foreach(object o in cbHotkeys.Items)
+				{
+					HotkeyData hd = o as HotkeyData;
+					if(current.Shortcut == hd.Keys && current.MouseShortcut == hd.MouseButtons)
+					{
+						cbHotkeys.SelectedItem = hd;
+						break;
+					}
+				}					
+			}
 		}
 		
 		public override void Apply()
@@ -82,6 +167,9 @@ namespace Translate
 			current.ControlCC = cbControlCC.Checked;
 			current.ControlInsIns = cbControlInsIns.Checked;
 			current.TranslateOnHotkey = cbTranslateOnHotkey.Checked;
+			current.Shortcut = selectedKeysShortcut;
+			current.MouseShortcut = selectedMouseShortcut;
+			
 			KeyboardHook.Init();
 		}
 		
@@ -90,9 +178,21 @@ namespace Translate
 			return 
 				current.ControlCC != cbControlCC.Checked ||
 				current.ControlInsIns != cbControlInsIns.Checked ||
-				current.TranslateOnHotkey != cbTranslateOnHotkey.Checked;
-			
+				current.TranslateOnHotkey != cbTranslateOnHotkey.Checked ||
+				current.Shortcut != selectedKeysShortcut ||
+				current.MouseShortcut != selectedMouseShortcut;
 		}
 		
+		
+		void CbHotkeysSelectedIndexChanged(object sender, EventArgs e)
+		{
+			HotkeyData hd = cbHotkeys.SelectedItem as HotkeyData;
+			if(hd != null)
+			{
+				selectedKeysShortcut = hd.Keys;
+				selectedMouseShortcut = hd.MouseButtons;
+			}
+
+		}
 	}
 }

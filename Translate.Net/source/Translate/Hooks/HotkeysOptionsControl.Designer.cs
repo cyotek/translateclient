@@ -73,14 +73,20 @@ namespace Translate
 			this.cbControlCC = new System.Windows.Forms.CheckBox();
 			this.cbControlInsIns = new System.Windows.Forms.CheckBox();
 			this.cbTranslateOnHotkey = new System.Windows.Forms.CheckBox();
+			this.gbAdvanced = new System.Windows.Forms.GroupBox();
+			this.hotkeyEditorControl1 = new Translate.HotkeyEditorControl();
+			this.cbHotkeys = new System.Windows.Forms.ComboBox();
 			this.pBody.SuspendLayout();
+			this.gbAdvanced.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// pBody
 			// 
+			this.pBody.Controls.Add(this.gbAdvanced);
 			this.pBody.Controls.Add(this.cbTranslateOnHotkey);
 			this.pBody.Controls.Add(this.cbControlInsIns);
 			this.pBody.Controls.Add(this.cbControlCC);
+			this.pBody.Size = new System.Drawing.Size(399, 278);
 			// 
 			// cbControlCC
 			// 
@@ -102,21 +108,57 @@ namespace Translate
 			// 
 			// cbTranslateOnHotkey
 			// 
-			this.cbTranslateOnHotkey.Location = new System.Drawing.Point(8, 84);
+			this.cbTranslateOnHotkey.Location = new System.Drawing.Point(8, 209);
 			this.cbTranslateOnHotkey.Name = "cbTranslateOnHotkey";
 			this.cbTranslateOnHotkey.Size = new System.Drawing.Size(373, 24);
 			this.cbTranslateOnHotkey.TabIndex = 4;
 			this.cbTranslateOnHotkey.Text = "Translate when activated by hotkey";
 			this.cbTranslateOnHotkey.UseVisualStyleBackColor = true;
 			// 
+			// gbAdvanced
+			// 
+			this.gbAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.gbAdvanced.Controls.Add(this.hotkeyEditorControl1);
+			this.gbAdvanced.Controls.Add(this.cbHotkeys);
+			this.gbAdvanced.Location = new System.Drawing.Point(8, 73);
+			this.gbAdvanced.Name = "gbAdvanced";
+			this.gbAdvanced.Size = new System.Drawing.Size(373, 130);
+			this.gbAdvanced.TabIndex = 5;
+			this.gbAdvanced.TabStop = false;
+			this.gbAdvanced.Text = "Advanced Hotkeys";
+			// 
+			// hotkeyEditorControl1
+			// 
+			this.hotkeyEditorControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.hotkeyEditorControl1.Location = new System.Drawing.Point(3, 51);
+			this.hotkeyEditorControl1.Name = "hotkeyEditorControl1";
+			this.hotkeyEditorControl1.Size = new System.Drawing.Size(367, 76);
+			this.hotkeyEditorControl1.TabIndex = 1;
+			// 
+			// cbHotkeys
+			// 
+			this.cbHotkeys.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbHotkeys.FormattingEnabled = true;
+			this.cbHotkeys.Location = new System.Drawing.Point(6, 19);
+			this.cbHotkeys.Name = "cbHotkeys";
+			this.cbHotkeys.Size = new System.Drawing.Size(217, 21);
+			this.cbHotkeys.TabIndex = 0;
+			this.cbHotkeys.SelectedIndexChanged += new System.EventHandler(this.CbHotkeysSelectedIndexChanged);
+			// 
 			// HotkeysOptionsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Name = "HotkeysOptionsControl";
+			this.Size = new System.Drawing.Size(399, 318);
 			this.pBody.ResumeLayout(false);
+			this.gbAdvanced.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
+		private Translate.HotkeyEditorControl hotkeyEditorControl1;
+		private System.Windows.Forms.ComboBox cbHotkeys;
+		private System.Windows.Forms.GroupBox gbAdvanced;
 		private System.Windows.Forms.CheckBox cbTranslateOnHotkey;
 		private System.Windows.Forms.CheckBox cbControlInsIns;
 		private System.Windows.Forms.CheckBox cbControlCC;
