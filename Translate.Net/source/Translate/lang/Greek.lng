@@ -95,7 +95,7 @@ userak48@gmail.com
 [Automatically check updates]
 Αυτόματος έλεγχος για ενημερώσεις
 [Automatically download updates]
-Αυτόματη λήψη ενημερώδεων
+Αυτόματη λήψη ενημερώσεων
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
 Ενημερώθηκε - {0}\rΤελευταίος έλεγχος για ενημερώσεις - {1}, Κατάσταση - {2}\rΕπόμενος έλεγχος για ενημερώσεις - {3}
 [Close]
@@ -117,7 +117,7 @@ userak48@gmail.com
 [Checking of update done]
 Έλεγχος αν έγινε ενημέρωση
 [New version {0} of {1} available]
-Νέα έκδοση είναι διαθέσιμη
+Νέα έκδοση είναι διαθέσιμη...
 [Do you want to open site where you can download it ?]
 Θέλετε να επισκεφτείτε τη σελίδα από όπου μπορείτε να την κατεβάσετε;
 [Version]
@@ -171,15 +171,15 @@ userak48@gmail.com
 [Single Instance]
 Μεμονωμένη εμφάνιση
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-Έλεγχος στην εκκίνηση, αν τρέχει ήδη άλλη περίοδος λειτουργίας, σε αυτήν την περίπτωση, η νέα εφαρμογή ενεργοποιείται την παλιά και σταματά από μόνη της.
+Έλεγχος στην εκκίνηση, αν τρέχει ήδη άλλη περίοδος λειτουργίας, σε αυτήν την περίπτωση, η νέα εφαρμογή ενεργοποιεί την παλιά και σταματά από μόνη της.
 [Tray]
 Γραμμή κατάστασης
 [Hotkeys]
 Συντομεύσεις πληκτρολογίου
 [Activate on Ctrl+C+C hotkey]
-Ένεργοποιείται με Ctrl+C+C πλήκτρα
+Να ενεργοποιείται με τα πλήκτρα Ctrl+C+C 
 [Activate on Ctrl+Ins+Ins hotkey]
-Ένεργοποιείται με Ctrl+Ins+Ins πλήκτρα
+Να ενεργοποιείται με τα πλήκτρα Ctrl+Ins+Ins
 [Translate when activated by hotkey]
 Μετάφραση όταν ενεργοποιείται από συντόμευση πληκτρολογίου
 [Show query time and other information]
@@ -359,7 +359,7 @@ userak48@gmail.com
 [Arabic]
 Αραβικά
 [Armenian]
-Αρμένικα
+Αρμενικά
 [Azerbaijani]
 Του Αζερμπαϊτζάν
 [Basque]
