@@ -71,9 +71,13 @@
     </Compile>
     <Compile Include="Guessing\GuessingOptions.cs" />
     <Compile Include="Hooks\HookOptions.cs" />
+    <Compile Include="Hooks\HotkeyEditorControl.cs" />
+    <Compile Include="Hooks\HotkeyEditorControl.Designer.cs">
+      <DependentUpon>HotkeyEditorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Hooks\HotkeysOptionsControl.cs" />
     <Compile Include="Hooks\HotkeysOptionsControl.Designer.cs">
-      <DependentUpon>HotkeysOptrionsControl.cs</DependentUpon>
+      <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Hooks\KeyboardHook.cs" />
     <Compile Include="Options\CustomProfilesControl.cs" />
@@ -190,6 +194,9 @@
     <EmbeddedResource Include="Common\Icons.resx" />
     <EmbeddedResource Include="Guessing\GuesserOptionsControl.resx">
       <DependentUpon>GuesserOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hooks\HotkeyEditorControl.resx">
+      <DependentUpon>HotkeyEditorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
       <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>

@@ -186,6 +186,7 @@ namespace Translate
 		void TranslateMainFormLoad(object sender, EventArgs e)
 		{
 			KeyboardHook.Hotkey += OnSystemHotkey;		
+			KeyboardHook.AdvancedHotkey += OnSystemHotkeyAdv;		
 			resBrowser.Clear();	
 		}
 		
@@ -818,12 +819,18 @@ namespace Translate
 		}
 		
 		bool skipChangeInput;
+		bool isHookInstalled = false;
 		void GlobalEventsIdle(object sender, EventArgs e)
 		{
+			if(!isHookInstalled)
+			{
+				KeyboardHook.Init();
+				isHookInstalled = true;
+			}
+
 			CheckOrderOfProfiles();
 			
 			UpdateTbFromStat();
-
 		}
 		
 		void ACheckUpdatesExecute(object sender, EventArgs e)
@@ -929,9 +936,66 @@ namespace Translate
 				tbFrom.SelectAll();
 				tbFrom.Focus();
 				if(FreeCL.UI.Clipboard.CanPaste)
+				{
 					FreeCL.UI.Clipboard.Paste();
-				if(KeyboardHook.TranslateOnHotkey)
-					aTranslate.DoExecute();
+					if(KeyboardHook.TranslateOnHotkey)
+						aTranslate.DoExecute();
+				}	
+			}
+		}
+
+		void ProcessSystemHotkeyAdv()
+		{
+			if(this != FreeCL.Forms.Application.ActiveForm)
+			{
+				FreeCL.UI.Clipboard.BackupClipboard();					
+				FreeCL.UI.Clipboard.EmptyClipboard();
+				//System.Windows.Forms.Application.DoEvents();
+
+				try
+				{
+					KeyboardHook.SendCtrlC();
+					//System.Windows.Forms.SendKeys.SendWait("%A"); 
+					//System.Windows.Forms.SendKeys.SendWait("^{INS}"); 
+					//System.Windows.Forms.SendKeys.SendWait("^C"); 
+					//System.Windows.Forms.Application.DoEvents();
+					//System.Windows.Forms.Application.DoEvents();
+					
+					if(!Visible)
+						Visible = true;
+					
+					
+					if(TranslateOptions.Instance.MainFormMaximized)
+					{
+						if(WindowState != FormWindowState.Maximized)
+							WindowState = FormWindowState.Maximized;
+					}
+					else
+					{
+						if(WindowState != FormWindowState.Normal)
+							WindowState = FormWindowState.Normal;
+					}
+					
+					BringToForeground();
+					
+					
+					tbFrom.SelectAll();
+					tbFrom.Focus();
+					
+					//KeyboardHook.DisableMouseKeys();
+					
+					if(FreeCL.UI.Clipboard.CanPaste)
+					{
+						FreeCL.UI.Clipboard.Paste();
+						if(KeyboardHook.TranslateOnHotkey)
+							aTranslate.DoExecute();
+					}	
+				}
+				finally
+				{ //resore clipboard
+					FreeCL.UI.Clipboard.RestoreClipboard();
+				}
+				
 			}
 		}
 		
@@ -940,6 +1004,10 @@ namespace Translate
 			BeginInvoke(new MethodInvoker(ProcessSystemHotkey));
 		}
 		
+		void OnSystemHotkeyAdv(object sender, EventArgs e)
+		{
+			BeginInvoke(new MethodInvoker(ProcessSystemHotkeyAdv));
+		}
 		
 		
 		void AControlCCExecute(object sender, EventArgs e)

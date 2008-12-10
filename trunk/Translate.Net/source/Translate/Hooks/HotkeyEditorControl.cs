@@ -36,60 +36,28 @@
  * ***** END LICENSE BLOCK ***** */
 #endregion
 
-
 using System;
-using System.Xml.Serialization;
-using System.Runtime.Serialization;
-using System.Net;
-using System.Diagnostics.CodeAnalysis;
-using System.Globalization;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Translate
 {
 	/// <summary>
-	/// Description of HookOptions.
+	/// Description of HotkeyEditorControl.
 	/// </summary>
-	[Serializable()]
-	public class HookOptions
+	public partial class HotkeyEditorControl : FreeCL.Forms.BaseUserControl
 	{
-		public HookOptions()
+		public HotkeyEditorControl()
 		{
+			//
+			// The InitializeComponent() call is required for Windows Forms designer support.
+			//
+			InitializeComponent();
+			
+			//
+			// TODO: Add constructor code after the InitializeComponent() call.
+			//
 		}
-		
-		[DefaultValue(true)]
-		public bool ControlCC {
-			get { return KeyboardHook.ControlCC; }
-			set { KeyboardHook.ControlCC = value; }
-		}
-		
-		[DefaultValue(false)]
-		public bool ControlInsIns {
-			get { return KeyboardHook.ControlInsIns; }
-			set {KeyboardHook.ControlInsIns = value; }
-		}
-		
-		[DefaultValue(true)]
-		public bool TranslateOnHotkey {
-			get { return KeyboardHook.TranslateOnHotkey; }
-			set { KeyboardHook.TranslateOnHotkey = value; }
-		}
-		
-		[DefaultValue(Keys.Alt)]
-		public Keys Shortcut
-		{
-			get { return KeyboardHook.Shortcut; }
-			set { KeyboardHook.Shortcut = value; }
-		}
-		
-		[DefaultValue(MouseButtons.Right)]
-		public MouseButtons MouseShortcut
-		{
-			get { return KeyboardHook.MouseShortcut; }
-			set { KeyboardHook.MouseShortcut = value; }
-		}
-
-		
 	}
 }
