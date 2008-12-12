@@ -74,7 +74,7 @@ namespace Translate
 			this.cbControlInsIns = new System.Windows.Forms.CheckBox();
 			this.cbTranslateOnHotkey = new System.Windows.Forms.CheckBox();
 			this.gbAdvanced = new System.Windows.Forms.GroupBox();
-			this.hotkeyEditorControl1 = new Translate.HotkeyEditorControl();
+			this.hotkeyEditor = new Translate.HotkeyEditorControl();
 			this.cbHotkeys = new System.Windows.Forms.ComboBox();
 			this.pBody.SuspendLayout();
 			this.gbAdvanced.SuspendLayout();
@@ -119,22 +119,23 @@ namespace Translate
 			// 
 			this.gbAdvanced.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 									| System.Windows.Forms.AnchorStyles.Right)));
-			this.gbAdvanced.Controls.Add(this.hotkeyEditorControl1);
+			this.gbAdvanced.Controls.Add(this.hotkeyEditor);
 			this.gbAdvanced.Controls.Add(this.cbHotkeys);
 			this.gbAdvanced.Location = new System.Drawing.Point(8, 73);
 			this.gbAdvanced.Name = "gbAdvanced";
 			this.gbAdvanced.Size = new System.Drawing.Size(373, 130);
 			this.gbAdvanced.TabIndex = 5;
 			this.gbAdvanced.TabStop = false;
-			this.gbAdvanced.Text = "Advanced Hotkeys";
+			this.gbAdvanced.Text = "Advanced Hotkey";
 			// 
-			// hotkeyEditorControl1
+			// hotkeyEditor
 			// 
-			this.hotkeyEditorControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.hotkeyEditorControl1.Location = new System.Drawing.Point(3, 51);
-			this.hotkeyEditorControl1.Name = "hotkeyEditorControl1";
-			this.hotkeyEditorControl1.Size = new System.Drawing.Size(367, 76);
-			this.hotkeyEditorControl1.TabIndex = 1;
+			this.hotkeyEditor.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.hotkeyEditor.Location = new System.Drawing.Point(3, 51);
+			this.hotkeyEditor.Name = "hotkeyEditor";
+			this.hotkeyEditor.Size = new System.Drawing.Size(367, 76);
+			this.hotkeyEditor.TabIndex = 1;
+			this.hotkeyEditor.ShortcutChanged += new System.EventHandler(this.HotkeyEditorShortcutChanged);
 			// 
 			// cbHotkeys
 			// 
@@ -156,7 +157,7 @@ namespace Translate
 			this.gbAdvanced.ResumeLayout(false);
 			this.ResumeLayout(false);
 		}
-		private Translate.HotkeyEditorControl hotkeyEditorControl1;
+		private Translate.HotkeyEditorControl hotkeyEditor;
 		private System.Windows.Forms.ComboBox cbHotkeys;
 		private System.Windows.Forms.GroupBox gbAdvanced;
 		private System.Windows.Forms.CheckBox cbTranslateOnHotkey;

@@ -67,20 +67,20 @@ namespace Translate
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.lModifiers = new System.Windows.Forms.Label();
 			this.cbAlt = new System.Windows.Forms.CheckBox();
 			this.cbShift = new System.Windows.Forms.CheckBox();
 			this.cbCtrl = new System.Windows.Forms.CheckBox();
+			this.lModifiers = new System.Windows.Forms.Label();
 			this.panel2 = new System.Windows.Forms.Panel();
-			this.lMouse = new System.Windows.Forms.Label();
 			this.cbX2 = new System.Windows.Forms.CheckBox();
 			this.cbX1 = new System.Windows.Forms.CheckBox();
 			this.cbRight = new System.Windows.Forms.CheckBox();
 			this.cbMiddle = new System.Windows.Forms.CheckBox();
 			this.cbLeft = new System.Windows.Forms.CheckBox();
+			this.lMouse = new System.Windows.Forms.Label();
 			this.panel3 = new System.Windows.Forms.Panel();
-			this.lKey = new System.Windows.Forms.Label();
 			this.cbKey = new System.Windows.Forms.ComboBox();
+			this.lKey = new System.Windows.Forms.Label();
 			this.panel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel3.SuspendLayout();
@@ -98,17 +98,6 @@ namespace Translate
 			this.panel1.Size = new System.Drawing.Size(358, 24);
 			this.panel1.TabIndex = 10;
 			// 
-			// lModifiers
-			// 
-			this.lModifiers.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lModifiers.Location = new System.Drawing.Point(0, 0);
-			this.lModifiers.Name = "lModifiers";
-			this.lModifiers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-			this.lModifiers.Size = new System.Drawing.Size(100, 24);
-			this.lModifiers.TabIndex = 5;
-			this.lModifiers.Text = "Modifiers : ";
-			this.lModifiers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// cbAlt
 			// 
 			this.cbAlt.AutoSize = true;
@@ -119,6 +108,7 @@ namespace Translate
 			this.cbAlt.TabIndex = 8;
 			this.cbAlt.Text = "Alt";
 			this.cbAlt.UseVisualStyleBackColor = true;
+			this.cbAlt.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbShift
 			// 
@@ -130,6 +120,7 @@ namespace Translate
 			this.cbShift.TabIndex = 7;
 			this.cbShift.Text = "Shift";
 			this.cbShift.UseVisualStyleBackColor = true;
+			this.cbShift.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbCtrl
 			// 
@@ -141,6 +132,18 @@ namespace Translate
 			this.cbCtrl.TabIndex = 6;
 			this.cbCtrl.Text = "Ctrl";
 			this.cbCtrl.UseVisualStyleBackColor = true;
+			this.cbCtrl.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
+			// 
+			// lModifiers
+			// 
+			this.lModifiers.Dock = System.Windows.Forms.DockStyle.Left;
+			this.lModifiers.Location = new System.Drawing.Point(0, 0);
+			this.lModifiers.Name = "lModifiers";
+			this.lModifiers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+			this.lModifiers.Size = new System.Drawing.Size(100, 24);
+			this.lModifiers.TabIndex = 5;
+			this.lModifiers.Text = "Modifiers : ";
+			this.lModifiers.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// panel2
 			// 
@@ -156,17 +159,6 @@ namespace Translate
 			this.panel2.Size = new System.Drawing.Size(358, 24);
 			this.panel2.TabIndex = 12;
 			// 
-			// lMouse
-			// 
-			this.lMouse.Dock = System.Windows.Forms.DockStyle.Left;
-			this.lMouse.Location = new System.Drawing.Point(0, 0);
-			this.lMouse.Name = "lMouse";
-			this.lMouse.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
-			this.lMouse.Size = new System.Drawing.Size(100, 24);
-			this.lMouse.TabIndex = 17;
-			this.lMouse.Text = "Mouse : ";
-			this.lMouse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// cbX2
 			// 
 			this.cbX2.AutoSize = true;
@@ -177,6 +169,7 @@ namespace Translate
 			this.cbX2.TabIndex = 16;
 			this.cbX2.Text = "X2";
 			this.cbX2.UseVisualStyleBackColor = true;
+			this.cbX2.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbX1
 			// 
@@ -188,6 +181,7 @@ namespace Translate
 			this.cbX1.TabIndex = 15;
 			this.cbX1.Text = "X1";
 			this.cbX1.UseVisualStyleBackColor = true;
+			this.cbX1.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbRight
 			// 
@@ -199,6 +193,7 @@ namespace Translate
 			this.cbRight.TabIndex = 14;
 			this.cbRight.Text = "Right";
 			this.cbRight.UseVisualStyleBackColor = true;
+			this.cbRight.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbMiddle
 			// 
@@ -210,6 +205,7 @@ namespace Translate
 			this.cbMiddle.TabIndex = 13;
 			this.cbMiddle.Text = "Middle";
 			this.cbMiddle.UseVisualStyleBackColor = true;
+			this.cbMiddle.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
 			// 
 			// cbLeft
 			// 
@@ -221,6 +217,18 @@ namespace Translate
 			this.cbLeft.TabIndex = 12;
 			this.cbLeft.Text = "Left";
 			this.cbLeft.UseVisualStyleBackColor = true;
+			this.cbLeft.CheckedChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
+			// 
+			// lMouse
+			// 
+			this.lMouse.Dock = System.Windows.Forms.DockStyle.Left;
+			this.lMouse.Location = new System.Drawing.Point(0, 0);
+			this.lMouse.Name = "lMouse";
+			this.lMouse.Padding = new System.Windows.Forms.Padding(0, 0, 0, 3);
+			this.lMouse.Size = new System.Drawing.Size(100, 24);
+			this.lMouse.TabIndex = 17;
+			this.lMouse.Text = "Mouse : ";
+			this.lMouse.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// panel3
 			// 
@@ -232,6 +240,19 @@ namespace Translate
 			this.panel3.Size = new System.Drawing.Size(358, 24);
 			this.panel3.TabIndex = 13;
 			// 
+			// cbKey
+			// 
+			this.cbKey.Dock = System.Windows.Forms.DockStyle.Left;
+			this.cbKey.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbKey.FormattingEnabled = true;
+			this.cbKey.Location = new System.Drawing.Point(100, 0);
+			this.cbKey.MaxDropDownItems = 16;
+			this.cbKey.Name = "cbKey";
+			this.cbKey.Size = new System.Drawing.Size(152, 21);
+			this.cbKey.Sorted = true;
+			this.cbKey.TabIndex = 19;
+			this.cbKey.SelectedIndexChanged += new System.EventHandler(this.CbCtrlCheckedChanged);
+			// 
 			// lKey
 			// 
 			this.lKey.Dock = System.Windows.Forms.DockStyle.Left;
@@ -242,15 +263,6 @@ namespace Translate
 			this.lKey.TabIndex = 18;
 			this.lKey.Text = "Key : ";
 			this.lKey.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
-			// cbKey
-			// 
-			this.cbKey.Dock = System.Windows.Forms.DockStyle.Left;
-			this.cbKey.FormattingEnabled = true;
-			this.cbKey.Location = new System.Drawing.Point(100, 0);
-			this.cbKey.Name = "cbKey";
-			this.cbKey.Size = new System.Drawing.Size(121, 21);
-			this.cbKey.TabIndex = 19;
 			// 
 			// HotkeyEditorControl
 			// 

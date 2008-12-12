@@ -910,3 +910,31 @@ cсылки по теме
 Сохранено\t :
 [Keyboard layouts]
 Раскладки клавиатуры
+[Advanced Hotkey]
+Дополнительная быстрая клавиша
+[Hotkey not set]
+Не установлено
+[Custom Hotkey]
+Ручная
+[Alt + Right Mouse Button]
+Alt + правая кнопка мыши 
+[Middle Mouse Button]
+Средняя кнопка мыши
+[Ctrl + Right Mouse Button]
+Ctrl + правая кнопка мыши 
+[Shift + Right Mouse Button]
+Shift + правая кнопка мыши 
+[Left Mouse Button + Right Mouse Button]
+Одновременно левая и правая кнопка мыши
+[Modifiers :]
+Модификаторы  :
+[Mouse buttons :]
+Кнопки мыши :
+[Key :]
+Клавиша :
+[Left{0}]
+Левая
+[Middle{0}]
+Средняя
+[Right{0}]
+Правая
