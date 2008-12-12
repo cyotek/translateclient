@@ -316,6 +316,12 @@ namespace FreeCL.Forms
 			
 		}
 		
+		string pageToActivate = "";
+		public void ShowDialog(IWin32Window owner, string page)
+		{
+			pageToActivate = page;
+			ShowDialog(owner);
+		}
 		
 		
 
@@ -351,6 +357,22 @@ namespace FreeCL.Forms
 				InitControls();
 				if(OnInitBaseOptionsForm != null)
 					OnInitBaseOptionsForm(this, new EventArgs());
+				if(!string.IsNullOrEmpty(pageToActivate))	
+				{
+					foreach(TreeNode tn in tvItems.Nodes)
+					{
+						foreach(TreeNode childn in tn.Nodes)
+						{
+							OptionControlInfo inf = (OptionControlInfo)childn.Tag;
+							if(inf.Caption == pageToActivate)
+							{
+								tvItems.SelectedNode = childn;
+								pageToActivate = "";
+								return;
+							}	
+						}
+					}
+				}
 			}
 			else
 			{
