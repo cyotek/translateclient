@@ -221,6 +221,13 @@ namespace Translate
 			this.aBreakTranslationOnDeactivate = new FreeCL.UI.Actions.Action(this.components);
 			this.miToolsSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.miBreakTranslationOnDeactivation = new System.Windows.Forms.ToolStripMenuItem();
+			this.aCustomShortcut = new FreeCL.UI.Actions.Action(this.components);
+			this.miCustomShortcut = new System.Windows.Forms.ToolStripMenuItem();
+			this.miToolsSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+			this.miHotkeys = new System.Windows.Forms.ToolStripMenuItem();
+			this.miControlCC1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.miControlInsIns1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.miCustomShortcut1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -262,6 +269,7 @@ namespace Translate
 			// sbPaste
 			// 
 			this.al.SetAction(this.sbPaste, this.aEditPaste);
+			this.sbPaste.Enabled = false;
 			this.sbPaste.ToolTipText = "Paste from clipboard (Ctrl+V)";
 			this.sbPaste.Visible = true;
 			// 
@@ -319,6 +327,7 @@ namespace Translate
 			// miEditPaste
 			// 
 			this.al.SetAction(this.miEditPaste, this.aEditPaste);
+			this.miEditPaste.Enabled = false;
 			this.miEditPaste.ToolTipText = "Paste from clipboard (Ctrl+V)";
 			this.miEditPaste.Visible = true;
 			// 
@@ -331,6 +340,10 @@ namespace Translate
 			// miEdit
 			// 
 			this.miEdit.Visible = true;
+			// 
+			// aEditPaste
+			// 
+			this.aEditPaste.Enabled = false;
 			// 
 			// miEditCut
 			// 
@@ -356,7 +369,9 @@ namespace Translate
 									this.miAutoDetectLanguage,
 									this.miGuessLanguage,
 									this.miToolsSeparator2,
-									this.miBreakTranslationOnDeactivation});
+									this.miBreakTranslationOnDeactivation,
+									this.miToolsSeparator3,
+									this.miHotkeys});
 			this.miService.Visible = true;
 			// 
 			// aAbout
@@ -544,6 +559,7 @@ namespace Translate
 			this.al.Actions.Add(this.aSwitchDirectionBasedOnLayout);
 			this.al.Actions.Add(this.aSwitchDirectionBasedOnLanguage);
 			this.al.Actions.Add(this.aBreakTranslationOnDeactivate);
+			this.al.Actions.Add(this.aCustomShortcut);
 			this.al.ShowShortcutsInHints = true;
 			// 
 			// globalEvents
@@ -559,23 +575,24 @@ namespace Translate
 									this.tsIconSep3,
 									this.miControlCC,
 									this.miControlInsIns,
+									this.miCustomShortcut,
 									this.tsIconSep1,
 									this.miIconExit});
 			this.msIcon.Name = "msIcon";
-			this.msIcon.Size = new System.Drawing.Size(157, 132);
+			this.msIcon.Size = new System.Drawing.Size(169, 154);
 			// 
 			// miShowHide
 			// 
 			this.al.SetAction(this.miShowHide, this.aShowMainForm);
 			this.miShowHide.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miShowHide.Name = "miShowHide";
-			this.miShowHide.Size = new System.Drawing.Size(156, 22);
+			this.miShowHide.Size = new System.Drawing.Size(168, 22);
 			this.miShowHide.Text = "Show/Hide";
 			// 
 			// tsIconSep2
 			// 
 			this.tsIconSep2.Name = "tsIconSep2";
-			this.tsIconSep2.Size = new System.Drawing.Size(153, 6);
+			this.tsIconSep2.Size = new System.Drawing.Size(165, 6);
 			// 
 			// miAbout2
 			// 
@@ -583,20 +600,20 @@ namespace Translate
 			this.miAbout2.Image = ((System.Drawing.Image)(resources.GetObject("miAbout2.Image")));
 			this.miAbout2.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miAbout2.Name = "miAbout2";
-			this.miAbout2.Size = new System.Drawing.Size(156, 22);
+			this.miAbout2.Size = new System.Drawing.Size(168, 22);
 			this.miAbout2.Text = "&About ...";
 			// 
 			// tsIconSep3
 			// 
 			this.tsIconSep3.Name = "tsIconSep3";
-			this.tsIconSep3.Size = new System.Drawing.Size(153, 6);
+			this.tsIconSep3.Size = new System.Drawing.Size(165, 6);
 			// 
 			// miControlCC
 			// 
 			this.al.SetAction(this.miControlCC, this.aControlCC);
 			this.miControlCC.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miControlCC.Name = "miControlCC";
-			this.miControlCC.Size = new System.Drawing.Size(156, 22);
+			this.miControlCC.Size = new System.Drawing.Size(168, 22);
 			this.miControlCC.Text = "aControlCC";
 			// 
 			// miControlInsIns
@@ -604,13 +621,13 @@ namespace Translate
 			this.al.SetAction(this.miControlInsIns, this.aControlInsIns);
 			this.miControlInsIns.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.miControlInsIns.Name = "miControlInsIns";
-			this.miControlInsIns.Size = new System.Drawing.Size(156, 22);
+			this.miControlInsIns.Size = new System.Drawing.Size(168, 22);
 			this.miControlInsIns.Text = "aControlInsIns";
 			// 
 			// tsIconSep1
 			// 
 			this.tsIconSep1.Name = "tsIconSep1";
-			this.tsIconSep1.Size = new System.Drawing.Size(153, 6);
+			this.tsIconSep1.Size = new System.Drawing.Size(165, 6);
 			// 
 			// miIconExit
 			// 
@@ -620,7 +637,7 @@ namespace Translate
 			this.miIconExit.Name = "miIconExit";
 			this.miIconExit.ShortcutKeyDisplayString = "Alt+F4";
 			this.miIconExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-			this.miIconExit.Size = new System.Drawing.Size(156, 22);
+			this.miIconExit.Size = new System.Drawing.Size(168, 22);
 			this.miIconExit.Text = "E&xit";
 			this.miIconExit.ToolTipText = "Exit from application";
 			// 
@@ -949,7 +966,6 @@ namespace Translate
 			this.tsbTranslate.Size = new System.Drawing.Size(56, 17);
 			this.tsbTranslate.Text = "Translate";
 			this.tsbTranslate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			this.tsbTranslate.ToolTipText = " (Ctrl+Enter)";
 			this.tsbTranslate.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsbSearchInGoogle
@@ -960,7 +976,7 @@ namespace Translate
 			this.tsbSearchInGoogle.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbSearchInGoogle.Name = "tsbSearchInGoogle";
 			this.tsbSearchInGoogle.Size = new System.Drawing.Size(23, 4);
-			this.tsbSearchInGoogle.ToolTipText = "Search in Google (Ctrl+Shift+Enter)";
+			this.tsbSearchInGoogle.ToolTipText = "Search in Google";
 			// 
 			// tsbStop
 			// 
@@ -971,7 +987,6 @@ namespace Translate
 			this.tsbStop.ImageTransparentColor = System.Drawing.Color.Transparent;
 			this.tsbStop.Name = "tsbStop";
 			this.tsbStop.Size = new System.Drawing.Size(23, 4);
-			this.tsbStop.ToolTipText = " (Escape)";
 			this.tsbStop.LocationChanged += new System.EventHandler(this.TsbTranslateLocationChanged);
 			// 
 			// tsSeparatorTranslate
@@ -1153,7 +1168,6 @@ namespace Translate
 			this.miTranslate.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Return)));
 			this.miTranslate.Size = new System.Drawing.Size(188, 22);
 			this.miTranslate.Text = "Translate";
-			this.miTranslate.ToolTipText = " (Ctrl+Enter)";
 			// 
 			// aInvertTranslationDirection
 			// 
@@ -1687,7 +1701,6 @@ namespace Translate
 			this.miOnlineHelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
 			this.miOnlineHelp.Size = new System.Drawing.Size(235, 22);
 			this.miOnlineHelp.Text = "Online Help";
-			this.miOnlineHelp.ToolTipText = " (F1)";
 			// 
 			// aOnlineHelp
 			// 
@@ -1936,6 +1949,64 @@ namespace Translate
 			this.miBreakTranslationOnDeactivation.Size = new System.Drawing.Size(312, 22);
 			this.miBreakTranslationOnDeactivation.Text = "Break translation when application deactivated ";
 			// 
+			// aCustomShortcut
+			// 
+			this.aCustomShortcut.Checked = false;
+			this.aCustomShortcut.Enabled = true;
+			this.aCustomShortcut.Hint = null;
+			this.aCustomShortcut.Tag = null;
+			this.aCustomShortcut.Text = "aCustomShortcut";
+			this.aCustomShortcut.Visible = true;
+			this.aCustomShortcut.Execute += new System.EventHandler(this.ACustomShortcutExecute);
+			this.aCustomShortcut.Update += new System.EventHandler(this.ACustomShortcutUpdate);
+			// 
+			// miCustomShortcut
+			// 
+			this.al.SetAction(this.miCustomShortcut, this.aCustomShortcut);
+			this.miCustomShortcut.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miCustomShortcut.Name = "miCustomShortcut";
+			this.miCustomShortcut.Size = new System.Drawing.Size(168, 22);
+			this.miCustomShortcut.Text = "aCustomShortcut";
+			// 
+			// miToolsSeparator3
+			// 
+			this.miToolsSeparator3.Name = "miToolsSeparator3";
+			this.miToolsSeparator3.Size = new System.Drawing.Size(309, 6);
+			// 
+			// miHotkeys
+			// 
+			this.miHotkeys.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+									this.miControlCC1,
+									this.miControlInsIns1,
+									this.miCustomShortcut1});
+			this.miHotkeys.Name = "miHotkeys";
+			this.miHotkeys.Size = new System.Drawing.Size(312, 22);
+			this.miHotkeys.Text = "Hotkeys";
+			// 
+			// miControlCC1
+			// 
+			this.al.SetAction(this.miControlCC1, this.aControlCC);
+			this.miControlCC1.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlCC1.Name = "miControlCC1";
+			this.miControlCC1.Size = new System.Drawing.Size(168, 22);
+			this.miControlCC1.Text = "aControlCC";
+			// 
+			// miControlInsIns1
+			// 
+			this.al.SetAction(this.miControlInsIns1, this.aControlInsIns);
+			this.miControlInsIns1.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miControlInsIns1.Name = "miControlInsIns1";
+			this.miControlInsIns1.Size = new System.Drawing.Size(168, 22);
+			this.miControlInsIns1.Text = "aControlInsIns";
+			// 
+			// miCustomShortcut1
+			// 
+			this.al.SetAction(this.miCustomShortcut1, this.aCustomShortcut);
+			this.miCustomShortcut1.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miCustomShortcut1.Name = "miCustomShortcut1";
+			this.miCustomShortcut1.Size = new System.Drawing.Size(168, 22);
+			this.miCustomShortcut1.Text = "aCustomShortcut";
+			// 
 			// TranslateMainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1996,6 +2067,13 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.ToolStripMenuItem miCustomShortcut1;
+		private System.Windows.Forms.ToolStripMenuItem miControlInsIns1;
+		private System.Windows.Forms.ToolStripMenuItem miControlCC1;
+		private System.Windows.Forms.ToolStripMenuItem miHotkeys;
+		private System.Windows.Forms.ToolStripSeparator miToolsSeparator3;
+		private System.Windows.Forms.ToolStripMenuItem miCustomShortcut;
+		private FreeCL.UI.Actions.Action aCustomShortcut;
 		private System.Windows.Forms.ToolStripMenuItem miBreakTranslationOnDeactivation;
 		private System.Windows.Forms.ToolStripSeparator miToolsSeparator2;
 		private FreeCL.UI.Actions.Action aBreakTranslationOnDeactivate;
