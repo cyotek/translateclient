@@ -219,6 +219,7 @@ namespace Translate
 			
 			aControlCC.Text  = TranslateString("Activate on Ctrl+C+C hotkey"); 
 			aControlInsIns.Text  = TranslateString("Activate on Ctrl+Ins+Ins hotkey"); 
+			miHotkeys.Text  = TranslateString("Hotkeys"); 
 			
 			aFeedback.Text = TranslateString("Send feedback or bugreport ...");
 			aDonate.Text = TranslateString("Donate ...");
@@ -1023,6 +1024,25 @@ namespace Translate
 			aControlCC.Checked = KeyboardHook.ControlCC;
 			aControlInsIns.Checked = KeyboardHook.ControlInsIns;
 		}
+		
+		void ACustomShortcutExecute(object sender, EventArgs e)
+		{
+			if(!Visible)
+				AShowMainFormExecute(sender, e);
+			FreeCL.Forms.Application.OptionsForm.ShowDialog(this, "Hotkeys");
+		}
+		
+		void ACustomShortcutUpdate(object sender, EventArgs e)
+		{
+			string text = TranslateString("Advanced Hotkey") + " : ";
+			text += TranslateString(HotkeysOptionsControl.GetHotkeyName(
+				TranslateOptions.Instance.HookOptions.Shortcut, 
+				TranslateOptions.Instance.HookOptions.MouseShortcut));
+			text += " ...";
+			if(aCustomShortcut.Text != text)	
+				aCustomShortcut.Text = text;
+		}
+		
 
 		void TimerRecheckServicesTick(object sender, EventArgs e)
 		{
@@ -2391,5 +2411,6 @@ namespace Translate
 			tbFrom.Focus();
 			
 		}
+		
 	}
 }

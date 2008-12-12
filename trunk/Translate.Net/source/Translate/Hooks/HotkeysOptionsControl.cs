@@ -63,11 +63,11 @@ namespace Translate
 		
 		private class HotkeyData
 		{
-			public HotkeyData(Keys keys, MouseButtons mouseButtons, string name)
+			public HotkeyData(Keys keys, MouseButtons mouseButtons)
 			{
 				this.keys = keys;
 				this.mouseButtons = mouseButtons;
-				this.name = name;
+				this.name = HotkeysOptionsControl.GetHotkeyName(keys, mouseButtons);
 				this.caption = LangPack.TranslateString(name);
 			}
 		
@@ -107,16 +107,34 @@ namespace Translate
 			
 		}
 		
+		public static string GetHotkeyName(Keys keys, MouseButtons mouseButtons)
+		{
+			string result = "Custom Hotkey";
+			if(Keys.None == keys && MouseButtons.None == mouseButtons)
+				result = "Hotkey not set"; 
+			else if(Keys.Alt == keys && MouseButtons.Right == mouseButtons)
+				result = "Alt + Right Mouse Button"; 
+			else if(Keys.None == keys && MouseButtons.Middle == mouseButtons)
+				result = "Middle Mouse Button"; 
+			else if(Keys.Control == keys && MouseButtons.Right == mouseButtons)
+				result = "Ctrl + Right Mouse Button"; 
+			else if(Keys.Shift == keys && MouseButtons.Right == mouseButtons)
+				result = "Shift + Right Mouse Button"; 
+			else if(Keys.None == keys && (MouseButtons.Left | MouseButtons.Right) == mouseButtons)
+				result = "Left Mouse Button + Right Mouse Button"; 
+			return result;
+		}
+		
 		void AddItems()
 		{
 			cbHotkeys.Items.Clear();
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Hotkey not set"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Custom Hotkey"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right, "Alt + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle, "Middle Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right, "Ctrl + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Shift, MouseButtons.Right, "Shift + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Left | MouseButtons.Right, "Left Mouse Button + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Shift, MouseButtons.Right));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Left | MouseButtons.Right));
 		}
 		
 		void OnLanguageChanged()
