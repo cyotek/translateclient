@@ -54,10 +54,116 @@ namespace Translate
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+
+			RegisterLanguageEvent(OnLanguageChanged);
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			skipChangeEvent = true;
+			foreach(Keys k in Enum.GetValues(typeof(Keys)))
+			{
+				if((int)k < 256 &&
+					(int)k > 6 && k != Keys.IMEAceept)
+				{	
+					if(!cbKey.Items.Contains(k))
+						cbKey.Items.Add(k);
+				}		
+			}
+			cbKey.Items.Add(Keys.None);
+			skipChangeEvent = false;
+		}
+		
+		void OnLanguageChanged()
+		{
+			lModifiers.Text = TranslateString("Modifiers :");
+			lMouse.Text = TranslateString("Mouse buttons :");
+			lKey.Text = TranslateString("Key :");
+			cbLeft.Text = TranslateString("Left{0}").Replace("{0}", "");
+			cbMiddle.Text = TranslateString("Middle{0}").Replace("{0}", "");
+			cbRight.Text = TranslateString("Right{0}").Replace("{0}", "");
+		}
+
+		
+		Keys shortcut;
+		public Keys Shortcut
+		{
+			get { return shortcut; }
+		}
+		
+		MouseButtons mouseShortcut;
+		public MouseButtons MouseShortcut
+		{
+			get { return mouseShortcut; }
+		}
+		
+		void SetMouse(CheckBox cb, MouseButtons button, MouseButtons buttons, bool editable)
+		{
+			cb.Checked = (buttons & button) > 0;
+			cb.Enabled = editable;
+		}
+		
+		void SetModifiers(CheckBox cb, Keys key, Keys keys, bool editable)
+		{
+			cb.Checked = ((keys & Keys.Modifiers) & key) > 0;
+			cb.Enabled = editable;
+		}
+		
+		bool skipChangeEvent = false;
+		public void SetShortcut(Keys shortcut, MouseButtons mouseButtons, bool editable)
+		{
+			this.shortcut = shortcut;
+			this.mouseShortcut = mouseButtons;
+			skipChangeEvent = true;
+			SetMouse(cbLeft, MouseButtons.Left, mouseButtons, editable);
+			SetMouse(cbMiddle, MouseButtons.Middle, mouseButtons, editable);
+			SetMouse(cbRight, MouseButtons.Right, mouseButtons, editable);
+			SetMouse(cbX1, MouseButtons.XButton1, mouseButtons, editable);
+			SetMouse(cbX2, MouseButtons.XButton2, mouseButtons, editable);
+
+			SetModifiers(cbCtrl, Keys.Control, shortcut, editable);	
+			SetModifiers(cbAlt, Keys.Alt, shortcut, editable);	
+			SetModifiers(cbShift, Keys.Shift, shortcut, editable);	
+			
+			cbKey.SelectedItem = shortcut & Keys.KeyCode;
+			cbKey.Enabled = editable;
+			skipChangeEvent = false;
+		}
+		
+		void SetMouse(CheckBox cb, MouseButtons button)
+		{
+			if(cb.Checked)
+				mouseShortcut |= button;
+			else
+				mouseShortcut &= ~button;
+		}
+		
+		void SetModifiers(CheckBox cb, Keys key)
+		{
+			if(cb.Checked)
+				shortcut |= key;
+			else
+				shortcut &= ~key;
+		}
+		
+		public event EventHandler ShortcutChanged;
+
+		void CbCtrlCheckedChanged(object sender, EventArgs e)
+		{
+			if(skipChangeEvent)
+				return;
+			SetMouse(cbLeft, MouseButtons.Left);
+			SetMouse(cbMiddle, MouseButtons.Middle);
+			SetMouse(cbRight, MouseButtons.Right);
+			SetMouse(cbX1, MouseButtons.XButton1);
+			SetMouse(cbX2, MouseButtons.XButton2);
+
+			SetModifiers(cbCtrl, Keys.Control);
+			SetModifiers(cbAlt, Keys.Alt);
+			SetModifiers(cbShift, Keys.Shift);
+			
+			Keys modifiers = shortcut & Keys.Modifiers;
+			shortcut = (((Keys)cbKey.SelectedItem) & Keys.KeyCode) | modifiers;
+			
+			if(ShortcutChanged != null)
+				ShortcutChanged(this, new EventArgs());
 		}
 	}
 }

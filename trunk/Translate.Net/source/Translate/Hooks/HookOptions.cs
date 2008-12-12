@@ -75,7 +75,15 @@ namespace Translate
 			get { return KeyboardHook.TranslateOnHotkey; }
 			set { KeyboardHook.TranslateOnHotkey = value; }
 		}
+
+		[DefaultValue((int)Keys.Alt)]
+		public int ShortcutCode
+		{
+			get { return (int)Shortcut; }
+			set { Shortcut = (Keys)value; }
+		}
 		
+		[XmlIgnore]
 		[DefaultValue(Keys.Alt)]
 		public Keys Shortcut
 		{

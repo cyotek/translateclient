@@ -938,6 +938,7 @@ namespace Translate
 				if(FreeCL.UI.Clipboard.CanPaste)
 				{
 					FreeCL.UI.Clipboard.Paste();
+					tbFrom.Text = tbFrom.Text.Trim();
 					if(KeyboardHook.TranslateOnHotkey)
 						aTranslate.DoExecute();
 				}	
@@ -950,16 +951,10 @@ namespace Translate
 			{
 				FreeCL.UI.Clipboard.BackupClipboard();					
 				FreeCL.UI.Clipboard.EmptyClipboard();
-				//System.Windows.Forms.Application.DoEvents();
 
 				try
 				{
 					KeyboardHook.SendCtrlC();
-					//System.Windows.Forms.SendKeys.SendWait("%A"); 
-					//System.Windows.Forms.SendKeys.SendWait("^{INS}"); 
-					//System.Windows.Forms.SendKeys.SendWait("^C"); 
-					//System.Windows.Forms.Application.DoEvents();
-					//System.Windows.Forms.Application.DoEvents();
 					
 					if(!Visible)
 						Visible = true;
@@ -987,6 +982,7 @@ namespace Translate
 					if(FreeCL.UI.Clipboard.CanPaste)
 					{
 						FreeCL.UI.Clipboard.Paste();
+						tbFrom.Text = tbFrom.Text.Trim();
 						if(KeyboardHook.TranslateOnHotkey)
 							aTranslate.DoExecute();
 					}	

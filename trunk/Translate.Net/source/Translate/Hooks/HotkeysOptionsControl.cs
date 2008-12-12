@@ -59,24 +59,16 @@ namespace Translate
 			InitializeComponent();
 			
 			RegisterLanguageEvent(OnLanguageChanged);
-			
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "None"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Custom"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right, "Alt + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle, "Middle Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right, "Ctrl + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.Shift, MouseButtons.Right, "Shift + Right Mouse Button"));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Left | MouseButtons.Right, "Left Mouse Button + Right Mouse Button"));
 		}
 		
-		internal class HotkeyData
+		private class HotkeyData
 		{
 			public HotkeyData(Keys keys, MouseButtons mouseButtons, string name)
 			{
 				this.keys = keys;
 				this.mouseButtons = mouseButtons;
 				this.name = name;
-				this.caption = name;
+				this.caption = LangPack.TranslateString(name);
 			}
 		
 			Keys keys;
@@ -115,20 +107,29 @@ namespace Translate
 			
 		}
 		
+		void AddItems()
+		{
+			cbHotkeys.Items.Clear();
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Hotkey not set"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, "Custom Hotkey"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right, "Alt + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle, "Middle Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right, "Ctrl + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.Shift, MouseButtons.Right, "Shift + Right Mouse Button"));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Left | MouseButtons.Right, "Left Mouse Button + Right Mouse Button"));
+		}
+		
 		void OnLanguageChanged()
 		{
 			cbControlCC.Text = TranslateString("Activate on Ctrl+C+C hotkey");
 			cbControlInsIns.Text = TranslateString("Activate on Ctrl+Ins+Ins hotkey");
 			cbTranslateOnHotkey.Text = TranslateString("Translate when activated by hotkey");
-			gbAdvanced.Text = TranslateString("Advanced Hotkeys");
+			gbAdvanced.Text = TranslateString("Advanced Hotkey");
 
-			foreach(object o in cbHotkeys.Items)
-			{
-				HotkeyData hd = o as HotkeyData;
-				if(hd != null)
-					hd.Caption = TranslateString(hd.Name);
-			}	
-			
+			int savedIdx = cbHotkeys.SelectedIndex;
+			AddItems();
+			if(savedIdx != -1)
+				cbHotkeys.SelectedIndex = savedIdx;
 		}
 		
 		HookOptions current;
@@ -189,10 +190,22 @@ namespace Translate
 			HotkeyData hd = cbHotkeys.SelectedItem as HotkeyData;
 			if(hd != null)
 			{
-				selectedKeysShortcut = hd.Keys;
-				selectedMouseShortcut = hd.MouseButtons;
+				if(hd.Name == "Custom Hotkey")
+					hotkeyEditor.SetShortcut(selectedKeysShortcut, selectedMouseShortcut, true);
+				else
+				{
+					hotkeyEditor.SetShortcut(hd.Keys, hd.MouseButtons, false);
+					selectedKeysShortcut = hd.Keys;
+					selectedMouseShortcut = hd.MouseButtons;
+				}	
 			}
 
+		}
+		
+		void HotkeyEditorShortcutChanged(object sender, EventArgs e)
+		{
+			selectedKeysShortcut = hotkeyEditor.Shortcut;
+			selectedMouseShortcut = hotkeyEditor.MouseShortcut;
 		}
 	}
 }
