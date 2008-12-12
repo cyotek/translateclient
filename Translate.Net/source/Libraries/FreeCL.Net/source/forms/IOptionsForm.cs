@@ -38,6 +38,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Windows.Forms;
 
 namespace FreeCL.Forms
 {
@@ -48,6 +49,6 @@ namespace FreeCL.Forms
 	[SuppressMessage("Microsoft.Design", "CA1040:AvoidEmptyInterfaces")]
 	public interface IOptionsForm
 	{
-	
+		void ShowDialog(IWin32Window owner, string page);
 	}
 }
