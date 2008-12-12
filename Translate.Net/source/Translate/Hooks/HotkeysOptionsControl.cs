@@ -70,6 +70,14 @@ namespace Translate
 				this.name = HotkeysOptionsControl.GetHotkeyName(keys, mouseButtons);
 				this.caption = LangPack.TranslateString(name);
 			}
+
+			public HotkeyData(Keys keys, MouseButtons mouseButtons, bool custom)
+			{
+				this.keys = keys;
+				this.mouseButtons = mouseButtons;
+				this.name = HotkeysOptionsControl.GetHotkeyName(keys, mouseButtons, custom);
+				this.caption = LangPack.TranslateString(name);
+			}
 		
 			Keys keys;
 			public Keys Keys
@@ -109,7 +117,14 @@ namespace Translate
 		
 		public static string GetHotkeyName(Keys keys, MouseButtons mouseButtons)
 		{
+			return GetHotkeyName(keys, mouseButtons, false);
+		}
+		
+		public static string GetHotkeyName(Keys keys, MouseButtons mouseButtons, bool custom)
+		{
 			string result = "Custom Hotkey";
+			if(custom)
+				return result;
 			if(Keys.None == keys && MouseButtons.None == mouseButtons)
 				result = "Hotkey not set"; 
 			else if(Keys.Alt == keys && MouseButtons.Right == mouseButtons)
@@ -129,7 +144,7 @@ namespace Translate
 		{
 			cbHotkeys.Items.Clear();
 			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None));
-			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None));
+			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.None, true));
 			cbHotkeys.Items.Add(new HotkeyData(Keys.Alt, MouseButtons.Right));
 			cbHotkeys.Items.Add(new HotkeyData(Keys.None, MouseButtons.Middle));
 			cbHotkeys.Items.Add(new HotkeyData(Keys.Control, MouseButtons.Right));
