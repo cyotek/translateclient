@@ -113,13 +113,15 @@ namespace Translate
 		
 		public static void OpenUrl(Uri url)
 		{
-			if(url.AbsoluteUri.Contains("wikipedia.org") 
+			ProcessStartHelper.Start(url.AbsoluteUri);
+			/*if(url.AbsoluteUri.Contains("wikipedia.org") 
 				|| url.AbsoluteUri.Contains("wiktionary.org")
 				|| url.AbsoluteUri.StartsWith("http://click.adbrite.com/mb/click.php?")
 			)
 				ProcessStartHelper.Start(url.AbsoluteUri);
 			else
 				ProcessStartHelper.Start(Constants.RedirectPageUrl + "?l=" + HttpUtility.UrlEncode(url.AbsoluteUri));
+			*/	
 		}
 
 		public static void AddTranslationCell(WebBrowser wBrowser, string parentName, bool isClean, string dataCellHtml, ServiceItem serviceItem, bool useOuterIconUrl)
