@@ -38,6 +38,8 @@
 
 using System;
 using FreeCL.RTL;
+using Microsoft.Win32;
+using System.IO;
 
 namespace FreeCL.Forms
 {
@@ -58,13 +60,47 @@ namespace FreeCL.Forms
 			} 
 			catch (Exception e)
 			{
-				ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
+				if(fileName.ToLowerInvariant().StartsWith("http://"))
+					StartIE(fileName);
+				else	
+					ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
 						"Error on start process : {0}\r\n" + 
 							"Error message : {1}"),
 							fileName, e.Message),
 						LangPack.TranslateString("Error on start process"),
 						e);
 				
+			}
+		}
+		
+		const string regKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\IEXPLORE.EXE";
+		static void InitIE()
+		{
+			if(string.IsNullOrEmpty(iePath))
+			{
+				iePath = (string)Registry.GetValue(regKey, null, directIEPath);
+			}
+		}
+		
+		static string iePath = "";
+		static string directIEPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) +
+			@"\Internet Explorer\iexplore.exe";
+			
+		public static void StartIE(string fileName)
+		{
+			try 
+			{
+				InitIE();
+				System.Diagnostics.Process.Start(iePath, fileName);
+			}	
+			catch (Exception e)
+			{
+				ErrorMessageBox.Show( string.Format(LangPack.TranslateString(
+					"Error on opening url : {0}\r\n" + 
+						"Error message : {1}"),
+						fileName, e.Message),
+					LangPack.TranslateString("Error on opening url"),
+					e);
 			}
 		}
 	}
