@@ -81,7 +81,7 @@ namespace Translate
 		
 			if(webbrowser == wBrowser)
 			{
-				wBrowser.Document.ExecCommand("Copy", false, null);
+				WebBrowserHelper.GetDocument(wBrowser).ExecCommand("Copy", false, null);
 				e.Handled = true;				
 				//replace rtf with simple text
 				try
@@ -142,11 +142,11 @@ namespace Translate
 				return;
 			}
 			
-			if (wBrowser.Document != null && !forceCleaning)
+			if (WebBrowserHelper.GetDocument(wBrowser) != null && !forceCleaning)
 			{ 
 				Wait();	
 				
-				if(wBrowser.Document != null)
+				if(WebBrowserHelper.GetDocument(wBrowser) != null)
 				{
 					if(!HtmlHelper.ClearTranslations(wBrowser))
 					{	//possible disabled javascript or error
@@ -159,7 +159,7 @@ namespace Translate
 					forceCleaning = true;
 			}
 			
-			if(wBrowser.Document == null || forceCleaning)
+			if(WebBrowserHelper.GetDocument(wBrowser) == null || forceCleaning)
 			{
 				forceCleaning = false;
 				wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "Default.aspx"));
@@ -755,7 +755,7 @@ namespace Translate
 			}
 			clean = clean.Substring(0, bodyidx);
 			HtmlSourceViewForm form = new HtmlSourceViewForm();
-			form.Source = clean + wBrowser.Document.Body.OuterHtml + "\r\n</html>";
+			form.Source = clean + WebBrowserHelper.GetDocument(wBrowser).Body.OuterHtml + "\r\n</html>";
 			form.Text = wBrowser.Url.ToString();
 			form.Show();
 		}
@@ -784,14 +784,14 @@ namespace Translate
 			try
 			{
 				Rectangle advertScrollRectangle;
-				if(wAdvertBrowser.Document != null && wAdvertBrowser.Document.Body != null)
-					advertScrollRectangle = wAdvertBrowser.Document.Body.ScrollRectangle;
+				if(WebBrowserHelper.GetDocument(wAdvertBrowser) != null && WebBrowserHelper.GetDocument(wAdvertBrowser).Body != null)
+					advertScrollRectangle = WebBrowserHelper.GetDocument(wAdvertBrowser).Body.ScrollRectangle;
 				else
 					advertScrollRectangle = new Rectangle(0, 0, 0, 0);
 
 				Rectangle browserScrollRectangle;
-				if(wBrowser.Document != null && wBrowser.Document.Body != null)
-					browserScrollRectangle = wBrowser.Document.Body.ScrollRectangle;
+				if(WebBrowserHelper.GetDocument(wBrowser) != null && WebBrowserHelper.GetDocument(wBrowser).Body != null)
+					browserScrollRectangle = WebBrowserHelper.GetDocument(wBrowser).Body.ScrollRectangle;
 				else
 					browserScrollRectangle = new Rectangle(0, 0, 0, 0);
 					
@@ -830,7 +830,7 @@ namespace Translate
 	
 				int allowedHeight = ClientSize.Height;
 				
-				if((isClean && !advertLoaded) || (wBrowser.Document == null || wBrowser.Document.Body == null))
+				if((isClean && !advertLoaded) || (WebBrowserHelper.GetDocument(wBrowser) == null || WebBrowserHelper.GetDocument(wBrowser).Body == null))
 				{
 					if(wBrowser.Height != allowedHeight)
 					{
@@ -1127,7 +1127,7 @@ namespace Translate
 			}
 			else
 			{
-				wBrowser.Document.Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
+				WebBrowserHelper.GetDocument(wBrowser).Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
 				HtmlHelper.RemoveElement(wBrowser, "big_header");
 			}
 			RecalcSizes();			

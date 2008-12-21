@@ -212,7 +212,7 @@ namespace Translate
 			Wait();
 			HtmlHelper.AddTranslationCell(wbStatus, isClean, htmlString, status.Setting.ServiceItem);
 			
-			HtmlElement button =  wbStatus.Document.GetElementById("btn");
+			HtmlElement button =  WebBrowserHelper.GetDocument(wbStatus).GetElementById("btn");
 			if(button != null)
 			{
 				button.Click += OnButtonClick;
@@ -237,11 +237,11 @@ namespace Translate
 				return;
 				
 			bool forceCleaning = false;	
-			if (wbStatus.Document != null)
+			if (WebBrowserHelper.GetDocument(wbStatus) != null)
 			{ 
 				Wait();	
 				
-				if(wbStatus.Document != null)
+				if(WebBrowserHelper.GetDocument(wbStatus) != null)
 				{
 					if(!HtmlHelper.ClearTranslations(wbStatus))
 					{	//possible disabled javascript or error
@@ -254,7 +254,7 @@ namespace Translate
 					forceCleaning = true;
 			}
 			
-			if(wbStatus.Document == null || forceCleaning)
+			if(WebBrowserHelper.GetDocument(wbStatus) == null || forceCleaning)
 			{
 				if(WebUI.ResultsWebServer.Uri != null)
 					wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
@@ -310,7 +310,7 @@ namespace Translate
 					
 				int allowedHeight = ClientSize.Height;
 				
-				if((isClean) || (wbStatus.Document == null || wbStatus.Document.Body == null))
+				if((isClean) || (WebBrowserHelper.GetDocument(wbStatus) == null || WebBrowserHelper.GetDocument(wbStatus).Body == null))
 				{
 					if(wbStatus.Height != allowedHeight)
 					{
@@ -318,9 +318,9 @@ namespace Translate
 						isHeightChanged = true;
 					}
 				}	
-				else if(wbStatus.Document != null && wbStatus.Document.Body != null && wbStatus.Document.Body.ScrollRectangle.Height != 0)
+				else if(WebBrowserHelper.GetDocument(wbStatus) != null && WebBrowserHelper.GetDocument(wbStatus).Body != null && WebBrowserHelper.GetDocument(wbStatus).Body.ScrollRectangle.Height != 0)
 				{
-					int height = wbStatus.Document.Body.ScrollRectangle.Height; // + 2;
+					int height = WebBrowserHelper.GetDocument(wbStatus).Body.ScrollRectangle.Height; // + 2;
 					if(wbStatus.Height != height)
 					{
 						//wbStatus.Height = height;

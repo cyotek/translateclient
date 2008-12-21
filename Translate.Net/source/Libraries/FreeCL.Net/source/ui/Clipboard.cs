@@ -86,7 +86,7 @@ namespace FreeCL.UI
 				}
 				
 				System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
-				if(webbrowser != null && webbrowser.Document != null)
+				if(webbrowser != null && WebBrowserHelper.GetDocument(webbrowser) != null)
 				{  
 					return true;
 				}
@@ -130,7 +130,7 @@ namespace FreeCL.UI
 			System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 			if(webbrowser != null)
 			{  
-				webbrowser.Document.ExecCommand("Copy", false, null);
+				WebBrowserHelper.GetDocument(webbrowser).ExecCommand("Copy", false, null);
 				return;
 			}
 			
@@ -166,7 +166,7 @@ namespace FreeCL.UI
 			System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 			if(webbrowser != null)
 			{  
-				webbrowser.Document.ExecCommand("Copy", false, null);
+				WebBrowserHelper.GetDocument(webbrowser).ExecCommand("Copy", false, null);
 				return;
 			}
 			

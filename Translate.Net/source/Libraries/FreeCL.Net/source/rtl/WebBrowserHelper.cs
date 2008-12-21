@@ -81,18 +81,33 @@ namespace FreeCL.RTL
 				
 			}	
 
-			while(wBrowser.Document == null)
+			while(GetDocument(wBrowser) == null)
 			{
 				Application.DoEvents();
 				System.Threading.Thread.Sleep(100);
 			}	
 
-			while(wBrowser.Document.Body == null)
+			while(GetDocument(wBrowser).Body == null)
 			{
 				Application.DoEvents();
 				System.Threading.Thread.Sleep(100);
 			}	
 				
+		}
+		
+		public static HtmlDocument GetDocument(WebBrowser wBrowser)
+		{
+			HtmlDocument result = null;
+			
+			try 
+			{
+				result = wBrowser.Document;
+			} 
+			catch (System.UnauthorizedAccessException)
+			{
+				
+			}
+			return result;
 		}
 		
 		public static bool ObjectToBool(object obj)
@@ -117,7 +132,7 @@ namespace FreeCL.RTL
 		
 		public static object InvokeScript(WebBrowser wBrowser, string scriptName, Object[] args)
 		{
-			object res = wBrowser.Document.InvokeScript(scriptName, args);
+			object res = GetDocument(wBrowser).InvokeScript(scriptName, args);
 			return res;
 		}
 		
