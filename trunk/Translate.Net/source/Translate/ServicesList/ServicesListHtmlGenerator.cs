@@ -82,7 +82,7 @@ namespace Translate
 			wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServicesList.aspx"));
 			WebBrowserHelper.Wait(wBrowser);
 			
-			HtmlDocument doc = wBrowser.Document;
+			HtmlDocument doc = WebBrowserHelper.GetDocument(wBrowser);
 			string template = wBrowser.DocumentText;
 			
 			GenerateDocument(wBrowser);

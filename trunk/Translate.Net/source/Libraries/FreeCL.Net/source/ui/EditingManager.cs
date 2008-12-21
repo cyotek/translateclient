@@ -531,7 +531,7 @@ namespace FreeCL.UI
 					System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 					if(webbrowser != null)
 					{  
-						webbrowser.Document.ExecCommand("SelectAll", false, null);
+						FreeCL.RTL.WebBrowserHelper.GetDocument(webbrowser).ExecCommand("SelectAll", false, null);
 						res = true;
 					}
 				}
