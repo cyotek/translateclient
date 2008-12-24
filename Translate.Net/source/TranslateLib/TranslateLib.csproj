@@ -132,6 +132,8 @@
     <Compile Include="OpenthesaurusPt\OpenthesaurusPtThesaurus.cs" />
     <Compile Include="OpenthesEs\OpenthesEsDictionary.cs" />
     <Compile Include="OpenthesEs\OpenthesEsService.cs" />
+    <Compile Include="OpenTranEu\OpenTranEuDictionary.cs" />
+    <Compile Include="OpenTranEu\OpenTranEuService.cs" />
     <Compile Include="PcDigestNet\PcDigestNetDictionary.cs" />
     <Compile Include="PcDigestNet\PcDigestNetService.cs" />
     <Compile Include="PereOrgUa\PereOrgUaService.cs" />
@@ -232,6 +234,7 @@
     <EmbeddedResource Include="DictsInfo\Service.ico" />
     <EmbeddedResource Include="LiveTranslator\Service.ico" />
     <EmbeddedResource Include="MegaslownikPl\Service.ico" />
+    <EmbeddedResource Include="OpenTranEu\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -255,6 +258,7 @@
     <Folder Include="DictsInfo" />
     <Folder Include="LiveTranslator" />
     <Folder Include="MegaslownikPl" />
+    <Folder Include="OpenTranEu" />
     <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
     <Folder Include="SynonimyPl" />
