@@ -44,6 +44,7 @@ using System.IO.Compression;
 using System.Text; 
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Xml; 
 
 namespace Translate
 {
@@ -52,7 +53,8 @@ namespace Translate
 		None,
 		UrlEncoded,
 		Multipart,
-		UrlEncodedGet
+		UrlEncodedGet,
+		XmlRpc
 	}
 	
 	public abstract class StreamConvertor
@@ -169,6 +171,7 @@ namespace Translate
 		
 		MemoryStream postStream;
 		BinaryWriter postData;
+		XmlTextWriter postXmlData;
 		
 		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.InvalidOperationException.#ctor(System.String)")]
@@ -216,6 +219,85 @@ namespace Translate
 			this.postData.Write( Encoding.UTF8.GetBytes(data) );
 		}
 		
+		public void InitXmlRpcMethodCall(string methodName, object[] args)
+		{
+			if(contentType != WebRequestContentType.XmlRpc)
+				throw new InvalidOperationException("InitXmlRpcMethodCall supported only for XmlRpc type mode");
+				
+			if (this.postXmlData == null) 
+			{
+				this.postStream = new MemoryStream();
+				this.postXmlData = new XmlTextWriter(postStream, Encoding.UTF8);
+			}
+			
+			{
+				postXmlData.WriteStartDocument();
+				postXmlData.WriteStartElement("methodCall");
+				postXmlData.WriteElementString("methodName", methodName);
+				postXmlData.WriteStartElement("params");
+				foreach(object o in args)
+				{
+					postXmlData.WriteStartElement("param");
+					postXmlData.WriteStartElement("value");
+					if(o is string)	
+					{
+						postXmlData.WriteElementString("string", o as string);
+					}
+					postXmlData.WriteEndElement();
+					postXmlData.WriteEndElement();
+				}	
+				postXmlData.WriteEndElement();
+				postXmlData.WriteEndElement();
+				postXmlData.WriteEndDocument();
+			}
+				
+		}
+		
+		
+		public string CallXmlRpcMethod()
+		{
+			string result = GetResponse();
+			TextReader stringReader = new StringReader(result);
+
+			XmlReaderSettings settings = new XmlReaderSettings();
+			settings.IgnoreComments = true;
+			settings.IgnoreProcessingInstructions = true;
+			settings.IgnoreWhitespace = true;
+
+			/* check error like : 
+				<?xml version='1.0'?>
+				<methodResponse>
+				<fault>
+				<value><struct>
+				<member>
+				<name>faultCode</name>
+				<value><int>1</int></value>
+				</member>
+				<member>
+				<name>faultString</name>
+				<value><string>exceptions.TypeError:suggest2() takes exactly 4 arguments (5 given)</string></value>
+				</member>
+				</struct></value>
+				</fault>
+				</methodResponse>
+			*/
+			
+			using (XmlReader reader = XmlReader.Create(stringReader, settings)) 
+			{
+				reader.Read(); //xml
+				reader.Read(); //<methodResponse>
+				reader.Read(); //<fault>
+				if(reader.Name != "fault")
+					return result;
+				string errorCode = "0";
+				string errorMessage = "Unknown";
+				if(reader.ReadToFollowing("int"))
+					errorCode = reader.ReadElementContentAsString();
+				if(reader.ReadToFollowing("string"))
+					errorMessage = reader.ReadElementContentAsString();
+				throw new TranslationException("XML-RPC error. Code : " + errorCode + ", Message : " + errorMessage);	
+			}
+		}
 		
 		[SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate")]
 		public string GetResponse()
@@ -307,6 +389,10 @@ namespace Translate
 			{
 				request.ContentType = "application/x-www-form-urlencoded";
 			}
+			else if(contentType == WebRequestContentType.XmlRpc)
+			{
+				request.ContentType = "text/xml";
+			}
 			else if(contentType == WebRequestContentType.Multipart)
 			{
 				request.ContentType = "multipart/form-data; boundary=" + this.multiPartBoundary;
@@ -320,7 +406,11 @@ namespace Translate
 			{
 				Stream requestStream = request.GetRequestStream (); 
 				
-				postData.Flush();
+				if(contentType != WebRequestContentType.XmlRpc)
+					postData.Flush();
+				else
+					postXmlData.Flush();
+					
 				if(gZipRequest)
 				{
 					request.Headers.Add("Content-Encoding", "gzip");
@@ -409,11 +499,18 @@ namespace Translate
 					postData = null;
 				}
 
+				if(postXmlData != null)
+				{
+					postXmlData.Close();
+					postXmlData = null;
+				}
+
 				if(postStream != null)
 				{
 					postStream.Dispose();
 					postStream = null;
 				}
+				
 				result = null;
 				url = null;
 				networkSetting = null;
