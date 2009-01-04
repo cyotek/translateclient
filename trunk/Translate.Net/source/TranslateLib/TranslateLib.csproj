@@ -85,6 +85,16 @@
     <Compile Include="CybermovaCom\CybermovaComService.cs" />
     <Compile Include="DictCc\DictCcDictionary.cs" />
     <Compile Include="DictCc\DictCcService.cs" />
+    <Compile Include="DictDClient\Database.cs" />
+    <Compile Include="DictDClient\Definition.cs" />
+    <Compile Include="DictDClient\DictionaryClient.cs" />
+    <Compile Include="DictDClient\DictionaryException.cs" />
+    <Compile Include="DictDClient\Strategy.cs" />
+    <Compile Include="DictDClient\WordMatch.cs" />
+    <Compile Include="DictD\DictDClientsPool.cs" />
+    <Compile Include="DictD\DictDDictionaries.cs" />
+    <Compile Include="DictD\DictDService.cs" />
+    <Compile Include="DictD\DictDUtils.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
     <Compile Include="DictPl\DictPlDeDictionary.cs" />
@@ -235,6 +245,7 @@
     <EmbeddedResource Include="LiveTranslator\Service.ico" />
     <EmbeddedResource Include="MegaslownikPl\Service.ico" />
     <EmbeddedResource Include="OpenTranEu\Service.ico" />
+    <EmbeddedResource Include="DictD\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -258,6 +269,8 @@
     <Folder Include="DictsInfo" />
     <Folder Include="LiveTranslator" />
     <Folder Include="MegaslownikPl" />
+    <Folder Include="DictD" />
+    <Folder Include="DictDClient" />
     <Folder Include="OpenTranEu" />
     <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
