@@ -81,6 +81,14 @@ namespace Translate
 			set { maxCountOfSubQueries = value; }
 		}
 		
+		string description;
+		public string Description
+		{
+			get { return description; }
+			set { description = value; }
+		}
+		
+		
 		public virtual string[] SplitPhraseToSubqueries(string phrase)
 		{
 			return new string[]{phrase};
