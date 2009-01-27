@@ -58,38 +58,80 @@ namespace Translate
 			LinesLimit = 1;
 			Name = "_dictionary";
 		
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
+		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.French));
 			AddSupportedTranslation(new LanguagePair(Language.French, Language.English));
+			
+			AddSupportedTranslation(new LanguagePair(Language.French, Language.French));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.German));
 			AddSupportedTranslation(new LanguagePair(Language.German, Language.English));
+			
+			AddSupportedTranslation(new LanguagePair(Language.German, Language.German));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Italian));
 			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.English));
+			
+			AddSupportedTranslation(new LanguagePair(Language.Italian, Language.Italian));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Korean));
 			AddSupportedTranslation(new LanguagePair(Language.Korean, Language.English));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Spanish));
 			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Spanish, Language.Spanish));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
 			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.Russian));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_TW));
 			AddSupportedTranslation(new LanguagePair(Language.Chinese_TW, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Chinese_TW, Language.Chinese_TW));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese_CN));
 			AddSupportedTranslation(new LanguagePair(Language.Chinese_CN, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Chinese_CN, Language.Chinese_CN));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Chinese));
 			AddSupportedTranslation(new LanguagePair(Language.Chinese, Language.English));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Portuguese));
 			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.English));
+			AddSupportedTranslation(new LanguagePair(Language.Portuguese, Language.Portuguese));
 
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.Hindi));
 			AddSupportedTranslation(new LanguagePair(Language.Hindi, Language.English));
+			
+			AddSupportedTranslation(new LanguagePair(Language.Dutch, Language.Dutch));
+			
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Arabic));
+			AddSupportedTranslation(new LanguagePair(Language.Arabic, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Czech));
+			AddSupportedTranslation(new LanguagePair(Language.Czech, Language.English));
+			
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Thai));
+			AddSupportedTranslation(new LanguagePair(Language.Thai, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Bulgarian));
+			AddSupportedTranslation(new LanguagePair(Language.Bulgarian, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Croatian));
+			AddSupportedTranslation(new LanguagePair(Language.Croatian, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Finnish));
+			AddSupportedTranslation(new LanguagePair(Language.Finnish, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Hebrew));
+			AddSupportedTranslation(new LanguagePair(Language.Hebrew, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Greek));
+			AddSupportedTranslation(new LanguagePair(Language.Greek, Language.English));
+
+			AddSupportedTranslation(new LanguagePair(Language.English, Language.Serbian));
+			AddSupportedTranslation(new LanguagePair(Language.Serbian, Language.English));
 			
 			AddSupportedSubject(SubjectConstants.Common);
 		}
@@ -115,29 +157,46 @@ namespace Translate
 			}
 			
 			result.HasAudio = responseFromServer.Contains("<object data=\"/dictionary/flash");
-			responseFromServer = StringParser.Parse("<div id=\"dct-srch-otr\">", "<div id=\"dct-rt-sct\">", responseFromServer);
+			responseFromServer = StringParser.Parse("<div class=\"dct-srch-otr\">", "<div class=\"dct-rt-sct\">", responseFromServer);
 			
 			//translations
-			string translations = StringParser.Parse("<ul id=\"dfnt\">", "</ul>", responseFromServer);
-			translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
+			string translations = StringParser.Parse("<ul class=\"dfnt\">", "</ul>", responseFromServer);
+			//translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
+			translations = translations.Replace("</h4>", "</h4></li>");
+
 			
 			StringParser parser = new StringParser(translations);
 			string[] subtranslation_list = parser.ReadItemsList("<li>", "</li>", "3485730457203");
 			
-			Result subres_tr = CreateNewResult(phrase, languagesPair, subject);
-			result.Childs.Add(subres_tr);
+			Result subres_tr = null;
+			
 			
 			foreach(string subtrans_s in subtranslation_list)
 			{
 				string subtrans_str = subtrans_s;
-				subtrans_str = StringParser.RemoveAll("<", ">", subtrans_str);
-				subres_tr.Translations.Add(subtrans_str.Trim());
+				
+				if(subtrans_str.Contains("<h4>"))
+				{
+					subtrans_str = StringParser.Parse("<h4>", "</h4>", subtrans_str);
+					subres_tr = CreateNewResult(subtrans_str, languagesPair, subject);
+					result.Childs.Add(subres_tr);
+				}
+				else
+				{
+					if(subres_tr == null)
+					{
+						subres_tr = CreateNewResult(phrase, languagesPair, subject);
+						result.Childs.Add(subres_tr);
+					}
+					subtrans_str = StringParser.RemoveAll("<", ">", subtrans_str);
+					subres_tr.Translations.Add(subtrans_str.Trim());
+				}
 			}
 			
 			//related words
 			if(responseFromServer.Contains("<h3>Related phrases</h3>"))
 			{
-				string related = StringParser.Parse("<ul id=\"rlt-snt\">", "</ul>", responseFromServer);
+				string related = StringParser.Parse("<ul class=\"rlt-snt\">", "</ul>", responseFromServer);
 				if(!string.IsNullOrEmpty(related))
 				{				
 					parser = new StringParser(related);
@@ -152,15 +211,16 @@ namespace Translate
 						related_str = related_str.Replace("<strong>", "");
 						related_str = related_str.Replace("</strong>", "");
 						related_str = related_str.Replace("<br />", "");
+						related_str = related_str.Replace("<br>", "");
 					
 						int translationIdx = related_str.IndexOf("<dfn>");
 						if(translationIdx < 0)
 							throw new TranslationException("Can't found '<dfn>' tag in string : " + related_str);
 							
-						string subphrase = related_str.Substring(0, translationIdx); 
+						string subphrase = related_str.Substring(0, translationIdx).Replace("\n", "").Trim(); 
 						string subphrasetrans = related_str.Substring(translationIdx + 5); 
 						subphrasetrans = StringParser.RemoveAll("<", ">", subphrasetrans);
-						subphrasetrans = subphrasetrans.Replace("&nbsp", " ");
+						subphrasetrans = subphrasetrans.Replace("&nbsp", " ").Replace("\n", "").Trim(); 
 						
 						Result subres = CreateNewResult(subphrase, languagesPair, subject);
 						subres.Translations.Add(subphrasetrans);
@@ -172,7 +232,7 @@ namespace Translate
 			//Web definitions
 			if(responseFromServer.Contains("<h3>Web definitions</h3>"))
 			{
-				string related = StringParser.Parse("<ul id=\"gls\">", "</div>", responseFromServer);
+				string related = StringParser.Parse("<ul class=\"gls\">", "</div>", responseFromServer);
 				if(!string.IsNullOrEmpty(related))
 				{				
 					related = StringParser.Parse("<ul>", "<div>", related);
