@@ -201,7 +201,7 @@ namespace Translate
 			}
 			else
 			{
-				string translation = StringParser.Parse("<div id=\"search_suggest\"></div>", "</table>", responseFromServer);
+				string translation = StringParser.Parse("createAutoComplete();", "</table>", responseFromServer);
 				translation = translation.Replace("</TD>", "</td>");
 				translation = translation.Replace("<TD width", "<td width");
 				translation = translation.Replace("</td><tr>", "</td></tr><tr>");
@@ -223,9 +223,9 @@ namespace Translate
 				{
 					subpart = part;
 					
-					if(subpart.StartsWith("<td bgcolor=\"#EBEBEB\" width=\"100%\" colspan=\"2\">"))
+					if(subpart.StartsWith("<td bgcolor=\"#DBDBDB\" width=\"100%\" colspan=\"2\">"))
 					{ //new subres
-						subpart = subpart.Replace("<td bgcolor=\"#EBEBEB\" width=\"100%\" colspan=\"2\">","");	
+						subpart = subpart.Replace("<td bgcolor=\"#DBDBDB\" width=\"100%\" colspan=\"2\">","");	
 						subphrase = StringParser.Parse("\">", "</a>", subpart);
 						subphrase = StringParser.RemoveAll("<span", ">", subphrase);
 						subphrase = StringParser.RemoveAll("<a", ">", subphrase);
@@ -315,7 +315,7 @@ namespace Translate
 				(responseFromServer.IndexOf("спросить в форуме</a>") >= 0 
 					&& responseFromServer.IndexOf("&nbsp; найдены отдельные слова") < 0) 
 				||
-				responseFromServer.IndexOf("<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=100%>") < 0)
+				responseFromServer.IndexOf("<table cellspacing=\"0\" border=\"0\" width=\"100%\">") < 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
@@ -323,7 +323,7 @@ namespace Translate
 			else
 			{
 			
-				string translation = StringParser.Parse("<TABLE CELLSPACING=0 BORDER=0 CELLPADDING=2 WIDTH=100%>", "</TABLE>", responseFromServer);
+				string translation = StringParser.Parse("createAutoComplete();", "<script><!--", responseFromServer);
 				
 				translation = translation.Replace("</TD>", "</td>");
 				translation = translation.Replace("<TD width", "<td width");
@@ -346,8 +346,10 @@ namespace Translate
 				string subres_url;
 				foreach(string part in translations)
 				{
+					if(!part.Contains("<td width=\"5%\">"))
+						continue;
 					subpart = part;
-					subphrase = StringParser.Parse("<td width=\"15%\" >", "</td>", subpart);
+					subphrase = StringParser.Parse("<td width=\"5%\">", "</td>", subpart);
 					subres_url = StringParser.Parse("href=\"", "\"", subphrase);
 
 					subphrase = StringParser.RemoveAll("<span", ">", subphrase);
@@ -368,13 +370,9 @@ namespace Translate
 					subsubres.ArticleUrl = "http://www.multitran.ru/c/" + subres_url;
 					
 					result.Childs.Add(subsubres);
-					
-					
+
 					subtranslation = subpart + "<end>";
-					if(subtranslation.Contains("<td width=\"20%\" >"))
-						subtranslation = StringParser.Parse("<td width=\"20%\" >", "<end>", subtranslation);
-					else	
-						subtranslation = StringParser.Parse("<td width=\"80%\" >", "<end>", subtranslation);
+					subtranslation = StringParser.Parse("<td width=\"20%\">", "</td>", subtranslation);
 					subtranslation = StringParser.RemoveAll("<span", ">", subtranslation);
 					subtranslation = StringParser.RemoveAll("<a", ">", subtranslation);
 					subtranslation = StringParser.RemoveAll("<td", ">", subtranslation);
@@ -389,6 +387,26 @@ namespace Translate
 					subtranslation = subtranslation.Replace("</b>", "");
 					
 					subsubres.Translations.Add(subtranslation);
+					
+					
+					subtranslation = subpart + "<end>";
+					subtranslation = StringParser.Parse("<td width=\"75%\">", "<end>", subtranslation);
+					subtranslation = StringParser.RemoveAll("<span", ">", subtranslation);
+					subtranslation = StringParser.RemoveAll("<a", ">", subtranslation);
+					subtranslation = StringParser.RemoveAll("<td", ">", subtranslation);
+					subtranslation = subtranslation.Replace("</td>", " ");
+					subtranslation = subtranslation.Replace("</a>", "");
+					subtranslation = subtranslation.Replace("<i>", "");
+					subtranslation = subtranslation.Replace("</i>", "");
+					subtranslation = subtranslation.Replace("</span>", "");
+					subtranslation = subtranslation.Replace("<sub>", "");
+					subtranslation = subtranslation.Replace("</sub>", "");
+					subtranslation = subtranslation.Replace("<b>", "");
+					subtranslation = subtranslation.Replace("</b>", "");
+					
+					subsubres.Translations.Add(subtranslation);
+					
+
 				}
 			}		
 		}	
@@ -456,7 +474,7 @@ namespace Translate
 					else
 					{
 						subsubres.Translations.Add(subtranslation.Substring(0, idx));
-						subsubres.Translations.Add(subtranslation.Substring(idx + 1));
+						subsubres.Translations.Add(subtranslation.Substring(idx + 1).Trim());
 					}
 				}
 			}		
