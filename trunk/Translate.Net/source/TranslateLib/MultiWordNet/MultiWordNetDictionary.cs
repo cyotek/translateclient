@@ -97,7 +97,7 @@ namespace Translate
 				}
 			}
 			
-			string query = "http://multiwordnet.itc.it/online/multiwordnet-main.php?language={0}&field=word&word={1}&wntype=Overview&pos=";
+			string query = "http://multiwordnet.itc.it/online/mwn-main.php?language={0}&field=word&word={1}&wntype=Overview&pos=";
 			query = string.Format(query, 
 				ConvertLanguage(languagesPair.From),
 				HttpUtility.UrlEncode(phrase));
