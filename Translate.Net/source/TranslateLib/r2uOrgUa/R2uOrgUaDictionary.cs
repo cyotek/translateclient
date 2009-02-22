@@ -101,7 +101,7 @@ namespace Translate
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
-			else if(responseFromServer.IndexOf("Запит сприймає лише кирилицю") >= 0)
+			else if(responseFromServer.IndexOf("Запит сприймає лише кирилицю") >= 0 || responseFromServer.Contains("<br>Помилка: неправильні символи в запиті"))
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Only cyrillic characters supported");
