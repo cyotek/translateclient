@@ -99,7 +99,7 @@ namespace Translate
 				result.ArticleUrl = query;
 				result.ArticleUrlCaption = phrase;
 			
-				string translation = StringParser.Parse("<hr style=\"border:0; background-color: grey; height:1px; width:92%; text-align:center\" />", "<hr style=\"border:0; background-color: grey; height:1px; width:92%; text-align:center\" />", responseFromServer);
+				string translation = StringParser.Parse("<hr style=\"border:0;background-color:grey;height:1px;width:92%;text-align:center\" />", "<hr style=\"border:0;background-color:grey;height:1px;width:92%;text-align:center\" />", responseFromServer);
 				StringsTree tree = StringParser.ParseTreeStructure("<table", "</table>", translation);
 				if(tree.Childs.Count != 1)
 						throw new TranslationException("Wrong data structure");
@@ -122,20 +122,20 @@ namespace Translate
 					throw new TranslationException("Wrong data structure");
 					
 
-				string word = StringParser.Parse("font-size:14pt;\">", "<", tree.Childs[0].Childs[0].Data);
+				string word = StringParser.Parse("font-size:14pt\">", "<", tree.Childs[0].Childs[0].Data);
 					
 				for(int i = 1; i < tree.Childs.Count; i++)
 				{
 					StringsTree abbr_tree = tree.Childs[i];
 					Result abbrres = null;	
 					
-					string abbr = StringParser.Parse("font-size:12pt;\">", "<", abbr_tree.Data);
+					string abbr = StringParser.Parse("font-size:12pt\">", "<", abbr_tree.Data);
 					Result tmpRes = CreateNewResult(abbr, languagesPair, subject);
 					wordres.Childs.Add(tmpRes);
 					abbrres = tmpRes;
 					
 					StringParser parser = new StringParser(abbr_tree.Childs[0].Data);
-					string[] translations = parser.ReadItemsList("font-size:12pt;\">", "<");
+					string[] translations = parser.ReadItemsList("font-size:12pt\">", "<");
 					foreach(string trans in translations)
 						abbrres.Translations.Add(trans);
 				}
