@@ -132,6 +132,7 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Common);
 			
 			//CharsLimit = 1000;
+			WordsLimit = 500;
 		}
 		
 		
@@ -159,7 +160,7 @@ namespace Translate
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			string query = "http://www2.systranbox.com/sai?gui=sbox/normal/systran/systranEN&lp={0}&service=translate";
+			string query = "http://www.systranet.com/tt?gui=www.systran.co.uk;/snetcom/text/ts&lp={0}&MAX_TRANSLATED_WORDS=500&service=translate";
 			query = string.Format(query, ConvertLanguagesPair(languagesPair));
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
