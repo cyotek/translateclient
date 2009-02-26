@@ -84,6 +84,7 @@ namespace Translate
 			s = s.Replace("&apos;", "'");
 			s = s.Replace("<br>", "\n");
 			s = s.Replace("&nbsp;", " ");
+			s = s.Replace("&#41<", ")<");			//sometime google generate
 	    	
 	    	return s;
 	    }
