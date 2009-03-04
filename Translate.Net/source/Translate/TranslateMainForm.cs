@@ -2412,5 +2412,17 @@ namespace Translate
 			
 		}
 		
+		
+		void TAutoSaveTick(object sender, EventArgs e)
+		{
+			try
+			{	//autosave every 20 minutes to minimize situation when setting lost after reboot
+				TranslateOptions.Instance.Save();
+			}
+			catch
+			{
+			
+			}
+		}
 	}
 }

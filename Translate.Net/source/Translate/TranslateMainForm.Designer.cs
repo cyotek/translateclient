@@ -79,6 +79,7 @@ namespace Translate
 			this.tsIconSep3 = new System.Windows.Forms.ToolStripSeparator();
 			this.miControlCC = new System.Windows.Forms.ToolStripMenuItem();
 			this.miControlInsIns = new System.Windows.Forms.ToolStripMenuItem();
+			this.miCustomShortcut = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsIconSep1 = new System.Windows.Forms.ToolStripSeparator();
 			this.miIconExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.niMain = new System.Windows.Forms.NotifyIcon(this.components);
@@ -222,12 +223,12 @@ namespace Translate
 			this.miToolsSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.miBreakTranslationOnDeactivation = new System.Windows.Forms.ToolStripMenuItem();
 			this.aCustomShortcut = new FreeCL.UI.Actions.Action(this.components);
-			this.miCustomShortcut = new System.Windows.Forms.ToolStripMenuItem();
 			this.miToolsSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.miHotkeys = new System.Windows.Forms.ToolStripMenuItem();
 			this.miControlCC1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miControlInsIns1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.miCustomShortcut1 = new System.Windows.Forms.ToolStripMenuItem();
+			this.tAutoSave = new System.Windows.Forms.Timer(this.components);
 			this.ptEdit.SuspendLayout();
 			this.sbMain.SuspendLayout();
 			this.msMain.SuspendLayout();
@@ -623,6 +624,14 @@ namespace Translate
 			this.miControlInsIns.Name = "miControlInsIns";
 			this.miControlInsIns.Size = new System.Drawing.Size(168, 22);
 			this.miControlInsIns.Text = "aControlInsIns";
+			// 
+			// miCustomShortcut
+			// 
+			this.al.SetAction(this.miCustomShortcut, this.aCustomShortcut);
+			this.miCustomShortcut.ImageTransparentColor = System.Drawing.Color.Transparent;
+			this.miCustomShortcut.Name = "miCustomShortcut";
+			this.miCustomShortcut.Size = new System.Drawing.Size(168, 22);
+			this.miCustomShortcut.Text = "aCustomShortcut";
 			// 
 			// tsIconSep1
 			// 
@@ -1960,14 +1969,6 @@ namespace Translate
 			this.aCustomShortcut.Execute += new System.EventHandler(this.ACustomShortcutExecute);
 			this.aCustomShortcut.Update += new System.EventHandler(this.ACustomShortcutUpdate);
 			// 
-			// miCustomShortcut
-			// 
-			this.al.SetAction(this.miCustomShortcut, this.aCustomShortcut);
-			this.miCustomShortcut.ImageTransparentColor = System.Drawing.Color.Transparent;
-			this.miCustomShortcut.Name = "miCustomShortcut";
-			this.miCustomShortcut.Size = new System.Drawing.Size(168, 22);
-			this.miCustomShortcut.Text = "aCustomShortcut";
-			// 
 			// miToolsSeparator3
 			// 
 			this.miToolsSeparator3.Name = "miToolsSeparator3";
@@ -2006,6 +2007,12 @@ namespace Translate
 			this.miCustomShortcut1.Name = "miCustomShortcut1";
 			this.miCustomShortcut1.Size = new System.Drawing.Size(168, 22);
 			this.miCustomShortcut1.Text = "aCustomShortcut";
+			// 
+			// tAutoSave
+			// 
+			this.tAutoSave.Enabled = true;
+			this.tAutoSave.Interval = 1200000;
+			this.tAutoSave.Tick += new System.EventHandler(this.TAutoSaveTick);
 			// 
 			// TranslateMainForm
 			// 
@@ -2067,6 +2074,7 @@ namespace Translate
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.Timer tAutoSave;
 		private System.Windows.Forms.ToolStripMenuItem miCustomShortcut1;
 		private System.Windows.Forms.ToolStripMenuItem miControlInsIns1;
 		private System.Windows.Forms.ToolStripMenuItem miControlCC1;
