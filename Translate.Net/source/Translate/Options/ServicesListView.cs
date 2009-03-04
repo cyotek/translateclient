@@ -41,6 +41,9 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Resources;
+
 
 namespace Translate
 {
@@ -60,7 +63,15 @@ namespace Translate
 			
 			foreach(Service s in Manager.Services)
 			{
-				ilServices.Images.Add(s.Name, s.Icon);
+				Icon icon = s.Icon;
+				if(icon == null)
+				{
+					MessageBox.Show(FindForm(), string.Format(FreeCL.RTL.LangPack.TranslateString("The icon for service \"{0}\" not found."), s.Name) , Constants.AppName);
+					ResourceManager resources = new ResourceManager("Translate.Common.Icons", Assembly.GetExecutingAssembly());
+					icon = (System.Drawing.Icon)(resources.GetObject("StaticIcon"));
+				}
+			
+				ilServices.Images.Add(s.Name, icon);
 			}
 		}
 		
@@ -132,7 +143,11 @@ namespace Translate
 			
 			void GenerateData()
 			{
-				name = LangPack.TranslateString(serviceItemData.ServiceItem.Service.FullName);
+				name = "";
+				if(!string.IsNullOrEmpty(serviceItemData.ServiceItem.Description))
+					name = LangPack.TranslateString(serviceItemData.ServiceItem.Description) + " - ";
+				name += LangPack.TranslateString(serviceItemData.ServiceItem.Service.FullName);
+					
 				type = ServiceSettingsContainer.GetServiceItemType(serviceItemData.ServiceItem);
 				languagePair = LangPack.TranslateLanguage(serviceItemData.LanguagePair.From) +
 						"->" + 

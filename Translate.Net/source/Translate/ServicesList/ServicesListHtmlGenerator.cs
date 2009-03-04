@@ -172,8 +172,14 @@ namespace Translate
 					HtmlHelper.ServiceNameFormat, 
 					si.Service.Url, 
 					HttpUtility.HtmlEncode(si.Service.Url.AbsoluteUri));
+
+			htmlString.Append(", ");
+
+			if(!string.IsNullOrEmpty(si.Description))
+				htmlString.Append(LangPack.TranslateString(si.Description) + " - ");		
 					
-			htmlString.Append(", " + LangPack.TranslateString(si.Service.FullName));		
+			htmlString.Append(LangPack.TranslateString(si.Service.FullName));		
+			
 			
 			if(si is MonolingualDictionary)
 			{

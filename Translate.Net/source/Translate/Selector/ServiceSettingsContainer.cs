@@ -114,7 +114,13 @@ namespace Translate
 			{
 				StringBuilder sb = new StringBuilder();
 				
-				sb.AppendLine(LangPack.TranslateString(setting.ServiceItem.Service.FullName));
+				string name = "";
+				if(!string.IsNullOrEmpty(setting.ServiceItem.Description))
+					name = LangPack.TranslateString(setting.ServiceItem.Description) + " - ";
+
+				name += LangPack.TranslateString(setting.ServiceItem.Service.FullName);
+				
+				sb.AppendLine(name);
 				sb.AppendLine(GetServiceItemType(setting.ServiceItem));
 				
 				string languagePair = LangPack.TranslateLanguage(Setting.LanguagePair.From) +

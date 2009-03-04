@@ -349,6 +349,8 @@ namespace Translate
 							}
 							else if(word[0] == '\u00A0')
 								htmlString.Append(' '); //avoid adding &nbsp;
+							else if(word[0] == '\n')
+								htmlString.Append("<br />"); 
 							else
 								htmlString.Append(HttpUtility.HtmlEncode(word));
 						}
@@ -412,10 +414,16 @@ namespace Translate
 			string htmlString = "";
 			if(TranslateOptions.Instance.ResultWindowOptions.ShowServiceName)
 			{
+				string name = "";
+				if(!string.IsNullOrEmpty(result.ServiceItem.Description))
+					name = LangPack.TranslateString(result.ServiceItem.Description) + " - ";
+			
+				name += LangPack.TranslateString(result.ServiceItem.Service.FullName);
+				
 				htmlString+= string.Format(CultureInfo.InvariantCulture, 
 					HtmlHelper.ServiceNameFormat, 
 					result.ServiceItem.Service.Url, 
-					HttpUtility.HtmlEncode(LangPack.TranslateString(result.ServiceItem.Service.FullName)));
+					HttpUtility.HtmlEncode(name));
 					
 				htmlString+= ", ";			
 				htmlString+= LangPack.TranslateString("Type") + " : " + ServiceSettingsContainer.GetServiceItemType(result.ServiceItem);
