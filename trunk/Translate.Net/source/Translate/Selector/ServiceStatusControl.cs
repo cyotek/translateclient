@@ -110,11 +110,16 @@ namespace Translate
 				Application.DoEvents();
 			Wait();	
 			
+			string name = "";
+			if(!string.IsNullOrEmpty(status.Setting.ServiceItem.Description))
+				name += LangPack.TranslateString(status.Setting.ServiceItem.Description) + " - ";
+			
+			name += LangPack.TranslateString(status.Setting.ServiceItem.Service.FullName);
 			
 			string htmlString = string.Format(CultureInfo.InvariantCulture, 
 					HtmlHelper.ServiceNameFormat, 
 					status.Setting.ServiceItem.Service.Url, 
-					HttpUtility.HtmlEncode(LangPack.TranslateString(status.Setting.ServiceItem.Service.FullName)));
+					HttpUtility.HtmlEncode(name));
 			
 			htmlString += "<br><b>" + LangPack.TranslateString("Type") + "</b> : " + status.Type;
 			

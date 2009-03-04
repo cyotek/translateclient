@@ -42,6 +42,9 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Resources;
+
 
 namespace Translate
 {
@@ -64,8 +67,15 @@ namespace Translate
 			
 			foreach(Service s in Manager.Services)
 			{
-				ilServices.Images.Add(s.Name, s.Icon);
-				WebUI.ResultsWebServer.WebServerGate.AddServiceIcon(s.Name, s.Icon);
+				Icon icon = s.Icon;
+				if(icon == null)
+				{
+					MessageBox.Show(FindForm(), string.Format(FreeCL.RTL.LangPack.TranslateString("The icon for service \"{0}\" not found."), s.Name) , Constants.AppName);
+					ResourceManager resources = new ResourceManager("Translate.Common.Icons", Assembly.GetExecutingAssembly());
+					icon = (System.Drawing.Icon)(resources.GetObject("StaticIcon"));
+				}
+				ilServices.Images.Add(s.Name, icon);
+				WebUI.ResultsWebServer.WebServerGate.AddServiceIcon(s.Name, icon);
 			}
 			
 			lvServicesEnabled.Items.Clear();
