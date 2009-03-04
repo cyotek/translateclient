@@ -107,9 +107,24 @@ namespace FreeCL.RTL
 		
 		public void Save(string fileName)
 		{
-			FileStream writer = new FileStream(fileName, FileMode.Create);			
+			string backupFileName = fileName + ".bak";
+			FileStream writer = new FileStream(backupFileName, FileMode.Create);			
 			Save(writer);
+			writer.Close();
 			writer.Dispose();
+			
+			File.Delete(fileName);
+			try 
+			{
+				File.Move(backupFileName, fileName);
+			} 
+			catch (UnauthorizedAccessException) 
+			{
+				// sometime File.Move raise exception (TortoiseSVN, Anti-vir ?)
+				// try again after short delay
+				System.Threading.Thread.Sleep(250);
+				File.Move(backupFileName, fileName);
+			}
 		}
 
 		public virtual void OnSave()
