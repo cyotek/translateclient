@@ -77,19 +77,47 @@ namespace Translate
 			DictDUtils.DoTranslate(this, phrase, languagesPair, subject, result, networkSetting);
 		}		
 	}
-	
-	public class DictDGcideDictionary : DictDMonolingualDictionary
+
+	public class DictDSynonymsDictionary : SynonymsDictionary, IDictDServiceItem
 	{
-		public DictDGcideDictionary()
+		public DictDSynonymsDictionary()
 		{
-			Name = "gcide";
-			Description = "The Collaborative International Dictionary of English v.0.48";
-			AddSupportedTranslation(Language.English, Language.English);
-			AddSupportedTranslation(Language.English_GB, Language.English_GB);
-			AddSupportedTranslation(Language.English_US, Language.English_US);
-			AddSupportedSubject(SubjectConstants.Common);
-			
-			Urls.Add(new Uri("dict://dict.org"));
+			CharsLimit = 50;
+			LinesLimit = 1;			
 		}
+		
+		UrlList urls = new UrlList();
+		public UrlList Urls
+		{
+			get { return urls; }
+		}
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
+		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			DictDUtils.DoTranslate(this, phrase, languagesPair, subject, result, networkSetting);
+		}		
 	}
+
+	public class DictDBilingualDictionary : BilingualDictionary, IDictDServiceItem
+	{
+		public DictDBilingualDictionary()
+		{
+			CharsLimit = 50;
+			LinesLimit = 1;			
+		}
+		
+		UrlList urls = new UrlList();
+		public UrlList Urls
+		{
+			get { return urls; }
+		}
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
+		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			DictDUtils.DoTranslate(this, phrase, languagesPair, subject, result, networkSetting);
+		}		
+	}
+	
 }
