@@ -53,6 +53,7 @@ namespace Translate
 		public const string Anatomy = "Anatomy";
 		public const string Bank = "Bank";
 		public const string Bible = "Bible";
+		public const string Biology = "Biology";
 		public const string Business = "Business";
 		public const string Military = "Military";
 		public const string Law = "Law";
@@ -74,7 +75,10 @@ namespace Translate
 		public const string Football = "Football";
 		public const string Phrasebook = "Phrasebook";
 		public const string Perfumery = "Perfumery";
-		
+		public const string Places = "Places";
+		public const string Humour = "Humour";
+		public const string History = "History";
+		public const string Geology = "Geology";
 	}
 	
 	public class SubjectCollection : List<String>
