@@ -81,8 +81,8 @@ namespace Translate.DictD
 
         // This is a localization helper
 
-        private static DatabaseCollection cachedDatabases = new DatabaseCollection();
-        private static StrategyCollection cachedStrategies = new StrategyCollection();
+        private DatabaseCollection cachedDatabases = new DatabaseCollection();
+        private StrategyCollection cachedStrategies = new StrategyCollection();
 
         private static Regex    reStatus = new Regex (@"(\d{3})\s(.*)", RegexOptions.Compiled);
         private static Regex    reDefinitions = new Regex (@"^\b151\b", RegexOptions.Compiled | RegexOptions.Multiline);
@@ -257,7 +257,25 @@ namespace Translate.DictD
                 client.SendTimeout = Timeout;
 
                 // Read the initial response which contains the server version.
-                /* string initialResponse = */inStream.ReadLine ();
+                string initialResponse = inStream.ReadLine ();
+                Match m = reStatus.Match (initialResponse);
+                int statusCode = Convert.ToInt32(m.Groups[1].Value);
+
+                if (statusCode >= 400 && statusCode <= 599)
+                {
+                	Disconnect();
+                    string errorMessage = null;
+
+                    switch (statusCode)
+                    {
+                        case 420: // Server temporarily unavailable
+                        case 421: // Server shutting down at operator request
+                            errorMessage = "The dictionary server is not available at this time."; break;
+                    }
+
+                    throw new DictionaryServerException (url, statusCode, "", errorMessage); 
+                }
+                
 
 				//inform server about client name      
 				//All clients SHOULD send this command after connecting to the server.

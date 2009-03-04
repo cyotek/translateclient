@@ -70,6 +70,16 @@ namespace Translate
 					throw new TranslationException("Nothing found");
 				}
 			} 
+			catch(DictionaryServerException e)
+			{
+				if(e.ErrorCode == 552) //No definitions found
+				{
+					result.ResultNotFound = true;
+					throw new TranslationException("Nothing found");
+				}
+				else
+					throw;
+			}
 			finally
 			{
 				if(dc != null)
