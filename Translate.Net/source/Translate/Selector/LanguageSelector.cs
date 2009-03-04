@@ -737,9 +737,15 @@ namespace Translate
 		
 		void LvServicesResize(object sender, EventArgs e)
 		{
-			lvServicesEnabled.Columns[0].Width = lvServicesEnabled.Width;
-			lvServicesDisabled.Columns[0].Width = lvServicesEnabled.Width;
-			lvServicesDisabledByUser.Columns[0].Width = lvServicesEnabled.Width;
+			int maxWidth = lvServicesEnabled.Width;
+			if(lvServicesDisabled.Width > maxWidth)
+				maxWidth = lvServicesDisabled.Width;
+			if(lvServicesDisabledByUser.Width > maxWidth)
+				maxWidth = lvServicesDisabledByUser.Width;
+				
+			lvServicesEnabled.Columns[0].Width = maxWidth;
+			lvServicesDisabled.Columns[0].Width = maxWidth;
+			lvServicesDisabledByUser.Columns[0].Width = maxWidth;
 		}
 
 		void CalcListViewSize(ListView lv, Label label)
