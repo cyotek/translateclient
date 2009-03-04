@@ -85,7 +85,7 @@ namespace WebUI
 				} 
 				catch (System.Net.Sockets.SocketException e)
 				{
-					if(e.ErrorCode == 10049)
+					if(e.ErrorCode == 10049 || e.ErrorCode == 10022)
 					{  
 						//strange error on bind, probably network still not started
 						//try to rerun server
