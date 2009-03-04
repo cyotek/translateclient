@@ -232,8 +232,7 @@ namespace Translate
 			
 			public void GenerateName()
 			{
-				StringBuilder sb = new StringBuilder(setting.ServiceItem.Service.Url.Host);
-				sb.Append("-");
+				StringBuilder sb = new StringBuilder();
 				
 				if(setting.ServiceItem is Translator)
 				{
@@ -295,6 +294,13 @@ namespace Translate
 					sb.Append("-");
 					sb.Append(LangPack.TranslateString(setting.Subject));
 				}
+				
+				sb.Append("-");
+				if(!string.IsNullOrEmpty(setting.ServiceItem.Description))
+					sb.Append(LangPack.TranslateString(setting.ServiceItem.Description));				
+				else
+					sb.Append(LangPack.TranslateString(setting.ServiceItem.Service.FullName));
+				
 				name = sb.ToString();
 			}
 			
