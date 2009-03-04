@@ -95,6 +95,7 @@
     <Compile Include="DictD\DictDDictionaries.cs" />
     <Compile Include="DictD\DictDService.cs" />
     <Compile Include="DictD\DictDUtils.cs" />
+    <Compile Include="DictD\DictionariesGenerated.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaDictionary.cs" />
     <Compile Include="DictLinuxOrgUa\DictLinuxOrgUaService.cs" />
     <Compile Include="DictPl\DictPlDeDictionary.cs" />
