@@ -56,7 +56,6 @@ namespace Translate
 		{
 			CharsLimit = 50;
 			LinesLimit = 1;
-			Name = "_dictionary";
 		
 			AddSupportedTranslation(new LanguagePair(Language.English, Language.English));
 		

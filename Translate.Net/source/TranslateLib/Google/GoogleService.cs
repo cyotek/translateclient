@@ -55,7 +55,20 @@ namespace Translate
 			FullName = "Google Translator";
 			
 			AddTranslator(new GoogleTranslator());
+		}
+	}
+	
+	public class GoogleDictionaryService : GoogleService
+	{
+		public GoogleDictionaryService()
+		{
+			Url = new Uri("http://www.google.com/dictionary");
+			Name = "google_dictionary";
+			FullName = "Google Dictionary";
+			IconResourceName = "Translate.Google.Service.ico";
+			
 			AddBilingualDictionary(new GoogleDictionary());
 		}
 	}
+	
 }
