@@ -73,7 +73,18 @@ function AddTranslationCell(parentName, isClean, DefaultTextFormat, iconCellHtml
 	var tableCell = document.createElement("TD");
 	tableRow.appendChild(tableCell);
 	tableCell.style.cssText = "width: 100%;";
-	tableCell.innerHTML = dataCellHtml;
+	try
+	{
+		tableCell.innerHTML = dataCellHtml;
+	}
+	catch(err)
+	{
+		txt="There was an error on setting translation result.\n\n";
+		txt+="Error description: " + err.description + "\n\n";
+		txt+="data: " + dataCellHtml + "\n\n";
+		txt+="Click OK to continue.\n\n";
+		alert(txt);
+	}
 }
 
 function SetTableStyle(DefaultTextFormat)
