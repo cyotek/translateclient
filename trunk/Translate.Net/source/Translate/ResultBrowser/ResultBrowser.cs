@@ -250,11 +250,12 @@ namespace Translate
 					{
 						if(/*r.Phrase != result.Phrase && */!string.IsNullOrEmpty(child.Phrase))
 						{
-							if(indent != 0)
-								htmlString.Append(GetParagraphFormat(indent, result));
 							
 							if(!child.Phrase.StartsWith("html!"))
 							{
+								if(indent != 0)
+									htmlString.Append(GetParagraphFormat(indent, result));
+							
 								if(string.IsNullOrEmpty(child.ArticleUrl))
 								{
 									htmlString.AppendFormat("<b>{0}</b> ", 
@@ -273,14 +274,14 @@ namespace Translate
 										HttpUtility.HtmlEncode(child.Phrase.Replace('\u00A0', ' ')),
 										icon);
 								}
+								if(indent != 0)
+									htmlString.Append("</p>");
 							}
 							else
 							{  //append html directly
 								htmlString.Append(child.Phrase.Substring(5));
 							}
 								
-							if(indent != 0)
-								htmlString.Append("</p>");
 						}
 								
 						if(!string.IsNullOrEmpty(child.Abbreviation) && child.Childs.Count == 0)
@@ -319,10 +320,10 @@ namespace Translate
 					if(indent > 0)
 						htmlString.Append("<li>");
 						
-					htmlString.Append(GetParagraphFormat(indent, result));
-
 					if(!s.StartsWith("html!"))
 					{
+						htmlString.Append(GetParagraphFormat(indent, result));
+					
 						List<string> words = StringParser.SplitToParts(s);
 						
 						foreach(string word in words)
@@ -354,17 +355,17 @@ namespace Translate
 							else
 								htmlString.Append(HttpUtility.HtmlEncode(word));
 						}
+						htmlString.Append("</p>");
 					}
 					else
 					{ //append html directly
-						int allowedWidth = (int)((double)wBrowser.Width*.95) - 26;
+						int allowedWidth = (int)((double)wBrowser.Width*.95)-26;
 						if(vScrollBar.Visible)
 							allowedWidth += SystemInformation.VerticalScrollBarWidth;
 
 						htmlString.Append(s.Substring(5).Replace("{allowed_width}", allowedWidth.ToString()));
 					}
 					
-					htmlString.Append("</p>");
 					if(indent > 0)
 						htmlString.Append("</li>");
 				}
