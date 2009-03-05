@@ -1958,7 +1958,16 @@ namespace Translate
 								{
 									skipChangeInput = true;
 									ActivateProfile(pf);
-									languageSelector.Selection = lp;
+									try
+									{
+										languageSelector.Selection = lp;
+									}
+									catch
+									{
+										UpdateCaption();
+										skipChangeInput = false;
+										continue;
+									}
 									UpdateCaption();
 								}
 								finally
@@ -2006,7 +2015,16 @@ namespace Translate
 							try
 							{
 								skipChangeInput = true;
-								languageSelector.Selection = lp;
+								try
+								{
+									languageSelector.Selection = lp;
+								}
+								catch
+								{
+									UpdateCaption();
+									skipChangeInput = false;
+									continue;
+								}
 								UpdateCaption();
 							}
 							finally
@@ -2047,7 +2065,16 @@ namespace Translate
 							{
 								skipChangeInput = true;
 								ActivateProfile(pf);
-								languageSelector.Selection = lp;
+								try
+								{
+									languageSelector.Selection = lp;
+								}
+								catch
+								{
+									UpdateCaption();
+									skipChangeInput = false;
+									continue;
+								}
 								UpdateCaption();
 							}
 							finally
@@ -2104,7 +2131,15 @@ namespace Translate
 									lp.To == targetLanguage
 								)
 								{
-									languageSelector.Selection = lp;
+									try
+									{
+										languageSelector.Selection = lp;
+									}
+									catch
+									{
+										continue;
+									}
+								
 									tbFrom.Focus();
 									return;
 								}
@@ -2118,7 +2153,14 @@ namespace Translate
 									LanguageHelper.IsLanguageSupported(systemCulture, lp.To)
 								)
 								{
-									languageSelector.Selection = lp;
+									try
+									{
+										languageSelector.Selection = lp;
+									}
+									catch
+									{
+										continue;
+									}
 									tbFrom.Focus();
 									return;
 								}
