@@ -58,12 +58,15 @@ namespace Translate
 		}
 	}
 	
-	public class GoogleDictionaryService : GoogleService
+	public class GoogleDictionaryService : Service
 	{
 		public GoogleDictionaryService()
 		{
 			Url = new Uri("http://www.google.com/dictionary");
 			Name = "google_dictionary";
+			CompanyName = "Google Inc.";
+			Copyright = "Copyright © 2008, Google";
+			IconUrl = new Uri("http://code.google.com/favicon.ico");
 			FullName = "Google Dictionary";
 			IconResourceName = "Translate.Google.Service.ico";
 			
