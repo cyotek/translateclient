@@ -141,8 +141,8 @@ namespace FreeCL.Forms
 
 			
 			
-			aEditSelectAll.Hint = LangPack.TranslateString("Select Àll");
-			aEditSelectAll.Text = LangPack.TranslateString("&Select Àll");
+			aEditSelectAll.Hint = LangPack.TranslateString("Select All");
+			aEditSelectAll.Text = LangPack.TranslateString("&Select All");
 			
 			miEdit.Text = LangPack.TranslateString("&Edit");
 
