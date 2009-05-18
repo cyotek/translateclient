@@ -857,6 +857,15 @@ namespace Translate
 				WindowState = FormWindowState.Minimized;
 			}
 
+			if(!TranslateOptions.Instance.AskedEQATECMonitor)
+			{
+				TranslateOptions.Instance.AskedEQATECMonitor = true;
+				SetupAnalyticsForm form = new SetupAnalyticsForm();
+				form.ShowDialog(this);
+				if(TranslateOptions.Instance.UseEQATECMonitor)
+					AnalyticsMonitor.Start();
+			}
+
 			if(!TranslateOptions.Instance.DefaultProfile.DisabledLanguagesAlreadySet)
 			{
 				ActivateProfile(TranslateOptions.Instance.DefaultProfile);

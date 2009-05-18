@@ -1140,3 +1140,25 @@ Shift + права клавіша миші
 Середня
 [Right{0}]
 Права
+[Usage information collecting]
+Збір інформації про використання
+[Yes]
+Так
+[Do you want to allow collecting of basic information about application usage ?]
+Дозволити збір інформації про використання програми ?
+[Tool will]
+Програма буде 
+[Tool will not]
+Програма не буде
+[Collect anonymous information about tool usage : tool running time, tool version, OS version.]
+Збирати анонімну інформацію про використання : час роботи програми, версію програми та операційної системи.
+[Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
+Збирати ім'я, адресу та іншу персональну інформацію. Збирається лише анонімна інформація.
+[You can check already collected data here]
+Ви можете перевірити вже зібрану інформацію тут
+[You can disable data collecting at any time in "Options" dialog]
+Ви можете вимкнути збір інформації у будь який час у вікні налаштувань
+[Yes, I allow to collect anonymous information]
+Так, я дозволяю збирати анонімну інформацію
+[No, I would not like information collecting]
+Ні, я не дозволяю збирати інформацію
