@@ -245,7 +245,7 @@ namespace Translate
 			// miEditSelectAll
 			// 
 			this.al.SetAction(this.miEditSelectAll, this.aEditSelectAll);
-			this.miEditSelectAll.ToolTipText = "Select Аll (Ctrl+A)";
+			this.miEditSelectAll.ToolTipText = "Select All (Ctrl+A)";
 			this.miEditSelectAll.Visible = true;
 			// 
 			// miExit
@@ -285,7 +285,7 @@ namespace Translate
 			// 
 			this.al.SetAction(this.sbSelectAll, this.aEditSelectAll);
 			this.sbSelectAll.Enabled = false;
-			this.sbSelectAll.ToolTipText = "Select Аll (Ctrl+A)";
+			this.sbSelectAll.ToolTipText = "Select All (Ctrl+A)";
 			this.sbSelectAll.Visible = true;
 			// 
 			// miEditRedo
@@ -792,8 +792,8 @@ namespace Translate
 			this.miBrowserSelectAll.ShortcutKeyDisplayString = "Ctrl+A";
 			this.miBrowserSelectAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
 			this.miBrowserSelectAll.Size = new System.Drawing.Size(176, 22);
-			this.miBrowserSelectAll.Text = "&Select Аll";
-			this.miBrowserSelectAll.ToolTipText = "Select Аll";
+			this.miBrowserSelectAll.Text = "&Select All";
+			this.miBrowserSelectAll.ToolTipText = "Select All";
 			// 
 			// miBrowserSep1
 			// 
