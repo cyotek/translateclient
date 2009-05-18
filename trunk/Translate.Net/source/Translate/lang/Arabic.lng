@@ -1139,3 +1139,25 @@ Megaslownik - القاموس البولندي المباشر المجاني ال
 [Middle{0}]
 
 [Right{0}]
+
+[Usage information collecting]
+
+[Yes]
+
+[Do you want to allow collecting of basic information about application usage ?]
+
+[Tool will]
+
+[Tool will not]
+
+[Collect anonymous information about tool usage : tool running time, tool version, OS version.]
+
+[Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
+
+[You can check already collected data here]
+
+[You can disable data collecting at any time in "Options" dialog]
+
+[Yes, I allow to collect anonymous information]
+
+[No, I would not like information collecting]

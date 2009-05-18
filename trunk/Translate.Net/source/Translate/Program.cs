@@ -106,6 +106,7 @@ namespace Translate
 				OptionsControlsManager.RegisterOptionControl(typeof(GeneralNetworkOptionsControl), "Network", 2, "Common", 0);
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(CustomProfilesControl), "Profiles", 3, "List", 4);
+				OptionsControlsManager.RegisterOptionControl(typeof(AnalyticsOptionsControl), "Usage information collecting", 4, "Usage information collecting", 4);
 				
 				Application.Initialize();
 				
@@ -134,6 +135,7 @@ namespace Translate
 						throw;
 				}
 
+				AnalyticsMonitor.Start();
 				Application.Run(new TranslateMainForm());
 			}
 			catch(Exception e)

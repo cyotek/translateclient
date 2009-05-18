@@ -1140,3 +1140,25 @@ Shift + правая кнопка мыши
 Средняя
 [Right{0}]
 Правая
+[Usage information collecting]
+Сбор информации про использование
+[Yes]
+Да
+[Do you want to allow collecting of basic information about application usage ?]
+Разрешить сбор информации про использование программы ?
+[Tool will]
+Программа будет
+[Tool will not]
+Программа не будет
+[Collect anonymous information about tool usage : tool running time, tool version, OS version.]
+Собирать анонимную информацию про использование : время работы, версию программы и операционной системы.
+[Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
+Собирать любую персональную информацию - имя, адрес и прочее. Собирается только анонимная информация
+[You can check already collected data here]
+Вы можете посмотреть уже собранную информацию здесь
+[You can disable data collecting at any time in "Options" dialog]
+Вы можете отключить сбор данный в любое время в диалоге настроект
+[Yes, I allow to collect anonymous information]
+Да, я разрешаю собирать анонимную информацию
+[No, I would not like information collecting]
+Нет, я не разрешаю собирать информацию

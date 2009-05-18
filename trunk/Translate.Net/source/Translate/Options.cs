@@ -297,6 +297,22 @@ namespace Translate
 			set { keyboardLayoutsOptions = value; }
 		}
 		
+		bool useEQATECMonitor = true;
+		[DefaultValue(true)]
+		public bool UseEQATECMonitor
+		{
+			get { return useEQATECMonitor; }
+			set { useEQATECMonitor = value; }
+		}
+
+		bool askedEQATECMonitor	= false;
+		[DefaultValue(false)]
+		public bool AskedEQATECMonitor
+		{
+			get { return askedEQATECMonitor; }
+			set { askedEQATECMonitor = value; }
+		}
+		
 		
 	}
 }
