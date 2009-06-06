@@ -17,6 +17,7 @@
 		<meta http-equiv="PRAGMA" content="NO-CACHE" />
 
 		<link href="WebUI.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="webui.js"></script>
 
 	</head>

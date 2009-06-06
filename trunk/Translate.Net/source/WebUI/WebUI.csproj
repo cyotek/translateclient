@@ -92,6 +92,7 @@
     <EmbeddedResource Include="GetIcon.aspx" />
     <EmbeddedResource Include="Global.asax" />
     <EmbeddedResource Include="audio.png" />
+    <None Include="jquery.js" />
     <None Include="postbuild.cmd" />
     <EmbeddedResource Include="ServicesList.aspx" />
     <EmbeddedResource Include="WebUI.js" />
