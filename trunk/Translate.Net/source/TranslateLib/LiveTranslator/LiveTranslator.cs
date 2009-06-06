@@ -54,46 +54,55 @@ namespace Translate
 	{
 		public LiveTranslator()
 		{
-			CharsLimit = 3500;
+			CharsLimit = 15000;
 			WordsLimit = 500;
 			Name = "_translator";
 
 			AddSupportedSubject(SubjectConstants.Common);
 			
-			AddSupportedTranslationToEnglish(Language.Arabic);
-			AddSupportedTranslation(Language.Chinese_CN, Language.Chinese_TW);
-			AddSupportedTranslationToEnglish(Language.Chinese_CN);
-			AddSupportedTranslation(Language.Chinese_TW, Language.Chinese_CN);
-			AddSupportedTranslationToEnglish(Language.Chinese_TW);
-			AddSupportedTranslationToEnglish(Language.Dutch);
-			AddSupportedTranslationFromEnglish(Language.Arabic);
-			AddSupportedTranslationFromEnglish(Language.Chinese_CN);
-			AddSupportedTranslationFromEnglish(Language.Chinese_TW);
-			AddSupportedTranslationFromEnglish(Language.Dutch);
-			AddSupportedTranslationFromEnglish(Language.French);
-			AddSupportedTranslationFromEnglish(Language.German);
-			AddSupportedTranslationFromEnglish(Language.Italian);
-			AddSupportedTranslationFromEnglish(Language.Japanese);
-			AddSupportedTranslationFromEnglish(Language.Korean);
-			AddSupportedTranslationFromEnglish(Language.Portuguese);
-			AddSupportedTranslationFromEnglish(Language.Spanish);
-			AddSupportedTranslationToEnglish(Language.French);
-			AddSupportedTranslationToEnglish(Language.German);
-			AddSupportedTranslationToEnglish(Language.Italian);
-			AddSupportedTranslationToEnglish(Language.Japanese);
-			AddSupportedTranslationToEnglish(Language.Korean);
-			AddSupportedTranslationToEnglish(Language.Portuguese);
-			AddSupportedTranslationToEnglish(Language.Russian);
-			AddSupportedTranslationToEnglish(Language.Spanish);
+			LanguageCollection tmp = new LanguageCollection();
+			LanguageCollection languages = new LanguageCollection();
+			foreach(KeyValuePair<Language, string> kvp in langToKey)
+			{
+				if(kvp.Key != Language.English_GB && kvp.Key != Language.English_US)
+				{
+					tmp.Add(kvp.Key);
+					languages.Add(kvp.Key);
+				}	
+			}
+			
+			foreach(Language from in languages)
+			{
+				foreach(Language to in tmp)
+				{
+					if(from != to && to != Language.Autodetect)
+					{
+						if(from == Language.English)
+						{
+							AddSupportedTranslationFromEnglish(to);
+						}
+						else if(to == Language.English)
+						{
+							AddSupportedTranslationToEnglish(from);
+						}
+						else
+						{
+							AddSupportedTranslation(from, to);
+						}	
+					}
+				}
+			}
+			
 		}
 		
 		static LiveTranslator()
 		{
+			langToKey.Add(Language.Autodetect, "");
 			langToKey.Add(Language.English, "en");
 			langToKey.Add(Language.English_GB, "en");
 			langToKey.Add(Language.English_US, "en");
-			langToKey.Add(Language.Chinese_CN, "zh-chs");
-			langToKey.Add(Language.Chinese_TW, "zh-cht");
+			langToKey.Add(Language.Chinese_CN, "zh-CHS");
+			langToKey.Add(Language.Chinese_TW, "zh-CHT");
 			langToKey.Add(Language.Dutch, "nl");
 			langToKey.Add(Language.Arabic, "ar");
 			langToKey.Add(Language.French, "fr");			
@@ -104,6 +113,7 @@ namespace Translate
 			langToKey.Add(Language.Portuguese, "pt");
 			langToKey.Add(Language.Russian, "ru");
 			langToKey.Add(Language.Spanish, "es");
+			langToKey.Add(Language.Polish, "pl");
 		}
 		
 		static SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
@@ -140,7 +150,7 @@ namespace Translate
 				if(string.IsNullOrEmpty(viewState) || coockieTime < DateTime.Now.AddMinutes(-30))
 				{  //emulate first access to site
 					WebRequestHelper helpertop = 
-						new WebRequestHelper(result, new Uri("http://www.windowslivetranslator.com/Default.aspx"), 
+						new WebRequestHelper(result, new Uri("http://www.microsofttranslator.com/Default.aspx"), 
 							networkSetting, 
 							WebRequestContentType.UrlEncodedGet);
 							
@@ -153,28 +163,32 @@ namespace Translate
 			}
 			
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://www.windowslivetranslator.com/Default.aspx"), 
+				new WebRequestHelper(result, new Uri("http://www.microsofttranslator.com/Default.aspx"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
 						
 			//query
 			lock(viewState)
 			{
-			string query = "__VIEWSTATE={0}&InputTextVal={1}&BrowserLanguagePreference=en&MaxInputChars=3500&LiveTranslationPostURL=http%3A%2F%2Flivetranslation.com%2Faff%2Fpartner.aspx&LiveTranslationPartnerID=500&LiveTranslationLanguagePairs=en_eses_enen_dede_enen_itit_enen_frfr_enen_ptpt_en&InputURL=http%3A%2F%2F&LangPair%24DDL={2}&BtnTransText=Translate+Text&__EVENTVALIDATION={3}";
+			string query = "__VIEWSTATE={0}&__EVENTVALIDATION={1}&InputTextVal={2}&InputTextInit=&BrowserLanguagePreference=ru&MaxInputChars=15000&LangPair_FromDDL_svid={3}&LangPair_FromDDL_textid=&LangPair_ToDDL_svid={4}&LangPair_ToDDL_textid=&LangPair%24FromLangLAD=&BtnTransText=%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B8&LiveTranslationPostURL=http%3A%2F%2Flivetranslation.com%2Faff%2Fpartner.aspx&LiveTranslationPartnerID=500&LiveTranslationLanguagePairs=";
 			query = string.Format(query, 
 				HttpUtility.UrlEncode(viewState),
+				HttpUtility.UrlEncode(eventValidation),
 				HttpUtility.UrlEncode(phrase),
-				ConvertLanguagesPair(languagesPair),
-				HttpUtility.UrlEncode(eventValidation));
+				ConvertLanguage(languagesPair.From),
+				ConvertLanguage(languagesPair.To)
+				);
 				helper.AddPostData(query);
 				
-				cookieContainer.Add(new Uri("http://www.windowslivetranslator.com"), new Cookie("lp", ConvertLanguagesPair(languagesPair)));
+				cookieContainer.Add(new Uri("http://www.microsofttranslator.com"), new Cookie("from", ConvertLanguage(languagesPair.From)));
+				cookieContainer.Add(new Uri("http://www.microsofttranslator.com"), new Cookie("to", ConvertLanguage(languagesPair.To)));
 				helper.CookieContainer = cookieContainer;
 			}	
 			
 			string responseFromServer = helper.GetResponse();
 		
-			string translation = StringParser.Parse("id=\"OutputText\" class=\"mttextarea\">", "</textarea>", responseFromServer);
+			string translation = StringParser.Parse("<textarea name=\"OutputText\"", "</textarea>", responseFromServer);
+			translation = StringParser.ExtractRight(">", translation);
 			
 			result.Translations.Add(translation);
 			lock(viewState)

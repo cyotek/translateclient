@@ -48,12 +48,12 @@ namespace Translate
 	{
 		public LiveTranslatorService()
 		{
-			Url = new Uri("http://www.windowslivetranslator.com/");
+			Url = new Uri("http://www.microsofttranslator.com/");
 			Name = "windowslivetranslator";
 			CompanyName = "Microsoft Corporation";
 			Copyright = "Copyright © 2008 Microsoft Corporation";
 
-			IconUrl = new Uri("http://www.windowslivetranslator.com/icon.ico");
+			IconUrl = new Uri("http://www.microsofttranslator.com/icon.ico");
 			FullName = "Microsoft Translator";
 			
 			AddTranslator(new LiveTranslator());
