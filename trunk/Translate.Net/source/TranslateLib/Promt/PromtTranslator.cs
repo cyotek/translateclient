@@ -96,7 +96,7 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 		
-			string translation = StringParser.Parse("class=\"rwin\">", "</div>", responseFromServer);
+			string translation = StringParser.Parse("class=\"send_win\">", "</textarea>", responseFromServer);
 			
 			result.Translations.Add(translation);
 			lock(viewState)
