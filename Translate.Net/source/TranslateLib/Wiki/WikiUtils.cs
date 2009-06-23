@@ -147,7 +147,7 @@ namespace Translate
 			foreach(string part in items)
 			{
 				//link = "html!";
-				link = "html!<a href=\"http://{0}.{1}/wiki/{2}\" title=\"http://{0}.{1}/wiki/{2}\">{3}</a>";
+				link = "html!<p><a href=\"http://{0}.{1}/wiki/{2}\" title=\"http://{0}.{1}/wiki/{2}\">{3}</a></p>";
 				link = string.Format(link, lang, 
 					searchHost,
 					part,
@@ -223,7 +223,8 @@ namespace Translate
 				throw new TranslationException("Nothing found");
 			}
 
-			string res = StringParser.Parse("<text>", "</text>", responseFromServer);
+			string res = StringParser.Parse("<text", "</text>", responseFromServer);
+			res = StringParser.ExtractRight(">", res);
 			res = res.Replace("width: 100%", "width: 95%");
 			res = res.Replace("float:right;", "float: right;margin-right: 0.5em;");
 			
