@@ -89,7 +89,7 @@ namespace Translate
 			string responseFromServer = helper.GetResponse();
 			string translation = StringParser.Parse("<TD valign=\"top\" width=\"95%\">", "</TD>", responseFromServer);
 			translation = StringParser.RemoveAll("<font", "</font>", translation);
-			translation = "html!" + translation.Replace("<BR><BR>", "<BR>");
+			translation = "html!<p>" + translation.Replace("<BR><BR>", "<BR>") + "</p>";
 			result.Translations.Add(translation);
 		}
 		

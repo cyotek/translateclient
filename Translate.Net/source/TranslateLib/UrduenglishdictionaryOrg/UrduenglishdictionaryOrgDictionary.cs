@@ -102,7 +102,7 @@ namespace Translate
 				string[] suggestions_list = parser.ReadItemsList("<a href='", "</a>");
 				foreach(string str in suggestions_list)
 				{
-					result.Translations.Add("html!<a href='http://www.urduenglishdictionary.org" + str + "</a>");
+					result.Translations.Add("html!<p><a href='http://www.urduenglishdictionary.org" + str + "</a></p>");
 				}
 			}
 			else
@@ -159,7 +159,7 @@ namespace Translate
 					
 					query = string.Format(CultureInfo.InvariantCulture, query, HttpUtility.UrlEncode(phrase));
 				
-					string link = "html!<a href=\"{0}\" title=\"{0}\">{1}</a>";
+					string link = "html!<p><a href=\"{0}\" title=\"{0}\">{1}</a></p>";
 					link = string.Format(link,
 						query,
 						"More ...");

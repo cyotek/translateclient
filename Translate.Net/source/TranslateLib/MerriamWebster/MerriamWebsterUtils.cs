@@ -304,7 +304,7 @@ namespace Translate
 					foreach(string item in suggestions)
 					{
 						string part = item;
-						string link = "html!<a href=\""+ host + "/{0}\" title=\""+ host + "/{0}\">{0}</a>";
+						string link = "html!<p><a href=\""+ host + "/{0}\" title=\""+ host + "/{0}\">{0}</a></p>";
 						link = string.Format(link,
 							part);
 						result.Translations.Add(link);

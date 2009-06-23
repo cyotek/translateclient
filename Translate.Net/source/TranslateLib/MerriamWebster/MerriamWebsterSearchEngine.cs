@@ -112,7 +112,7 @@ namespace Translate
 					foreach(string item in items)
 					{
 						string part = item;
-						string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
+						string link = "html!<p><a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a></p>";
 						link = string.Format(link,
 							part);
 						result.Translations.Add(link);
@@ -140,7 +140,7 @@ namespace Translate
 					string part = StringParser.ExtractLeft("\">", item);
 					string name = StringParser.ExtractRight("\">", item);
 					name = StringParser.RemoveAll("<sup>", "</sup>", name);
-					string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{1}</a>";
+					string link = "html!<p><a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{1}</a></p>";
 					link = string.Format(link,
 						part, name);
 					result.Translations.Add(link);
@@ -173,7 +173,7 @@ namespace Translate
 			{
 				string part = StringParser.Parse("<span class=\"variant\">", "</span>", responseFromServer);
 				
-				string link = "html!<a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a>";
+				string link = "html!<p><a href=\"http://www.merriam-webster.com/dictionary/{0}\" title=\"http://www.merriam-webster.com/dictionary/{0}\">{0}</a></p>";
 				link = string.Format(link,
 					part);
 				result.Translations.Add(link);
