@@ -1,4 +1,4 @@
-<html><head>
+﻿<html><head>
 <meta http-equiv="Content-Language" content="ru-ru">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link rel="SHORTCUT ICON" href="/fav.ico"><title>Translate.Net - Журнал изменений</title>
@@ -26,11 +26,38 @@ body,table
 <td>
 <div style="text-align: left;" align="center">
 
-<p>Тестовая версия <b>Translate.Net</b> (версия 0.1.3263.9610, 2008-12-07) установлена успешно.
+<p>Тестовая версия <b>Translate.Net</b> (версия 0.1.3461.5943, 2009-06-23) установлена успешно.
 <br>
 <br>
 Изменения :
 <ul>
+<li>Implemented support of DICT servers (RFC 2229) based on bsd-licensed implementation by Milan Negovan - <a href="http://aspnetresources.com/tools/dictionary.aspx">http://aspnetresources.com/tools/dictionary.aspx</a>
+	<ul>
+		<li>Please note, DICT servers listens on port 2628, so it should be accessible from your pc (Please check firewalls first if it don't work)</li>
+		<li>Added 94 different dictionaries for different languages</li>
+		<li>used 14 DICT servers with server-connections pool and load-balancing of servers, so always used fastest server from avaiable for dictionary</li>
+		
+	</ul>
+</li>	
+<li>Updated support of <a target="_blank" href="http://www.google.com/dictionary" rel="nofollow">Google dictionary</a></li>
+<li>Fixed support of <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - Language autdetect support, new translation directions</li>
+<li>Fixed support of <a target="_blank" href="http://www.systran.co.uk" rel="nofollow">http://www.systran.co.uk</a>
+&nbsp;- SYSTRAN translator</li>
+<li>Fixed support of <a href="http://multiwordnet.itc.it/english/home.php">MultiWordNet</a> a multilingual lexical database</li>
+<li>Fixed support of <a target="_blank" href="http://www.multitran.ru/" rel="nofollow">Multitran - system for translators</a>
+</li>
+<li>Fixed format changes of <a target="_blank" href="http://www.slovnenya.com" rel="nofollow">www.slovnenya.com</a> - Ukrainian-English-Ukrainian dictionary.</li>
+<li>Fixed support of <a target="_blank" href="http://www.online-translator.com" rel="nofollow">PROMT - Free Text Translator</a></li>	
+<li>Fixed support of <a target="_blank" href="http://www.wikipedia.org" rel="nofollow">http://www.wikipedia.org</a></li>	
+	
+<li>Added support of <a href="http://open-tran.eu/">Open-Tran</a> - The dictionary of translations of open-source software (OpenOffice, Gnome, Kde). 
+74 language supported. It available only when "Informatics" subject enabled at "Subjects" tab.</li>   
+<li>Implemented support of advanced system-wide keyboard and mouse hotkeys to run translation from any tool
+	<ul>
+		<li>To copy text to <b>Translate.Net</b> (and optionally run translation) - select text and press hotkey combination (default Alt+Right mouse button)</li>
+		<li>Allowed to setup any keyboard\mouse combination over "Options" page - "Hotkeys"</li>
+	</ul>
+</li>
 <li>Improved feature which allow to automatically switch keyboard layouts based on selected language pair. 
 	<ul>
 		<li>Created "Options" page - "Keyboard layouts"</li>
@@ -38,6 +65,7 @@ body,table
 		<li>Added option to disable switching of keyboard layouts</li>	
 	</ul> 
 </li>
+<li>added support of <a target="_blank" href="http://analytics.eqatec.com/?publicid=OhIqyKbbUsbqLcjo">EQATEC Analytics</a> to track use of tool</li>
 <li>fixes</li>
 </ul>
 <br>
@@ -66,10 +94,11 @@ body,table
 <div align="center" style="float: left;margin-left: 10px;">
 <a href="http://www.winzoro.com/" target="_blank"><img src="http://winzoro.com/data/ba_ne_r/zoro_v.gif" height="31" width="88" border="0" alt="Всё для украшения Windows. Обои, Темы, Курсоры..."></a>
 
+
 </div>
 <br>
 <br>
-
+<img src="http://translate-over-net.appspot.com/stats/add" height="0" width="0">
 </div>
 </div>
 <br>
