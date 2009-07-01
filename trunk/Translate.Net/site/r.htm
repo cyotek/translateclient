@@ -25,6 +25,7 @@ Redirecting to <a id="redir_lnk_err" href=""></a>&nbsp; failed. Reason : <span i
 </div>
 
 
+<!--
 <script type="text/javascript">
 var woopra_id = '1046809932';
 </script>
@@ -44,6 +45,7 @@ if(_gat != undefined)
   }
 }
 </script>
+-->
 
 <script type="text/javascript">
 
@@ -97,8 +99,8 @@ function UrlList()
 
 function redirectpage(dest)
 {
-	WoopraEvent("exit",dest);
-	_WaitFor(400);
+	//WoopraEvent("exit",dest);
+	//_WaitFor(400);
 
 	if (window.location.replace)
 		window.location.replace(dest)
@@ -163,8 +165,8 @@ function process()
 var redir_lnk = document.getElementById('redir_lnk');
 redir_lnk.href = decodeURIComponent(gup('l'));
 redir_lnk.innerHTML = redir_lnk.href;
-
-setTimeout('process()',200);
+process();
+//setTimeout('process()',200);
 
 </script>
 
