@@ -147,12 +147,14 @@ namespace Translate
 			// llAlreadyCollected
 			// 
 			this.llAlreadyCollected.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.llAlreadyCollected.Enabled = false;
 			this.llAlreadyCollected.Location = new System.Drawing.Point(10, 240);
 			this.llAlreadyCollected.Name = "llAlreadyCollected";
 			this.llAlreadyCollected.Size = new System.Drawing.Size(356, 33);
 			this.llAlreadyCollected.TabIndex = 9;
 			this.llAlreadyCollected.TabStop = true;
 			this.llAlreadyCollected.Text = "You can check already collected data here";
+			this.llAlreadyCollected.Visible = false;
 			this.llAlreadyCollected.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlAlreadyCollectedLinkClicked);
 			// 
 			// lDisable

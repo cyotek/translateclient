@@ -66,6 +66,7 @@ namespace Translate
 			llAlreadyCollected.Text = TranslateString("You can check already collected data here");
 			rbAllow.Text = TranslateString("Yes, I allow to collect anonymous information");
 			rbNotAllow.Text = TranslateString("No, I would not like information collecting");
+			llAlreadyCollected.Text = TranslateString("You can check already collected data here");
 		}		
 
 		void LlAlreadyCollectedLinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
