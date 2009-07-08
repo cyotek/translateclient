@@ -54,7 +54,7 @@ namespace Translate
 			Copyright = "Copyright © PROMT, Ltd., 2003-2008. For private noncommercial use only";
 			Restrictions = "For private noncommercial use only";
 
-			IconUrl = new Uri("http://translateclient.googlepages.com/promt.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/promt.png");
 			FullName = "PROMT - Free Text Translator";
 			
 			AddTranslator(new PromtTranslator());

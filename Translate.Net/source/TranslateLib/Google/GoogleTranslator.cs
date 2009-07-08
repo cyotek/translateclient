@@ -336,7 +336,7 @@ namespace Translate
 					networkSetting, 
 					WebRequestContentType.UrlEncodedGet,
 					true);
-			helper.Referer = "http://translateclient.googlepages.com/";
+			helper.Referer = "http://translate-net.appspot.com/";
 			
 			string responseFromServer = helper.GetResponse();
 			

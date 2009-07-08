@@ -112,7 +112,7 @@ namespace Translate
 								result = new DictionaryClient();
 								result.Url = url;
 								result.AutoConnect = false;
-								result.ClientName = "http://translateclient.googlepages.com/";
+								result.ClientName = "http://translate-net.appspot.com/";
 								break;
 							}
 						}

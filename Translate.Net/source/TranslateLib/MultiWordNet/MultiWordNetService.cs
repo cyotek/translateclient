@@ -51,7 +51,7 @@ namespace Translate
 			Name = "multiwordnet";
 			CompanyName = "TCC group at ITC-irst";
 			Copyright = "Copyright © Princeton University, TCC group at ITC-irst, TALP Group at the Universitat Politecnica de Catalunya (Spain), NLX-Group at the University of Lisbon (Portugal), Computational Linguistic Group at the University of Haifa (Israel), \"Alexandru Ioan Cuza\" University of Iasi (Romania), University of Verona (Italy)";
-			IconUrl = new Uri("http://translateclient.googlepages.com/mwn.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/mwn.png");
 			FullName = "MultiWordNet is a multilingual lexical database";
 			
 			AddMonolingualDictionary(new MultiWordNetDictionary());

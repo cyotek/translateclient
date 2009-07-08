@@ -57,7 +57,7 @@ namespace Translate
 			Name = "rosukrdic_iatp_org_ua_dic";
 			CompanyName = "Anatolyi Evpak";
 			Copyright = "Copyright © 2008, Anatolyi Evpak, I.O.Vyrgan, M.M.Pylynska";
-			IconUrl = new Uri("http://translateclient.googlepages.com/rosukrdic.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/rosukrdic.png");
 			FullName = "Russian-Ukrainian dictionary of constant expressions";
 						
 			BilingualDictionary tr = new RusUkrIatpOrgUaDictionary();

@@ -51,7 +51,7 @@ namespace Translate
 			Name = "merriam_webster";
 			CompanyName = "Merriam-Webster, Inc.";
 			Copyright = "Copyright © 2007 Merriam-Webster, Incorporated";
-			IconUrl = new Uri("http://translateclient.googlepages.com/merriamwebster.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/merriamwebster.png");
 			FullName = "Merriam-Webster dictionary";
 			
 			AddMonolingualDictionary(new MerriamWebsterDictionary());			
