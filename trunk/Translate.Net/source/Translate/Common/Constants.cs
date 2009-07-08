@@ -49,7 +49,7 @@ namespace Translate
 		public const string AppName = "Translate.Net";
 		
 		static ReadOnlyCollection<string> versionsTxtUrls = new ReadOnlyCollection<string>(
-			new string[] {"http://translateclient.googlepages.com/versions.txt", 
+			new string[] {"http://translate-net.appspot.com/versions.txt", 
 							"http://translateclient.googlecode.com/svn/trunk/Translate.Net/site/versions.txt"
 			//new string[] {"http://localhost/translate.net/versions.txt"
 			}
@@ -58,7 +58,7 @@ namespace Translate
 			get { return versionsTxtUrls; }
 		}
 	
-		public const string HomeUrl = "http://translateclient.googlepages.com";
+		public const string HomeUrl = "http://translate-net.appspot.com";
 		public const string StatsPageUrl = HomeUrl + "/q.htm";
 		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.200812.";
 		public const string RedirectPageUrl = HomeUrl + "/r.htm";

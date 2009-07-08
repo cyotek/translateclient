@@ -52,7 +52,7 @@ namespace Translate
 			CompanyName = "Mykola Sazhok";
 			Copyright = "Copyright © 2006, Mykola Sazhok";
 
-			IconUrl = new Uri("http://translateclient.googlepages.com/cybermova.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/cybermova.png");
 			FullName = "English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa";
 			
 			AddBilingualDictionary(new CybermovaComDictionary());

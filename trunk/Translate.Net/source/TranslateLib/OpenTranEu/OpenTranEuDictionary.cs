@@ -201,7 +201,7 @@ namespace Translate
 					networkSetting, 
 					WebRequestContentType.XmlRpc);
 			
-			helper.Referer = "http://translateclient.googlepages.com/";
+			helper.Referer = "http://translate-net.appspot.com/";
 			
 			string from = ConvertLanguage(languagesPair.From);
 			string to = ConvertLanguage(languagesPair.To);

@@ -57,7 +57,7 @@ namespace Translate
 			Name = "adips_pl";
 			CompanyName = "ADIPS Sp. z o.o.";
 			Copyright = "Copyright © 2000-2008 ADIPS® Sp. z o.o.";
-			IconUrl = new Uri("http://translateclient.googlepages.com/dictpl.png");
+			IconUrl = new Uri("http://translate-net.appspot.com/dictpl.png");
 			FullName = "Polish-English-Polish and Polish-German-Polish dictionaries";
 						
 			AddBilingualDictionary(new DictPlEnDictionary());

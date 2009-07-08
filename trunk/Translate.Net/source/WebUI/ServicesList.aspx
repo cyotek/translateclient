@@ -29,7 +29,7 @@
 		</script>
 	</head>
 	<body>
-		<a href="http://translateclient.googlepages.com/">
+		<a href="http://translate-net.appspot.com/">
 		<img style="border: 0px solid ;width: 32px; height: 32px;" alt="Homepage" src="translate.png"> 
 		</a>
 	
