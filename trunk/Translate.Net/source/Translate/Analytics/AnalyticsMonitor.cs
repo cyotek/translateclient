@@ -49,8 +49,7 @@ namespace Translate
 	public static class AnalyticsMonitor
 	{
 		static private IAnalyticsMonitor monitor;
-		const string baseHost = "http://analytics-monitor.eqatec.com/";
-		const string productID = "2a8836a4-7dfd-4f63-ac64-5c536aa0d34b";
+		const string productID = "24AD0FD84DFC436CAC6D14BC7B0B81E5";
 
 		static AnalyticsMonitor()
 		{
@@ -64,10 +63,8 @@ namespace Translate
 			{
 				try
 				{
-				    AnalyticsMonitorSettings settings = new AnalyticsMonitorSettings();
-			    	settings.ServerUri = new Uri(baseHost);
-					monitor = AnalyticsMonitorFactory.Create(productID, settings);
-					monitor.Start(new Version(ApplicationInfo.ProductVersion));
+					monitor = AnalyticsMonitorFactory.Create(productID);
+					monitor.Start(); 					
 				}
 				catch(Exception e)
 				{
