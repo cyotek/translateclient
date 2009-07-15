@@ -1,0 +1,50 @@
+application: translate-net
+version: 2
+runtime: python
+api_version: 1
+
+handlers:
+- url: /admin/.*
+  script: $PYTHON_LIB/google/appengine/ext/admin
+  login: admin
+
+- url: /(.*\.(ico))
+  static_files: \1
+  upload: (.*\.(ico))
+  mime_type: image/vnd.microsoft.icon
+
+- url: /(.*\.(gif|png|jpg))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg))
+  
+- url: /(.*\.(css))
+  static_files: \1
+  upload: (.*\.(css))
+
+- url: /(.*\.(js))
+  static_files: \1
+  upload: (.*\.(js))
+
+- url: /(.*\.(txt))
+  static_files: \1
+  upload: (.*\.(txt))
+
+- url: /(.*\.(xml))
+  static_files: \1
+  upload: (.*\.(xml))
+
+- url: /(.*\.(zip))
+  static_files: \1
+  upload: (.*\.(zip))
+
+- url: /(.*\.(exe))
+  static_files: \1
+  upload: (.*\.(exe))
+
+- url: /(.[^/]*\.(htm|html))
+  static_files: \1
+  upload: (.[^/]*\.(htm|html))
+  
+- url: /
+  script: handlers/homepage.py
+
