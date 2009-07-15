@@ -27,58 +27,58 @@ body,table
 <td>
 <div style="text-align: left;" align="center">
 
-<p>Тестова версія <b>Translate.Net</b> (версія 0.1.3461.5943, 2009-06-23) встановлена вдало.
+<p><b>Translate.Net</b> (версія 0.1.3476.6875, 2009-07-09) встановлена вдало.
 <br>
 <br>
 Зміни :
 <ul>
-<li>Implemented support of DICT servers (RFC 2229) based on bsd-licensed implementation by Milan Negovan - <a href="http://aspnetresources.com/tools/dictionary.aspx">http://aspnetresources.com/tools/dictionary.aspx</a>
+<li>Додано підтримку серверів DICT (RFC 2229) побудовану на основі розробки  Milan Negovan - <a href="http://aspnetresources.com/tools/dictionary.aspx">http://aspnetresources.com/tools/dictionary.aspx</a> 
 	<ul>
-		<li>Please note, DICT servers listens on port 2628, so it should be accessible from your pc (Please check firewalls first if it don't work)</li>
-		<li>Added 94 different dictionaries for different languages</li>
-		<li>used 14 DICT servers with server-connections pool and load-balancing of servers, so always used fastest server from avaiable for dictionary</li>
+		<li>Будь ласка, зауважте що DICT сервери використовують TCP-порт 2628 і Ваш файрвол повинен дозволяти з’єднання з серверами DICT</li>
+		<li>Додано 94 нових словника для багатьох мов</li>
+		<li>Программа завжди використовує найшвидший сервер із 14 для забезбечення миттєвого доступу к словникам</li>
 		
 	</ul>
 </li>	
-<li>Updated support of <a target="_blank" href="http://www.google.com/dictionary" rel="nofollow">Google dictionary</a></li>
-<li>Fixed support of <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - Language autdetect support, new translation directions</li>
-<li>Fixed support of <a target="_blank" href="http://www.systran.co.uk" rel="nofollow">http://www.systran.co.uk</a>
-&nbsp;- SYSTRAN translator</li>
-<li>Fixed support of <a href="http://multiwordnet.itc.it/english/home.php">MultiWordNet</a> a multilingual lexical database</li>
-<li>Fixed support of <a target="_blank" href="http://www.multitran.ru/" rel="nofollow">Multitran - system for translators</a>
+<li>Оновлено підтримку <a target="_blank" href="http://www.google.com/dictionary" rel="nofollow">Словника Google</a></li>
+<li>Оновлено підтримку <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - автовизначення мови, нові напрямки перекладу</li>
+<li>Оновлено підтримку <a target="_blank" href="http://www.systran.co.uk" rel="nofollow">http://www.systran.co.uk</a>
+&nbsp;- перекладачки SYSTRAN</li>
+<li>Оновлено підтримку <a href="http://multiwordnet.itc.it/english/home.php">MultiWordNet</a> - багатомовної лексичної бази даних</li>
+<li>Оновлено підтримку <a target="_blank" href="http://www.multitran.ru/" rel="nofollow">Словника Multitran</a>
 </li>
-<li>Fixed format changes of <a target="_blank" href="http://www.slovnenya.com" rel="nofollow">www.slovnenya.com</a> - Ukrainian-English-Ukrainian dictionary.</li>
-<li>Fixed support of <a target="_blank" href="http://www.online-translator.com" rel="nofollow">PROMT - Free Text Translator</a></li>	
-<li>Fixed support of <a target="_blank" href="http://www.wikipedia.org" rel="nofollow">http://www.wikipedia.org</a></li>	
-<li>Added support of <a href="http://open-tran.eu/">Open-Tran</a> - The dictionary of translations of open-source software (OpenOffice, Gnome, Kde). 
-74 language supported. It available only when "Informatics" subject enabled at "Subjects" tab.</li>   
-<li>Implemented support of advanced system-wide keyboard and mouse hotkeys to run translation from any tool
+<li>Оновлено формат <a target="_blank" href="http://www.slovnenya.com" rel="nofollow">www.slovnenya.com</a> - Українсько-анлійсько-українського словника.</li>
+<li>Оновлено підтримку <a target="_blank" href="http://www.online-translator.com" rel="nofollow">PROMT - Free Text Translator</a></li>	
+<li>Оновлено підтримку <a target="_blank" href="http://www.wikipedia.org" rel="nofollow">http://www.wikipedia.org</a></li>	
+<li>Додано <a href="http://open-tran.eu/">Open-Tran</a> - Словник перекладів в програмах з відкритим кодом (OpenOffice, Gnome, Kde). 
+Підтримується 74 мови. Доступний коли вибрана тема "Інформатіка" на закладці "Теми".</li>   
+<li>Покращені можливості гарячих клавіш для доступу до програми із будь-яких інших програм
 	<ul>
-		<li>To copy text to <b>Translate.Net</b> (and optionally run translation) - select text and press hotkey combination (default Alt+Right mouse button)</li>
-		<li>Allowed to setup any keyboard\mouse combination over "Options" page - "Hotkeys"</li>
+		<li>Для копіювання тексту в <b>Translate.Net</b> (і запуску перекладу) - виберіть текст і натисніть комбінацію клавіш (за замовченням - Alt+Права кнопка миші)</li>
+		<li>Існує можливість вибрати будь-яку іншу комбінацію клавіш клавіатури та миші за допомогою вікна "Налаштування", сторінка - "Глобальні гарячі клавіши"</li>
 	</ul>
 </li>
-<li>Improved feature which allow to automatically switch keyboard layouts based on selected language pair. 
+<li>Покращене автоматичне переключення розкладів клавіатури на основі вибранного напрямку перекладу  
 	<ul>
-		<li>Created "Options" page - "Keyboard layouts"</li>
-		<li>Added ability to setup mapping from source language to preferred keyboard layout</li>
-		<li>Added option to disable switching of keyboard layouts</li>	
+		<li>Створено сторінку "Розклади клавіатури" у вікні "Налаштування"</li>
+		<li>Додано можливість настроювати відповідність вибраної мови та розкладу клавіатури</li>
+		<li>Додано можливість вимикати автоматичне перемикання розкладів клавіатури</li>	
 	</ul> 
 </li>
-<li>added support of <a target="_blank" href="http://analytics.eqatec.com/?publicid=OhIqyKbbUsbqLcjo">EQATEC Analytics</a> to track use of tool</li>
-<li>fixes</li>
+<li>Додано пітримку <a target="_blank" href="http://analytics.eqatec.com/">EQATEC Analytics</a> для відслідковування використання програми</li>
+<li>Виправлення</li>
 </ul>
 <br>
 <br>
 
 <p>Додаткова інформация про <b>Translate.Net</b>:
 <ul>
-<li><a href="http://translateclient.googlepages.com/changelog.uk.html"  target="_top">Журнал змін</a>
+<li><a href="http://translate-net.appspot.com/changelog.uk.html"  target="_top">Журнал змін</a>
 - опис змін у цій та попередніх версіях.</li>
-<li><a href="http://translateclient.googlepages.com/help.index.en.html"  target="_top">Документація</a>
+<li><a href="http://translate-net.appspot.com/help.index.en.html"  target="_top">Документація</a>
  про користування <b>Translate.Net</b> (англійською мовою)
 </li>
-<li>Також наявна портативна версія (для запуску з флеш-диску). Її можна завантажити <a href="http://translateclient.googlepages.com/download.uk.html">звідси</a>.</li>
+<li>Також наявна портативна версія (для запуску з флеш-диску). Її можна завантажити <a href="http://translate-net.appspot.com/download.uk.html">звідси</a>.</li>
 </ul>
 
 <br>

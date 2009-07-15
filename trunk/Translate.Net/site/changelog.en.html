@@ -72,14 +72,50 @@
 <hr style="width: 100%; height: 2px;">
 <div style="text-align: left;padding-right: 20px" align="center">
 
-<b>2008-12-07</b>
+<b>2009-07-09</b>
 <br>
-Version&nbsp;0.1.3249.6795 :
+Version&nbsp;0.1.3476.6875 :
 <ul>
-<li>Added support of <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - multi-language translator - 25 translation directions</li>
-<li>Added support of <a href="http://megaslownik.pl">megaslownik.pl</a> - Polish oriented free online dictionary - Polish to English, German, Russian, French, Spanish and Italian</li>
-<li>Added Greek gui translation by Spyros</li> 
-<li>Added Romanian gui translation by Marius Marusteri</li> 
+<li>Implemented support of DICT servers (RFC 2229) based on bsd-licensed implementation by Milan Negovan - <a href="http://aspnetresources.com/tools/dictionary.aspx">http://aspnetresources.com/tools/dictionary.aspx</a>
+	<ul>
+		<li>Please note, DICT servers listens on port 2628, so it should be accessible from your pc (Please check firewalls first if it don't work)</li>
+		<li>Added 94 different dictionaries for different languages</li>
+		<li>used 14 DICT servers with server-connections pool and load-balancing of servers, so always used fastest server from avaiable for dictionary</li>
+		
+	</ul>
+</li>	
+<li>Updated support of <a target="_blank" href="http://www.google.com/dictionary" rel="nofollow">Google dictionary</a></li>
+<li>Fixed support of <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - Language autdetect support, new translation directions</li>
+<li>Fixed support of <a target="_blank" href="http://www.systran.co.uk" rel="nofollow">http://www.systran.co.uk</a>
+&nbsp;- SYSTRAN translator</li>
+<li>Fixed support of <a href="http://multiwordnet.itc.it/english/home.php">MultiWordNet</a> a multilingual lexical database</li>
+<li>Fixed support of <a target="_blank" href="http://www.multitran.ru/" rel="nofollow">Multitran - system for translators</a>
+</li>
+<li>Fixed format changes of <a target="_blank" href="http://www.slovnenya.com" rel="nofollow">www.slovnenya.com</a> - Ukrainian-English-Ukrainian dictionary.</li>
+<li>Fixed support of <a target="_blank" href="http://www.online-translator.com" rel="nofollow">PROMT - Free Text Translator</a></li>	
+<li>Fixed support of <a target="_blank" href="http://www.wikipedia.org" rel="nofollow">http://www.wikipedia.org</a></li>	
+
+<li>Added support of <a href="http://open-tran.eu/">Open-Tran</a> - The dictionary of translations of open-source software (OpenOffice, Gnome, Kde). 
+74 language supported. It available only when "Informatics" subject enabled at "Subjects" tab.</li>   
+<li>Implemented support of advanced system-wide keyboard and mouse hotkeys to run translation from any tool
+	<ul>
+		<li>To copy text to <b>Translate.Net</b> (and optionally run translation) - select text and press hotkey combination (default Alt+Right mouse button)</li>
+		<li>Allowed to setup any keyboard\mouse combination over "Options" page - "Hotkeys"<br />
+		<img style="width: 400px; height: 329px;" src="http://3.bp.blogspot.com/_-9V3zqX1VKw/SUK0l9_LP2I/AAAAAAAAANw/kUd_99va5WM/s400/othertools3.eng.png" alt="Hotkeys setup dialog" id="BLOGGER_PHOTO_ID_5278980277619343202" border="0">
+		</li>
+	</ul>
+</li>
+<li>Improved feature which allow to automatically switch keyboard layouts based on selected language pair.<br />
+	<img style="width: 400px; height: 329px;" src="http://1.bp.blogspot.com/_-9V3zqX1VKw/STtNFVQiLWI/AAAAAAAAANo/u3dyXO-5NbA/s400/layouts1.en.png" alt="Keyboard layouts setup dialog" id="BLOGGER_PHOTO_ID_5276896142395845986" border="0"> 
+	<ul>
+		<li>Created "Options" page - "Keyboard layouts"</li>
+		<li>Added ability to setup mapping from source language to preferred keyboard layout</li>
+		<li>Added option to disable switching of keyboard layouts</li>	
+	</ul> 
+</li>
+<li>added support of <a target="_blank" href="http://analytics.eqatec.com/?publicid=OhIqyKbbUsbqLcjo">EQATEC Analytics</a> to track use of tool</li>
+<li>updated Arabic translation by Awadh A Al-Ghaamdi, 2009-06-09
+<li>fixes</li>
 </ul>
 
 <br>
@@ -99,6 +135,19 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </div>
 <br>
 <br>
+
+
+
+<b>2008-12-07</b>
+<br>
+Version&nbsp;0.1.3249.6795 :
+<ul>
+<li>Added support of <a href="http://www.windowslivetranslator.com">Microsoft's LiveTranslator</a> - multi-language translator - 25 translation directions</li>
+<li>Added support of <a href="http://megaslownik.pl">megaslownik.pl</a> - Polish oriented free online dictionary - Polish to English, German, Russian, French, Spanish and Italian</li>
+<li>Added Greek gui translation by Spyros</li> 
+<li>Added Romanian gui translation by Marius Marusteri</li> 
+</ul>
+
 
 
 
@@ -148,7 +197,7 @@ received useful translation.
 <br>
 Version&nbsp;0.1.3201.2086 :
 <ul>
-<li>Created portable version. It can be downloaded <a href="http://translateclient.googlepages.com/download.en.html">here</a>.
+<li>Created portable version. It can be downloaded <a href="http://translate-net.appspot.com/download.en.html">here</a>.
 This version was originally created as part of big collection of free portable software -
 <a href="http://www.winpenpack.com/">winPenPack</a>
 by Danilo Leggieri</li>
@@ -488,7 +537,7 @@ Version&nbsp;0.1.2953.2644. First public alpha preview release. 6 services, 2 GU
 <hr style="width: 100%; height: 2px;">
 <!-- AddThis Button BEGIN -->
 <script type="text/javascript">var addthis_pub = "oprudkyi";</script>
-<a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', 'http://translateclient.googlepages.com/index.en.html', 'Free client to network translations services')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="" /></a><script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
+<a href="http://www.addthis.com/bookmark.php" onmouseover="return addthis_open(this, '', 'http://translate-net.appspot.com/index.en.html', 'Free client to network translations services')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" border="0" alt="" /></a><script type="text/javascript" src="http://s7.addthis.com/js/152/addthis_widget.js"></script>
 <!-- AddThis Button END -->
 <br>
 <br>
