@@ -74,6 +74,36 @@ namespace Translate
 
 		}
 		
+		public static void OnThreadException(object exception)
+		{
+			OnThreadException(exception, null);
+		}
+
+		public static void OnThreadException(object exception, string message)
+		{
+			bool stop_monitor = false;
+			if(monitor == null)
+			{
+				Start();
+				stop_monitor = true;
+			}
+			
+			if(monitor != null)
+			{
+				try
+				{
+					monitor.TrackException((Exception)exception, message);
+				}
+				catch
+				{
+				
+				}
+			}
+			
+			if(stop_monitor)
+				Stop();
+		}
+		
 		public static void Stop()
 		{
 			if(monitor != null)

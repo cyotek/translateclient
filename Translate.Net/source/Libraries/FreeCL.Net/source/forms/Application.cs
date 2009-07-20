@@ -79,6 +79,8 @@ namespace FreeCL.Forms
 			OnThreadException(e.Exception);
 		}
 		
+		public static event System.Threading.ThreadExceptionEventHandler ExceptionsLog; 
+		
 		public static void OnThreadException(object exception)
 		{
 			 System.Exception e = exception as System.Exception;
@@ -87,6 +89,19 @@ namespace FreeCL.Forms
 			 if(e.GetType().FullName == "FreeCL.RTL.AbortException") 
 				 return;
 			 FreeCL.RTL.Trace.TraceException(e);
+			 
+			 if(ExceptionsLog != null)
+			 {
+			 	try
+			 	{
+			 		ExceptionsLog(null, new System.Threading.ThreadExceptionEventArgs(e));
+			 	}
+			 	catch
+			 	{
+			 	
+			 	}
+			 }	
+			 	
 			 FreeCL.Forms.ExceptionDialog.ShowException(e);
 		}
 
