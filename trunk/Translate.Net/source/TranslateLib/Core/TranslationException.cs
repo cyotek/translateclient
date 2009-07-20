@@ -52,12 +52,20 @@ namespace Translate
 		{
 		}
 		
+		static string ReduceString(string message)
+		{
+			if(message.Length <= 300)
+				return message;
+			else	
+				return message.Substring(0, 300);
+		}
+		
 		public TranslationException(string message)
-		: base(message)
+		: base(ReduceString(message))
 		{
 		}
 		
-		public TranslationException(string message, Exception innerException):base(message, innerException)
+		public TranslationException(string message, Exception innerException):base(ReduceString(message), innerException)
 		{
 		}
 		

@@ -48,8 +48,8 @@
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
   <ItemGroup>
-    <Reference Include="AnalyticsMonitor">
-      <HintPath>..\..\bin\AnalyticsMonitor.dll</HintPath>
+    <Reference Include="EQATEC.Analytics.Monitor">
+      <HintPath>..\..\bin\EQATEC.Analytics.Monitor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -279,6 +279,15 @@
     <EmbeddedResource Include="ResultBrowser\ResultBrowser.resx">
       <DependentUpon>ResultBrowser.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\..\site\changelog.200812.en.html">
+      <Link>site\changelog.200812.en.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.200812.ru.html">
+      <Link>site\changelog.200812.ru.html</Link>
+    </None>
+    <None Include="..\..\site\changelog.200812.uk.html">
+      <Link>site\changelog.200812.uk.html</Link>
+    </None>
     <None Include="..\..\site\changelog.data.en.html">
       <Link>site\changelog.data.en.html</Link>
     </None>

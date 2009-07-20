@@ -78,7 +78,8 @@ namespace Translate
 			
 			try
 			{
-			
+		
+				Application.ExceptionsLog += GlobalEventsLogException;
 				ResultsCache.UseCache = true;
 				GuessResultsCache.UseCache = true;
 				
@@ -148,6 +149,12 @@ namespace Translate
 		{
 			Application.OnThreadException((Exception)e.ExceptionObject);
 		}
+		
+		static void GlobalEventsLogException(object sender, System.Threading.ThreadExceptionEventArgs e)
+		{
+			AnalyticsMonitor.OnThreadException(e.Exception);
+		}
+		
 		
 	}
 }

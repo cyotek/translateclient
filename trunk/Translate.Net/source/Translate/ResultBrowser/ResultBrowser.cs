@@ -213,7 +213,6 @@ namespace Translate
 		
 		string GetResultHtml(Result result, double indent)
 		{
-
 			StringBuilder htmlString = new StringBuilder();
 			
 			if(result.Error == null || result.ResultNotFound)
@@ -398,6 +397,11 @@ namespace Translate
 			else
 			{
 				htmlString.Append(HttpUtility.HtmlEncode(LangPack.TranslateString(result.Error.Message)));
+				if(!result.ResultNotFound)
+				{
+					string trackMessage = string.Format("Error on translating phrase : {0}, direction : {1}, subject : {2}, service : {3}", result.Phrase, result.LanguagePair.ToString(), result.Subject, result.ServiceItem.FullName);
+					AnalyticsMonitor.OnThreadException(result.Error, trackMessage);
+				}
 			}
 			return htmlString.ToString();
 		}
