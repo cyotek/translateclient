@@ -60,7 +60,7 @@ namespace Translate
 	
 		public const string HomeUrl = "http://translate-net.appspot.com";
 		public const string StatsPageUrl = HomeUrl + "/q.htm";
-		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.200812.";
+		public const string ChangeLogPageUrlBase = HomeUrl + "/changelog.200907.";
 		public const string RedirectPageUrl = HomeUrl + "/r.htm";
 		public const string DonateUrl = HomeUrl + "/donations.en.html";
 		public const string HelpUrl = HomeUrl + "/help.index.en.html";
