@@ -66,7 +66,7 @@ namespace Translate
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			Encoding encoding = Encoding.GetEncoding("iso-8859-1");
-			string query = "http://wordnet.princeton.edu/perl/webwn?s=" + HttpUtility.UrlEncode(phrase, encoding);
+			string query = "http://wordnetweb.princeton.edu/perl/webwn?s=" + HttpUtility.UrlEncode(phrase, encoding);
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri(query), 
 					networkSetting, 
