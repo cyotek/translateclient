@@ -121,7 +121,7 @@ namespace Translate
 				}
 			}
 			
-			if(!responseFromServer.Contains("One entry found.\n<br/>"))
+			if(!(responseFromServer.Contains("One entry found.\n<br/>")  || responseFromServer.Contains("One entry found.\n<br />")))
 			{
 			
 				if(string.IsNullOrEmpty(post_data) && responseFromServer.Contains("'list' value=\"va:"))
