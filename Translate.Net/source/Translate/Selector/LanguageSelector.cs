@@ -790,20 +790,23 @@ namespace Translate
 				return;
 			if(serviceItemsSettings == null || !phraseChanged)
 			{
-				serviceItemsSettings = profile.GetServiceSettings(phrase, selection);
-				lvServicesEnabled.Items.Clear();
-				lvServicesDisabled.Items.Clear();
-				lvServicesDisabledByUser.Items.Clear();
-				serviceItemsContainers.Clear();
-				enabledLVItems.Clear();
-				disabledLVItems.Clear();
-				disabledByUserLVItems.Clear();
-				bool showLanguage = selection.From == Language.Any || selection.To == Language.Any;
-				foreach(ServiceItemSetting ss in serviceItemsSettings)
+				lock(serviceItemsContainers)
 				{
-					ServiceSettingsContainer sc = new ServiceSettingsContainer(ss, showLanguage);
-					sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.FullName, ss.LanguagePair, ss.Subject);
-					serviceItemsContainers.Add(sc);
+					serviceItemsSettings = profile.GetServiceSettings(phrase, selection);
+					lvServicesEnabled.Items.Clear();
+					lvServicesDisabled.Items.Clear();
+					lvServicesDisabledByUser.Items.Clear();
+					serviceItemsContainers.Clear();
+					enabledLVItems.Clear();
+					disabledLVItems.Clear();
+					disabledByUserLVItems.Clear();
+					bool showLanguage = selection.From == Language.Any || selection.To == Language.Any;
+					foreach(ServiceItemSetting ss in serviceItemsSettings)
+					{
+						ServiceSettingsContainer sc = new ServiceSettingsContainer(ss, showLanguage);
+						sc.DisabledByUser = !profile.IsServiceEnabled(ss.ServiceItem.FullName, ss.LanguagePair, ss.Subject);
+						serviceItemsContainers.Add(sc);
+					}
 				}
 			}
 
@@ -816,11 +819,13 @@ namespace Translate
 				lvServicesDisabled.BeginUpdate();
 				lvServicesDisabledByUser.SuspendLayout();
 				lvServicesDisabledByUser.BeginUpdate();
-				foreach(ServiceSettingsContainer sc in serviceItemsContainers)
+				lock(serviceItemsContainers)
 				{
-					AddListViewItem(sc);
+					foreach(ServiceSettingsContainer sc in serviceItemsContainers)
+					{
+						AddListViewItem(sc);
+					}
 				}
-				
 				CalcServicesSizes();
 				try 
 				{ //try to avoid unrepeatable bug
