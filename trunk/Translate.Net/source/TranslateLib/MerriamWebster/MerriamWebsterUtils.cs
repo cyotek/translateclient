@@ -319,7 +319,7 @@ namespace Translate
 			}
 			
 			result.ArticleUrl = host + "/" + phrase;
-			if(responseFromServer.IndexOf("One entry found.\n<br/>") > 0)
+			if(responseFromServer.Contains("One entry found.\n<br/>") || responseFromServer.Contains("One entry found.\n<br />"))
 			{
 				SetResult(result, responseFromServer, host + "/");
 			}
