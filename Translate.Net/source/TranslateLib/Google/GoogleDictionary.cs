@@ -265,17 +265,15 @@ namespace Translate
 						related_str = related_str.Replace("</span>", "");
 						related_str = related_str.Replace("<strong>", "");
 						related_str = related_str.Replace("</strong>", "");
-						related_str = related_str.Replace("<br />", "");
-						related_str = related_str.Replace("<br>", "");
-					
-						int translationIdx = related_str.IndexOf("<dfn>");
+						
+						int translationIdx = related_str.IndexOf("</b>");
 						if(translationIdx < 0)
-							throw new TranslationException("Can't found '<dfn>' tag in string : " + related_str);
+							throw new TranslationException("Can't found '</b>' tag in string : " + related_str);
 							
 						string subphrase = related_str.Substring(0, translationIdx).Replace("\n", "").Trim(); 
 						subphrase = StringParser.RemoveAll("<", ">", subphrase);
 						
-						string subphrasetrans = related_str.Substring(translationIdx + 5); 
+						string subphrasetrans = related_str.Substring(translationIdx + 4); 
 						subphrasetrans = StringParser.RemoveAll("<", ">", subphrasetrans);
 						subphrasetrans = subphrasetrans.Replace("&nbsp", " ").Replace("\n", "").Trim(); 
 						
