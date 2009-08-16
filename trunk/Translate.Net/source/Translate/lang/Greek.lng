@@ -1083,79 +1083,80 @@ OpenThesaurusSI : Είναι ένα λεξικό ανοιχτού κώδικα �
 [Break translation on switching to other application]
 Διάλειμμα μετάφρασης για τη μετάβαση σε άλλη εφαρμογή
 [Don't change]
-
+Καμία αλλαγή
 [Switch keyboard layout based on selected language]
-
+Επιλογή διάταξης πληκτρολογίου βασισμένη στην επιλεγμένη γλώσσα
 [Language]
-
+Γλώσσα
 [Selected language]
-
+Επιλεγμένη γλώσσα
 [Change keyboard layout to]
-
+Αλλαγή διάταξης πληκτρολογίου σε:
 [When source language changes switch keyboard layout to]
-
+Όταν η πηγή γλώσσας αλλάζει τη διάταξη πληκτρολογίου σε:
 [Changed]
-
+Άλλαξε!
 [Modified by user]
-
+Τροποποιήθηκε από το χρήστη
 [Assigned automatically]
-
+Ορίστηκε αυτόματα
 [Selected language to keyboard layout mapping]
-
+Επιλεγμένη γλώσσα με χαρτογράφηση διάταξης πληκτρολογίου
 [Selected\t :]
-
+Επιλεγμένο\τ:
 [Auto\t\t :]
-
+Αυτόματα\τ\τ:
 [Saved\t\t :]
-
+Αποθηκευμάνο\τ\τ:
 [Keyboard layouts]
-
+Διατάξεις πληκτρολογίου
 [Advanced Hotkey]
-
+Πλήκτρα για Προχωρημένους
 [Hotkey not set]
-
+Δεν ορίστηκας πλήκτρα
 [Custom Hotkey]
-
+Συνήθη πλήκτρα
 [Alt + Right Mouse Button]
-
+Alt + Δεξί κλικ
 [Middle Mouse Button]
-
+Μεσαίο πλήκτρο ποντικιού
 [Ctrl + Right Mouse Button]
-
+Ctrl + Δεξί κλικ
 [Shift + Right Mouse Button]
-
+Shift + Δεξί κλικ
 [Left Mouse Button + Right Mouse Button]
-
+Αριστερό + Δεξί πλήκτρο
 [Modifiers :]
-
+Τροποποιήσεις :
 [Mouse buttons :]
-
+Πλήκτρα ποντικιού
 [Key :]
-
+Κλειδί :
 [Left{0}]
-
+Αριστερό{0}
 [Middle{0}]
-
+Μεσαίο{0}
 [Right{0}]
-
+Δεξί{0}
 [Usage information collecting]
-
+Συλλογή χρήσιμων πληροφοριών
 [Yes]
-
+Ναι
 [Do you want to allow collecting of basic information about application usage ?]
-
+Επιτρέπετε τη συλλογή βασικών πληροφοριών για τη χρήση εφαρμογής ;
 [Tool will]
-
+Επεξεργάσιμα
 [Tool will not]
-
+Μη επεξεργάσιμα
 [Collect anonymous information about tool usage : tool running time, tool version, OS version.]
-
+Συγκεντρώνουμε ανώνυμες πληροφορίες για τη χρήση αυτού του εργαλείου: Συχνότητα χρήσης του, έκδοση εργαλείου, έκδοση Λειτουργικού συστήματος
 [Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
-
+Συλλέγουμε το όνομά σας, τη διεύθυνση, ή άλλες προσωπικές ευπροσδιόριστες πληροφορίες. Οι συλλεχθείσες πληροφορίες είναι ανώνυμες.
 [You can check already collected data here]
-
+Μπορείτε να ελέγξετε τα ήδη συλλεχθέντα στοιχεία εδώ
 [You can disable data collecting at any time in "Options" dialog]
-
+Μπορείτε να απενεργοποιήσετε τη συλλογή στοιχείων σε οποιαδήποτε στιγμή στο παράθυρο διαλόγου "Επιλογές"
 [Yes, I allow to collect anonymous information]
-
+Ναι, επιτρέπω να συλλέγετε ανώνυμες πληροφορίες
 [No, I would not like information collecting]
+Όχι, δεν θα ήθελα να συλλέγετε ανώνυμες πληροφορίες
