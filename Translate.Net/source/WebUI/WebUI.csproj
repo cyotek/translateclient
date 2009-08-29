@@ -1,4 +1,4 @@
-﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectGuid>{E0806918-2B38-45FD-B33A-91680EFC7861}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,7 +7,7 @@
     <RootNamespace>WebUI</RootNamespace>
     <AssemblyName>Translate.WebUI</AssemblyName>
     <OutputPath>..\..\bin\</OutputPath>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21}%3b{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <SignAssembly>True</SignAssembly>
     <AssemblyOriginatorKeyFile>TranslateWebUI.snk</AssemblyOriginatorKeyFile>
     <DelaySign>False</DelaySign>
