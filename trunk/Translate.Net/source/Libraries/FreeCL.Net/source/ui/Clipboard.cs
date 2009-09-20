@@ -130,7 +130,8 @@ namespace FreeCL.UI
 			System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 			if(webbrowser != null)
 			{  
-				WebBrowserHelper.GetDocument(webbrowser).ExecCommand("Copy", false, null);
+				WebBrowserHelper.ExecCopy(webbrowser); 
+				///TODO: don't work in unix
 				return;
 			}
 			
@@ -166,7 +167,8 @@ namespace FreeCL.UI
 			System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 			if(webbrowser != null)
 			{  
-				WebBrowserHelper.GetDocument(webbrowser).ExecCommand("Copy", false, null);
+				WebBrowserHelper.ExecCopy(webbrowser); 
+				///TODO: don't work in unix
 				return;
 			}
 			
@@ -345,6 +347,9 @@ namespace FreeCL.UI
         /// <returns></returns>
         public static bool EmptyClipboard()
         {
+			if(MonoHelper.IsUnix)
+				return false;
+			
         	if (!NativeMethods.OpenClipboard(IntPtr.Zero))
             	return false;
 			bool result = NativeMethods.EmptyClipboard();
@@ -359,6 +364,9 @@ namespace FreeCL.UI
         /// <returns></returns>    
         public static bool SetClipboard(ReadOnlyCollection<DataClip> clipData)
         {
+			if(MonoHelper.IsUnix)
+				return false;
+			
             //Open clipboard to allow its manipultaion
             if (!NativeMethods.OpenClipboard(IntPtr.Zero))
                 return false;
@@ -417,7 +425,7 @@ namespace FreeCL.UI
                 //Init the serializer
                 XmlSerializer xml = new XmlSerializer(typeof(DataClip));
                 // To write to a file, create a StreamWriter object.
-                using (StreamWriter sw = new StreamWriter(di.FullName + @"\" + i.ToString() + ".cli",false))
+                using (StreamWriter sw = new StreamWriter(di.FullName + Path.DirectorySeparatorChar + i.ToString() + ".cli",false))
                 {
                     //Serialize the clipboard data
                     xml.Serialize(sw, cData.Current);
@@ -449,7 +457,7 @@ namespace FreeCL.UI
                     //Init the serializer
                     XmlSerializer xml = new XmlSerializer(typeof(DataClip));
                     //Set the file to read
-                    FileInfo fi = new FileInfo(di.FullName + "\\" + x.ToString() + ".cli");
+                    FileInfo fi = new FileInfo(di.FullName + System.IO.Path.DirectorySeparatorChar+ x.ToString() + ".cli");
                     //Init the stream to deserialize
                     using (FileStream fs = fi.Open(FileMode.Open))
                     {
