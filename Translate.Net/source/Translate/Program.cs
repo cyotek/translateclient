@@ -60,6 +60,9 @@ namespace Translate
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="FreeCL.Forms.OptionsControlsManager.RegisterOptionControl(System.Type,System.String,System.Int32,System.String,System.Int32)")]
 		private static void Main(string[] args)
 		{
+			//if(MonoHelper.IsUnix)			
+			//	Environment.SetEnvironmentVariable ("MONO_BROWSER_ENGINE", "webkit");
+
 			if(CommandLineHelper.IsCommandSwitchSet("gen_list"))
 			{
 				try
@@ -94,7 +97,9 @@ namespace Translate
 				OptionsControlsManager.RegisterOptionControl(typeof(TrayOptionsControl), "General", 0, "Tray", 2);
 				OptionsControlsManager.RegisterOptionControl(typeof(ResultWindowOptionControl), "General", 0, "Result view", 3);
 				OptionsControlsManager.RegisterOptionControl(typeof(GuesserOptionsControl), "General", 0, "Language detection", 4);
-				OptionsControlsManager.RegisterOptionControl(typeof(KeyboardLayoutControl), "General", 0, "Keyboard layouts", 5);
+				
+				if(!MonoHelper.IsUnix) //monobug - don't work with DataSource
+					OptionsControlsManager.RegisterOptionControl(typeof(KeyboardLayoutControl), "General", 0, "Keyboard layouts", 5);
 				
 				
 				OptionsControlsManager.RegisterOptionControl(typeof(UpdatesOptionsControl), "General", 0, "Updates", 6);
@@ -138,6 +143,7 @@ namespace Translate
 
 				AnalyticsMonitor.Start();
 				Application.Run(new TranslateMainForm());
+				WebUI.ResultsWebServer.Stop();
 			}
 			catch(Exception e)
 			{
