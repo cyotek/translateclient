@@ -84,7 +84,8 @@ namespace FreeCL.Forms
 		
 		static string iePath = "";
 		static string directIEPath = System.Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) +
-			@"\Internet Explorer\iexplore.exe";
+			Path.DirectorySeparatorChar +"Internet Explorer" + Path.DirectorySeparatorChar + "iexplore.exe";
+
 			
 		public static void StartIE(string fileName)
 		{
