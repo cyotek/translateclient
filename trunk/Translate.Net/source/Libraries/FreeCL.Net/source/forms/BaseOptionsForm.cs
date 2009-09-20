@@ -289,7 +289,11 @@ namespace FreeCL.Forms
 					}
 					TreeNode childNode = new TreeNode(LangPack.TranslateString(inf.Caption));
 					childNode.Tag = inf;
-					rootNode.Nodes.Insert(inf.Order, childNode);
+					
+					if(inf.Order < rootNode.Nodes.Count) //monobug. Insert does not work
+						rootNode.Nodes.Insert(inf.Order, childNode);
+					else
+						rootNode.Nodes.Add(childNode);
 				}
 				
 				//when one item in group remove subitems
