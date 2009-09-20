@@ -86,12 +86,16 @@ namespace FreeCL.RTL
 		
 		public static void BringToForeground(IntPtr hWnd)
 		{
-			NativeMethods.SetForeground(hWnd);
+			if(!MonoHelper.IsUnix)
+				NativeMethods.SetForeground(hWnd);
+			//TODO: implement this for unix
 		}
 
 		public static void BringToForeground(Form form)
 		{
-			NativeMethods.SetForeground(form.Handle);
+			if(!MonoHelper.IsUnix)
+				NativeMethods.SetForeground(form.Handle);
+			//TODO: implement this for unix
 		}
 		
 	}
