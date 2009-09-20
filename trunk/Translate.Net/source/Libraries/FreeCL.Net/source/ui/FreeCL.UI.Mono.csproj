@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E7DB092-177B-43AD-9C2C-4D37BD387164}</ProjectGuid>
+    <RootNamespace>FreeCL.UI</RootNamespace>
+    <AssemblyName>FreeCL.UI</AssemblyName>
+    <OutputType>Library</OutputType>
+    <WarningLevel>4</WarningLevel>
+    <NoStdLib>False</NoStdLib>
+    <NoConfig>False</NoConfig>
+    <RunPostBuildEvent>OnSuccessfulBuild</RunPostBuildEvent>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>FreeCL.UI.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Папа\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE;DEBUG;</DefineConstants>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DebugType>full</DebugType>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\</OutputPath>
+    <DebugType>full</DebugType>
+    <DefineConstants>TRACE</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Design" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionData.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="MainMenu.cs" />
+    <Compile Include="MenuItem.cs" />
+    <Compile Include="SpeedButton.cs" />
+    <Compile Include="ActionCollection.cs" />
+    <Compile Include="ActionList.cs" />
+    <Compile Include="ActionsDesign.cs" />
+    <Compile Include="ToolStrip.cs" />
+    <Compile Include="GlobalEvents.cs" />
+    <Compile Include="ImageIndexEditor.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="SHGetFileInfo.cs" />
+    <Compile Include="Action.cs" />
+    <Compile Include="Application.cs" />
+    <Compile Include="Clipboard.cs" />
+    <Compile Include="TabControl.cs" />
+    <Compile Include="ShortcutKeys.cs" />
+    <Compile Include="ShortcutKeysCollection.cs" />
+    <EmbeddedResource Include="SpeedButton.bmp" />
+    <EmbeddedResource Include="Actions.ActionList.bmp" />
+    <EmbeddedResource Include="GlobalEvents.bmp" />
+    <EmbeddedResource Include="Panel.bmp" />
+    <Compile Include="MenuStrip.cs" />
+    <Compile Include="EditingManager.cs" />
+    <Compile Include="ToolStrip.Designer.cs">
+      <DependentUpon>ToolStrip.cs</DependentUpon>
+    </Compile>
+    <Content Include="FreeCL.UI.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\rtl\FreeCL.RTL.Mono.csproj">
+      <Project>{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}</Project>
+      <Name>FreeCL.RTL.Mono</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
