@@ -168,7 +168,7 @@ namespace FreeCL.RTL
 		{
 			List<string> res = new List<string>();
 			string dir = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
-			string[] files = Directory.GetFiles(dir + "\\lang");
+			string[] files = Directory.GetFiles(dir + System.IO.Path.DirectorySeparatorChar+"lang");
 			foreach(string fileName in files)
 			{
 				if(Path.GetExtension(fileName).ToUpper(CultureInfo.InvariantCulture) == ".LNG")
@@ -193,7 +193,7 @@ namespace FreeCL.RTL
 					string fileName = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath);
 					try
 					{
-						fileName = fileName + "\\lang\\" + langName + ".lng";
+						fileName = fileName + System.IO.Path.DirectorySeparatorChar+"lang" + System.IO.Path.DirectorySeparatorChar + langName + ".lng";
 						if(File.Exists(fileName))
 						{
 							LoadLangPack(fileName);
