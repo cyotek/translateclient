@@ -39,6 +39,7 @@
 using System;
 using System.Windows.Forms;
 using System.Reflection;
+using FreeCL.RTL;
 
 namespace FreeCL.UI
 {
@@ -531,7 +532,8 @@ namespace FreeCL.UI
 					System.Windows.Forms.WebBrowser webbrowser = activeControl as System.Windows.Forms.WebBrowser;	
 					if(webbrowser != null)
 					{  
-						FreeCL.RTL.WebBrowserHelper.GetDocument(webbrowser).ExecCommand("SelectAll", false, null);
+						WebBrowserHelper.ExecSelectAll(webbrowser); 
+						///TODO: don't work in unix
 						res = true;
 					}
 				}
