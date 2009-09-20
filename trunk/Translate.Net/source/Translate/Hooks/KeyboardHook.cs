@@ -53,6 +53,8 @@ namespace Translate
 	{
 		public static void Init()
 		{
+			if(MonoHelper.IsUnix)
+				return; //TODO: implement this in unix
 			if(controlCC || controlInsIns || shortcut != Keys.None)
 				NativeMethods.SetHook();
 			else if(!controlCC && !controlInsIns && shortcut == Keys.None)
