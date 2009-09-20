@@ -67,12 +67,19 @@ function CreateServiceIconCell(iconCellHtml)
 
 function AddTranslationCell(parentName, isClean, DefaultTextFormat, iconCellHtml, dataCellHtml)
 {
+	//alert("AddTranslationCell1");
 	var tableRow = CreateDataRow(parentName, isClean, DefaultTextFormat);
+	//alert("AddTranslationCell2");
+		
 	if(iconCellHtml != null)
 		tableRow.appendChild(CreateServiceIconCell(iconCellHtml));
+	//alert("AddTranslationCell3");
+			
 	var tableCell = document.createElement("TD");
 	tableRow.appendChild(tableCell);
 	tableCell.style.cssText = "width: 100%;";
+	//alert("AddTranslationCell4");
+	
 	try
 	{
 		tableCell.innerHTML = dataCellHtml;
@@ -85,22 +92,26 @@ function AddTranslationCell(parentName, isClean, DefaultTextFormat, iconCellHtml
 		txt+="Click OK to continue.\n\n";
 		alert(txt);
 	}
+	//alert("AddTranslationCell end");
 }
 
 function SetTableStyle(DefaultTextFormat)
 {
+	//alert("SetTableStyle/js:" + DefaultTextFormat);
 	var tableBody = document.getElementById("result_table_body");
 	tableBody.style.cssText = "text-align: left;width: 95%;" + DefaultTextFormat;
 }
 
 function ClearTranslations()
 {
+	//alert("ClearTranslations3");
 	return RemoveAllChilds("result_table_body");
 }
 
 //Remove all childs from the element
 function RemoveAllChilds(parentName)
 {
+	//alert("RemoveAllChilds:" + parentName);
 	var element = document.getElementById(parentName);
 	if(element)
 	{
@@ -116,6 +127,7 @@ function RemoveAllChilds(parentName)
 //remove element from document
 function RemoveElement(name)
 {
+	//alert("RemoveElement:" + name);
 	var element = document.getElementById(name);
 	if(element)
 	{
