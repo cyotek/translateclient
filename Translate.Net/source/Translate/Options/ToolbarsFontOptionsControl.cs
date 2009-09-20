@@ -67,7 +67,7 @@ namespace Translate
 			options = TranslateOptions.Instance.FontsOptions;
 			
 			fscData.CurrentFont = options.ToolbarsFont;
-			fscData.DefaultFont = SystemFonts.MenuFont;
+			fscData.DefaultFont = FontsOptions.DefaultTextFont;
 			fscData.DemoText = "AaBbCcXxYyZz";
 			fscData.Init();
 		}

@@ -44,6 +44,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Drawing;
 using System.Windows.Forms;
+using FreeCL.RTL;
 
 namespace Translate
 {
@@ -53,6 +54,34 @@ namespace Translate
 	[Serializable()]
 	public class FontsOptions
 	{
+		static Font defaultTextFont = null;
+		public static Font DefaultTextFont
+		{
+			get
+			{
+				return defaultTextFont; 
+			}
+		}
+		
+		static FontsOptions()
+		{
+			/*
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "MenuFont", SystemFonts.MenuFont.Name, SystemFonts.MenuFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "DefaultFont", SystemFonts.DefaultFont.Name, SystemFonts.DefaultFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "CaptionFont", SystemFonts.CaptionFont.Name, SystemFonts.CaptionFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "DialogFont", SystemFonts.DialogFont.Name, SystemFonts.DialogFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "IconTitleFont", SystemFonts.IconTitleFont.Name, SystemFonts.IconTitleFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "SmallCaptionFont", SystemFonts.SmallCaptionFont.Name, SystemFonts.SmallCaptionFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "StatusFont", SystemFonts.StatusFont.Name, SystemFonts.StatusFont.SizeInPoints ));
+			Console.WriteLine(string.Format("{0} name : {1}, size : {2}", "MessageBoxFont", SystemFonts.MessageBoxFont.Name, SystemFonts.MessageBoxFont.SizeInPoints ));
+			*/
+			
+			if(MonoHelper.IsUnix) //monobug - MenuFont is Arial 11
+				defaultTextFont = SystemFonts.DefaultFont;
+			else
+				defaultTextFont = SystemFonts.MenuFont;
+		}
+		
 		public FontsOptions()
 		{
 		}
@@ -96,11 +125,11 @@ namespace Translate
 			get
 			{
 				if(resultViewFont == null)
-					return SystemFonts.MenuFont;
+					return defaultTextFont;
 				else if(resultViewFont.FontName == "Tahoma" && resultViewFont.FontSize == 8.25f)
 				{
 					resultViewFont = null;
-					return SystemFonts.MenuFont;
+					return defaultTextFont;
 				}	
 				else
 					return resultViewFont.GetFont(); 
@@ -108,7 +137,7 @@ namespace Translate
 
 			set
 			{
-				if(FontSelectionControl.FontEquals(value,SystemFonts.MenuFont))
+				if(FontSelectionControl.FontEquals(value,defaultTextFont))
 					resultViewFont = null;
 				else
 					resultViewFont = new FontData(value);
@@ -121,14 +150,14 @@ namespace Translate
 			get
 			{
 				if(toolbarsFontData == null)
-					return SystemFonts.MenuFont;
+					return defaultTextFont;
 				else
 					return toolbarsFontData.GetFont();
 			}
 			
 			set
 			{
-				if(FontSelectionControl.FontEquals(value,SystemFonts.MenuFont))
+				if(FontSelectionControl.FontEquals(value,defaultTextFont))
 					toolbarsFontData = null;
 				else
 					toolbarsFontData = new FontData(value);
@@ -139,9 +168,8 @@ namespace Translate
 		public FontData ToolbarsFontData {
 			get { return toolbarsFontData; }
 			set { toolbarsFontData = value; }
-		}
-		
-		
+		}	
+			
 		public void Apply()
 		{
 			//HtmlHelper.DefaultTextFormat = "font-size: 8.25pt; font-family: Tahoma;";
