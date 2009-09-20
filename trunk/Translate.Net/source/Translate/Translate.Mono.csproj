@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <ProjectGuid>{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Translate</RootNamespace>
+    <AssemblyName>Translate.Net</AssemblyName>
+    <NoStdLib>False</NoStdLib>
+    <NoConfig>False</NoConfig>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <ApplicationIcon>icons\translate.net.ico</ApplicationIcon>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Translate.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>False</DelaySign>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <SourceAnalysisOverrideSettingsFile>C:\Documents and Settings\Папа\Application Data\ICSharpCode/SharpDevelop3.0\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <OutputPath>..\..\bin\</OutputPath>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>4194304</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>DEBUG;TRACE;SPEED_TRACE</DefineConstants>
+    <Optimize>false</Optimize>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="./buildserializer.sh" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
+    <OutputPath>..\..\bin\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <Commandlineparameters>-skipchangelog -nohide  -skipsplash</Commandlineparameters>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="AfterBuild" command="./buildserializer.sh" workingdir="${TargetDir}" />
+      </CustomCommands>
+    </CustomCommands>
+    <OutputPath>..\..\bin\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="EQATEC.Analytics.Monitor, Version=1.0.247.0, Culture=neutral, PublicKeyToken=213c7c68adb58a17">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\EQATEC.Analytics.Monitor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs" />
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analytics\AnalyticsMonitor.cs" />
+    <Compile Include="Analytics\AnalyticsOptionsControl.cs" />
+    <Compile Include="Analytics\AnalyticsOptionsControl.Designer.cs">
+      <DependentUpon>AnalyticsOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Analytics\SetupAnalyticsForm.cs" />
+    <Compile Include="Analytics\SetupAnalyticsForm.Designer.cs">
+      <DependentUpon>SetupAnalyticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\InputLanguageManager.cs" />
+    <Compile Include="Common\LangPack.cs" />
+    <Compile Include="Guessing\Guesser.cs" />
+    <Compile Include="Guessing\GuesserOptionsControl.cs" />
+    <Compile Include="Guessing\GuesserOptionsControl.Designer.cs">
+      <DependentUpon>GuesserOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Guessing\GuessingOptions.cs" />
+    <Compile Include="Hooks\HookOptions.cs" />
+    <Compile Include="Hooks\HotkeyEditorControl.cs" />
+    <Compile Include="Hooks\HotkeyEditorControl.Designer.cs">
+      <DependentUpon>HotkeyEditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks\HotkeysOptionsControl.cs" />
+    <Compile Include="Hooks\HotkeysOptionsControl.Designer.cs">
+      <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hooks\KeyboardHook.cs" />
+    <Compile Include="Options\CustomProfilesControl.cs" />
+    <Compile Include="Options\CustomProfilesControl.Designer.cs">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\CustomProfileServicesForm.cs" />
+    <Compile Include="Options\CustomProfileServicesForm.Designer.cs">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\DefaultProfileLanguagesForm.cs" />
+    <Compile Include="Options\DefaultProfileLanguagesForm.Designer.cs">
+      <DependentUpon>DefaultProfileLanguagesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\FontSelectionControl.cs" />
+    <Compile Include="Options\FontSelectionControl.Designer.cs">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\FontsOptions.cs" />
+    <Compile Include="Options\InputFontOptionsControl.cs" />
+    <Compile Include="Options\InputFontOptionsControl.Designer.cs">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\GeneralNetworkOptionsControl.cs" />
+    <Compile Include="Options\GeneralNetworkOptionsControl.Designer.cs">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\KeyboardLayoutControl.cs" />
+    <Compile Include="Options\KeyboardLayoutControl.Designer.cs">
+      <DependentUpon>KeyboardLayoutControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\KeyboardLayoutOptions.cs" />
+    <Compile Include="Options\NetworkOptions.cs" />
+    <Compile Include="Options\OptionsForm.cs" />
+    <Compile Include="Options\OptionsForm.Designer.cs">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultViewFontOptionsControl.cs" />
+    <Compile Include="Options\ResultViewFontOptionsControl.Designer.cs">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultWindowOptionControl.cs" />
+    <Compile Include="Options\ResultWindowOptionControl.Designer.cs">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ResultWindowOptions.cs" />
+    <Compile Include="Options\ServicesListView.cs" />
+    <Compile Include="Options\ServicesListView.Designer.cs">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\SetProfileNameForm.cs" />
+    <Compile Include="Options\SetProfileNameForm.Designer.cs">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\StartupOptionsControl.cs" />
+    <Compile Include="Options\StartupOptionsControl.Designer.cs">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\ToolbarsFontOptionsControl.cs" />
+    <Compile Include="Options\ToolbarsFontOptionsControl.Designer.cs">
+      <DependentUpon>ToolbarsFontOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Options\TrayOptionsControl.cs" />
+    <Compile Include="Options\TrayOptionsControl.Designer.cs">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Profile\DefaultTranslateProfile.cs" />
+    <Compile Include="Profile\ProfilesHistory.cs" />
+    <Compile Include="Profile\TranslateProfile.cs" />
+    <Compile Include="Profile\UserTranslateProfile.cs" />
+    <Compile Include="ResultBrowser\HtmlHelper.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.cs" />
+    <Compile Include="ResultBrowser\HtmlSourceViewForm.Designer.cs">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\LanguageDataContainer.cs" />
+    <Compile Include="Selector\LanguageSelector.cs" />
+    <Compile Include="Selector\LanguageSelector.Designer.cs">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\ServiceSettingsContainer.cs" />
+    <Compile Include="Selector\ServiceStatusControl.cs" />
+    <Compile Include="Selector\ServiceStatusControl.Designer.cs">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Selector\SubjectContainer.cs" />
+    <Compile Include="ServicesList\ServicesListHtmlGenerator.cs" />
+    <Compile Include="Statistics\StatManager.cs" />
+    <Compile Include="Statistics\StatOptions.cs" />
+    <Compile Include="TranslateMainForm.cs" />
+    <Compile Include="TranslateMainForm.Designer.cs">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manager\TranslateManager.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.cs" />
+    <Compile Include="ResultBrowser\ResultBrowser.Designer.cs">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdateOptions.cs" />
+    <Compile Include="Updates\UpdaterForm.cs" />
+    <Compile Include="Updates\UpdaterForm.Designer.cs">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Updates\UpdatesManager.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.cs" />
+    <Compile Include="Updates\UpdatesOptionsControl.Designer.cs">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analytics\AnalyticsOptionsControl.resx">
+      <DependentUpon>AnalyticsOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analytics\SetupAnalyticsForm.resx">
+      <DependentUpon>SetupAnalyticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\Icons.resx" />
+    <EmbeddedResource Include="Guessing\GuesserOptionsControl.resx">
+      <DependentUpon>GuesserOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hooks\HotkeyEditorControl.resx">
+      <DependentUpon>HotkeyEditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hooks\HotkeysOptionsControl.resx">
+      <DependentUpon>HotkeysOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomProfilesControl.resx">
+      <DependentUpon>CustomProfilesControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\CustomProfileServicesForm.resx">
+      <DependentUpon>CustomProfileServicesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\DefaultProfileLanguagesForm.resx">
+      <DependentUpon>DefaultProfileLanguagesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\FontSelectionControl.resx">
+      <DependentUpon>FontSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\GeneralNetworkOptionsControl.resx">
+      <DependentUpon>GeneralNetworkOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\InputFontOptionsControl.resx">
+      <DependentUpon>InputFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\KeyboardLayoutControl.resx">
+      <DependentUpon>KeyboardLayoutControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\OptionsForm.resx">
+      <DependentUpon>OptionsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultViewFontOptionsControl.resx">
+      <DependentUpon>ResultViewFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ResultWindowOptionControl.resx">
+      <DependentUpon>ResultWindowOptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ServicesListView.resx">
+      <DependentUpon>ServicesListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\SetProfileNameForm.resx">
+      <DependentUpon>SetProfileNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\StartupOptionsControl.resx">
+      <DependentUpon>StartupOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\ToolbarsFontOptionsControl.resx">
+      <DependentUpon>ToolbarsFontOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Options\TrayOptionsControl.resx">
+      <DependentUpon>TrayOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\HtmlSourceViewForm.resx">
+      <DependentUpon>HtmlSourceViewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selector\LanguageSelector.resx">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Selector\ServiceStatusControl.resx">
+      <DependentUpon>ServiceStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TranslateMainForm.resx">
+      <DependentUpon>TranslateMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ResultBrowser\ResultBrowser.resx">
+      <DependentUpon>ResultBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="..\..\site\changelog.data.en.html" />
+    <None Include="..\..\site\changelog.data.ru.html" />
+    <None Include="..\..\site\changelog.data.uk.html" />
+    <None Include="..\..\site\changelog.en.html" />
+    <None Include="..\..\site\changelog.uk.html" />
+    <None Include="..\..\site\download.en.html" />
+    <None Include="..\..\site\download.uk.html" />
+    <None Include="..\..\site\features.en.html" />
+    <None Include="..\..\site\features.uk.html" />
+    <None Include="..\..\site\index.en.html" />
+    <None Include="..\..\site\index.uk.html" />
+    <None Include="..\..\site\links.en.html" />
+    <None Include="..\..\site\links.uk.html" />
+    <None Include="..\..\site\q.htm" />
+    <None Include="..\..\site\r.htm" />
+    <None Include="..\..\site\screenshots.en.html" />
+    <None Include="..\..\site\screenshots.uk.html" />
+    <None Include="..\..\site\services.uk.html" />
+    <None Include="..\..\site\support.en.html" />
+    <None Include="..\..\site\support.uk.html" />
+    <None Include="..\..\site\versions.txt" />
+    <None Include="lang\Arabic.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Bulgarian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\French.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\German.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Greek.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Italian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Japanese.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Original.lng" />
+    <None Include="lang\Portuguese.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Portuguese_1.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Romanian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Russian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Spanish.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Swedish.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Ukrainian.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Updates\versions.txt" />
+    <EmbeddedResource Include="Updates\UpdaterForm.resx">
+      <DependentUpon>UpdaterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Updates\UpdatesOptionsControl.resx">
+      <DependentUpon>UpdatesOptionsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="lang\Chinese %28Simplified%29.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="lang\Chinese %28Traditional%29.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="buildserializer.sh" />
+    <EmbeddedResource Include="icons\translate.net.ico">
+      <LogicalName>AppIcon.ico</LogicalName>
+    </EmbeddedResource>
+    <None Include="lang\Polish.lng">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\forms\FreeCL.Forms.Mono.csproj">
+      <Project>{4839E07C-B1D6-4058-B32D-DAEDA05B762D}</Project>
+      <Name>FreeCL.Forms.Mono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.Mono.csproj">
+      <Project>{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}</Project>
+      <Name>FreeCL.RTL.Mono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Libraries\FreeCL.Net\source\ui\FreeCL.UI.Mono.csproj">
+      <Project>{9E7DB092-177B-43AD-9C2C-4D37BD387164}</Project>
+      <Name>FreeCL.UI.Mono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TranslateLib\TranslateLib.Mono.csproj">
+      <Project>{10546C49-8030-488E-A19F-8FC03E73E8A8}</Project>
+      <Name>TranslateLib.Mono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebUI\WebUI.Mono.csproj">
+      <Project>{E0806918-2B38-45FD-B33A-91680EFC7861}</Project>
+      <Name>WebUI.Mono</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>call ..\source\Translate\buildserializer.cmd</PostBuildEvent>
+  </PropertyGroup>
+</Project>
