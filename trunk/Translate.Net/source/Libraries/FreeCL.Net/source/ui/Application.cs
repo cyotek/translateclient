@@ -43,6 +43,7 @@ using FreeCL.RTL;
 using System.Reflection;
 using System.IO.IsolatedStorage;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 
 namespace FreeCL.UI
 {
@@ -62,7 +63,13 @@ namespace FreeCL.UI
 		{
 			get
 			{
-				System.Windows.Forms.Form activeForm = System.Windows.Forms.Form.ActiveForm;
+				System.Windows.Forms.Form activeForm = null;
+				try //monobug
+				{
+					activeForm = System.Windows.Forms.Form.ActiveForm;
+				}
+				catch{}
+					
 				if(activeForm == null)
 					return null;
 			
@@ -233,15 +240,15 @@ namespace FreeCL.UI
 			if(string.IsNullOrEmpty(configFileName))
 			{
 				dataFolder = System.Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-				dataFolder += @"\";
+				dataFolder += Path.DirectorySeparatorChar;
 				string companyName = ApplicationInfo.CompanyName;
 				if(companyName.IndexOf(",") != -1)
 					companyName = companyName.Substring(0, companyName.IndexOf(","));
 				dataFolder += companyName;
-				dataFolder += @"\";			
+				dataFolder += Path.DirectorySeparatorChar;			
 				dataFolder += ApplicationInfo.ProductName;
 				System.IO.Directory.CreateDirectory(dataFolder);
-				dataFolder += @"\";			
+				dataFolder += Path.DirectorySeparatorChar;			
 			}
 			else
 			{
@@ -249,7 +256,7 @@ namespace FreeCL.UI
 				try 
 				{
 					System.IO.Directory.CreateDirectory(dataFolder);
-					dataFolder += @"\";			
+					dataFolder += Path.DirectorySeparatorChar;			
 				} catch {}
 			}
 			
