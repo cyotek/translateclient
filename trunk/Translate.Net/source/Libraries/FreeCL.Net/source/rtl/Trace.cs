@@ -49,6 +49,12 @@ namespace FreeCL.RTL
 	/// </summary>
 	public static class Trace
 	{
+		static Trace()
+		{
+			if(MonoHelper.IsUnix)
+				System.Diagnostics.Trace.Listeners.Add(new System.Diagnostics.TextWriterTraceListener(Console.Out));
+		}
+		
 		static bool traceEnabled = true;
 		public static bool TraceEnabled {
 			get { return traceEnabled; }
