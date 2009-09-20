@@ -51,7 +51,7 @@ namespace FreeCL.RTL
 			isMono = t != null;
 
 			int p = (int) Environment.OSVersion.Platform;
-            isUnix = ((p == 4) || (p == 128));
+            isUnix = ((p == 4) || (p == 6) || (p == 128));
 		}
 		
 		static bool isMono;
