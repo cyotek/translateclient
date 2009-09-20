@@ -98,12 +98,28 @@ namespace FreeCL.RTL
 		{
 			if(container == null) return; 
 			
-			while(container.Components.Count > 0)
+			if(!MonoHelper.IsUnix)
 			{
-				object ctrl = container.Components[0];
-				if(ctrl != null)
+				while(container.Components.Count > 0)
 				{
-					DisposeAndNull(ref ctrl);
+					object ctrl = container.Components[0];
+					if(ctrl != null)
+					{
+						Console.WriteLine(ctrl.ToString());
+						DisposeAndNull(ref ctrl);
+					}
+				}
+			}
+			else
+			{  //TODO: here a bug in mono, because dsposing of childs of IContainer don't remove items from it  
+				for(int i = 0; i < container.Components.Count; i++)
+				{
+					object ctrl = container.Components[i];
+					if(ctrl != null)
+					{
+						Console.WriteLine(ctrl.ToString());
+						DisposeAndNull(ref ctrl);
+					}
 				}
 			}
 		}
