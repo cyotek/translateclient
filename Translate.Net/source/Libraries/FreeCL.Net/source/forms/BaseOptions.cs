@@ -92,6 +92,8 @@ namespace FreeCL.Forms
 			OptionsFileName_ =	CommandLineHelper.GetCommandSwitchValue("config");
 			if(string.IsNullOrEmpty(OptionsFileName_))
 				OptionsFileName_ =	Application.DataFolder + this.GetType().Name +	".xml";
+			
+			Directory.CreateDirectory(Path.GetDirectoryName(OptionsFileName_));
 		}
 			
 		
