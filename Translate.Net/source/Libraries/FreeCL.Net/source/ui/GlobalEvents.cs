@@ -75,18 +75,26 @@ namespace FreeCL.UI
 			set { allowIdleProcessing = value; }
 		}
 		
-		
+		static bool inIdleLoop = false;
 		
 		private static event EventHandler InternalIdle;
 		
 		static void GlobalEventsIdle(object sender, EventArgs e)
 		{
-			if(!allowIdleProcessing)
+			if(!allowIdleProcessing || inIdleLoop)
 				return;
 				
 			if(InternalIdle != null)
 			{
-				InternalIdle(sender, e);
+				try
+				{
+					inIdleLoop = true;
+					InternalIdle(sender, e);
+				}
+				finally
+				{
+					inIdleLoop = false;
+				}
 			}
 		}
 		
