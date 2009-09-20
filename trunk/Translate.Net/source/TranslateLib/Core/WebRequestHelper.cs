@@ -351,7 +351,14 @@ namespace Translate
 			result.BytesSent += 12; //system data
 			
 			HttpWebRequest webRequest = request as  HttpWebRequest;
-			webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+			
+			try
+			{	//avoid error in mono
+				webRequest.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+			}
+			catch(NotImplementedException)
+			{
+			}
 			
 			if(!string.IsNullOrEmpty(acceptLanguage))
 			{
