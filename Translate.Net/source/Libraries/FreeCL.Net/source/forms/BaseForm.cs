@@ -151,7 +151,13 @@ namespace FreeCL.Forms
 		{
 			if( disposing && !DesignMode)
 			{
-				Enabled = false;
+				try //monobug
+				{
+					Enabled = false;
+				}
+				catch{}
+				
+					
 				Memory.Dispose(components);																			
 				Memory.DisposeChilds(this);								
 				Memory.DisposeAndNull(ref components);				
@@ -187,6 +193,8 @@ namespace FreeCL.Forms
 			[DllImport("user32.dll")]
 			[return: MarshalAs(UnmanagedType.Bool)]
 			public  static extern bool LockWindowUpdate(IntPtr hWndLock);
+			
+			//TODO: implement for unix !
 		}
 		
 		public void LockUpdate(bool lockIt)
@@ -196,13 +204,17 @@ namespace FreeCL.Forms
 				Cursor = Cursors.WaitCursor;
 				SuspendFormLayout();
 				Application.DoEvents();
-				NativeMethods.LockWindowUpdate(Handle);
+				if(!MonoHelper.IsUnix)
+				{
+					NativeMethods.LockWindowUpdate(Handle);
+				}	
 			}	
 			else if(!lockIt && updateLockCount == 1)	
 			{
 				Application.DoEvents();
 				ResumeFormLayout();
-				NativeMethods.LockWindowUpdate(IntPtr.Zero);
+				if(!MonoHelper.IsUnix)
+					NativeMethods.LockWindowUpdate(IntPtr.Zero);
 				Cursor = Cursors.Default;
 				Refresh();
 			}	
