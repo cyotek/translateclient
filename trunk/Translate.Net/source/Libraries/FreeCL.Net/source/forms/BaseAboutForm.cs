@@ -41,6 +41,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using FreeCL.RTL;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.Resources;
+using System.Reflection;
+
 
 namespace FreeCL.Forms
 {
@@ -67,7 +71,20 @@ namespace FreeCL.Forms
 			lAppTitle.Text = ApplicationInfo.ProductName;			
 			lAppCompany.Text = ApplicationInfo.CompanyName;
 			lCopyright.Text = ApplicationInfo.Copyright;
-			picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
+			if(!MonoHelper.IsUnix)
+				picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
+			else
+			{
+				Stream resourceStream = Assembly.GetEntryAssembly().GetManifestResourceStream("AppIcon.ico");
+				if(resourceStream != null)
+				{
+					picApp.Image = (new System.Drawing.Icon(resourceStream)).ToBitmap();
+					resourceStream.Close();
+					resourceStream.Dispose();
+				}
+				else
+					picApp.Image = FreeCL.UI.ShellFileInfo.LargeIcon(System.Windows.Forms.Application.ExecutablePath).ToBitmap();
+			}
 		}
 		
 		void OnLanguageChanged()
