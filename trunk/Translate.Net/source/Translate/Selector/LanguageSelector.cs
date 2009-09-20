@@ -44,6 +44,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Resources;
+using FreeCL.RTL;
 
 
 namespace Translate
@@ -202,6 +203,7 @@ namespace Translate
 						tcMain.Enabled = true;
 							
 						tcMain.SuspendLayout();	
+						tcMain.SelectedTab = null;
 						tcMain.TabPages.Clear();
 						tcMain.TabPages.Add(tpServices);
 						tcMain.TabPages.Add(tpLangs);
@@ -752,13 +754,24 @@ namespace Translate
 		{
 			if(lv.Items.Count > 0)
 			{
-				if(!lv.Enabled)
+				lv.Visible = false;
+				lv.Enabled = false;
+				if(!MonoHelper.IsUnix)
 				{
-					lv.Visible = true;
-					lv.Enabled = true;
-					
+					lv.Height = (lv.Items[0].Bounds.Height)*lv.Items.Count + 5;
 				}
-				lv.Height = (lv.Items[0].Bounds.Height)*lv.Items.Count + 5;
+				else
+				{ //monobug - height of item is 0 and height can't be more 32000
+					int itemHeight = lv.Items[0].Bounds.Height;
+					if(itemHeight == 0)
+						itemHeight = 16;	
+					int newHeight = itemHeight*lv.Items.Count + 5;
+					if(newHeight > 16000)
+						newHeight = 16000;
+					lv.Height = newHeight;
+				}
+				lv.Enabled = true;
+				lv.Visible = true;
 			}
 			else
 			{
@@ -819,12 +832,19 @@ namespace Translate
 				lvServicesDisabled.BeginUpdate();
 				lvServicesDisabledByUser.SuspendLayout();
 				lvServicesDisabledByUser.BeginUpdate();
+				
+				lvServicesEnabled.FocusedItem = null;
+				lvServicesDisabled.FocusedItem = null;
+				lvServicesDisabledByUser.FocusedItem = null;
+				
 				lock(serviceItemsContainers)
 				{
+					PrepareAddingServicesBatch();
 					foreach(ServiceSettingsContainer sc in serviceItemsContainers)
 					{
-						AddListViewItem(sc);
+						AddListViewItem(sc, true);
 					}
+					ApplyAddingServicesBatch();
 				}
 				CalcServicesSizes();
 				try 
@@ -883,6 +903,7 @@ namespace Translate
 				lvServicesDisabledByUser.EndUpdate();
 				lvServicesDisabledByUser.ResumeLayout();
 				tpServices.ResumeLayout();
+				Refresh();
 			}
 		}
 		
@@ -899,8 +920,34 @@ namespace Translate
 			return new ReadOnlyServiceSettingCollection(result);
 		}
 		
-		
 		ListViewItem AddListViewItem(ServiceSettingsContainer sc)
+		{
+			return AddListViewItem(sc, false);
+		}
+
+		List<ListViewItem> batchEnabledLVItems = new List<ListViewItem>();
+		List<ListViewItem> batchDisabledLVItems = new List<ListViewItem>();
+		List<ListViewItem> batchDisabledByUserLVItems = new List<ListViewItem>();
+
+		void PrepareAddingServicesBatch()
+		{
+			batchEnabledLVItems.Clear();
+			batchDisabledLVItems.Clear();
+			batchDisabledByUserLVItems.Clear();
+		}
+		
+		void ApplyAddingServicesBatch()
+		{
+			if(batchEnabledLVItems.Count > 0)
+				lvServicesEnabled.Items.AddRange(batchEnabledLVItems.ToArray());
+			if(batchDisabledLVItems.Count > 0)
+				lvServicesDisabled.Items.AddRange(batchDisabledLVItems.ToArray());
+			if(batchDisabledByUserLVItems.Count > 0)
+				lvServicesDisabledByUser.Items.AddRange(batchDisabledByUserLVItems.ToArray());
+			PrepareAddingServicesBatch();
+		}
+		
+		ListViewItem AddListViewItem(ServiceSettingsContainer sc, bool batchMode)
 		{
 			if(!sc.DisabledByUser)
 				sc.Check(phrase);
@@ -928,7 +975,10 @@ namespace Translate
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = sc.GetServiceTooltipText();
-					lvServicesDisabledByUser.Items.Add(lvi);
+					if(batchMode)
+						batchDisabledByUserLVItems.Add(lvi);
+					else
+						lvServicesDisabledByUser.Items.Add(lvi);
 					disabledByUserLVItems.Add(sc, lvi);
 				}
 			}
@@ -937,6 +987,8 @@ namespace Translate
 				lvi = FindItem(disabledLVItems, sc);
 				if(lvi != null)
 				{
+					lvi.Focused = false;
+					lvi.Selected = false;
 					lvServicesDisabled.Items.Remove(lvi);
 					disabledLVItems.Remove(sc);
 				}	
@@ -954,7 +1006,10 @@ namespace Translate
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = sc.GetServiceTooltipText();
-					lvServicesEnabled.Items.Add(lvi);
+					if(batchMode)
+						batchEnabledLVItems.Add(lvi);
+					else
+						lvServicesEnabled.Items.Add(lvi);
 					enabledLVItems.Add(sc, lvi);
 				}
 			}
@@ -980,7 +1035,10 @@ namespace Translate
 					lvi = new ListViewItem(sc.Name, sc.Setting.ServiceItem.Service.Name);
 					lvi.Tag = sc;
 					lvi.ToolTipText = sc.GetServiceTooltipText();
-					lvServicesDisabled.Items.Add(lvi);
+					if(batchMode)
+						batchDisabledLVItems.Add(lvi);
+					else
+						lvServicesDisabled.Items.Add(lvi);
 					disabledLVItems.Add(sc, lvi);
 				}
 				else if(lvi.Selected)
