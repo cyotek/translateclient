@@ -39,6 +39,7 @@
 
 using System;
 using System.Runtime.InteropServices;
+using FreeCL.RTL;
 
 
 namespace FreeCL.UI
@@ -78,6 +79,9 @@ namespace FreeCL.UI
 		
 		public static System.Drawing.Icon SmallIcon(string fileName)
 		{
+			if(MonoHelper.IsUnix)
+				return System.Drawing.Icon.ExtractAssociatedIcon(fileName);
+				
 			SHFILEINFO shinfo = new SHFILEINFO();
 			if(NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON | SHGFI_SMALLICON) == IntPtr.Zero)
 				Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error()); 
@@ -97,6 +101,9 @@ namespace FreeCL.UI
 
 		public static System.Drawing.Icon LargeIcon(string fileName)
 		{
+			if(MonoHelper.IsUnix)
+				return System.Drawing.Icon.ExtractAssociatedIcon(fileName);
+			
 			SHFILEINFO shinfo = new SHFILEINFO();
 			if(NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_ICON |SHGFI_LARGEICON) == IntPtr.Zero)
 				Marshal.ThrowExceptionForHR(Marshal.GetHRForLastWin32Error()); 
@@ -115,6 +122,9 @@ namespace FreeCL.UI
 		
 		public static string DisplayName(string fileName)
 		{
+			if(MonoHelper.IsUnix)
+				return null;
+			
 			SHFILEINFO shinfo = new SHFILEINFO();
 			NativeMethods.SHGetFileInfo(fileName, 0, ref shinfo,(uint)Marshal.SizeOf(shinfo),SHGFI_DISPLAYNAME);
 			return shinfo.szDisplayName;
