@@ -63,10 +63,22 @@ namespace FreeCL.RTL
 		
 		public static Process GetOtherInstance(Process process)
 		{
-			Process[] processes = Process.GetProcessesByName(process.ProcessName);
+			Process[] processes = null;
+			try
+			{
+				processes = Process.GetProcessesByName(process.ProcessName);
+			}
+			catch(SystemException)
+			{
+				if(MonoHelper.IsMono) //in mono may raise exception "Process is out"
+					return null;
+				else 
+					throw;
+			}
+			
 			foreach(Process p in processes)
 			{
-				if(p.Id != process.Id && p.SessionId == process.SessionId)	
+				if(p.Id != process.Id && (MonoHelper.IsUnix || p.SessionId == process.SessionId))	
 					return p;
 			}
 			return null;
@@ -147,8 +159,17 @@ namespace FreeCL.RTL
 			if(p == null)
 				return false;
 				
-            NativeMethods.EnumWindows(new EnumWindowsProcDelegate(EnumWindowsProc), p.Id);
-			return true;
+			if(!MonoHelper.IsUnix)
+			{
+            	NativeMethods.EnumWindows(new EnumWindowsProcDelegate(EnumWindowsProc), p.Id);
+				return true;
+			}
+			else
+			{
+				//TODO: implement this for unix
+				return false;
+			}
+			
 		}
 	}
 }
