@@ -59,18 +59,22 @@ namespace WebUI
 			get { return webServerGate; }
 		}
 		
-		
+		static ApplicationServer WebAppServer = null;
+		public static void Stop()
+		{
+			WebAppServer.Stop();
+		}
 		public static void Start()
 		{
 			XSPWebSource websource=new XSPWebSource(IPAddress.Loopback,0);
-			ApplicationServer WebAppServer=new ApplicationServer(websource);
+			WebAppServer=new ApplicationServer(websource);
 
 			string basePath = Directory.GetParent(Assembly.GetExecutingAssembly().Location).ToString();
 			string serverPath = basePath;
-			if(serverPath[serverPath.Length - 1] != '\\')
-				serverPath += "\\";
+			if(serverPath[serverPath.Length - 1] != System.IO.Path.DirectorySeparatorChar)
+				serverPath += System.IO.Path.DirectorySeparatorChar;
 			serverPath += "WebUI";
-			string serverBinPath = serverPath + "\\bin\\";
+			string serverBinPath = serverPath + System.IO.Path.DirectorySeparatorChar + "bin" + System.IO.Path.DirectorySeparatorChar;
 			WebAppServer.AddApplication("",-1,"/", serverPath);
 
 			bool started = false;
@@ -106,7 +110,7 @@ namespace WebUI
 				if (!Directory.Exists(serverBinPath))
 					Directory.CreateDirectory(serverBinPath);
 
-				File.Copy(basePath + "\\Mono.WebServer2.dll", serverBinPath + "Mono.WebServer2.dll", true);
+				File.Copy(basePath + System.IO.Path.DirectorySeparatorChar+"Mono.WebServer2.dll", serverBinPath + "Mono.WebServer2.dll", true);
 			}
 
     		catch { ;}			
@@ -120,7 +124,9 @@ namespace WebUI
 			ap.SetData("WebUIGate", webServerGate);
 			
 			port = WebAppServer.Port;
-			uri = new Uri("http://127.0.0.1:" + port.ToString() + "/");
+			//uri = new Uri("http://127.0.0.1:" + port.ToString() + "/");
+			uri = new Uri("http://localhost:" + port.ToString() + "/");
+			Console.WriteLine("Webserver started at " + uri.ToString());
 
 		}
 			
