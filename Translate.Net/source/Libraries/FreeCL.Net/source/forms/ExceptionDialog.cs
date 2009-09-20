@@ -242,13 +242,13 @@ namespace FreeCL.Forms
 					}
 					finally
 					{
-						System.Environment.FailFast(ApplicationInfo.ProductName + " :Fatal Error");
+						EnvironmentHelper.FailFast(ApplicationInfo.ProductName + " :Fatal Error");
 					}
 			}
 
 			// Exits the program when the user clicks Abort.
 			if (result == DialogResult.Abort) 
-				System.Environment.FailFast("\n" + ApplicationInfo.ProductName + 
+				EnvironmentHelper.FailFast("\n" + ApplicationInfo.ProductName + 
 					" - " + TranslateString("Terminated by user on error") + " : \n" +  ExceptionText(exception));
 			else
 				GlobalEvents.AllowIdleProcessing = true;
