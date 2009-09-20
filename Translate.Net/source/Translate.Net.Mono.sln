@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Translate.Mono", "Translate\Translate.Mono.csproj", "{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FreeCL.Mono", "FreeCL.Mono", "{0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}"
+	ProjectSection(SolutionItems) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.Forms.Mono", "Libraries\FreeCL.Net\source\forms\FreeCL.Forms.Mono.csproj", "{4839E07C-B1D6-4058-B32D-DAEDA05B762D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.UI.Mono", "Libraries\FreeCL.Net\source\ui\FreeCL.UI.Mono.csproj", "{9E7DB092-177B-43AD-9C2C-4D37BD387164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeCL.RTL.Mono", "Libraries\FreeCL.Net\source\rtl\FreeCL.RTL.Mono.csproj", "{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranslateLib.Mono", "TranslateLib\TranslateLib.Mono.csproj", "{10546C49-8030-488E-A19F-8FC03E73E8A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI.Mono", "WebUI\WebUI.Mono.csproj", "{E0806918-2B38-45FD-B33A-91680EFC7861}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumDictd.Mono", "EnumDictD\EnumDictd.Mono.csproj", "{1B901123-B1EE-4B14-B79C-1E7A9F51AAFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skybound.Gecko", "..\..\..\Skybound.Gecko\src\Skybound.Gecko\Skybound.Gecko.csproj", "{877D1A24-2D5E-4C46-A933-FCF11EA0403B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "listviewandicons", "..\..\..\monobugs\source\listviewandicons\listviewandicons.csproj", "{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Debug 1.8|Any CPU = Debug 1.8|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10546C49-8030-488E-A19F-8FC03E73E8A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10546C49-8030-488E-A19F-8FC03E73E8A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B901123-B1EE-4B14-B79C-1E7A9F51AAFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B901123-B1EE-4B14-B79C-1E7A9F51AAFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Debug 1.8|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Debug 1.8|Any CPU.Build.0 = Debug|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C01E813-6987-4C79-A1BF-A3A0D59F1B2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4839E07C-B1D6-4058-B32D-DAEDA05B762D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4839E07C-B1D6-4058-B32D-DAEDA05B762D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Debug 1.8|Any CPU.ActiveCfg = Debug 1.8|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Debug 1.8|Any CPU.Build.0 = Debug 1.8|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877D1A24-2D5E-4C46-A933-FCF11EA0403B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FE9CFDD-A9F9-4B6B-97F3-80F8FD4E6894}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E7DB092-177B-43AD-9C2C-4D37BD387164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E7DB092-177B-43AD-9C2C-4D37BD387164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0806918-2B38-45FD-B33A-91680EFC7861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0806918-2B38-45FD-B33A-91680EFC7861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0806918-2B38-45FD-B33A-91680EFC7861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0806918-2B38-45FD-B33A-91680EFC7861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC175ADE-749E-4CC0-B8EA-65AE993FACCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4839E07C-B1D6-4058-B32D-DAEDA05B762D} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
+		{9E7DB092-177B-43AD-9C2C-4D37BD387164} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
+		{FC175ADE-749E-4CC0-B8EA-65AE993FACCB} = {0D0F4EA9-2B12-4B8D-94ED-3F866928B1F1}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Translate\Translate.Mono.csproj
+	EndGlobalSection
+EndGlobal
