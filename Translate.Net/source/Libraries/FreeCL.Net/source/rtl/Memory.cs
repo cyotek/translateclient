@@ -117,7 +117,6 @@ namespace FreeCL.RTL
 					object ctrl = container.Components[i];
 					if(ctrl != null)
 					{
-						Console.WriteLine(ctrl.ToString());
 						DisposeAndNull(ref ctrl);
 					}
 				}
