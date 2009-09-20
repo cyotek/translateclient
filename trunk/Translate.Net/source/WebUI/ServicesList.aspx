@@ -16,7 +16,7 @@
 		<meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
 		<meta http-equiv="PRAGMA" content="NO-CACHE" />
 		<link rel="stylesheet" type="text/css" href="main.css">
-		<script type="text/javascript" src="webui.js"></script>
+		<script type="text/javascript" src="WebUI.js"></script>
 		<script language="javascript">
 		function treeView(section)
 		{
