@@ -53,6 +53,7 @@ namespace Translate
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing) {
+				FreeCL.RTL.WebBrowserHelper.ResetBatch(wBrowser);
 				if (components != null) {
 					components.Dispose();
 				}

@@ -60,14 +60,12 @@ namespace Translate
 	{
 		public ServiceStatusControl()
 		{
-			//
-			// The InitializeComponent() call is required for Windows Forms designer support.
-			//
 			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+			if(MonoHelper.IsMono)
+			{
+				wbStatus.ScrollBarsEnabled = true;
+			}	
 		}
 		
 		void ServiceStatusControlLoad(object sender, EventArgs e)
@@ -75,6 +73,7 @@ namespace Translate
 			Clear();
 			Status = Status;
 		}
+		
 		
 		bool showLanguage;
 		public bool ShowLanguage {
@@ -105,6 +104,8 @@ namespace Translate
 		
 		void LoadStatus()
 		{
+			//Console.WriteLine("LoadStatus : " + status.Setting.ServiceItem.Service.FullName);
+
 			Clear();
 			while(!isClean)
 				Application.DoEvents();
@@ -222,6 +223,7 @@ namespace Translate
 			{
 				button.Click += OnButtonClick;
 			}
+			
 
 			isClean = false;
 			RealRecalcSizes();
@@ -236,11 +238,14 @@ namespace Translate
 		
 		bool isLoaded;
 		bool isClean;
+		bool navigateCalled = false;
 		public void Clear()
 		{
 			if(isClean)
 				return;
-				
+		
+			WebBrowserHelper.ResetBatch(wbStatus);
+			
 			bool forceCleaning = false;	
 			if (WebBrowserHelper.GetDocument(wbStatus) != null)
 			{ 
@@ -253,7 +258,10 @@ namespace Translate
 						forceCleaning = true;
 					}	
 					else
+					{
 						isClean = true;	//avoid double cleaning
+						WebBrowserHelper.StartBatch(wbStatus);
+					}
 				}
 				else
 					forceCleaning = true;
@@ -261,8 +269,13 @@ namespace Translate
 			
 			if(WebBrowserHelper.GetDocument(wbStatus) == null || forceCleaning)
 			{
+				//Console.WriteLine("Clear ServiceStatus : " + DateTime.Now.ToString());
 				if(WebUI.ResultsWebServer.Uri != null)
+				{
+					navigateCalled = true;
 					wbStatus.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "ServiceStatus.aspx"));
+				}	
+				WebBrowserHelper.StartBatch(wbStatus);
 			}
 			RecalcSizes();
 			isClean = true;
@@ -274,16 +287,36 @@ namespace Translate
 			{
 				Application.DoEvents();
 				System.Threading.Thread.Sleep(100);
-			}	
+			}
 		
 			WebBrowserHelper.Wait(wbStatus);
 		}
 		
 		void WbStatusDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
+			//Console.WriteLine("ServiceStatus WbStatusDocumentCompleted :" + e.Url);
 			HtmlHelper.InitDocument(wbStatus);
+			if(navigateCalled)
+			{
+				navigateCalled = false;
+			}
+			else
+			{
+				if(MonoHelper.IsUnix)
+				{
+					WebBrowserHelper.PlayBatch(wbStatus);
+	
+					HtmlElement button =  WebBrowserHelper.GetDocument(wbStatus).GetElementById("btn");
+					if(button != null)
+					{
+						button.Click += OnButtonClick;
+					}
+				}
+			}
+				
 			//wbStatus.Document.Body.Style = wbStatus.Document.Body.Style + 
 			//	";background-color :ButtonHighlight;";
+			//isLoaded = true;
 			isLoaded = true;
 			RecalcSizes();			
 		}
@@ -298,10 +331,11 @@ namespace Translate
 		
 		void RealRecalcSizes()
 		{
-			
 			if(inResize)
 				return;
-				
+
+			//Console.WriteLine("RealRecalcSizes");
+			
 			inResize = true;
 			bool isHeightChanged = false;
 			try
@@ -317,19 +351,24 @@ namespace Translate
 				
 				if((isClean) || (WebBrowserHelper.GetDocument(wbStatus) == null || WebBrowserHelper.GetDocument(wbStatus).Body == null))
 				{
+					//Console.WriteLine("Set height client 1");
 					if(wbStatus.Height != allowedHeight)
 					{
+						//Console.WriteLine("Set height client");
+						
 						wbStatus.Height = allowedHeight;
 						isHeightChanged = true;
 					}
 				}	
 				else if(WebBrowserHelper.GetDocument(wbStatus) != null && WebBrowserHelper.GetDocument(wbStatus).Body != null && WebBrowserHelper.GetDocument(wbStatus).Body.ScrollRectangle.Height != 0)
 				{
+					//Console.WriteLine("Set height client 2");
 					int height = WebBrowserHelper.GetDocument(wbStatus).Body.ScrollRectangle.Height; // + 2;
 					if(wbStatus.Height != height)
 					{
 						//wbStatus.Height = height;
-						//ClientSize = new Size(ClientSize.Width, height);
+						//ClientSize = new Size(ClientSize.Width, height);]
+						//Console.WriteLine("Set height " + height);
 						wbStatus.Height = height;
 						Height = height-15;
 						isHeightChanged = true;
@@ -362,7 +401,8 @@ namespace Translate
 		
 		void WbStatusNavigating(object sender, WebBrowserNavigatingEventArgs e)
 		{
-			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
+			//Console.WriteLine("ServiceStatus WbStatusNavigating :" + e.Url);
+			if((e.Url.Host == "127.0.0.1" || e.Url.Host == WebUI.ResultsWebServer.Uri.Host) && e.Url.Port == WebUI.ResultsWebServer.Port)
 				return;
 		
 			HtmlHelper.OpenUrl(e.Url);

@@ -63,11 +63,22 @@ namespace Translate
 		{
 			inResize = true;
 			InitializeComponent();
+			
+			if(MonoHelper.IsUnix)
+			{
+				//wBrowser.WebBrowserShortcutsEnabled = true;
+				wBrowser.AllowNavigation = false;
+				wBrowser.ScrollBarsEnabled = true;
+				//wBrowser.ScriptErrorsSuppressed = false;
+				wBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+			}
+			
 
 			wBrowser.StatusTextChanged += wBrowser_StatusTextChanged;
 			inResize = false;
 			RecalcSizes();
 			EditingManager.OnCopy += OnCopy;
+			
 		}
 
 		static ResultBrowser()
@@ -81,7 +92,7 @@ namespace Translate
 		
 			if(webbrowser == wBrowser)
 			{
-				WebBrowserHelper.GetDocument(wBrowser).ExecCommand("Copy", false, null);
+				WebBrowserHelper.ExecCopy(wBrowser); 
 				e.Handled = true;				
 				//replace rtf with simple text
 				try
@@ -115,11 +126,14 @@ namespace Translate
 
 		bool isClean;
 		bool forceCleaning;
+		bool navigateCalled = false;
 		public void Clear()
 		{
 			if(isClean)
 				return;
 				
+			WebBrowserHelper.ResetBatch(wBrowser);
+			
 			if(UpdatesManager.IsNewVersion && !CommandLineHelper.IsCommandSwitchSet("skipchangelog"))
 			{
 				UpdatesManager.IsNewVersion = false;
@@ -153,7 +167,10 @@ namespace Translate
 						forceCleaning = true;
 					}	
 					else
+					{
+						WebBrowserHelper.StartBatch(wBrowser);
 						isClean = true;	//avoid double cleaning
+					}	
 				}
 				else
 					forceCleaning = true;
@@ -161,8 +178,11 @@ namespace Translate
 			
 			if(WebBrowserHelper.GetDocument(wBrowser) == null || forceCleaning)
 			{
+				//Console.WriteLine("Clear Result");
 				forceCleaning = false;
+				navigateCalled = true;
 				wBrowser.Navigate(new Uri(WebUI.ResultsWebServer.Uri, "Default.aspx"));
+				WebBrowserHelper.StartBatch(wBrowser);
 			}
 			RecalcSizes();
 			isClean = true;	
@@ -788,7 +808,6 @@ namespace Translate
 		}
 		void RealRecalcSizes()
 		{
-			
 			if(inResize)
 				return;
 				
@@ -803,8 +822,23 @@ namespace Translate
 					advertScrollRectangle = new Rectangle(0, 0, 0, 0);
 
 				Rectangle browserScrollRectangle;
-				if(WebBrowserHelper.GetDocument(wBrowser) != null && WebBrowserHelper.GetDocument(wBrowser).Body != null)
-					browserScrollRectangle = WebBrowserHelper.GetDocument(wBrowser).Body.ScrollRectangle;
+				if(WebBrowserHelper.GetDocument(wBrowser) != null)
+				{
+					HtmlElement body = WebBrowserHelper.GetDocument(wBrowser).Body;
+					if(body != null)
+					{
+						try
+						{
+							browserScrollRectangle = body.ScrollRectangle;
+						}
+						catch(NullReferenceException)
+						{
+							browserScrollRectangle = new Rectangle(0, 0, 0, 0);
+						}
+					}	
+					else
+						browserScrollRectangle = new Rectangle(0, 0, 0, 0);
+				}
 				else
 					browserScrollRectangle = new Rectangle(0, 0, 0, 0);
 					
@@ -875,7 +909,7 @@ namespace Translate
 					isHeightChanged = true;
 				}
 				
-				if(wAdvertBrowser.Bottom < Height)
+				if(wAdvertBrowser.Bottom < Height && !MonoHelper.IsMono)
 				{
 					wBrowser.Top += Height-wAdvertBrowser.Bottom;
 					wAdvertBrowser.Top = wBrowser.Bottom;
@@ -999,6 +1033,7 @@ namespace Translate
 		{
 			int top = -vScrollBar.Value;
 			wBrowser.Top = top;
+			//Console.WriteLine("wBrowser.Top1" + wBrowser.Top);
 			wAdvertBrowser.Top = wBrowser.Bottom;
 		}
 		
@@ -1072,9 +1107,10 @@ namespace Translate
 		
 		void WBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e)
 		{
+			//Console.WriteLine("ResultBrowser WBrowserDocumentNavigating :" + e.Url);
 			//if(e.Url.AbsoluteUri == "about:blank")
 			//	return;
-			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
+			if((e.Url.Host == "127.0.0.1" || e.Url.Host == WebUI.ResultsWebServer.Uri.Host) && e.Url.Port == WebUI.ResultsWebServer.Port)
 				return;
 			if(e.Url.AbsoluteUri.StartsWith(Constants.StatsPageUrl))
 				return;
@@ -1134,13 +1170,21 @@ namespace Translate
 		
 		void WBrowserDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
 		{
-			if(e.Url.Host == "127.0.0.1" && e.Url.Port == WebUI.ResultsWebServer.Port)
+			//Console.WriteLine("ResultBrowser WBrowserDocumentCompleted :" + e.Url);
+			if((e.Url.Host == "127.0.0.1" || e.Url.Host == WebUI.ResultsWebServer.Uri.Host) && e.Url.Port == WebUI.ResultsWebServer.Port)
 			{
 				HtmlHelper.InitDocument(wBrowser);
+				if(navigateCalled)
+				{
+					navigateCalled = false;
+				}
+				else
+					WebBrowserHelper.PlayBatch(wBrowser);
 			}
 			else
 			{
-				WebBrowserHelper.GetDocument(wBrowser).Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
+				if(!MonoHelper.IsUnix) //TODO: fix this
+					WebBrowserHelper.GetDocument(wBrowser).Body.Style = HtmlHelper.BodyStyle + "font-size: 8pt; font-family: Tahoma;";
 				HtmlHelper.RemoveElement(wBrowser, "big_header");
 			}
 			RecalcSizes();			
