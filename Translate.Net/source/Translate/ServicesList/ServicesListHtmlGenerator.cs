@@ -65,8 +65,8 @@ namespace Translate
 					continue;
 				FreeCL.RTL.LangPack.Load(lang);
 				string langcode = lang.ToLowerInvariant().Substring(0, 2);
-				string unpacked_file = string.Format("..\\site\\services.unpackeddata.{0}.html", langcode);
-				string java_file = string.Format("..\\site\\servicesdata_{0}.java", langcode);
+				string unpacked_file = string.Format(".."+System.IO.Path.DirectorySeparatorChar+"site"+System.IO.Path.DirectorySeparatorChar+"services.unpackeddata.{0}.html", langcode);
+				string java_file = string.Format(".."+System.IO.Path.DirectorySeparatorChar+"site"+System.IO.Path.DirectorySeparatorChar+"servicesdata_{0}.java", langcode);
 				BuildFile(unpacked_file, java_file);
 				GC.Collect();
 				GC.WaitForPendingFinalizers();
