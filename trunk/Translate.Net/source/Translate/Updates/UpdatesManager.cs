@@ -76,7 +76,7 @@ namespace Translate
 		static bool portable;
 		public static void Init()
 		{
-			portable = CommandLineHelper.IsCommandSwitchSet("portable");
+			portable = CommandLineHelper.IsCommandSwitchSet("portable") || MonoHelper.IsUnix;
 			mutex = new System.Threading.Mutex(false, "SAUTRANSLATENET");
 
 			if(Constants.VersionsTxtUrls.Count > 1)			
@@ -89,7 +89,7 @@ namespace Translate
 				return; 
 				
 			//remove all update files
-			string pathToAppData = FreeCL.Forms.Application.DataFolder + @"\Update";
+			string pathToAppData = FreeCL.Forms.Application.DataFolder + Path.DirectorySeparatorChar + "Update";
 			if(!Directory.Exists(pathToAppData))
 				return;
 			
@@ -238,8 +238,10 @@ namespace Translate
 			WebClient client = new WebClient();
 			NetworkSetting networkSetting =  TranslateOptions.Instance.NetworkOptions.GetNetworkSetting(null);
 			client.Proxy = networkSetting.Proxy;
-			client.UseDefaultCredentials = true;
-			client.CachePolicy = new  RequestCachePolicy( RequestCacheLevel.Reload); 
+			if(!MonoHelper.IsMono)
+				client.UseDefaultCredentials = true;
+			if(!MonoHelper.IsMono)
+				client.CachePolicy = new  RequestCachePolicy( RequestCacheLevel.Reload); 
 			client.DownloadProgressChanged += DownloadProgressChanged;
 			client.DownloadStringCompleted += DownloadVersionsCompleted;
 			client.DownloadStringAsync(new Uri(Constants.VersionsTxtUrls[versionUrlToCheck]));
@@ -530,10 +532,10 @@ namespace Translate
 				return;
 			}
 			
-			string pathToAppData = FreeCL.Forms.Application.DataFolder + @"\Update";
+			string pathToAppData = FreeCL.Forms.Application.DataFolder + Path.DirectorySeparatorChar + "Update";
 			if(!Directory.Exists(pathToAppData))
 				Directory.CreateDirectory(pathToAppData);
-			updateFileName = pathToAppData + @"\" + fileName;
+			updateFileName = pathToAppData + Path.DirectorySeparatorChar + fileName;
 			if(File.Exists(updateFileName))
 			{
 				try
@@ -579,6 +581,8 @@ namespace Translate
 		[SuppressMessage("Microsoft.Design", "CA1031:DoNotCatchGeneralExceptionTypes")]
 		static bool InitCanRunUpdate()
 		{
+			if(MonoHelper.IsUnix)
+				return false;
 			AppDomain domain = System.Threading.Thread.GetDomain();
 			domain.SetPrincipalPolicy(PrincipalPolicy.WindowsPrincipal);
 			WindowsPrincipal principal = (WindowsPrincipal)System.Threading.Thread.CurrentPrincipal;
