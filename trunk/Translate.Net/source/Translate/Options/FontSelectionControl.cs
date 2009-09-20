@@ -43,6 +43,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Text;
 using FreeCL.RTL;
+using System.Collections.Generic;
 
 namespace Translate
 {
@@ -63,14 +64,18 @@ namespace Translate
 				cbFontSize.Items.Add(i);
 			}		
 			InstalledFontCollection installedFontCollection = new InstalledFontCollection();
+			List<string> fonts = new List<string>();
 			foreach (FontFamily fontFamily in installedFontCollection.Families)
 			{
 				if (fontFamily.IsStyleAvailable(FontStyle.Regular) && 
 						fontFamily.IsStyleAvailable(FontStyle.Bold)  && 
 						fontFamily.IsStyleAvailable(FontStyle.Italic)
 					)
-					cbFontName.Items.Add(fontFamily.Name);
+					fonts.Add(fontFamily.Name);
 			}
+			fonts.Sort();
+			cbFontName.Items.AddRange(fonts.ToArray());
+			
 			
 			RegisterLanguageEvent(OnLanguageChanged);
 		}
