@@ -60,7 +60,7 @@ namespace Translate
 				{
 					foreach(Definition df in definitions)
 					{
-						translation = "html!<div style='width:{allowed_width}px;overflow:scroll;overflow-y:hidden;overflow-x:auto;'><pre>" + df.Description + "&nbsp</pre></div>";
+						translation = "html!<div style='width:{allowed_width}px;overflow:scroll;overflow-y:hidden;overflow-x:auto;'><pre>" + df.Description.Replace("\r\n", "<br />") + "&nbsp</pre></div>";
 						result.Translations.Add(translation);
 					}
 				}
