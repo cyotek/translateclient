@@ -337,6 +337,18 @@ namespace Translate.DictD
         {
         	return ExecuteCommand(command, this.autoConnect, true);
         }
+		
+		bool IsDataArrived()
+		{
+			try  //monobug - Peek raise IOException 
+			{
+				return inStream.Peek () != -1;
+			}
+			catch
+			{
+				return false;
+			}
+		}
 
         /// <summary>
         /// Send a command to the dictionary server and read and parse the response.
@@ -407,7 +419,7 @@ namespace Translate.DictD
 	                response.Append (inStream.ReadLine ());
 	                response.Append ("\r\n");
 	
-	                while (inStream.Peek () != -1)
+	                while (IsDataArrived())
 	                {
 	                    temp = inStream.ReadLine ();
 	
@@ -707,8 +719,8 @@ namespace Translate.DictD
          
             for (int i=0; i<responses.Length; i++)
             {
-                // Split occasionally produces empty strings
-                if (responses[i].Length == 0)
+				// Split occasionally produces empty strings
+				if (responses[i].Trim().Length == 0)
                     continue;
 
                 StringReader rdr = new StringReader (responses[i]);
