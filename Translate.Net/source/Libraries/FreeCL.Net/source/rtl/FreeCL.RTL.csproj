@@ -61,7 +61,9 @@
     <Compile Include="CommandLineHelper.cs" />
     <Compile Include="CryptoTools.cs" />
     <Compile Include="DynamicMethodsHelper.cs" />
+    <Compile Include="EnvironmentHelper.cs" />
     <Compile Include="Memory.cs" />
+    <Compile Include="MonoDummyStubs.cs" />
     <Compile Include="MonoHelper.cs" />
     <Compile Include="ProcessHelper.cs" />
     <Compile Include="TaskConveyer.cs" />
