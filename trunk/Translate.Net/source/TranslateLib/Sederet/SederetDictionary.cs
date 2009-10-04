@@ -64,7 +64,7 @@ namespace Translate
 			
 			Name = "_dictionary";
 			
-			WordsLimit = 1;
+			WordsLimit = 5;
 			CharsLimit = 50;
 		}
 		
@@ -74,8 +74,17 @@ namespace Translate
 		static CookieContainer cookieContainer = new CookieContainer();
 		static DateTime coockieTime = DateTime.Now.AddHours(-5);
 		
-		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
 		protected  override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
+			List<string> words = StringParser.SplitToWords(phrase);
+			foreach(string word in words)
+			{
+				TranslateWord(word, languagesPair, subject, result, networkSetting);
+			}
+		}
+		
+		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="Translate.TranslationException.#ctor(System.String)")]
+ 	 	void TranslateWord(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			lock(sederetCode)
 			{
@@ -110,6 +119,11 @@ namespace Translate
 			helper.AddPostData(query);
 
 			string responseFromServer = helper.GetResponse();
+			
+			lock(sederetCode)
+			{
+				sederetCode = StringParser.Parse("<input type=\"hidden\" name=\"var\" value=\"", "\"", responseFromServer);			
+			}	
 			
 			string translation = StringParser.Parse("<span id=\"result_title\"", "id=\"part_right\">", responseFromServer);
 			
