@@ -1152,8 +1152,9 @@ namespace Translate
 			if(e.Url.AbsoluteUri.Contains("shdoclc.dll"))
 				return;
 				
+			if(e.Url.AbsoluteUri.Contains("addthis.com"))
+				return;
 			
-
 			if(e.Url.AbsoluteUri.Contains("mailto:translate.net@gmail.com"))
 			{
 				MailTo.Send(ApplicationInfo.SupportEmail, 
