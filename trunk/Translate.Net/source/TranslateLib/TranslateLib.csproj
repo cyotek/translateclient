@@ -54,6 +54,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Bahasa\BahasaDictionary.cs" />
+    <Compile Include="Bahasa\BahasaService.cs" />
     <Compile Include="Cache\GuessResultsCache.cs" />
     <Compile Include="Cache\ResultsCache.cs" />
     <Compile Include="Core\BaseServiceItem.cs" />
@@ -165,6 +167,8 @@
     <Compile Include="RusUkrIatpOrgUa\RusUkrIatpOrgUaService.cs" />
     <Compile Include="SaDirBg\SaDirBgDictionary.cs" />
     <Compile Include="SaDirBg\SaDirBgService.cs" />
+    <Compile Include="Sederet\SederetDictionary.cs" />
+    <Compile Include="Sederet\SederetService.cs" />
     <Compile Include="SeznamCz\SeznamCzDictionary.cs" />
     <Compile Include="SeznamCz\SeznamCzService.cs" />
     <Compile Include="SlovnenyaCom\SlovnenyaComDictionary.cs" />
@@ -247,6 +251,8 @@
     <EmbeddedResource Include="MegaslownikPl\Service.ico" />
     <EmbeddedResource Include="OpenTranEu\Service.ico" />
     <EmbeddedResource Include="DictD\Service.ico" />
+    <EmbeddedResource Include="Bahasa\Service.ico" />
+    <EmbeddedResource Include="Sederet\Service.ico" />
     <None Include="Ulif\generatestub.cmd" />
     <None Include="Ulif\generatestub.xml" />
     <EmbeddedResource Include="WordNet\Service.ico" />
@@ -254,6 +260,7 @@
     <EmbeddedResource Include="UrduenglishdictionaryOrg\Service.ico" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Bahasa" />
     <Folder Include="Core" />
     <Folder Include="DictCc" />
     <Folder Include="Google" />
@@ -273,6 +280,7 @@
     <Folder Include="DictD" />
     <Folder Include="DictDClient" />
     <Folder Include="OpenTranEu" />
+    <Folder Include="Sederet" />
     <Folder Include="SozlukteCom" />
     <Folder Include="TezaverSi" />
     <Folder Include="SynonimyPl" />
