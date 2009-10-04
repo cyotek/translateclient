@@ -207,6 +207,7 @@ namespace Translate
 						tcMain.TabPages.Clear();
 						tcMain.TabPages.Add(tpServices);
 						tcMain.TabPages.Add(tpLangs);
+						pFrom.Width = pMain.ClientSize.Width/2 - 2;
 						tcMain.TabPages.Add(tpSubject);
 						tcMain.SelectedTab = tpLangs;
 					
