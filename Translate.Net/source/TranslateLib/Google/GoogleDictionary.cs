@@ -1,4 +1,4 @@
-﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -41,6 +41,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Web; 
 using System.Text; 
 using System.Globalization;
+using System.Collections.Generic; 
 
 
 namespace Translate
@@ -164,10 +165,10 @@ namespace Translate
 			responseFromServer = StringParser.Parse("<div class=\"dct-srch-otr\">", "<div class=\"dct-rt-sct\">", responseFromServer);
 			
 			//pronuncation
-			if(responseFromServer.Contains("<span class=\"phn\">"))
+			if(responseFromServer.Contains("<span class=\"dct-tp\">/"))
 			{
-				string pronuncation = StringParser.Parse("<span class=\"phn\">", "</span>", responseFromServer);
-				pronuncation = StringParser.Parse("[", "]", pronuncation).Trim();
+				string pronuncation = StringParser.Parse("<span class=\"dct-tp\">/", "/</span>", responseFromServer);
+				pronuncation = pronuncation.Trim();
 				result.Abbreviation = pronuncation;
 			}
 			
@@ -182,71 +183,92 @@ namespace Translate
 			//TODO: additional sences like in "water" - "water down" not supported
 			
 			if(responseFromServer.Contains("<div class=\"sen\">"))
-				translations = StringParser.Parse("<ul class=\"dfnt\">", "</ul>\n<div class=\"sen\">", responseFromServer);
+				translations = StringParser.Parse("<ul class=\"dct-e2\" id=\"pr-root\" >", "</ul>\n<div class=\"sen\">", responseFromServer);
 			else if(responseFromServer.Contains("<h3>Related phrases</h3>"))
-				translations = StringParser.Parse("<ul class=\"dfnt\">", "</ul>\n<h3>Related phrases</h3>", responseFromServer);
+				translations = StringParser.Parse("<ul class=\"dct-e2\" id=\"pr-root\" >", "</ul>\n<h3>Related phrases</h3>", responseFromServer);
 			else if(responseFromServer.Contains("<h3>Web definitions</h3>"))	
-				translations = StringParser.Parse("<ul class=\"dfnt\">", "</ul>\n<h3>Web definitions</h3>", responseFromServer);
+				translations = StringParser.Parse("<ul class=\"dct-e2\" id=\"pr-root\" >", "</ul>\n<h3>Web definitions</h3>", responseFromServer);
 			else	
-				translations = StringParser.Parse("<ul class=\"dfnt\">", "</ul>", responseFromServer);
-			//translations = StringParser.Parse("<ol>", "</ol>", responseFromServer);
-			//translations = translations.Replace("</h4>", "</h4></li>");
+				translations = StringParser.Parse("<ul class=\"dct-e2\" id=\"pr-root\" >", "</ul>", responseFromServer);
 
 			
-			StringParser parser = new StringParser(translations);
-			string[] subtranslation_list = parser.ReadItemsList("<h4>", "</ol>", "3485730457203");
+			StringParser parser = null;
+			List<string> subtranslations = new List<string>();
+			if(translations.Contains("<li class=\"dct-ec\""))
+			{
+				//"</li>\n</ul>\n</li>"
+				parser = new StringParser(translations);
+				string[] subtranslation_list = parser.ReadItemsList("<li class=\"dct-ec\"", "</li>\n</ul>\n</li>", "3485730457203");
+				subtranslations.AddRange(subtranslation_list);
+			}
+			else
+			{
+				subtranslations.Add(translations);
+			}
 			
-			Result subres_tr = null;
-			Result subsubres_tr = null;
-			
-			string subtrans_str;
+			Result subres_tr = result;
+			Result sub2res_tr = null;
+			Result sub3res_tr = null;
 			string abbr_str;
 			
-			foreach(string subtrans_s in subtranslation_list)
+			foreach(string subtranslation in subtranslations)
 			{
-				subtrans_str = subtrans_s;
-				abbr_str = StringParser.ExtractLeft("</h4>", subtrans_str);
-				subres_tr = CreateNewResult(abbr_str, languagesPair, subject);
-				result.Childs.Add(subres_tr);
-				
-				abbr_str = StringParser.Parse("</h4>", "<ol>", subtrans_str);
-				abbr_str = StringParser.RemoveAll("<", ">", abbr_str);
-				subres_tr.Abbreviation = abbr_str.Trim();
-				
-				subtrans_str = subtrans_str.Replace("<span class=\"mn\">", "<end><begin>");
-				subtrans_str += "<end>";
-				
-				StringParser childsParser = new StringParser(subtrans_str);
-				string[] childs_list = childsParser.ReadItemsList("<begin>", "<end>", "3485730457203");
-				foreach(string child_s in childs_list)
+				if(subtranslation.Contains("<div  class=\"dct-ec\">"))
 				{
-					if(!child_s.Contains("</ul>")) 
-					{ //simple translation
-						subtrans_str = StringParser.RemoveAll("<", ">", child_s);
-						subres_tr.Translations.Add(subtrans_str.Trim());
-					}
-					else
-					{ //more deep case, like English->English
-						abbr_str = StringParser.ExtractLeft("<ul", child_s);
-						abbr_str = StringParser.RemoveAll("<", ">", abbr_str);
-						subsubres_tr = CreateNewResult(abbr_str, languagesPair, subject);
-						subres_tr.Childs.Add(subsubres_tr);
+					abbr_str = StringParser.Parse("title=\"Part-of-speech\">", "</span>", subtranslation);
+					subres_tr = CreateNewResult(abbr_str, languagesPair, subject);
+					result.Childs.Add(subres_tr);
+				}
 				
-						subtrans_str = child_s;
-						if(subtrans_str.EndsWith("<li>"))
-							subtrans_str = subtrans_str.Substring(0, subtrans_str.Length - 4);
-						childsParser = new StringParser(subtrans_str);
-						string[] subsubsubtranslation_list = childsParser.ReadItemsList("<li>", "</li>", "3485730457203");
-						foreach(string subsubsubtrans_s in subsubsubtranslation_list)
-						{
-							subtrans_str = subsubsubtrans_s;
-							subtrans_str = StringParser.RemoveAll("<", ">", subtrans_str);
-							subsubres_tr.Translations.Add(subtrans_str.Trim());
-						}
+				parser = new StringParser(subtranslation.Replace("<li class=\"dct-em\"", "<end><begin>") + "<end>");
+				string[] subsubtranslation_list = parser.ReadItemsList("<begin>", "<end>", "3485730457203");
+				
+				foreach(string subsubtanslation in subsubtranslation_list)
+				{
+					sub2res_tr = CreateNewResult("", languagesPair, subject);
+					subres_tr.Childs.Add(sub2res_tr);
 					
+					if(subsubtanslation.Contains(">See also</span>"))
+						sub2res_tr.Translations.Add("See also");	
+					
+					StringParser parser2 = new StringParser(subsubtanslation.Replace("<span class=\"dct-tt\">", "<end><begin>") + "<end>");
+					string[] sub3translation_list = parser2.ReadItemsList("<begin>", "<end>", "3485730457203");
+					
+					foreach(string sub3tanslation in sub3translation_list)
+					{
+						string text_translation = "";
+						string text_abbr = "";
+						if(sub3tanslation.Contains("<span") )
+						{
+							text_translation = StringParser.ExtractLeft("<span", sub3tanslation);
+							if(text_translation.Contains("</span") )
+								text_translation = StringParser.ExtractLeft("</span", text_translation);
+							text_abbr = StringParser.Parse("<span", "</span" , sub3tanslation);
+							text_abbr = StringParser.ExtractRight(">", text_abbr);
+						}
+						else
+							 text_translation = StringParser.ExtractLeft("</span>", sub3tanslation);
+						
+						text_translation = StringParser.RemoveAll("<", ">", text_translation);
+						
+						if(sub2res_tr.Translations.Count == 0)
+						{
+							sub2res_tr.Translations.Add(text_translation);
+							sub2res_tr.Abbreviation = text_abbr;
+						}
+						else
+						{
+							sub3res_tr = CreateNewResult("", languagesPair, subject);
+							sub3res_tr.Translations.Add(text_translation);
+							//sub3res_tr.Phrase = text_abbr;
+							sub2res_tr.Childs.Add(sub3res_tr);
+						}	
+				
 					}
 				}
+				
 			}
+			
 			
 			//related words
 			if(responseFromServer.Contains("<h3>Related phrases</h3>"))
@@ -259,21 +281,14 @@ namespace Translate
 					
 					foreach(string related_s in related_list)
 					{
-						string related_str = related_s;
-						related_str = related_str.Replace("</dfn>", "");
-						related_str = StringParser.RemoveAll("<span", ">", related_str);
-						related_str = related_str.Replace("</span>", "");
-						related_str = related_str.Replace("<strong>", "");
-						related_str = related_str.Replace("</strong>", "");
-						
-						int translationIdx = related_str.IndexOf("</b>");
-						if(translationIdx < 0)
-							throw new TranslationException("Can't found '</b>' tag in string : " + related_str);
-							
-						string subphrase = related_str.Substring(0, translationIdx).Replace("\n", "").Trim(); 
+						string related_str = related_s.Replace("\n", "").Trim();
+						string subphrase = StringParser.Parse("<div>", "</div>", related_str);
 						subphrase = StringParser.RemoveAll("<", ">", subphrase);
+						subphrase = subphrase.Replace("&nbsp", " ").Replace("\n", "").Trim(); 
 						
-						string subphrasetrans = related_str.Substring(translationIdx + 4); 
+						
+						string subphrasetrans = StringParser.ExtractRight("</div>", related_str);
+						
 						subphrasetrans = StringParser.RemoveAll("<", ">", subphrasetrans);
 						subphrasetrans = subphrasetrans.Replace("&nbsp", " ").Replace("\n", "").Trim(); 
 						
@@ -287,11 +302,9 @@ namespace Translate
 			//Web definitions
 			if(responseFromServer.Contains("<h3>Web definitions</h3>"))
 			{
-				string related = StringParser.Parse("<ul class=\"gls\">", "</div>", responseFromServer);
+				string related = StringParser.ExtractRight("<ul class=\"gls\">", responseFromServer);
 				if(!string.IsNullOrEmpty(related))
 				{				
-					related = StringParser.Parse("<ul>", "<div>", related);
-					if(!string.IsNullOrEmpty(related))
 					{				
 					
 						Result subres_wd = CreateNewResult(phrase, languagesPair, subject);
@@ -304,6 +317,8 @@ namespace Translate
 						{
 							string related_str = related_s;
 							related_str = related_str.Replace("<br/>", "").Trim();
+							related_str = StringParser.RemoveAll("<", ">", related_str);
+							related_str = related_str.Replace("&nbsp", " ").Replace("\n", "").Trim(); 
 							subres_wd.Translations.Add(related_str);
 						}
 					}
