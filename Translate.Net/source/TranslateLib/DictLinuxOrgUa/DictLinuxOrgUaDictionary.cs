@@ -87,12 +87,12 @@ namespace Translate
 			helper.AddPostData(query);
 		
 			string responseFromServer = helper.GetResponse();
-			if(responseFromServer.IndexOf("не знайдено<br>") >= 0)
+			if(responseFromServer.IndexOf("РЅРµ Р·РЅР°Р№РґРµРЅРѕ<br>") >= 0)
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Nothing found");
 			}
-			else if(responseFromServer.EndsWith("Рядок пошуку містить недозволені символи."))
+			else if(responseFromServer.EndsWith("Р СЏРґРѕРє РїРѕС€СѓРєСѓ РјС–СЃС‚РёС‚СЊ РЅРµРґРѕР·РІРѕР»РµРЅС– СЃРёРјРІРѕР»Рё."))
 			{
 				result.ResultNotFound = true;
 				throw new TranslationException("Query contains extraneous symbols");
@@ -136,7 +136,7 @@ namespace Translate
 						subres.Translations.Add(subtranslation);
 						result.Childs.Add(subres);
 					}
-					else if(!subpart.StartsWith(" "))
+					else if(!subpart.StartsWith("В "))
 					{
 						int idx = subpart.IndexOf("</td>");
 						if(idx < 0)
