@@ -421,6 +421,7 @@ namespace Translate
 				{
 					string trackMessage = string.Format("Error on translating phrase : {0}, direction : {1}, subject : {2}, service : {3}", result.Phrase, result.LanguagePair.ToString(), result.Subject, result.ServiceItem.FullName);
 					AnalyticsMonitor.OnThreadException(result.Error, trackMessage);
+					Trace.TraceException(result.Error);
 				}
 			}
 			return htmlString.ToString();
