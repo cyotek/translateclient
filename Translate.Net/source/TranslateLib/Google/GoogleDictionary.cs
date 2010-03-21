@@ -201,7 +201,31 @@ namespace Translate
 				string[] subtranslation_list = parser.ReadItemsList("<li class=\"dct-ec\"", "</li>\n</ul>\n</li>", "3485730457203");
 				subtranslations.AddRange(subtranslation_list);
 			}
-			else
+			else if(translations.Contains("<div style=\"font-weight:bold\">Synonyms:</div>"))
+			{
+				Result synonyms_tr = CreateNewResult("Synonyms", languagesPair, subject);
+				result.Childs.Add(synonyms_tr);
+				
+				string synonyms = StringParser.Parse("<div style=\"font-weight:bold\">Synonyms:</div>", "</div>", translations);
+				parser = new StringParser(synonyms);
+				string[] syn_group_list = parser.ReadItemsList("<li>", "</li>", "3485730457203");
+				foreach(string syngroup in syn_group_list)
+				{
+					string syn_group_name = StringParser.Parse("title=\"Part-of-speech\">", "</span>", syngroup);
+					Result syn_tr = CreateNewResult(syn_group_name, languagesPair, subject);
+					synonyms_tr.Childs.Add(syn_tr);
+					parser = new StringParser(syngroup);
+					string[] syn_list = parser.ReadItemsList("<a", "</a>", "3485730457203");
+					foreach(string syn in syn_list)
+					{
+						string synonym = StringParser.ExtractRight(">", syn);
+						syn_tr.Translations.Add(synonym);
+					}
+				}
+
+				subtranslations.Add(translations);
+			}
+			else	
 			{
 				subtranslations.Add(translations);
 			}
