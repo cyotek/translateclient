@@ -56,6 +56,7 @@ namespace Translate
 	{
 		public TridentComUaTranslator()
 		{
+			langToKey.Add(Language.Autodetect, "Detect");
 			langToKey.Add(Language.English, "Eng");
 			langToKey.Add(Language.Latvian, "Lat");
 			langToKey.Add(Language.German, "Ger");
@@ -63,6 +64,7 @@ namespace Translate
 			langToKey.Add(Language.Russian, "Rus");
 			langToKey.Add(Language.Ukrainian, "Ukr");
 			langToKey.Add(Language.French, "Fre");
+			langToKey.Add(Language.Kazakh, "Kaz");
 			
 			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(langToKey);
 			
@@ -122,33 +124,35 @@ namespace Translate
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://www.trident.com.ua/translation/tran.php"), 
+				new WebRequestHelper(result, new Uri("http://www.trident.com.ua/translation_online/"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
 			
 			//query
-			//?Adr=62.149.17.70&DlgLang=Rus&TranTo=Rus&Subject=**&SrcTxt=%D0%B1%D0
+			//?SrcTxt=test&Subject=**&LangFrom=Detect&LangTo=Rus&Translate=++Translate+++&DstTxt=&DlgLang=english
 			string lang_to = ConvertLanguage(languagesPair.To);
-			string query = "AddCount=1&Adr=123.123.123.123&DlgLang=Eng&TranTo={0}&Subject={1}&SrcTxt={2}";
+			string lang_from = ConvertLanguage(languagesPair.From);
+			string query = "SrcTxt={2}&Subject={1}&LangFrom={3}&LangTo={0}&Translate=++Translate+++&DstTxt=&DlgLang=english";
 			query = string.Format(CultureInfo.InvariantCulture, 
 				query, 
 				lang_to,
 				GetSubject(subject),
-				HttpUtility.UrlEncode(phrase, helper.Encoding));
+				HttpUtility.UrlEncode(phrase, helper.Encoding),
+			    lang_from);
 			helper.AddPostData(query);
 			
 			string responseFromServer = helper.GetResponse();
 			
-			string status = responseFromServer.Substring(8, 1);
-			if(status != "2")
-			{
-				throw new TranslationException(responseFromServer.Substring(10));
-			}
+			string translation = StringParser.Parse("<textarea rows=\"7\" cols=\"50\" name=\"DstTxt\"", "</textarea>", responseFromServer); 
+			translation = StringParser.ExtractRight(">",translation).Trim();
+			if(!String.IsNullOrEmpty(translation))
+				result.Translations.Add(translation);
 			else
-			{	if(responseFromServer.Substring(17) == "Translation direction is not correct")
-					throw new TranslationException("Translation direction is not correct");
-				result.Translations.Add(responseFromServer.Substring(17));
-			}
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}				
+				
 		}
 	}
 }
