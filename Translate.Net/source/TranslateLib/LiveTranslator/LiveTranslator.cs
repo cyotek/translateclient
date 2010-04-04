@@ -98,22 +98,37 @@ namespace Translate
 		static LiveTranslator()
 		{
 			langToKey.Add(Language.Autodetect, "");
+			langToKey.Add(Language.Arabic, "ar");
+			langToKey.Add(Language.Bulgarian, "bg");
+			langToKey.Add(Language.Chinese_CN, "zh-CHS");
+			langToKey.Add(Language.Chinese_TW, "zh-CHT");
+			langToKey.Add(Language.Czech, "cs");
+			langToKey.Add(Language.Danish, "da");
+			langToKey.Add(Language.Dutch, "nl");
 			langToKey.Add(Language.English, "en");
 			langToKey.Add(Language.English_GB, "en");
 			langToKey.Add(Language.English_US, "en");
-			langToKey.Add(Language.Chinese_CN, "zh-CHS");
-			langToKey.Add(Language.Chinese_TW, "zh-CHT");
-			langToKey.Add(Language.Dutch, "nl");
-			langToKey.Add(Language.Arabic, "ar");
+			langToKey.Add(Language.Finnish, "fi");
 			langToKey.Add(Language.French, "fr");			
 			langToKey.Add(Language.German, "de");
+			langToKey.Add(Language.Greek, "el");
+			langToKey.Add(Language.Hebrew, "he");
+			langToKey.Add(Language.Hungarian, "hu");
 			langToKey.Add(Language.Italian, "it");
 			langToKey.Add(Language.Japanese, "ja");
 			langToKey.Add(Language.Korean, "ko");
-			langToKey.Add(Language.Portuguese, "pt");
-			langToKey.Add(Language.Russian, "ru");
-			langToKey.Add(Language.Spanish, "es");
+			langToKey.Add(Language.Lithuanian, "lt");
+			langToKey.Add(Language.Norwegian, "no");
 			langToKey.Add(Language.Polish, "pl");
+			langToKey.Add(Language.Portuguese, "pt");
+			langToKey.Add(Language.Romanian, "ro");
+			langToKey.Add(Language.Russian, "ru");
+			langToKey.Add(Language.Slovak, "sk");
+			langToKey.Add(Language.Slovenian, "sl");
+			langToKey.Add(Language.Spanish, "es");
+			langToKey.Add(Language.Swedish, "sv");
+			langToKey.Add(Language.Thai, "th");
+			langToKey.Add(Language.Turkish, "tr");
 		}
 		
 		static SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
