@@ -3,7 +3,7 @@
 [TranslatedBy]
 Cláudio Mantovani Vieira
 [TranslatedByURL]
-claudio.mantovani@itelefonica.com.br
+clmantovani@bol.com.br
 [Translated by]
 
 [&File]
@@ -15,15 +15,15 @@ S&air
 [&Edit]
 &Editar
 [Copy selection to clipboard]
-Copiar a seleção para a área de trabalho
+Copiar a seleção para a área de transferência
 [&Copy]
 &Copiar
 [Cut selection to clipboard]
-Recortar a seleção para a área de trabalho
+Recortar a seleção para a área de transferência
 [Cu&t]
 Re&cortar
 [Paste from clipboard]
-Colar da área de trabalho
+Colar da área de transferência
 [&Paste]
 Colar
 [Delete selection]
@@ -53,7 +53,7 @@ Fechar Tudo
 [About]
 Sobre
 [Send feedback or bugreport ...]
-Envie comentários ou relatórios de problemas...
+Enviar comentários ou relatórios de problemas...
 [Feedback for :]
 Comentários para:
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
@@ -83,7 +83,7 @@ Baixado {0}Kb de {1}Kb com velocidade de {2}Kb/s
 [Update downloaded]
 Atualização baixada
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
-Uma nova versão foi baixada. Você deseja interromper o Translate.Net para instalar a nova versão?
+Uma nova versão foi baixada. Você deseja parar o Translate.Net para instalar a nova versão?
 [Please select where to save installer of new version which you can run later]
 Por favor, selecione onde você deseja salvar o instalador da nova versão que poderá ser executada mais tarde
 [Installer saved to \r\n{0}]
@@ -147,7 +147,7 @@ Usuário
 [Password]
 Senha
 [Use NTLM Authentication]
-Utilize Autenticação NTLM
+Usar Autenticação NTLM
 [Domain]
 Domínio
 [Timeout]
@@ -163,9 +163,9 @@ O formato do HTTP-Proxy ({0}) está errado. Os ajustes do proxy serão restaurad
 [Startup]
 Inicialização
 [Launch at system startup]
-Auto-executar na inicialização do sistema
+Iniciar junto com o Windows
 [Minimize to tray]
-Minimizar para a bandeja do sistema
+Minimizar para a bandeja
 [When enabled {0} will run when OS started]
 Quando ativado (0) será executado quando o Sistema Operacional inicializar
 [{0} will be minimized to tray when OS started]
@@ -175,15 +175,15 @@ Quando ativado (0) será executado quando o Sistema Operacional inicializar
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
 Verificar na inicialização e, se uma outra instância de (0) já estiver rodando, neste caso, ativar a nova aplicação e auto-interromper a mais antiga
 [Tray]
-Bandeja do Sistema
+Bandeja
 [Hotkeys]
-Teclas de Atalhos
+Atalhos
 [Activate on Ctrl+C+C hotkey]
 Ativar no atalho Ctrl+C+C
 [Activate on Ctrl+Ins+Ins hotkey]
 Ativar no atalho Ctrl+Ins+Ins
 [Translate when activated by hotkey]
-Traduzir quando for ativado por atalho
+Traduzir quando for ativado pelo atalho
 [Show query time and other information]
 Exibir o tempo da pesquisa e outras informações
 [Mark by red color untranslated words]
@@ -221,25 +221,25 @@ Versão do serviço não suportada
 [Result view]
 Exibir o resultado
 [Result view placement]
-Visualizar a colocação do resultado
+Visualizar a posição do resultado
 [Top]
-Top	
+Em cima
 [Place result view at top]
-Colocação a visualização do resultado no top
+Visualizar o resultado em cima
 [Bottom]
-Botão
+Embaixo
 [Place result view at bottom]
-Colocar a visualização do resultado no botão
+Visualizar o resultado embaixo
 [Left]
-Esquerdo
+Lado esq.
 [Place result view at left]
-Colocar a visualização do resultado no lado esquerdo
+Visualizar o resultado à esquerda
 [Right]
-Direito
+Lado direito
 [Place result view at right]
-Colocar a visualização do resultado no lado direito
+Visualizar o resultado à direita
 [Include monolingual dictionaries in translation]
-Incluir dicionários monolíngües em tradução
+Incluir dicionários monolínguas na tradução
 [Filter of languages]
 Filtro de Idiomas
 [Allow to choose languages for use]
@@ -273,7 +273,7 @@ Nome do perfil
 [Translation direction]
 Direção da tradução
 [Name for new profile you enter already used. Please enter unique name.]
-O nome do novo perfil digitado já está sendo utilizado. Por favor, digite outro nome
+O nome do novo perfil digitado já está em uso. Por favor, digite outro nome
 [Profile name don't set. Please enter profile name.]
 O nome do perfil não foi definido. Por favor, digite o nome do perfil
 [Remove user profile]
@@ -337,7 +337,7 @@ Pesquisar no Google
 [Size or format of query don't supported by available translation services]
 o tamanho ou o formato da pesquisa não são suportados pelos serviços de tradução disponíveis
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-A tradução vai produzir (0) chamadas para serviços diferentes, que podem sobrecarregar os servidores.\nVocê deseja interromper o processo de tradução?
+A tradução vai produzir {0} pedidos para serviços diferentes, que podem sobrecarregar os servidores.\nVocê deseja interromper o processo de tradução?
 [Reverse translation direction]
 Inverter a direção da tradução
 [Show\\Hide]
@@ -369,7 +369,7 @@ Basco
 [Belarusian]
 Bielo-Russo
 [Bengali]
-Bengali		
+Bengali	
 [Bihari]
 Bihari
 [Bosnian]
@@ -603,7 +603,7 @@ Banco
 [Bible]
 Bíblia
 [Biology]
-
+Biologia
 [Business]
 Negócios
 [Military]
@@ -649,21 +649,21 @@ Guia de conversação
 [Perfumery]
 Perfumaria
 [Places]
-
+Lugares
 [Humour]
-
+Humor
 [History]
-
+História
 [Geology]
-
+Geologia
 [Type]
 Tipo
 [Translator]
 Tradutor
 [Monolingual dictionary]
-Dicionário Monolíngüe
+Dicionário Monolíngua
 [Bilingual dictionary]
-Dicionário Bilíngüe
+Dicionário Bilíngua
 [Dictionary of synonyms]
 Dicionário de sinônimos
 [Dictionary of antonyms]
@@ -703,7 +703,7 @@ Limite
 [characters]
 Caracteres
 [Limit {0} : {1} characters]
-Limite {0} : {1} сaracteres
+Limite {0} : {1} caracteres
 [Limit {0} : {1} lines]
 Limite {0} : {1} linhas
 [Limit {0} : {1} words]
@@ -715,7 +715,7 @@ Dicionário técnico Inglês-Ucraniano
 [Google Translator]
 Tradutor Google
 [Google Dictionary]
-
+Google Dicionário
 [<META> Translator]
 Tradutor META
 [Free open source machine translation system]
@@ -791,207 +791,203 @@ Sozluk(te)* Dicionário On-line - Dicionário orientado de Turco
 [Free Dictionaries project]
 Projeto de Dicionários Grátis
 [Microsoft Translator]
-
+Tradutor Microsoft
 [Megaslownik - Polish oriented free online dictionary]
-
+Megaslownik - Dicionário on-line grátis de Polonês orientado
 [Open-Tran - The dictionary of translations of open-source software (OpenOffice, Gnome, Kde)]
-
+Open-Tran - Dicionário de traduções de softwares open-source (OpenOffice, Gnome, Kde)
 [1000+ brief biographical data]
-
+1000+ breves dados biográficos
 [Dictionary of synonyms of N.Abramov]
-
+Dicionário de sinônimos de N.Abramov
 [Terms of book «Criticism of historical experience» of A. Akhiezer]
-
+Termos do livro «Criticism of historical experience» de A. Akhiezer
 [Arabeyes English/Arabic dictionary]
-
+Dicionário Arabeyes de Inglês/Árabe
 [Arabic-English Freedict Dictionary]
-
+Dicionário Freedict de Árabe-Inglês
 [Russian abbreviations for aviation]
-
+Abreviações russas para aviação
 [Large Encyclopedic Dictionary]
-
+Grande Dicionário Enciclopédico
 [Russian-English Dictionary of Biology]
-
+Dicionário de Biologia Russo-Inglês
 [Bouvier's Law Dictionary, Revised 6th Ed (1856)]
-
+Dicionário da Lei de Bouvier, 6ª Ed. Revisado (1856)
 [Brockhaus and Efron's encyclopaedic dictionary]
-
+Dicionário enciclopédico de Brockhaus e Efron
 [Big dictionary of law]
-
+Grnade dicionário de leis
 [Dictionary of the church terms]
-
+Dicionário de termos religiosos
 [Croatian-English Freedict Dictionary]
-
+Dicionário Freedict de Croata-Inglês
 [Explanatory dictionary of live Russian language of V.I.Dalja]
-
+Dicionário explicativo do idioma russo vivo de V.I.Dalja
 [German-English Freedict dictionary]
-
+Dicionário Freedict de Alemão-Inglês
 [German-Nederland Freedict dictionary]
-
+Dicionário Freedict de Alemão-Holandês
 [Deutsch-Russian dictionary]
-
+Dicionário de Alemão-Russo
 [Russian-Deutsch dictionary]
-
+Dicionário de Russo-Alemão
 [THE DEVIL'S DICTIONARY ((C)1911 Released April 15 1993)]
-
+DICIONÁRIO DO DIABO ((C)1911 Lançado em 15 de Abril de 1993)
 [Easton's 1897 Bible Dictionary]
-
+Dicionário da Bíblia de Easton 1897
 [Japanese to French dictionary]
-
+Dicionário de Japonês para Francês
 [The Elements (22Oct97)]
-
+Os Elementos (22/Out/97))
 [English-Arabic FreeDict Dictionary]
-
+Dicionário FreeDict de Inglês-Árabe
 [The Open English-Russian Computer Dictionary]
-
+Dicionário Aberto de Computador Inglês-Russo
 [English-Croatian Freedict Dictionary]
-
+Dicionário Freedict de Inglês-Croata
 [English-Czech Freedict Dictionary]
-
+Dicionário Freedict de Inglês-Tcheco
 [English-German Freedict dictionary]
-
+Dicionário Freedict de Inglês-Alemão
 [English-Hindi Freedict Dictionary]
-
+Dicionário Freedict de Inglês-Hindi
 [English-Hungarian Freedict Dictionary]
-
+Dicionário Freedict de Inglês-Húngaro
 [English-Portugese Freedict dictionary]
-
+Dicionário Freedict de Inglês-Português
 [English-Turkish FreeDict Dictionary]
-
+Dicionário Freedict de Inglês-Turco
 [Estonian-Russian dictionary]
-
+Dicionário de Estoniano-Russo
 [Ethnographic dictionary]
-
+Dicionário Etnográfico
 [Dictionary of the financial terms]
-
+Dicionário de termos financeiros
 [The Free On-line Dictionary of Computing (15Feb98)]
-
+Dicionário On-line Grátis de Computação (15/Fev/98)
 [U.S. Gazetteer Counties (2000)]
-
+Municípios Gazetteer dos E.U.A. (2000)
 [U.S. Gazetteer (1990)]
-
+Gazetteer dos E.U.A. (1990)
 [U.S. Gazetteer Places (2000)]
-
+Lugares Gazetteer dos E.U.A. (2000)
 [U.S. Gazetteer Zip Code Tabulation Areas (2000)]
-
+Área de Tabulação de Código Postal Gazetteer dos E.U.A. (2000)
 [The Collaborative International Dictionary of English v.0.48]
-
+Dicionário de Colaboração Internacional do inglês v.0.48
 [Geological English-Russian dictionary]
-
+Dicionário Geológico de Inglês-Russo
 [Geological Russian-English dictionary]
-
+Dicionário Geológico de Russo-Inglês
 [The dictionary-pointer on Old Russian art]
-
+Dicionário ponteiro na Velha Arte Russa
 [English-Hindi Freedict Dictionary [reverse index]]
-
+Dicionário Freedict de Inglês-Hindi [índice reverso]
 [Hitchcock's Bible Names Dictionary (late 1800's)]
-
+Dicionário de Nomes da Bíblia de Hitchcock (antes de 1800)
 [Hungarian-English FreeDict Dictionary]
-
+Dicionário FreeDict de Húngaro-Inglês
 [Russian-English dictionary of idioms]
-
+Dicionário dos idiomas Russo-Inglês
 [The on-line hacker Jargon File, version 4.3.1, 29 JUN 2001]
-
+Arquivo on-line de jargão de hackers, versão 4.3.1, de 29/06/2001
 [Japanese to English dictionary]
-
+Dicionário de Japonês para Inglês
 [Japanese proper names dictionary]
-
+Dicionário de nomes próprios Japoneses
 [Kanji dictionary]
-
+Dicionário Kanji
 [English-Russian dictionary - N.Korolew]
-
+Dicionário Inglês-Russo - N.Korolew
 [Russian-English dictionary - N.Korolew]
-
+Dicionário de Russo-Inglês - N.Korolew
 [Latin-Russian Dictionary]
-
+Dicionário de Latim-Russo
 [New large English-Russian dictionary]
-
+Novo grande dicionário Inglês-Russo
 [English-Russian dictionary of science and mechanics]
-
+Dicionário Inglês-Russo de ciências e mecânica 
 [Russian medical dictionary]
-
+Dicionário médico Russo
 [Moby Thesaurus II by Grady Ward, 1.0]
-
+Enciclopédia Moby II de Grady Ward, 1.0
 [English-Russian Dictionary by Professor V.K.Mueller, 24-th Revised Edition]
-
+Dicionário de Inglês-Russo do Professor V.K.Mueller, 24ª Edição Revisada
 [Dutch monolingual dictionary, Copyright (C) 1995-1999 Muiswerk Educatief (www.muiswerk.nl)]
-
+Dicionário monolíngua de Holandês, Copyright (C) 1995-1999 Muiswerk Educatief (www.muiswerk.nl)
 [Nederlands-German Freedict dictionary]
-
+Dicionário Freedict de Holandês-Alemão
 [Nederlands-English Freedict dictionary]
-
+Dicionário Freedict de Holandês-Inglês
 [Nederlands-French Freedict dictionary]
-
+Dicionário Freedict de Holandês-Francês
 [Biographic reference book]
-
+Livro de referência biográfica
 [Explanatory dictionary of Russian language by Ozhegov]
-
+Dicionário explicativo do Idioma Russo de Ozhegov
 [Explanatory Dictionary of Russian language by Ozhegov and Shvedova]
-
+Dicionário Explicativo do Idioma Russo de Ozhegov e Shvedova
 [Portugese-English Freedict dictionary]
-
+Dicionário Freedict de Português-Inglês
 [History of religion]
-
+História da religião
 [English-Russian Computer Science Abbreviations]
-
+Abreviaturas em Inglês-Russo da Ciência da Computação
 [Finnish-Russian dictionary]
-
+Dicionário de Finlandês-Russo
 [Russian-English full dictionary]
-
+Dicionário completo de Russo-Inglês
 [The modern encyclopaedic dictionary (Russian)]
-
+Moderno dicionário enciclopédico (Russo)
 [Shakespearean Words and Meanings]
-
+Palavras e Signifcados Shakespearianos
 [English-Russian dictionary of abbreviations by Sinyagin]
-
+Dicionário Inglês-Russo de abreviaturas de Sinyagin
 [English-Russian dictionary by Sinyagin/Alexey Mavrin]
-
+Dicionário de Inglês-Russo de Sinyagin/Alexey Mavrin
 [English-Russian dictionary of business by Sinyagin]
-
+Dicionário Inglês-Russo de negócios de Sinyagin
 [English-Russian dictionary of computer science by Sinyagin]
-
+Dicionário Inglês-Russo das ciências da computação de Sinyagin
 [English-Russian dictionary by Sinyagin]
-
+Dicionário de Inglês-Russo de Sinyagin
 [Russian-English dictionary by Sinyagin]
-
+Dicionário Russo-Inglês de Sinyagin
 [Dictionary of smileys]
-
+Dicionário de smileys
 [Computer Terms Glossary, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
-
+Glossário de Termos de Computação, 25/08/2008 (Copyright 1998-2008 Saugus.net)
 [Filename Extensions List, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
-
+Lista de Extensões de Nomes de Arquivos, 25/08/2008 (Copyright 1998-2008 Saugus.net) 
 [Guide to Free Software, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
-
+Guia para o Software Livre, 25/08/2008 (Copyright 1998-2008 Saugus.net)
 [English-Russian dictionary (Sokrat)]
-
+Dicionário de Inglês-Russo (Sokrat)
 [Russian-English dictionary (Sokrat)]
-
+Dicionário de Russo-Inglês (Sokrat)
 [Stardic English-Chinese Dictionary]
-
+Dicionário Stardic de Inglês-Chinês
 [Russian-Swedish dictionary]
-
+Dicionário de Russo-Sueco
 [Swedish-Russian dictionary]
-
+Dicionário de Sueco-Russo
 [Japanese-English sentence examples]
-
+Exemplos de sentenças em Japonês-Inglês
 [Theosophic dictionary (Russian)]
-
+Dicionário Teosófico (Russo)
 [Explanatory Dictionary of Ushakov]
-
+Dicionário Explicativo de Ushakov
 [V.E.R.A. -- Virtual Entity of Relevant Acronyms (December 2003)]
-
+V.E.R.A. - Virtual Entity of Relevant Acronyms - Entidade Virtual de Siglas Relevantes (Dezembro de 2003)
 [CIA World Factbook 2002]
-
+Livro de Fatos do Mundo CIA 2002
 [XDICT the English-Chinese dictionary]
-
-[An Open Source Indonesian English Dictionary Project]
-
-[Online Indonesian English Dictionary]
-
+Dicionário XDICT de Inglês-Chinês
 [Grouped by Service's Url]
-Agrupado por URL de Serviço 
+Agrupado pela URL do Serviço 
 [Grouped by Language]
-Agrupado por Idioma
+Agrupado pelo Idioma
 [{0} language pairs]
 {0} pares de idiomas
 [{0} services]
@@ -1007,15 +1003,15 @@ Pronúncia
 [related links]
 links relacionados
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-Tempo da pergunta: {0} s, Contagem das perguntas: {1}, Bytes enviados: {2}, Bytes recebidos: {3}] 
+Tempo da pesquisa: {0} s, Contagem das pesquisas: {1}, Bytes enviados: {2}, Bytes recebidos: {3}] 
 [Full time : {0} s]
 Tempo total: {0} s
 [{0} phrases translated by {1} calls to translate services]
-{0} frases traduzidas por {1} convites para traduzir serviços
+{0} frases traduzidas por {1} pedidos para traduzir serviços
 [Send by mail]
 Enviado por e-mail
 [Continue]
-Prosseguir
+Continuar
 [Copy]
 Copiar
 [Terminate]
@@ -1025,19 +1021,19 @@ Concluído pelo usuário no erro
 [Unhandled exception in]
 Exceção não tratada em
 [Error on opening config file]
-Erro ao abrir o arquivo config
+Erro ao abrir a config. do arquivo
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-Erro ao abrir o arquivo config de (0).\r\nPossível motivo - erro nas opções de formato do arquivo.\r\nA configuração será restaurada aos valores padrão.
+Erro ao abrir a config. do arquivo de (0).\r\nPossível motivo - erro nas opções de formato do arquivo.\r\nA configuração será redefinida aos valores padrão.
 [Error on saving config file]
-Erro ao salvar o arquivo config em
+Erro ao salvar a config. do arquivo
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-Erro ao salvar o arquivo config para (0)\r\nPossível motivo - O acesso para escrever ao diretório de sistema TEMP foi negado.
+Erro ao salvar a config. do arquivo para (0)\r\nPossível motivo - o acesso de gravação ao diretório TEMP do sistema foi negado.
 [Error on saving config file to {0}]
-Erro ao salvar arquivo config para {0}
+Erro ao salvar a config. do arquivo para {0}
 [Show information about exception]
-Exibir informações sobre a excepção
+Exibir informações sobre a exceção
 [Error on start process : {0}\r\nError message : {1}]
-Erro ao iniciar processo: (0)\r\nMensagem de erro: (1)
+Erro ao iniciar processo: (0)\r\nMensagem de erro: {1}
 [Error on start process]
 Erro ao iniciar processo
 [Error on sending email to : {0}\r\nError message : {1}]
@@ -1047,11 +1043,11 @@ Erro ao enviar e-mail
 [Language detection]
 Detecção de Idioma
 [Guess language ...]
-Adivinhar Idioma
+Descobrir o Idioma...
 [Detect language of source text]
 Detectar o idioma do texto fonte
 [Guess language of source text and show info about]
-Adivinhar idioma do texto fonte e exibir informações sobre
+Descobrir o idioma do texto de orígem e exibir informações sobre ele
 [Language detection : {0}]
 Detecção de idioma : {0}]
 [Started]
@@ -1071,97 +1067,98 @@ Confiável
 [Not reliable]
 Não confiável
 [Keyboard layout : {0}]
-Layout de teclado : {0}
+Layout do teclado : {0}
 [Intelligent switching of profiles and directions]
-Comutação inteligente de perfis e direções
+Alteração inteligente de perfis e direções
 [Based on keyboard layout]
 Baseado no layout de teclado
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-Comutação inteligente de perfis e direções de tradução baseadas em layout de teclado
+Alteração inteligente de perfis e direções de tradução baseadas no layout de teclado
 [Based on detected language]
 Baseado no idioma detectado
 [Intelligent switching of profiles and translation directions based on detected language]
-Comutação inteligente de perfis e direções de tradução baseadas em idioma detectado
+Alteração inteligente de perfis e direções de tradução baseadas no idioma detectado
 [Switch by detected language only when text length greater of]
-Comutar pelo idioma detectado somente quando o comprimento do texto for maior do que
+Mudar pelo idioma detectado só se o tamanho do texto for maior que
 [Break translation when application deactivated]
-Quebrar a tradução quando a aplicação for desativada
+Parar a tradução quando a aplicação for desativada
 [Break translation on switching to other application]
-Quebrar a tradução na comutação para outra aplicação
+Parar a tradução ao mudar para outra aplicação
 [Don't change]
-
+Não mudar
 [Switch keyboard layout based on selected language]
-
+Mudar o layout de teclado baseado no idioma selecionado
 [Language]
-
+Idioma
 [Selected language]
-
+Idioma Selecionado
 [Change keyboard layout to]
-
+Mudar o layout do teclado para
 [When source language changes switch keyboard layout to]
-
+Quando alterar o idioma de origem, alterar o layout do teclado para
 [Changed]
-
+Alterado
 [Modified by user]
-
+Modificado pelo usuário
 [Assigned automatically]
-
+Atribuído automaticamente
 [Selected language to keyboard layout mapping]
-
+Idioma selecionado para o mapeamento do layout de teclado
 [Selected\t :]
-
+Selecionado\t:
 [Auto\t\t :]
-
+Auto\t\t :
 [Saved\t\t :]
-
+Salvo\t\t :
 [Keyboard layouts]
-
+Layouts de teclado
 [Advanced Hotkey]
-
+Atalho Avançado
 [Hotkey not set]
-
+Atalho não configurado
 [Custom Hotkey]
-
+Atalho Personalizado
 [Alt + Right Mouse Button]
-
+Alt + Botão Direito do Mouse
 [Middle Mouse Button]
-
+Botão do Meio do Mouse
 [Ctrl + Right Mouse Button]
-
+Ctrl + Botão Direito do Mouse
 [Shift + Right Mouse Button]
-
+Shift + Botão Direito do Mouse
 [Left Mouse Button + Right Mouse Button]
-
+Botão Esq. do Mouse + Botão Direito do Mouse
 [Modifiers :]
-
+Modificadores :
 [Mouse buttons :]
-
+Botões do Mouse :
 [Key :]
-
+Tecla :
 [Left{0}]
-
+Esquerda{0}
 [Middle{0}]
-
+Meio{0}
 [Right{0}]
-
+Direita{0}
 [Usage information collecting]
-
+Coleta de informações de uso
 [Yes]
-
+Sim
 [Do you want to allow collecting of basic information about application usage ?]
-
+Você deseja permitir a coleta de informações básicas sobre o uso do aplicativo?
 [Tool will]
-
+A ferramenta irá:
 [Tool will not]
-
+A ferramenta não irá:
 [Collect anonymous information about tool usage : tool running time, tool version, OS version.]
-
+Coletar informações anônimas sobre o uso da ferramenta: ferramenta tempo de execução, versão da ferramenta, versão do sistema operacional.
 [Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
-
+Coletar seu nome, endereço ou qualquer outra informação de identificação pessoal. A informação coletada é anônima.
 [You can check already collected data here]
-
+Você pode verificar os dados já coletados aqui
 [You can disable data collecting at any time in "Options" dialog]
-
+Você pode desativar a coleta de dados a qualquer momento na janela "Opções"
 [Yes, I allow to collect anonymous information]
-
+Sim, eu permito a coleta de informações anônimas
 [No, I would not like information collecting]
+Não, eu não permito a coleta de informações anônimas
