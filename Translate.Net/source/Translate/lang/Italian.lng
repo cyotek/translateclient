@@ -1,33 +1,35 @@
-﻿[TranslationComment]
+[TranslationComment]
 
 [TranslatedBy]
-Enrico (noto Siberio)
+Enrico (noto Siberio), Angelo Contardi
 [TranslatedByURL]
-siberio@email.it
+
+[Translated by]
+Tradotto da
 [&File]
 &File
 [Exit from application]
-Esci dall'applicazione
+Esce dall'applicazione
 [E&xit]
 &Esci
 [&Edit]
 &Modifica
 [Copy selection to clipboard]
-Copia la selezione negli appunti
+Copia la selezione in Appunti
 [&Copy]
 &Copia
 [Cut selection to clipboard]
-Taglia la seleziona negli appunti
+Taglia la seleziona in Appunti
 [Cu&t]
 &Taglia
 [Paste from clipboard]
-Incolla dalgli appunti
+Incolla da Appunti
 [&Paste]
 &Incolla
 [Delete selection]
-Cancella la selezione
+Elimina la selezione
 [&Delete]
-&Cancella
+&Elimina
 [Undo last operation]
 Annulla l'ultima operazione
 [&Undo]
@@ -41,153 +43,153 @@ Seleziona tutto
 [&Select All]
 &Seleziona tutto
 [&Window]
-windows
+Windows
 [Close All]
 Chiudi tutto
 [&Help]
 &Aiuto
 [&About ...]
-&A proposito di
+&A proposito di...
 [About]
 A proposito di
 [Send feedback or bugreport ...]
-Invia un feedback o segnala un errore...
+Invia una notifica o segnalazione d'errore...
 [Feedback for :]
-Messaggio per
+Messaggio per :
 [<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
-<< Inserisci qui il tuo messaggio o riporta l'errore (in Inglese, Russo o Ucraino). >>
+<< Inserisci qui la tua notifica o riporta l'errore riscontrato (in Inglese, Russo o Ucraino). >>
 [Donate ...]
-Donazione
+Donazione...
 [Online Help]
-
+Guida in linea
 [Options]
 Opzioni
 [OK]
-
+OK
 [Cancel]
-Cancella
+Annulla
 [Apply]
-Applica modifiche
+Applica
 [Minimize]
 Minimizza
 [{0} Updater]
-[{0} Aggiorna]
+Aggiornamento di {0}
 [Preparing]
-Prepara
+Inizializzazione
 [Check version]
-Verifica la versione
+Verifica della versione
 [Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
-Downloaded {0}Kb da {1}Kb con velocità {2}Kb/s
+Scaricati {0}Kb di {1}Kb alla velocità di {2}Kb/s
 [Update downloaded]
-Aggiorna il download
+Aggiorna dati del trasferimento
 [New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
-Una nuova versione è disponibile per il download: Vuoi bloccare Transale.Net e avviare l'installazione della nuova versione?
+È stata scaricata la nuova versione del programma: si desidera terminare Transale.Net ed avviare l'installazione della nuova versione?
 [Please select where to save installer of new version which you can run later]
-Per favore seleziona dove vuoi salvare l'installazione della nuova versione per poterla avviare più tardi
+Selezionare la cartella di destinazione del file d'installazione della nuova versione, per poterla avviare più tardi
 [Installer saved to \r\n{0}]
-Installazione salvata in \r\n{0}
+Aggiornamento salvato in \r\n{0}
 [Update will be run later]
 L'aggiornamento sarà avviato più tardi
 [Check Updates ...]
-Controlla per aggiornamenti ...
+Controlla gli aggiornamenti ...
 [Updates]
 Aggiornamenti
 [Automatically check updates]
-Ricerca automaicamente gli aggiornamenti
+Controlla automaicamente gli aggiornamenti
 [Automatically download updates]
-
+Scarica automaticamente gli aggiornamenti
 [Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
-Aggiorna - {0}\r\nprecedenti ricerche di aggiornamenti - {1}, stato - {2}\r\nsuccessive ricerche di aggiornamenti - {3}
+Applicazione aggiornata il {0}\r\nUltimo aggiornamento effettuato - {1}, stato - {2}\r\nProssimo aggiornamento programmato - {3}
 [Close]
 Chiudi
 [Error on downloading {0}]
-[Errore durante il download {0}]
+[Errore durante il trasferimento {0}]
 [{0} don't contained {1} tag:\r\n{2}]
 {0} non contiene {1} tag:\r\n{2}
 [{0} has wrong formatted {1} tag:\r\n{2}]
-{0} formattazione errata {1} tag:\r\n{2}
+{0} ha un formato non corretto {1} tag:\r\n{2}
 [Canceled]
-Annulla
+Annullato
 [Program is up to date]
-Il programma è aggiornato
+Il programma è già aggiornato
 [File {0} already exists]
-[Il File {0} già esiste]
+Il File {0} è già esiste
 [The server of updates is overloaded. The check of updates will be delayed.]
 Il server è sovracarico. La verifica degli aggiornamenti verrà ritardata.
 [Checking of update done]
-
+Verifica degli aggiornamenti effettuata
 [New version {0} of {1} available]
-
+È disponibile la versione {0} di {1}
 [Do you want to open site where you can download it ?]
-
+Si desidera scaricarla?
 [Version]
 Versione
 [&Tools]
 Strumenti
 [O&ptions...]
-Opzioni
+&Opzioni
 [General]
 Generale
 [UI Language]
-Lingua Interfaccia
+Linguaggio interfaccia
 [Network]
 Rete
 [HTTP-Proxy]
-Proxi-HTTP
+Indirizzo
 [Proxy]
-Proxi
+Proxy HTTP
 [Port]
 Porta
 [Enable Authentication]
-
+Abilita autenticazione
 [User]
-
+Utente
 [Password]
-
+Password
 [Use NTLM Authentication]
-
+Usa autenticazione NTLM
 [Domain]
-
+Dominio
 [Timeout]
-Timeout
+Scadenza
 [System]
-Sistema
+Di sistema
 [Custom]
-Personalizza
+Personalizzato
 [None]
-No
+Nessuno
 [Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
-
+L'indirizzo del Proxy-HTTP ({0}) è sbagliato. Verranno ripristinate le impostazioni predefinite.
 [Startup]
 Avvio
 [Launch at system startup]
-Autorun all'avvio di windows
+Esegui l'applicazione all'avvio del sistema
 [Minimize to tray]
-Minimizza nella barra di stato
+Minimizza la finestra nella barra di stato
 [When enabled {0} will run when OS started]
-
+Se abilitato {0} verrà eseguito all'avvio del sistema
 [{0} will be minimized to tray when OS started]
-
+{0} verrà minimizzato sulla barra di stato all'avvio del sistema
 [Single Instance]
-
+Consenti solo un'instanza dell'applicazione
 [Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
-
+Se all'avvio si riscontra la presenza di un'altra istanza di {0} in esecuzione, la nuova istanza viene terminata
 [Tray]
 Barra di stato
 [Hotkeys]
-Tasti di scelta rapida 
+Scorciatoie
 [Activate on Ctrl+C+C hotkey]
-Attiva in Ctrl+C+C hotkey
+Attiva l'applicazione con Ctrl+C+C
 [Activate on Ctrl+Ins+Ins hotkey]
-Attiva in Ctrl+Ins+Ins hotkey
+Attiva l'applicazione con Ctrl+Ins+Ins
 [Translate when activated by hotkey]
-Tradurre con i tasti di scelta rapida
+Traduci automaticamente il testo selezionato
 [Show query time and other information]
-Mostra i tempi della frase e le altre informazioni
+Mostra i tempi di ricerca ed altre informazioni
 [Mark by red color untranslated words]
-Evidenzia in rosso le parole non tradotte
+Mostra le parole non tradotte in rosso 
 [Don't show "Nothing found" results]
-Non mostrare i risultati non trovati
+Non mostrare i risultati delle reicerche fallite
 [Show direction of translation]
 Mostra la direzione di traduzione
 [Show accents]
@@ -197,11 +199,11 @@ Mostra i nomi dei servizi
 [Nothing found]
 Non trovato
 [An error occurred during translation. Please try again later.]
-
+Si è verificato un errore durante la traduzione. Riprovare più tardi.
 [Translation direction is not correct]
 La direzione di traduzione non è corretta
 [Only cyrillic characters supported]
-Sono supportati solo caratteri cirillici
+Sono consentiti solo caratteri cirillici
 [Ukrainian characters in russian query]
 Caratteri Ucraini in una frase Russa
 [Parse error, start tags not found]
@@ -215,73 +217,73 @@ Struttura dei dati errata
 [Query contains extraneous symbols]
 La frase contiene simboli estranei
 [Service version not supported]
-La versione del servizio non è supportata
+Versione del servizio non consentita
 [Result view]
-Vedi i risultati
+Testo tradotto
 [Result view placement]
-
+Mostra la traduzione
 [Top]
-
+In alto
 [Place result view at top]
-
+Posiziona i risultati in alto
 [Bottom]
-
+In basso
 [Place result view at bottom]
-
+Posiziona i risultati in basso
 [Left]
-
+A sinistra
 [Place result view at left]
-
+Posiziona i risultati a sinistra
 [Right]
-
+A destra
 [Place result view at right]
-
+Posiziona i risultati a destra
 [Include monolingual dictionaries in translation]
 Includi i dizionari monolingua nella traduzione
 [Filter of languages]
-
+Filtro dei linguaggi
 [Allow to choose languages for use]
-
+Consente di selezionare i lingiaggi da usare
 [Source languages]
-
+Linguaggio sorgente
 [Target languages]
-
+Linguaggio destinazione
 [Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
-
+Scegliere i languaggi dei testo da tradurre e delle traduzioni. I linguaggi disabilitati verranno rimossi dalla scheda dei "Linguaggi" del profilo predefinito
 [Toggle all]
-
+Inverti tutti
 [Please select at least one source language]
-
+Selezionare almeno un linguaggio sorgente
 [Please select at least one target language]
-
+Selezionare almeno un linguaggio destinazione
 [Profile]
 Profilo
 [Profiles]
 Profili
 [Default]
-Default
+Predefinito
 [List]
-Lista
+Elenco
 [Add new user profile]
-Aggiungi un nuovo profilo
+Aggiungi un nuovo profilo d'utente
 [Set profile properties]
 Configura il profilo
 [Profile name]
 Nome del profilo
 [Translation direction]
-Direzione della traduzione
+Direzione traduzione
 [Name for new profile you enter already used. Please enter unique name.]
-Il nome del profilo è gia esistente. Prova un altro nome.
+Il nome del nuovo profilo è gia esistente. Usare un altro nome.
 [Profile name don't set. Please enter profile name.]
-Il nome del profilo non è assegnato. Inseriscine uno.
+Occorre specificare il nome del nuovo profilo.
 [Remove user profile]
-Elimina il profilo
+Elimina il profilo d'utente
 [The profile {0} will be deleted.\r\nAre you sure ?]
-Il profilo {0} verrà cancellato. \r\sei sicuro?
+Il profilo {0} verrà eliminato. \r\Si desidera proseguire?
 [Move profile up]
-Muovi il profilo in alto
+Sposta il profilo in alto
 [Move profile down]
-Muovi il profilo in basso
+Sposta il profilo in basso
 [Name]
 Nome
 [Edit services]
@@ -289,99 +291,99 @@ Modifica i servizi
 [Remove service]
 Elimina i servizi
 [Add selected service]
-Aggiungi questo servizio
+Aggiungi il servizio selezionato
 [Add all services]
 Aggiungi tutti i servizi
 [Remove all services]
 Elimina tutti servizi
 [Services filter]
-Filtra i servizi
+Filtro dei servizi
 [Available services]
 Servizi disponibili
 [Selected services]
 Servizi selezionati
 [View]
-Vista
+Aspetto
 [Show services list]
-Mostra l'elenco dei servizi
+Elenco dei servizi
 [Show languages list]
-Mostra l'elenco delle lingue
+Elenco dei linguaggi
 [Show subjects list]
-Mostra la l'elenco dei soggetti
+Elenco degli argomenti
 [Size]
 Dimensione
 [System font]
-Font di sistema
+Caratteri di sistema
 [Fonts]
 Caratteri
 [Input text]
-Inserisci il testo
+Testo da tradurre
 [To default]
-Per default
+Predefinito
 [Toolbars]
-
+Barra degli strumenti
 [Default font]
-
+Carattere predefinito
 [&Translate]
-Tradurre
+Traduci
 [Translate]
-Tradurre
+Traduci
 [Stop current operation]
-
+Interrompe l'operazione corrente
 [Stop]
-
+Interrompi
 [Search in Google]
-
+Cerca con Google
 [Size or format of query don't supported by available translation services]
-La dimensione o il formato della frase non sono supportati dai servizi di traduzione disponibili
+La dimensione o il tipo di ricerca della frase non sono consentiti dai servizi di traduzione disponibili
 [The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
-
+La traduzione produrrà {0} chiamate a servizi differenti, che potrebbero sovraccaricare i servers.\nSi desidera terminare il processo di traduzione?
 [Reverse translation direction]
 Invertire la direzione di traduzione
 [Show\\Hide]
 Mostra\\Nascondi
 [Show HTML source]
-Mostra HTML sorgente
+Mostra il sorgente HTML
 [From]
 Da
 [To]
 A
 [Any Language]
-Qualunque lingua
+Qualunque linguaggio
 [Afrikaans]
-
+Africano
 [Albanian]
-
+Albanese
 [Amharic]
-
+Amarico
 [Autodetect]
-Determina automaticamente
+Autoidentificato
 [Arabic]
 Arabo
 [Armenian]
-
+Armeno
 [Azerbaijani]
-
+Azero
 [Basque]
-
+Basco
 [Belarusian]
 Bielorusso
 [Bengali]
-
+Bengalese
 [Bihari]
-
+Bihar
 [Bosnian]
-
+Bosniaco
 [Breton]
-
+Bretone
 [Bulgarian]
 Bulgaro
 [Burmese]
-
+Birmano
 [Catalan]
-
+Catalano
 [Cherokee]
-
+Cherokee
 [Chinese]
 Cinese
 [Chinese_CN]
@@ -395,7 +397,7 @@ Ceco
 [Danish]
 Danese
 [Dhivehi]
-
+Maldivo
 [Dutch]
 Olandese
 [English]
@@ -411,7 +413,7 @@ Estone
 [Icelandic]
 Islandese
 [Faroese]
-
+Faroese
 [Filipino]
 Filippino
 [Finnish]
@@ -419,31 +421,31 @@ Finlandese
 [French]
 Francese
 [Frisian]
-
+Frisone
 [Galician]
-
+Galiziano
 [German]
 Tedesco
 [Georgian]
-
+Georgiano
 [Greek]
 Greco
 [Guarani]
-
+Tupi-Guarani
 [Gujarati]
-
+Gujarati
 [Hebrew]
 Ebraico
 [Hindi]
-Indiano
+Hindi
 [Indonesian]
-
+Indonesiano
 [Inuktitut]
-
+Inuktitut
 [Interlingua]
-
+Interlingua
 [Irish]
-
+Irlandese
 [Hungarian]
 Ungherese
 [Italian]
@@ -451,19 +453,19 @@ Italiano
 [Japanese]
 Giapponese
 [Japanese_Romaji]
-
+Giapponese_Romaji
 [Kazakh]
-
+Kazako
 [Khmer]
-
+Cambogiano
 [Korean]
 Coreano
 [Kurdish]
-
+Curdo
 [Kyrgyz]
-
+Chirghiso
 [Laothian]
-
+Laotiano
 [Latin]
 Latino
 [Latvian]
@@ -473,31 +475,31 @@ Lituano
 [Macedonian]
 Macedone
 [Malay]
-
+Malese
 [Malayalam]
-
+Malayalam
 [Maltese]
-
+Maltese
 [Marathi]
-
+Marathi
 [Mongolian]
-
+Mongolo
 [Nepali]
-
+Nepalese
 [Norwegian]
 Norvegese
 [Norwegian_Bokmal]
-
+Norvegese_Bokmal
 [Norwegian_Nynorsk]
-
+Norvegese_Nynorsk
 [Oriya]
-
+Oriya
 [Pashto]
-
+Pashtu
 [Papiamento]
-
+Papiamento
 [Persian]
-
+Persiano
 [Polish]
 Polacco
 [Portuguese]
@@ -505,19 +507,19 @@ Portoghese
 [Portuguese_BR]
 Portoghese-Brasile
 [Punjabi]
-
+Punjabi
 [Romanian]
 Rumeno
 [Russian]
 Russo
 [Sanskrit]
-
+Sanscrito
 [Serbian]
 Sebo
 [Sindhi]
-
+Sindhi
 [Sinhalese]
-
+Singalese
 [Slovak]
 Slovacco
 [Slovenian]
@@ -527,21 +529,21 @@ Spagnolo
 [Spanish_LA]
 Spagnolo americano
 [Swahili]
-
+Swahili
 [Swedish]
 Svedese
 [Tajik]
-
+Tagico
 [Tagalog]
-
+Tagalog
 [Tamil]
-
+Tamil
 [Telugu]
-
+Telugu
 [Thai]
-
+Tailandese
 [Tibetan]
-
+Tibetano
 [Turkish]
 Turco
 [Ukrainian]
@@ -549,29 +551,29 @@ Ucraino
 [Urdu]
 Urdu
 [Uzbek]
-
+Usbeco
 [Uighur]
-
+Uiguro
 [Vietnamese]
-
+Vietnamita
 [Welsh]
 Gallese
 [Unknown]
-
+Sconosciuto
 [Languages]
-Lingue
+Linguaggi
 [Services]
 Servizi
 [Enabled]
-Abilita
+Abilitato
 [Error]
 Errore
 [Disabled]
-Disabilita
+Disabilitato
 [Move service up]
-Muovi il servizio in alto
+Sposta il servizio in alto
 [Move service down]
-Muovi il servizio in basso
+Sposta il servizio in basso
 [<b>Status</b> : Enabled]
 <b>Status</b> : abilitato
 [<b>Status</b> : Error]
@@ -583,9 +585,9 @@ Abilitato
 [Disable]
 Disabilitato
 [Subjects]
-Soggetti
+Argomenti
 [Subject]
-Soggetto
+Argomento
 [Any]
 Qualunque
 [Common]
@@ -593,7 +595,7 @@ Dizionario comune
 [Aviation]
 Aviazione
 [Auto]
-Automobilistico
+Automatico
 [Anatomy]
 Anatomico
 [Bank]
@@ -601,7 +603,7 @@ Finanziario
 [Bible]
 Religioso
 [Biology]
-
+Biologia
 [Business]
 Affari
 [Military]
@@ -611,7 +613,7 @@ Legale
 [Informatics]
 Informatica
 [Art]
-arte
+Arte
 [Space]
 Astronomico
 [Socio-political]
@@ -635,11 +637,11 @@ Economico
 [Electronics]
 Elettronico
 [Internet]
-
+Internet
 [Logistics]
 Logistica
 [Travel]
-Corsa
+Viaggi
 [Football]
 Calcio
 [Phrasebook]
@@ -647,15 +649,15 @@ Frasario
 [Perfumery]
 Profumeria
 [Places]
-
+Luoghi
 [Humour]
-
+Umoristico
 [History]
-
+Storico
 [Geology]
-
+Geologico
 [Type]
-Digita
+Tipo
 [Translator]
 Traduttore
 [Monolingual dictionary]
@@ -673,9 +675,9 @@ Enciclopedia
 [Search Engine]
 Motore di ricerca
 [Bilingual phrases dictionary]
-
+Dizionario bilingue fraseologico
 [Bilingual sentenses dictionary]
-
+Dizionario bilingue frasi fatte
 [T]
 T
 [MD]
@@ -693,79 +695,79 @@ EN
 [SE]
 SE
 [BP]
-
+BP
 [BS]
-
+BS
 [Limit]
-Limite
+Limitazione
 [characters]
-Caratteri
+caratteri
 [Limit {0} : {1} characters]
-Limite {0} : {1} сaratteri
+Limitazione {0} : {1} сaratteri
 [Limit {0} : {1} lines]
-
+Limitazione {0} : {1} linee
 [Limit {0} : {1} words]
-
+Limitazione {0} : {1} parole
 [Masks]
-Maschere
+Maschere di filtro
 [English-Ukrainian technical dictionary]
 Dizionario tecnico Inglese-Ucraino
 [Google Translator]
 Traduttore Google
 [Google Dictionary]
-
+Dizionario Google
 [<META> Translator]
 Traduttore di etichette <META>
 [Free open source machine translation system]
 Sistema di traduzione open source
 [Russian-Ukrainian academic dictionary (1924–1933)]
-Dizionario accademico Russo- Ucraino (1924-1933)
+Dizionario accademico Russo-Ucraino (1924-1933)
 [Large explanatory dictionary of modern Ukrainian]
 Grande dizionario esplicativo dell'Ucraina moderna
 [Slovnyk - the multilanguage dictionary]
 Slovnyk - il dizionario multilingue
 [Russian-Ukrainian dictionary of constant expressions]
-Dizionario di espressioni Russo-Ucraino
+Dizionario di espressioni Russo-Ucraine
 [Pragma 5.x on-line translation]
 Pragma 5.x traduzioni on-line
 [English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
-Dizionario Inglese-ucraino e Ucraino-Inglese online - LingResUa
+Dizionario Inglese-Ucraino e Ucraino-Inglese On-Line - LingResUa
 [Ukrainian-English-Ukrainian dictionary - Slovnenya]
-dizionario - Slovnenya Ucraino-Inglese-Ucraino
+Dizionario Ucraino-Inglese-Ucraino - Sloveno
 [Dictionary of foreign words]
 Dizionario di parole straniere
 [Dictionaries of Ukraine]
 Dizionario Ucraino
 [The free encyclopedia that anyone can edit]
-L'enciclopedia libera che tutti possono editare
+L'enciclopedia libera che tutti possono modificare
 [The free dictionary that anyone can edit]
-Il dizionario libero che tutti possono editare
+Il dizionario libero che tutti possono modificare
 [SYSTRAN translation software (used by Altavista Babel Fish)]
-SYSTRAN translation software (usato da Altavista Babel Fish)
+Programma SYSTRAN translation (usato da Altavista Babel Fish)
 [Polish-English-Polish and Polish-German-Polish dictionaries]
 Dizionario Polacco-Inglese-Polacco e Polacco-Tedesco-Polacco
 [Yahoo Babel Fish Translator]
 Traduttore Yahoo Babel Fish
 [Multitran - system for translators]
-
+Multitran - systema per tranduttori
 [PROMT - Free Text Translator]
-
+PROMT - Traduttore libero di testo
 [LangSoft Translation & Educational Software]
-
+LangSoft Translation & Educational Software
 [Tiscali - Czech oriented dictionary]
-
+Tiscali - Dizionari Ceco
 [Free Online Urdu-English Dictionary]
-
+Dizionario libero On-line Urdu-Inglese
 [Online English-to-Urdu and Urdu-to-English dictionary]
-
+Dizionario On-line Inglese-Urdu e Urdu-Inglese
 [InterTran dictionary]
-
+Dizionario InterTran
 [Priberam Portuguese dictionary]
-
+Priberam - Dizionario Portoghese
 [WordNet a lexical database for the English language]
-
+WordNet - Base dati lessicale per il linguaggio Inglese
 [MultiWordNet is a multilingual lexical database]
-
+MultiWordNet - Base dati lessicale multi-linguaggio
 [English-Bulgarian dictionary - SA Dictionary Online]
 
 [dict.cc - English-German Dictionary]
@@ -987,11 +989,11 @@ Traduttore Yahoo Babel Fish
 [Online Indonesian English Dictionary]
 
 [Grouped by Service's Url]
-Raggruppa per Servizi url
+Raggruppa per indirizzi dei Servizi
 [Grouped by Language]
-Raggruppa per lingua
+Raggruppa per linguaggio
 [{0} language pairs]
-{0} coppia di lingue
+{0} coppia di linguaggi
 [{0} services]
 {0} servizi
 [Create article]
@@ -999,167 +1001,168 @@ Creare un articolo
 [Open article]
 Aprire un articolo
 [Pronunciation]
-
+Pronuncia
 [{0} more entries found]
-
+{0} trovate più corrispondenze
 [related links]
-
+Collegamenti corrispondenti
 [Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
-
+Durata ricerca : {0} s, conteggio ricerca : {1}, Bytes inviati : {2}, Bytes recevuti : {3}
 [Full time : {0} s]
-
+Durata complessiva : {0} s
 [{0} phrases translated by {1} calls to translate services]
-
+{0} frasi tradotte con {1} chiamate ai servizi di traduzione
 [Send by mail]
-
+Invia per posta
 [Continue]
-
+Continua
 [Copy]
-
+Copia
 [Terminate]
-
+Termina
 [Terminated by user on error]
-
+Terminato dall'utente su errore
 [Unhandled exception in]
-
+Eccezione non gestita in
 [Error on opening config file]
-
+Errore d'apertura del file di configurazione
 [Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
-
+Errore d'apertura del file di configurazione {0}.\r\nPossibili cause - errori nel formato delle opzioni.\r\nIl file do configurazione verrà riopristinato con i valori predefiniti.
 [Error on saving config file]
-
+Errore di salvataggio del file di configurazione
 [Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
-
+Errore di salvataggio del file di configurazione {0}\r\nPossibili cause - accesso in scrittura della cartella TEMP di sistema non consentito.
 [Error on saving config file to {0}]
-
+Errore di salvataggio del file di configurazione {0}
 [Show information about exception]
-
+Mostra le informazioni sull'eccezione
 [Error on start process : {0}\r\nError message : {1}]
-
+Errore di avvio processo : {0}\r\nMessaggio d'errore : {1}
 [Error on start process]
-
+Errore di avvio process
 [Error on sending email to : {0}\r\nError message : {1}]
-
+Errore di invio messaggio di posta elettronica a : {0}\r\nMessaggio d'errore : {1}
 [Error on sending email]
-
+Errore di invio messaggio di posta elettronica
 [Language detection]
-
+Identificazione linguaggio
 [Guess language ...]
-
+Identifica linguaggio... 
 [Detect language of source text]
-
+Identifica il linguaggio del testo sorgente 
 [Guess language of source text and show info about]
-
+Identifica il linguaggio del testo sorgente e ne mostra le informazioni
 [Language detection : {0}]
-
+Identificazione linguaggio : {0}
 [Started]
-
+Attivata
 [Failed]
-
+Fallita
 [{0}, {1},  Score - {2}%, Confidence - {3}]
-
+{0}, {1},  Punteggio - {2}%, Livello di confidenza - {3}
 [Strong]
-
+Alto
 [Intermediate]
-
+Medio
 [Poor]
-
+Basso
 [Reliable]
-
+Attendibile
 [Not reliable]
-
+Non attendibile
 [Keyboard layout : {0}]
-
+Impostazione tastiera : {0}
 [Intelligent switching of profiles and directions]
-
+Commutazione intelligente di profili e direzioni
 [Based on keyboard layout]
-
+Basata sulla Impostazione tastiera
 [Intelligent switching of profiles and translation directions based on keyboard layout]
-
+Commutazione intelligente dei profili e delle direzioni della traduzione basati sulla Impostazione tastiera
 [Based on detected language]
-
+Basata sul linguaggio identificato
 [Intelligent switching of profiles and translation directions based on detected language]
-
+Commutazione intelligente dei profili e delle direzioni della traduzione basati sul linguaggio identificato
 [Switch by detected language only when text length greater of]
-
+Commuta in base al linguaggio identificato solo se il testo è più longo di
 [Break translation when application deactivated]
-
+Interrompi la traduzione se l'applicazione viene disattivata
 [Break translation on switching to other application]
-
+Interrompi la traduzione se si commuta su un'altra applicazione
 [Don't change]
-
+Non cambiare
 [Switch keyboard layout based on selected language]
-
+Commuta l'Impostazione tastiera in base al linguaggio selezionato
 [Language]
-
+Linguaggio
 [Selected language]
-
+Linguaggio selezionato
 [Change keyboard layout to]
-
+Cambia l'Impostazione tastiera in
 [When source language changes switch keyboard layout to]
-
+Quando il linguaggio cambia, commuta la Impostazione tastiera in
 [Changed]
-
+Impostato
 [Modified by user]
-
+Impostata dall'utente
 [Assigned automatically]
-
+Assegnata automaticamente
 [Selected language to keyboard layout mapping]
-
+Corrispondenza tra Linguaggio selezionato ed Impostazione tastiera
 [Selected\t :]
-
+Selezionato\t :
 [Auto\t\t :]
-
+Automatico\t\t :
 [Saved\t\t :]
-
+Salvato\t\t :
 [Keyboard layouts]
-
+Impostazione tastiera
 [Advanced Hotkey]
-
+Scorciatoie avanzate
 [Hotkey not set]
-
+Nessuna
 [Custom Hotkey]
-
+Personalizzate
 [Alt + Right Mouse Button]
-
+Alt + Tasto destro del Mouse
 [Middle Mouse Button]
-
+Tasto centrale del Mouse
 [Ctrl + Right Mouse Button]
-
+Ctrl + Tasto destro del Mouse
 [Shift + Right Mouse Button]
-
+Shift + Tasto destro del Mouse
 [Left Mouse Button + Right Mouse Button]
-
+Tasto sinistro + Tasto destro del Mouse
 [Modifiers :]
-
+Modificatori :
 [Mouse buttons :]
-
+Tasti del Mouse :
 [Key :]
-
+Tasto :
 [Left{0}]
-
+Sinistro{0}
 [Middle{0}]
-
+Centrale{0}
 [Right{0}]
-
+Destro{0}
 [Usage information collecting]
-
+Raccolta informazioni sull'utilizzo
 [Yes]
-
+Si
 [Do you want to allow collecting of basic information about application usage ?]
-
+Si desidera abilitare la raccolta delle informazioni di base relative all'uso dell'applicazione ?
 [Tool will]
-
+Strumento abilitato
 [Tool will not]
-
+Strumento non abilitato
 [Collect anonymous information about tool usage : tool running time, tool version, OS version.]
-
+Raccogli le informazioni anonime sull'utilizzo dello strumento : durata di esecuzione, versione, sistema operativo.
 [Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
-
+Raccogli il tuo nome, indirizzo, o ogni altra informazione personale identificabile. Le informazioni raccolte sono anonime.
 [You can check already collected data here]
-
+Qui si possono controllare le informazioni personali già raccolte
 [You can disable data collecting at any time in "Options" dialog]
-
+In ogni momento la raccolta d'informazioni può essere disabilitata dalla finestra di dialogo "Opzioni"
 [Yes, I allow to collect anonymous information]
-
+Si, acconsento alla raccolta anonima di informazioni
 [No, I would not like information collecting]
+No, non gradisco la raccolta di informazioni
