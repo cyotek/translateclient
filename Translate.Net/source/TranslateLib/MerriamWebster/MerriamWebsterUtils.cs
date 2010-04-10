@@ -1,4 +1,4 @@
-﻿#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
+#region License block : MPL 1.1/GPL 2.0/LGPL 2.1
 /* ***** BEGIN LICENSE BLOCK *****
  * Version: MPL 1.1/GPL 2.0/LGPL 2.1
  *
@@ -68,11 +68,11 @@ namespace Translate
 				return;
 			}
 			
-			result.HasAudio = data.Contains("/cgi-bin/audio.pl?");
+			result.HasAudio = data.Contains("title=\"Listen to the pronunciation of");
 			
-			if(data.IndexOf("<dd class=\"func\">") > 0)
+			if(data.IndexOf("<div>Function: ") > 0)
 			{
-				string abbr = StringParser.Parse("<dd class=\"func\">", "</dd>", data);
+				string abbr = StringParser.Parse("<div>Function: ", "</div>", data);
 				abbr = abbr.Replace("<em>", "");
 				abbr = abbr.Replace("</em>", "");
 				abbr = abbr.Replace("<span class=\"fl\">", "");
@@ -81,9 +81,9 @@ namespace Translate
 				result.Abbreviation = abbr;
 			}
 			
-			if(data.IndexOf("<dd class=\"pron\">") > 0)
+			if(data.IndexOf("<div>Pronunciation: ") > 0)
 			{
-				string abbr = StringParser.Parse("<dd class=\"pron\">", "</dd>", data);
+				string abbr = StringParser.Parse("<div>Pronunciation: ", "</div>", data);
 				abbr = StringParser.RemoveAll("<span", ">", abbr);
 				abbr = abbr.Replace("</span>", "");
 				abbr = abbr.Replace("<em>", "");
@@ -103,9 +103,9 @@ namespace Translate
 				result.Abbreviation += "Usage: " + abbr;
 			}
 
-			if(data.IndexOf("<dd class=\"ety\">") > 0)
+			if(data.IndexOf("<div>Etymology: ") > 0)
 			{
-				string abbr = StringParser.Parse("<dd class=\"ety\">", "</dd>", data);
+				string abbr = StringParser.Parse("<div>Etymology: ", "</div>", data);
 				abbr = abbr.Replace("<em>", "(");
 				abbr = abbr.Replace("</em>", ")");
 				abbr = StringParser.RemoveAll("<a href", ">", abbr);
@@ -116,9 +116,9 @@ namespace Translate
 				result.Abbreviation += "Etymology: " + abbr;
 			}
 
-			if(data.IndexOf("<dd class=\"date\">") > 0)
+			if(data.IndexOf("<div>Date: ") > 0)
 			{
-				string abbr = StringParser.Parse("<dd class=\"date\">", "</dd>", data);
+				string abbr = StringParser.Parse("<div>Date: ", "</div>", data);
 				abbr = abbr.Replace("<em>", "(");
 				abbr = abbr.Replace("</em>", ")");
 				if(!string.IsNullOrEmpty(result.Abbreviation))
@@ -126,7 +126,7 @@ namespace Translate
 				result.Abbreviation += "Date: " + abbr;
 			}
 			
-			if(!data.Contains("<div class=\"defs\">") && data.Contains("<span class=\"variant\">"))
+			if(!data.Contains("class=\"d\">") && data.Contains("<span class=\"variant\">"))
 			{  //variant, like a blew - past of blow
 				string variant = StringParser.Parse("<span class=\"variant\">", "</div>", data);
 				SetAdditionalLinks(result, variant, host);
@@ -143,7 +143,7 @@ namespace Translate
 				return;
 			}
 			
-			string defs = StringParser.Parse("<div class=\"defs\">", "</div>", data);
+			string defs = StringParser.Parse("class=\"d\">", "<script", data);
 			defs = defs.Replace(" a</span>", " a ");
 			defs = defs.Replace("</span>", "");
 			defs = defs.Replace("<em>", "");
@@ -151,8 +151,8 @@ namespace Translate
 			defs = defs.Replace("<strong>Synonyms</strong>", "Synonyms: ");
 			defs = defs.Replace("<strong>Related Words</strong>", "Related Words: ");
 			defs = defs.Replace("<strong>Antonyms</strong>", "Antonyms: ");
-			defs = defs.Replace("<strong>", "");
-			defs = defs.Replace("</strong>", "");
+			//defs = defs.Replace("<strong>", "");
+			//defs = defs.Replace("</strong>", "");
 			defs = defs.Replace(":�<a", "- <a");
 			
 			defs = defs.Replace("<span class=\"dxn\">", "");
@@ -174,7 +174,7 @@ namespace Translate
 			
 			
 			
-			if(defs.IndexOf("<span class=\"sense_break\"/>") < 0)
+			if(defs.IndexOf("<br/>") < 0)
 			{ //single def
 				if(defs.IndexOf("<span class=\"syn\">") < 0 &&
 				   defs.IndexOf("<span class=\"rel\">") < 0 &&
@@ -185,28 +185,26 @@ namespace Translate
 					result.Translations.Add(defs.Trim());
 					return;
 				}
-				else
-				{
-					defs = "<span class=\"sense_label start\">" + defs;
-				}
 			}
 			
 			
+			defs = "<start>" + defs;
 			{
-				defs = defs.Replace("<span class=\"verb_class\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
-				defs = defs.Replace("<div class=\"synonym\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
-				defs = defs.Replace("<span class=\"syn\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
-				defs = defs.Replace("<span class=\"rel\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
-				defs = defs.Replace("<span class=\"ant\">", "<span class=\"sense_break\"/><span class=\"sense_label start\">");
-				defs += "<span class=\"sense_break\"/>"; //ending mark
+				defs = defs.Replace("<span class=\"verb_class\">", "<end><start>");
+				defs = defs.Replace("<div class=\"synonym\">", "<end><start>");
+				defs = defs.Replace("<span class=\"syn\">", "<end><start>");
+				defs = defs.Replace("<span class=\"rel\">", "<end><start>");
+				defs = defs.Replace("<span class=\"ant\">", "<end><start>");
+				defs = defs.Replace("<br/>", "<end><start>");
+				defs += "<end>"; //ending mark
 				
 				StringParser parser = new StringParser(defs);
-				string[] defs_items = parser.ReadItemsList("<span class=\"sense_label start\">", "<span class=\"sense_break\"/>");
+				string[] defs_items = parser.ReadItemsList("<start>", "<end>");
 				string translation;
 				foreach(string item in defs_items)
 				{
 					translation = item.Trim();
-					if(translation[0] <= '9' && translation[0] >= '0')
+					/*if(translation[0] <= '9' && translation[0] >= '0')
 						translation = item.Substring(1).Trim(); //skip idx
 					
 					if(translation[0] <= '9' && translation[0] >= '0')
@@ -214,9 +212,13 @@ namespace Translate
 					
 					if(translation.StartsWith(":"))
 						translation = translation.Substring(1); 
-
-					string subsense_tag = "<span class=\"sense_label\">";
-					if(translation.IndexOf(subsense_tag) > 0)
+					*/
+						
+					if(translation.StartsWith("<strong>"))
+						translation = StringParser.ExtractRight("</strong>", translation);
+						
+					string subsense_tag = "<em class=\"su\">";
+					if(false && translation.IndexOf(subsense_tag) > 0)
 					{ //extract senses
 						string toptranslaton = translation.Substring(0, translation.IndexOf(subsense_tag));
 						toptranslaton = StringParser.RemoveAll("<", ">", toptranslaton);
@@ -294,8 +296,10 @@ namespace Translate
 			
 			string responseFromServer = helper.GetResponse();
 			
-			if(responseFromServer.IndexOf("The word you've entered isn't in the dictionary.") >= 0 ||
-				responseFromServer.IndexOf("No entries found.\n<br/>") >= 0)
+			if(responseFromServer.IndexOf("The word you've entered isn't in the dictionary.") >= 0
+				|| responseFromServer.IndexOf("No entries found.\n<br/>") >= 0
+			    || responseFromServer.IndexOf("The word you've entered isn't in the thesaurus.") >= 0
+			   )
 			{
 				if(responseFromServer.IndexOf("<PRE>") >= 0)
 				{	//suggestions
@@ -333,8 +337,8 @@ namespace Translate
 						result.MoreEntriesCount = count;
 				}
 			
-				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
-				string[] items = parser.ReadItemsList("form.action = '/" + bookName.ToLower() + "/", "'");
+				StringParser parser = new StringParser("<ol class=\"results\"", "</ol>", responseFromServer);
+				string[] items = parser.ReadItemsList("href=\"/" + bookName.ToLower() + "/", "\"");
 				
 				bool first = true;
 				foreach(string item in items)

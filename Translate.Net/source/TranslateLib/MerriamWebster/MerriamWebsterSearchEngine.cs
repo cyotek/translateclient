@@ -132,7 +132,7 @@ namespace Translate
 						result.MoreEntriesCount = count;
 				}
 			
-				StringParser parser = new StringParser("<ol class='results'", "</ol>", responseFromServer);
+				StringParser parser = new StringParser("<ol class=\"results\"", "</ol>", responseFromServer);
 				string[] items = parser.ReadItemsList("href=\"/dictionary/", "</a>");
 				
 				foreach(string item in items)
