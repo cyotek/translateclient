@@ -59,6 +59,7 @@ namespace Translate
 		}
 		
 		static string viewState = "";
+		static string prevPage = "";
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
 			lock(viewState)
@@ -66,29 +67,33 @@ namespace Translate
 				if(string.IsNullOrEmpty(viewState))
 				{  //emulate first access to site
 					WebRequestHelper helpertop = 
-						new WebRequestHelper(result, new Uri("http://www.online-translator.com/text_Translation.aspx"), 
+						new WebRequestHelper(result, new Uri("http://www.online-translator.com/Default.aspx/Text"), 
 							networkSetting, 
 							WebRequestContentType.UrlEncodedGet);
 							
 					string responseFromServertop = helpertop.GetResponse();
 					viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServertop);
+					prevPage = StringParser.Parse("id=\"__PREVIOUSPAGE\" value=\"", "\"", responseFromServertop);
 				}
 			}
 			
 			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://www.online-translator.com/text_Translation.aspx"), 
+				new WebRequestHelper(result, new Uri("http://www.online-translator.com/Default.aspx/Text"), 
 					networkSetting, 
 					WebRequestContentType.UrlEncoded);
 						
 			//query
 			lock(viewState)
 			{
-			string query = "__EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE={0}&ctl00%24SiteContent%24ucTextTranslator%24tbFromAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbToAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbCCAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbSubject=&ctl00%24SiteContent%24ucTextTranslator%24tbBody=&ctl00%24SiteContent%24ucTextTranslator%24templates={1}&ctl00%24SiteContent%24ucTextTranslator%24checkShowVariants=on&ctl00%24SiteContent%24ucTextTranslator%24dlTemplates=General&ctl00%24SiteContent%24ucTextTranslator%24sourceText={2}&resultText=&ctl00%24SiteContent%24ucTextTranslator%24dlDirections={3}&ctl00%24SiteContent%24ucTextTranslator%24bTranslate=Translate&ctl00%24tbEmail=&ctl00%24tbName=&ctl00%24tbComment=&ctl00%24pollDiv%24tbSiteLang=en";
+			//string query = "__EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE={0}&ctl00%24SiteContent%24ucTextTranslator%24tbFromAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbToAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbCCAddr=&ctl00%24SiteContent%24ucTextTranslator%24tbSubject=&ctl00%24SiteContent%24ucTextTranslator%24tbBody=&ctl00%24SiteContent%24ucTextTranslator%24templates={1}&ctl00%24SiteContent%24ucTextTranslator%24checkShowVariants=on&ctl00%24SiteContent%24ucTextTranslator%24dlTemplates=General&ctl00%24SiteContent%24ucTextTranslator%24sourceText={2}&resultText=&ctl00%24SiteContent%24ucTextTranslator%24dlDirections={3}&ctl00%24SiteContent%24ucTextTranslator%24bTranslate=Translate&ctl00%24tbEmail=&ctl00%24tbName=&ctl00%24tbComment=&ctl00%24pollDiv%24tbSiteLang=en";
+			string query =   "__EVENTTARGET=&__EVENTARGUMENT=&__VIEWSTATE={0}&ctl00%24SiteContent%24MA_trasnlform%24selected_tab=text&chLangs=true&ctl00%24SiteContent%24MA_trasnlform%24rblTemplates=General&ctl00%24SiteContent%24MA_trasnlform%24otherTemplatesInput={1}&ctl00%24SiteContent%24MA_trasnlform%24sourceText={2}&ctl00%24SiteContent%24MA_trasnlform%24sLang={3}&ctl00%24SiteContent%24MA_trasnlform%24rLang={4}&ctl00%24SiteContent%24MA_trasnlform%24bTranslate=Translate&ctl00%24SiteContent%24MA_trasnlform%24changedFieldToAddr=&ctl00%24SiteContent%24MA_trasnlform%24hiddenDir=&ctl00%24SiteContent%24MA_trasnlform%24hiddenTranid=&ctl00%24changedField=&__PREVIOUSPAGE={5}";	
 			query = string.Format(query, 
 				HttpUtility.UrlEncode(viewState),
 				PromtUtils.GetSubject(subject),
 				HttpUtility.UrlEncode(phrase),
-				PromtUtils.ConvertLanguagesPair(languagesPair));
+				PromtUtils.ConvertLanguage(languagesPair.From),
+				PromtUtils.ConvertLanguage(languagesPair.To),
+				prevPage);
 				helper.AddPostData(query);
 			}	
 				
@@ -102,6 +107,7 @@ namespace Translate
 			lock(viewState)
 			{
 			viewState = StringParser.Parse("id=\"__VIEWSTATE\" value=\"", "\"", responseFromServer);
+			prevPage = StringParser.Parse("id=\"__PREVIOUSPAGE\" value=\"", "\"", responseFromServer);
 			}
 			
 		}
