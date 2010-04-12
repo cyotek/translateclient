@@ -57,6 +57,7 @@ namespace Translate
 	{
 		static PromtUtils()
 		{
+			langToKey.Add(Language.Autodetect, "a");
 			langToKey.Add(Language.English, "e");
 			langToKey.Add(Language.English_GB, "e");
 			langToKey.Add(Language.English_US, "e");
