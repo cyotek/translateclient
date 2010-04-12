@@ -381,8 +381,13 @@ namespace Translate.DictD
                 statusLine = inStream.ReadLine ();
                 lastActiveTime = DateTime.Now;
 
-                m = reStatus.Match (statusLine);
-                statusCode = Convert.ToInt32(m.Groups[1].Value);
+				if(!string.IsNullOrEmpty(statusLine))	
+				{
+                	m = reStatus.Match (statusLine);
+                	statusCode = Convert.ToInt32(m.Groups[1].Value);
+				}
+				else
+					statusCode = 420;
 
                 if (statusCode >= 400 && statusCode <= 599)
                 {
