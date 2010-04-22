@@ -1109,8 +1109,8 @@ namespace Translate
 		void WBrowserNavigating(object sender, WebBrowserNavigatingEventArgs e)
 		{
 			//Console.WriteLine("ResultBrowser WBrowserDocumentNavigating :" + e.Url);
-			//if(e.Url.AbsoluteUri == "about:blank")
-			//	return;
+			if(e.Url.AbsoluteUri == "about:blank")
+				return;
 			if((e.Url.Host == "127.0.0.1" || e.Url.Host == WebUI.ResultsWebServer.Uri.Host) && e.Url.Port == WebUI.ResultsWebServer.Port)
 				return;
 			if(e.Url.AbsoluteUri.StartsWith(Constants.StatsPageUrl))
