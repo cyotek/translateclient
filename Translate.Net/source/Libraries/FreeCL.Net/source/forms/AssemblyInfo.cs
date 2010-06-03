@@ -50,7 +50,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyProduct("FreeCL.Net")]
 [assembly: AssemblyCompany("SAU KP, Ltd.")]
-[assembly: AssemblyCopyright("Copyright © Oleksii Prudkyi, 2005-2008")]
+[assembly: AssemblyCopyright("Copyright © Oleksii Prudkyi, 2005-2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.RequestMinimum)]

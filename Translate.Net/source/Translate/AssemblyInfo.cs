@@ -57,7 +57,7 @@ using FreeCL.RTL;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("SAU KP, Ltd.")]
 [assembly: AssemblyProduct("Translate.Net")]
-[assembly: AssemblyCopyright("Copyright © Oleksii Prudkyi, 2008")]
+[assembly: AssemblyCopyright("Copyright © Oleksii Prudkyi, 2008-2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.RequestMinimum)]
