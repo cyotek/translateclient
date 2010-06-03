@@ -72,6 +72,14 @@ namespace FreeCL.RTL
 				try
 				{
 					isBusy = /*wBrowser.IsBusy || */ wBrowser.ReadyState != WebBrowserReadyState.Complete;
+					if(isBusy && 
+						!wBrowser.IsBusy &&
+						GetDocument(wBrowser) != null &&
+						GetDocument(wBrowser).Body != null
+						)
+					{	//when it freeze by bug in ie ? 
+						break;
+					}
 				}
 				catch(UnauthorizedAccessException)
 				{
