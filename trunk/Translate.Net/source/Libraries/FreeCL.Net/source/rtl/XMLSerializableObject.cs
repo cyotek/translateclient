@@ -113,7 +113,15 @@ namespace FreeCL.RTL
 			writer.Close();
 			writer.Dispose();
 			
-			File.Delete(fileName);
+			for(int i = 0; i < 3; i++)
+			{
+				if(File.Exists(fileName))
+					File.Delete(fileName);
+				else
+					break;
+				if(File.Exists(fileName))
+					System.Threading.Thread.Sleep(250);
+			}
 			try 
 			{
 				File.Move(backupFileName, fileName);
