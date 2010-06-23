@@ -37,12 +37,13 @@
 #endregion
 
 using System;
-using System.Net; 
-using System.Text; 
-using System.IO; 
-using System.Web; 
-using System.IO.Compression;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
+using System.IO.Compression;
+using System.Net;
+using System.Text;
+using System.Web;
 
 namespace Translate
 {
@@ -53,35 +54,24 @@ namespace Translate
 	{
 		public MetaUATranslator()
 		{
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Russian));
+			langToKey.Add(Language.English, "en");
+			langToKey.Add(Language.German, "de");
+			langToKey.Add(Language.Latvian, "lv");
+			langToKey.Add(Language.Polish, "pl");
+			langToKey.Add(Language.Russian, "ru");
+			langToKey.Add(Language.Ukrainian, "ua");
+			langToKey.Add(Language.French, "fr");
 
-			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.English));
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Ukrainian));
-
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.Ukrainian));
-			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.Russian));
-
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.German));
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.Russian));
-
-			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.German));
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.Ukrainian));
+			SortedDictionary<Language, string> tmp = new SortedDictionary<Language, string>(langToKey);
 			
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.German));
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.English));
-			
-			AddSupportedTranslation(new LanguagePair(Language.Russian, Language.Latvian));
-			AddSupportedTranslation(new LanguagePair(Language.Latvian, Language.Russian));
-
-			AddSupportedTranslation(new LanguagePair(Language.Ukrainian, Language.Latvian));
-			AddSupportedTranslation(new LanguagePair(Language.Latvian, Language.Ukrainian));
-
-			AddSupportedTranslation(new LanguagePair(Language.English, Language.Latvian));
-			AddSupportedTranslation(new LanguagePair(Language.Latvian, Language.English));
-			
-			AddSupportedTranslation(new LanguagePair(Language.German, Language.Latvian));
-			AddSupportedTranslation(new LanguagePair(Language.Latvian, Language.German));
+			foreach(Language from in langToKey.Keys)
+			{
+				foreach(Language to in tmp.Keys)
+				{
+					if( from != to)
+					  AddSupportedTranslation(new LanguagePair(from, to));
+				}
+			}
 			
 			AddSupportedSubject(SubjectConstants.Common, "**");
 			AddSupportedSubject(SubjectConstants.Aviation, "AV");
@@ -106,6 +96,8 @@ namespace Translate
 			AddSupportedSubject(SubjectConstants.Electronics, "EN");
 		}
 		
+		SortedDictionary<Language, string> langToKey = new SortedDictionary<Language, string>();
+		
 		StringsDictionary subjects = new StringsDictionary(30);
 		
 		protected void AddSupportedSubject(string subject, string data)
@@ -124,47 +116,89 @@ namespace Translate
 		}
 		
 		[SuppressMessage("Microsoft.Globalization", "CA1303:DoNotPassLiteralsAsLocalizedParameters", MessageId="System.ArgumentException.#ctor(System.String,System.String)")]
-		public static string ConvertLanguage(Language language)
+		string ConvertLanguage(Language language)
 		{
-			switch(language)
-			{
-				case Language.English:
-					return "Eng";
-				case Language.Russian:
-					return "Rus";
-				case Language.Ukrainian:
-					return "Ukr";
-				case Language.German:
-					return "Ger";
-				case Language.Latvian:
-					return "Lat";
-			}
-			throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
+			string result;
+			if(!langToKey.TryGetValue(language, out result))
+				throw new ArgumentException("Language : " + Enum.GetName(typeof(Language), language) + " not supported" , "language");
+			else
+				return result;
 		}
 		
-		
+		static CookieContainer cookieContainer = new CookieContainer();
+		static DateTime coockieTime = DateTime.Now.AddHours(-5);
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
-			WebRequestHelper helper = 
-				new WebRequestHelper(result, new Uri("http://translate.meta.ua/"), 
-					networkSetting, 
-					WebRequestContentType.UrlEncoded);
-			
-			//query
-			//hl=en&ie=UTF8&text=small+test&langpair=en%7Cru			
+			lock(cookieContainer)
+			{
+				if(coockieTime < DateTime.Now.AddHours(-1))
+				{  //emulate first access to site
+					WebRequestHelper helpertop = 
+						new WebRequestHelper(result, new Uri("http://translate.meta.ua/"), 
+							networkSetting, 
+							WebRequestContentType.UrlEncodedGet);
+					helpertop.CookieContainer = cookieContainer;
+					string responseFromServertop = helpertop.GetResponse();
+					coockieTime = DateTime.Now;
+				}
+			}
+
 			string lang_from = ConvertLanguage(languagesPair.From);
 			string lang_to = ConvertLanguage(languagesPair.To);
-			StringBuilder queryBuilder = new StringBuilder();
-			queryBuilder.AppendFormat("Dialog=Rus&Format=TXT&TranFrom={0}&TranTo={1}&Translate=++%CF%E5%F0%E5%E2%E5%F1%F2%E8++&", lang_from, lang_to);
-			queryBuilder.AppendFormat("SrcTxt={0}", HttpUtility.UrlEncode(phrase, System.Text.Encoding.GetEncoding(1251)));
-			queryBuilder.AppendFormat("&language={0}-{1}&subject={2}&Translate=++%CF%E5%F0%E5%E2%E5%F1%F2%E8++&DstTxt=", lang_from, lang_to, GetSubject(subject));
-			string query = queryBuilder.ToString();
-			helper.AddPostData(query);
-			
-			string responseFromServer = helper.GetResponse();
 		
-			result.Translations.Add(StringParser.Parse("name=\"DstTxt\" wrap=\"virtual\">", "</textarea>", responseFromServer));
+			string responseFromServer = null;
+			lock(cookieContainer)
+			{
+				WebRequestHelper helper = 
+					new WebRequestHelper(result, new Uri("http://translate.meta.ua/ajax/?sn=save_source"), 
+						networkSetting, 
+						WebRequestContentType.UrlEncoded);
+				helper.CookieContainer = cookieContainer;		
+				
+				//query
+				//text_source=проверка&lang_to=ua&lang_from=ru&dict=**
+				StringBuilder queryBuilder = new StringBuilder();
+				queryBuilder.AppendFormat("text_source={0}&", phrase);
+				queryBuilder.AppendFormat("lang_to={0}&lang_from={1}&", lang_to, lang_from);
+				queryBuilder.AppendFormat("dict=", GetSubject(subject));
+				string query = queryBuilder.ToString();
+				helper.AddPostData(query);
+				responseFromServer = helper.GetResponse();
+				coockieTime = DateTime.Now;
+			}
+			
+			if(!String.IsNullOrEmpty(responseFromServer))
+			{	
+				//{"r":true,"pc":1,"ui":"4c1ea0e46198f"}
+				string code = StringParser.Parse("ui\":\"", "\"}", responseFromServer);
+				//http://translate.meta.ua/ajax/?sn=get_translate&translate_uniqid=4c1ea0e46198f&lang_to=ua&lang_from=ru&translate_part=0
+				string query = "http://translate.meta.ua/ajax/?sn=get_translate&translate_uniqid={0}&lang_to={1}&lang_from={2}&translate_part=0";
+				string url = String.Format(query,code, lang_to, lang_from);
+				lock(cookieContainer)
+				{
+					WebRequestHelper helper = 
+						new WebRequestHelper(result, new Uri(url), 
+							networkSetting, 
+							WebRequestContentType.UrlEncodedGet);
+					helper.CookieContainer = cookieContainer;		
+					responseFromServer = helper.GetResponse();
+					coockieTime = DateTime.Now;
+				}
+				if(!String.IsNullOrEmpty(responseFromServer))
+				{
+					//{"source":"\u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430","translate":" \u043f\u0435\u0440\u0435\u0432\u0456\u0440\u043a\u0430","translate_part":"0","type":"p","index":0,"r":true}
+					string translation = StringParser.Parse("translate\":\"", "\"", responseFromServer);
+					result.Translations.Add(HttpUtilityEx.HtmlDecode(translation));
+				}
+				else
+					throw new TranslationException("Nothing returned from call to " + url);
+				
+			}
+			else
+				throw new TranslationException("Nothing returned from call to http://translate.meta.ua/ajax/?sn=save_source");
+		
+			
 		}
 	}
 }
