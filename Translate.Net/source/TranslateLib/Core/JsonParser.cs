@@ -59,34 +59,40 @@ namespace Translate
 		public static JsonItem Parse(string data)
 		{
 			if(string.IsNullOrEmpty(data))
-				new TranslationException("JSON should contain data");
+				throw new TranslationException("JSON should contain data");
+			
+			//previously fixes string 
+			data = data.Replace("\\\"", "<quote_str>");
 			JsonParser parser = new JsonParser(data);
 			return parser.ParseNext();
 		}
 		
-		string NextChar
+		string GetNextChar()
 		{
-			get
-			{
-				string nextChar = data[position].ToString();
-				position++;
-				return nextChar;
-			}
+			string nextChar = data[position].ToString();
+			position++;
+			return nextChar;
 		}
 		
-		string CurrentChar
+		string GetCurrentChar()
 		{
-			get
-			{
-				string nextChar = data[position].ToString();
-				return nextChar;
-			}
+			string nextChar = data[position].ToString();
+			return nextChar;
 		}
 		
-		
+		static string FixString(string data)
+		{
+			data = data.Replace("<quote_str>", "\"");
+			data = data.Replace("\\\\", "\\");
+			data = data.Replace("\\n", "\n");
+			data = data.Replace("\\r", "\r");
+			data = data.Replace("\\t", "\t");
+			data = HttpUtilityEx.HtmlDecode(data);
+			return data;
+		}
 		public JsonItem ParseNext()
 		{
-			string nextChar = NextChar;
+			string nextChar = GetNextChar();
 			
 			if(string.IsNullOrEmpty(data))
 				return null;
@@ -104,10 +110,10 @@ namespace Translate
 			{ //string value 
 				int pos = data.IndexOf("\"", position);
 				if(pos < 0)				
-					new TranslationException("JSON parsing error. Not found \" at pos : " + (position).ToString() + 
+					throw new TranslationException("JSON parsing error. Not found \" at pos : " + (position).ToString() + 
 						" in string : " + data.Substring(position));
 				if(pos-position > 1)		
-					result = new JsonValue(data.Substring(position, pos-position));				
+					result = new JsonValue(FixString(data.Substring(position, pos-position)));
 				else	
 					result = new JsonValue(""); //null val
 				position = pos+1;
@@ -116,9 +122,9 @@ namespace Translate
 			{ //simple value 
 				string val = nextChar;
 				List<string> separators = new List<string>(new string[]{",", "}", "]"});
-				while(!separators.Contains(CurrentChar))
+				while(!separators.Contains(GetCurrentChar()))
 				{
-					val += NextChar;
+					val += GetNextChar();
 				}
 				result = new JsonValue(val);				
 			}
@@ -133,7 +139,7 @@ namespace Translate
 				JsonItem next = ParseNext();
 				result.Add(next);
 			}
-			while(NextChar != "]");
+			while(GetNextChar() != "]");
 			return result;
 		}
 		
@@ -144,18 +150,23 @@ namespace Translate
 			{
 				JsonItem propName = ParseNext();
 				if(!(propName is JsonValue) || string.IsNullOrEmpty(((JsonValue)propName).Value) )
-					new TranslationException("JSON parsing error. Not found property name at pos : " + (position).ToString() + 
+					throw new TranslationException("JSON parsing error. Not found property name at pos : " + (position).ToString() + 
 						" in string : " + data);
+				string propNameStr = ((JsonValue)propName).Value;
+				if(result.ContainsKey(propNameStr))
+					throw new TranslationException("JSON parsing error. The property " + propNameStr + "already  exists. At pos : " + (position-1).ToString() + 
+					" in string : " + data);
 				
-				if(NextChar != ":")
-					new TranslationException("JSON parsing error. Not found ':' at pos : " + (position-1).ToString() + 
+				
+				if(GetNextChar() != ":")
+					throw new TranslationException("JSON parsing error. Not found ':' at pos : " + (position-1).ToString() + 
 					" in string : " + data);
 					
 				JsonItem next = ParseNext();
 				
-				result.Add(((JsonValue)propName).Value, next);
+				result.Add(propNameStr, next);
 			}
-			while(NextChar != "}");
+			while(GetNextChar() != "}");
 			return result;
 		}
 		
