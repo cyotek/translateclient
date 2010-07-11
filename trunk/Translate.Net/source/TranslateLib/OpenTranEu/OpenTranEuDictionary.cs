@@ -231,6 +231,14 @@ namespace Translate
 					if(reader.ReadToFollowing("string"))
 						translation = reader.ReadElementContentAsString();
 					reader.ReadToFollowing("array");	
+					translation = StringParser.RemoveAll("<", ">", translation); 
+					
+					if(translation.StartsWith("&") || 
+						translation.StartsWith("_") ||
+						translation.StartsWith("$") ||
+						translation.StartsWith("~")
+						)
+						translation = translation.Substring(1);
 					
 					subres = CreateNewResult(translation, languagesPair, subject);
 					if(count != 1)
@@ -257,7 +265,15 @@ namespace Translate
 								inner.ReadToFollowing("string");	//orig_phrase
 								subphrase = inner.ReadElementContentAsString();
 								
-								subphrase += " - " + servicename;
+								subphrase = StringParser.RemoveAll("<", ">", subphrase); 
+								if(subphrase.StartsWith("&") || 
+									subphrase.StartsWith("_") ||
+									subphrase.StartsWith("$") || 
+									subphrase.StartsWith("~")
+									)
+									subphrase = subphrase.Substring(1);
+								
+								subphrase += " - " + servicename + " - ";
 								subphrase += " {" + count.ToString() + "}";
 
 								
