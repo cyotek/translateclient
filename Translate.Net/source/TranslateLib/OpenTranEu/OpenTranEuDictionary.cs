@@ -196,6 +196,75 @@ namespace Translate
 		
 		protected override void DoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
 		{
+			string from = ConvertLanguage(languagesPair.From);
+			string to = ConvertLanguage(languagesPair.To);
+		
+			string query = "http://{0}.{1}.open-tran.eu/json/suggest/{2}";
+			query = string.Format(query, from, to, HttpUtility.UrlEncode(phrase));
+		
+			WebRequestHelper helper = 
+				new WebRequestHelper(result, new Uri(query), 
+					networkSetting, 
+					WebRequestContentType.UrlEncodedGet);
+			
+			helper.Referer = "http://translate-net.appspot.com/";
+			string responseFromServer = helper.GetResponse();			
+			JsonArray parsed = (JsonArray)JsonParser.Parse(responseFromServer);			
+			string count;
+			string translation = "";
+			string subphrase, servicename;
+			Result subres;			
+			
+			foreach(JsonObject item in parsed)
+			{
+				translation = ((JsonValue)item["text"]).Value;
+				count = ((JsonValue)item["count"]).Value;
+				
+				if(translation.StartsWith("&") || 
+					translation.StartsWith("_") ||
+					translation.StartsWith("$") ||
+					translation.StartsWith("~")
+					)
+					translation = translation.Substring(1);
+					
+				subres = CreateNewResult(translation, languagesPair, subject);
+				if(count != "1")
+					subres.Abbreviation = " {" + count.ToString() + "}";
+				result.Childs.Add(subres);
+				
+				foreach(JsonObject project in (JsonArray)item["projects"])
+				{
+					count = ((JsonValue)project["count"]).Value;
+					servicename = ((JsonValue)project["path"]).Value.Substring(2);
+					servicename = ((JsonValue)project["name"]).Value + " " + servicename;
+					subphrase = ((JsonValue)project["orig_phrase"]).Value;
+					if(subphrase.StartsWith("&") || 
+							subphrase.StartsWith("_") ||
+							subphrase.StartsWith("$") || 
+							subphrase.StartsWith("~")
+						)
+						subphrase = subphrase.Substring(1);
+								
+						subphrase += " - " + servicename + " - ";
+						subphrase += " {" + count.ToString() + "}";
+						subres.Translations.Add(subphrase);
+				}
+			}
+			
+			if(result.Childs.Count > 0)
+			{
+				result.ArticleUrl = "http://" + from + "." + to + ".open-tran.eu/suggest/" + phrase;
+				result.ArticleUrlCaption = phrase;
+			}
+			else
+			{
+				result.ResultNotFound = true;
+				throw new TranslationException("Nothing found");
+			}
+		}		
+		
+		/*protected void OldDoTranslate(string phrase, LanguagePair languagesPair, string subject, Result result, NetworkSetting networkSetting)
+		{
 			WebRequestHelper helper = 
 				new WebRequestHelper(result, new Uri("http://open-tran.eu/RPC2"), 
 					networkSetting, 
@@ -301,6 +370,7 @@ namespace Translate
 			
 		
 		}		
+		*/
 		
 	}
 }
