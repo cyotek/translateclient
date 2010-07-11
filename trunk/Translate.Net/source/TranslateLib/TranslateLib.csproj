@@ -63,6 +63,7 @@
     <Compile Include="Core\Confidence.cs" />
     <Compile Include="Core\HttpUtilityEx.cs" />
     <Compile Include="Core\IServiceItemResult.cs" />
+    <Compile Include="Core\JsonParser.cs" />
     <Compile Include="Core\Language.cs" />
     <Compile Include="Core\LanguageGuesser.cs" />
     <Compile Include="Core\GuessResult.cs" />
