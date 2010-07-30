@@ -1,0 +1,1163 @@
+﻿[TranslationComment]
+
+[TranslatedBy]
+Phạm Hồng Thế	khacnguoi.llth@gmail.com
+[TranslatedByURL]
+72/4 - P.Trung Sơn - TX.Tam Điệp - T.Ninh Bình
+[Translated by]
+Người dịch
+[&File]
+Tệp (& F)
+[Exit from application]
+Chấm dứt ứng dụng
+[E&xit]
+Đóng (& X)
+[&Edit]
+Chỉnh sửa (& E)
+[Copy selection to clipboard]
+Sao chép các lựa chọn vào clipboard
+[&Copy]
+Sao chép (& C)
+[Cut selection to clipboard]
+Cắt lựa chọn vào clipboard
+[Cu&t]
+Cut (& T)
+[Paste from clipboard]
+Dán từ clipboard
+[&Paste]
+Dán (& P)
+[Delete selection]
+Xóa lựa chọn
+[&Delete]
+Xóa (&D)
+[Undo last operation]
+Quay lại các hoạt động trước
+[&Undo]
+Quay lại (&U)
+[Redo last operation]
+Chạy lại các hoạt động trước
+[&Redo]
+Chạy lại (&R)
+[Select All]
+Chọn tất cả
+[&Select All]
+Chạy tất cả (&S)
+[&Window]
+Cửa sổ (&W)
+[Close All]
+Đóng tất cả
+[&Help]
+Trợ giúp (&H)
+[&About ...]
+Thông tin phiên bản (&A)...
+[About]
+Thông tin phiên bản
+[Send feedback or bugreport ...]
+Gửi một  báo cáo lỗi (&B) ...
+[Feedback for :]
+Liên hệ thông tin phản hồi：
+[<< Enter your feedback or bug report here (English, Ukrainian, Russian). >>]
+<<Nhập các thông tin phản hồi và báo cáo lỗi ở đây (Tiếng Anh, Ukraina, Nga). >>
+[Donate ...]
+Đăng ký ...
+[Online Help]
+Trợ giúp trực tuyến
+[Options]
+Tùy chọn (&O)
+[OK]
+
+[Cancel]
+Hủy
+[Apply]
+Áp dụng
+[Minimize]
+Thu nhỏ
+[{0} Updater]
+{0} Cập nhật viên
+[Preparing]
+Chuẩn bị
+[Check version]
+Kiểm tra phiên bản
+[Downloaded {0}Kb from {1}Kb with speed {2}Kb/s]
+{0}Kb Đã tải về {1}Kb Từ {2}Kb/s Với tốc độ
+[Update downloaded]
+Đã tải về cập nhật
+[New version is downloaded. Do you want to stop Translate.Net and run installer of new version ?]
+Các phiên bản mới đã được tải về. Bạn có muốn dừng Translate.Net và chạy cài đặt của phiên bản mới không ?
+[Please select where to save installer of new version which you can run later]
+Hãy chọn một vị trí để lưu trữ các cài đặt để chạy sau khi phiên bản mới.
+[Installer saved to \r\n{0}]
+Trình cài đặt đã được lưu. \r\n{0}
+[Update will be run later]
+Cập nhật sẽ chạy sau.
+[Check Updates ...]
+Kiểm tra thông tin cập nhật (&U) ...
+[Updates]
+Tin cập nhật
+[Automatically check updates]
+Tự động kiểm tra thông tin cập nhật.
+[Automatically download updates]
+Tự động tải thông tin cập nhật
+[Updated - {0}\r\nLast check of update - {1}, status - {2}\r\nNext check of update - {3}]
+Cập nhật - {0}\r\n Kiểm tra bản cập nhật cuối - {1}，Trạng thái - {2}\r\n Kiểm tra bản cập nhật tiếp theo - {3}
+[Close]
+Đóng
+[Error on downloading {0}]
+{0} Lỗi trong quá trình tải
+[{0} don't contained {1} tag:\r\n{2}]
+{0} Không có {1} tag：\r\n{2}
+[{0} has wrong formatted {1} tag:\r\n{2}]
+{0} Đã định dạng sai {1} tag：\r\n{2}
+[Canceled]
+Bị hủy bỏ
+[Program is up to date]
+Chương trình mới nhất
+[File {0} already exists]
+Tệp {0} đã tồn tại
+[The server of updates is overloaded. The check of updates will be delayed.]
+Các máy chủ cập nhật đã quá tải. Kiểm tra bản cập nhật đã bị hoãn.
+[Checking of update done]
+Quá trình kiểm tra cập nhật hoàn thành
+[New version {0} of {1} available]
+{1}có thể {0}Phiên bản mới。
+[Do you want to open site where you can download it ?]
+Tôi có thể mở các trang web tải về?
+[Version]
+Phiên bản
+[&Tools]
+Công cụ (&T)
+[O&ptions...]
+Tùy chọn (&P) ...
+[General]
+Tổng quan
+[UI Language]
+UI Ngôn ngữ
+[Network]
+Mạng
+[HTTP-Proxy]
+HTTP-Proxy
+[Proxy]
+Proxy
+[Port]
+Cổng
+[Enable Authentication]
+Có thể được xác thực
+[User]
+Người sử dụng
+[Password]
+Mật khẩu
+[Use NTLM Authentication]
+Sử dụng NTLM xác thực
+[Domain]
+Tên miền
+[Timeout]
+Đếm ngược
+[System]
+Hệ thống
+[Custom]
+Khách hàng
+[None]
+Bình thường
+[Format of HTTP-Proxy ({0}) is wrong. Proxy settings will be reset to default.]
+Định dạng của HTTP-Proxy ((0)) là sai. thiết lập Proxy sẽ được thiết lập lại để mặc định.
+[Startup]
+Khởi động
+[Launch at system startup]
+Chạy từ hệ thống khởi động
+[Minimize to tray]
+Thu nhỏ về trên khay hệ thống
+[When enabled {0} will run when OS started]
+Bật khi OS bắt đầu chạy {0}
+[{0} will be minimized to tray when OS started]
+{0} sẽ thu nhỏ trên khay hệ thống khi OS khởi động
+[Single Instance]
+Khoảng cách đơn
+[Check at startup, if another running instance of {0} is already running, in this case, the new application activate old one and stop by self]
+Kiểm tra lúc khởi động, nếu một ví dụ chạy của (0) vẫn đang chạy, trong trường hợp này, kích hoạt ứng dụng mới và cũ dừng lại bởi tự
+[Tray] 
+Khay
+[Hotkeys]
+Phím tắt
+[Activate on Ctrl+C+C hotkey]
+Ctrl+C+C là phím tắt kích hoạt
+[Activate on Ctrl+Ins+Ins hotkey]
+Ctrl+Ins+Ins là phím tắt kích hoạt
+[Translate when activated by hotkey]
+Dịch khi kích hoạt bằng phím tắt
+[Show query time and other information]
+Hiển thị vòng thời gian và thông tin khác(&Q)
+[Mark by red color untranslated words]
+Phủ màu đỏ lên những từ không dịch được(&M)
+[Don't show "Nothing found" results]
+Không hiển thị kết quả "Không tìm thấy"(&N)
+[Show direction of translation]
+Hiển thị trực tiếp quá trình dịch(&D)
+[Show accents]
+Hiển thị dấu(&A)
+[Show names of services]
+Hiển thị tên các dịch vụ(&S)
+[Nothing found]
+Không tìm thấy
+[An error occurred during translation. Please try again later.]
+Có lỗi trong khoảng thời gian dịch. Làm ơn quay lại sau
+[Translation direction is not correct]
+Dịch không có lỗi
+[Only cyrillic characters supported]
+Chỉ hỗ trợ ký tự cyrillic
+[Ukrainian characters in russian query]
+Tiếng Ukraina ký tự trong câu truy vấn Nga
+[Parse error, start tags not found]
+Phân tích lỗi, không tìm thấy thẻ bắt đầu
+[Nothing to translate]
+Không có gì để dịch
+[Length too big]
+Độ dài quá lớn
+[Wrong data structure]
+Lỗi cấu trúc dữ liệu
+[Query contains extraneous symbols]
+Ký hiệu là kết quả truy vấn không liên quan
+[Service version not supported]
+Phiên bản không hỗ trợ
+[Result view]
+Xem kết quả
+[Result view placement]
+Kết quả sắp xếp
+[Top]
+Đầu
+[Place result view at top]
+Đặt kết quả lên đầu
+[Bottom]
+Dưới
+[Place result view at bottom]
+Đặt kết quả xuống dưới cùng
+[Left]
+Trái
+[Place result view at left]
+Đặt kết quả sang trái
+[Right]
+Phải
+[Place result view at right]
+Đặt kết quả sang phải
+[Include monolingual dictionaries in translation]
+Tích hợp các từ điển đơn trong  quá trình dịch
+[Filter of languages]
+Lọc các ngôn ngữ
+[Allow to choose languages for use]
+Cho phép chọn ngôn ngữ muốn sử dụng
+[Source languages]
+Các ngôn ngữ nguồn
+[Target languages]
+Các ngôn ngữ đích
+[Choose languages you want to translate from and to. Disabled languages will be removed from "Languages" tab of default profile]
+Chọn ngôn ngữ mà bạn muốn dịch từ và đến. ngôn ngữ người khuyết tật sẽ được gỡ bỏ từ "tab" Ngôn ngữ mặc định hồ sơ
+[Toggle all]
+Chuyển đổi qua lại tất cả
+[Please select at least one source language]
+Chọn một ngôn ngữ nguồn
+[Please select at least one target language]
+Chọn một ngôn ngữ đích
+[Profile]
+Hồ sơ(&P)
+[Profiles]
+Các hồ sơ
+[Default]
+Mặc định
+[List]
+Danh sách
+[Add new user profile]
+Thêm hồ sơ người sử dụng mới
+[Set profile properties]
+Thiết lập thuộc tính hồ sơ&S)
+[Profile name]
+Tên hồ sơ
+[Translation direction]
+Dịch trực tiếp
+[Name for new profile you enter already used. Please enter unique name.]
+Tên của hồ sơ mới đã được sử dụng. Nhập vào tên khác
+[Profile name don't set. Please enter profile name.]
+Tên hồ sơ chưa được thiết lập. Hãy nhập tên hồ sơ vào.
+[Remove user profile]
+Loại bỏ hồ sơ sử dụng (&R)
+[The profile {0} will be deleted.\r\nAre you sure ?]
+Hồ sơ {0} sẽ bị xóa \r\nBạn có chắc không ？
+[Move profile up]
+Di chuyển hồ sơ lên trên
+[Move profile down]
+Di chuyển hồ sơ xuống dưới
+[Name]
+Tên
+[Edit services]
+Chỉnh sửa các dịch vụ(&E)
+[Remove service]
+Loại bỏ các dịch vụ
+[Add selected service]
+Thêm dịch vụ lựa chọn
+[Add all services]
+Thêm tất cả các dịch vụ
+[Remove all services]
+Loại bỏ tất cả các dịch vụ
+[Services filter]
+Lọc dịch vụ
+[Available services]
+Dịch vụ có thể
+[Selected services]
+Chọn các dịch vụ
+[View]
+Xem(&V)
+[Show services list]
+Danh sách các dịch vụ(&S)
+[Show languages list]
+Danh sách các ngôn ngữ(&L)
+[Show subjects list]
+Danh sách chủ thể(&B)
+[Size]
+Kích thước
+[System font]
+Phông hệ thống
+[Fonts]
+Các phông
+[Input text]
+Nhập văn bản
+[To default]
+Về mặc định
+[Toolbars]
+Các thanh công cụ
+[Default font]
+Phông mặc định
+[&Translate]
+Dịch(&R)
+[Translate]
+Dịch(&T)
+[Stop current operation]
+Dừng thao tác nguồn
+[Stop]
+Dừng
+[Search in Google]
+Tìm kiếm trong Google
+[Size or format of query don't supported by available translation services]
+Kích thước hoặc định dạng của hàng đợi không hỗ trợ bởi các dịch vụ dịch có thể
+[The translation will produce {0} calls to different services, that can overload servers.\nDo you want to interrupt the process of translation ?]
+Bản dịch sẽ sản xuất (0) cuộc gọi đến các dịch vụ khác nhau, mà các máy chủ quá tải có thể \ nBạn muốn làm gián đoạn quá trình dịch thuật?
+[Reverse translation direction]
+Dịch ngược hướng
+[Show\\Hide]
+Hiện\\Ẩn
+[Show HTML source]
+Hiển thị mã nguồn HTML
+[From]
+Từ
+[To]
+Đến
+[Any Language]
+Ngôn ngữ bất kỳ
+[Afrikaans]
+Afrikaans
+[Albanian]
+Albanian
+[Amharic]
+Amharic
+[Autodetect]
+Tự động phát hiện
+[Arabic]
+Arabic]
+[Armenian]
+Armenian
+[Azerbaijani]
+Azerbaijani
+[Basque]
+Basque
+[Belarusian]
+Belarusian
+[Bengali]
+Bengali
+[Bihari]
+Bihari
+[Bosnian]
+Bosnian
+[Breton]
+Breton
+[Bulgarian]
+Bulgarian
+[Burmese]
+Burmese
+[Catalan]
+Catalan
+[Cherokee]
+Cherokee
+[Chinese]
+Trung Quốc
+[Chinese_CN]
+Trung Quốc_Bắc Kinh
+[Chinese_TW]
+Trung Quốc_ Quảng Đông
+[Croatian]
+Croatian
+[Czech]
+Czech
+[Danish]
+Danish
+[Dhivehi]
+Dhivehi
+[Dutch]
+Hà Lan
+[English]
+Anh
+[English_GB]
+Anh_GB
+[English_US]
+Anh_Mỹ
+[Esperanto]
+Esperanto
+[Estonian]
+Estonian
+[Icelandic]
+Icelandic
+[Faroese]
+Faroese
+[Filipino]
+Filipino
+[Finnish]
+Finnish
+[French]
+Pháp
+[Frisian]
+Frisian
+[Galician]
+Galician
+[German]
+Đức
+[Georgian]
+Georgian
+[Greek]
+Hy Lạp
+[Guarani]
+Guarani
+[Gujarati]
+Gujarati
+[Hebrew]
+Hebrew
+[Hindi]
+Hindi
+[Indonesian]
+Indonesian
+[Inuktitut]
+Inuktitut
+[Interlingua]
+Interlingua
+[Irish]
+Irish
+[Hungarian]
+Hungarian
+[Italian]
+Ý
+[Japanese]
+Nhật
+[Japanese_Romaji]
+Nhật_Chính Thống
+[Kazakh]
+Kazakh
+[Khmer]
+Khmer
+[Korean]
+Hàn Quốc
+[Kurdish]
+Kurdish
+[Kyrgyz]
+Kyrgyz
+[Laothian]
+Lào
+[Latin]
+Latin
+[Latvian]
+Latvian
+[Lithuanian]
+Lithuanian
+[Macedonian]
+Macedonian
+[Malay]
+Malay
+[Malayalam]
+Malayalam
+[Maltese]
+Maltese
+[Marathi]
+Marathi
+[Mongolian]
+Mongolian
+[Nepali]
+Nepali
+[Norwegian]
+Norwegian
+[Norwegian_Bokmal]
+Norwegian_Bokmal
+[Norwegian_Nynorsk]
+Norwegian_Nynorsk
+[Oriya]
+Oriya
+[Pashto]
+Pashto
+[Papiamento]
+Papiamento
+[Persian]
+Persian
+[Polish]
+Polish
+[Portuguese]
+Bồ Đào Nha
+[Portuguese_BR]
+Bồ Đào Nha-Br
+[Punjabi]
+Punjabi
+[Romanian]
+Romanian
+[Russian]
+Nga
+[Sanskrit]
+Sanskrit
+[Serbian]
+Serbian
+[Sindhi]
+Sindhi
+[Sinhalese]
+Sinhalese
+[Slovak]
+Slovak
+[Slovenian]
+Slovenian
+[Spanish]
+Tây Ban Nha
+[Spanish_LA]
+Tây Ban Nha-LA
+[Swahili]
+Swahili
+[Swedish]
+Swedish
+[Tajik]
+Tajik
+[Tagalog]
+Tagalog
+[Tamil]
+Tamil
+[Telugu]
+Telugu
+[Thai]
+Thái Lan
+[Tibetan]
+Tibetan
+[Turkish]
+Thổ Nhĩ Kỳ
+[Ukrainian]
+Ukraina
+[Urdu]
+Urdu
+[Uzbek]
+Uzbek
+[Uighur]
+Tây Tạng
+[Vietnamese]
+Việt Nam
+[Welsh]
+Welsh
+[Unknown]
+
+[Languages]
+Các Ngôn Ngữ
+[Services]
+Các Dịch vụ
+[Enabled]
+Đã bật
+[Error]
+Lỗi
+[Disabled]
+Đã tắt
+[Move service up]
+Di Chuyển dịch vụ lên trên
+[Move service down]
+Di chuyển dịch vụ xuống dưới
+[<b>Status</b> : Enabled]
+<b>Trạng Thái</b>：Bật
+[<b>Status</b> : Error]
+<b>状態</b>：エラー
+[<b>Status</b> : Disabled]
+<b>Trạng Thái</b>：Tắt
+[Enable]
+Bật
+[Disable]
+Tắt
+[Subjects]
+Các chủ thể
+[Subject]
+Chủ thể
+[Any]
+Bất kỳ
+[Common]
+Chung
+[Aviation]
+Hàng không
+[Auto]
+Tự động
+[Anatomy]
+Giải phẫu
+[Bank]
+Ngân Hàng
+[Bible]
+Kinh Thánh
+[Biology]
+Sinh Học
+[Business]
+Kinh Doanh
+[Military]
+Quân sự
+[Law]
+Luật
+[Informatics]
+Thông Tin
+[Art]
+Nghệ thuật
+[Space]
+Vũ Trụ
+[Socio-political]
+Chính Trị-Xã Hội
+[Medicine]
+Y Học
+[Music]
+Âm Nhạc
+[Sex]
+Tình Dục
+[Sport]
+Thể Thao
+[Tech]
+Công Nghệ
+[Philosophy]
+Triết Học
+[Chemistry]
+Hóa Học
+[Economy]
+Kinh Tế
+[Electronics]
+Điện Tử
+[Internet]
+Internet
+[Logistics]
+Logic Học
+[Travel]
+Du Lịch
+[Football]
+Bóng Đá
+[Phrasebook]
+Sách Ngư Pháp
+[Perfumery]
+Hương Thơm
+[Places]
+Địa Danh
+[Humour]
+Humour
+[History]
+Lịch Sử
+[Geology]
+Địa Chất
+[Type]
+Kiểu
+[Translator]
+Người dịch
+[Monolingual dictionary]
+Từ điển đơn ngữ
+[Bilingual dictionary]
+Từ điển song ngữ
+[Dictionary of synonyms]
+Từ điển các từ đồng ngữ
+[Dictionary of antonyms]
+Từ điển các từ trái nghĩa
+[Phraseological dictionary]
+Cú pháp từ điển
+[Encyclopedia]
+Wikipedia tiếng Việt
+[Search Engine]
+Công cụ tìm kiếm
+[Bilingual phrases dictionary]
+Từ điển song ngữ cụm từ
+[Bilingual sentenses dictionary]
+Từ điển các câu song ngữ
+[T]
+T
+[MD]
+MD
+[BD]
+BD
+[SD]
+SD
+[AD]
+AD
+[PD]
+PD
+[EN]
+EN
+[SE]
+SE
+[BP]
+BP
+[BS]
+BS
+[Limit]
+Giới hạn
+[characters]
+Các ký tự
+[Limit {0} : {1} characters]
+Giới hạn {0} : {1} Các ký tự
+[Limit {0} : {1} lines]
+Giới hạn {0} : {1} Các đường
+[Limit {0} : {1} words]
+Giới hạn {0} : {1} Các từ
+[Masks]
+Mặt nạ
+[English-Ukrainian technical dictionary]
+Từ điển kỹ thuật Anh - Ukraina
+[Google Translator]
+Google Dịch
+[Google Dictionary]
+Từ điển Google
+[<META> Translator]
+<META> Người dịch
+[Free open source machine translation system]
+Miễn phí mã nguồn mở hệ thống dịch máy
+[Russian-Ukrainian academic dictionary (1924–1933)]
+Từ điển học tập Nga-Ukraina(1924-1933)
+[Large explanatory dictionary of modern Ukrainian]
+Từ điển lớn hiện đại của Ukraina
+[Slovnyk - the multilanguage dictionary]
+Slovnyk - Từ điển đa ngôn ngữ
+[Russian-Ukrainian dictionary of constant expressions]
+Từ điển biểu thức không đổi Nga - Ukraina
+[Pragma 5.x on-line translation]
+Bản dịch trực tuyến Pragma 5.x 
+[English-Ukrainian and Ukrainian-English Dictionaries On-Line - LingResUa]
+Từ điển trực tuyến song ngữ Anh - Ucraina - LingResUa
+[Ukrainian-English-Ukrainian dictionary - Slovnenya]
+Từ điển Ukraina - Anh - Ukraina - Slovnenya
+[Dictionary of foreign words]
+Từ điển các từ nước ngoài
+[Dictionaries of Ukraine]
+Các từ điển của Ukraina
+[The free encyclopedia that anyone can edit]
+Thoải mãi chỉnh sửa trên Wikipedia 
+[The free dictionary that anyone can edit]
+Các từ điển miễn phí có thể chỉnh sửa được
+[SYSTRAN translation software (used by Altavista Babel Fish)]
+SYSTRAN phần mền dịch (sử dụng bởi Altavista Babel Fish)
+[Polish-English-Polish and Polish-German-Polish dictionaries]
+Từ điển Ba Lan-Anh-Ba Lan-Đức và Ba Lan-Ba Lan 
+[Yahoo Babel Fish Translator]
+Yahoo Babel Fish Dịch
+[Multitran - system for translators]
+Multitran - hệ thống bản dịch
+[PROMT - Free Text Translator]
+PROMT - Dịch văn bản miễn phí
+[LangSoft Translation & Educational Software]
+LangSoft - Phần mền dịch thuật và học tập
+[Tiscali - Czech oriented dictionary]
+Tiscali - Czech từ điển định hướng
+[Free Online Urdu-English Dictionary]
+Từ điển trực tuyến miễn phí Urdu - Anh
+[Online English-to-Urdu and Urdu-to-English dictionary]
+Từ điển trực tuyến English-to-Urdu và Urdu-to-English
+[InterTran dictionary]
+InterTran - từ điển
+[Priberam Portuguese dictionary]
+Priberam - Từ điển Bồ Đào Nha
+[WordNet a lexical database for the English language]
+WordNet - Một cơ sở dữ liệu từ vựng cho tiếng Anh
+[MultiWordNet is a multilingual lexical database]
+MultiWordNet - Cơ sở dữ liệu từ vựng đa ngôn ngữ
+[English-Bulgarian dictionary - SA Dictionary Online]
+Từ điển Anh-Bungary - SA Dictionary Online
+[dict.cc - English-German Dictionary]
+dict.cc - Từ điển Anh - Đức
+[BEOLINGUS - German oriented dictionary]
+BEOLINGUS - Từ điển định hướng Đức
+[Open thesaurus is an Open Source thesaurus for the German language]
+Open thesaurus - một mã nguồn mở từ điển cho ngôn ngữ tiếng Đức
+[OpenThesaurus-es is an Open Source thesaurus for the Spanish language]
+Open thesaurus-es - một mã nguồn mở từ điển cho ngôn ngữ tiếng Tây Ban Nha
+[OpenTaal - Open Source thesaurus for the Dutch language based on OpenThesaurus]
+OpenTaal - Mã nguồn mở từ điển cho ngôn ngữ tiếng Hà Lan dựa trên OpenThesaurus
+[OpenThesaurusPT is an Open Source thesaurus for the Portuguese language]
+OpenthesaurusPT - một mã nguồn mở từ điển cho ngôn ngữ tiếng Bồ Đào Nha
+[OpenThesaurusPL is an Open Source thesaurus for the Polish language]
+OpenthesaurusPL - một mã nguồn mở từ điển cho ngôn ngữ tiếng Ba Lan
+[OpenThesaurusSI is an Open Source thesaurus for the Slovenian language]
+OpenthesaurusSI - một mã nguồn mở từ điển cho ngôn ngữ tiếng Slovakia
+[Sozluk(te)* Online Dictionary - Turkish oriented dictionary]
+Sozluk(te)* Online Dictionary -  Từ điển định hướng Thổ Nhĩ Kỳ
+[Free Dictionaries project]
+Từ điển đối tượng miễn phí
+[Microsoft Translator]
+Microsoft Dịch
+[Megaslownik - Polish oriented free online dictionary]
+
+[Open-Tran - The dictionary of translations of open-source software (OpenOffice, Gnome, Kde)]
+
+[1000+ brief biographical data]
+
+[Dictionary of synonyms of N.Abramov]
+
+[Terms of book «Criticism of historical experience» of A. Akhiezer]
+
+[Arabeyes English/Arabic dictionary]
+
+[Arabic-English Freedict Dictionary]
+
+[Russian abbreviations for aviation]
+
+[Large Encyclopedic Dictionary]
+
+[Russian-English Dictionary of Biology]
+
+[Bouvier's Law Dictionary, Revised 6th Ed (1856)]
+
+[Brockhaus and Efron's encyclopaedic dictionary]
+
+[Big dictionary of law]
+
+[Dictionary of the church terms]
+
+[Croatian-English Freedict Dictionary]
+
+[Explanatory dictionary of live Russian language of V.I.Dalja]
+
+[German-English Freedict dictionary]
+
+[German-Nederland Freedict dictionary]
+
+[Deutsch-Russian dictionary]
+
+[Russian-Deutsch dictionary]
+
+[THE DEVIL'S DICTIONARY ((C)1911 Released April 15 1993)]
+
+[Easton's 1897 Bible Dictionary]
+
+[Japanese to French dictionary]
+
+[The Elements (22Oct97)]
+
+[English-Arabic FreeDict Dictionary]
+
+[The Open English-Russian Computer Dictionary]
+
+[English-Croatian Freedict Dictionary]
+
+[English-Czech Freedict Dictionary]
+
+[English-German Freedict dictionary]
+
+[English-Hindi Freedict Dictionary]
+
+[English-Hungarian Freedict Dictionary]
+
+[English-Portugese Freedict dictionary]
+
+[English-Turkish FreeDict Dictionary]
+
+[Estonian-Russian dictionary]
+
+[Ethnographic dictionary]
+
+[Dictionary of the financial terms]
+
+[The Free On-line Dictionary of Computing (15Feb98)]
+
+[U.S. Gazetteer Counties (2000)]
+
+[U.S. Gazetteer (1990)]
+
+[U.S. Gazetteer Places (2000)]
+
+[U.S. Gazetteer Zip Code Tabulation Areas (2000)]
+
+[The Collaborative International Dictionary of English v.0.48]
+
+[Geological English-Russian dictionary]
+
+[Geological Russian-English dictionary]
+
+[The dictionary-pointer on Old Russian art]
+
+[English-Hindi Freedict Dictionary [reverse index]]
+
+[Hitchcock's Bible Names Dictionary (late 1800's)]
+
+[Hungarian-English FreeDict Dictionary]
+
+[Russian-English dictionary of idioms]
+
+[The on-line hacker Jargon File, version 4.3.1, 29 JUN 2001]
+
+[Japanese to English dictionary]
+
+[Japanese proper names dictionary]
+
+[Kanji dictionary]
+
+[English-Russian dictionary - N.Korolew]
+
+[Russian-English dictionary - N.Korolew]
+
+[Latin-Russian Dictionary]
+
+[New large English-Russian dictionary]
+
+[English-Russian dictionary of science and mechanics]
+
+[Russian medical dictionary]
+
+[Moby Thesaurus II by Grady Ward, 1.0]
+
+[English-Russian Dictionary by Professor V.K.Mueller, 24-th Revised Edition]
+
+[Dutch monolingual dictionary, Copyright (C) 1995-1999 Muiswerk Educatief (www.muiswerk.nl)]
+
+[Nederlands-German Freedict dictionary]
+
+[Nederlands-English Freedict dictionary]
+
+[Nederlands-French Freedict dictionary]
+
+[Biographic reference book]
+
+[Explanatory dictionary of Russian language by Ozhegov]
+
+[Explanatory Dictionary of Russian language by Ozhegov and Shvedova]
+
+[Portugese-English Freedict dictionary]
+
+[History of religion]
+
+[English-Russian Computer Science Abbreviations]
+
+[Finnish-Russian dictionary]
+
+[Russian-English full dictionary]
+
+[The modern encyclopaedic dictionary (Russian)]
+
+[Shakespearean Words and Meanings]
+
+[English-Russian dictionary of abbreviations by Sinyagin]
+
+[English-Russian dictionary by Sinyagin/Alexey Mavrin]
+
+[English-Russian dictionary of business by Sinyagin]
+
+[English-Russian dictionary of computer science by Sinyagin]
+
+[English-Russian dictionary by Sinyagin]
+
+[Russian-English dictionary by Sinyagin]
+
+[Dictionary of smileys]
+
+[Computer Terms Glossary, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
+
+[Filename Extensions List, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
+
+[Guide to Free Software, 2008-08-25 (Copyright 1998-2008 Saugus.net)]
+
+[English-Russian dictionary (Sokrat)]
+
+[Russian-English dictionary (Sokrat)]
+
+[Stardic English-Chinese Dictionary]
+
+[Russian-Swedish dictionary]
+
+[Swedish-Russian dictionary]
+
+[Japanese-English sentence examples]
+
+[Theosophic dictionary (Russian)]
+
+[Explanatory Dictionary of Ushakov]
+
+[V.E.R.A. -- Virtual Entity of Relevant Acronyms (December 2003)]
+
+[CIA World Factbook 2002]
+
+[XDICT the English-Chinese dictionary]
+
+[Grouped by Service's Url]
+Dịch vụ của nhóm lại theo Url
+[Grouped by Language]
+Nhóm lại theo ngôn ngữ
+[{0} language pairs]
+{0} Sửa chữa ngôn ngữ
+[{0} services]
+{0} Các dịch vụ
+[Create article]
+Tạo bài viết
+[Open article]
+Mở bài viết
+[Pronunciation]
+Cách đọc
+[{0} more entries found]
+{0} Thêm các mục tìm thấy
+[related links]
+Liên kết liên quan
+[Query time : {0} s, Queries count : {1}, Bytes sent : {2}, Bytes received : {3}]
+Thời gian truy vấn : {0} s, Đếm các truy vấn : {1}, Các Byte gửi : {2}, Các Byte nhân : {3}
+[Full time : {0} s]
+Toàn thời gian : {0} s
+[{0} phrases translated by {1} calls to translate services]
+{0} Cụm từ dịch của {1} các cuộc gọi tới dịch vụ
+[Send by mail]
+Gửi tới hòm thư
+[Continue]
+Tiếp tục
+[Copy]
+Sao Chép
+[Terminate]
+Kết thúc
+[Terminated by user on error]
+Kết thúc bởi lỗi người sử dụng
+[Unhandled exception in]
+Không được quản lý ngoại lệ trong
+[Error on opening config file]
+Lỗi mở tập tin cấu hình
+[Error on opening config file from {0}.\r\nPossible reason - error in options file format.\r\nThe configuration will be reset to default values.]
+Lỗi mở tập tin cấu hình từ {0}.\r\nlý do có thể - lỗi trong các tùy chọn định dạng tập tin.\r\nCấu hình sẽ được đặt lại giá trị mặc định
+[Error on saving config file]
+Lỗi trong khi lưu tập tin cấu hình
+[Error on saving config file to {0}\r\nPossible reason - denyed write access to system TEMP directory.]
+Lỗi về tiết kiệm tập tin cấu hình cho {0}\r\nlý do có thể - viết truy cập vào hệ thống thư mục TEMP denyed
+[Error on saving config file to {0}]
+Lỗi về tiết kiệm tập tin cấu hình cho {0}
+[Show information about exception]
+Hiển thị thông tin về ngoại lệ
+[Error on start process : {0}\r\nError message : {1}]
+Lỗi trên quá trình bắt đầu: {0}\ r\n Thông báo lỗi: {1}
+[Error on start process]
+Lỗi trong xử lý khởi động
+[Error on sending email to : {0}\r\nError message : {1}]
+Lỗi khi gửi thư đến : {0}\r\nThông báo lỗi : {1}
+[Error on sending email]
+Lỗi trong quá trình gửi thư
+[Language detection]
+Phát hiện ngôn ngữ
+[Guess language ...]
+Ngôn ngữ khách ...
+[Detect language of source text]
+Phát hiện ngôn ngữ của văn bản nguồn
+[Guess language of source text and show info about]
+Hiển thị thông tin và văn bản nguồn ngôn ngữ của khách
+[Language detection : {0}]
+Phát hiện ngôn ngữ : {0}
+[Started]
+Khởi động
+[Failed]
+Lỗi
+[{0}, {1},  Score - {2}%, Confidence - {3}]
+{0}, {1}, Hệ số - {2}%, Độ xác thực - {3}
+[Strong]
+Mạnh
+[Intermediate]
+Khoảng giữa
+[Poor]
+Người nghèo
+[Reliable]
+Đáng tin cậy
+[Not reliable]
+Không đáng tin cậy
+[Keyboard layout : {0}]
+Bố trí bàn phím : {0}
+[Intelligent switching of profiles and directions]
+Chuyển đổi các hồ sơ và hướng linh hoạt
+[Based on keyboard layout]
+Bố trí bàn phím cơ sở
+[Intelligent switching of profiles and translation directions based on keyboard layout]
+Linh hoạt chuyển hồ sơ và hướng dịch cơ sở trên bàn phím
+[Based on detected language]
+Dựa trên phát hiện ngôn ngữ
+[Intelligent switching of profiles and translation directions based on detected language]
+Linh hoạt chuyển hồ sơ và hướng dịch trên ngôn ngữ phát hiện
+[Switch by detected language only when text length greater of]
+Chuyển đổi theo ngôn ngữ chỉ khi phát hiện văn bản có chiều dài lớn hơn
+[Break translation when application deactivated]
+Bỏ dịch khi ứng dụng ngừng hoạt động
+[Break translation on switching to other application]
+Ngừng dịch khi chuyển sang ứng dụng khác
+[Don't change]
+Không thay đổi
+[Switch keyboard layout based on selected language]
+Chuyển đổi bố trí bàn phím dựa trên ngôn ngữ đã chọn
+[Language]
+Ngôn ngữ
+[Selected language]
+Chọn ngôn ngữ
+[Change keyboard layout to]
+Thay đổi bố trí bàn phím đến
+[When source language changes switch keyboard layout to]
+Khi thay đổi bố trí ngôn ngữ nguồn đến
+[Changed]
+Đã thay đổi
+[Modified by user]
+Chỉnh sửa bởi người sử dụng
+[Assigned automatically]
+Cho phép tự động
+[Selected language to keyboard layout mapping]
+Chọn ngôn ngữ bản đổ bố trí bàn phím
+[Selected\t :]
+Chọn\t:
+[Auto\t\t :]
+Tự động\t\t:
+[Saved\t\t :]
+
+[Keyboard layouts]
+
+[Advanced Hotkey]
+
+[Hotkey not set]
+
+[Custom Hotkey]
+
+[Alt + Right Mouse Button]
+
+[Middle Mouse Button]
+
+[Ctrl + Right Mouse Button]
+
+[Shift + Right Mouse Button]
+
+[Left Mouse Button + Right Mouse Button]
+
+[Modifiers :]
+
+[Mouse buttons :]
+
+[Key :]
+Phím :
+[Left{0}]
+
+[Middle{0}]
+
+[Right{0}]
+
+[Usage information collecting]
+
+[Yes]
+
+[Do you want to allow collecting of basic information about application usage ?]
+
+[Tool will]
+
+[Tool will not]
+
+[Collect anonymous information about tool usage : tool running time, tool version, OS version.]
+
+[Collect your name, address, or any other personally identifiable information. The information collected is anonymous.]
+
+[You can check already collected data here]
+
+[You can disable data collecting at any time in "Options" dialog]
+
+[Yes, I allow to collect anonymous information]
+
+[No, I would not like information collecting]
